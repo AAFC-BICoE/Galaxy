@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<tool id="uclust" name="UCLUST">
+  <description> - Cluster sequences</description>
+  <command>usearch -cluster_fast $inputFastaFile -id $identity -uc $outputfile 2&gt;&amp;1</command>
+  <inputs>
+    <param format="fasta" name="inputFastaFile" type="data" label="FASTA input file"/>
+ <param name="identity"  size="10" type="text" value="0.95" label="" />
+
+  </inputs>
+  <outputs>
+     <data name="outputfile" />
+  </outputs>
+  <requirements>
+    <requirement type="binary" version="6">usearch</requirement>
+  </requirements>
+<help>
+
+**What it does**
+
+USEARCH performs high-throughput biological sequence analysis; this tool invokes the cluster_fast_ command. Sequences are automatically sorted by decreasing length prior to clustering. Reverse-complemented matching (-strand both) is not supported.
+
+.. _cluster_fast: http://drive5.com/usearch/manual/cluster_fast.html
+
+-----
+
+.. class:: infomark
+
+**TIP**
+
+This tool takes a FASTA file as input. See the `user guide`_ for more information about USEARCH.
+
+.. _user guide: http://drive5.com/usearch/UsearchUserGuide5.1.pdf
+
+</help>
+</tool>
+

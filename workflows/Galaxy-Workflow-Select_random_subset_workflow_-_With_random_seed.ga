@@ -1,0 +1,165 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Select random subset workflow - With random seed", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "name": "FASTA-to-Tabular", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 206, 
+                "top": 212
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Tabular"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "fasta2tab", 
+            "tool_state": "{\"input\": \"null\", \"keep_first\": \"\\\"0\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"descr_columns\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "Select number of sequences to keep", 
+            "id": 1, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select random lines", 
+                    "name": "seed_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Select random lines", 
+                    "name": "num_lines"
+                }
+            ], 
+            "name": "Select random lines", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 406, 
+                "top": 271
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Tabular subset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "random_lines1", 
+            "tool_state": "{\"input\": \"null\", \"seed_source\": \"{\\\"seed\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"seed_source_selector\\\": \\\"set_seed\\\"}\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"num_lines\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": 0}", 
+            "tool_version": "2.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tabular-to-FASTA", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 601, 
+                "top": 323
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "FASTA subset, raw"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tab2fasta", 
+            "tool_state": "{\"title_col\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"1\\\"]}\", \"input\": \"null\", \"__page__\": 0, \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"seq_col\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "Let new width = 0 for unformatted, single-line sequences", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTA Width", 
+                    "name": "width"
+                }
+            ], 
+            "name": "FASTA Width", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 799, 
+                "top": 382.5
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Formatted FASTA subset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "cshl_fasta_formatter", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"width\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}

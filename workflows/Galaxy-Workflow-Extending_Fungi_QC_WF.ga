@@ -1,0 +1,544 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Extending Fungi QC WF", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 230.5, 
+                "top": 245
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "inputFastaFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool UCLUST", 
+                    "name": "identity"
+                }
+            ], 
+            "name": "UCLUST", 
+            "outputs": [
+                {
+                    "name": "outputfile", 
+                    "type": "data"
+                }
+            ], 
+            "position": {
+                "left": 269, 
+                "top": 330.5
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutputfile": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outputfile"
+                }, 
+                "RenameDatasetActionoutputfile": {
+                    "action_arguments": {
+                        "newname": "UCLUST results"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "outputfile"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "uclust", 
+            "tool_state": "{\"__page__\": 0, \"inputFastaFile\": \"null\", \"identity\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "outputfile"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 304.5, 
+                "top": 440.01666259765625
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "UCLUST hits"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"__page__\": 0, \"cond\": \"\\\"c1=='H'\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input\": \"null\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 336.5, 
+                "top": 558.0166625976562
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Cut GI info from hits"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c9,c10\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 382.5, 
+                "top": 674.0333251953125
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Cut GI #s from info"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c2,c6\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"P\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Fetch taxonomic representation", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "taxonomy"
+                }
+            ], 
+            "position": {
+                "left": 380.5, 
+                "top": 794.9833374023438
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Taxonomic ranks"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Fetch Taxonomic Ranks", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"idField\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"giField\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"1\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Merge Columns", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 471.5, 
+                "top": 925.0166625976562
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "taxonomy"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "mergeCols1", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"col2\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"26\\\"}\", \"col1\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"25\\\"}\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"columns\": \"[]\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 683.5, 
+                "top": 955.0333251953125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "taxonomy"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }, 
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": ""
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c26\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 712, 
+                "top": 776.5
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "taxonomy"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }, 
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Tax ranks without 'uncultured'"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"invert\": \"\\\"true\\\"\", \"pattern\": \"\\\"uncultured\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Find lowest diagnostic rank", 
+                    "name": "seqs_to_ignore"
+                }
+            ], 
+            "name": "Find lowest diagnostic rank", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "taxonomy"
+                }
+            ], 
+            "position": {
+                "left": 829.5, 
+                "top": 635.0333251953125
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "LCA (genus or lower)"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "lca1", 
+            "tool_state": "{\"__page__\": 0, \"rank_bound\": \"\\\"20\\\"\", \"input1\": \"null\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"seqs_to_ignore\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Find lowest diagnostic rank", 
+                    "name": "seqs_to_ignore"
+                }
+            ], 
+            "name": "Find lowest diagnostic rank", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "taxonomy"
+                }
+            ], 
+            "position": {
+                "left": 891.5, 
+                "top": 909.5
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "LCA (no restriction)"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "lca1", 
+            "tool_state": "{\"__page__\": 0, \"rank_bound\": \"\\\"0\\\"\", \"input1\": \"null\", \"seqs_to_ignore\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input1": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Subtract Whole Dataset", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1058.5, 
+                "top": 758.0333251953125
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Diff between LCAs"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "subtract_query1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"end_col\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"None\\\"}\", \"begin_col\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"None\\\"}\", \"input1\": \"null\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1288.5, 
+                "top": 778.0333251953125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c2\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "in_file": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Simple NCBI", 
+            "outputs": [
+                {
+                    "name": "out_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1302.5, 
+                "top": 654.0333251953125
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file": {
+                    "action_arguments": {
+                        "newname": "Questionable seq info"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "ncbilookup2", 
+            "tool_state": "{\"__page__\": 0, \"chromInfo\": \"\\\"/home/ann/galaxy-galaxy-dist-ec29ce8e27a1/tool-data/shared/ucsc/chrom/?.len\\\"\", \"in_file\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<tool id="mrbayes2" name="MrBayes">
+  <description>without options</description>
+  <command> mb $infile > $outfile</command>
+  <inputs>
+    <param name="infile" type="data" format="nex" label="Nexus input file"/>
+  </inputs>
+
+  <outputs>
+    <data name="outfile" format="txt"/>
+  </outputs>
+  <requirements>
+    <requirement version="3.2.1" type="binary">mb</requirement>
+  </requirements>
+<help>
+
+.. class:: warningmark
+
+This tool takes as input a Nexus file (.nex), described here_, and should contain both a data block and a command block.
+
+.. _here: http://en.wikipedia.org/wiki/Nexus_file. 
+
+-----
+
+**What it does**
+
+MrBayes is a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models. MrBayes uses Markov chain Monte Carlo (MCMC) methods to estimate the posterior distribution of model parameters.
+
+-----
+
+.. class:: infomark
+
+**TIP**
+
+See the manual_ or the `command reference`_ for more information.  
+
+.. _manual: http://mrbayes.sourceforge.net/manual.php
+.. _command reference: http://mrbayes.sourceforge.net/commref_mb3.2.pdf
+
+
+</help>
+</tool>
+

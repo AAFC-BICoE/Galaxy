@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+  <tool id="mafft" name="MAFFT">
+    <description> - progressive multiple alignment builder</description>
+    <command> mafft
+#if $datatype_condition.type == "nt": 
+--nuc
+#end if
+#if $datatype_condition.type == "aa": 
+--amino
+#end if
+#if $datatype_condition.type != "nt": 
+#if $datatype_condition.PAM_value_condition.matrix == "bl30": 
+--bl 30
+#end if
+#if $datatype_condition.PAM_value_condition.matrix == "bl45": 
+--bl 45
+#end if
+#if $datatype_condition.PAM_value_condition.matrix == "bl62": 
+--bl 62
+#end if
+#if $datatype_condition.PAM_value_condition.matrix == "bl80": 
+--bl 80
+#end if
+#if $datatype_condition.PAM_value_condition.matrix == "PAM": 
+--jtt $datatype_condition.PAM_value_condition.PAM_value
+#end if
+#end if
+--quiet $adjustdir --thread $threads --maxiterate $iterations --$distance_method --op $op --ep $ep $input > $output 2&gt;&amp;1 
+
+
+## print list of avaialble variables
+#silent sys.stderr.write("\n \n \n ======== Cheetah template variables ========\n") 
+#for k,v in $searchList[2].items() 
+#silent   sys.stderr.write(" %s = %s\n" % (str(k), str(v) )) 
+#end for 
+#silent sys.stderr.write("======== End of Cheetah template variables ========\n \n \n") 
+    </command>
+    <inputs>
+
+      <param format="txt" name="input" type="data" label="Source file"/>
+      <conditional name="datatype_condition">
+        <param type="select" name="type" label="Data type">
+          <option value="auto">Automatic detection</option>
+          <option value="nt">Nucleic acids</option>
+          <option value="aa">Amino acids</option>
+        </param> 
+        <when value="aa">
+          <conditional name="PAM_value_condition">
+            <param type="select" name="matrix" label="Matrix" help="Usefull only for amino acids">
+              <option value="bl62">BLOSUM 62</option>
+              <option value="bl30">BLOSUM 30</option>
+              <option value="bl45">BLOSUM 45</option>
+              <option value="bl80">BLOSUM 80</option>
+              <option value="PAM">PAM</option>
+            </param>
+            <when value="bl30"> </when>
+            <when value="bl45"> </when>
+            <when value="bl62"> </when>
+            <when value="bl80"> </when>
+            <when value="PAM">
+              <param type="text" name="PAM_value" value="80" label="Coefficient of the PAM matrix" />
+                <validator type="in_range" min="0" max="inf" message="Must be greater than or equal to 0"/>
+            </when>
+          </conditional>
+       </when>
+       <when value="auto">
+         <conditional name="PAM_value_condition">
+           <param type="select" name="matrix" label="Matrix" help="Usefull only for amino acids">
+             <option value="bl62">BLOSUM 62</option>
+             <option value="bl30">BLOSUM 30</option>
+             <option value="bl45">BLOSUM 45</option>
+             <option value="bl80">BLOSUM 80</option>
+             <option value="PAM">PAM</option>
+           </param>
+           <when value="bl30"> </when>
+           <when value="bl45"> </when>
+           <when value="bl62"> </when>
+           <when value="bl80"> </when>
+           <when value="PAM">
+            <param type="text" name="PAM_value" help="Must be greater than 0" value="80" label="Coefficient of the PAM matrix" />
+           </when>
+         </conditional>
+      </when>
+      <when value="nt"> </when>
+      </conditional>
+     
+      <param type="integer" name="threads" value="16" label="Threads" />
+      <param type="integer" name="iterations" help="1000 for maximum quality" value="1000" label="Maximum number of iterations">
+        <validator type="in_range" min="1" max="1000" message="Must be between 1 and 1000"/>
+      </param>
+      <param type="float" name="op" help="1.53 default value" value="1.53" label="Gap opening penalty">
+      </param>
+      <param type="float" name="ep" help="0.0 default value" value="0.0" label="Gap extension penalty">
+      </param>
+      <param type="select" name="distance_method" label="Distance method" help="Distance method must be chosen regarding your data">
+        <option value="6merpair">Shared 6mers distance (fastest)</option>
+        <option value="globalpair">Global alignment (NW)</option>
+        <option value="localpair">Local alignment (SW)</option>
+        <option value="genafpair">Local, affine gap cost</option>
+        <option value="fastapair">FASTA distance</option>
+      </param>
+    <param name="adjustdir" type="boolean" truevalue="--adjustdirection" falsevalue="" label="Adjust direction?" /> 
+      
+    </inputs>
+      
+    <outputs>
+      <data name="output" format="fasta"/>
+    </outputs>
+
+    <requirements>
+      <requirement version="6.9" type="binary">mafft</requirement>
+    </requirements>
+    
+    <help>
+
+    </help>
+  </tool>
+
