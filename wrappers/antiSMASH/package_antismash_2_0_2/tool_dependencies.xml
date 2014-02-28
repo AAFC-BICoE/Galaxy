@@ -78,18 +78,31 @@ pyExcelerator</action>
 				<action type="shell_command">.  $INSTALL_DIR/venv/bin/activate;
 python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.tar.gz;
 python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://github.com/kblin/biopython/archive/antismash.zip;
-python $INSTALL_DIR/venv/bin/pip install bcbio-gff;
 </action>
-<!-- bcbio-gff is purely for the gff2genbank.py converter which is added in the wrapper -->
 
 <!-- This generates the antiSMASH wrapper script that sources the python virutal environment -->
 				<action type="shell_command">echo -e '#!/bin/bash \nsource $INSTALL_DIR/venv/bin/activate \n$INSTALL_DIR/run_antismash.py $*' >> $INSTALL_DIR/run_antismash; chmod a+x $INSTALL_DIR/run_antismash</action>
 
 <!-- Finds the variables for glimmer, muscle, etc. Though, technically, I believe we only need hmmer to format the pfam database. -->
        	                       	<action type="set_environment_for_install">
-                       	              	<repository  name="package_hmmer_2_3_2" owner="limic" toolshed="http://localhost:8082/" changeset_revision="b129b5014e46" >
-						<package name="hmmer" version="2.3.2"/>
+                                	<repository toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="4cd1fad27bed" name="package_blast_plus_2_2_28" owner="limic" >
+                                     	       	<package name="blast+" version="2.2.28"/>
+                              	       	</repository>
+                       	              	<repository  name="package_hmmer_2_3_2" owner="limic" toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="dc58d3605f4c" >
+               	                               	<package name="hmmer" version="2.3.2"/>
+       	                                </repository>
+       		                        <repository  name="package_hmmer_3_0" owner="limic" toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="3c1de4f925cb" >
+                	                        <package name="hmmer" version="3.0"/>
+					</repository>
+                       	                <repository  name="package_glimmer_3_0_2" owner="limic" toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="5b159534bc1b">
+               	                               	<package name="glimmer" version="3.0.2"/>
+       	                                </repository>
+                                        <repository  name="package_glimmerhmm_3_0_2" owner="limic" toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="d407df685e39">
+                                       	       	<package name="glimmerhmm" version="3.0.2"/>
                                	        </repository>
+                       	                <repository  name="package_muscle_3_8_31" owner="limic" toolshed="http://galaxy-server/galaxy-toolshed/" changeset_revision="9232b77eb42c">
+               	                               	<package name="muscle" version="3.8.31"/>
+       	                                </repository>
                                 </action>
 <!-- AntiSMASH wants all of hmmer v2's binaries, but renamed to append "2" at the end of each binary... -->
                                 <action type="shell_command">
@@ -105,7 +118,7 @@ done;
 				<action type="shell_command">cd $INSTALL_DIR/antismash/generic_modules/clusterblast; wget https://bitbucket.org/antismash/antismash2/downloads/clusterblast.tar.gz ; tar -zxf clusterblast.tar.gz; </action>
 				<action type="set_environment">
 					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
-					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin </environment_variable>
 				</action>
 			</actions>
 		</install>
