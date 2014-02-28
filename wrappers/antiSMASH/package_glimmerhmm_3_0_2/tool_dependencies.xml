@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tool_dependency>
+        <package name="glimmerhmm" version="3.0.2">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url" target_filename="GlimmerHMM.tar.gz">ftp://ftp.cbcb.umd.edu/pub/software/glimmerhmm/GlimmerHMM-3.0.2.tar.gz</action>
+				<action type="move_directory_files">
+					<source_directory>.</source_directory>
+					<destination_directory>$INSTALL_DIR</destination_directory>
+				</action>
+				<action type="shell_command">cd $INSTALL_DIR/sources; make; cp glimmerhmm ../bin/; rm ../bin/glimmerhmm_linux</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+				</action>
+			</actions>
+		</install>
+		<readme></readme>
+	</package>
+</tool_dependency>

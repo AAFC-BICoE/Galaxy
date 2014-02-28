@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="blast+" version="2.2.28">
+		<repository toolshed="http://localhost:8082/" changeset_revision="9665c77d1956" name="package_blast_plus_2_2_28" owner="michael-li" prior_installation_required="True"/>
+        </package>
+        <package name="hmmer" version="2.3.2">
+                <repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="b129b5014e46" prior_installation_required="True" />
+        </package>
+        <package name="hmmer" version="3.0">
+                <repository  name="package_hmmer_3_0" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="004d80e32dd3" prior_installation_required="True"/>
+        </package>
+        <package name="glimmer" version="3.0.2">
+                <repository  name="package_glimmer_3_0_2" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="07860ab60941" prior_installation_required="True"/>
+         </package>
+         <package name="glimmerhmm" version="3.0.2">
+                <repository  name="package_glimmerhmm_3_0_2" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="27120062d05f" prior_installation_required="True"/>
+         </package>
+         <package name="antismash" version="2.0.2">
+                <repository  changeset_revision="03025624f477" name="package_antismash_2_0_2" owner="michael-li" toolshed="http://localhost:8082/" prior_installation_required="True"/>
+         </package>		
+         <package name="muscle" version="3.8.31">
+                <repository  name="package_muscle_3_8_31" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="23620fd1b58c" prior_installation_required="True"/>
+         </package>
+
+	<set_environment version="1.0">
+		<environment_variable name="antiSMASH_wrapper_path" action="set_to">$REPOSITORY_INSTALL_DIR/myTools</environment_variable>
+	</set_environment>
+</tool_dependency>

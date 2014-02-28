@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Pulls out the input file name from args, since antiSMASH won't recognize DAT files.
+input_file=$1 
+shift
+input_extension=$1 #Used to artificially append extension to input file for antiSMASH
+shift
+html_file=$1 #Manditory output file.
+shift
+
+# Copies and appends extension to input DAT file
+cp $input_file .
+input_file=${input_file##*/}
+mv $input_file "${input_file%.*}.$input_extension"
+input_file=`echo "${input_file%.*}.$input_extension"`
+
+#We modify this to allow antiSMASH to take in GFF files. Added a dependency for bcbio-gff python package
+#for antiSMASH_package.
+if [[ $input_extension == "gff" ]]; then
+        source_python="`which run_antismash`" #Work to find the python env file
+        source_python="${source_python%/*}/venv/bin/activate"
+        source $source_python #Source python env to get dependencies
+        python $antiSMASH_wrapper_path/gff2genbank.py $input_file
+        return
+        input_file=`echo "${input_file%.*}.gb"`
+fi
+
+# Pulls and removes several arguments that will indicate what outputs are required.
+#The following 3 are only for nucleotide sequence inputs
+if [[ $1 == "xls_out" ]]; then #XLS File
+	shift
+	xls_file=$1
+	shift;
+elif [[ $1 == "no_xls" ]]; then
+	shift
+	shift;
+fi
+
+if [[ $1 == "embl_out" ]]; then #EMBL File
+	shift
+	embl_file=$1
+	shift;
+elif [[ $1 == "no_embl" ]]; then
+	shift
+	shift;
+fi
+
+if [[ $1 == "gbk_out" ]]; then #GenBank File
+	shift
+	gb_file=$1
+	shift;
+elif [[ $1 == "no_gbk" ]]; then
+	shift
+	shift;
+fi
+
+# Only for protein sequence as input
+if [[ $1 == "genpept_out" ]]; then #GenPept Summary file
+        shift
+        gp_file=$1
+        shift;
+elif [[ $1 == "no_genpept" ]]; then
+        shift
+        shift;
+fi
+
+#Run antiSMASH and passing the remaining arguments.
+run_antismash $@ "$input_file"
+
+#Finds folder containing output.
+folder=${html_file##*/}
+
+# The following writes the desired output files to the filepaths given by Galaxy.
+cat "${folder%.*}_files/index.html" > $html_file
+
+if [[ -n "$xls_file" ]]; then
+	cat ${folder%.*}_files/*.xls > $xls_file
+fi
+
+if [[ -n "$embl_file" ]]; then
+	cat ${folder%.*}_files/*.embl > $embl_file
+fi
+
+if [[ -n "$gb_file" ]]; then
+	cat ${folder%.*}_files/*.gbk > $gb_file
+fi
+
+if [[ -n "$gp_file" ]]; then
+	cat ${folder%.*}_files/*.gp > $gp_file
+fi
+

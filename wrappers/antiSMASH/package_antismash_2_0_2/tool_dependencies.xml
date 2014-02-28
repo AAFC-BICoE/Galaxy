@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="antismash" version="2.0.2">
+<!-- Created by Michael Li. Jan 2014 -->
+		<install version="1.0">
+			<actions>
+				<!-- Download package must be the first step -->
+				<action type="download_file" target_filename="antismash-2.0.2.tar.bz2">https://bitbucket.org/antismash/antismash2/downloads/antismash-2.0.2.x86_64.tar.bz2 </action>
+
+<!-- The following command does a quick check for missing packages that must be resolved. This list is filtered from the original requirements as I have incorperated them in either pip commands (see below) or deemed them not required (like git)-->
+				<action type="shell_command">if [ "$(lsb_release -si)" = "CentOS" ]; then
+        yum list installed >> installed_rpms.log;
+else
+        dpkg --get-selections >> installed_rpms.log;
+fi;
+if [ ! "$(grep "^python-dev" installed_rpms.log)" ]; then
+        missing_deps="$missing_deps python-devel";
+fi;
+if [ ! "$(grep "^libxslt-devel" installed_rpms.log)" -a "$(lsb_release -si)" = "CentOS" ]; then
+        missing_deps="$missing_deps libxslt-devel";
+fi;
+if [ ! "$(grep "^libxslt1-dev" installed_rpms.log)" -a "$(lsb_release -si)" = "Ubuntu" ]; then
+        missing_deps="$missing_deps libxslt1-dev";
+fi;
+if [ ! "$(grep "^libxml2-dev" installed_rpms.log)" ]; then
+        missing_deps="$missing_deps libxml2-devel";
+fi;
+if [ ! "$(grep "^gcc" installed_rpms.log)" ]; then
+        missing_deps="$missing_deps gcc-c++";
+fi;
+if [ ! "$(grep "^patch" installed_rpms.log)" ]; then
+        missing_deps="$missing_deps patch";
+fi;
+if [ ! "$(grep "^zlib1g-dev" installed_rpms.log)" -a "$(lsb_release -si)" = "Ubuntu" ]; then
+	missing_deps="$missing_deps zlib1g-dev";
+fi;
+if [ ! "$(grep "^alien" installed_rpms.log)" -a "$(lsb_release -si)" = "Ubuntu" ]; then
+        missing_deps="$missing_deps alien";
+fi;
+if [ ! "$(grep "^default-jre" installed_rpms.log)" -a "$(lsb_release -si)" = "Ubuntu" ]; then
+        missing_deps="$missing_deps default-jre";
+fi;
+if [ ! "$(grep "^glibc-static" installed_rpms.log)" -a "$(lsb_release -si)" = "CentOS" ]; then
+        missing_deps="$missing_deps grepc-static";
+fi;
+if [ ! "$(grep "^cairo" installed_rpms.log)"  -a "$(lsb_release -si)" = "CentOS" ]; then
+        missing_deps="$missing_deps cairo";
+fi;
+if [ ! "$(grep "^perl-Archive-Tar" installed_rpms.log)"  -a "$(lsb_release -si)" = "CentOS" ]; then
+        missing_deps="$missing_deps perl-Archive-Tar";
+fi;
+if [ ! "$(grep "^java-1.7.0-openjdk" installed_rpms.log)"  -a "$(lsb_release -si)" = "CentOS" ]; then
+        missing_deps="$missing_deps java-1.7.0-openjdk";
+fi;
+if [ "$missing_deps" ]; then
+        echo "ERROR: Missing the following dependencies: $missing_deps";
+        false;
+fi
+				</action>
+				<!-- Move antiSMASH folder to installation directory -->
+				<action type="move_directory_files">
+                               	               <source_directory>antismash-2.0.2</source_directory>
+                                       	       <destination_directory>$INSTALL_DIR</destination_directory>
+	                        </action>
+				<!-- Resolve python dependencies -->
+				<action type="setup_virtualenv">
+argparse
+straight.plugin==1.4.0-post-1
+cssselect==0.7.1
+lxml==3.2.3
+pyquery==1.2.4
+numpy
+helperlibs
+pysvg
+pyExcelerator</action>
+
+<!-- We need to install the following two python packages separately as a timeout option is required to ensure pip can wait long enough when sourceforge and bitbucket is slow... -->
+				<action type="shell_command">.  $INSTALL_DIR/venv/bin/activate;
+python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.tar.gz;
+python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://github.com/kblin/biopython/archive/antismash.zip;
+python $INSTALL_DIR/venv/bin/pip install bcbio-gff;
+</action>
+<!-- bcbio-gff is purely for the gff2genbank.py converter which is added in the wrapper -->
+
+<!-- This generates the antiSMASH wrapper script that sources the python virutal environment -->
+				<action type="shell_command">echo -e '#!/bin/bash \nsource $INSTALL_DIR/venv/bin/activate \n$INSTALL_DIR/run_antismash.py $*' >> $INSTALL_DIR/run_antismash; chmod a+x $INSTALL_DIR/run_antismash</action>
+
+<!-- Finds the variables for glimmer, muscle, etc. Though, technically, I believe we only need hmmer to format the pfam database. -->
+       	                       	<action type="set_environment_for_install">
+                       	              	<repository  name="package_hmmer_2_3_2" owner="limic" toolshed="http://localhost:8082/" changeset_revision="b129b5014e46" >
+						<package name="hmmer" version="2.3.2"/>
+                               	        </repository>
+                                </action>
+<!-- AntiSMASH wants all of hmmer v2's binaries, but renamed to append "2" at the end of each binary... -->
+                                <action type="shell_command">
+mkdir $INSTALL_DIR/bin;
+for file in `dirname $(which hmmpfam)`/*; do
+name="`basename $file`2";
+cp $file $INSTALL_DIR/bin/$name;
+done;
+				</action>
+
+<!-- Fetches databases -->
+				<action type="shell_command">cd $INSTALL_DIR/antismash/generic_modules/fullhmmer; wget ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz ; gunzip Pfam-A.hmm.gz; hmmpress -f Pfam-A.hmm</action>
+				<action type="shell_command">cd $INSTALL_DIR/antismash/generic_modules/clusterblast; wget https://bitbucket.org/antismash/antismash2/downloads/clusterblast.tar.gz ; tar -zxf clusterblast.tar.gz; </action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+				</action>
+			</actions>
+		</install>
+
+		<readme>This repository installs antiSMASH v2.0.2 for Galaxy. See http://antismash.secondarymetabolites.org/ for more information about antiSMASH. As of this moment, only the linux 64-bit packages are provided in this repository.</readme>
+	</package>
+</tool_dependency>

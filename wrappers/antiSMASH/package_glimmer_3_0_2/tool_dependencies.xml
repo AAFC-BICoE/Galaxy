@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="glimmer" version="3.0.2">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url" target_filename="glimmer3.02.tar.gz">http://ccb.jhu.edu/software/glimmer/glimmer302b.tar.gz</action>
+				<action type="shell_command">cd src; make; cd ..</action>
+				<action type="move_directory_files">
+					<source_directory>.</source_directory>
+					<destination_directory>$INSTALL_DIR</destination_directory>
+				</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+				</action>
+			</actions>
+		</install>
+	<readme></readme>
+	</package>
+</tool_dependency>
+

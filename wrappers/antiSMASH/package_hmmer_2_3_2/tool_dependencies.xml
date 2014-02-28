@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="hmmer" version="2.3.2">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://selab.janelia.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz</action>
+                <!-- Make -->
+		<action type="shell_command">./configure --prefix=$INSTALL_DIR --enable-threads</action>
+		<action type="shell_command">make</action>
+		<action type="shell_command">make install</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+This installs hmmer 2.3.2, the last stable version of the 2.x branch.
+See http://hmmer.janelia.org/ for more details. Compiled with --enable-threads for compatibility with rnammer.
+        </readme>
+    </package>
+</tool_dependency>
+
