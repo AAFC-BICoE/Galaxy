@@ -78,13 +78,13 @@ pyExcelerator</action>
 				<action type="shell_command">.  $INSTALL_DIR/venv/bin/activate;
 python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.tar.gz;
 python $INSTALL_DIR/venv/bin/pip --timeout 300 install https://github.com/kblin/biopython/archive/antismash.zip;
-python $INSTALL_DIR/venv/bin/pip bcbio-gff
+python $INSTALL_DIR/venv/bin/pip bcbio-gff;
 </action>
 <!-- BCBIO-GFF is solely used for the converter in the wrapper. (GFF -> GB) -->
 <!-- This generates the antiSMASH wrapper script that sources the python virutal environment -->
 				<action type="shell_command">echo -e '#!/bin/bash \nsource $INSTALL_DIR/venv/bin/activate \n$INSTALL_DIR/run_antismash.py $*' >> $INSTALL_DIR/run_antismash; chmod a+x $INSTALL_DIR/run_antismash</action>
 
-<!-- Finds the variables for glimmer, muscle, etc. Though, technically, I believe we only need hmmer to format the pfam database. -->
+<!-- Finds the variables for hmmer v2. -->
        	                       	<action type="set_environment_for_install">
                        	              	<repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="b129b5014e46" >
                	                               	<package name="hmmer" version="2.3.2"/>
@@ -104,7 +104,7 @@ done;
 				<action type="shell_command">cd $INSTALL_DIR/antismash/generic_modules/clusterblast; wget https://bitbucket.org/antismash/antismash2/downloads/clusterblast.tar.gz ; tar -zxf clusterblast.tar.gz; </action>
 				<action type="set_environment">
 					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
-					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin </environment_variable>
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
 				</action>
 			</actions>
 		</install>
