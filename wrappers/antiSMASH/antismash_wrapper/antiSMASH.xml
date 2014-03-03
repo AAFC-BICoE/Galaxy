@@ -1,4 +1,4 @@
-<tool id="antiSMASH_wrapper" name="antiSMASH_wrapper" version="2.0.3" >
+<tool id="antiSMASH_wrapper" name="antiSMASH" version="2.0.3" >
 
 	<description>Run the antiSMASH pipeline</description>
 
