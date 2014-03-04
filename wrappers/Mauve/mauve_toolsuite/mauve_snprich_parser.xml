@@ -1,0 +1,135 @@
+<tool id="mauve_snp_rich_region_parser" name="Mauve SNP Rich Region Parser" version="1.0">
+  <description>Parse Mauve alignments and SNP files to identify SNP rich regions</description>
+  <command interpreter="perl">
+    mauve_snprich_parser.pl
+      -s "$mauve_snp_file"
+      -a "$mauve_alignment_file"
+      -o "$alignment_snp_rich_regions"
+      -c "$snp_count_per_region"
+      -f "$output_format"
+      -r "$snp_rich_region_length"
+      -ts "$start_alignment_trim"
+      -te "$end_alignment_trim"
+      #if $primer3.create_seq_primers
+	-p3sequencing -p3file "$primer3_file"
+	#if $primer3.no_overlapping_regions
+		-nooverlap
+	#end if
+      #end if
+      #if $ignore_ambiguous_snps
+	--no-ambiguous-snps
+      #end if
+  </command>
+  <inputs>
+    <param name="mauve_snp_file" type="data" label="Mauve SNP file" help="Provide the Mauve SNP File path.  This file is typically produced by Mauve&#39;s find-snps script that produces a tab-formatter output." format="tabular" />
+    <param name="mauve_alignment_file" type="data" label="Mauve Alignment file" help="Provide the mauve alignment file path. This file is typically in XMFA format by default." format="txt" />
+    <param name="snp_count_per_region" type="integer" label="SNP Count per region" help="Define the minimum number of SNPs for a SNP rich region." value="3" />
+    <param name="output_format" type="select" label="Alignment format for output file" help="Defines the alignment format to output the data in.  Mauve uses the XMFA format, but the clustalw format is more widely used.  Other options include fasta, phylip, etc.">
+      <option value="clustalw" selected="true">clustalw</option>
+      <option value="xmfa">xmfa</option>
+      <option value="fasta">fasta</option>
+      <option value="phylip">phylip</option>
+    </param>
+    <param name="snp_rich_region_length" type="integer" label="SNP-Rich Region Length" help="Define if an alignment is kept based on the SNP count within the region length. Defaults to 300." value="300" />
+    <param name="start_alignment_trim" type="integer" label="Trim 5 Prime end" help="Ignores the first X number of bases from the start of each alignment where mauve inaccurately detects many SNPs. Set to 0 to include all bases." value="25" />
+    <param name="end_alignment_trim" type="integer" label="Trim 3 Prime End" help="Ignore the last X number of bases from the end of each alignment where mauve inaccurately detects many SNPs. Set to 0 to include all bases." value="25" />
+    <param name="ignore_ambiguous_snps" type="select" label="Ignore Ambiguous SNP" help="Ignore SNPs detected by mauve that include &#39;N&#39; bases.">
+      <option value="0">False</option>
+      <option value="1">True</option>
+    </param>
+    <conditional name="primer3">
+        <param name="create_seq_primers" type="select" label="Create a Primer3 file for Sequencing Primers" help="Generates a Primer3 file instructing primer3 to create sequencing primers that flank the identified SNP Rich regions.">
+	    <option value="0" selected="true">False</option>
+	    <option value="1">True</option>
+        </param>
+	<when value="0" />
+	<when value="1">
+		<param name="no_overlapping_regions" type="select" label="No Overlapping SNP Rich Regions" help="Instructs Primer3 to flank SNP Rich Regions that don't overlap (based on the Region Length and SNP Count parameters above).">
+                    <option value="0">False</option>
+                    <option value="1" selected="true">True</option>
+		</param>
+	</when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data name="alignment_snp_rich_regions" label="${tool.name} on ${on_string}: Genome Alignments of SNP-Rich Regions" format="txt" ></data>
+    <data name="primer3_file" label="${tool.name} on ${on_string}: Primer3 Input " format="txt" >
+      <filter>primer3['create_seq_primers']</filter>
+    </data>
+  </outputs>
+  <help>
+=====
+NAME
+=====
+
+Mauve SNP-Rich Region Parser
+
+=======
+AUTHOR
+=======
+
+Iyad Kandalaft &lt;iyad.kandalaft@agr.gc.ca&gt;
+Agriculture and Agri-foods Canada
+Ottawa, ON, Canada
+
+
+============
+DESCRIPTION
+============
+
+Parses a Mauve show-SNP and alignment files to parse out alignments of SNP rich regions.  This tool provides the option to define how many SNPs in specific region length translates to SNP-rich region.  In addition, you can opt to eliminate Mauve&#39;s interpretation of ambiguous bases as SNPs.
+
+
+SNP Rich Regions are identified based on finding a specific number of contiguous base pairs where a specific number of SNPs are located. 
+
+Consider the following alignment of 20 base pairs:
+
+BP         1                  19
+Genome 1   AAACCCCTTTTGGGGGAAAA
+Genome 2   AAAGCCATATTCGGAGAAAA
+           ~~~ ~~ ~ ~~ ~~ ~~~~~
+
+By specifying to look for regions of length upto 6 base pairs long with a minimum of 3 SNPs, then the whole alignment is included as containing a SNP rich region where there is a region that is at most 6 base pairs and contains 3 SNPs.
+
+By specifying to generate a Primer3 input file to create flanking sequencing primer pairs, the following regions are targeted: bases 4-9 and 7-12
+
+By specifying to ignore overlapping regions with the same parameters as above, only the first 6 base pair region (bases 4 to 9) is targeted by Primer3.
+
+
+========================
+INPUT AND OUTPUT OPTIONS
+========================
+
+**Input**
+  -mauve snp file
+    Provide the Mauve SNP File path.  This file is typically produced by Mauve&#39;s find-snps script that produces a tab-formatter output.
+  -mauve alignment file
+    Provide the mauve alignment file path. This file is in XMFA format by default. Other formats are not accepted by this tool.
+
+**Output**
+  -Alignment File
+     This alignment file contains a subset of the input alignment file where the included alignments contain one or more SNP Rich regions. The alignment format can be modified by the optional parameters below.
+
+  -Primer3 Input File
+     A Primer3 input file that can be passed to primer3 to generate sequencing primers for SNP rich regions.  This file is only generated if requested.
+
+**Parameters**
+  -alignment format
+    Define the output alignment format to use.  See PerlDoc on Bio::AlignIO for supported output formats.  Some supported formats are xmfa, clustalw, fasta, phylip.
+  -SNP count
+    Define if an alignment is kept based on the minimum number of SNPs found in a region length.  Specify a region length of 0 to simply include all alignments with the specific snp-count.
+  -SNP Region Length
+    Define if an alignment is kept based on the SNP count within the defined region length.
+  -Trim 5 prime end
+    Ignore the first X number of bases from the 5-prime end of the alignment where mauve inaccurately detects many SNPs. Set to 0 to include all bases.
+  -Trim 3 prime end
+    Ignore the last X number of bases from the 3-prime end of the alignment where mauve inaccurately detects many SNPs. Set to 0 to include all bases.
+  -Ignore Ambiguous SNPs
+    Ignore SNPs detected by mauve that include &#39;N&#39; bases.
+  -Create a Primer3 file for Sequencing Primers
+    Generates a Primer3 input file that requests Primer3 to generate primer pairs that flank SNP Rich Regions
+  -No Overlapping Regions
+    This option eliminates overlapping regions from the Primer3 target list.  Hence, the SNP rich regions identified are not overlapping.
+  
+  </help>
+</tool>

@@ -1,0 +1,75 @@
+<tool id="mauve_exporters" name="Mauve Exporters" version="1.0">
+	<requirements>
+        	<requirement type="package" version="2.3.1">mauve</requirement>
+	</requirements>
+	<description>Export SNPs, Orthologs, or Permutations from Mauve genome alignments</description>
+
+	<command interpreter="bash">
+		mauve_exporter.sh
+			ca.gc.agr.MauveExporters.$java_class
+			$alignment_file
+			$out_file
+	</command>
+	<inputs>
+		<param name="java_class" type="select" value="MauveSNPExporter" label="Export type" help="Utilities that are part of Mauve's GUI to export SNPs, Orthologs, or Permutations" >
+				<option value="MauveSNPExporter">SNPs</option>
+		</param>
+		<param name="alignment_file" type="data" format="txt" label="Mauve XMFA alignment file" />
+	</inputs>
+	<outputs>
+		<data name="out_file" format="tabular" label="${tool.name} on ${on_string}: SNPs" />
+	</outputs>
+	<help>
+**Reference**
+-------------
+
+** Mauve v2.3.1 **
+
+Aaron E. Darling, Bob Mau, and Nicole T. Perna. 2010.  progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss, and Rearrangement.  PLoS One.  5(6):e11147.
+
+** Mauve Exporters Galaxy Wrapper **
+
+Iyad Kandalaft, Agriculture and Agri-Foods Canada, Ottawa, ON, Canada.
+
+**About Mauve**
+---------------
+
+Mauve is a system for efficiently constructing multiple genome alignments in the presence of large-scale evolutionary events such as rearrangement and inversion. Multiple genome alignment provides a basis for research into comparative genomics and the study of evolutionary dynamics.  Aligning whole genomes is a fundamentally different problem than aligning short sequences.
+
+Mauve has been developed with the idea that a multiple genome aligner should require only modest computational resources. It employs algorithmic techniques that scale well in the amount of sequence being aligned. For example, a pair of Y. pestis genomes can be aligned in under a minute, while a group of 9 divergent Enterobacterial genomes can be aligned in a few hours.
+
+
+
+
+** The SNP file **
+------------------
+This tab-delimited file can be created from alignments using Mauve version 2.3.0 and later.  For every polymorphic site in an alignment, the SNP file records the nucleotides present in each genome at that site, along with the sequence coordinates of the site in each genome.  An example on three genomes is as follows:
+
+SNP-pattern	sequence_1	sequence_2	sequence_3
+AAT	5276590	5246627	394
+TTC	5276784	5246821	588
+AAC	5277418	5247455	1222
+MAA	5278225	5248262	2030
+AAC	5282804	5252841	6609
+
+The first column lists the SNP pattern with sequences ordered the same as when input for alignment. The top of the XMFA file can be used as a reference for sequence filenames. Each subsequent column contains coordinates for each of the genomes in turn.  Thus each line lists a SNP pattern and the location of that SNP in each genome.  Note that IUPAC nucleotide ambiguity codes are considered as possible SNPs -- hence the M in the fourth example SNP above. 
+
+
+** The Orthologs file **
+------------------------
+
+The orthologs file is a tab-delimited file that can be created from progressiveMauve alignments using Mauve version 2.3.0 and later.  The ortholog file lists groups of annotated and unannotated genes that are predicted to be positionally orthologous by whole-genome multiple alignment. Each row in the file lists a group of orthologous genes, along with the index of the genome from which the gene derives, the name of the gene (if given in the annotation file) and its sequence coordinates in the global coordinate system of that genome.  Entries within a line are tab-delmited and colon-delimited. An example for 4 genomes follows:
+
+
+0:Z03:2818-3750  1:c04:3512-4444  2::2801-3733    3:ECSE_03:2800-3732
+0:Z04:3751-5037  1:c05:4445-5731  2::3734-5020    3:ECSE_04:3733-5019
+0:Z05:5251-5547  1:c07:5945-6241  1:c08:6021-6269  2::5234-5530  3:ECSE_05:5233-5529
+0:Z06:5700-6476  1:c10:6301-7077  3:ECSE_06:5682-6458
+
+The first line lists a group of four orthologous genes, with one gene coming from each genome.  In the first entry 0:Z03:2818-3750, the leading 0 refers to the genome's index, with indices assigned in the order the genomes were input for alignment.  Thus genome 0 is the first genome, 1 is the second, and so on.  The next part, Z03, refers to the locus_tag identifier for the annotated gene. The third colon-delimited part refers to the coordinate range of the annotated gene.  The remainder of the line lists out genes in the other three genomes found to be positionally orthologous.  In the case of genome 2 we have an entry 2::2801-3733.  In this case there was no gene annotated in the region, but a region was found to be positionally orthologous, and so the coordinates of that region are listed without a locus_tag.
+
+The third line in the example highlights a situation where multiple annotated genes in one genome are found to be orthologous to a single gene in other genomes.  In this case, two overlapping genes were annotated in genome 1, and each of those genes individually was predicted to be positionally orthologous to the corresponding genes in other genomes.  Since they overlap and are orthologous to the same genes in other genomes, they are considered a group of positional orthologs.  Thus, any group of positional orthologs may contain multiple genes from a single genome.
+
+The fourth line in the example illustrates the situation where one of the genomes does not have a positional ortholog of the genes.  In this case, genome 2 lacks a region predicted to be positionally orthologous. 
+	</help>
+</tool>

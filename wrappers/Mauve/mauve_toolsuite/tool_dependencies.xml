@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="mauve" version="2.3.1">
+		<repository name="package_mauve_2_3_1" owner="iyad" toolshed="http://localhost:9009" changeset_revision="88c50b88b5df" />
+	</package>
+</tool_dependency>
