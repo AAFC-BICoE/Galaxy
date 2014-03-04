@@ -1,0 +1,35 @@
+<tool id="maker2zff" name="MAKER to SNAP ZFF" version="0.0.1">
+	<description>Convert files to SNAP's ZFF format</description>
+	<command interpreter="bash">
+		maker2zff
+		#if $check.mode == "0"
+			$gff3
+		#else
+			$index
+		$end if
+	</command>
+	<inputs>
+		<conditional name="check">
+			<param name="mode" label="Index?" type="select" multiple="false">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</param>
+
+			<when value="1">
+				<param name="index" label="Provide Datastore Index:" type="data" format="tabular" />
+			</when>
+			
+			<when value="0">
+				<repeat name="gffs" label="GFF3 Files" min="1">
+					<param name="gff" label="Add gff" type="data" format="gff"/>
+				</repeat>
+			</when>
+		</conditional>
+	</inputs>
+
+	<outputs>
+		<data name="ann" label=".ann file" format="fasta" />
+		<data name="dna" label=".dna file" format="fasta" />
+	</outputs>
+</tool>
+		

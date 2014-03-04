@@ -1,0 +1,413 @@
+<tool id="maker_conf" name="Configure MAKER" version="2.10">
+	<description>Create customized MAKER control files</description>
+
+	<command interpreter="bash">
+	maker_conf.sh $maker_opts $maker_bopts $opts $bopts $exe
+	</command>
+
+	<inputs>
+				<param label="Organism type" name="organism_type" type="select" display="radio" multiple="false">
+			<option value="eukaryotic">Eukaryotic</option>
+			<option value="prokaryotic">Prokaryotic</option>
+		</param>
+
+		<!-- This section will deal with the re-annotation settings -->
+		<conditional name="reannotation_options">
+			<param label="Re-annotation" name="reannotate" type="select" multiple="false" help="Do you intend to provide a previous MAKER annotation?">
+				<option value="False">No</option>
+				<option value="True">Yes</option>
+			</param>
+
+			<when value="True">
+				<param label="Pass EST evidence to the current MAKER run?" name="est_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass alternate organism's EST evidence to the current MAKER run?" name="altest_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass protein evidence to the current MAKER run?" name="protein_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass repeat library information to the current MAKER run?" name="rm_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass gene models to the current MAKER run?" name="model_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass ab-initio predictions to the current MAKER run?" name="pred_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+				<param label="Pass everything else to the current MAKER run?" name="other_pass" type="select" display="radio" multiple="false">
+					<option value="True">Yes</option>
+					<option value="False">No</option>
+				</param>
+			</when>
+		</conditional>
+
+		<!-- Repeat Masking Options -->
+		<param label="Repeat Masking: Specify an organism/taxon to select a subset of RepBase libraries" name="model_org" type="text" value="all" help="RepeakMasker accepts NCBI phylogenetic names and other common names. Ex. Homo sapiens, fungi. Default: all"/>
+
+		<!-- Gene Prediction and Evidence Use -->
+		<param label="Do you want to infer gene predictions directly from EST evidence?" name="est2genome" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<param label="Do you want to infer gene predictions directly from protein evidence?" name="protein2genome" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<param label="Do you want to run ab-initio gene prediction tools on soft masked regions?" name="unmask" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		
+		<!-- MAKER and External Application Behaviour Options -->
+		<param label="Set the length for splitting of hits (BLAST parameter)" name="split_hit" type="integer" value="10000" min="0" max="1000000"/>
+		<param label="Set the amino acid used to replace non-standard amino acids in BLAST databases" name="alt_peptide" type="text" size="2" value="C" help="Default: C"/>
+		<param label="Set the length for dividing contigs into chunks" name="max_dna_length" type="integer" value="100000" min="50000" max="5000000" help="The longer each chunk is, the more memory is required. Default: 100000"/>
+		<param label="Skip contigs below this length" name="min_contig" type="integer" value="1" min="0" max="5000000" help="Contigs under 10kb are often useless. 1 = 1 base."/>
+		<param label="Set the size of the flanks for extending evidence clusters sent to gene predictors" name="pred_flank" type="integer" value="200" min="0" max="1000000" help="Default: 200" />
+		<param label="Set the maximum AED value allowed in your final annotation set" name="AED_threshold" type="float" value="1" min="0" max="1" help="0 represents strong confidence while 1 represents poor confidence"/>
+		<param label="Set the minimum amount of amino acids in predicted protein sequences" name="min_protein" type="integer" value="0" min="0" max="100000" />
+		<param label="Do you want to take extra steps to find alternative splicing?" name="alt_splice" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<param label="Do you want to force a start and stop codon into every gene?" name="always_complete" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<param label="Do you want to map the names and attributes from old GFF3 files?" name="map_forward" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<param label="Do you want to keep all gene predictions in the final annotation set?" name="keep_preds" type="select" display="radio" multiple="false">
+			<option value="1">yes</option>
+			<option value="0">no</option>
+		</param>
+		<conditional name="single_check">
+			<param label="Do you want to consider single exon EST evidence when generating annotations?" name="single_exon" type="select" multiple="false">
+				<option value="0">no</option>
+				<option value="1">yes</option>
+			</param>
+
+			<when value="1">
+				<param label="What is the minimum length required for a single exon EST?" name="single_length" type="integer" value="250" min="1" max="1000000" help="Default: 250"/>
+			</when>
+		</conditional>
+		<param label="Number of times to rerun a contig if there is a failure:" name="retry" type="integer" value="2" min="1" max="5" />
+
+		<!-- BLAST Threshold Values (maker_bopts) -->
+		<conditional name="blast_options">
+			<param label="Do you want to specify BLAST and Exonerate threshold values?" name="check_bopts" type="select" multiple="false">
+				<option value="False">no</option>
+				<option value="True">yes</option>
+			</param>
+
+			<when value="True">
+				<param label="Blastn Percent Coverage Threshold EST-Genome Alignments" name="pcov_blastn" type="float" value="0.8" min="0" max="1" help="Default: 0.8" />
+				<param label="Blastn Percent Identity Threshold EST-Genome Alignments" name="pcov_blastn" type="float" value="0.85" min="0" max="1" help="Default: 0.85" />
+				<param label="Blastn eval cutoff" name="eval_blastn" type="text" value="1e-10" help="Default: 1e-10" />
+				<param label="Blastn bit cutoff" name="bit_blastn" type="integer" value="40" help="Default: 40" />
+
+				<param label="Blastx Percent Coverage Threshold Protein-Genome Alignments" name="pcov_blastx" type="float" value="0.5" min="0" max="1" help="Default: 0.5"/>
+				<param label="Blastx Percent Identity Threshold Protein-Genome Aligments" name="pid_blastx" type="float" value="0.4" min="0" max="1" help="Default: 0.4"/>
+				<param label="Blastx eval cutoff" name="eval_blastx" type="text" help="Default: 1e-06" value="1e-06" />
+				<param label="Blastx bit cutoff" name="bit_blastx" type="integer" value="30" help="Default: 30" />
+
+				<param label="Blastx Percent Coverage Threshold For Transposable Element Masking" name="pcov_rm_blastx" type="float" value="0.5" min="0" max="1" help="Default: 0.5"/>
+				<param label="Blastx Percent Identity Threshold For Transposable Element Masking" name="pid_rm_blastx" type="float" value="0.4" min="0" max="1" help="Default: 0.4"/>
+				<param label="Blastx eval cutoff for transposable element masking" name="eval_rm_blastx" type="text" help="Default: 1e-06" value="1e-06"/>
+				<param label="Blastx bit cutoff for transposable element masking" name="bit_rm_blastx" type="integer" value="30" help="Default: 30"/>
+
+				<param label="tBlastx Percent Coverage Threshold alt-EST-Genome Alignments" name="pcov_tblastx" type="float" value="0.8" min="0" max="1" help="Default: 0.8"/>
+				<param label="tBlastx Percent Identity Threshold alt-EST-Genome Alignments" name="pcov_tblastx" type="float" value="0.85" min="0" max="1" help="Default: 0.85"/>
+				<param label="tBlastx eval cutoff" name="eval_tblastx" type="text" value="1e-10" help="Default: 1e-10" />
+				<param label="tBlastx bit cutoff" name="bit_tblastx" type="integer" value="40" help="Default: 40"/>
+
+				<param label="Exonerate protein percent of maximal score threshold" name="ep_score_limit" type="integer" value="20" help="Default: 20"/>
+				<param label="Exonerate nucleotide percent of maximal score threshold" name="en_score_limit" type="integer" value="20" help="Default: 20"/>
+
+				<!-- The following are in v2.10, but not v2.30 -->
+				<param label="EVALUATOR Blastn Percent Coverage Threshold EST-Genome Alignments" name="eva_pcov_blastn" type="float" value="0.8" min="0" max="1" help="Default: 0.8"/>
+				<param label="EVALUATOR Blastn Percent Identity Threshold EST-Genome Alignments" name="eva_pcov_blastn" type="float" value="0.85" min="0" max="1" help="Default: 0.85"/>
+				<param label="EVALUATOR Blastn eval cutoff" name="eva_eval_blastn" type="text" value="1e-10" help="Default: 1e-10" />
+				<param label="EVALUATOR Blastn bit cutoff" name="eva_bit_blastn" type="integer" value="40" help="Default: 40"/>
+			</when>
+		</conditional>
+	</inputs>
+
+	<outputs>
+		<data name="exe" format="txt" label="maker_exe.ctl" />
+		<data name="opts" format="txt" label="maker_opts.ctl" />
+		<data name="bopts" format="txt" label="maker_bopts.ctl" />
+	</outputs>
+
+	<configfiles>
+		<configfile name="maker_bopts">
+#if $blast_options.check_bopts == 'True'
+\#-----BLAST and Exonerate Statistics Thresholds
+blast_type=ncbi+ \#set to 'wublast' or 'ncbi'
+
+#if $blast_options.pcov_blastn
+pcov_blastn=$blast_options.pcov_blastn \#Blastn Percent Coverage Threhold EST-Genome Alignments
+#else
+pcov_blastn=0.8 \#Blastn Percent Coverage Threhold EST-Genome Alignments
+#end if
+#if $blast_options.pid_blastn
+pid_blastn=$blast_options.pid_blastn \#Blastn Percent Identity Threshold EST-Genome Aligments
+#else
+pid_blastn=0.85 \#Blastn Percent Identity Threshold EST-Genome Aligments
+#end if
+#if $blast_options.eval_blastn
+eval_blastn=$blast_options.eval_blastn \#Blastn eval cutoff
+#else
+eval_blastn=1e-10 #Blastn eval cutoff
+#end if
+#if $blast_options.bit_blastn
+bit_blastn=$blast_options.bit_blastn \#Blastn bit cutoff
+#else
+bit_blastn=40 #Blastn bit cutoff
+#end if
+
+#if $blast_options.pcov_blastx
+pcov_blastx=$blast_options.pcov_blastx \#Blastx Percent Coverage Threhold Protein-Genome Alignments
+#else
+pcov_blastx=0.5 #Blastx Percent Coverage Threhold Protein-Genome Alignments
+#end if
+#if $blast_options.pid_blastx
+pid_blastx=$blast_options.pid_blastx \#Blastx Percent Identity Threshold Protein-Genome Aligments
+#else
+pid_blastx=0.4 #Blastx Percent Identity Threshold Protein-Genome Aligments
+#end if
+#if $blast_options.eval_blastx
+eval_blastx=$blast_options.eval_blastx \#Blastx eval cutoff
+#else
+eval_blastx=1e-06 #Blastx eval cutoff
+#end if
+#if $blast_options.bit_blastx
+bit_blastx=$blast_options.bit_blastx \#Blastx bit cutoff
+#else
+bit_blastx=30 #Blastx bit cutoff
+#end if
+
+#if $blast_options.pcov_rm_blastx
+pcov_rm_blastx=$blast_options.pcov_rm_blastx \#Blastx Percent Coverage Threhold For Transposable Element Masking
+#else
+pcov_rm_blastx=0.5 #Blastx Percent Coverage Threhold For Transposable Element Masking
+#end if
+#if $blast_options.pid_rm_blastx
+pid_rm_blastx=$blast_options.pid_rm_blastx \#Blastx Percent Identity Threshold For Transposbale Element Masking
+#else
+pid_rm_blastx=0.4 #Blastx Percent Identity Threshold For Transposbale Element Masking
+#end if
+#if $blast_options.eval_rm_blastx
+eval_rm_blastx=$blast_options.eval_rm_blastx \#Blastx eval cutoff for transposable element masking
+#else
+eval_rm_blastx=1e-06 #Blastx eval cutoff for transposable element masking
+#end if
+#if $blast_options.bit_rm_blastx
+bit_rm_blastx=$blast_options.bit_rm_blastx \#Blastx bit cutoff for transposable element masking
+#else
+bit_rm_blastx=30 #Blastx bit cutoff for transposable element masking
+#end if
+
+#if $blast_options.pcov_tblastx
+pcov_tblastx=$blast_options.pcov_tblastx \#tBlastx Percent Coverage Threhold alt-EST-Genome Alignments
+#else
+pcov_tblastx=0.8 #tBlastx Percent Coverage Threhold alt-EST-Genome Alignments
+#end if
+#if $blast_options.pcov_tblastx
+pid_tblastx=$blast_options.pcov_tblastx \#tBlastx Percent Identity Threshold alt-EST-Genome Aligments
+#else
+pid_tblastx=0.85 #tBlastx Percent Identity Threshold alt-EST-Genome Aligments
+#end if
+#if $blast_options.eval_tblastx
+eval_tblastx=$blast_options.eval_tblastx \#tBlastx eval cutoff
+#else 
+eval_tblastx=1e-10 #tBlastx eval cutoff
+#end if
+#if $blast_options.bit_tblastx
+bit_tblastx=$blast_options.bit_tblastx \#tBlastx bit cutoff
+#else
+bit_tblastx=40 #tBlastx bit cutoff
+#end if
+
+#if $blast_options.eva_pcov_blastn 
+eva_pcov_blastn=$blast_options.eva_pcov_blastn \#EVALUATOR Blastn Percent Coverage Threshold EST-Genome Alignments
+#else
+eva_pcov_blastn=0.8 #EVALUATOR Blastn Percent Coverage Threshold EST-Genome Alignments
+#end if
+#if $blast_options.eva_pid_blastn
+eva_pid_blastn=$blast_options.eva_pid_blastn \#EVALUATOR Blastn Percent Identity Threshold EST-Genome Alignments
+#else
+eva_pid_blastn=0.85 #EVALUATOR Blastn Percent Identity Threshold EST-Genome Alignments
+#end if
+#if $blast_options.eva_eval_blastn
+eva_eval_blastn=$blast_options.eva_eval_blastn \#EVALUATOR Blastn eval cutoff
+#else
+eva_eval_blastn=1e-10 #EVALUATOR Blastn eval cutoff
+#end if
+#if $blast_options.eva_bit_blastn
+eva_bit_blastn=$blast_options.eva_bit_blastn \#EVALUATOR Blastn bit cutoff
+#else
+eva_bit_blastn=40 #EVALUATOR Blastn bit cutoff
+#end if
+
+#if $blast_options.ep_score_limit
+ep_score_limit=$blast_options.ep_score_limit \#Exonerate protein percent of maximal score threshold
+#else
+ep_score_limit=20 #Exonerate protein percent of maximal score threshold
+#end if
+#if $blast_options.en_score_limit
+en_score_limit=$blast_options.en_score_limit \#Exonerate nucleotide percent of maximal score threshold
+#else 
+en_score_limit=20 #Exonerate nucleotide percent of maximal score threshold
+#end if
+#else
+\#-----BLAST and Exonerate Statistics Thresholds
+blast_type=ncbi \#set to 'wublast' or 'ncbi'
+
+pcov_blastn=0.8 \#Blastn Percent Coverage Threhold EST-Genome Alignments
+pid_blastn=0.85 \#Blastn Percent Identity Threshold EST-Genome Aligments
+eval_blastn=1e-10 \#Blastn eval cutoff
+bit_blastn=40 \#Blastn bit cutoff
+
+pcov_blastx=0.5 \#Blastx Percent Coverage Threhold Protein-Genome Alignments
+pid_blastx=0.4 \#Blastx Percent Identity Threshold Protein-Genome Aligments
+eval_blastx=1e-06 \#Blastx eval cutoff
+bit_blastx=30 \#Blastx bit cutoff
+
+pcov_rm_blastx=0.5 \#Blastx Percent Coverage Threhold For Transposable Element Masking
+pid_rm_blastx=0.4 \#Blastx Percent Identity Threshold For Transposbale Element Masking
+eval_rm_blastx=1e-06 \#Blastx eval cutoff for transposable element masking
+bit_rm_blastx=30 \#Blastx bit cutoff for transposable element masking
+
+pcov_tblastx=0.8 \#tBlastx Percent Coverage Threhold alt-EST-Genome Alignments
+pid_tblastx=0.85 \#tBlastx Percent Identity Threshold alt-EST-Genome Aligments
+eval_tblastx=1e-10 \#tBlastx eval cutoff
+bit_tblastx=40 \#tBlastx bit cutoff
+
+eva_pcov_blastn=0.8 \#EVALUATOR Blastn Percent Coverage Threshold EST-Genome Alignments
+eva_pid_blastn=0.85 \#EVALUATOR Blastn Percent Identity Threshold EST-Genome Alignments
+eva_eval_blastn=1e-10 \#EVALUATOR Blastn eval cutoff
+eva_bit_blastn=40 \#EVALUATOR Blastn bit cutoff
+
+ep_score_limit=20 \#Exonerate protein percent of maximal score threshold
+en_score_limit=20 \#Exonerate nucleotide percent of maximal score threshold
+#end if
+		</configfile>
+		<configfile name="maker_opts">
+\#-----Genome (Required for De-Novo Annotation)
+genome= \#genome sequence file in fasta format
+organism_type=$organism_type \#eukaryotic or prokaryotic. Default is eukaryotic
+
+#if $reannotation_options.reannotate == 'True'
+\#-----Re-annotation Using MAKER Derived GFF3
+genome_gff= \#re-annotate genome based on this gff3 file
+est_pass=$reannotation_options.est_pass \#use ests in genome_gff: 1 = yes, 0 = no
+altest_pass=$reannotation_options.altest_pass \#use alternate organism ests in genome_gff: 1 = yes, 0 = no
+protein_pass=$reannotation_options.protein_pass \#use proteins in genome_gff: 1 = yes, 0 = no
+rm_pass=$reannotation_options.rm_pass \#use repeats in genome_gff: 1 = yes, 0 = no
+model_pass=$reannotation_options.model_pass \#use gene models in genome_gff: 1 = yes, 0 = no
+pred_pass=$reannotation_options.pred_pass \#use ab-initio predictions in genome_gff: 1 = yes, 0 = no
+other_pass=$reannotation_options.other_pass \#passthrough everything else in genome_gff: 1 = yes, 0 = no
+#else
+\#-----Re-annotation Using MAKER Derived GFF3
+genome_gff= \#re-annotate genome based on this gff3 file
+est_pass=0 \#use ests in genome_gff: 1 = yes, 0 = no
+altest_pass=0 \#use alternate organism ests in genome_gff: 1 = yes, 0 = no
+protein_pass=0 \#use proteins in genome_gff: 1 = yes, 0 = no
+rm_pass=0 \#use repeats in genome_gff: 1 = yes, 0 = no
+model_pass=0 \#use gene models in genome_gff: 1 = yes, 0 = no
+pred_pass=0 \#use ab-initio predictions in genome_gff: 1 = yes, 0 = no
+other_pass=0 \#passthrough everything else in genome_gff: 1 = yes, 0 = no
+#end if
+
+\#-----EST Evidence (for best results provide a file for at least one)
+est= \#non-redundant set of assembled ESTs in fasta format (classic EST analysis)
+est_reads= \#unassembled nextgen mRNASeq in fasta format (not fully implemented)
+altest= \#EST/cDNA sequence file in fasta format from an alternate organism
+est_gff= \#EST evidence from an external gff3 file
+altest_gff= \#Alternate organism EST evidence from a separate gff3 file
+
+\#-----Protein Homology Evidence (for best results provide a file for at least one)
+protein=  \#protein sequence file in fasta format
+protein_gff=  \#protein homology evidence from an external gff3 file
+
+\#-----Repeat Masking (leave values blank to skip repeat masking)
+#if $model_org
+model_org=$model_org \#select a model organism for RepBase masking in RepeatMasker
+#else
+model_org=all \#select a model organism for RepBase masking in RepeatMasker
+#end if
+rmlib= \#provide an organism specific repeat library in fasta format for RepeatMasker
+repeat_protein=/isilon/biodiversity/pipelines/maker-2.10/maker-2.10/data/te_proteins.fasta \#provide a fasta file of transposable element proteins for RepeatRunner
+rm_gff= \#repeat elements from an external GFF3 file
+prok_rm=0 \#forces MAKER to run repeat masking on prokaryotes (don't change this), 1 = yes, 0 = no
+
+\#-----Gene Prediction
+snaphmm= \#SNAP HMM file
+gmhmm= \#GeneMark HMM file
+augustus_species= \#Augustus gene prediction species model
+fgenesh_par_file= \#Fgenesh parameter file
+pred_gff= \#ab-initio predictions from an external GFF3 file
+model_gff= \#annotated gene models from an external GFF3 file (annotation pass-through)
+est2genome=$est2genome \#infer gene predictions directly from ESTs, 1 = yes, 0 = no
+protein2genome=$protein2genome \#gene prediction from protein homology (prokaryotes only), 1 = yes, 0 = no
+unmask=$unmask \#Also run ab-initio prediction programs on unmasked sequence, 1 = yes, 0 = no
+
+\#-----Other Annotation Feature Types (features MAKER doesn't recognize)
+other_gff= \#features to pass-through to final output from an extenal GFF3 file
+
+\#-----External Application Behavior Options
+#if $alt_peptide
+alt_peptide=$alt_peptide \#amino acid used to replace non standard amino acids in BLAST databases
+#else
+alt_peptide=C \#amino acid used to replace non standard amino acids in BLAST databases
+#end if
+cpus=1 \#max number of cpus to use in BLAST and RepeatMasker (not for MPI, leave 1 when using MPI)
+
+\#-----MAKER Behavior Options
+max_dna_len=$max_dna_length \#length for dividing up contigs into chunks (increases/decreases  memory usage)
+min_contig=$min_contig \#skip genome contigs below this length (under 10kb are often useless)
+
+pred_flank=$pred_flank \#flank for extending evidence clusters sent to gene predictors
+AED_threshold=$AED_threshold \#Maximum Annotation Edit Distance allowed (bound by 0 and 1)
+min_protein=$min_protein \#require at least this many amino acids in predicted proteins
+alt_splice=$alt_splice \#Take extra steps to try and find alternative splicing, 1 = yes, 0 = no
+always_complete=$always_complete \#force start and stop codon into every gene, 1 = yes, 0 = no
+map_forward=$map_forward \#map names and attributes forward from old GFF3 genes, 1 = yes, 0 = no
+keep_preds=$keep_preds \#Add unsupported gene prediction to final annotation set, 1 = yes, 0 = no
+
+split_hit=$split_hit \#length for the splitting of hits (expected max intron size for evidence alignments)
+softmask=1 \#use soft-masked rather than hard-masked (seg filtering for wublast)
+single_exon=$single_check.single_exon \#consider single exon EST evidence when generating annotations, 1 = yes, 0 = no
+#if $single_check.single_exon == '1'
+single_length=$single_check.single_length \#min length required for single exon ESTs if 'single_exon is enabled'
+#else
+single_length=250 \#min length required for single exon ESTs if 'single_exon is enabled'
+#end if
+
+retry=$retry \#number of times to retry a contig if there is a failure for some reason
+clean_try=0 \#remove all data from previous run before retrying, 1 = yes, 0 = no
+clean_up=0 \#removes theVoid directory with individual analysis files, 1 = yes, 0 = no
+TMP= \#specify a directory other than the system default temporary directory for temporary files
+
+\#-----EVALUATOR Control Options
+evaluate=0 \#run EVALUATOR on all annotations (very experimental), 1 = yes, 0 = no
+side_thre=5
+eva_window_size=70
+eva_split_hit=1
+eva_hspmax=100
+eva_gspmax=100
+enable_fathom=0
+		</configfile>
+	</configfiles>
+</tool>
