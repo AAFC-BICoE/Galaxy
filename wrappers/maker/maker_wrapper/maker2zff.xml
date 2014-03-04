@@ -7,7 +7,9 @@
 		#else
 			-c $filter.c -e $filter.e -o $filter.o -a $filter.a -t $filter.t -l $filter.l -x $filter.x
 		#if $check.mode == "0"
-			$gffs
+			#for $i, $obj in enumerate( $gffs )
+				$obj.gff
+			#end for
 		#else
 			$index
 		#end if
