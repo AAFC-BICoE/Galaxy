@@ -1,6 +1,6 @@
 <tool id="gff3_merge" name="Merge GFF3 Files" version="0.0.1">
 	<description>Merges given GFF3 files into one.</description>
-	<command>gff3_merge_wrap $options -o $out -i $fasta</command>
+	<command interpreter="bash">gff3_merge $options -o $out -i $fasta</command>
 	<inputs>
 		<repeat name="gffs" label="GFF3 Files" min="1">
                 	<param name="gff" label="Add gff" type="data" format="gff"/>
