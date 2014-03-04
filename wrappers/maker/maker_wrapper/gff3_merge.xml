@@ -2,6 +2,7 @@
 	<description>Merges given GFF3 files into one.</description>
 	<command interpreter="bash">gff3_merge $options -o $out -i $gffs</command>
 	<inputs>
+		<param name="init" label="First GFF3 file" type="data" format="gff"/>
 		<repeat name="gffs" label="GFF3 Files" min="1">
                 	<param name="gff" label="Add gff" type="data" format="gff"/>
                 </repeat>
