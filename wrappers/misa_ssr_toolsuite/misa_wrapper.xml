@@ -46,6 +46,10 @@
 		<param name="threshold9" type="integer" value="0"
 			label="9 Base Repeat Threshold"
 			help="The minimum number that 9 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 9BP repeats." />
+			
+		<param name="interruptions" type="integer" value="100"
+			label="Compound Microsat. Interruption Length"
+			help="The maximum number of bases between two microsatellites to be considered an interruption." />
 	</inputs>
 	<outputs>
 		<data format="tabular" name="output"
