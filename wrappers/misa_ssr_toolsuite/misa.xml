@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<tool id="misa" name="MIcroSAtellite Identification Tool" version="1.0">
+	<description>Identification and localization of perfect microsatellites	as well as compound microsatellites</description>
+	<command interpreter="perl">misa_wrapper.pl
+		-i $input
+		-o $output
+		-d "
+			#if  $threshold1 > 0 then 1-$threshold1 # 
+			#if  $threshold2 > 0 then 2-$threshold2 # 
+			#if  $threshold3 > 0 then 3-$threshold3 # 
+			#if  $threshold4 > 0 then 4-$threshold4 # 
+			#if  $threshold5 > 0 then 5-$threshold5 # 
+			#if  $threshold6 > 0 then 6-$threshold6 # 
+			#if  $threshold7 > 0 then 7-$threshold7 # 
+			#if  $threshold8 > 0 then 8-$threshold8 # 
+			#if  $threshold9 > 0 then 9-$threshold9 #
+			"
+		-s $interruptions
+	</command>
+	<inputs>
+		<param format="fasta" name="input" type="data" label="fasta Source file" />
+		<param name="threshold1" type="integer" value="10"
+			label="1 Base Repeat Threshold"
+			help="The minimum number that 1 base pair must repeat to be considered a microsatellite. Set to 0 to ignore 1BP repeats." />
+		<param name="threshold2" type="integer" value="6"
+			label="2 Base Repeat Threshold"
+			help="The minimum number that 2 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 2BP repeats." />
+		<param name="threshold3" type="integer" value="5"
+			label="3 Base Repeat Threshold"
+			help="The minimum number that 3 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 3BP repeats." />
+		<param name="threshold4" type="integer" value="5"
+			label="4 Base Repeat Threshold"
+			help="The minimum number that 4 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 4BP repeats." />
+		<param name="threshold5" type="integer" value="3"
+			label="5 Base Repeat Threshold"
+			help="The minimum number that 5 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 5BP repeats." />
+		<param name="threshold6" type="integer" value="3"
+			label="6 Base Repeat Threshold"
+			help="The minimum number that 6 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 6BP repeats." />
+		<param name="threshold7" type="integer" value="0"
+			label="7 Base Repeat Threshold"
+			help="The minimum number that 7 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 7BP repeats." />
+		<param name="threshold8" type="integer" value="0"
+			label="8 Base Repeat Threshold"
+			help="The minimum number that 8 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 8BP repeats." />
+		<param name="threshold9" type="integer" value="0"
+			label="9 Base Repeat Threshold"
+			help="The minimum number that 9 base pairs must repeat to be considered a microsatellite. Set to 0 to ignore 9BP repeats." />
+	</inputs>
+	<outputs>
+		<data format="tabular" name="output"
+			label="${tool.name} on ${on_string}: Microsatellites" />
+	</outputs>
+	<help>
+		NAME
+		----
+
+		**MI**cro**SA**tellite Identification Tool
+
+		AUTHOR
+		------
+
+		MISA software:
+		Thomas Thiel
+		URL: http://pgrc.ipk-gatersleben.de/misa/
+		Release date: 14/12/01 (version 1.0)
+
+		MISA Galaxy Wrapper:
+		Iyad Kandalaft
+		&lt;iyad.kandalaft@agr.gc.ca&gt;
+		Agriculture and Agri-foods Canada
+		Ottawa, ON, Canada
+
+		DESCRIPTION
+		-----------
+
+		Identification and
+		localization of perfect microsatellites as well as compound
+		microsatellites
+
+		CITATION
+		---------
+
+		Exploiting EST databases for the development and characterization of
+		gene-derived SSR-markers in barley	(Hordeum vulgare L.), T. Thiel, W.
+		Michalek, R. Varshney and A. Graner, THEORETICAL AND APPLIED GENETICS
+		Volume 106, Number 3, 411-422
+
+		INPUT AND
+		OUTPUT OPTIONS
+		------------------------
+
+		Input - Accepts a multi-fasta file
+
+		Output - Produces a tabular output that lists the microsatellite locations
+		with respect to the input sequence names.
+
+		IMPORTANT NOTES
+		---------------
+
+		The MISA script concatenates the fasta sequence
+		name and description
+		together when producing its output. Hence, cross
+		referencing the
+		output from MISA and the original fasta file will fail.
+		Please use the Strip Fasta Descriptions tool on your fasta file before
+		providing it to MISA in order to ensure that MISA's output contains
+		only the sequence names as opposed to concatenated sequence names and
+		descriptions.
+
+	</help>
+
+</tool>
