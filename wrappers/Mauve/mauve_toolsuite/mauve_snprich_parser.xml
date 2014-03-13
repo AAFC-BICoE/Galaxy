@@ -1,4 +1,4 @@
-<tool id="mauve_snp_rich_region_parser" name="Mauve SNP Rich Region Parser" version="1.0">
+<tool id="mauve_snp_rich_region_parser" name="Mauve SNP Rich Region Parser" version="1.1">
   <description>Parse Mauve alignments and SNP files to identify SNP rich regions</description>
   <command interpreter="perl">
     mauve_snprich_parser.pl
