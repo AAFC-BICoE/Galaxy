@@ -1,4 +1,4 @@
-<tool id="mauve_exporters" name="Mauve Exporters" version="1.0">
+<tool id="mauve_exporters" name="Mauve Exporters" version="1.1">
 	<requirements>
         	<requirement type="package" version="2.3.1">mauve</requirement>
 	</requirements>

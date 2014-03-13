@@ -317,13 +317,13 @@ sub parse_snp {
 		next ALIGNMENT if ( not $options{'generate-primer3-sequencing'} );
 
 		# Generate a primer3 input segment and write it to the primer3 input file
-		print PRIMER3_OUT generate_primer3_input( $sequence, \@primer_target_list, $options{'primer-count'} ); 
+		print PRIMER3_OUT generate_primer3_input( $sequence, \@primer_target_list, $options{'primer-count'}, $options{'snp-region-length'} ); 
 	}
 	
 	close ( OUT );
 	close ( PRIMER3_OUT );
 }
-
+ 	
 
 =head2 sub generate_primer3_input()
 
@@ -337,7 +337,8 @@ sub generate_primer3_input {
 	my $sequence = shift();
 	my @target_list = @{ shift() };
 	my $primer_count = shift() * scalar( @target_list );
-
+	my $primer_product_size = shift();
+	
 	my $targets = join( ' ', @target_list );
 	
 	# Remove gaps from the sequence
@@ -350,10 +351,14 @@ sub generate_primer3_input {
 		'SEQUENCE_ID=' . '1:' . $sequence->start . ':' . $sequence->end . ' ' . $sequence_strand . ' ' . $sequence->id,
 		'SEQUENCE_TEMPLATE=' . $sequence_string,
 		'SEQUENCE_TARGET=' . $targets,
-		'PRIMER_TASK=pick_sequencing_primers',
+		'PRIMER_TASK=generic',
+		'PRIMER_PICK_LEFT_PRIMER=1',
+		'PRIMER_PICK_INTERNAL_OLIGO=0',
+		'PRIMER_PICK_RIGHT_PRIMER=1',
 		'PRIMER_NUM_RETURN=' . $primer_count,
+		'PRIMER_PRODUCT_SIZE_RANGE=' . $primer_product_size . '-' . ( $primer_product_size + 60 ),
 		"=\n"
-		);
+	);
 }
 
 
