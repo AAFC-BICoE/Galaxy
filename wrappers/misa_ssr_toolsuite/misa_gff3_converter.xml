@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<tool id="misa_gff3_converter" name="MISA to GFF3 Converter" version="1.0">
+	<description>Identification and localization of perfect microsatellites	as well as compound microsatellites</description>
+	<command interpreter="perl">
+		misa_gff3_converter.pl
+		-i "$input"
+		-o "$output"
+		-m "$naming_prefix"
+		-s "$source_field"
+	</command>
+	<inputs>
+		<param format="tabular" name="input" type="data" label="MISA Output File" help="This is the tab separated file that misa generates." />
+		<param name="naming_prefix" type="text" size="20" value="" label="Feature ID Naming Prefix" help="A prefix to add to the begining of each feature ID and Name attribute. Use only A-z 0-9 _ - characters. Leave empty if no prefix is required." />
+		<param name="source_field" type="text" size="20" value="MISA" label="Source Field" help="Sets the source column in the GFF3 file.  Defaults to MISA."/>
+	</inputs>
+	<outputs>
+		<data format="gff" name="output"
+			label="${tool.name} on ${on_string}: Microsatellites" />
+	</outputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error" />
+	</stdio>
+	<help>
+		NAME
+		----
+
+		MISA to GFF3 Converter
+
+		AUTHOR
+		------
+
+		Iyad Kandalaft
+		&lt;iyad.kandalaft@agr.gc.ca&gt;
+		Agriculture and Agri-foods Canada
+		Ottawa, ON, Canada
+
+		DESCRIPTION
+		-----------
+
+		Converts MISA output into a GFF3 file containing Microsatellite features that include all the data from the MISA output as attributes.
+		Allows users to set the ID and Name attribute prefix as well as the Source column in the GFF3 file.
+
+		CITATION
+		---------
+
+		Exploiting EST databases for the development and characterization of
+		gene-derived SSR-markers in barley	(Hordeum vulgare L.), T. Thiel, W.
+		Michalek, R. Varshney and A. Graner, THEORETICAL AND APPLIED GENETICS
+		Volume 106, Number 3, 411-422
+
+		INPUT AND
+		OUTPUT OPTIONS
+		------------------------
+
+		Input - Accepts MISA's tabular output file
+		
+
+		Output - Produces a GFF3 with Microsatellite features including all the data from the MISA output as attributes. 
+
+	</help>
+
+</tool>

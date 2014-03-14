@@ -117,8 +117,8 @@ sub parse_options {
 			-exitval => 1,
 			-verbose => 1 } );
 
-	( $options{'definition'} =~ m/^((\d-\d+)(\s|$))+$/ ) or
-		pod2usage ( { -message => "The definition format is incorrect.  Please see the help text for more info.",
+	( $options{'definition'} =~ m/^\s*(\d-\d+(\s+|$))+\s*$/ ) or
+		pod2usage ( { -message => "The definition format is incorrect: $options{'definition'}.  Please see the help text for the correct format.",
 			-exitval => 1,
 			-verbose => 1 } );
 }
@@ -142,7 +142,13 @@ execute_misa {
 		open INIFILE, ">misa.ini"
 			or die "Unable to create the misa.ini file.";
 			
-		print INIFILE "definition(unit_size,min_repeats): " . $options{'definition'} . "\n";
+		my $def = '';
+		
+		while ( $options{'definition'} = m/(\d-\d+)/g ) {
+			$def .= $1;	
+		} 
+		
+		print INIFILE "definition(unit_size,min_repeats): " . $def . "\n";
 		print INIFILE "interruptions(max_difference_between_2_SSRs): " . $options{'interruptions'} . "\n";	
 		
 		close INIFILE;

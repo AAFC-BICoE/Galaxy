@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<tool id="fasta_descriptions_remover" name="Fasta Descriptions Remover" version="1.0">
+	<description>Strip descriptions from fasta sequence headers</description>
+	<requirements>
+		<requirement type="binary">perl</requirement>
+	</requirements>
+	<command interpreter="bash">perl -p -e 's/^(>[^ ]*)[^\n]*/$1/g' "$input" > "$output"</command>
+	<inputs>
+		<param format="fasta" name="input" type="data" label="Multi-Fasta file" />
+	</inputs>
+	<outputs>
+		<data format="fasta" name="output"
+			label="${tool.name} on ${on_string}: Fasta file" />
+	</outputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error" />
+	</stdio>
+	<help>
+		NAME
+		----
+
+		Fasta Descriptions Remover
+
+		AUTHOR
+		------
+
+		Iyad Kandalaft
+		&lt;iyad.kandalaft@agr.gc.ca&gt;
+		Agriculture and Agri-foods Canada
+		Ottawa, ON, Canada
+
+		DESCRIPTION
+		-----------
+
+		Removes descriptions from fasta sequence headers.
+		Since MISA concatenates sequence identifiers
+		and descriptions in its output file, other software is unable to
+		relate MISA's output to the original sequences in the fasta file.
+		Hence, using this tool on a multi-fasta file is a must before running
+		MISA to find microsatellites.
+
+		Example:
+		**Original fasta sequence**
+		>SequenceID1 This is the sequence description
+		ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
+
+		**MISA Output before running this tool**
+		SequenceID1_This_is_the_sequence_description s4 (ACTG)15....
+
+		**Fasta Description Remover results**
+		>SequenceID1
+		ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
+
+		**MISA Output after running this tool**
+		SequenceID1 s4 (ACTG)15....
+
+		Note that the sequence ID in the MISA output will only contain the
+		sequence ID since the description was removed.
+	</help>
+</tool>

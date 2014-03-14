@@ -1,24 +1,43 @@
 <?xml version="1.0"?>
 <tool id="misa" name="MIcroSAtellite Identification Tool" version="1.0">
 	<description>Identification and localization of perfect microsatellites	as well as compound microsatellites</description>
-	<command interpreter="perl">misa_wrapper.pl
-		-i $input
-		-o $output
+	<command interpreter="perl">
+		misa_wrapper.pl
+		-i "$input"
+		-o "$output"
 		-d "
-			#if  $threshold1 > 0 then 1-$threshold1 # 
-			#if  $threshold2 > 0 then 2-$threshold2 # 
-			#if  $threshold3 > 0 then 3-$threshold3 # 
-			#if  $threshold4 > 0 then 4-$threshold4 # 
-			#if  $threshold5 > 0 then 5-$threshold5 # 
-			#if  $threshold6 > 0 then 6-$threshold6 # 
-			#if  $threshold7 > 0 then 7-$threshold7 # 
-			#if  $threshold8 > 0 then 8-$threshold8 # 
-			#if  $threshold9 > 0 then 9-$threshold9 #
-			"
+			#if int($threshold1) > 0
+				1-.$threshold1
+			#end if
+			#if int($threshold2) > 0
+				2-.$threshold2
+			#end if
+			#if int($threshold3) > 0
+				3-.$threshold3
+			#end if
+			#if int($threshold4) > 0
+				4-.$threshold4
+			#end if
+			#if int($threshold5) > 0
+				5-.$threshold5
+			#end if
+			#if int($threshold6) > 0
+				6-.$threshold6
+			#end if
+			#if int($threshold7) > 0
+				7-.$threshold7
+			#end if
+			#if int($threshold8) > 0
+				8-.$threshold8
+			#end if
+			#if int($threshold9) > 0
+				9-.$threshold9
+			#end if
+		"
 		-s $interruptions
 	</command>
 	<inputs>
-		<param format="fasta" name="input" type="data" label="fasta Source file" />
+		<param format="fasta" name="input" type="data" label="Fasta file" help="Multi-fasta file containing DNA bases" />
 		<param name="threshold1" type="integer" value="10"
 			label="1 Base Repeat Threshold"
 			help="The minimum number that 1 base pair must repeat to be considered a microsatellite. Set to 0 to ignore 1BP repeats." />
@@ -55,6 +74,9 @@
 		<data format="tabular" name="output"
 			label="${tool.name} on ${on_string}: Microsatellites" />
 	</outputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error" />
+	</stdio>
 	<help>
 		NAME
 		----
@@ -111,7 +133,6 @@
 		providing it to MISA in order to ensure that MISA's output contains
 		only the sequence names as opposed to concatenated sequence names and
 		descriptions.
-
 	</help>
 
 </tool>
