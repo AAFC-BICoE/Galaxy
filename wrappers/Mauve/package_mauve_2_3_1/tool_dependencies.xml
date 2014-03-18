@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="mauve" version="2.3.1">
+		<install version="1.0">
+			<actions_group>
+				<actions os="linux" architecture="x86_64">
+					<action type="download_by_url">http://gel.ahabs.wisc.edu/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
+					<action type="move_directory_files">
+						<source_directory>.</source_directory>
+						<destination_directory>$INSTALL_DIR</destination_directory>
+					</action>
+					<action type="move_directory_files">
+						<source_directory>$INSTALL_DIR/linux-x64</source_directory>
+						<destination_directory>$INSTALL_DIR</destination_directory>
+					</action>
+				</actions>
+				<actions>
+					<action type="download_by_url">http://gel.ahabs.wisc.edu/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
+					<action type="move_directory_files">
+						<source_directory>.</source_directory>
+						<destination_directory>$INSTALL_DIR</destination_directory>
+					</action>
+				</actions>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+					<environment_variable name="CLASSPATH" action="set_to">$INSTALL_DIR/Mauve.jar:$INSTALL_DIR/ext</environment_variable>
+				</action>
+			</actions_group>
+		</install>
+		<readme>
+Software: Mauve 
+Version: 3.23
+Source: http://gel.ahabs.wisc.edu/mauve/
+Supported OS: Linux x86 or x86_64
+Citation: Aaron E. Darling, Bob Mau, and Nicole T. Perna. 2010.  progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss, and Rearrangement.  PLoS One.  5(6):e11147. 
+
+Mauve is a system for efficiently constructing multiple genome alignments in the presence of large-scale evolutionary events such as rearrangement and inversion. Multiple genome alignment provides a basis for research into comparative genomics and the study of evolutionary dynamics.  Aligning whole genomes is a fundamentally different problem than aligning short sequences.
+
+Mauve has been developed with the idea that a multiple genome aligner should require only modest computational resources. It employs algorithmic techniques that scale well in the amount of sequence being aligned. For example, a pair of Y. pestis genomes can be aligned in under a minute, while a group of 9 divergent Enterobacterial genomes can be aligned in a few hours.
+
+		</readme>
+	</package>
+</tool_dependency>
+
