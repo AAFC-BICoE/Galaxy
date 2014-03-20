@@ -20,29 +20,37 @@
 		<data name="out_file" format="tabular" label="${tool.name} on ${on_string}: SNPs" />
 	</outputs>
 	<help>
-**Reference**
--------------
+	<help>
+**Tool Information**
 
-** Mauve v2.3.1 **
+Mauve v2.3.1 - Mauve.jar Exporters
+	Release Date: 11-11-2009 (version 2.3.1)
+	Binaries: http://gel.ahabs.wisc.edu/mauve/downloads/
 
-Aaron E. Darling, Bob Mau, and Nicole T. Perna. 2010.  progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss, and Rearrangement.  PLoS One.  5(6):e11147.
+**Author**
 
-** Mauve Exporters Galaxy Wrapper **
+Mauve.jar Exporters:
+	Aaron E. Darling
+	http://gel.ahabs.wisc.edu/mauve/ 
 
-Iyad Kandalaft, Agriculture and Agri-Foods Canada, Ottawa, ON, Canada.
+Mauve Exporters Galaxy Wrapper:
+	Iyad Kandalaft
+	iyad.kandalaft@agr.gc.ca
+	Agriculture and Agri-Foods Canada
+	Ottawa, ON, Canada.
 
-**About Mauve**
----------------
+**Description**
 
-Mauve is a system for efficiently constructing multiple genome alignments in the presence of large-scale evolutionary events such as rearrangement and inversion. Multiple genome alignment provides a basis for research into comparative genomics and the study of evolutionary dynamics.  Aligning whole genomes is a fundamentally different problem than aligning short sequences.
+This galaxy wrapper permits utilizing the Mauve.jar exporters, without the Java interface, to determine SNPs and Orthologs.  Currently, only the SNP exporting feature is implemented. 
 
-Mauve has been developed with the idea that a multiple genome aligner should require only modest computational resources. It employs algorithmic techniques that scale well in the amount of sequence being aligned. For example, a pair of Y. pestis genomes can be aligned in under a minute, while a group of 9 divergent Enterobacterial genomes can be aligned in a few hours.
+**Inputs and Outputs**
+
+-Input - A progressiveMauve alignment file.
+-Output - A SNP or Orthologs file. Descriptions of the file formats are below.
 
 
+**The SNP file**
 
-
-** The SNP file **
-------------------
 This tab-delimited file can be created from alignments using Mauve version 2.3.0 and later.  For every polymorphic site in an alignment, the SNP file records the nucleotides present in each genome at that site, along with the sequence coordinates of the site in each genome.  An example on three genomes is as follows:
 
 SNP-pattern	sequence_1	sequence_2	sequence_3
@@ -54,9 +62,7 @@ AAC	5282804	5252841	6609
 
 The first column lists the SNP pattern with sequences ordered the same as when input for alignment. The top of the XMFA file can be used as a reference for sequence filenames. Each subsequent column contains coordinates for each of the genomes in turn.  Thus each line lists a SNP pattern and the location of that SNP in each genome.  Note that IUPAC nucleotide ambiguity codes are considered as possible SNPs -- hence the M in the fourth example SNP above. 
 
-
 ** The Orthologs file **
-------------------------
 
 The orthologs file is a tab-delimited file that can be created from progressiveMauve alignments using Mauve version 2.3.0 and later.  The ortholog file lists groups of annotated and unannotated genes that are predicted to be positionally orthologous by whole-genome multiple alignment. Each row in the file lists a group of orthologous genes, along with the index of the genome from which the gene derives, the name of the gene (if given in the annotation file) and its sequence coordinates in the global coordinate system of that genome.  Entries within a line are tab-delmited and colon-delimited. An example for 4 genomes follows:
 

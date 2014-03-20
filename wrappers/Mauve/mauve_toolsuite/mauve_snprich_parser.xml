@@ -58,27 +58,20 @@
     </data>
   </outputs>
   <help>
-=====
-NAME
-=====
+**Tool Information
 
-Mauve SNP-Rich Region Parser
+Mauve SNP-Rich Region Parser v1.1
 
-=======
-AUTHOR
-=======
+**Author**
 
 Iyad Kandalaft &lt;iyad.kandalaft@agr.gc.ca&gt;
 Agriculture and Agri-foods Canada
 Ottawa, ON, Canada
 
 
-============
-DESCRIPTION
-============
+**Description**
 
-Parses a Mauve show-SNP and alignment files to parse out alignments of SNP rich regions.  This tool provides the option to define how many SNPs in specific region length translates to SNP-rich region.  In addition, you can opt to eliminate Mauve&#39;s interpretation of ambiguous bases as SNPs.
-
+Parses a Mauve SNP and alignment files to parse out alignments of SNP rich regions.  This tool provides the option to define how many SNPs in specific region length translates to SNP-rich region.  In addition, you can opt to eliminate Mauve&#39;s interpretation of ambiguous bases as SNPs.
 
 SNP Rich Regions are identified based on finding a specific number of contiguous base pairs where a specific number of SNPs are located. 
 
@@ -96,24 +89,23 @@ By specifying to generate a Primer3 input file to create flanking sequencing pri
 By specifying to ignore overlapping regions with the same parameters as above, only the first 6 base pair region (bases 4 to 9) is targeted by Primer3.
 
 
-========================
-INPUT AND OUTPUT OPTIONS
-========================
+**Inputs and Outputs**
 
-**Input**
-  -mauve snp file
-    Provide the Mauve SNP File path.  This file is typically produced by Mauve&#39;s find-snps script that produces a tab-formatter output.
-  -mauve alignment file
-    Provide the mauve alignment file path. This file is in XMFA format by default. Other formats are not accepted by this tool.
+-Inputs
+	-mauve snp file
+		Provide the Mauve SNP File path.  This file is typically produced by Mauve&#39;s find-snps script that produces a tab-formatter output.
+	-mauve alignment file
+		Provide the mauve alignment file path. This file is in XMFA format by default. Other formats are not accepted by this tool.
 
-**Output**
-  -Alignment File
-     This alignment file contains a subset of the input alignment file where the included alignments contain one or more SNP Rich regions. The alignment format can be modified by the optional parameters below.
+-Outputs
+ 	-Alignment File
+		This alignment file contains a subset of the input alignment file where the included alignments contain one or more SNP Rich regions. The alignment format can be modified by the optional parameters below.
 
-  -Primer3 Input File
-     A Primer3 input file that can be passed to primer3 to generate sequencing primers for SNP rich regions.  This file is only generated if requested.
+	-Primer3 Input File
+		A Primer3 input file that can be passed to primer3 to generate sequencing primers for SNP rich regions.  This file is only generated if requested.
 
 **Parameters**
+
   -alignment format
     Define the output alignment format to use.  See PerlDoc on Bio::AlignIO for supported output formats.  Some supported formats are xmfa, clustalw, fasta, phylip.
   -SNP count
@@ -130,6 +122,5 @@ INPUT AND OUTPUT OPTIONS
     Generates a Primer3 input file that requests Primer3 to generate primer pairs that flank SNP Rich Regions
   -No Overlapping Regions
     This option eliminates overlapping regions from the Primer3 target list.  Hence, the SNP rich regions identified are not overlapping.
-  
   </help>
 </tool>
