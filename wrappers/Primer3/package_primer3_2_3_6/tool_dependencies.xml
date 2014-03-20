@@ -2,19 +2,18 @@
 <tool_dependency>
 	<package name="primer3" version="2.3.6">
 		<install version="1.0">
-			<actions_group>
-				<actions os="linux" architecture="x86_64">
-					<action type="download_by_url">http://downloads.sourceforge.net/project/primer3/primer3/2.3.6/primer3-src-2.3.6.tar.gz</action>
-					<action type="move_directory_files">
-						<source_directory>./src</source_directory>
-						<destination_directory>$INSTALL_DIR</destination_directory>
-					</action>
-					<action type="shell_command">make</action>
-				</actions>
+			<actions os="linux" architecture="x86_64">
+				<action type="download_by_url">http://downloads.sourceforge.net/project/primer3/primer3/2.3.6/primer3-src-2.3.6.tar.gz</action>
+				<action type="change_directory">./src</action>
+				<action type="shell_command">make; rm *.c; rm *.h; rm *.o;</action>
+				<action type="move_directory_files">
+					<source_directory>.</source_directory>
+					<destination_directory>$INSTALL_DIR</destination_directory>
+				</action>
 				<action type="set_environment">
 					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
 				</action>
-			</actions_group>
+			</actions>
 		</install>
 		<readme>
 Software: Primer3 
@@ -27,6 +26,7 @@ Design PCR primers from DNA sequence.
 
 Galaxy Package Developer:
 Iyad Kandalaft
+Iyad.Kandalaft@agr.gc.ca
 Agriculture and Agri-Food Canada
 Ottawa, Ontario, Canada 
 		</readme>
