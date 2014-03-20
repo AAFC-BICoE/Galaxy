@@ -1,75 +1,61 @@
 <?xml version="1.0"?>
 <tool id="primer3" name="Primer3" version="1.0">
 	<requirements>
-		<requirement type="package" version="2.3.6">Primer3</requirement>
+		<requirement type="package" version="2.3.6">primer3</requirement>
 		<requirement type="binary">primer3_core</requirement>
 	</requirements>
 	<description>Identification and localization of perfect microsatellites
 		as well as compound microsatellites</description>
-	<command>primer3_core $input > $output</command>
+	<command>primer3_core -output="$output" "$input"</command>
 	<inputs>
-		<param format="fasta" name="input" type="data" label="Fasta file"
-			help="Multi-fasta file containing DNA bases" />
+		<param format="txt" name="input" type="data" label="Primer3 Input File"
+			help="A text file with Primer3-specific instructions. See http://primer3.sourceforge.net/primer3_manual.htm" />
 	</inputs>
 	<outputs />
-
 
 	<stdio>
 		<exit_code range="1:" level="fatal" description="Error" />
 	</stdio>
 	<help>
-		NAME
-		----
+**Tool Information**
 
-		Primer3 v2.3.6
+Primer3 v2.3.6
+	Source URL: http://sourceforge.net/projects/primer3/
+	Release date: 2013-10-28 (version 2.3.6)
+	
+**Author**
 
-		AUTHOR
-		------
+Primer3:
+	Steve Rozen, Andreas
+	Untergasser, Maido Remm, Triinu Koressaar, and Helen Skaletsky.
+	Whitehead Institute for Biomedical Research
+	URL: http://bioinfo.ut.ee/primer3/primer3web_help.htm#
 
-		Primer3:
-		Steve Rozen, Andreas
-		Untergasser, Maido Remm, Triinu Koressaar, and Helen Skaletsky.
-		Whitehead Institute for Biomedical Research
-		URL: http://bioinfo.ut.ee/primer3/primer3web_help.htm#
-		Source URL: http://sourceforge.net/projects/primer3/
-		Release date: 2013-10-28 (version 2.3.6)
+Primer3 Galaxy Wrapper:
+	Iyad Kandalaft
+	iyad.kandalaft@agr.gc.ca;
+	Agriculture and Agri-foods Canada
+	Ottawa, ON, Canada
 
-		Primer3 Galaxy Wrapper:
-		Iyad Kandalaft
-		&lt;iyad.kandalaft@agr.gc.ca&gt;
-		Agriculture and Agri-foods Canada
-		Ottawa, ON, Canada
+**Description**
 
-		DESCRIPTION
-		-----------
+Design PCR primers from DNA sequence. Widely used (190k Google hits for "primer3"). From mispriming libraries to sequence quality data to the generation of internal oligos, primer3 does it.
 
-		Design PCR primers from DNA
-		sequence. Widely used (190k Google hits for "primer3"). From
-		mispriming libraries to sequence quality data to the generation of
-		internal oligos, primer3 does it
+Most parameters of Primer3 are controlled via the input file.  For global options, see http://primer3.sourceforge.net/primer3_manual.htm
 
-		CITATION
-		---------
+**Citation**
 
-		- Untergrasser A, Cutcutache I, Koressaar T, Ye J, Faircloth
-		BC, Remm M, Rozen SG (2012) Primer3 - new capabilities and interfaces.
-		Nucleic Acids Research 40(15):e115
-		- Koressaar T, Remm M (2007)
-		Enhancements and modifications of primer design program Primer3
-		Bioinformatics 23(10):1289-91
+- Untergrasser A, Cutcutache I, Koressaar T, Ye J, Faircloth BC, Remm M, Rozen SG (2012) Primer3 - new capabilities and interfaces. Nucleic Acids Research 40(15):e115
+- Koressaar T, Remm M (2007) Enhancements and modifications of primer design program Primer3 Bioinformatics 23(10):1289-91
 
-		INPUT AND
-		OUTPUT OPTIONS
-		------------------------
+**Inputs and Outputs**
 
-		- Input - Primer3 input file (See http://bioinfo.ut.ee/primer3/primer3web_help.htm#cautions)
+- Input - Primer3 input file (See http://bioinfo.ut.ee/primer3/primer3web_help.htm)
 
-		- Output - Produces a boulder-format text output that lists possible primers
+- Output - Produces a boulder-format text output that lists possible primers and their associated parameters
 
-		HINT
-		----
+**Hint**
 
-		Primer3 output can be converted to GFF3 using the Primer3 To
-		GFF3 converter and browsed using a Genome Browser
+Primer3 output can be converted to GFF3 using the Primer3 To GFF3 converter and browsed using a Genome Browser.
 	</help>
 </tool>

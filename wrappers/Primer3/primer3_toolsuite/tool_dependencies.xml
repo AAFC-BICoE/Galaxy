@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
 	<package name="primer3" version="2.3.6">
-		<repository name="package_primer3_2_3_6" owner="iyad" toolshed="http://localhost:9009" changeset_revision="" />
+		<repository name="package_primer3_2_3_6" owner="iyad" toolshed="http://localhost:9009" changeset_revision="fd4770e5ded3" />
 	</package>
 </tool_dependency>
