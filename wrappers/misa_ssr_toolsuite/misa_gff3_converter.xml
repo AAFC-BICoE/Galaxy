@@ -21,42 +21,25 @@
 		<exit_code range="1:" level="fatal" description="Error" />
 	</stdio>
 	<help>
-		NAME
-		----
+**Tool Information**
 
-		MISA to GFF3 Converter
+MISA to GFF3 Converter v1.0
 
-		AUTHOR
-		------
+**Author**
 
-		Iyad Kandalaft
-		&lt;iyad.kandalaft@agr.gc.ca&gt;
-		Agriculture and Agri-foods Canada
-		Ottawa, ON, Canada
+Iyad Kandalaft
+iyad.kandalaft@agr.gc.ca
+Agriculture and Agri-foods Canada
+Ottawa, ON, Canada
 
-		DESCRIPTION
-		-----------
+**Description**
 
-		Converts MISA output into a GFF3 file containing Microsatellite features that include all the data from the MISA output as attributes.
-		Allows users to set the ID and Name attribute prefix as well as the Source column in the GFF3 file.
+Converts MISA output into a GFF3 file containing Microsatellite features that include all the data from the MISA output as attributes.
+Allows users to set the ID and Name attribute prefix as well as the Source column in the GFF3 file.
 
-		CITATION
-		---------
+**Inputs and Outputs**
 
-		Exploiting EST databases for the development and characterization of
-		gene-derived SSR-markers in barley	(Hordeum vulgare L.), T. Thiel, W.
-		Michalek, R. Varshney and A. Graner, THEORETICAL AND APPLIED GENETICS
-		Volume 106, Number 3, 411-422
-
-		INPUT AND
-		OUTPUT OPTIONS
-		------------------------
-
-		Input - Accepts MISA's tabular output file
-		
-
-		Output - Produces a GFF3 with Microsatellite features including all the data from the MISA output as attributes. 
-
+- Input - Accepts MISA's tabular output file as input
+- Output - Produces a GFF3 file with Microsatellite features. Details of the Microsatellite type, number of repeats, and bases are included in the attributes. 
 	</help>
-
 </tool>

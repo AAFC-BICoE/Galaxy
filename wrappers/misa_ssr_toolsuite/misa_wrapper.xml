@@ -78,61 +78,44 @@
 		<exit_code range="1:" level="fatal" description="Error" />
 	</stdio>
 	<help>
-		NAME
-		----
+**Tool Information**
 
-		**MI**cro**SA**tellite Identification Tool
+*MI*cro*SA*tellite Identification Tool v1.0
+	Release date: 14/12/01 (version 1.0)
 
-		AUTHOR
-		------
+**Author**
 
-		MISA software:
-		Thomas Thiel
-		URL: http://pgrc.ipk-gatersleben.de/misa/
-		Release date: 14/12/01 (version 1.0)
+MISA software:
+Thomas Thiel
+URL: http://pgrc.ipk-gatersleben.de/misa/
 
-		MISA Galaxy Wrapper:
-		Iyad Kandalaft
-		&lt;iyad.kandalaft@agr.gc.ca&gt;
-		Agriculture and Agri-foods Canada
-		Ottawa, ON, Canada
+MISA Galaxy Wrapper:
+Iyad Kandalaft
+iyad.kandalaft@agr.gc.ca
+Agriculture and Agri-foods Canada
+Ottawa, ON, Canada
 
-		DESCRIPTION
-		-----------
+**Description**
 
-		Identification and
-		localization of perfect microsatellites as well as compound
-		microsatellites
+Identification and localization of perfect microsatellites as well as compound microsatellites.
 
-		CITATION
-		---------
+**Citation**
 
-		Exploiting EST databases for the development and characterization of
-		gene-derived SSR-markers in barley	(Hordeum vulgare L.), T. Thiel, W.
-		Michalek, R. Varshney and A. Graner, THEORETICAL AND APPLIED GENETICS
-		Volume 106, Number 3, 411-422
+Exploiting EST databases for the development and characterization of gene-derived SSR-markers in barley	(Hordeum vulgare L.), T. Thiel, W. Michalek, R. Varshney and A. Graner, THEORETICAL AND APPLIED GENETICS Volume 106, Number 3, 411-422
 
-		INPUT AND
-		OUTPUT OPTIONS
-		------------------------
+**Inputs and Outputs**
 
-		Input - Accepts a multi-fasta file
+- Input - Accepts a multi-fasta file
+- Parameters
+	X Base Repeat Threshold:  Defines the minimum number of times that X-consecutive bases must repeat to be included as a microsatellite
+	Interruptions:  Defines the maximum number of bases between two or more microsatellites to consider them as one compound microsatellite.   
+- Output - Produces a tabular output that lists the microsatellite locations with respect to the input sequence names.
 
-		Output - Produces a tabular output that lists the microsatellite locations
-		with respect to the input sequence names.
 
-		IMPORTANT NOTES
-		---------------
+**Hint**
 
-		The MISA script concatenates the fasta sequence
-		name and description
-		together when producing its output. Hence, cross
-		referencing the
-		output from MISA and the original fasta file will fail.
-		Please use the Strip Fasta Descriptions tool on your fasta file before
-		providing it to MISA in order to ensure that MISA's output contains
-		only the sequence names as opposed to concatenated sequence names and
-		descriptions.
+The MISA script concatenates the fasta sequence name and description together when producing its output. Hence, cross referencing the output from MISA and the original fasta file will fail.
+Please use the Strip Fasta Descriptions tool on your fasta file before providing it to MISA in order to ensure that MISA's output contains only the sequence names as opposed to concatenated sequence names and descriptions.
 	</help>
 
 </tool>

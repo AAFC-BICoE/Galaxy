@@ -131,7 +131,7 @@ Description: Creates the misa.ini file, executes MISA, moves the misa output fil
 
 =cut 
 
-execute_misa {
+sub execute_misa {
 	my $result = try {
 		if ( -f 'misa.ini' ) {
 			unlink( 'misa.ini' )
