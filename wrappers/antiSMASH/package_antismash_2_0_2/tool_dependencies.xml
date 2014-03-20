@@ -86,7 +86,7 @@ python $INSTALL_DIR/venv/bin/pip install bcbio-gff;
 
 <!-- Finds the variables for hmmer v2. -->
        	                       	<action type="set_environment_for_install">
-                       	              	<repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://localhost:8082/" changeset_revision="b129b5014e46" >
+                       	              	<repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="b129b5014e46" >
                	                               	<package name="hmmer" version="2.3.2"/>
        	                                </repository>
                                 </action>
