@@ -23,6 +23,6 @@
          </package>
 
 	<set_environment version="1.0">
-		<environment_variable name="antiSMASH_wrapper_path" action="set_to">$REPOSITORY_INSTALL_DIR/myTools</environment_variable>
+		<environment_variable name="antiSMASH_wrapper_path" action="set_to">$REPOSITORY_INSTALL_DIR/</environment_variable>
 	</set_environment>
 </tool_dependency>
