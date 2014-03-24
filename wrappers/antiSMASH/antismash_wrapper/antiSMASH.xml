@@ -121,6 +121,7 @@
 		<regex match="Error"
 		       source="stderr"
 		       level="fatal" />
+		<exit_code range="1:" level="fatal" description="An error has occured." />
 	</stdio>
 
 	<help>
