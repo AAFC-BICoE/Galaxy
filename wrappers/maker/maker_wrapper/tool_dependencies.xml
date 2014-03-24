@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<set_environment version="1.0">
+		<environment_variable name="PATH" action="prepend_to">/isilon/biodiversity/pipelines/maker-2.10/maker-2.10/bin/:/isilon/biodiversity/pipelines/maker-2.10/augustus.2.7/bin/:/isilon/biodiversity/pipelines/maker-2.10/exonerate-2.2.0/bin/:/isilon/biodiversity/pipelines/maker-2.10/gene-mark-es-2.3e/gmes/:/isilon/biodiversity/pipelines/maker-2.10/hmmer-3.1b1/bin/:/opt/bio/ncbi/bin/blastall:/isilon/biodiversity/pipelines/maker-2.10/perl-5.14.4/bin/:/isilon/biodiversity/pipelines/maker-2.10/RepeatMasker-open-4-0-3/:/isilon/biodiversity/pipelines/maker-2.10/rmblast-2.2.2.27/bin/:/isilon/biodiversity/pipelines/maker-2.10/snap-2013-16/</environment_variable>
+	</set_environment>
+</tool_dependency>
