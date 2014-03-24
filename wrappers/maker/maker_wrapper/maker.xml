@@ -1,6 +1,10 @@
 <tool id="maker_wrap" name="MAKER" version="2.10">
 <!-- By Michael Li Feb 2014 -->
 	<description> Run MAKER annotation pipeline</description>
+	
+	<requirements>
+		<requirement type="set_environment">PATH</requirement>
+	</requirements>
 
 	<parallelism method="multi" split_inputs="genome" split_mode="to_size" split_size="1" merge_outputs="output_datastore,output_gff3,output_trans,output_protein,other_trans,other_protein"></parallelism>
 

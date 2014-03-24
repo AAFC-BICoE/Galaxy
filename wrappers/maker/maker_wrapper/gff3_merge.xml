@@ -1,5 +1,8 @@
 <tool id="gff3_merge" name="Merge GFF3 Files" version="0.0.1">
 	<description>Merges given GFF3 files into one.</description>
+	<requirements>
+                <requirement type="set_environment">PATH</requirement>
+        </requirements>
 	<command interpreter="bash">
 		gff3_merge $omit_evidence $omit_fasta $legacy -o $out
 			#for $i, $obj in enumerate( $gffs )

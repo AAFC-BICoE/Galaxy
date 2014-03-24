@@ -1,6 +1,10 @@
 <tool id="maker_conf" name="Configure MAKER" version="2.10">
 	<description>Create customized MAKER control files</description>
 
+	<requirements>
+                <requirement type="set_environment">PATH</requirement>
+        </requirements>
+
 	<command interpreter="bash">
 	maker_conf.sh $maker_opts $maker_bopts $opts $bopts $exe
 	</command>

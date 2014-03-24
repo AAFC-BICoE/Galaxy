@@ -1,5 +1,10 @@
 <tool id="maker2zff" name="MAKER to SNAP ZFF" version="0.0.1">
 	<description>Convert files to SNAP's ZFF format</description>
+
+	<requirements>
+                <requirement type="set_environment">PATH</requirement>
+        </requirements>
+
 	<command interpreter="bash">
 		maker2zff_wrap $ann $dna
 		#if $filter.accept_all == "1"
