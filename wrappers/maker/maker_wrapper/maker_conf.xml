@@ -346,11 +346,7 @@ protein=  \#protein sequence file in fasta format
 protein_gff=  \#protein homology evidence from an external gff3 file
 
 \#-----Repeat Masking (leave values blank to skip repeat masking)
-#if $model_org
 model_org=$model_org \#select a model organism for RepBase masking in RepeatMasker
-#else
-model_org=all \#select a model organism for RepBase masking in RepeatMasker
-#end if
 rmlib= \#provide an organism specific repeat library in fasta format for RepeatMasker
 repeat_protein=/isilon/biodiversity/pipelines/maker-2.10/maker-2.10/data/te_proteins.fasta \#provide a fasta file of transposable element proteins for RepeatRunner
 rm_gff= \#repeat elements from an external GFF3 file
