@@ -1,25 +1,5 @@
 <?xml version="1.0"?>
 <tool_dependency>
-	<!--antiSMASH package requirements -->
-	<package name="hmmer" version="2.3.2">
-                <repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="b129b5014e46" prior_installation_required="True" />
-        </package>
-        <package name="hmmer" version="3.0">
-                <repository  name="package_hmmer_3_0" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="004d80e32dd3" prior_installation_required="True"/>
-        </package>
-        <package name="blast+" version="2.2.28">
-                <repository toolshed="http://onottar669824x:8082/" changeset_revision="9665c77d1956" name="package_blast_plus_2_2_28" owner="michael-li" prior_installation_required="True"/>
-        </package>
-	<package name="glimmer" version="3.0.2">
-                <repository  name="package_glimmer_3_0_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="07860ab60941" prior_installation_required="True"/>
-         </package>
-         <package name="glimmerhmm" version="3.0.2">
-                <repository  name="package_glimmerhmm_3_0_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="27120062d05f" prior_installation_required="True"/>
-         </package>
-         <package name="muscle" version="3.8.31">
-                <repository  name="package_muscle_3_8_31" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="23620fd1b58c" prior_installation_required="True"/>
-         </package>
-
 	<package name="antismash" version="2.0.2">
 <!-- Created by Michael Li. Jan 2014 -->
 		<install version="1.0">
@@ -132,8 +112,8 @@ done;
 			</actions>
 		</install>
 
-		<readme>This repository installs antiSMASH v2.0.2 for Galaxy. See http://antismash.secondarymetabolites.org/ for more information about antiSMASH. As of this moment, only the linux 64-bit packages are provided in this repository. This installation takes a long time due to antiSMASH's Cluster database and Pfam database.
-The following packages needs to be installed prior to this package:
+		<readme>This repository installs antiSMASH v2.0.2 for Galaxy. See http://antismash.secondarymetabolites.org/ for more information about antiSMASH. As of this moment, only the linux 64-bit packages are provided in this repository. Note that installation process is slow due to Pfam and Clusterblast databases.
+Numerous packages are required before installing including:
 python-dev
 libxslt-devel (CentOS only)
 libxslt1-dev (Ubuntu only)
@@ -147,6 +127,8 @@ glibc-static (CentOS only)
 cairo (CentOS only)
 perl-Archive-Tar (CentOS only)
 java-1.7.0-openjdk (CentOS only)
-libpng-dev</readme>
+libpng-dev
+
+</readme>
 	</package>
 </tool_dependency>
