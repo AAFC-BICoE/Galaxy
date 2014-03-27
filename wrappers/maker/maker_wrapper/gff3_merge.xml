@@ -3,7 +3,7 @@
 	<requirements>
                 <requirement type="set_environment">PATH</requirement>
         </requirements>
-	<command interpreter="bash">
+	<command>
 		gff3_merge $omit_evidence $omit_fasta $legacy -o $out
 			#for $i, $obj in enumerate( $gffs )
 				$obj.gff
@@ -19,5 +19,5 @@
 	<outputs>
 		<data name="out" label="Merged GFF3 File" format="gff"/>
 	</outputs>
-	<help> test </help>
+	<help>This tool merges GFF3 files together. By default, the FASTA will be included at the end of the file and evidence from MAKER will be included if found.</help>
 </tool>
