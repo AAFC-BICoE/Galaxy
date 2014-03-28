@@ -16,7 +16,7 @@
                 <repository  name="package_glimmerhmm_3_0_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="27120062d05f" prior_installation_required="True"/>
          </package>
          <package name="antismash" version="2.0.2">
-                <repository  changeset_revision="c19a873b398d" name="package_antismash_2_0_2" owner="michael-li" toolshed="http://onottar669824x:8082/" prior_installation_required="True"/>
+                <repository  changeset_revision="1c4d53659502" name="package_antismash_2_0_2" owner="michael-li" toolshed="http://onottar669824x:8082/" prior_installation_required="True"/>
          </package>		
          <package name="muscle" version="3.8.31">
                 <repository  name="package_muscle_3_8_31" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="23620fd1b58c" prior_installation_required="True"/>
