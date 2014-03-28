@@ -109,6 +109,8 @@ if [ -z "$hmm2_dir" ]; then
 		name="`basename $file`2";
 		cp $hmm2_dir/$file $INSTALL_DIR/bin/$name;
 	done;
+else
+	false;
 fi				</action>
 
 <!-- Fetches databases -->
