@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 <tool_dependency>
+	<!-- This package requires 2 dependencies to install -->
+	<package name="hmmer" version="2.3.2">
+                <repository  name="package_hmmer_2_3_2" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="b129b5014e46" prior_installation_required="True" />
+        </package>
+        <package name="hmmer" version="3.0">
+                <repository  name="package_hmmer_3_0" owner="michael-li" toolshed="http://onottar669824x:8082/" changeset_revision="004d80e32dd3" prior_installation_required="True"/>
+        </package>
 	<package name="antismash" version="2.0.2">
 <!-- Created by Michael Li. Jan 2014 -->
 		<install version="1.0">
@@ -96,11 +103,13 @@ python $INSTALL_DIR/venv/bin/pip install bcbio-gff;
 <!-- AntiSMASH wants all of hmmer v2's binaries, but renamed to append "2" at the end of each binary... -->
                                 <action type="shell_command">
 mkdir $INSTALL_DIR/bin;
-for file in `dirname $(which hmmpfam)`/*; do
-name="`basename $file`2";
-cp $file $INSTALL_DIR/bin/$name;
-done;
-				</action>
+hmm2_dir=`dirname $(which hmmpfam)`
+if [ -z "$hmm2_dir" ]; then
+	for file in hmmalign  hmmbuild  hmmcalibrate  hmmconvert  hmmemit  hmmfetch  hmmindex  hmmpfam  hmmsearch; do
+		name="`basename $file`2";
+		cp $hmm2_dir/$file $INSTALL_DIR/bin/$name;
+	done;
+fi				</action>
 
 <!-- Fetches databases -->
 				<action type="shell_command">cd $INSTALL_DIR/antismash/generic_modules/fullhmmer; wget ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz ; gunzip Pfam-A.hmm.gz; hmmpress -f Pfam-A.hmm</action>

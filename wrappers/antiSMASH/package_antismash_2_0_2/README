@@ -1,0 +1,20 @@
+This repository installs antiSMASH v2.0.2 for Galaxy. See http://antismash.secondarymetabolites.org/ for more information about antiSMASH. As of this moment, only the linux 64-bit packages are provided in this repository. 
+
+***Note that installation process is slow due to Pfam and Clusterblast databases.***
+
+Numerous packages are required before installing including:
+python-dev
+libxslt-devel (CentOS only)
+libxslt1-dev (Ubuntu only)
+libxml2-dev
+gcc
+patch
+zlib1g-dev (Ubutnu only)
+alien (Ubuntu only)
+default-gre (Ubuntu only)
+glibc-static (CentOS only)
+cairo (CentOS only)
+perl-Archive-Tar (CentOS only)
+java-1.7.0-openjdk (CentOS only)
+libpng-dev
+
