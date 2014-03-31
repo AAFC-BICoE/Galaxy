@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <tool_dependency>
 <!-- This package requires several dependencies to install -->
-	<package name="blast+" version="2.2.28">
+   <package name="blast+" version="2.2.28">
       <repository 
          name="package_blast_plus_2_2_28"
          owner="michael-li"
@@ -41,7 +41,8 @@
          changeset_revision="27120062d05f" 
          prior_installation_required="True"/>
    </package>
-   <repository 
+   <package name="muscle" version="3.8.31">
+      <repository 
          name="package_muscle_3_8_31" 
          owner="michael-li" 
          toolshed="http://onottar669824x:8082/" 
