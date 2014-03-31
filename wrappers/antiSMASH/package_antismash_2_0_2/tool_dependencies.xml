@@ -104,7 +104,7 @@ python $INSTALL_DIR/venv/bin/pip install bcbio-gff;
                                 <action type="shell_command">
 mkdir $INSTALL_DIR/bin;
 hmm2_dir=`dirname $(which hmmpfam)`
-if [ -z "$hmm2_dir" ]; then
+if [ ! -z "$hmm2_dir" ]; then
 	for file in hmmalign  hmmbuild  hmmcalibrate  hmmconvert  hmmemit  hmmfetch  hmmindex  hmmpfam  hmmsearch; do
 		name="`basename $file`2";
 		cp $hmm2_dir/$file $INSTALL_DIR/bin/$name;
