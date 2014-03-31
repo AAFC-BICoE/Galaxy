@@ -119,14 +119,22 @@
 	</stdio>
 
 	<help>
-**Introduction**
+==============
+AntiSMASH Help 
+==============
+
+------------
+Introduction
+------------
 
 The secondary metabolism of bacteria and fungi constitutes a rich source of bioactive compounds of potential pharmaceutical value, comprising biosynthetic pathways of many chemicals that have been and are being utilized as e.g. antibiotics, cholesterol-lowering drugs or antitumor drugs.
 Interestingly, the genes encoding the biosynthetic pathway responsible for the production of such a secondary metabolite are very often spatially clustered together at a certain position on the chromosome; such a compendium of genes is referred to as a 'secondary metabolite biosynthesis gene cluster'.
 This genetic architecture has opened up the possibility for straightforward detection of secondary metabolite biosynthesis pathways by locating their gene clusters. In recent years, the costs of sequencing bacterial and fungi has dropped dramatically, and many genome sequences have become available. Based on profile hidden Markov models of genes that are specific for certain types of gene clusters, antiSMASH is able to accurately identify the gene clusters encoding secondary metabolites of all known broad chemical classes.
 antiSMASH not only detects the gene clusters, but also offers detailed sequence analysis.
 
-**antiSMASH Input Parameters**
+--------------------------
+antiSMASH Input Parameters
+--------------------------
 
 The ideal input for antiSMASH is an annotated nucleotide file in Genbank format or EMBL format. You can either upload a GenBank/EMBL file manually, or simply enter the GenBank/RefSeq accession number of your sequence for antiSMASH to upload it. If no annotation is available, we recommend running your sequence through an annotation pipeline like RAST to obtain GBK/EMBL files with high-quality annotations.
 
@@ -136,15 +144,14 @@ Input files should be properly formatted. If you are creating your GBK/EMBL/FAST
 
 There are several optional analyses that may or may not be run on your sequence.
 Highly recommended is the Gene Cluster Blast Comparative Analysis, which runs BlastP using each amino acid sequence from a detected gene cluster as a query on a large database of predicted protein sequences from secondary metabolite biosynthetic gene clusters, and pools the results to identify the gene clusters that are most homologous to the gene cluster that was detected in your query nucleotide sequence.
-This analysis is selected by default
 
 Also available is the analysis of secondary metabolism gene families (smCOGs). This analysis attempts to allocate each gene in the detected gene clusters to a secondary metabolism-specific gene family using profile hidden Markov models specific for the conserved sequence region characteristic of this family. Additionally, a phylogenetic tree is constructed of each gene together with the (max. 100) sequences of the smCOG seed alignment.
-This analysis is selected by default
 
 For the most thorough genome analysis, we provide genome-wide PFAM HMM analysis of all genes in the genome through modules of the CLUSEAN pipeline. Of course, some regions important to secondary metabolism may have been missed in the gene cluster identification stage (e.g. because they represent the biosynthetic pathway of a yet unknown secondary metabolite). Therefore, when genome-wide PFAM HMM analysis is selected, the PFAM frequencies are also used to find all genome regions in which PFAM domains typical for secondary metabolism are overrepresented.
-The whole genome PFAM HMM analysis is selected by default.
 
-**antiSMASH Output**
+----------------
+antiSMASH Output
+----------------
 
 The output of the antiSMASH analysis pipeline is organized in an interactive HTML page with SVG graphics, and different parts of the analysis are displayed in different panels for every gene cluster.
 
