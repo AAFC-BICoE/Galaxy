@@ -45,7 +45,7 @@
          name="package_antismash_2_0_2"
          owner="michael-li"
          toolshed="http://onottar669824x:8082/"
-         changeset_revision="1c4d53659502"
+         changeset_revision="2a16b78d3d58"
          prior_installation_required="True"/>
    </package>    
    <package name="muscle" version="3.8.31">
