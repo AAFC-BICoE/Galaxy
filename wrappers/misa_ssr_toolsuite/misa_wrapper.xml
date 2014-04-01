@@ -7,31 +7,31 @@
 		-o "$output"
 		-d "
 			#if int($threshold1) > 0
-				1-.$threshold1
+				1-$threshold1
 			#end if
 			#if int($threshold2) > 0
-				2-.$threshold2
+				2-$threshold2
 			#end if
 			#if int($threshold3) > 0
-				3-.$threshold3
+				3-$threshold3
 			#end if
 			#if int($threshold4) > 0
-				4-.$threshold4
+				4-$threshold4
 			#end if
 			#if int($threshold5) > 0
-				5-.$threshold5
+				5-$threshold5
 			#end if
 			#if int($threshold6) > 0
-				6-.$threshold6
+				6-$threshold6
 			#end if
 			#if int($threshold7) > 0
-				7-.$threshold7
+				7-$threshold7
 			#end if
 			#if int($threshold8) > 0
-				8-.$threshold8
+				8-$threshold8
 			#end if
 			#if int($threshold9) > 0
-				9-.$threshold9
+				9-$threshold9
 			#end if
 		"
 		-s $interruptions

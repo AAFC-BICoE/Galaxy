@@ -4,7 +4,7 @@
 	<requirements>
 		<requirement type="binary">perl</requirement>
 	</requirements>
-	<command interpreter="bash">perl -p -e 's/^(>[^ ]*)[^\n]*/$1/g' "$input" > "$output"</command>
+	<command>perl -p -e 's/^(>[^ ]*)[^\n]*/$1/g' "$input" > "$output"</command>
 	<inputs>
 		<param format="fasta" name="input" type="data" label="Multi-Fasta file" />
 	</inputs>
