@@ -1,4 +1,4 @@
-<tool id="data_manager_blast_db" name="Download BLAST DB" version="0.0.1" tool_type="manage_data">
+<tool id="ncbi_blast_plus_update_db" name="Download BLAST DB" version="0.0.1" tool_type="manage_data">
     <description>Download a database</description>
     <command interpreter="python">fetch_blast_db.py --filename "${out_file}" --tool_data_table_name $db_type.blastdb_type</command>
     <requirements>
