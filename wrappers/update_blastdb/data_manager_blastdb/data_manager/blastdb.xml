@@ -46,6 +46,7 @@
                     <option value="pdbaa">Protein Data Bank protein structures (pdbnt)</option>
                     <option value="refseq_protein">NCBI protein reference sequences (refseq_protein)</option>
                     <option value="swissprot">Sequences from SwissProt database (swissprot)</option>
+                </param>
             </when>
         </conditional>
         <conditional name="advanced">
