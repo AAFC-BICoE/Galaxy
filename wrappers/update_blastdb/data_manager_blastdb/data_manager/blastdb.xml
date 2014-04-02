@@ -2,7 +2,7 @@
     <description>Download a database</description>
     <command interpreter="python">fetch_blast_db.py --filename "${out_file}" --tool_data_table_name $db_type.blastdb_type</command>
     <requirements>
-        <requirement type="package" version="2.2.29">blast+</requirement>
+        <requirement type="package" version="2.2.28">blast+</requirement>
     </requirements>
     <stdio>
         <exit_code range="1:" level="fatal" description="Tool exception" />
