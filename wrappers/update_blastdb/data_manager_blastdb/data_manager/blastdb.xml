@@ -12,6 +12,7 @@
             <param name="blastdb_type" type="select" label="Choose database type">
                 <option value="blastdb" selected="true">Nucleotide</option>
                 <option value="blastdb_p">Protein</option>
+                <option value="blastdb_d">Protein Domains</option>
             </param>
 
             <when value="blastdb">
@@ -48,6 +49,16 @@
                     <option value="swissprot">Sequences from SwissProt database (swissprot)</option>
                 </param>
             </when>
+            <when value="blastdb_d">
+                <param name="blastdb_name" type="select" label="BlastDB to download" optional="false">
+                    <option value="Cdd">CDD</option>
+                    <option value="Cog">COG</option>
+                    <option value="Kog">KOG</option>
+                    <option value="Pfam">Pfam</option>
+                    <option value="Prk">PRK</option>
+                    <option value="Smart">Smart</option>
+                    <option value="Tigr">TIGRFAM</option>
+                </param>
         </conditional>
         <conditional name="advanced">
             <param name="advanced_selector" type="select" label="Advanced Options">
@@ -68,14 +79,12 @@
     <help>
 **What it does**
 
-Downloads Blast DBs and updates blastdb tool data tables.
+Downloads preformatted Blast DBs and updates blastdb, blastdp_p and blastdb_d tables accordingly.
+Protein and nucleotide databases are retrieved using the update_blastdb.pl script that comes with BLAST. Protein domain databases are downloaded from ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/.
 
-------
-
-
-.. class:: infomark
-
-**Notice:** This is a functional, but basic, tool for fetching preformatted blastdbs.
+For more information about these databases refer to:
+ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/README (Protein domains)
+ftp://ftp.ncbi.nih.gov/blast/db/README (Nucleotides and proteins)
 
     </help>
 </tool>
