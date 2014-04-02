@@ -7,7 +7,8 @@ import os
 import sys
 import subprocess
 import time
-
+import tarfile
+from ftplib import FTP
 from galaxy.util.json import from_json_string, to_json_string
 
 def main():
@@ -28,16 +29,38 @@ def main():
     data_description = params['param_dict']['advanced'].get( 'data_description', None )
     data_id = params['param_dict']['advanced'].get( 'data_id', None )
     
-    #Run update_blastdb.pl
-    cmd_options = [ '--decompress' ]
-    args = [ 'update_blastdb.pl' ] + cmd_options + [ blastdb_name ]
-    proc = subprocess.Popen( args=args, shell=False, cwd=target_directory )
-    return_code = proc.wait()
+    #update_blastdb.pl doesn't download protein domains, so we use ftp
+    if blastdb_type is 'blastdb_d':
+        try:
+            archive_name = blastdb_name + '_LE.tar.gz'
+            tar_file = open( os.path.join( target_directory, archive_name ), "wb" )
 
-    #Check if download was successful (exit code 1)
-    if return_code != 1:
-        print >> sys.stderr, "Error obtaining blastdb (%s)" % return_code
-        sys.exit( 1 )
+            #Connect via ftp and download
+            ftp = FTP('ftp.ncbi.nih.gov')
+            ftp.login()
+            ftp.cwd('pub/mmdb/cdd/little_endian')
+            ftp.retrbinary('RETR %s' % archive_name, tar_file.write)
+            tar_file.close()
+
+            #Extract contents
+            tar_file = tarfile.open(os.path.join( target_directory, archive_name ), mode='r')
+            tar_file.extractall( target_directory )
+            tar_file.close()
+
+        except Exception, e:
+            print >> sys.stderr, "Error while downloading protein domain database: %s" % ( e )
+            sys.exit( 1 )
+    else:
+        #Run update_blastdb.pl
+        cmd_options = [ '--decompress' ]
+        args = [ 'update_blastdb.pl' ] + cmd_options + [ blastdb_name ]
+        proc = subprocess.Popen( args=args, shell=False, cwd=target_directory )
+        return_code = proc.wait()
+
+        #Check if download was successful (exit code 1)
+        if return_code != 1:
+            print >> sys.stderr, "Error obtaining blastdb (%s)" % return_code
+            sys.exit( 1 )
     
     #Set id and description if not provided in the advanced settings
     if not data_id:
