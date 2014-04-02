@@ -59,6 +59,7 @@
                     <option value="Smart">Smart</option>
                     <option value="Tigr">TIGRFAM</option>
                 </param>
+            </when>
         </conditional>
         <conditional name="advanced">
             <param name="advanced_selector" type="select" label="Advanced Options">
