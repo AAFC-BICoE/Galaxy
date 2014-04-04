@@ -225,7 +225,7 @@
             </param>
             <when value="db">
                 <param name="database" type="select" label="Protein domain database">
-                    <options from_data_table="blastdb_d.loc" />
+                    <options from_data_table="blastdb_d" />
                 </param>
                 <param name="histdb" type="hidden" value="" />
                 <param name="subject" type="hidden" value="" />
