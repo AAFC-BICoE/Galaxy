@@ -87,5 +87,21 @@ For more information about these databases refer to:
 ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/README (Protein domains)
 ftp://ftp.ncbi.nih.gov/blast/db/README (Nucleotides and proteins)
 
+**Output**
+
+The data manager will download the database from NCBI and add an entry to the corresponding data table. The database will be stored  $galaxy_data_manager_data_path/$database_type/$blastdb_name/$database_id where,
+
+- $galaxy_data_manager_data_path is defined in universe_wsgi.ini
+
+- $database_type is either blastdb, blastdb_p or blastdb_d
+
+- $blastdb_name is the name of the database you are downloading
+
+- $database_id is either the ID generated from (name)_YYYY_MM_DD or user defined ID.
+
+The data manager will attempt to read the alias file to generate the description, but this may fail. Otherwise, it will use the ID. 
+
+.. class:: warningmark
+Galaxy and the data manger won't stop you from downloading the same database over and over again, even if you use the same ID. Multiple entires in the data table should go away upon restart and since the ID are the same, it would just overwrite the database you already have.
     </help>
 </tool>

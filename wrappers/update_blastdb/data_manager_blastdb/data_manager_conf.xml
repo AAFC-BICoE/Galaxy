@@ -9,7 +9,7 @@
                     <move type="directory">
                         <target base="${GALAXY_DATA_MANAGER_DATA_PATH}">blastdb/${path}</target>
                     </move>
-                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb/${path}/${database_alias_name}</value_translation>
+                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb/${path}</value_translation>
                     <value_translation type="function">abspath</value_translation>
                 </column>
             </output>
@@ -22,7 +22,7 @@
                     <move type="directory">
                         <target base="${GALAXY_DATA_MANAGER_DATA_PATH}">blastdb_p/${path}</target>
                     </move>
-                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb_p/${path}/${database_alias_name}</value_translation>
+                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb_p/${path}</value_translation>
                     <value_translation type="function">abspath</value_translation>
                 </column>
             </output>
@@ -35,7 +35,7 @@
                     <move type="directory">
                         <target base="${GALAXY_DATA_MANAGER_DATA_PATH}">blastdb_d/${path}</target>
                     </move>
-                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb_d/${path}/${database_alias_name}</value_translation>
+                    <value_translation>${GALAXY_DATA_MANAGER_DATA_PATH}/blastdb_d/${path}</value_translation>
                     <value_translation type="function">abspath</value_translation>
                 </column>
             </output>

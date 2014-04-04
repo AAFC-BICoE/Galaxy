@@ -1,6 +1,8 @@
 #!/usr/bin/env python
-#Dan Blankenberg
-#Script that calls update_blastdb.pl to download preformatted databases
+
+#Adapted from Dan Blankenberg's data_manager_example_blastdb_ncbi_update_blastdb
+#Michael Li, Microbial Biodiversity Bioinformatics group, Agriculture and Agri-Food Canada, April 2014
+#Script that downloads preformatted databases from NCBI.
 
 import optparse
 import os
@@ -71,18 +73,22 @@ def main():
         timeString = time.strftime("%Y_%m_%d", localtime)
         data_id = "%s_%s" % ( blastdb_name, timeString )
     
-    if not data_description:
+    # Attempt to automatically set description from alias file
+    # Protein domain databases don't have an alias file
+    if not data_description and blastdb_type is not 'blastdb_d':
         alias_date = None
         alias_file = None
         try:
-            if blastdb_type is 'nucl':
+            if blastdb_type is 'blastdb':
                 alias_file = "%s.nal" % ( blastdb_name )
-            if blastdb_type is 'prot':
+            if blastdb_type is 'blastdb_p':
                 alias_file = "%s.pal" % ( blastdb_name )
             if alias_file:
                 for line in open( os.path.join( target_directory, alias_file ) ):
                     if line.startswith( '# Alias file created ' ):
                         alias_date = line.split( '# Alias file created ', 1 )[1].strip()
+                    if line.startswith( '# Date created: ' ):
+                        alias_date = line.split( '# Date created: ', 1)[1].strip()
                     if line.startswith( 'TITLE' ):
                         data_description = line.split( None, 1 )[1].strip()
                         break
@@ -97,7 +103,7 @@ def main():
         data_description = data_id
     
     #Prepare output string to convert into JSON format
-    data_table_entry = { 'value':data_id, 'name':data_description, 'path': os.path.join( blastdb_name, data_id ), 'database_alias_name': blastdb_name }
+    data_table_entry = { 'value':data_id, 'name':data_description, 'path': os.path.join( blastdb_name, data_id )}
     data_manager_dict = { 'data_tables': { options.tool_data_table_name: [ data_table_entry ]  } }
     
     #save info to json file
