@@ -46,7 +46,9 @@ def main():
             tar_file = tarfile.open(os.path.join( target_directory, archive_name ), mode='r')
             tar_file.extractall( target_directory )
             tar_file.close()
-
+        
+        #If the download fails, ftplib should generate an error in ftplib.all_errors
+        #Likewise, tarfile.ReadError should catch any errors when reading from the tar
         except Exception, e:
             print >> sys.stderr, "Error while downloading protein domain database: %s" % ( e )
             sys.exit( 1 )
@@ -66,22 +68,24 @@ def main():
     if not data_id:
         #Use download time to create uniq id
         localtime = time.localtime()
-        timeString = time.strftime("%Y%m%d%H%M%S", localtime)
+        timeString = time.strftime("%Y_%m_%d", localtime)
         data_id = "%s_%s" % ( blastdb_name, timeString )
     
     if not data_description:
         alias_date = None
+        alias_file = None
         try:
             if blastdb_type is 'nucl':
                 alias_file = "%s.nal" % ( blastdb_name )
             if blastdb_type is 'prot':
                 alias_file = "%s.pal" % ( blastdb_name )
-            for line in open( os.path.join( target_directory, alias_file ) ):
-                if line.startswith( '# Alias file created ' ):
-                    alias_date = line.split( '# Alias file created ', 1 )[1].strip()
-                if line.startswith( 'TITLE' ):
-                    data_description = line.split( None, 1 )[1].strip()
-                    break
+            if alias_file:
+                for line in open( os.path.join( target_directory, alias_file ) ):
+                    if line.startswith( '# Alias file created ' ):
+                        alias_date = line.split( '# Alias file created ', 1 )[1].strip()
+                    if line.startswith( 'TITLE' ):
+                        data_description = line.split( None, 1 )[1].strip()
+                        break
         except Exception, e:
             print >> sys.stderr, "Error Parsing Alias file for TITLE and date: %s" % ( e )
         #If we manage to parse the pal or nal file, set description
