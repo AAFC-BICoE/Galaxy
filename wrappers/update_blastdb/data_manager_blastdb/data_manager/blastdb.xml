@@ -84,7 +84,9 @@ Downloads preformatted Blast DBs and updates blastdb, blastdp_p and blastdb_d ta
 Protein and nucleotide databases are retrieved using the update_blastdb.pl script that comes with BLAST. Protein domain databases are downloaded from ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/.
 
 For more information about these databases refer to:
+
 ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/README (Protein domains)
+
 ftp://ftp.ncbi.nih.gov/blast/db/README (Nucleotides and proteins)
 
 **Output**
@@ -99,9 +101,10 @@ The data manager will download the database from NCBI and add an entry to the co
 
 - $database_id is either the ID generated from (name)_YYYY_MM_DD or user defined ID.
 
+
 The data manager will attempt to read the alias file to generate the description, but this may fail. Otherwise, it will use the ID. 
 
 .. class:: warningmark
 Galaxy and the data manger won't stop you from downloading the same database over and over again, even if you use the same ID. Multiple entires in the data table should go away upon restart and since the ID are the same, it would just overwrite the database you already have.
-    </help>
+</help>
 </tool>

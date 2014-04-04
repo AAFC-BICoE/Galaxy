@@ -1,0 +1,66 @@
+<tool id="blastxml_to_top_descr" name="BLAST top hit descriptions" version="0.0.10">
+    <description>Make a table from BLAST XML</description>
+    <version_command interpreter="python">blastxml_to_top_descr.py --version</version_command>
+    <command interpreter="python">
+      blastxml_to_top_descr.py "${blastxml_file}" "${tabular_file}" ${topN}
+    </command>
+    <stdio>
+        <!-- Assume anything other than zero is an error -->
+        <exit_code range="1:" />
+        <exit_code range=":-1" />
+    </stdio>
+    <inputs>
+        <param name="blastxml_file" type="data" format="blastxml" label="BLAST results as XML"/> 
+	<param name="topN" type="integer" min="1" max="100" optional="false" label="Number of descriptions" value="3"/>
+    </inputs>
+    <outputs>
+        <data name="tabular_file" format="tabular" label="Top $topN descriptions from $blastxml_file.name" />
+    </outputs>
+    <requirements>
+    </requirements>
+    <tests>
+        <test>
+            <param name="blastxml_file" value="blastp_four_human_vs_rhodopsin.xml" ftype="blastxml" />
+            <param name="topN" value="3" />
+            <output name="tabular_file" file="blastp_four_human_vs_rhodopsin_top3.tabular" ftype="tabular" />
+        </test>
+    </tests>
+    <help>
+
+**What it does**
+
+NCBI BLAST+ (and the older NCBI 'legacy' BLAST) can output in a range of
+formats including text, tabular and a more detailed XML format. You can
+do a lot of things with tabular files in Galaxy (sorting, filtering, joins,
+etc), however until BLAST+ 2.2.28 the tabular output never included the
+hit descriptions (titles) found in the other output formats
+
+This tool turns a BLAST XML file into a simple tabular file containing
+one row per query sequence, containing the query identifier and then
+the three (by default) top hit descriptions. If a query doesn't have
+that many hits, then these entries are left blank.
+
+**Example Usage**
+
+One simple usage would be to take a transcriptome assembly or set of
+gene predictions, run a BLAST search against the NCBI NR database, and
+then use this tool to make a table of the top three BLAST hits. This
+can give you a 'quick and dirty' crude annotation, potentially enough
+to spot some problems (e.g. bacterial contaimination could be very
+obvious).
+
+**References**
+
+If you use this Galaxy tool in work leading to a scientific publication please
+cite:
+
+Peter J.A. Cock, Björn A. Grüning, Konrad Paszkiewicz and Leighton Pritchard (2013).
+Galaxy tools and workflows for sequence analysis with applications
+in molecular plant pathology. PeerJ 1:e167
+http://dx.doi.org/10.7717/peerj.167
+
+This wrapper is available to install into other Galaxy Instances via the Galaxy
+Tool Shed at http://toolshed.g2.bx.psu.edu/view/peterjc/blastxml_to_top_descr
+
+    </help>
+</tool>

@@ -32,7 +32,7 @@ def main():
     data_id = params['param_dict']['advanced'].get( 'data_id', None )
     
     #update_blastdb.pl doesn't download protein domains, so we use ftp
-    if blastdb_type is 'blastdb_d':
+    if blastdb_type == 'blastdb_d':
         try:
             archive_name = blastdb_name + '_LE.tar.gz'
             tar_file = open( os.path.join( target_directory, archive_name ), "wb" )
@@ -75,13 +75,13 @@ def main():
     
     # Attempt to automatically set description from alias file
     # Protein domain databases don't have an alias file
-    if not data_description and blastdb_type is not 'blastdb_d':
+    if not data_description and blastdb_type != 'blastdb_d':
         alias_date = None
         alias_file = None
         try:
-            if blastdb_type is 'blastdb':
+            if blastdb_type == 'blastdb':
                 alias_file = "%s.nal" % ( blastdb_name )
-            if blastdb_type is 'blastdb_p':
+            if blastdb_type == 'blastdb_p':
                 alias_file = "%s.pal" % ( blastdb_name )
             if alias_file:
                 for line in open( os.path.join( target_directory, alias_file ) ):
@@ -103,7 +103,7 @@ def main():
         data_description = data_id
     
     #Prepare output string to convert into JSON format
-    data_table_entry = { 'value':data_id, 'name':data_description, 'path': os.path.join( blastdb_name, data_id )}
+    data_table_entry = { 'value':data_id, 'name':data_description, 'path': os.path.join( blastdb_name, data_id ), 'database_alias_name': blastdb_name }
     data_manager_dict = { 'data_tables': { options.tool_data_table_name: [ data_table_entry ]  } }
     
     #save info to json file
