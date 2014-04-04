@@ -106,6 +106,7 @@ The data manager will attempt to read the alias file to generate the description
 
 .. class:: warningmark
 Galaxy and the data manger won't stop you from downloading the same database over and over again, even if you use the same ID. Multiple entires in the data table should go away upon restart and since the ID are the same, it would just overwrite the database you already have.
+
 </help>
 
     <tests>

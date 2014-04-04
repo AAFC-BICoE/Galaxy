@@ -1,3 +1,1 @@
-Downloads and populates blastdb data table. This is just a simple example to demonstrate the use of Data Managers for processing BlastDB.
-
-Uses ncbi's update_blast.pl script.
+Downloads preformatted NCBI BLAST databases and updates blastdb, blastdb_p and blastdb_d data tables accordingly. Nucleotide and protein databases are updated via update_blastdb.pl that comes with NCBI BLAST. Protein domain databases are downloaded manually.
