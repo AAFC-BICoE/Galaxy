@@ -107,4 +107,25 @@ The data manager will attempt to read the alias file to generate the description
 .. class:: warningmark
 Galaxy and the data manger won't stop you from downloading the same database over and over again, even if you use the same ID. Multiple entires in the data table should go away upon restart and since the ID are the same, it would just overwrite the database you already have.
 </help>
+
+    <tests>
+        <test>
+            <param name="blastdb_type" value="blastdb"/>
+            <param name="blastdb_name" value="patnt"/>
+            <param name="advanced_selector" value="basic"/>
+            <output name="out_file" file="patnt.out" compare="re_match"/>
+        </test>
+        <test>
+            <param name="blastdb_type" value="blastdb_p"/>
+            <param name="blastdb_name" value="pataa"/>
+            <param name="advanced_selector" value="basic"/>
+            <output name="out_file" file="pataa.out" compare="re_match"/>
+        </test>
+        <test>
+            <param name="blastdb_type" value="blastdb_d"/>
+            <param name="blastdb_name" value="cog.out"/>
+            <param name="advanced_selector" value="basic"/>
+            <output name="out_file" file="cog.out" compare="re_match"/>
+        </test>
+    </tests>
 </tool>
