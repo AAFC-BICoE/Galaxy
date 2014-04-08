@@ -5,8 +5,8 @@
 #<unique_id>	<database_caption>	<base_name_path>
 #
 #The captions typically contain spaces and might end with the build date.
-#It is important that the actual database name does not have a space in it,
-#and that the first tab that appears in the line is right before the path.
+#It is important that the actual database name does not have a space in
+#it, and that there are only two tabs on each line.
 #
 #So, for example, if your database is nt and the path to your base name 
 #is /depot/data2/galaxy/blastdb/nt/nt.chunk, then the blastdb.loc entry 
@@ -30,9 +30,10 @@
 #test_20_Sep_2008	test 20 Sep 2008	/depot/data2/galaxy/blastdb/test/test
 #...etc...
 #
-#See also blastdb_p.loc which is for any protein BLAST database.
+#You can download the NCBI provided protein databases like NT from here:
+#ftp://ftp.ncbi.nlm.nih.gov/blast/db/
 #
-#Note that for backwards compatibility with workflows, the unique ID of
-#an entry must be the path that was in the original loc file, because that
-#is the value stored in the workflow for that parameter.
-#
+#See also blastdb_p.loc which is for any protein BLAST database, and
+#blastdb_d.loc which is for any protein domains databases (like CDD).
+
+

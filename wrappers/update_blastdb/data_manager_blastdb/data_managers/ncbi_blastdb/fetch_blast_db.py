@@ -51,9 +51,23 @@ def main():
         
         #If the download fails, ftplib should generate an error in ftplib.all_errors
         #Likewise, tarfile.ReadError should catch any errors when reading from the tar
-        except Exception, e:
+        #And other possible errors that can occur here...
+        except IOError, e:
+            print >> sys.stderr, "Cannot create file: %s: %s" % ( archive_name, e )
+            sys.exit( 1 )
+
+        except os.error, e:
+            print "Error while joining %s and %s: %s" % ( target_directory, archive_name, e )
+            sys.exit( 1 )
+
+        except ftplib.all_errors, e:
             print >> sys.stderr, "Error while downloading protein domain database: %s" % ( e )
             sys.exit( 1 )
+
+        except tarfile.TarError, e:
+            print >> sys.stderr, "Error while opening/extracting the tar file: %s" % ( e )
+            sys.exit( 1 )
+
     else:
         #Run update_blastdb.pl
         cmd_options = [ '--decompress' ]
