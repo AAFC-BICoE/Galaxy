@@ -1,10 +1,10 @@
 Galaxy wrappers for NCBI BLAST+ suite
 =====================================
 
-These wrappers are copyright 2010-2013 by Peter Cock (The James Hutton Institute,
+These wrappers are copyright 2010-2014 by Peter Cock (The James Hutton Institute,
 UK) and additional contributors. All rights reserved. See the licence text below.
 
-Currently tested with NCBI BLAST 2.2.28+ (i.e. version 2.2.28 of BLAST+),
+Currently tested with NCBI BLAST 2.2.29+ (i.e. version 2.2.29 of BLAST+),
 and does not work with the NCBI 'legacy' BLAST suite (e.g. ``blastall``).
 
 Note that these wrappers (and the associated datatypes) were originally
@@ -47,12 +47,12 @@ XML files to your ``tool_conf.xml`` as normal (and do the same in
     <tool file="ncbi_blast_plus/ncbi_blastdbcmd_info.xml" />
     <tool file="ncbi_blast_plus/ncbi_rpsblast_wrapper.xml" />
     <tool file="ncbi_blast_plus/ncbi_rpstblastn_wrapper.xml" />
+    <tool file="ncbi_blast_plus/ncbi_makeprofiledb.xml" />
     <tool file="ncbi_blast_plus/blastxml_to_tabular.xml" />
   </section>
 
 You will also need to install ``blast_datatypes`` from the Tool Shed. This
-defines the BLAST XML file format (``blastxml``) and protein and nucleotide
-BLAST databases composite file formats (``blastdbp`` and ``blastdbn``):
+defines the BLAST XML file format (``blastxml``), BLAST databases, etc:
 
 * http://toolshed.g2.bx.psu.edu/view/devteam/blast_datatypes
 
@@ -61,7 +61,7 @@ about any system level BLAST databases using the ``tool-data/blastdb*.loc``
 files.
 
 You must install the NCBI BLAST+ standalone tools somewhere on the system
-path. Currently the unit tests are written using "BLAST 2.2.29+".
+path. Currently the unit tests are written using BLAST 2.2.29+.
 
 Run the functional tests (adjusting the section identifier to match your
 ``tool_conf.xml.sample`` file)::
@@ -72,10 +72,10 @@ Configuration
 =============
 
 You must tell Galaxy about any system level BLAST databases using configuration
-files blastdb.loc (nucleotide databases like NT) and blastdb_p.loc (protein
-databases like NR), and blastdb_d.loc (protein domain databases like CDD or
-SMART) which are located in the tool-data/ folder. Sample files are included
-which explain the tab-based format to use.
+files ``blastdb.loc`` (nucleotide databases like NT) and ``blastdb_p.loc``
+(protein databases like NR), and ``blastdb_d.loc`` (protein domain databases
+like CDD or SMART) which are located in the ``tool-data/`` folder. Sample
+files are included which explain the tab-based format to use.
 
 You can download the NCBI provided databases as tar-balls from here:
 
@@ -143,14 +143,14 @@ v0.0.20 - Added unit tests for BLASTN and TBLASTX.
         - Adopted standard MIT License.
         - Development moved to GitHub, https://github.com/peterjc/galaxy_blast
         - Updated citation information (Cock et al. 2013).
-v0.0.21 - Use macros to simplify the XML wrappers.
+v0.0.21 - Use macros to simplify the XML wrappers (by John Chilton).
         - Added wrapper for dustmasker.
-        - Enabled masking for makeblastdb.
+        - Enabled masking for makeblastdb (Nicola Soranzo).
         - Requires ``maskinfo-asn1`` and ``maskinfo-asn1-binary`` datatypes,
           defined in ``blast_datatypes`` v0.0.17  on Galaxy ToolShed.
         - Tests updated for BLAST+ 2.2.27 instead of BLAST+ 2.2.26.
         - Now depends on ``package_blast_plus_2_2_27`` in ToolShed.
-v0.0.22 - More use macros to simplify the wrappers.
+v0.0.22 - More use of macros to simplify the wrappers.
         - Set number of threads via ``$GALAXY_SLOTS`` environment variable.
         - More descriptive default output names.
         - Tests require updated BLAST DB definitions (``blast_datatypes`` v0.0.18).
@@ -159,16 +159,21 @@ v0.0.22 - More use macros to simplify the wrappers.
         - Now depends on ``package_blast_plus_2_2_28`` in ToolShed.
         - Extended tabular output includes 'salltitles' as column 25.
 v0.1.00 - Now depends on ``package_blast_plus_2_2_29`` in ToolShed.
-        - Tabular output now includes option to pick specific columns,
-          including previously unavailable taxonomy columns.
-        - BLAST XML to tabular tool supports multiple input files.
+        - Tabular output now includes option to pick specific columns
+          (based on contribution from Jim Johnson), including previously
+          unavailable taxonomy columns.
+        - BLAST XML to tabular tool supports multiple input files
+          (based on contribution from Jim Johnson).
         - More detailed descriptions for BLASTN and BLASTP task option.
-        - Wrappers for segmasker, dustmasker and convert2blastmask.
+        - Wrappers for segmasker, dustmasker and convert2blastmask
+          (contribution from Bjoern Gruening).
         - Supports using maskinfo with makeblastdb wrapper.
         - Supports setting a taxonomy ID in makeblastdb wrapper.
         - Subtle changes like new conditional settings will require some old
           workflows be updated to cope.
 v0.1.01 - Requires ``blastdbd`` datatype (``blast_datatypes`` v0.0.19).
+        - Wrapper for makeprofiledb added to create protein domain databases
+          (based on contribution from Bjoern Gruening).
         - The RPS-BLAST and RPS-TBLASTN wrappers support using a protein
           domain database from the user's history.
 ======= ======================================================================
