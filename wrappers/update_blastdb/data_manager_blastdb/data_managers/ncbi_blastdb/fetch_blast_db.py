@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 #Adapted from Dan Blankenberg's data_manager_example_blastdb_ncbi_update_blastdb
 #Michael Li, Microbial Biodiversity Bioinformatics group, Agriculture and Agri-Food Canada, April 2014
 #Script that downloads preformatted databases from NCBI.
@@ -11,6 +10,7 @@ import subprocess
 import time
 import tarfile
 from ftplib import FTP
+from datetime import datetime
 from galaxy.util.json import from_json_string, to_json_string
 
 def main():
@@ -25,7 +25,7 @@ def main():
     target_directory = params[ 'output_data' ][0]['extra_files_path']
     os.mkdir( target_directory )
 
-    #Fetch parameters from input JSON file    
+    #Fetch parameters from input JSON file
     blastdb_name = params['param_dict']['db_type'].get( 'blastdb_name' )
     blastdb_type = params['param_dict']['db_type'].get( 'blastdb_type' )
     data_description = params['param_dict']['advanced'].get( 'data_description', None )
@@ -41,6 +41,7 @@ def main():
             ftp = FTP('ftp.ncbi.nih.gov')
             ftp.login()
             ftp.cwd('pub/mmdb/cdd/little_endian')
+            date = datetime.strptime(ftp.sendcmd("MDTM " + archive_name)[4:], "%Y%m%d%H%M%S").strftime("%Y_%m_%d")
             ftp.retrbinary('RETR %s' % archive_name, tar_file.write)
             tar_file.close()
 
@@ -48,7 +49,7 @@ def main():
             tar_file = tarfile.open(os.path.join( target_directory, archive_name ), mode='r')
             tar_file.extractall( target_directory )
             tar_file.close()
-        
+
         #If the download fails, ftplib should generate an error in ftplib.all_errors
         #Likewise, tarfile.ReadError should catch any errors when reading from the tar
         #And other possible errors that can occur here...
@@ -82,10 +83,13 @@ def main():
     
     #Set id and description if not provided in the advanced settings
     if not data_id:
-        #Use download time to create uniq id
-        localtime = time.localtime()
-        timeString = time.strftime("%Y_%m_%d", localtime)
-        data_id = "%s_%s" % ( blastdb_name, timeString )
+        if not date:
+            #Use download time to create uniq id, if date cannot be found
+            localtime = time.localtime()
+            timeString = time.strftime("%Y_%m_%d", localtime)
+            data_id = "%s_%s" % ( blastdb_name, timeString )
+        else:
+            data_id = "%s_%s" % ( blastdb_name, date )
     
     # Attempt to automatically set description from alias file
     # Protein domain databases don't have an alias file
