@@ -178,19 +178,19 @@ THE SOFTWARE.
     <tests>
         <test>
             <param name="blastdb_type" value="blastdb"/>
-            <param name="blastdb_name" value="patnt"/>
+            <param name="blastdb_name" value="pdbnt"/>
             <param name="advanced_selector" value="basic"/>
             <output name="out_file" file="patnt.out" compare="re_match"/>
         </test>
         <test>
             <param name="blastdb_type" value="blastdb_p"/>
-            <param name="blastdb_name" value="pataa"/>
+            <param name="blastdb_name" value="pdbaa"/>
             <param name="advanced_selector" value="basic"/>
             <output name="out_file" file="pataa.out" compare="re_match"/>
         </test>
         <test>
             <param name="blastdb_type" value="blastdb_d"/>
-            <param name="blastdb_name" value="cog.out"/>
+            <param name="blastdb_name" value="Cog"/>
             <param name="advanced_selector" value="basic"/>
             <output name="out_file" file="cog.out" compare="re_match"/>
         </test>
