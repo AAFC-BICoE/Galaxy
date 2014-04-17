@@ -190,7 +190,7 @@ THE SOFTWARE.
         </test>
         <test>
             <param name="blastdb_type" value="blastdb_d"/>
-            <param name="blastdb_name" value="Cog"/>
+            <param name="blastdb_name" value="Smart"/>
             <param name="advanced_selector" value="basic"/>
             <output name="out_file" file="cog.out" compare="re_match"/>
         </test>
