@@ -30,7 +30,8 @@ def main():
     blastdb_type = params['param_dict']['db_type'].get( 'blastdb_type' )
     data_description = params['param_dict']['advanced'].get( 'data_description', None )
     data_id = params['param_dict']['advanced'].get( 'data_id', None )
-    
+    date = None
+     
     #update_blastdb.pl doesn't download protein domains, so we use ftp
     if blastdb_type == 'blastdb_d':
         try:
