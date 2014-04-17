@@ -1,6 +1,6 @@
 <tool_dependency>
     <package name="blast+" version="2.2.28">
-        <repository name="package_blast_plus_2_2_28" owner="limic" changet_revision="2aa3bbad2fd3" toolshed="http://onottar669824x:8082/"/>
+        <repository name="package_blast_plus_2_2_28" owner="limic" changeset_revision="2aa3bbad2fd3" toolshed="http://onottar669824x:8082/"/>
     </package>
 </tool_dependency>
 
