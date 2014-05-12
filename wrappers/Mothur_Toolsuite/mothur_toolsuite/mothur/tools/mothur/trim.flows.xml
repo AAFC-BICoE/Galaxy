@@ -1,4 +1,4 @@
-<tool id="mothur_trim_flows" name="Trim.flows" version="1.22.0" force_history_refresh="True">
+<tool id="mothur_trim_flows" name="Trim.flows" version="1.23.0" force_history_refresh="True">
  <description>partition by barcode, trim to length, cull by lenght and mismatches</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -115,7 +115,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

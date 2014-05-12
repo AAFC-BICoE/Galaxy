@@ -1,7 +1,5 @@
 Provides galaxy tools for the Mothur metagenomics package -  http://www.mothur.org/wiki/Main_Page 
 
-Requires libncurses5-devel on linux systems to build.
-
 Mothur should be able to be auto-installed as a tool_dependency
   You may want to reorganize the tool panel after installing
   See below: Reorganize integrated_tool_panel.xml
