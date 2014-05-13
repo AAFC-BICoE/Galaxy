@@ -1,4 +1,4 @@
-<tool id="mothur_sffinfo" name="Sffinfo" version="1.24.0">
+<tool id="mothur_sffinfo" name="Sffinfo" version="1.25.0">
  <description>Summarize the quality of sequences</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -13,6 +13,27 @@
   $trim
   #if $accnos.__str__ != 'None' and len($accnos.__str__) > 0:
    --accnos=$accnos
+  #end if
+
+  #if $oligo.add == "yes":
+   --oligos=$oligo.oligos
+   #if $oligo.bdiffs.__str__ != '' and int($oligo.bdiffs.__str__) > 0:
+    --bdiffs=$oligo.bdiffs
+   #end if
+   #if $oligo.pdiffs.__str__ != '' and int($oligo.pdiffs.__str__) > 0:
+    --pdiffs=$oligo.pdiffs
+   #end if
+   #if $oligo.tdiffs.__str__ != '' and int($oligo.tdiffs.__str__) > 0:
+    --tdiffs=$oligo.tdiffs
+   #end if
+   #if $oligo.ldiffs.__str__ != '' and int($oligo.ldiffs.__str__) > 0:
+    --ldiffs=$oligo.ldiffs
+   #end if
+   #if $oligo.sdiffs.__str__ != '' and int($oligo.sdiffs.__str__) > 0:
+    --sdiffs=$oligo.sdiffs
+   #end if
+   --datasetid='$sffinfo.id' --new_file_path='$__new_file_path__'
+   --new_datasets='^\S+?\.(\S+\.flow)$:sff.flow'
   #end if
  </command>
  <inputs>
@@ -30,6 +51,39 @@
    <option value="flow">flow</option>
   </param>
   -->
+
+
+  <conditional name="oligo">
+   <param name="add" type="select" label="Trim with an oligos file?" 
+    help="a file that can contain the sequences of the forward and reverse primers and barcodes and their sample identifier. 
+         Each line of the oligos file can start with the key words &quot;forward&quot;, &quot;reverse&quot;, 
+         and &quot;barcode&quot; or it can start with a &quot;#&quot; to tell mothur to ignore that line of the oligos file.  ">
+    <option value="no">no</option>
+    <option value="yes">yes</option>
+   </param>
+   <when value="no"/>
+   <when value="yes">
+    <param name="oligos" type="data" format="oligos" label="oligos - barcodes and primers"/>
+    <param name="bdiffs" type="integer" value="0" label="bdiffs - number of differences to allow in the barcode (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
+    <param name="pdiffs" type="integer" value="0" label="pdiffs - number of differences to allow in the primer (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
+    <param name="tdiffs" type="integer" value="0" label="tdiffs - total number of differences to allow in primer and barcode (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
+    <param name="ldiffs" type="integer" value="0" optional="true" label="ldiffs - total number of differences to allow in linker sequence (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
+    <param name="sdiffs" type="integer" value="0" optional="true" label="sdiffs - total number of differences to allow in spacer sequence (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
+   </when>
+  </conditional>
+
+
+
   <param name="fasta" type="boolean" truevalue="" falsevalue="--fasta=false" checked="true" label="fasta - Add fasta to your history" />
   <param name="qfile" type="boolean" truevalue="" falsevalue="--qfile=false" checked="true" label="qfile - Add qfile to your history" />
   <param name="sfftxt" type="boolean" truevalue="--sfftxt=true" falsevalue="" checked="false" label="sfftxt - Add sfftxt to your history" />
@@ -53,7 +107,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
