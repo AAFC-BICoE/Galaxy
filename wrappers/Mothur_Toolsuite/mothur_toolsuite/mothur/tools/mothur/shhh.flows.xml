@@ -1,4 +1,4 @@
-<tool id="mothur_shhh_flows" name="Shhh.flows" version="1.26.0" force_history_refresh="True">
+<tool id="mothur_shhh_flows" name="Shhh.flows" version="1.27.0" force_history_refresh="True">
  <description>Denoise flowgrams (PyroNoise algorithm)</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -70,8 +70,8 @@
    <validator type="in_range" message="sigma between 0. and 1." min="0.0" max="1.0"/>
   </param>
 
-  <param name="order" type="text" value="" label="order - flow order for nucleotides in the sequencer" 
-         help="default is TACG"/>
+  <param name="order" type="text" value="A" label="order - flow order for nucleotides in the sequencer"
+         help="default is A, was TACG. Also accept B or I"/>
 
   <param name="large" type="integer" value="10000" optional="true" label="large - split your flow file and process the pieces separately (default 10000)" help="">
       <validator type="in_range" message="large value must be positive" min="1"/>
@@ -86,7 +86,7 @@
   <data format="tabular" name="shhh_counts" label="${tool.name} on ${on_string}: shhh.counts"/>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

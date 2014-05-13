@@ -253,7 +253,7 @@ def __main__():
     cmd_dict['deunique.tree'] = dict({'required' : ['tree','name'],  'optional' : []})
     cmd_dict['dist.seqs'] = dict({'required' : ['fasta'],  'optional' : ['calc','countends','output','cutoff','oldfasta','column','processors']})
     cmd_dict['dist.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','groups','output','subsample','iters','processors']})
-    cmd_dict['fastq.info'] = dict({'required' : ['fastq'], 'optional' : ['fasta','qfile']})
+    cmd_dict['fastq.info'] = dict({'required' : ['fastq','format'], 'optional' : ['fasta','qfile','pacbio','oligos','bdiffs','pdiffs','tdiffs','ldiffs','sdiffs']})
     cmd_dict['filter.seqs'] = dict({'required' : ['fasta'],  'optional' : ['vertical','trump','soft','hard','processors']})
     cmd_dict['get.group'] = dict({'required' : ['shared'], 'optional' : []})
     cmd_dict['get.groups'] = dict({'required' : ['group'], 'optional' : ['groups','accnos','fasta','name','list','shared','taxonomy','design']})
@@ -310,7 +310,7 @@ def __main__():
     cmd_dict['screen.seqs'] = dict({'required' : ['fasta'],  'optional' : ['start','end','maxambig','maxhomop','minlength','maxlength','criteria','optimize','name','group','alignreport','taxonomy','processors']})
     cmd_dict['sens.spec'] = dict({'required' : ['list',['column','phylip']] , 'optional' : ['label','cutoff','hard','precision']})
     cmd_dict['seq.error'] = dict({'required' : ['fasta','reference'] , 'optional' : ['name','qfile','report','ignorechimeras','threshold','processors']})
-    cmd_dict['sffinfo'] = dict({'required' : [['sff','sfftxt']], 'optional' : ['fasta','qfile','trim','sfftxt','flow','accnos']})
+    cmd_dict['sffinfo'] = dict({'required' : [['sff','sfftxt']], 'optional' : ['oligos','bdiffs','pdiffs','tdiffs','ldiffs','sdiffs','fasta','qfile','trim','sfftxt','flow','accnos']})
     cmd_dict['shhh.flows'] = dict({'required' : [['flow']], 'optional' : ['lookup','maxiter','mindelta','cutoff','sigma','order','large','processors']})
     cmd_dict['shhh.seqs'] = dict({'required' : [['fasta','name']], 'optional' : ['group','sigma','processors']})
     cmd_dict['split.abund'] = dict({'required' : ['fasta',['name','list']], 'optional' : ['cutoff','group','groups','label','accnos']})
@@ -318,17 +318,19 @@ def __main__():
     cmd_dict['sort.seqs'] = dict({'required' : [['fasta','qfile','name','group','flow','taxonomy']], 'optional' : ['accnos','large']})
     cmd_dict['sub.sample'] = dict({'required' : [['fasta','list','sabund','rabund','shared']], 'optional' : ['name','group','groups','label','size','persample']})
     cmd_dict['summary.qual'] = dict({'required' : ['qfile'], 'optional' : ['name']})
-    cmd_dict['summary.seqs'] = dict({'required' : ['fasta'], 'optional' : ['name','processors']})
+    cmd_dict['summary.seqs'] = dict({'required' : ['fasta'], 'optional' : ['name','processors','count']})
     cmd_dict['summary.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','groups','all','distance','processors']})
     cmd_dict['summary.single'] = dict({'required' : [['list','sabund','rabund','shared']], 'optional' : ['calc','abund','size','label','groupmode']})
     cmd_dict['summary.tax'] = dict({'required' : ['taxonomy'], 'optional' : ['name','group','reftaxonomy']})
     cmd_dict['tree.shared'] = dict({'required' : [['shared','phylip','column']], 'optional' : ['name','groups','calc','cutoff','precision','label','subsample','iters','processors']})
     cmd_dict['trim.flows'] = dict({'required' : ['flow'],  'optional' : ['oligos','bdiffs','pdiffs','tdiffs','ldiffs','sdiffs','minflows','maxflows','fasta','signal','noise','maxhomop','order','processors']})
-    cmd_dict['trim.seqs'] = dict({'required' : ['fasta'],  'optional' : ['name','group','oligos','qfile','qaverage','qthreshold','qwindowaverage','qwindowsize','rollaverage','qstepsize','qtrim','flip','maxambig','maxhomop','minlength','maxlength','bdiffs','pdiffs','tdiffs','ldiffs','sdiffs','keepforward','allfiles','keepfirst','removelast','processors']})
+    cmd_dict['trim.seqs'] = dict({'required' : ['fasta'],  'optional' : ['name','group','oligos','qfile','qaverage','qthreshold','qwindowaverage','qwindowsize','rollaverage','qstepsize','qtrim','flip','maxambig','maxhomop','minlength','maxlength','bdiffs','pdiffs','tdiffs','ldiffs','sdiffs','keepforward','allfiles','keepfirst','removelast','processors','count','checkorient','logtransform']})
     cmd_dict['unifrac.unweighted'] = dict({'required' : ['tree'], 'optional' : ['name','group','groups','iters','distance','random','root','subsample','consensus','processors']})
     cmd_dict['unifrac.weighted'] = dict({'required' : ['tree'], 'optional' : ['name','group','groups','iters','distance','random','root','subsample','consensus','processors']})
-    cmd_dict['unique.seqs'] = dict({'required' : ['fasta'],  'optional' : ['name']})
+    cmd_dict['unique.seqs'] = dict({'required' : ['fasta'],  'optional' : ['name','count']})
     cmd_dict['venn'] = dict({'required' : [['list','shared']], 'optional' : ['calc','label','groups','abund','nseqs','permute','fontsize']})
+
+    cmd_dict['merge.sfffiles'] = dict({'required' : ['sff','output']})
 
     parser = optparse.OptionParser()
     # Options for managing galaxy interaction
@@ -567,6 +569,13 @@ def __main__():
     parser.add_option( '--ordergroup', dest='ordergroup', help='')
     # include read.tree options
     parser.add_option( '--tree', dest='tree', help='' )
+
+    # trim.seq options
+    parser.add_option( '--checkorient', dest='checkorient', help='' )
+    parser.add_option( '--logtransform', dest='logtransform', help='' )
+    #fastq.info options
+    parser.add_option( '--format', dest='format', help='' )
+    parser.add_option( '--pacbio', dest='pacbio', help='' )
 
     (options, args) = parser.parse_args()
     """
