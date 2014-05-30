@@ -145,7 +145,7 @@
   <param name="logtransform" type="boolean" truevalue="--logtransform=true" falsevalue="" checked="false" 
          label="logtransform - allows you to indicate you want the averages for the qwindowaverage, rollaverage and qaverage to be calculated using a logtransform."/>
   <param name="checkorient" type="boolean" truevalue="--checkorient=true" falsevalue="" checked="false"
-         label="If you are running the trim.seqs command with paired barcodes or primers, you can use the checkorient parameter. When checkorient=t and mothur can't find the barcodes and primers, it will search the reverse compliment. "/>
+         label="checkorient - If you are running the trim.seqs command with paired barcodes or primers, you can use the checkorient parameter. When checkorient=t and mothur can't find the barcodes and primers, it will search the reverse compliment. "/>
 
 
  </inputs>
