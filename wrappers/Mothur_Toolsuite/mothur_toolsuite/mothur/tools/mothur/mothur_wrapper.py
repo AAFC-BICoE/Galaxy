@@ -44,8 +44,8 @@ log = logging.getLogger( __name__ )
 
 assert sys.version_info[:2] >= ( 2, 4 )
 
-debug = False
-#debug = True
+#debug = False
+debug = True
 max_processors = os.getenv('MOTHUR_MAX_PROCESSORS') if os.getenv('MOTHUR_MAX_PROCESSORS') else 8
 
 def stop_err( msg ):
@@ -53,6 +53,7 @@ def stop_err( msg ):
     sys.exit()
 
 def __main__():
+    global debug
     # tranform the logfile into html 
     # add extra file ouput
     # add object tags for svg files
@@ -67,15 +68,15 @@ def __main__():
         html.write("<html><head><title>%s</title></head>\n<body>\n<pre>\n" % title)
         try:
             for line in txt:
-		if line.find('set.dir') >= 0:
+                if line.find('set.dir') >= 0:
                     continue
-		elif line.find('put directory to ') >= 0:
+                elif line.find('put directory to ') >= 0:
                     continue
-		elif line.startswith('Mothur\'s directories:') :
+                elif line.startswith('Mothur\'s directories:') :
                     continue
-		elif line.startswith('outputDir=') :
+                elif line.startswith('outputDir=') :
                     continue
-		elif line.startswith('Type ') :
+                elif line.startswith('Type ') :
                     continue
                 elif line.find(tmp_output_dir_name) >= 0:
                     # if debug:  print >> sys.stdout, 'logfile_to_html #%s#' % line
@@ -119,7 +120,7 @@ def __main__():
                     except:
                         shutil.copy(val,os.path.join(input_dir,fname))
                     vals.append(fname)
-                    if debug: print >> sys.stderr, "scp %s %s" % (val, os.path.join(input_dir,fname))
+                    if debug: print >> sys.stdout, "scp %s %s" % (val, os.path.join(input_dir,fname))
                 else:
                     vals.append(convert_value(val))
             return '-'.join(vals)
@@ -164,10 +165,10 @@ def __main__():
         Gather parameter values for the specified mothur command 'cmd',
         using the definition from the 'cmd_dict' dictionary.
         """
-        if debug: print >> sys.stderr, options
+        if debug: print >> sys.stdout, options
         params = []  
         for opt in cmd_dict[cmd]['required']:
-            if debug: print >> sys.stderr, opt
+            if debug: print >> sys.stdout, opt
             if isinstance(opt,list): # One of these must be present
                 missing = True
                 for sel in opt:
@@ -581,7 +582,7 @@ def __main__():
     """
     """
     # print >> sys.stderr, options # so will appear as blurb for file
-    if options.debug != None:
+    if debug == None and options.debug != None:
        debug = options.debug
     params = []  
     inputdir = None
@@ -667,20 +668,26 @@ def __main__():
         tmp_stderr.close()
         tmp_stdout.close()
         if debug: print >> sys.stdout, 'parse %s' % tmp_stdout_name
+        
         if returncode != 0:
-            try:
-                # try to copy stdout to the logfile
-                for output in options.result.split(','):
-                    # Each item has a regex pattern and a file path to a galaxy dataset
-                    (pattern,path) = output.split(':')
-                    if debug: print >> sys.stdout, '%s -> %s' % (pattern,path)
-                    if pattern.find('\.logfile') > 0: 
-                        if path != None and os.path.exists(path):
-                            logfile_to_html(tmp_stdout_name,path,inputdir,outputdir,title="Mothur %s Error Logfile" % options.cmd)
-                        break
-            except:
-                pass
-            raise Exception, stderr
+            if returncode == -11 and options.cmd == 'seq.error':
+                if debug: print >> sys.stdout, 'seq.error produced a segmentation fault but we are ignoring it.'
+            else: 
+                try:
+                    # try to copy stdout to the logfile
+                    for output in options.result.split(','):
+                        # Each item has a regex pattern and a file path to a galaxy dataset
+                        (pattern,path) = output.split(':')
+                        if debug: print >> sys.stdout, '%s -> %s' % (pattern,path)
+                        if pattern.find('\.logfile') > 0: 
+                            if path != None and os.path.exists(path):
+                                logfile_to_html(tmp_stdout_name,path,inputdir,outputdir,title="Mothur %s Error Logfile" % options.cmd)
+                            break
+                except:
+                    pass
+                
+                raise Exception, stderr + "  Return code: " + str(returncode)
+            
         stdout = ''
         # Parse stdout to provide info
         tmp_stdout = open( tmp_stdout_name, 'rb' )
@@ -722,7 +729,7 @@ def __main__():
                     continue
                 if line.find(outputdir) >= 0:
                     continue
-	        if line.startswith('**************'):
+                if line.startswith('**************'):
                     continue
                 if re.match('^Processing.*',line):
                     continue
@@ -742,7 +749,7 @@ def __main__():
                     continue
                 if re.match('Output .*',line):
                     break
-		if re.match('mothur > quit()',line):
+                if re.match('mothur > quit()',line):
                     break
                 if found_begin and info_chars < 200:
                     info += "%s" % line
