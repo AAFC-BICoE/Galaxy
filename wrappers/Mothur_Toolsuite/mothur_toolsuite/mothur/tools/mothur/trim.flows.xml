@@ -98,7 +98,7 @@
    <validator type="in_range" message="signal between 0. and 1." min="0.0" max="1.0"/>
   </param>
   <param name="order" type="text" value="A" label="order - flow order for nucleotides in the sequencer"
-         help="default is A, was TACG. Also accept B or I"/>
+         help="default is A, was TACG. Also accepts B or I"/>
 
   <param name="fasta" type="boolean" truevalue="--fasta=true" falsevalue="" checked="false" label="fasta - translate the flowgram data to fasta sequence format"/>
 

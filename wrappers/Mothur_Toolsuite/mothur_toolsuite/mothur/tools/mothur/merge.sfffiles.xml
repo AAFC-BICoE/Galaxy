@@ -11,7 +11,7 @@
  <inputs>
 
     <param name="input" type="data" format="sff" label="input - sff"/>
-    <repeat name="inputs" title="More SFF"> 
+    <repeat name="inputs" title="Addition SFF files to merge"> 
      <param name="input" type="data" format="sff" label="input - sff"/>
     </repeat>
 

@@ -71,7 +71,7 @@
   </param>
 
   <param name="order" type="text" value="A" label="order - flow order for nucleotides in the sequencer"
-         help="default is A, was TACG. Also accept B or I"/>
+         help="default is A, was TACG. Also accepts B or I"/>
 
   <param name="large" type="integer" value="10000" optional="true" label="large - split your flow file and process the pieces separately (default 10000)" help="">
       <validator type="in_range" message="large value must be positive" min="1"/>
