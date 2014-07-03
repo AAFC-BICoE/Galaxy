@@ -50,7 +50,6 @@ use constant DEBUG => 0;
 use Cwd 'abs_path';
 use Getopt::Long;
 use Pod::Usage;
-use Try::Tiny;
 
 # Default Options
 my $help;
