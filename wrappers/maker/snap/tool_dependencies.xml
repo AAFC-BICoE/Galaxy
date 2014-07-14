@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="snap" version="2006-07-28">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://korflab.ucdavis.edu/Software/snap-2013-11-29.tar.gz</action>
+                <action type="shell_command">make</action>
+                <action type="shell_command">mv * $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                    <environment_variable name="ZOE" action="set_to">/usr/share/snap/Zoe</environment_variable>
+                    <environment_variable name="snaphmm" action="set_to">$INSTALL_DIR/HMM/</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+this is installer for SNAP version 2006-07-28
+
+        </readme>
+    </package>
+
+</tool_dependency>
+

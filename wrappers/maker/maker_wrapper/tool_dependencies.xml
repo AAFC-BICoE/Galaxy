@@ -1,6 +1,41 @@
 <?xml version="1.0"?>
 <tool_dependency>
-	<set_environment version="1.0">
+    <!-- <package name="cegma" version="2.5">
+        <repository name="cegma" owner="liuyue" prior_installation_required="True" />
+    </package>
+    <package name="snap" version="2006-07-28">
+        <repository name="snap" owner="liuyue" prior_installation_required="True" />
+    </package>
+    <package name="augustus" version="3.0.2">
+        <repository name="augustus" owner="liuyue" prior_installation_required="True" />
+    </package> 
+    <package name="genemark" version="2.3e">
+        <repository name="genemark" owner="liuyue" prior_installation_required="True" toolshed="http://onotta669816x:9009" changeset_revision="1673174af1dc"/>
+    </package> -->
+
+    <package name="maker" version="2.31.6">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/some_url</action> <!-- NEED LINK!!! -->
+                <action type="shell_command">cd src</action>
+                <action type="shell_command">echo "n" | perl Build.PL</action> <!-- Need more checking!!! -->
+                <action type="shell_command">./Build installdeps</action> <!-- might need sudo privilage for this one -->
+                <action type="shell_command">./Build installexes</action>
+                <action type="shell_command">./Build install</action>
+                <action type="shell_command">mv * $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+this is installer for maker
+Note that the download link is temporarily generated; need to somehow obtain a permanent one
+
+        </readme>
+    </package>
+	<!-- <set_environment version="1.0">
 		<environment_variable name="PATH" action="prepend_to">/isilon/biodiversity/pipelines/maker-2.10/maker-2.10/bin/:/isilon/biodiversity/pipelines/maker-2.10/augustus.2.7/bin/:/isilon/biodiversity/pipelines/maker-2.10/exonerate-2.2.0/bin/:/isilon/biodiversity/pipelines/maker-2.10/gene-mark-es-2.3e/gmes/:/isilon/biodiversity/pipelines/maker-2.10/hmmer-3.1b1/bin/:/opt/bio/ncbi/bin/blastall:/isilon/biodiversity/pipelines/maker-2.10/perl-5.14.4/bin/:/isilon/biodiversity/pipelines/maker-2.10/RepeatMasker-open-4-0-3/:/isilon/biodiversity/pipelines/maker-2.10/rmblast-2.2.2.27/bin/:/isilon/biodiversity/pipelines/maker-2.10/snap-2013-16/</environment_variable>
-	</set_environment>
+	</set_environment> -->
 </tool_dependency>
+

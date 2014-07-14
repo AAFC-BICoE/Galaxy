@@ -1,0 +1,103 @@
+<tool id="cegma" name="CEGMA" version="1.0">
+  <requirements>
+    <requirement type="package" version="2.5">cegma</requirement>
+    <requirement type="package" version="1.4.4">geneid</requirement>
+    <requirement type="package" version="3.1">hmmer</requirement>
+    <requirement type="package" version="2.4.1">genewise</requirement>
+    <requirement type="package" version="2.2.29">ncbiblast</requirement>
+  </requirements>
+  <description>Core Eukaryotic Genes Mapping Approach</description>
+<!-- Assume all prerequisites are properly installed!! including blast, genewise, geneid, hmmer, also env vars properly set ($CEGMA, $CEGMATMP, $PERL5LIB) -->
+<!--also need glib 2.0-->
+  <command>  cegma
+		#if $protein.__str__ != "None":
+		-p $protein 
+		#end if
+		#if $tblastn.__str__ != "None":
+		-t $tblastn 
+		#end if
+		#if $gw.__str__ != "None":
+		-s $gw 
+		#end if
+		#if $ano.__str__ != "None":
+		-s $ano 
+		#end if
+		$vrt
+		$mam
+		#if $maxintron.__str__ != "-1":
+		--max_intron $maxintron
+		#end if
+		--quiet
+		-g $genome ;
+		<!-- process outputs!!! -->
+		mv output.cegma.dna $dna ;
+		<!-- mv output.cegma.errors $err ; --> rm output.cegma.errors;
+		mv output.cegma.fa $prot ;
+		mv output.cegma.gff $gff ;
+		mv output.cegma.id $id ;
+		mv output.cegma.local.gff $local ;
+		mv output.completeness_report $comrep ;
+
+        </command>
+	<inputs>
+		<param name="genome" type="data" format="fasta" label="Genome" 
+  		help="FASTA file of the query sequence"/>
+		<param name="protein" type="data" format="fasta" label="Protein" optional="true"
+  		help="FASTA file of the protein sequence (only used to run a subset of the 458 CEGs)"/>
+		<param name="tblastn" type="data" format="gff" label="tblastn result" optional="true"
+  		help="gff file containing the tblastn results (this option skips the blast step)"/>
+		<param name="gw" type="data" format="gff" label="Genewise result" optional="true"
+  		help="gff file with the genewise alignment coordinates (this options skips the blast step)"/>
+		<param name="ano" type="data" format="gff" label="Annotation" optional="true"
+  		help="gff file with gene annotations (computes the coordinates for the annotations)"/>
+		<param name="vrt" type="boolean" label="Vertebrate optimization" truevalue="--vrt" falsevalue="" checked="false"
+  		help="Optimization for vertebrate genomes (intron size 20,000 bp)"/>
+		<param name="mam" type="boolean" label="Mammal optimization" truevalue="--vrt" falsevalue="" checked="false"
+  		help="Optimization for mamalian genomes (intron size 40,000 bp)"/>
+		<param name="maxintron" type="integer" label="Max intron size" value="-1" min="-1"
+		help="Leave at -1 for default"/>
+
+	</inputs>
+
+	<outputs>
+     	   <data format="fasta" name="dna" label="CEGMA gene DNA prediction on ${on_string}"/>
+     	   <!-- <data format="txt" name="err" label="CEGMA errors on ${on_string}"/> -->
+     	   <data format="fasta" name="prot" label="CEGMA protein prediction on ${on_string}"/>
+     	   <data format="gff" name="gff" label="CEGMA gene prediction exon details on ${on_string}"/>
+     	   <data format="tabular" name="id" label="CEGMA KOG ID for selected proteins on ${on_string}"/>
+     	   <data format="gff" name="local" label="CEGMA GFF info of CEGs using local coordinates on ${on_string}"/>
+     	   <data format="tabular" name="comrep" label="CEGMA completeness report on ${on_string}"/>
+	</outputs>
+
+	<tests>
+	
+	<test>
+		<param name="genome" value="sample.dna"/>
+		<param name="protein" value="sample.prot"/>
+		<param name="vrt" value="False"/>
+		<param name="mam" value="False"/>
+		<param name="maxintron" value="-1"/>
+		<output name="dna" file="output.cegma.dna.fasta"/>
+		<output name="prot" file="output.cegma.fa.fasta"/>
+		<output name="gff" file="output.cegma.gff"/>
+		<output name="id" file="output.cegma.id"/>
+		<output name="local" file="output.cegma.local.gff"/>
+		<output name="comrep" file="output.completeness_report.txt"/>
+	</test>
+
+
+	</tests>
+
+
+
+	<help>
+
+    CEGMA (Core Eukaryotic Genes Mapping Approach) is a pipeline for
+    building a set of high reliable set of gene annotations in
+    virtually any eukaryotic genome. It combines tblastn, genewise,
+    hmmer, with geneid, an "ab initio" gene prediction program.
+
+	</help>
+
+
+</tool>

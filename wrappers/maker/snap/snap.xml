@@ -1,0 +1,88 @@
+<tool id="snap" name="SNAP" version="1.0">
+  <description>Semi-HMM-based Nucleic Acid Parser</description>
+  <requirements>
+    <requirement type="package" version="2006-07-28">snap</requirement>
+  </requirements>
+  <command>    snap
+		$plus $minus
+
+		-aa $proteinout
+
+		-tx $transcriptout
+
+		<!-- Export $ZOE and $snaphmm when installing !! -->
+		#if $hmmsource.sourceselect.__str__ == 'builtin':
+		\${snaphmm}/$hmmsource.hmm
+		#else
+		$hmmsource.hmm
+		#end if
+		
+		-gff
+		-quiet
+		$in >$out
+        </command>
+	<inputs>
+		<param name="in" type="data" format="fasta" label="Genome sequence in FASTA format" />
+		<param name="plus" type="boolean" label="Plus only" truevalue="-plus" falsevalue="" checked="false" help="Predict on plus strand only"/>
+		<param name="minus" type="boolean" label="Minus only" truevalue="-minus" falsevalue="" checked="false" help="Predict on minus strand only"/>
+
+		<conditional name="hmmsource">
+			<param name="sourceselect" type="select" label="Source of hmm file. This is the file containing SNAP parameters.">
+				<option value="builtin">Provided by SNAP</option>
+				<option value="user">Provide your own</option>
+			</param>
+			<when value="builtin">
+				<param name="hmm" type="text" label="Built in hmm file" value="minimal.hmm" help="See below for a list of hmm file provided by SNAP"/>
+			</when>
+			<when value="user">
+				<param name="hmm" type="data" format="txt" label="hmm file" />
+			</when>
+		</conditional>  
+		
+		
+	</inputs>
+
+	<outputs>
+     	   <data format="gff" name="out" label="SNAP gene predictions (GFF) on ${on_string}"/> 
+     	   <data format="fasta" name="proteinout" label="SNAP predicted proteins (FASTA) on ${on_string}"/> 
+     	   <data format="fasta" name="transcriptout" label="SNAP transcripts (FASTA) on ${on_string}"/>
+	</outputs>
+
+	<stdio>
+		<regex match="contains fewer than 100 unmasked nucleotides" source="stderr" level="warning" 
+		       description="Found contig containing fewer than 100 unmasked nucleotides"/>
+		<regex match="ERROR" source="stderr" level="fatal" />
+	</stdio>
+
+	<tests>
+	<test>
+		<param name="in" value="humanChr1.fasta"/>
+		<param name="hmmsource.sourceselect" value="builtin"/>
+		<param name="hmmsource.hmm" value="minimal.hmm"/>
+		<output name="out" file="out.gff"/>
+		<output name="proteinout" file="protein.fasta"/>
+		<output name="transcriptout" file="transcript.fasta"/>
+	</test>
+	</tests>
+
+	<help>
+
+SNAP - Semi-HMM-based Nucleic Acid Parser
+
+list of avilable HMM::
+
+  Acanium.hmm      Ce.hmm              ixodesB.hmm   minimal.hmm   rice
+  A.gambiae.hmm    C.elegans.hmm       mam39.hmm     mosquito      thale
+  A.mellifera.hmm  C.intestinalis.hmm  mam39-ro.hmm  Nasonia.hmm   worm
+  A.thaliana.hmm   ciona               mam46.hmm     nGASP.hmm     worm1.hmm
+  At.hmm           D.melanogaster.hmm  mam46-ro.hmm  nGASPr.hmm
+  B.malayi.hmm     Dm.hmm              mam54.hmm     O.sativa.hmm
+  B.mori.hmm       fly                 mam54-ro.hmm  Os.hmm
+  brugia           ixodesA.hmm         mamiso.hmm    
+
+
+	</help>
+
+
+
+</tool>

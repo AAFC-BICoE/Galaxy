@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="augustus" version="3.0.2">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.0.2.tar.gz</action>
+                <action type="shell_command">cd src</action>
+                <action type="shell_command">make</action>
+                <!-- <action type="shell_command">make install</action> -->
+                <action type="shell_command">mv auxprogs bin common.mk config include Makefile mysql++ retraining.html scripts $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin:$INSTALL_DIR/scripts</environment_variable>
+                    <environment_variable name="AUGUSTUS_CONFIG_PATH" action="set_to">$INSTALL_DIR/config</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+this is installer for augustus 3.0.2
+
+        </readme>
+    </package>
+
+</tool_dependency>
+
