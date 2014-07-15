@@ -2,6 +2,7 @@
 	<description>Merges given GFF3 files into one.</description>
 	<requirements>
                 <requirement type="set_environment">PATH</requirement>
+                <requirement type="package" version="2.31.6">maker</requirement>
         </requirements>
 	<command>
 		gff3_merge $omit_evidence $omit_fasta $legacy -o $out

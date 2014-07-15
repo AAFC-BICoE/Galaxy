@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="maker" version="2.31.6">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/maker_downloads/F7BF/36D9/5A75/F93993D356C3396F722AD07D8B52/maker-2.31.6.tgz</action>
+                <action type="shell_command">echo "n" | perl ./src/Build.PL</action> <!-- Need more checking!!! -->
+                <!-- <action type="shell_command">./src/Build installdeps</action>  need sudo privilage for this one, also it is interactive -->
+                <!-- <action type="shell_command">./src/Build installexes</action> doesn't really work-->
+                <action type="shell_command">./src/Build install</action>
+		<action type="make_directory">dependencies</action>
+		<action type="change_directory">dependencies</action>
+		<!-- augustus -->
+                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.0.2.tar.gz</action>
+                <action type="shell_command">cd src</action>
+                <action type="shell_command">make</action>
+                <action type="shell_command">cd ../..</action>
+		<!--snap-->
+                <action type="download_by_url">http://korflab.ucdavis.edu/Software/snap-2013-11-29.tar.gz</action>
+                <action type="shell_command">make</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                    <environment_variable name="ZOE" action="set_to">/usr/share/snap/Zoe</environment_variable>
+                    <environment_variable name="snaphmm" action="set_to">$INSTALL_DIR/HMM/</environment_variable>
+                </action>
+                <action type="shell_command">cd ..</action>
+		<!--trf required by repeat masker-->
+                <action type="download_by_url">http://tandem.bu.edu/trf/downloads/trf404.linux64</action>
+                <action type="shell_command">chmod a+x trf404.linux64</action>
+		<!-- ncbi blast and rmBlast -->
+		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
+                <action type="shell_command">cd ..</action>
+		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-2.2.28-x64-linux.tar.gz</action>
+                <action type="shell_command">cd ..</action>
+                <action type="shell_command">cp -R ncbi-rmblastn-2.2.28/* ncbi-blast-2.2.29+/</action>
+                <action type="shell_command">rm -rf ncbi-rmblastn-2.2.28</action>
+		<!--repeat masker-->
+		<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz</action>
+		<!--the configure script is interactive. The questions asked are:
+			location of perl
+			install dir
+			trf location
+			select search program - rmblast
+			location of rmblast
+			set to be default search engine
+			done -->
+                <action type="shell_command">echo -e "\n`which perl`\n.\n`pwd`/../trf404.linux64\n2\n`pwd`/../ncbi-blast-2.2.29+/bin\ny\n5\n" |./configure</action>
+                <action type="shell_command">cd ..</action>
+		<!--exonerate -->
+		<action type="download_by_url">https://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0-x86_64.tar.gz</action>
+                <action type="shell_command">cd ..</action>
+		<!--old ncbi-blast -->
+		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/release/LATEST/blast-2.2.26-x64-linux.tar.gz</action>
+                <action type="shell_command">cd ..</action>
+
+		<!--clean up-->
+		<action type="change_directory">..</action>
+                <action type="shell_command">mv * $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+this is installer for maker
+Note that the link here is tied to my email address and we should store the files somewhere on biocluster
+instead of having to register and download everytime
+
+Note: this also installs snap, augustus, blast (2 versions), exonerate, repeatmasker inside of Maker's directory.
+($INSTALL_DIR/dependencies)
+We do this instead of making them a dependency is to make sure we have versions that work well together
+Also this makes it easier for maker to find these programs.
+
+2 versions of ncbi-blast is needed. The older one is needed for formatdb and blastall
+
+Repeat masker also need trf and rmblast. 
+
+Currently this works only for linux-64. (matters for rmblast, ncbiblast, trf,exonerate)
+Some has source code, but building them is complicated
+
+        </readme>
+    </package>
+</tool_dependency>
+

@@ -4,12 +4,13 @@
 	
 	<requirements>
 		<requirement type="set_environment">PATH</requirement>
+                <requirement type="package" version="2.31.6">maker</requirement>
 	</requirements>
 
 	<parallelism method="multi" split_inputs="genome" split_mode="to_size" split_size="1" merge_outputs="output_datastore,output_gff3,output_trans,output_protein,other_trans,other_protein"></parallelism>
 
 	<command interpreter="bash">
-		maker_wrap $genome $maker_exe $maker_opts $maker_bopts $output_datastore $output_gff3 $output_trans $output_protein 
+		maker_wrap.sh $genome $maker_exe $maker_opts $maker_bopts $output_datastore $output_gff3 $output_trans $output_protein 
 
 		#if $keep_all		
 		$other_trans $other_protein
