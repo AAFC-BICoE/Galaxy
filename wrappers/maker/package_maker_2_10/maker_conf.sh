@@ -11,16 +11,18 @@
 
 cat $1 > $3;
 cat $2 > $4;
-maker -CTL
-#cat maker_exe.ctl > $5;
+maker -CTL ##maker automatically looks for the executables in PATH
+cat maker_exe.ctl > $5;
+
+: ' (all these stuff is commented out)
 echo "\
 #-----Location of Executables Used by MAKER/EVALUATOR
 makeblastdb=${MAKERPATH}/dependencies/ncbi-blast-2.2.29+/bin/makeblastdb #location of NCBI+ makeblastdb executable
 blastn=${MAKERPATH}/dependencies/ncbi-blast-2.2.29+/bin/blastn #location of NCBI+ blastn executable
 blastx=${MAKERPATH}/dependencies/ncbi-blast-2.2.29+/bin/blastx #location of NCBI+ blastx executable
 tblastx=${MAKERPATH}/dependencies/ncbi-blast-2.2.29+/bin/tblastx #location of NCBI+ tblastx executable
-formatdb=${MAKERPATH}/dependencies/blast-2.2.26/bin/formatdb #location of NCBI formatdb executable
-blastall=${MAKERPATH}/dependencies/blast-2.2.26/bin/blastall #location of NCBI blastall executable
+formatdb= #location of NCBI formatdb executable
+blastall= #location of NCBI blastall executable
 xdformat= #location of WUBLAST xdformat executable
 blasta= #location of WUBLAST blasta executable
 RepeatMasker=${MAKERPATH}/dependencies/RepeatMasker/RepeatMasker #location of RepeatMasker executable
@@ -36,4 +38,4 @@ fgenesh= #location of fgenesh executable
 #-----Other Algorithms
 fathom=${MAKERPATH}/dependencies/snap/fathom #location of fathom executable (experimental)
 probuild=`which probuild` #location of probuild executable (required for genemark) \
-" > $5
+" > $5 '

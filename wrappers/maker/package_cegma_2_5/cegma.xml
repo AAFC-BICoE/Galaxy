@@ -77,7 +77,7 @@
 		<param name="vrt" value="False"/>
 		<param name="mam" value="False"/>
 		<param name="maxintron" value="-1"/>
-		<output name="dna" file="output.cegma.dna.fasta"/>
+		<output name="dna" file="output.cegma.dna.fasta" lines_diff="26"/>
 		<output name="prot" file="output.cegma.fa.fasta"/>
 		<output name="gff" file="output.cegma.gff"/>
 		<output name="id" file="output.cegma.id"/>
