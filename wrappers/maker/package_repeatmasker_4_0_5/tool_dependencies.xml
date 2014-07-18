@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<tool_dependency>
+
+    <package name="rmblast" version="2.2.28">
+        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009"/>
+    </package>
+
+    <package name="repeatmasker" version="4.0.5">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url" >http://tandem.bu.edu/trf/downloads/trf404.linux64</action>
+		<!--<action type="chmod">
+			<file mode="755">trf404.linux64</file>
+		</action> --> <!--this doesn't work, cause crash-->
+		<action type="shell_command">chmod a+x trf404.linux64</action> 
+		<action type="set_environment_for_install">
+			<repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009">
+				<package name="rmblast" version="2.2.28" />
+			</repository>
+		</action>
+		<action type="move_file">
+			<source>./trf404.linux64</source>
+			<destination>$INSTALL_DIR</destination>
+		</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                </action>
+		<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz</action> <!--will not auto cd into it-->
+		<!--the configure script is interactive. The questions asked are:
+			location of perl
+			install dir
+			trf location
+			select search program - rmblast
+			location of rmblast
+			set to be default search engine
+			done -->
+		<action type="change_directory">RepeatMasker</action>
+		<action type="move_directory_files">
+			<source_directory>.</source_directory>
+			<destination_directory>$INSTALL_DIR</destination_directory>
+		</action>
+		<!-- <action type="change_directory">$INSTALL_DIR</action> this tag do not recognize $INSTALL_DIR-->
+		<action type="shell_command">echo "starting to config"</action> 
+		<!--apparently echo -e don't work, also the command must all be on same line-->
+                <action type="shell_command">cd $INSTALL_DIR;tmp=`which blastn`;tmp=${tmp%/*};echo "" > configfeed.txt;echo "`which perl`" >> configfeed.txt;echo $INSTALL_DIR >> configfeed.txt;echo "$INSTALL_DIR/trf404.linux64" >> configfeed.txt;echo "2" >> configfeed.txt;echo "${tmp}" >> configfeed.txt;echo "y" >> configfeed.txt;echo "5" >> configfeed.txt;$INSTALL_DIR/configure &lt; configfeed.txt</action>
+            </actions>
+        </install>
+    </package>
+</tool_dependency>
+
