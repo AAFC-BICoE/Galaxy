@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="exonerate" version="2.2.0">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">https://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0-x86_64.tar.gz</action>
+		<action type="move_directory_files">
+			<source_directory>.</source_directory>
+			<destination_directory>$INSTALL_DIR</destination_directory>
+		</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+    </package>
+</tool_dependency>
+

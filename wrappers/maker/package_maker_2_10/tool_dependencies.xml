@@ -22,25 +22,14 @@
     </package>
 
     <package name="exonerate" version="2.2.0">
-        <install version="1.0">
-            <actions>
-                <action type="download_by_url">https://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0-x86_64.tar.gz</action>
-		<action type="move_directory_files">
-			<source_directory>.</source_directory>
-			<destination_directory>$INSTALL_DIR</destination_directory>
-		</action>
-                <action type="set_environment">
-                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                </action>
-            </actions>
-        </install>
+        <repository name="package_exonerate_2_2_0" owner="liuyue" prior_installation_required="True" changeset_revision="7384b1e16200" toolshed="http://onotta669816x:9009"/>
     </package>
 
 
     <package name="maker" version="2.31.6">
         <install version="1.0">
             <actions>
-		<!-- download must be the first action, otherwise the file disappears after downloading -->
+		<!-- download must be the first action, otherwise the file disappears after downloading OR it downloads and decompress but don't cd into it-->
                 <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/maker_downloads/F7BF/36D9/5A75/F93993D356C3396F722AD07D8B52/maker-2.31.6.tgz</action>
 		<action type="set_environment_for_install">
 			<repository name="package_snap_2006_07_28" owner="liuyue" changeset_revision="e0729ff4910c" toolshed="http://onotta669816x:9009">
@@ -57,70 +46,53 @@
 				<package name="repeatmasker" version="4.0.5" />
 			</repository>
 		</action>
-
-		<action type="setup_perl_environment">
+		<action type="set_environment_for_install">
 		   <repository name="package_perl_5_18" owner="liuyue" changeset_revision="ffeb7bc77ca9" toolshed="http://onotta669816x:9009">
 			<package name="perl" version="5.18.1" />
 		   </repository>
-			<package>http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/File-Which-1.09.tar.gz</package> <!--File::Which-->
-			<package>http://search.cpan.org/CPAN/authors/id/C/CJ/CJFIELDS/BioPerl-1.6.901.tar.gz</package> <!--Bio::Root::Version-->
-			<package>http://search.cpan.org/CPAN/authors/id/I/IN/INGY/IO-All-0.46.tar.gz</package> <!--IO::All-->
-			<package>http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/IO-Prompt-0.997002.tar.gz</package> <!--IO::Prompt-->
-			<package>http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/DBD-SQLite-1.42.tar.gz</package> <!--DBD::SQLite-->
-			<package>http://search.cpan.org/CPAN/authors/id/T/TU/TURNSTEP/DBD-Pg-3.3.0.tar.gz</package> <!--DBD::pg-->
-			<package>http://search.cpan.org/CPAN/authors/id/R/RG/RGARCIA/Perl-Unsafe-Signals-0.02.tar.gz</package> <!--Perl::Unsafe::Signals-->
-			<package>http://search.cpan.org/CPAN/authors/id/S/ST/STBEY/Bit-Vector-7.3.tar.gz</package> <!--Bit::Vector-->
-			<package>http://search.cpan.org/CPAN/authors/id/I/IN/INGY/Inline-C-0.60.tar.gz</package> <!--Inline::C-->
-			<package>http://search.cpan.org/CPAN/authors/id/R/RY/RYBSKEJ/forks-0.36.tar.gz</package> <!--forks-->
-			<!-- <package>http://search.cpan.org/~rybskej/forks-0.36/lib/forks/shared.pm</package> forks::shared-->
-			<package>http://search.cpan.org/CPAN/authors/id/R/RO/ROBIN/Want-0.23.tar.gz</package> <!--Want-->
-			<package>http://search.cpan.org/CPAN/authors/id/C/CJ/CJFIELDS/BioPerl-1.6.924.tar.gz</package> <!--BioPerl-->
-			<package>http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.631.tar.gz</package> <!--DBI-->
-			<package>http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Error-0.17022.tar.gz</package> <!--Error-->
-			<!-- <package>http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Error-0.17022.tar.gz</package> Error::Simple-->
-			<package>http://search.cpan.org/CPAN/authors/id/B/BB/BBB/File-NFSLock-1.21.tar.gz</package> <!--File::NFSLock-->
-			<!-- <package> </package> Proc (::Signal) -->
-			<package>http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/URI-1.64.tar.gz</package> <!--URI::Escape-->
-			<package>http://search.cpan.org/CPAN/authors/id/I/IN/INGY/Inline-0.62.tar.gz</package> <!--Inline-->
-			<package>http://search.cpan.org/CPAN/authors/id/N/NW/NWCLARK/PerlIO-gzip-0.18.tar.gz</package> <!--PerlIO::gzip-->
-<package>http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/DB_File-1.831.tar.gz</package> <!--DB_File-->
-<package>http://search.cpan.org/CPAN/authors/id/C/CM/CMUNGALL/Data-Stag-0.14.tar.gz</package> <!--Data::Stag-->
-<package>http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/IO-String-1.08.tar.gz</package> <!--IO::String-->
-<package>http://search.cpan.org/CPAN/authors/id/T/TP/TPEDERSE/Algorithm-Munkres-0.08.tar.gz</package> <!--Algorithm::Munkres-->
-<package>http://search.cpan.org/CPAN/authors/id/G/GA/GARU/Clone-0.37.tar.gz</package> <!--Clone-->
-<package>Convert::Binary::C</package>
-<package>GD</package>
-<package>Graph</package>
-<package>GraphViz</package>
-<package>HTML::Entities</package>
-<package>HTML::HeadParser</package>
-<package>HTTP::Request::Common</package>
-<package>LWP::UserAgent</package>
-<package>List::MoreUtils</package>
-<package>Math::Random</package>
-<package>PostScript::TextBlock</package>
-<package>SOAP::Lite</package>
-<package>SVG</package>
-<package>SVG::Graph</package>
-<package>Set::Scalar</package>
-<package>Sort::Naturally</package>
-<package>Spreadsheet::ParseExcel</package>
-<package>URI::Escape</package>
-<package>XML::DOM::XPath</package>
-<package>XML::Parser</package>
-<package>XML::Parser::PerlSAX</package>
-<package>XML::SAX</package>
-<package>XML::SAX::Writer</package>
-<package>XML::Simple</package>
-<package>XML::Twig</package>
-<package>XML::Writer</package>
-<package>YAML</package>
+		</action>
+		<action type="set_environment_for_install">
+		   <repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009">
+			<package name="rmblast" version="2.2.28" />
+		   </repository>
+		</action>
+		<action type="set_environment_for_install">
+		   <repository name="package_exonerate_2_2_0" owner="liuyue" changeset_revision="7384b1e16200" toolshed="http://onotta669816x:9009">
+			<package name="exonerate" version="2.2.0" />
+		   </repository>
 		</action>
 
-                <action type="shell_command">echo "checking perl requirements"</action> 
-                <action type="shell_command">perldoc perllocal</action>  <!--cpan -l -->
+		<!--<action type="shell_command">wget http://backpan.perl.org/authors/id/T/TI/TIMB/DBI-1.57.tar.gz</action>
+		<action type="shell_command">tar -xvzf DBI-1.57.tar.gz</action>
+		<action type="change_directory">DBI-1.57</action>
+		<action type="shell_command">ls</action>
+		<action type="shell_command">perl Makefile.PL; make; make test</action>
+		<action type="change_directory">..</action>-->
+
+                <!--<action type="shell_command">echo "checking perl requirements"</action> 
+                <action type="shell_command">perldoc perllocal</action>   cpan -l -->
+
+		<!--<action type="setup_perl_environment">
+		   <repository name="package_perl_5_18" owner="liuyue" changeset_revision="ffeb7bc77ca9" toolshed="http://onotta669816x:9009">
+			<package name="perl" version="5.18.1" />
+		   </repository>
+			<package>DBI</package>
+			<package>LWP::Simple</package>
+			<package>Bio::Root::Version</package>
+			<package>Bit::Vector</package>
+			<package>DBD::SQLite</package>
+			<package>IO::All</package>
+			<package>Inline::C</package>
+			<package>Perl::Unsafe::Signals</package>
+			<package>Want</package>
+			<package>forks</package>
+			<package>forks::shared</package>
+		</action>-->
+
+
 
                 <action type="shell_command">echo "n" | perl ./src/Build.PL</action> 
+		<action type="shell_command">echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> 
                 <action type="shell_command">./src/Build install</action>
 		<action type="move_directory_files">
 			<source_directory>.</source_directory>

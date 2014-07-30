@@ -2,8 +2,13 @@
 	<description>Create customized MAKER control files</description>
 
 	<requirements>
-                <requirement type="set_environment">PATH</requirement>
+                <!-- <requirement type="set_environment">PATH</requirement> -->
                 <requirement type="package" version="2.31.6">maker</requirement>
+		<requirement type="package" version="3.0.2">augustus</requirement>
+		<requirement type="package" version="2006-07-28">snap</requirement>
+		<requirement type="package" version="2.2.28">rmblast</requirement>
+		<requirement type="package" version="4.0.5">repeatmasker</requirement>
+		<requirement type="package" version="2.2.0">exonerate</requirement>
         </requirements>
 
 	<command interpreter="bash">
@@ -277,7 +282,7 @@ en_score_limit=20 #Exonerate nucleotide percent of maximal score threshold
 #end if
 #else
 \#-----BLAST and Exonerate Statistics Thresholds
-blast_type=ncbi \#set to 'wublast' or 'ncbi'
+blast_type=ncbi+ \#set to 'wublast' or 'ncbi'
 
 pcov_blastn=0.8 \#Blastn Percent Coverage Threhold EST-Genome Alignments
 pid_blastn=0.85 \#Blastn Percent Identity Threshold EST-Genome Aligments
