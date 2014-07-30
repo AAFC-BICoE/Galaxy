@@ -107,6 +107,8 @@
             </actions>
         </install>
         <readme>
+say something about .cpan
+
 this is installer for maker
 Note that the link here is tied to my email address and we should store the files somewhere on biocluster
 instead of having to register and download everytime

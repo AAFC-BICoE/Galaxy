@@ -66,15 +66,15 @@
 		<!-- Gene Prediction and Evidence Use -->
 		<param label="Do you want to infer gene predictions directly from EST evidence?" name="est2genome" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<param label="Do you want to infer gene predictions directly from protein evidence?" name="protein2genome" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<param label="Do you want to run ab-initio gene prediction tools on soft masked regions?" name="unmask" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		
 		<!-- MAKER and External Application Behaviour Options -->
@@ -87,23 +87,23 @@
 		<param label="Set the minimum amount of amino acids in predicted protein sequences" name="min_protein" type="integer" value="0" min="0" max="100000" />
 		<param label="Do you want to take extra steps to find alternative splicing?" name="alt_splice" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<param label="Do you want to force a start and stop codon into every gene?" name="always_complete" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<param label="Do you want to map the names and attributes from old GFF3 files?" name="map_forward" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<param label="Do you want to keep all gene predictions in the final annotation set?" name="keep_preds" type="select" display="radio" multiple="false">
 			<option value="1">yes</option>
-			<option value="0">no</option>
+			<option value="0" selected="true">no</option>
 		</param>
 		<conditional name="single_check">
 			<param label="Do you want to consider single exon EST evidence when generating annotations?" name="single_exon" type="select" multiple="false">
-				<option value="0">no</option>
+				<option value="0" selected="true">no</option>
 				<option value="1">yes</option>
 			</param>
 
@@ -354,7 +354,7 @@ protein_gff=  \#protein homology evidence from an external gff3 file
 \#-----Repeat Masking (leave values blank to skip repeat masking)
 model_org=$model_org \#select a model organism for RepBase masking in RepeatMasker
 rmlib= \#provide an organism specific repeat library in fasta format for RepeatMasker
-repeat_protein=/isilon/biodiversity/pipelines/maker-2.10/maker-2.10/data/te_proteins.fasta \#provide a fasta file of transposable element proteins for RepeatRunner
+repeat_protein=\$MAKERPATH/data/te_proteins.fasta \#provide a fasta file of transposable element proteins for RepeatRunner
 rm_gff= \#repeat elements from an external GFF3 file
 prok_rm=0 \#forces MAKER to run repeat masking on prokaryotes (don't change this), 1 = yes, 0 = no
 
