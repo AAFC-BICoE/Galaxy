@@ -25,7 +25,8 @@
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
                 </action>
-		<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz</action> <!--will not auto cd into it-->
+		<!--http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz newer version-->
+		<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action> <!--will not auto cd into it-->
 		<!--the configure script is interactive. The questions asked are:
 			location of perl
 			install dir

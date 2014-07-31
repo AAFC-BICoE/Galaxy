@@ -188,7 +188,7 @@
                        level="warning" />
 		<regex match="ERROR"
 		       source="both"
-		       level="fatal" />
+		       level="warning" /> <!-- some errors are actually warnings-->
 	</stdio>
 
 	<readme>This is the wrapper tool for MAKER v2.10.</readme>

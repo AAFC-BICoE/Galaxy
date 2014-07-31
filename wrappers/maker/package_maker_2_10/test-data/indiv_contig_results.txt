@@ -1,0 +1,2 @@
+pug3_contig_601	genome_datastore/7B/92/pug3_contig_601/	STARTED
+pug3_contig_601	genome_datastore/7B/92/pug3_contig_601/	FINISHED

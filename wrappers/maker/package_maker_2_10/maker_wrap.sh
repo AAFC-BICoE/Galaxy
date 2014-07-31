@@ -105,7 +105,7 @@ fi
 #Force cpu to be 1
 sed -i s%^cpus=.*%cpus=1% maker_opts.ctl
 #Set tmp folder to prevent NFS errors.
-sed -i s%^TMP=.*%TMP=/state/partition1/% maker_opts.ctl
+#sed -i s%^TMP=.*%TMP=/state/partition1/% maker_opts.ctl
 
 #These files can be sourced so we can validate the input.
 #. maker_exe.ctl 

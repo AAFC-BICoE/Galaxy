@@ -18,7 +18,7 @@
 
     <package name="repeatmasker" version="4.0.5">
         <repository name="package_repeatmasker_4_0_5" owner="liuyue" prior_installation_required="True" 
-			changeset_revision="748e69cdf6a3" toolshed="http://onotta669816x:9009"/>
+			changeset_revision="1a4b7394ce76" toolshed="http://onotta669816x:9009"/>
     </package>
 
     <package name="exonerate" version="2.2.0">
@@ -42,7 +42,7 @@
 			</repository>
 		</action>
 		<action type="set_environment_for_install">
-			<repository name="package_repeatmasker_4_0_5" owner="liuyue" changeset_revision="748e69cdf6a3" toolshed="http://onotta669816x:9009">
+			<repository name="package_repeatmasker_4_0_5" owner="liuyue" changeset_revision="1a4b7394ce76" toolshed="http://onotta669816x:9009">
 				<package name="repeatmasker" version="4.0.5" />
 			</repository>
 		</action>
