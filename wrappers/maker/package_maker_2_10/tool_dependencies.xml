@@ -5,7 +5,7 @@
     </package>
 
     <package name="augustus" version="3.0.2">
-        <repository name="package_augustus_3_0_2" owner="liuyue" prior_installation_required="True" changeset_revision="b677c3c368af" toolshed="http://onotta669816x:9009"/>
+        <repository name="package_augustus_3_0_2" owner="liuyue" prior_installation_required="True" changeset_revision="648122919c1f" toolshed="http://onotta669816x:9009"/>
     </package> 
 
     <package name="snap" version="2006-07-28">
@@ -13,12 +13,12 @@
     </package>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009"/>
     </package>
 
     <package name="repeatmasker" version="4.0.5">
         <repository name="package_repeatmasker_4_0_5" owner="liuyue" prior_installation_required="True" 
-			changeset_revision="1a4b7394ce76" toolshed="http://onotta669816x:9009"/>
+			changeset_revision="6912ce3a9a18" toolshed="http://onotta669816x:9009"/>
     </package>
 
     <package name="exonerate" version="2.2.0">
@@ -37,12 +37,12 @@
 			</repository>
 		</action>
 		<action type="set_environment_for_install">
-			<repository name="package_augustus_3_0_2" owner="liuyue" changeset_revision="b677c3c368af" toolshed="http://onotta669816x:9009">
+			<repository name="package_augustus_3_0_2" owner="liuyue" changeset_revision="648122919c1f" toolshed="http://onotta669816x:9009">
 				<package name="augustus" version="3.0.2" />
 			</repository>
 		</action>
 		<action type="set_environment_for_install">
-			<repository name="package_repeatmasker_4_0_5" owner="liuyue" changeset_revision="1a4b7394ce76" toolshed="http://onotta669816x:9009">
+			<repository name="package_repeatmasker_4_0_5" owner="liuyue" changeset_revision="6912ce3a9a18" toolshed="http://onotta669816x:9009">
 				<package name="repeatmasker" version="4.0.5" />
 			</repository>
 		</action>
@@ -52,7 +52,7 @@
 		   </repository>
 		</action>
 		<action type="set_environment_for_install">
-		   <repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009">
+		   <repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009">
 			<package name="rmblast" version="2.2.28" />
 		   </repository>
 		</action>
@@ -107,21 +107,19 @@
             </actions>
         </install>
         <readme>
-say something about .cpan
+This file automatically installs Maker.
 
-this is installer for maker
-Note that the link here is tied to my email address and we should store the files somewhere on biocluster
-instead of having to register and download everytime
+Maker depends on other program, they are installed in separate packages
 
-Note: this also installs snap, augustus, blast, exonerate, repeatmasker inside of Maker's directory.
-($INSTALL_DIR/dependencies)
-We do this instead of making them a dependency is to make sure we have versions that work well together
-Also this makes it easier for maker to find these programs.
+They are: SNAP, Augustus, NCBI Blast+ with RM blast, Exonerate, Repeatmasker (with TRF and RM blast)
 
-Repeat masker also need trf and rmblast. 
+Maker will also install some Perl packages with cpan. 
 
-Currently this works only for linux-64. (matters for rmblast, ncbiblast, trf,exonerate)
-Some has source code, but building them is complicated
+This means it needs to be able to write to the .cpan directory in the hosting user's home directory.
+
+Currently, a few of these tools (Blast, TRF, Exonerate) are configured only for linux-64 systems.
+
+Other systems might be supported in the future.
 
         </readme>
     </package>

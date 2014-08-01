@@ -174,11 +174,12 @@
                 <data name="output_gff3" format="gff" label="Final annotation result" />
                 <data name="output_trans" format="fasta" label="Final predicted transcripts set" />
                 <data name="output_protein" format="fasta" label="Final predicted protein set" />
+		<!--the filter feature do not currently work in galaxy; this output will not be generated-->
 		<data name="other_trans" format="fasta" label="Unused predicted transcripts" >
 			<filter>keep_all is True</filter>
 		</data>
 		<data name="other_protein" format="fasta" label="Unused predicted proteins" >
-			<filter>keep_all is True</filter>
+			<filter>keep_all is True</filter> 
 		</data>
 	</outputs>
 
@@ -190,6 +191,22 @@
 		       source="both"
 		       level="warning" /> <!-- some errors are actually warnings-->
 	</stdio>
+
+	<tests>
+	<test>
+		<param name="genome" value="genome.fasta"/>
+		<param name="maker_opts" value="maker_opts.ctl"/>
+		<param name="maker_exe" value="maker_exe.ctl"/>
+		<param name="maker_bopts" value="maker_bopts.ctl"/>
+		<param name="est" value="est.fasta"/>
+		<param name="protein" value="protein.fasta"/>
+		<param name="snaphmm" value="snap.hmm"/>
+		<output name="output_datastore" file="indiv_contig_results.txt"/>
+		<output name="output_gff3" file="annotation_result.gff"/>
+		<output name="output_trans" file="transcripts_result.fasta"/>
+		<output name="output_protein" file="proteins_result.fasta"/>
+	</test>
+	</tests>
 
 	<readme>This is the wrapper tool for MAKER v2.10.</readme>
 </tool>

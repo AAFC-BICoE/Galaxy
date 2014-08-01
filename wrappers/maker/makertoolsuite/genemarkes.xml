@@ -1,0 +1,45 @@
+<tool id="genemarkes" name="GeneMark ES" version="1.0.0">
+  <description>Self-training ab initio gene prediction program for eukaryotes</description>
+  <command interpreter="bash">  perl gm_es.pl
+				--BP $bp
+				--max_nnn $maxnnn
+				--min_contig $minc
+				--max_contig $maxc
+				$input
+				> $output ;
+				mv `readlink ./mod/es.mod` $training
+        </command>
+	<inputs>
+		<param name="bp" type="boolean" label="Activate brance point submodel" 
+		truevalue="ON" falsevalue="OFF" checked="true" 
+  		help="This is on by default and can be turned off for genomes with weak branch points"/>
+		<param name="maxnnn" type="integer" label="Number of NN... to split" 
+		value="50"
+		help="GeneMark splits long contigs by splitting at sequences with &quot;NNN &quot;. The value indicates how many N bases it should read before cutting. A smaller value often results in smaller fragments, which may have a negative effect on the procedure. The default value is 50nt. "/>
+		<param name="minc" type="integer" label="Minimum size for contig" value="20000"
+		help="This setting indicates the minimum size that a contig should be in order to be processed. Contigs that are short than this value will be ignored by GeneMark. The default value is 20,000nt. "/>
+		<param name="maxc" type="integer" label="Maximum size for contig" value="1000000"
+		help="This setting indicates the maximum size that a contig should be before being cut. This may be useful when memory resources are scarce. The default value is 10,000,00nt. "/>
+		<param name="input" type="data" format="fasta" label="Genome in FASTA format" />
+	</inputs>
+
+	<outputs>
+     	   <data format="hmm" name="output" label="Genemark output ${on_string}"> </data>
+     	   <data format="hmm" name="training" label="Genemark es.mod ${on_string}"> </data>
+	</outputs>
+
+
+	<help>
+
+GeneMark is a gene predicting tool that trains itself using provided genome sequence.
+
+In order to use this tool, you must install Genemark ES and make sure the gmes directory is in the environment PATH,
+
+so Galaxy can find the program (gm_es.pl)
+
+To use this with Maker, simply provide the Genemark es.mod output to Maker.
+
+	</help>
+
+
+</tool>

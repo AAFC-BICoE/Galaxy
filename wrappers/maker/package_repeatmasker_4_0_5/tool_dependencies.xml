@@ -2,7 +2,7 @@
 <tool_dependency>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009"/>
     </package>
 
     <package name="repeatmasker" version="4.0.5">
@@ -14,7 +14,7 @@
 		</action> --> <!--this doesn't work, cause crash-->
 		<action type="shell_command">chmod a+x trf404.linux64</action> 
 		<action type="set_environment_for_install">
-			<repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="b276e97d08dd" toolshed="http://onotta669816x:9009">
+			<repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009">
 				<package name="rmblast" version="2.2.28" />
 			</repository>
 		</action>
@@ -26,7 +26,9 @@
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
                 </action>
 		<!--http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz newer version-->
-		<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action> <!--will not auto cd into it-->
+		<!--<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action> will not auto cd into it, behavior change with Galaxy version-->
+		<action type="shell_command">wget http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action>
+		<action type="shell_command">tar -xvzf RepeatMasker-open-4-0-3.tar.gz</action>
 		<!--the configure script is interactive. The questions asked are:
 			location of perl
 			install dir
