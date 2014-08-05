@@ -25,6 +25,8 @@
 ##	$26	 <repeat protein | "empty">
 ##	$27	 <rm_gff | "empty">
 
+##	$28	<logfile>
+
 #Rename files
 cp $1 genome.fasta || { echo "Unable to rename the contig file"; exit 113; }
 cp $2 maker_exe.ctl || { eval echo "Unable to rename the maker_exe file"; exit 113;  }
@@ -115,7 +117,7 @@ sed -i s%^cpus=.*%cpus=1% maker_opts.ctl
 #Check if all evidence files are valid and exist
 #if [ $genome_gff ]; then
 
-maker 2>&1 || { echo "MAKER has run ino an error. Aborting."; exit 114; }
+maker >> ${28} 2>&1 || { echo "MAKER has run ino an error. Aborting."; exit 114; }
 
 #Get files from datastore
 cd genome.maker.output
@@ -126,39 +128,39 @@ gff3_merge -d genome_master_datastore_index.log
 ##Paste results to awaiting output files
 cat genome_master_datastore_index.log >> $5
 cat genome.all.gff >> $6
-cat genome.all.maker.transcripts.fasta >> $7 || echo "No annotations available for one contig" 1>&2
+cat genome.all.maker.transcripts.fasta >> $7 || echo "No annotations available for one contig" >> ${28}
 cat genome.all.maker.proteins.fasta >> $8
 
 ##Save unused predictions
 if [ "$9" != "empty" -a "${10}" != "empty" ]; then
 	#SNAP
 	if [ "${18}" != "empty" ]; then
-		cat genome.all.maker.snap.transcripts.fasta >> $9 || echo "No unused snap transcripts" 1>&2
-                cat genome.all.maker.snap.proteins.fasta >> ${10} || echo "No unused snap proteins" 1>&2
+		cat genome.all.maker.snap.transcripts.fasta >> $9 || echo "No unused snap transcripts" >> ${28}
+                cat genome.all.maker.snap.proteins.fasta >> ${10} || echo "No unused snap proteins" >> ${28}
 
-		cat genome.all.maker.snap_masked.transcripts.fasta >> $9 || echo "No unused masked snap transcripts" 1>&2
-		cat genome.all.maker.snap_masked.proteins.fasta >> ${10} || echo "No unused masked snap proteins" 1>&2
+		cat genome.all.maker.snap_masked.transcripts.fasta >> $9 || echo "No unused masked snap transcripts" >> ${28}
+		cat genome.all.maker.snap_masked.proteins.fasta >> ${10} || echo "No unused masked snap proteins" >> ${28}
 	fi
 	#GeneMark
 	if [ "${19}" != "empty" ]; then
-		cat genome.all.maker.genemark.transcripts.fasta >> $9 || echo "No unused genemark transcripts" 1>&2
-                cat genome.all.maker.genemark.proteins.fasta >> ${10} || echo "No unused genemark proteins" 1>&2
-		cat genome.all.maker.genemark_masked.transcripts.fasta >> $9 || echo "No unused masked genemark transcripts" 1>&2
-		cat genome.all.maker.genemark_masked.proteins.fasta >> ${10} || echo "No unused masked genemark proteins" 1>&2
+		cat genome.all.maker.genemark.transcripts.fasta >> $9 || echo "No unused genemark transcripts" >> ${28}
+                cat genome.all.maker.genemark.proteins.fasta >> ${10} || echo "No unused genemark proteins" >> ${28}
+		cat genome.all.maker.genemark_masked.transcripts.fasta >> $9 || echo "No unused masked genemark transcripts" >> ${28}
+		cat genome.all.maker.genemark_masked.proteins.fasta >> ${10} || echo "No unused masked genemark proteins" >> ${28}
 	fi
 	#Augustus
 	if [ "${20}" != "empty" ]; then 
-		cat genome.all.maker.augustus_masked.transcripts.fasta >> $9 || echo "No unused masked augustus transcripts" 1>&2
-                cat genome.all.maker.augustus_masked.proteins.fasta >> ${10} || echo "No unused masked augustus proteins" 1>&2
-		cat genome.all.maker.augustus.transcripts.fasta >> $9 || echo "No unused augustus transcripts" 1>&2
-		cat genome.all.maker.augustus.proteins.fasta >> ${10} || echo "No unused augustus proteins" 1>&2
+		cat genome.all.maker.augustus_masked.transcripts.fasta >> $9 || echo "No unused masked augustus transcripts" >> ${28}
+                cat genome.all.maker.augustus_masked.proteins.fasta >> ${10} || echo "No unused masked augustus proteins" >> ${28}
+		cat genome.all.maker.augustus.transcripts.fasta >> $9 || echo "No unused augustus transcripts" >> ${28}
+		cat genome.all.maker.augustus.proteins.fasta >> ${10} || echo "No unused augustus proteins" >> ${28}
 	fi
 	#FGENESH
 	if [ "${21}" != "empty" ]; then
-		cat genome.all.maker.fgenesh.transcripts.fasta >> $9 || echo "No unused fgenesh transcripts" 1>&2
-                cat genome.all.maker.fgenesh.proteins.fasta >> ${10} || echo "No unused fgenesh proteins" 1>&2
-		cat genome.all.maker.fgenesh_masked.transcripts.fasta >> $9 || echo "No unused masked fgenesh transcripts" 1>&2
-		cat genome.all.maker.fgenesh_masked.proteins.fasta >> ${10} || echo "No unused masked fgenesh proteins" 1>&2
+		cat genome.all.maker.fgenesh.transcripts.fasta >> $9 || echo "No unused fgenesh transcripts" >> ${28}
+                cat genome.all.maker.fgenesh.proteins.fasta >> ${10} || echo "No unused fgenesh proteins" >> ${28}
+		cat genome.all.maker.fgenesh_masked.transcripts.fasta >> $9 || echo "No unused masked fgenesh transcripts" >> ${28}
+		cat genome.all.maker.fgenesh_masked.proteins.fasta >> ${10} || echo "No unused masked fgenesh proteins" >> ${28}
 	fi
 fi
 

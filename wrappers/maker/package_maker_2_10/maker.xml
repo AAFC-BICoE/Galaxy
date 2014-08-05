@@ -1,4 +1,4 @@
-<tool id="maker_wrap" name="MAKER" version="2.10">
+<tool id="maker_wrap" name="MAKER" version="1.1">
 <!-- By Michael Li Feb 2014 -->
 	<description> Run MAKER annotation pipeline</description>
 	
@@ -17,11 +17,9 @@
 	<command interpreter="bash">
 		maker_wrap.sh $genome $maker_exe $maker_opts $maker_bopts $output_datastore $output_gff3 $output_trans $output_protein 
 
-		#if $keep_all		
+	
 		$other_trans $other_protein
-		#else
-		"empty" "empty"
-		#end if
+
 
 		#if $genome_gff
 		$genome_gff
@@ -124,6 +122,8 @@
 		#else
 		"empty"
 		#end if
+		
+		$logfile
 	</command>
 
 	<inputs>
@@ -163,24 +163,25 @@
 		<param label="Provide any additional gene annotations in a GFF3 file" name="model_gff" type="data" format="gff" optional="True"/>
 
 		<param label="Provide any unsupported features to pass through in a GFF3 file" name="other_gff" type="data" format="gff" optional="True"/>
-		<param label="Do you want to save the unused predictions?" name="keep_all" type="select" display="radio" multiple="false" >
+		<!-- <param label="Do you want to save the unused predictions?" name="keep_all" type="select" display="radio" multiple="false" >
 			<option value="True">Yes</option>
 			<option value="False">No</option>
-		</param>
+		</param> -->
 	</inputs>
 
 	<outputs>
-		<data name="output_datastore" format="tabular" label="Individual contig results" />
-                <data name="output_gff3" format="gff" label="Final annotation result" />
-                <data name="output_trans" format="fasta" label="Final predicted transcripts set" />
-                <data name="output_protein" format="fasta" label="Final predicted protein set" />
-		<!--the filter feature do not currently work in galaxy; this output will not be generated-->
-		<data name="other_trans" format="fasta" label="Unused predicted transcripts" >
-			<filter>keep_all is True</filter>
+		<data name="output_datastore" format="tabular" label="Individual contig results on ${on_string}" />
+                <data name="output_gff3" format="gff" label="Final annotation result on ${on_string}" />
+                <data name="output_trans" format="fasta" label="Final predicted transcripts set on ${on_string}" />
+                <data name="output_protein" format="fasta" label="Final predicted protein set on ${on_string}" />
+		<!--the filter feature do not currently work in galaxy-->
+		<data name="other_trans" format="fasta" label="Unused predicted transcripts on ${on_string}" >
+			<!--<filter>keep_all is True</filter>-->
 		</data>
-		<data name="other_protein" format="fasta" label="Unused predicted proteins" >
-			<filter>keep_all is True</filter> 
+		<data name="other_protein" format="fasta" label="Unused predicted proteins on ${on_string}" >
+			<!--<filter>keep_all is True</filter> -->
 		</data>
+                <data name="logfile" format="txt" label="Maker log on ${on_string}" />
 	</outputs>
 
 	<stdio>
