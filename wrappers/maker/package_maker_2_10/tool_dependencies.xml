@@ -5,7 +5,7 @@
     </package>
 
     <package name="augustus" version="3.0.2">
-        <repository name="package_augustus_3_0_2" owner="liuyue" prior_installation_required="True" changeset_revision="648122919c1f" toolshed="http://onotta669816x:9009"/>
+        <repository name="package_augustus_3_0_2" owner="liuyue" prior_installation_required="True" changeset_revision="cb5a5f95cb05" toolshed="http://onotta669816x:9009"/>
     </package> 
 
     <package name="snap" version="2006-07-28">
