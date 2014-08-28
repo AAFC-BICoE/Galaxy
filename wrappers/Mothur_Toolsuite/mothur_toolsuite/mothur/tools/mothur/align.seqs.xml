@@ -1,4 +1,4 @@
-<tool id="mothur_align_seqs" name="Align.seqs" version="1.19.0">
+<tool id="mothur_align_seqs" name="Align.seqs" version="1.20.0">
  <description>Align sequences to a template alignment</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -96,7 +96,7 @@
   <data format="align.report" name="report" label="${tool.name} on ${on_string}: align.report" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

@@ -1,4 +1,4 @@
-<tool id="mothur_rarefaction_shared" name="Rarefaction.shared" version="1.26.0" force_history_refresh="True">
+<tool id="mothur_rarefaction_shared" name="Rarefaction.shared" version="1.27.0" force_history_refresh="True">
  <description>Generate inter-sample rarefaction curves for OTUs</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -20,7 +20,7 @@
   #end if
   #if int($iters.__str__) > 0:
    --iters=$iters
-  #end if
+	 #end if
   $jumble
   #if $calc.__str__ != "None" and len($calc.__str__) > 0:
     --calc='$calc'
@@ -82,7 +82,7 @@
       <param name="subsampleiters" type="integer" value="0" optional="true" label="subsampleiters - Number of times to run the subsample"/>
     </when>
     <when value="no"/>
-  </conditional>
+	</conditional>
 
  </inputs>
  <outputs>
@@ -90,7 +90,7 @@
   <data format="tabular" name="rarefaction" label="${tool.name} on ${on_string}: shared.rarefaction" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
