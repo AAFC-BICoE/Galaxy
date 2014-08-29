@@ -7,27 +7,24 @@
 		--outputdir='$logfile.extra_files_path'
 		--fasta=$fasta
 		--qfile=$qfile
-		#if $choose_format.use.__str__ == 'yes':
-	 		#if $choose_format.format.__str__ != "None" and len($choose_format.format.__str__) > 0:
-				--format = '$choose_format.format'
-			#end if
+		#if $chooseformat.use: 
+		--format=$chooseformat.format
 		#end if
 	</command>
 	<inputs>
 		<param name="fasta" type="data" format="fasta" label="fasta - Fasta Sequence file"/>
 		<param name="qfile" type="data" format="qual" label="qfile - Sequence Quality file"/>
 
-		<conditional name = "choose_format">
-			<param name = "use" type = "boolean" truevalue = "yes" falsevalue = "no" checked = "false" label = "choose which format your sequences are"/>
+		<conditional name = "chooseformat">
+ 			<param name = "use" type ="boolean" truevalue ="yes" falsevalue="no" label="choose what format your sequences are"/>
+
 			<when value = "yes">
 				<param name = "format" type = "select" optional = "true" multiple = "true">
-
 					<option value = "sanger" selected="true">sanger</option>
 					<option value = "solexa">solexa</option>
 					<option value = "illumina">illumina</option>
-
+					<option value = "illumina">illumina1.8+</option>
 				</param>
-
 			</when>
 			<when value = "no"/>
 		</conditional>

@@ -12,10 +12,10 @@
   #if $groups.__str__ != "None" and len($groups.__str__) > 0:
    --groups=$groups
   #end if
-  #if $design.use:
-   --design=$design.design
-   #if $design.sets.__str__ != '':
-    --sets='$design.sets'  
+  #if $designc.use:
+   --design=$designc.design
+   #if $designc.sets.__str__ != '':
+    --sets='$designc.sets'  
    #end if
   #end if
   #if int($iters.__str__) > 0:
@@ -25,7 +25,7 @@
   #if $calc.__str__ != "None" and len($calc.__str__) > 0:
     --calc='$calc'
   #end if
-  #if $subsample.use.__str__ == 'yes':
+  #if $subsample.use:
    #if $subsample.subsample.__str__ != '':
      --subsample=$subsample.subsample
    #else
@@ -54,7 +54,7 @@
     -->
    </options>
   </param>
-  <conditional name="design">
+  <conditional name="designc">
     <param name="use" type="boolean" truevalue="yes" falsevalue="no" checked="false" label=" run on a per set basis using a design file"/>
     <when value="yes">
     <param name="design" type="data" format="design" label="design - assigns groups to sets" 
