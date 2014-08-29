@@ -247,7 +247,7 @@ def __main__():
     cmd_dict['count.groups'] = dict({'required' : [['group','shared','count']], 'optional' : ['accnos','groups']})
     cmd_dict['count.seqs'] = dict({'required' : ['name'], 'optional' : ['group','groups','large']})
 
-    cmd_dict['create.database'] = dict({'required' : [['list','shared'],'repfasta','repname','contaxonomy'], 'optional' : ['group','label']})
+    cmd_dict['create.database'] = dict({'required' : [['list','shared'],'repfasta','repname','constaxonomy'], 'optional' : ['group','label']})
 
     cmd_dict['degap.seqs'] = dict({'required' : ['fasta']})
     cmd_dict['deunique.seqs'] = dict({'required' : ['fasta','name'],  'optional' : []})
@@ -275,10 +275,10 @@ def __main__():
     cmd_dict['libshuff'] = dict({'required' : ['phylip','group'],'optional' : ['groups','iters','form','sim','step','cutoff']})
     cmd_dict['list.seqs'] = dict({'required' : [['fasta','name','group','list','alignreport','taxonomy']]})
 
-    cmd_dict['make.biom'] = dict({'required' : ['shared'] ,  'optional' : ['contaxonomy','matrixtype','groups','label']})
+    cmd_dict['make.biom'] = dict({'required' : ['shared'] ,  'optional' : ['constaxonomy','matrixtype','groups','label','metadata','picrust','reftaxonomy']})
     cmd_dict['make.contigs'] = dict({'required' : ['ffastq','rfastq',], 'optional' : ['align','match','mismatch','gapopen','gapextend','threshold','oligos','bdiffs','pdiffs','tdiffs','processors']})
 
-    cmd_dict['make.fastq'] = dict({'required' : ['fasta','qfile'] ,  'optional' : []})
+    cmd_dict['make.fastq'] = dict({'required' : ['fasta','qfile'] ,  'optional' : ['format']})
     cmd_dict['make.group'] = dict({'required' : ['fasta','groups'],  'optional' : []})
     cmd_dict['make.shared'] = dict({'required' : [['list','group','biom']],  'optional' : ['label','groups']})
     cmd_dict['mantel'] = dict({'required' : ['phylip','phylip2'] ,  'optional' : ['method','iters']})
@@ -300,7 +300,7 @@ def __main__():
     cmd_dict['phylo.diversity'] = dict({'required' : ['tree'],'optional' : ['group','name','groups','iters','freq','scale','rarefy','collect','summary','processors']})
     cmd_dict['phylotype'] = dict({'required' : ['taxonomy'],'optional' : ['name','cutoff','label']})
     cmd_dict['pre.cluster'] = dict({'required' : ['fasta'],  'optional' : ['name','diffs','group','processors']})
-    cmd_dict['rarefaction.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','iters','groups','jumble','design','sets','groupmode']})
+    cmd_dict['rarefaction.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','iters','groups','jumble','design','sets','groupmode','subsample','subsampleiters']})
     cmd_dict['rarefaction.single'] = dict({'required' : [['list', 'sabund', 'rabund', 'shared']], 'optional' : ['calc','abund','iters','label','freq','processors']})
     cmd_dict['remove.groups'] = dict({'required' : ['group'], 'optional' : ['groups','accnos','fasta','name','list','shared','taxonomy','design']})
     cmd_dict['remove.lineage'] = dict({'required' : ['taxonomy','taxon'],'optional' : ['fasta','name','group','list','alignreport','dups']})
@@ -408,7 +408,7 @@ def __main__():
     parser.add_option( '--report', dest='report', help='' )
     parser.add_option( '--taxonomy', dest='taxonomy', help='A Taxonomy file' )
     parser.add_option( '--reftaxonomy', dest='reftaxonomy', help='A Taxonomy file' )
-    parser.add_option( '--contaxonomy', dest='contaxonomy', help='The Taxonomy file output by classify.otu' )
+    parser.add_option( '--constaxonomy', dest='constaxonomy', help='The Taxonomy file output by classify.otu' )
     parser.add_option( '--taxon', dest='taxon',  help='A Taxon' )
     parser.add_option( '--taxlevel', dest='taxlevel', type="int", help='A Taxonomy level' )
     # parser.add_option( '--taxon', dest='taxon', action="callback", callback=remove_confidence_callback, help='A Taxon' )
@@ -578,6 +578,8 @@ def __main__():
     #fastq.info options
     parser.add_option( '--format', dest='format', help='' )
     parser.add_option( '--pacbio', dest='pacbio', help='' )
+    parser.add_option( '--picrust', dest='picrust', help='' )
+    parser.add_option( '--subsampleiters', dest='subsampleiters', help='' )
 
     (options, args) = parser.parse_args()
     """
