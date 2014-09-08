@@ -1,0 +1,21 @@
+<tool_dependency>
+	<package name="perl" version="5.18.1">
+		<repository name="package_perl_5_18" owner="iuc" prior_installation_required="True" />
+	</package>
+	<package name="seqdb_webservices" version="1.0">
+		<install version="1.0">
+			<actions>
+				<action type="setup_perl_environment">
+					<repository name="package_perl_5_18" owner="kandalafti" toolshed="http://onottar678127x:9009">
+						<package name="perl" version="5.18.1" />
+					</repository>
+					<package>WebService::Simple</package>
+				</action>
+			</actions>
+		</install>
+		<readme>
+			Sets up Perl 5.18 with the following required CPAN modules:
+			WebService::Simple				
+		</readme>
+	</package>
+</tool_dependency>

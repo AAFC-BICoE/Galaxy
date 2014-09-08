@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<tool id="seqdb_sequences" name="Get Sequences" version="1.0">
+	<requirements>
+		<requirement type="package" version="1.0">seqdb_webservices</requirement>
+		<requirement type="binary">perl</requirement>
+	</requirements>
+	<description>Get sequences from SeqDB</description>
+	<command interpreter="perl">
+		sequences.pl --seqids $seq_ids --sequences $sequences --notfound $notfound
+	</command>
+	<inputs>
+		<param format="txt" name="seq_ids" type="data" label="Sequence Identifiers"
+			help="A file containing a list of sequence identifiers consisting of One ID per line." />
+	</inputs>
+	<outputs>
+		<data format="fasta" name="sequences" label="${tool.name} on ${on_string}: SeqDB Sequences" />
+		<data format="txt" name="notfound" label="${tool.name} on ${on_string}: Missing Sequences" />
+	</outputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="An error occured. Check STDERR for more information." />
+	</stdio>
+	<help>
+**Tool Information**
+
+Sequences
+	Source URL: http://sourceforge.net/projects/primer3/
+	Release date: 2013-10-28 (version 2.3.6)
+	
+**Authors**
+
+Get Sequnces:
+	Iyad Kandalaft
+	Agriculture and Agri-Foods Canada
+	Ottawa, ON, Canada
+
+SeqDB Web Services:
+	Nazir El-Kayssi
+	Nazir.El-Kayssi@agr.gc.ca
+	Agriculture and Agri-foods Canada
+	Ottawa, ON, Canada
+
+SeqDB:
+	Christopher Lewis, Satpal Bilkhu, Nazir El-Kayssi, et al.
+	mbb@agr.gc.ca
+	Agriculture and Agri-Foods Canada
+	Ottawa, ON, Canada
+
+**Description**
+
+Pulls a list of sequences from Sequence Database given a list of Sequence Identifiers.
+The file containing the sequence identifier must contain one identifier per line. Empty lines are ignored.
+
+**Inputs and Outputs**
+
+- Input - 
+The input consists of a file containing sequence identifiers (one identifier per line). Empty lines are ignored.
+
+- Output -
+SeqDB Sequences - Fasta file of sequences matching the identifiers in the list provided.
+Missing Sequences - A text file containing a list of sequences that could not be retrieved.
+	</help>
+</tool>
