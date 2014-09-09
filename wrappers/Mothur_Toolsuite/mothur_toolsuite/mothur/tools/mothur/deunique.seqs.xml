@@ -14,7 +14,7 @@
  </command>
  <inputs>
   <param name="fasta" type="data" format="fasta" label="fasta - Sequences to filter"/>
-	<param name="names" type="data" format="names,count_table" label="provide a names file OR a names file" help="A names file will generate a new faste file containing all the sequences. If a group file contains group information, a group file will also be created."/>
+	<param name="names" type="data" format="names,count_table" label="provide a names file OR a count file" help="A names file will generate a new faste file containing all the sequences. If a group file contains group information, a group file will also be created."/>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />

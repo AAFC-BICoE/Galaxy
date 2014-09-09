@@ -303,7 +303,7 @@ def __main__():
     cmd_dict['rarefaction.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','iters','groups','jumble','design','sets','groupmode','subsample','subsampleiters']})
     cmd_dict['rarefaction.single'] = dict({'required' : [['list', 'sabund', 'rabund', 'shared']], 'optional' : ['calc','abund','iters','label','freq','processors']})
     cmd_dict['remove.groups'] = dict({'required' : ['group'], 'optional' : ['groups','accnos','fasta','name','list','shared','taxonomy','design','count']})
-    cmd_dict['remove.lineage'] = dict({'required' : ['taxonomy','taxon'],'optional' : ['fasta','name','group','list','alignreport','dups']})
+    cmd_dict['remove.lineage'] = dict({'required' : [['taxonomy','constaxonomy'],'taxon'],'optional' : ['fasta','name','group','list','alignreport','dups','shared','list']})
     cmd_dict['remove.otus'] = dict({'required' : ['group','list','label'], 'optional' : ['groups','accnos']})
     cmd_dict['remove.rare'] = dict({'required' : [['list','sabund','rabund','shared'],'nseqs'], 'optional' : ['group','groups','label','bygroup','count']})
     cmd_dict['remove.seqs'] = dict({'required' : ['accnos',['fasta','qfile','name','group','list','alignreport','taxonomy']], 'optional' : ['dups','count','fastq']})
