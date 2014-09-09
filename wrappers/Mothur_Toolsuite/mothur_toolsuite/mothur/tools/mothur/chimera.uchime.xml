@@ -72,10 +72,11 @@
   $skipgaps2
   #if $alignment.ucl:
     --ucl=true
-   #if $alignment.queryfract != None and len($alignment.queryfract) > 0 and 1.0 >= float($alignment.queryfract) > 0: 
+   #if $alignment.queryfract != "None" and len($alignment.queryfract) > 0 and 1.0 >= float($alignment.queryfract) > 0: 
     --queryfract=$alignment.queryfract
    #end if
   #end if
+	$dereplicate
   $chimealns
   --processors=8
  </command>

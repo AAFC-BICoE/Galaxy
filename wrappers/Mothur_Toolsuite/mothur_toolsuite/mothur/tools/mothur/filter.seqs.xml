@@ -1,4 +1,4 @@
-<tool id="mothur_filter_seqs" name="Filter.seqs" version="1.19.0" force_history_refresh="True">
+<tool id="mothur_filter_seqs" name="Filter.seqs" version="1.20.0" force_history_refresh="True">
  <description>removes columns from alignments</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -57,7 +57,7 @@
   <data format="align" name="out_fasta" label="${tool.name} on ${on_string}: filtered fasta" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -75,6 +75,8 @@ provides bioinformatics for the microbial ecology community.
 The filter.seqs_ command removes columns from alignments based on a criteria defined by the user. For example, alignments generated against reference alignments (e.g. from RDP, SILVA, or greengenes) often have columns where every character is either a '.' or a '-'. These columns are not included in calculating distances because they have no information in them. By removing these columns, the calculation of a large number of distances is accelerated. Also, people also like to mask their sequences to remove variable regions using a soft or hard mask (e.g. Lane's mask). This type of masking is only encouraged for deep-level phylogenetic analysis, not fine level analysis such as that needed with calculating OTUs. 
 
 .. _filter.seqs: http://www.mothur.org/wiki/Filter.seqs
+
+v.1.20.0: Updated to Mothur 1.33
 
 
  </help>

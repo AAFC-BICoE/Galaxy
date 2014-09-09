@@ -1,4 +1,4 @@
-<tool id="mothur_chimera_pintail" name="Chimera.pintail" version="1.20.0">
+<tool id="mothur_chimera_pintail" name="Chimera.pintail" version="1.21.0">
  <description>Find putative chimeras using pintail</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -122,7 +122,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

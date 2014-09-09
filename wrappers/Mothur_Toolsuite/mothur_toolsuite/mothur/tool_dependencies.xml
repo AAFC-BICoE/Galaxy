@@ -28,7 +28,7 @@
                 </action>
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                    <environment_variable name="MOTHUR_MAX_PROCESSORS" action="set_to">2</environment_variable>
+                    <environment_variable name="MOTHUR_MAX_PROCESSORS" action="set_to">8</environment_variable>
                 </action>
             </actions>
         </install>
@@ -75,7 +75,7 @@ http://www.mothur.org/wiki/Makefile_options
                 </action>
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                    <environment_variable name="MOTHUR_MAX_PROCESSORS" action="set_to">2</environment_variable>
+                    <environment_variable name="MOTHUR_MAX_PROCESSORS" action="set_to">8</environment_variable>
                 </action>
             </actions>
         </install>

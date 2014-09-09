@@ -1,4 +1,4 @@
-<tool id="mothur_count_seqs" name="Count.seqs" version="1.20.0" >
+<tool id="mothur_count_seqs" name="Count.seqs" version="1.21.0" >
  <description>(aka make.table) counts the number of sequences represented by the representative</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -38,7 +38,7 @@
   <data format="count_table" name="seq_count" label="${tool.name} on ${on_string}: count_table" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -59,6 +59,8 @@ The count.seqs_ command counts the number of sequences represented by the repres
 .. _group: http://www.mothur.org/wiki/Group_file
 .. _count.seqs: http://www.mothur.org/wiki/Count.seqs
 .. _count_table: http://www.mothur.org/wiki/Count_File
+
+v.1.21.0: Updated to Mothur 1.33
 
  </help>
 </tool>

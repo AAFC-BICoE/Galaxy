@@ -1,4 +1,4 @@
-<tool id="mothur_cluster_split" name="Cluster.split" version="1.27.0">
+<tool id="mothur_cluster_split" name="Cluster.split" version="1.28.0">
  <description>Assign sequences to OTUs (Operational Taxonomic Unit) splits large matrices</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -48,7 +48,8 @@
    --precision=$precision
   #end if
   $large
-  --processors=8
+	--processors=8
+	$cluster
  </command>
  <inputs>
   <conditional name="splitby">
@@ -108,8 +109,11 @@
    <option value="100000">.00001</option>
    <option value="1000000">.000001</option>
   </param>
-  <param name="large" type="boolean" checked="false" truevalue="--large=true" falsevalue="" label="large - distance matrix is too large to fit in RAM" 
+	<param name="large" type="boolean" checked="false" truevalue="--large=true" falsevalue="" label="large - distance matrix is too large to fit in RAM" 
                  help="If your job fails due to not enough memory error, set this to true to rerun"/>
+	<param name="cluster" type="boolean" falsevalue="" truevalue="--cluster=true" checked="false" label="The cluster parameter allows you to indicate whether you want to run the clustering or just split the distance matrix, default=T. "/>
+
+
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
@@ -121,7 +125,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -139,6 +143,8 @@ provides bioinformatics for the microbial ecology community.
 The cluster.split_ command assign sequences to OTUs (Operational Taxonomy Unit). 
 
 .. _cluster.split: http://www.mothur.org/wiki/Cluster.split
+
+v1.28.0: Upgraded to Mothur 1.33, introduced cluster boolean.
 
 
  </help>

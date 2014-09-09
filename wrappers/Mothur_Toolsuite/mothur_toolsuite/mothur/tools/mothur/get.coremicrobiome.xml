@@ -1,4 +1,4 @@
-<tool id="mothur_get_coremicrobiome" name="Get.coremicrobiome" version="1.26.0">
+<tool id="mothur_get_coremicrobiome" name="Get.coremicrobiome" version="1.27.0">
  <description>fraction of OTUs for samples or abundances</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -58,7 +58,7 @@
   </data>
  </outputs>
  <requirements>
-   <requirement type="package" version="1.27">mothur</requirement>
+   <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -76,6 +76,8 @@ provides bioinformatics for the microbial ecology community.
 The get.coremicrobiome_ command determines the fraction of OTUs that are found in varying numbers of samples for different minimum relative abundances.
 
 .. _get.coremicrobiome: http://www.mothur.org/wiki/Get.coremicrobiome
+
+v1.27.0: Updated to Mothur 1.33
 
 
  </help>

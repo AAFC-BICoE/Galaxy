@@ -1,4 +1,4 @@
-<tool id="mothur_otu_association" name="Otu.association" version="1.24.0" force_history_refresh="True">
+<tool id="mothur_otu_association" name="Otu.association" version="1.25.0" force_history_refresh="True">
  <description>Calculate the correlation coefficient for the otus</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -24,6 +24,10 @@
   #if $metadata.__str__ != "None" and len($method.__str__) > 0:
    --metadata=$metadata
   #end if
+	#if $cutoff.__str__ != '':
+   --cutoff=$cutoff
+  #end if
+  
  </command>
  <inputs>
   <param name="otu" type="data" format="shared,relabund" label="shared,relabund - OTU Shared or Relabund file"/>
@@ -43,12 +47,13 @@
    <option value="kendall">kendall</option>
   </param>
   <param name="metadata" type="data" format="tabular" optional="true" label="metadata - find the association between the otus and the metadata."/>
+  <param name="cutoff" type="float" value="0.50" optional="true" label="cutoff" help="The default is 0.50"/>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -68,6 +73,8 @@ The otu.association_ command calculates the correlation coefficient for the otus
 .. _shared: http://www.mothur.org/wiki/Shared_file
 .. _relabund: http://www.mothur.org/wiki/Get.relabund
 .. _otu.association: http://www.mothur.org/wiki/Otu.association
+
+v.1.25.0: Updated to mothur 1.33, added cutoff option
 
  </help>
 </tool>

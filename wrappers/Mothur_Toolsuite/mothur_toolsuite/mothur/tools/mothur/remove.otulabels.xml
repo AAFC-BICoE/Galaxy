@@ -1,4 +1,4 @@
-<tool id="mothur_remove_otulabels" name="Remove.otulabels" version="1.26.0">
+<tool id="mothur_remove_otulabels" name="Remove.otulabels" version="1.27.0">
  <description>Removes OTU labels</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -21,12 +21,20 @@
    #set results = $results + ["'" + $re.sub(r'(^.*)\.(.*?)',r'\1.pick.\2',$os.path.basename($corraxes_in.__str__)) + ":'" + $corraxes_out.__str__]
   #end if
   --result=#echo ','.join($results)
+  #if $list.__str__ != "None" and len($list.__str__) > 0:
+    --list='$list'
+  #end if
+  #if $shared.__str__ != "None" and len($shared.__str__) > 0:
+    --shared='$shared'
+  #end if
  </command>
  <inputs>
   <param name="accnos" type="data" format="otulabels" label="accnos - otulabels"/>
   <param name="constaxonomy_in" type="data" format="cons.taxonomy" optional="true" label="constaxonomy - Consensus Taxonomy from classify.otu"/>
   <param name="otucorr_in" type="data" format="otu.corr" optional="true" label="otucorr - OTU correlation from otu.association"/>
   <param name="corraxes_in" type="data" format="axes" optional="true" label="corraxes - axes from corr.axes"/>
+  <param name="list" type="data" format="list" optional="true" label="list - allows you to input a list parameter to select OTUs from"/>
+  <param name="shared" type="data" format="shared" optional="true" label="shared - input a shared file to select OTUs from"/>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
@@ -43,7 +51,7 @@
   </data>
  </outputs>
  <requirements>
-   <requirement type="package" version="1.27">mothur</requirement>
+   <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
