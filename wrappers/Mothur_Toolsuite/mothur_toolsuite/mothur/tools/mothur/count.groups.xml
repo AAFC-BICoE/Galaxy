@@ -3,7 +3,7 @@
  <command interpreter="python">
   mothur_wrapper.py 
   --cmd='count.groups'
-  --result='^mothur.\S+\.logfile$:'$logfile,'^\S+\.groups.count$:'$grp_count
+  --result='^mothur.\S+\.logfile$:'$logfile,'^\S+\.groups.count$:'$grp_count,'^\S+\.summary$: '$summary
   --outputdir='$logfile.extra_files_path'
   #if isinstance($group.datatype, $__app__.datatypes_registry.get_datatype_by_extension('shared').__class__):
    --shared=$group
@@ -47,6 +47,7 @@
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
   <data format="tabular" name="grp_count" label="${tool.name} on ${on_string}: group.count" />
+  <data format="tabular" name="summary" label="${tool.name} on ${on_string}: summary" />
  </outputs>
  <requirements>
   <requirement type="package" version="1.33">mothur</requirement>

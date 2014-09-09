@@ -1,14 +1,21 @@
-<tool id="mothur_get_lineage" name="Get.lineage" version="1.20.0">
+<tool id="mothur_get_lineage" name="Get.lineage" version="1.21.0">
  <description>Picks by taxon</description>
  <command interpreter="python">
   mothur_wrapper.py 
   #import re, os.path
   #set results = ["'^mothur.\S+\.logfile$:'" + $logfile.__str__]
   ## adds .pick before the last extension to the input file
-  #set results = $results + ["'" + $re.sub(r'(^.*)\.(.*?)',r'\1.pick.\2',$os.path.basename($taxonomy.__str__)) + ":'" + $taxonomy_out.__str__]
   --cmd='get.lineage'
+	#if $file.filetype.__str__ == "usetaxonomy"
+		--taxonomy=$file.taxonomy
+		#set results = $results + ["'" + $re.sub(r'(^.*)\.(.*?)',r'\1.pick.\2',$os.path.basename($taxonomy.__str__)) + ":'" + $taxonomy_out.__str__]
+	#else
+		--constaxonomy=$file.constaxonomy
+		--shared=$file.shared
+		--list=$file.list
+		#set results = $results + ["'" + $re.sub(r'(^.*)\.(.*?)',r'\1.pick.\2',$os.path.basename($constaxonomy.__str__)) + ":'" + $taxonomy_out.__str__]
+	#end if
   --outputdir='$logfile.extra_files_path'
-  --taxonomy=$taxonomy
   --taxon="'$re.sub('(\s|,)+',',',$re.sub('\(\d+\)','',$taxon.value.__str__))'"
   #if $fasta_in.__str__ != "None" and len($fasta_in.__str__) > 0:
    --fasta=$fasta_in
@@ -37,7 +44,21 @@
   --result=#echo ','.join($results)
  </command>
  <inputs>
-  <param name="taxonomy" type="data" format="seq.taxonomy" label="taxonomy - Taxonomy"/>
+	 <conditional name ="file">
+	 <param name = "filetype" type = "select" label="choose which file is used">
+		 <option value = "usetaxonomy" selected = "true">taxonomy</option>
+		 <option value = "useconstaxonomy">constaxonomy</option>
+	 </param>
+	 <when value = "usetaxonomy">
+		<param name="taxonomy" type="data" format="seq.taxonomy" label="taxonomy - Taxonomy"/>
+	 </when>
+	 <when value = "useconstaxonomy">
+		<param name="constaxonomy" type="data" format="cons.taxonomy" label="constaxonomy - Constaxonomy file. Provide either a constaxonomy file or a taxonomy file"/>
+		<param name="shared" type="data" format="shared" label="shared - shared file" optional="true"/>
+		<param name="list" type="data" format="list" label="list - list file" optional="true"/>
+	 </when>
+ </conditional>
+
   <!--
   <param name="taxons" type="select" size="120" multiple="true" label="Browse Taxons from Taxonomy">
    <options from_dataset="taxonomy">
@@ -77,7 +98,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
