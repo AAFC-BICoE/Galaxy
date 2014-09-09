@@ -1,4 +1,4 @@
-<tool id="mothur_dist_shared" name="Dist.shared" version="1.25.0" force_history_refresh="True">
+<tool id="mothur_dist_shared" name="Dist.shared" version="1.26.0" force_history_refresh="True">
  <description>Generate a phylip-formatted dissimilarity distance matrix among multiple groups</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -112,13 +112,13 @@
    <option value="lt">Phylip formatted Lower Triangle Matrix</option>
    <option value="square">Phylip formatted Square Matrix</option>
   </param>
-  <param name="as_datasets" type="boolean" truevalue="yes" falsevalue="no" checked="true" label="Create a new history dataset for each distance matrix"/>
+	<param name="as_datasets" type="boolean" truevalue="yes" falsevalue="no" checked="true" label="Create a new history dataset for each distance matrix"/>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -138,6 +138,8 @@ The dist.shared_ command will generate a phylip-formatted_distance_matrix_ that 
 .. _phylip-formatted_distance_matrix: http://www.mothur.org/wiki/Phylip-formatted_distance_matrix
 .. _shared: http://www.mothur.org/wiki/Shared_file
 .. _dist.shared: http://www.mothur.org/wiki/Dist.shared
+
+v1.26.0: Updated to Mothur 1.33. Omitted calculators since they do not appear to be available.
 
 
  </help>

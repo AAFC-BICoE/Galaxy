@@ -1,4 +1,4 @@
-<tool id="mothur_summary_single" name="Summary.single" version="1.19.0" force_history_refresh="True">
+<tool id="mothur_summary_single" name="Summary.single" version="1.20.0" force_history_refresh="True">
  <description>Summary of calculator values for OTUs</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -107,7 +107,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

@@ -1,4 +1,4 @@
-<tool id="mothur_dist_seqs" name="Dist.seqs" version="1.19.0">
+<tool id="mothur_dist_seqs" name="Dist.seqs" version="1.20.0">
  <description>calculate uncorrected pairwise distances between aligned sequences</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -49,7 +49,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -69,6 +69,8 @@ The dist.seqs_ command will calculate uncorrected pairwise distances between ali
 .. _column-formatted_distance_matrix: http://www.mothur.org/wiki/Column-formatted_distance_matrix
 .. _phylip-formatted_distance_matrix: http://www.mothur.org/wiki/Phylip-formatted_distance_matrix
 .. _dist.seqs: http://www.mothur.org/wiki/Dist.seqs
+
+v.1.20.0: Updated to Mothur 1.33
 
 
  </help>

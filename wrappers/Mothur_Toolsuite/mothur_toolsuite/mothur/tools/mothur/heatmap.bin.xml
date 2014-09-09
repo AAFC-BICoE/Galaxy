@@ -1,4 +1,4 @@
-<tool id="mothur_heatmap_bin" name="Heatmap.bin" version="1.20.0"  force_history_refresh="True">
+<tool id="mothur_heatmap_bin" name="Heatmap.bin" version="1.21.0"  force_history_refresh="True">
  <description>Generate a heatmap for OTUs</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -102,7 +102,7 @@
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -123,5 +123,6 @@ The heatmap.bin_ command generates a heat map from data provided in either a lis
 .. _shared: http://www.mothur.org/wiki/Shared_file
 .. _heatmap.bin: http://www.mothur.org/wiki/Heatmap.bin
 
+v.1.21.0: Updated to Mothur 1.33
  </help>
 </tool>

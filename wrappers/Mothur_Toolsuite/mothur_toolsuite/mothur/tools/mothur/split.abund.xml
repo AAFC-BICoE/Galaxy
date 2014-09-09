@@ -29,6 +29,8 @@
    #if $accnos:
      #set datasets = $datasets + ["'" + $re.sub(r'(^.*)\.(.*?)$',r'^\1.(.*\.accnos)$',$os.path.basename($search.input.__str__)) + ":accnos'"]
    #end if
+	#else
+   --count=$search.input
   #end if
   --cutoff=$cutoff
   #if $split.type == 'yes':
@@ -52,6 +54,7 @@
    <param name="type" type="select" label="Type to screen" help="">
     <option value="list">OTU List</option>
     <option value="name">Name reference</option>
+    <option value="count">Count file</option>
    </param>
    <when value="name">
     <param name="input" type="data" format="names" label="name - Name reference"/>
@@ -64,6 +67,9 @@
      </options>
     </param>
    </when>
+	 <when value = "count">
+    <param name="input" type="data" format="count_table" label="count - count_table file"/>
+	 </when>
   </conditional> <!-- search -->
   <param name="cutoff" type="integer" value="10" label="cutoff - Cutoff parameter is used to qualify what is abundant and rare."/>
   <conditional name="split">
@@ -98,7 +104,7 @@
   -->
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

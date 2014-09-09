@@ -1,4 +1,4 @@
-<tool id="mothur_pcr_seqs" name="Pcr.seqs" version="1.25.0">
+<tool id="mothur_pcr_seqs" name="Pcr.seqs" version="1.26.0">
  <description>Trim sequences</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -39,6 +39,9 @@
   $keepdots
   --result=#echo ','.join($results)
   --processors=8
+  #if pdiffs.__str__ != '' and int(pdiffs.__str__) > 0:
+   --pdiffs=pdiffs
+  #end if
  </command>
  <inputs>
   <param name="fasta" type="data" format="fasta" label="fasta - Candiate Sequences"/>
@@ -81,7 +84,9 @@
   <param name="taxonomy_in" type="data" format="seq.taxonomy" optional="true" label="taxonomy - Sequence Taxonomy"/>
   <param name="name_in" type="data" format="names" optional="true" label="name - Sequence representative name list"/>
   <param name="group_in" type="data" format="groups" optional="true" label="group - Group file"/>
-
+ <param name="pdiffs" type="integer" value="0" label="pdiffs - number of differences to allow in the primer (default 0)">
+      <validator type="in_range" message="Number of differences can't be negative" min="0"/>
+    </param>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
@@ -99,7 +104,7 @@
 
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

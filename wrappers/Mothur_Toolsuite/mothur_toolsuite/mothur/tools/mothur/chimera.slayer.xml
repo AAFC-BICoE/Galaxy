@@ -1,4 +1,4 @@
-<tool id="mothur_chimera_slayer" name="Chimera.slayer" version="1.22.0">
+<tool id="mothur_chimera_slayer" name="Chimera.slayer" version="1.23.0">
  <description>Find putative chimeras using slayer</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -14,7 +14,10 @@
    #end if
    #if $alignment.group.__str__ != '':
     --group=$alignment.group
-   #end if
+	 #end if
+	 #if $alignment.count.__str__ != '':
+	 	--count=$alignment.count	
+	 #end if
   #else:
    --reference=$alignment.template
   #end if
@@ -36,7 +39,8 @@
    $options.split
   #end if
   ## --blastlocation=path_to_blast
-  --processors=8
+	--processors=8
+	--dereplicate
  </command>
  <inputs>
   <param name="fasta" type="data" format="fasta" label="fasta - Candiate Sequences"/>
@@ -56,8 +60,9 @@
    </when>
    <when value="hist">
     <param name="template" type="data" format="fasta" label="reference - Reference to align with" help=""/>
-   </when>
-   <when value="self">
+	</when>
+	<when value="self">
+    <param name="count" type="data" format="count_table" optional="true" label="count - Count file"/>
     <param name="name" type="data" format="names" optional="true" label="names - Sequences Names"/>
     <param name="group" type="data" format="groups" optional="true" label="group - Sequences Name reference"
            help="use the more abundant sequences from the same sample to check the query sequence"/>
@@ -90,7 +95,11 @@
     <param name="trim" type="boolean" truevalue="--trim=True" falsevalue="" checked="false" label="trim - include chimeric sequences trimmed to their longest peice" />
     <param name="split" type="boolean" truevalue="--split=True" falsevalue="" checked="false" label="split - detect tri- and quadmeras" help="if a sequence comes back as non-chimeric, mothur will test the two sides to see if they are chimeric."/>
    </when>
-  </conditional>
+ </conditional>
+
+  <param name="dereplicate" type="boolean" falsevalue="" truevalue="--dereplicate=true" checked="false" label="dereplicate - remove chimeric sequences from all groups, default=f" help="If parameter is false, then if one group finds the seqeunce to be chimeric, then all groups find it to be chimeric"/>
+
+
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
@@ -98,7 +107,7 @@
   <data format="accnos" name="out_accnos" label="${tool.name} on ${on_string}: slayer.accnos" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

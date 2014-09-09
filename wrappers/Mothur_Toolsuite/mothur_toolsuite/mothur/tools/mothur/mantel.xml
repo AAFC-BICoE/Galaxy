@@ -1,4 +1,4 @@
-<tool id="mothur_mantel" name="Mantel" version="1.19.0">
+<tool id="mothur_mantel" name="Mantel" version="1.20.0">
  <description>Mantel correlation coefficient between two matrices.</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -27,7 +27,7 @@
   <data format="tabular" name="mantel" label="${tool.name} on ${on_string}: mantel"/>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

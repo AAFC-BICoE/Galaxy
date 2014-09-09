@@ -1,4 +1,4 @@
-<tool id="mothur_get_sharedseqs" name="Get.sharedseqs" version="1.20.0" force_history_refresh="True">
+<tool id="mothur_get_sharedseqs" name="Get.sharedseqs" version="1.21.0" force_history_refresh="True">
  <description>Get shared sequences at each distance from list and group</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -6,8 +6,12 @@
   --cmd='get.sharedseqs'
   --result='^mothur.\S+\.logfile$:'$logfile
   --outputdir='$logfile.extra_files_path'
-  --list=$list
-  --group=$group
+	#if isinstance($list.datatype, $__app__.datatypes_registry.get_datatype_by_extension('list').__class__):
+		--list=$list
+		--group=$group
+	#else
+		--shared=$list
+	#end if
   #set datasets = ["'^\S+?\.((unique|[0-9.]*)(\S+)\.shared.seqs)$:tabular'"]
   #if $label.__str__ != "None" and len($label.__str__) > 0:
    --label='$label'
@@ -35,8 +39,8 @@
   #end if
  </command>
  <inputs>
-  <param name="list" type="data" format="list" label="list - OTU List"/>
-  <param name="group" type="data" format="groups" label="group - "/>
+  <param name="list" type="data" format="list,shared" label="list - OTU List or shared file"/>
+  <param name="group" type="data" format="groups" label="group - not required if using a shared file"/>
   <param name="label" type="select" optional="true" label="label - Select OTU Labels to include" multiple="true" 
      help="By default all are included if no selection is made.">
    <options>
@@ -78,7 +82,7 @@
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -96,6 +100,8 @@ provides bioinformatics for the microbial ecology community.
 The get.sharedseqs_ command takes a list and group file and outputs a .shared.seqs file for each distance. This is useful for those cases where you might be interested in identifying sequences that are either unique or shared by specific groups, which you could then classify.
 
 .. _get.sharedseqs: http://www.mothur.org/wiki/Get.sharedseqs
+
+v1.21.0: Updated to Mothur 1.33, added shared file option
 
  </help>
 </tool>

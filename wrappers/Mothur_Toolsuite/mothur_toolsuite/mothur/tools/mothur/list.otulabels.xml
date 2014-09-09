@@ -1,4 +1,4 @@
-<tool id="mothur_list_otulabels" name="List.otulabels" version="1.26.0">
+<tool id="mothur_list_otulabels" name="List.otulabels" version="1.27.0">
  <description>Lists otu labels from shared or relabund file</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -8,7 +8,9 @@
   #if isinstance($otu.datatype, $__app__.datatypes_registry.get_datatype_by_extension('shared').__class__):
    --shared=$otu
   #elif isinstance($otu.datatype, $__app__.datatypes_registry.get_datatype_by_extension('relabund').__class__):
-   --relabund=$otu
+		--relabund=$otu
+	#else
+		--list=$otu	
   #end if
   #if $label.__str__ != "None" and len($label.__str__) > 0:
    --label=$label
@@ -18,7 +20,7 @@
   #end if
  </command>
  <inputs>
-  <param name="otu" type="data" format="shared,relabund" label="shared or relabund - OTU Shared or Relabund"/>
+  <param name="otu" type="data" format="shared,relabund,list" label="shared or relabund - OTU Shared or Relabund"/>
   <param name="label" type="select" label="label - OTU Labels" multiple="true">
    <options>
     <filter type="data_meta" ref="otu" key="labels" />
@@ -35,7 +37,7 @@
   <data format="otulabels" name="otulabels" label="${tool.name} on ${on_string}: otulabels"/>
  </outputs>
  <requirements>
-   <requirement type="package" version="1.27">mothur</requirement>
+   <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -61,6 +63,7 @@ The list.otulabels_ command lists otu labels from shared_ or relabund_ file. Thi
 .. _shared: http://www.mothur.org/wiki/Shared_file
 .. _relabund: http://www.mothur.org/wiki/Get.relabund
 
+v.1.27.0: Updated to mothur 1.33, added list file for otu
 
  </help>
 </tool>

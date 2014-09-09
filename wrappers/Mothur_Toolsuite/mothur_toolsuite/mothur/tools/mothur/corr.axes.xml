@@ -1,4 +1,4 @@
-<tool id="mothur_corr_axes" name="Corr.axes" version="1.20.0">
+<tool id="mothur_corr_axes" name="Corr.axes" version="1.21.0">
  <description>correlation of data to axes</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -65,7 +65,7 @@
   <data format="axes" name="corr_axes" label="${tool.name} on ${on_string}: corr.axes"/>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33" >mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -83,6 +83,8 @@ provides bioinformatics for the microbial ecology community.
 The corr.axes_ command calculates the correlation of data to axes.
 
 .. _corr.axes: http://www.mothur.org/wiki/Corr.axes
+
+v.1.21.0: Updated to mothur 1.33
 
 
  </help>

@@ -35,7 +35,10 @@
    --label=$input.label
   #end if
   --nseqs=$nseqs
-  --result=#echo ','.join($results)
+	--result=#echo ','.join($results)
+  #if $count.__str__ != "None" and len($count.__str__) > 0:
+    --count=$count
+   #end if
  </command>
  <inputs>
   <conditional name="input">
@@ -80,7 +83,8 @@
      </options>
     </param>
    </when>
-  </conditional>
+ </conditional>
+ <param name = "count" type = "data" format = "count_table" optional = "true" label="count" help ="If you clustered with a count file, be sure to include it"/>
   <param name="nseqs" type="integer" value="1" label="nseqs - Number of sequences cutoff for an otu to be deemed rare"/> 
  </inputs>
  <outputs>
@@ -91,7 +95,7 @@
   </data>
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+<requirement type = "package" version ="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

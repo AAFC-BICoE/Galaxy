@@ -1,4 +1,4 @@
-<tool id="mothur_classify_otu" name="Classify.otu" version="1.20.0" force_history_refresh="True">
+<tool id="mothur_classify_otu" name="Classify.otu" version="1.21.0" force_history_refresh="True">
  <description>Assign sequences to taxonomy</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -12,7 +12,10 @@
   #if $name.__str__ != "None" and len($name.__str__) > 0:
    --name='$name'
   #end if
-  #if $reftax.source != 'none' and len($reftax.taxonomy.__str__) > 0:
+   #if $count.__str__ != "None" and len($count.__str__) > 0:
+   --count='$count'
+  #end if
+  #if $reftax.source != 'None' and len($reftax.taxonomy.__str__) > 0:
    --reftaxonomy=$reftax.taxonomy
   #end if
   #if 100 >= int($cutoff.__str__) > 0:
@@ -25,11 +28,13 @@
    --group='$group'
   #end if
   --basis=$basis
-  $probs
+	$probs
+	$persample
  </command>
  <inputs>
   <param name="otu" type="data" format="list" label="list - OTU List "/>
   <param name="name" type="data" format="names" optional="true" label="name - taxonomy sequence names"/>
+  <param name="count" type="data" format="count_table" optional="true" label="count - used to represent the number of duplicate sequences for a given representative sequence"/>
   <conditional name="tax">
    <param name="source" type="select" label="Select Taxonomy from" help="">
     <option value="hist">History</option>
@@ -49,11 +54,11 @@
   </conditional>
   <conditional name="reftax">
    <param name="source" type="select" label="Select Reference Taxonomy used in Classify.seqs from" help="Including the reference taxonomy file used when you classified your sequences keep the rankIDs in the summary file static.">
-    <option value="none">Selection is Optional</option>
+    <option value="None">Selection is Optional</option>
     <option value="hist">History</option>
     <option value="ref">Cached Reference</option>
    </param>
-   <when value="none"/>
+   <when value="None"/>
    <when value="ref">
     <param name="taxonomy" type="select" format="seq.taxonomy" label="reftaxonomy - Taxonomy Reference used when sequences were classified">
      <options from_file="mothur_taxonomy.loc">
@@ -80,12 +85,13 @@
    <option value="sequence">sequence</option>
   </param>
   <param name="group" type="data" format="groups" optional="true" label="group - Groups for summary file"/>
+  <param name="persample" type="boolean" falsevalue="" truevalue="--persample=true" checked="false" label="persample - allows you to find a consensus taxonomy for each group.  default=f"/>
  </inputs>
  <outputs>
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -106,6 +112,6 @@ The basis parameter allows you indicate what you want the summary file to repres
 
 .. _classify.otu: http://www.mothur.org/wiki/Classify.otu
 
-
+v1.21.0: Updated to use Mothur 1.33. Added count parameter (1.28.0) and persample parameter (1.29.0)
  </help>
 </tool>

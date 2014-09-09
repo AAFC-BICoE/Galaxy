@@ -1,4 +1,4 @@
-<tool id="mothur_collect_single" name="Collect.single" version="1.20.0" force_history_refresh="True">
+<tool id="mothur_collect_single" name="Collect.single" version="1.21.0" force_history_refresh="True">
  <description>Generate collector's curves for OTUs</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -79,7 +79,7 @@
   <data format="html" name="logfile" label="${tool.name} on ${on_string}: logfile" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>

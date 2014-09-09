@@ -8,7 +8,11 @@
   #set results = $results + ["'" + $re.sub(r'(^.*)\.(.*?)',r'\1.pick.\2',$os.path.basename($group_in.__str__)) + ":'" + $group_out.__str__]
   --cmd='get.groups'
   --outputdir='$logfile.extra_files_path'
-  --group=$group_in
+	#if isinstance($group_in.datatype, $__app__.datatypes_registry.get_datatype_by_extension('groups').__class__):
+		--group=$group_in
+	#else
+		--count=$group_in		
+	#end if
   #if $groupnames.source == 'groups':
    #if $groupnames.groups.__str__ != "None" and len($groupnames.groups.__str__) > 0:
     --groups=$groupnames.groups
@@ -45,7 +49,7 @@
   --result=#echo ','.join($results)
  </command>
  <inputs>
-  <param name="group_in" type="data" format="groups" label="group - Groups"/>
+  <param name="group_in" type="data" format="groups,count_table" label="group or count_table file"/>
   <conditional name="groupnames">
    <param name="source" type="select" label="Select Group Names from">
     <option value="groups">A List of Group Names</option>

@@ -1,4 +1,4 @@
-<tool id="mothur_get_group" name="Get.group" version="1.19.0">
+<tool id="mothur_get_group" name="Get.group" version="1.20.0">
  <description>group names from shared or from list and group</description>
  <command interpreter="python">
   mothur_wrapper.py 
@@ -15,7 +15,7 @@
   <data format="groups" name="bootgroups" label="${tool.name} on ${on_string}: bootGroups" />
  </outputs>
  <requirements>
-  <requirement type="package" version="1.27">mothur</requirement>
+  <requirement type="package" version="1.33">mothur</requirement>
  </requirements>
  <tests>
  </tests>
@@ -33,6 +33,8 @@ provides bioinformatics for the microbial ecology community.
 The get.group_ command generate principle components plot data.
 
 .. _get.group: http://www.mothur.org/wiki/Get.group
+
+v.1.20.0: Updated to Mothur 1.33
 
  </help>
 </tool>
