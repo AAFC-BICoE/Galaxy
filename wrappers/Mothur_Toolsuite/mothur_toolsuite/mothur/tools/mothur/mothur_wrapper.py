@@ -223,7 +223,7 @@ def __main__():
     cmd_dict['chimera.bellerophon'] = dict({'required' : ['fasta'], 'optional' : ['filter','correction','window','increment','processors']})
     cmd_dict['chimera.ccode'] = dict({'required' : ['fasta','reference'], 'optional' : ['filter','mask','window','numwanted','save','processors']})
     cmd_dict['chimera.check'] = dict({'required' : ['fasta','reference'], 'optional' : ['ksize','svg','name','increment','save','processors']})
-    cmd_dict['chimera.perseus'] = dict({'required' : ['fasta','name'], 'optional' : ['group','alpha','beta','cutoff']})
+    cmd_dict['chimera.perseus'] = dict({'required' : ['fasta',['name','count']], 'optional' : ['group','alpha','beta','cutoff','dereplicate']})
     cmd_dict['chimera.pintail'] = dict({'required' : ['fasta','reference'], 'optional' : ['conservation','quantile','filter','mask','window','increment','save','processors']})
     cmd_dict['chimera.slayer'] = dict({'required' : ['fasta','reference'], 'optional' : ['name','group','count','search','window','increment','match','mismatch','numwanted','parents','minsim','mincov','iters','minbs','minsnp','divergence','realign','split','blastlocation','save','processors','dereplicate']})
     cmd_dict['chimera.uchime'] = dict({'required' : ['fasta'], 'optional' : ['name','group','count','dereplicate','reference','abskew','chimealns','minh','mindiv','xn','dn','xa','chunks','minchunk','idsmoothwindow','minsmoothid','maxp','skipgaps','skipgaps2','minlen','maxlen','ucl','queryfract','processors']})
