@@ -95,6 +95,12 @@ http://www.mothur.org/wiki/Makefile_options
     </package>
     <!-- 
       http://supfam.cs.bris.ac.uk/TreeVector/treevectorsource.zip
-    -->
+		-->
+
+	<package name ="blast+" version="2.2.26+">
+		<repository toolshed="localhost:9009" name="package_blast_plus_2_2_26" owner="meowmeow" changeset_revision="d26a7a13818e"/>
+	</package>
+
 </tool_dependency>
+
 

@@ -266,7 +266,7 @@ def __main__():
     cmd_dict['get.relabund'] = dict({'required' : ['shared'],'optional' : ['scale','label','groups']})
     cmd_dict['get.sabund'] = dict({'required' : [['list','rabund']],'optional' : ['label','count']})
     cmd_dict['get.seqs'] = dict({'required' : ['accnos',['fasta','qfile','name','group','list','alignreport','taxonomy']], 'optional' : ['dups','count','fastq']})
-    cmd_dict['get.sharedseqs'] = dict({'required' : ['list','group','shared'], 'optional' : ['label', 'unique', 'shared', 'output', 'fasta']})
+    cmd_dict['get.sharedseqs'] = dict({'required' : ['list','group'], 'optional' : ['label', 'unique', 'shared', 'output', 'fasta','shared']})
     cmd_dict['hcluster'] = dict({'required' : [['column','phylip']] , 'optional' : ['name','method','cutoff','hard','precision','sorted','showabund','timing']})
     cmd_dict['heatmap.bin'] = dict({'required' : [['list', 'sabund', 'rabund', 'shared']], 'optional' : ['label','groups','scale','sorted','numotu','fontsize']})
     cmd_dict['heatmap.sim'] = dict({'required' : [['shared','phylip','column']], 'optional' : ['calc','name','label','groups','fontsize','count']})
@@ -274,7 +274,7 @@ def __main__():
     cmd_dict['indicator'] = dict({'required' : [['tree','design'],['shared','relabund']], 'optional' : ['groups','label','processors']})
     cmd_dict['libshuff'] = dict({'required' : ['phylip','group'],'optional' : ['groups','iters','form','sim','step','cutoff']})
     cmd_dict['list.seqs'] = dict({'required' : [['fasta','name','group','list','alignreport','taxonomy']]})
-
+    cmd_dict['list.otulabels'] = dict({'required': [['shared','relabund','list']], 'optional': ['group','label']})
     cmd_dict['make.biom'] = dict({'required' : ['shared'] ,  'optional' : ['constaxonomy','matrixtype','groups','label','metadata','picrust','reftaxonomy']})
     cmd_dict['make.contigs'] = dict({'required' : ['ffastq','rfastq',], 'optional' : ['align','match','mismatch','gapopen','gapextend','threshold','oligos','bdiffs','pdiffs','tdiffs','processors']})
 
@@ -303,7 +303,7 @@ def __main__():
     cmd_dict['rarefaction.shared'] = dict({'required' : ['shared'], 'optional' : ['calc','label','iters','groups','jumble','design','sets','groupmode','subsample','subsampleiters']})
     cmd_dict['rarefaction.single'] = dict({'required' : [['list', 'sabund', 'rabund', 'shared']], 'optional' : ['calc','abund','iters','label','freq','processors']})
     cmd_dict['remove.groups'] = dict({'required' : ['group'], 'optional' : ['groups','accnos','fasta','name','list','shared','taxonomy','design','count']})
-    cmd_dict['remove.lineage'] = dict({'required' : [['taxonomy','constaxonomy'],'taxon'],'optional' : ['fasta','name','group','list','alignreport','dups','shared','list']})
+    cmd_dict['remove.lineage'] = dict({'required' : [['taxonomy','constaxonomy'],'taxon'],'optional' : ['fasta','name','group','list','alignreport','dups','shared','list','count']})
     cmd_dict['remove.otus'] = dict({'required' : ['group','list','label'], 'optional' : ['groups','accnos']})
     cmd_dict['remove.rare'] = dict({'required' : [['list','sabund','rabund','shared'],'nseqs'], 'optional' : ['group','groups','label','bygroup','count']})
     cmd_dict['remove.seqs'] = dict({'required' : ['accnos',['fasta','qfile','name','group','list','alignreport','taxonomy']], 'optional' : ['dups','count','fastq']})
