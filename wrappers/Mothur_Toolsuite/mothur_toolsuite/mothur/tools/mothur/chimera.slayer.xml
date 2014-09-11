@@ -40,7 +40,7 @@
   #end if
   ## --blastlocation=path_to_blast
 	--processors=8
-	--dereplicate
+	$dereplicate
  </command>
  <inputs>
   <param name="fasta" type="data" format="fasta" label="fasta - Candiate Sequences"/>
