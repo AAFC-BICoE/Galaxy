@@ -22,6 +22,7 @@ log = logging.getLogger(__name__)
 ## Mothur Classes 
 
 class Otu( Text ):
+
     file_ext = 'otu'
     MetadataElement( name="columns", default=0, desc="Number of columns", readonly=True, visible=True, no_value=0 )
     MetadataElement( name="labels", default=[], desc="Label Names", readonly=True, visible=True, no_value=[] )
@@ -752,6 +753,129 @@ class Oligos( Text ):
         finally:
             fh.close()
         return False
+"""
+class OtuMap( Tabular ):
+    file_ext = 'otu_map'
+		
+    def __init__(self, **kwd):
+      Tabular.__init__(self,**kwd)
+      self.column_names = ['catdog','dog']
+      self.column_types = ['int','float']
+
+    def sniff(self, filename): #sniffer that detects whether it's an otu table. 
+			#it appears that self refers to the object passed in, and filename will be the name of the file?
+      try:
+        fh = open( filename)
+        line = fh.readline()
+        line = line.strip()
+        if line[0] != '#':
+          return False
+        count=0
+        while True:
+            #go thru the file.
+            line = fh.readline()
+            line = line.strip()
+            if not line:
+                break 
+            else:
+                if line[0] != '#':
+                    try:
+                        linePieces = line.split('\t')
+                        i = int(linePieces[0])
+                        f = float(linePieces[1])
+                        continue
+                    except:
+                        return False
+                #went through the file, can split!
+        return True
+      except:
+        #failed to open file ? 
+        pass
+      finally:
+        fh.close()
+      #at this point we might as well return false..
+      return False
+"""
+class Metadata ( Tabular ):
+    file_ext='metadata'
+    """
+    group   dpw description
+    F003D000    0   "F003D000 description"
+    F003D002    2   "F003D002 description"
+    F003D004    4   "F003D004 description"
+    F003D006    6       "F003D006 description"
+    F003D008    8       "F003D008 description"
+    F003D142    142     "F003D142 description"
+    F003D144    144     "F003D144 description"
+    F003D146    146     "F003D146 description"
+    F003D148    148     "F003D148 description"
+    F003D150    150     "F003D150 description"
+    MOCK.GQY1XT001  12  "MOCK.GQY1XT001 description"
+    """
+    def __init__(self, **kwd):
+        Tabular.__init__( self, **kwd )
+        self.column_names = ['group','dpw','description']
+        self.column_types = ['string','int','string']
+    
+    def sniff (self,filename):
+        try:
+            fh = open (filename)
+            line = fh.readline()
+            line = line.strip()
+            headers = line.split('\t')
+            #check the header for the needed
+            if len(headers) < 2:
+                return False
+            if headers[0] == "group" and headers[1] == "dpw" and headers[2] == "description":
+                return True
+        except:
+            pass
+        finally:
+            fh.close()
+        return False 
+
+
+
+class OtuMap(Tabular):
+    file_ext = 'otu_map'
+    def __init__(self, **kwd):
+        """A list of names"""
+        Tabular.__init__( self, **kwd )
+        self.column_names = ['position','frequency']
+        self.column_types = ['int','float']
+
+    def sniff( self, filename ):
+        """
+        Determines whether the file is a frequency tabular format for chimera analysis
+        #1.14.0
+        0	0.000
+        1	0.000
+        ...
+        155	0.975
+        """
+        try:
+            fh = open( filename )
+            count = 0
+            while True:
+                line = fh.readline()
+                line = line.strip()
+                if not line:
+                    break #EOF
+                else:
+                    if line[0] != '#':
+                        try:
+                            linePieces = line.split('\t')
+                            i = int(linePieces[0])
+                            continue
+                        except:
+                            return False
+            return True
+        except:
+            pass
+        finally:
+            fh.close()
+        return False
+
 
 class Frequency(Tabular):
     file_ext = 'freq'
@@ -772,6 +896,11 @@ class Frequency(Tabular):
         """
         try:
             fh = open( filename )
+						#checks first line for #
+            line = fh.readline()
+            line = line.strip()
+            if line[0] != '#':
+              return False
             count = 0
             while True:
                 line = fh.readline()
@@ -1399,7 +1528,6 @@ class Nexus( Text ):
         finally:
             fh.close()
         return False
-
 
 ## Biom 
 

@@ -39,6 +39,7 @@
         <datatype extension="cons.taxonomy" type="galaxy.datatypes.metagenomics:ConsensusTaxonomy" display_in_upload="true"/>
         <datatype extension="tax.summary" type="galaxy.datatypes.metagenomics:TaxonomySummary" display_in_upload="true"/>
         <datatype extension="freq" type="galaxy.datatypes.metagenomics:Frequency" display_in_upload="true"/>
+        <datatype extension="otu_map" type="galaxy.datatypes.metagenomics:OtuMap" display_in_upload="true"/>
         <datatype extension="quan" type="galaxy.datatypes.metagenomics:Quantile" display_in_upload="true"/>
         <datatype extension="filtered.quan" type="galaxy.datatypes.metagenomics:FilteredQuantile" display_in_upload="true"/>
         <datatype extension="masked.quan" type="galaxy.datatypes.metagenomics:MaskedQuantile" display_in_upload="true"/>
@@ -75,6 +76,7 @@
         <sniffer type="galaxy.datatypes.metagenomics:PairwiseDistanceMatrix"/>
         <sniffer type="galaxy.datatypes.metagenomics:Oligos"/>
         <sniffer type="galaxy.datatypes.metagenomics:Frequency"/>
+        <sniffer type="galaxy.datatypes.metagenomics:OtuMap"/>
         <sniffer type="galaxy.datatypes.metagenomics:Quantile"/>
         <sniffer type="galaxy.datatypes.metagenomics:LaneMask"/>
         <sniffer type="galaxy.datatypes.metagenomics:RefTaxonomy"/>
