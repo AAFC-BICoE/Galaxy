@@ -50,6 +50,8 @@
         <datatype extension="nhx" type="galaxy.datatypes.metagenomics:Nhx" display_in_upload="true"/>
         <datatype extension="nex" type="galaxy.datatypes.metagenomics:Nexus" display_in_upload="true"/>
         <datatype extension="count_table" type="galaxy.datatypes.metagenomics:CountTable" display_in_upload="true"/>
+        <datatype extension="otu_map" type="galaxy.datatypes.metagenomics:OtuMap" display_in_upload="true"/>
+        <datatype extension="metadata" type="galaxy.datatypes.metagenomics:Metadata" display_in_upload="true"/>
         <!-- End Mothur Datatypes -->
         <!-- Start Qiime Datatypes -->
         <datatype extension="qiimemapping" type="galaxy.datatypes.metagenomics:QiimeMetadataMapping" display_in_upload="true"/>
@@ -75,6 +77,8 @@
         <sniffer type="galaxy.datatypes.metagenomics:PairwiseDistanceMatrix"/>
         <sniffer type="galaxy.datatypes.metagenomics:Oligos"/>
         <sniffer type="galaxy.datatypes.metagenomics:Frequency"/>
+        <sniffer type="galaxy.datatypes.metagenomics:OtuMap"/>
+        <sniffer type="galaxy.datatypes.metagenomics:Metadata"/>
         <sniffer type="galaxy.datatypes.metagenomics:Quantile"/>
         <sniffer type="galaxy.datatypes.metagenomics:LaneMask"/>
         <sniffer type="galaxy.datatypes.metagenomics:RefTaxonomy"/>
