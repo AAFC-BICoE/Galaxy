@@ -1,0 +1,9 @@
+Provides a BLAST tool dependency for galaxy. Does not actually install any galaxy tools.
+
+This is editted from the package_blast_plus_2_2_26 from the central toolshed to use the legacy blast tools primarily for some mothur tools.
+
+This dependency will attempt to build the correct version for your OS and continue only if at least one succeeds.
+
+
+
+
