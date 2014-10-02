@@ -19,6 +19,12 @@
    #if $oligo.tdiffs.__str__ != '' and int($oligo.tdiffs.__str__) > 0:
     --tdiffs=$oligo.tdiffs
    #end if
+   #if $oligo.findex.__str__ != 'None':
+    --findex=$oligo.findex
+   #end if
+   #if $oligo.rindex.__str__ != 'None': 
+    --rindex=$oligo.rindex
+   #end if
   #end if
 
   #if $match.__str__ != '':
@@ -65,6 +71,8 @@
     <param name="tdiffs" type="integer" value="0" label="tdiffs - total number of differences to allow in primer and barcode (default 0)">
       <validator type="in_range" message="Number of differences can't be negative" min="0"/>
     </param>
+    <param name="findex" type = "data" format="fastq" optional="true" label="forward index file (fastq)"/>
+    <param name="rindex" type = "data" format="fastq" optional="true" label="revese index file (fastq)"/>
    </when>
   </conditional>
   <param name="match" type="integer" value="1" optional="true" label="match - Pairwise alignment reward for a match"/>
@@ -103,6 +111,8 @@ provides bioinformatics for the microbial ecology community.
 The make.contigs_ command reads a forward fastq file and a reverse fastq file and outputs new fasta and quality files.
 
 .. _make.contigs: http://www.mothur.org/wiki/Make.contigs
+
+v.1.27.0: Updated to use Mothur 1.33. Added findex and rindex parmaeters, optionally used with the oligos file. 
 
  </help>
 </tool>

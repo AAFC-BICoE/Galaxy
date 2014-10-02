@@ -37,7 +37,7 @@
 			help="The contaxonomy file is the taxonomy file outputted by classify.otu"
 			optional="true"
 			/>
-		<param name = "metadata" type = "data" format = "txt" label = "metadata" optional="true" help="You can add sample data support here."/>
+		<param name = "metadata" type = "data" format = "metadata" label = "metadata" optional="true" help="You can add sample data support here."/>
 		<conditional name = "picrustc">
 			<param name = "use" type = "boolean" truevalue = "yes" falsevalue = "no" checked="false" label = "use picrust program"/>
 			<when value = "yes">

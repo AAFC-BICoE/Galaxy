@@ -276,7 +276,7 @@ def __main__():
     cmd_dict['list.seqs'] = dict({'required' : [['fasta','name','group','list','alignreport','taxonomy']]})
     cmd_dict['list.otulabels'] = dict({'required': [['shared','relabund','list']], 'optional': ['group','label']})
     cmd_dict['make.biom'] = dict({'required' : ['shared'] ,  'optional' : ['constaxonomy','matrixtype','groups','label','metadata','picrust','reftaxonomy']})
-    cmd_dict['make.contigs'] = dict({'required' : ['ffastq','rfastq',], 'optional' : ['align','match','mismatch','gapopen','gapextend','threshold','oligos','bdiffs','pdiffs','tdiffs','processors']})
+    cmd_dict['make.contigs'] = dict({'required' : ['ffastq','rfastq',], 'optional' : ['align','match','mismatch','gapopen','gapextend','threshold','oligos','bdiffs','pdiffs','tdiffs','processors','rindex','findex']})
 
     cmd_dict['make.fastq'] = dict({'required' : ['fasta','qfile'] ,  'optional' : ['format']})
     cmd_dict['make.group'] = dict({'required' : ['fasta','groups'],  'optional' : []})
