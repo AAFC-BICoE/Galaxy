@@ -824,8 +824,6 @@ class Metadata ( Tabular ):
             line = line.strip()
             headers = line.split('\t')
             #check the header for the needed
-            if len(headers) < 2:
-                return False
             if headers[0] == "group" and headers[1] == "dpw" and headers[2] == "description":
                 return True
         except:
@@ -841,7 +839,7 @@ class OtuMap(Tabular):
     def __init__(self, **kwd):
         """A list of names"""
         Tabular.__init__( self, **kwd )
-        self.column_names = ['position','frequency']
+        self.column_names = ['OTU','SEQIDS']
         self.column_types = ['int','float']
 
     def sniff( self, filename ):
