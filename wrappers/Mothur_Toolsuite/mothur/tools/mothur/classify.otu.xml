@@ -42,9 +42,7 @@
    </param>
    <when value="ref">
     <param name="taxonomy" type="select" format="seq.taxonomy" label="taxonomy - Taxonomy Reference">
-     <options from_file="mothur_taxonomy.loc">
-      <column name="name" index="0" />
-      <column name="value" index="1" />
+     <options from_data_table="mothur_taxonomy">
      </options>
     </param>
    </when>
@@ -61,9 +59,7 @@
    <when value="None"/>
    <when value="ref">
     <param name="taxonomy" type="select" format="seq.taxonomy" label="reftaxonomy - Taxonomy Reference used when sequences were classified">
-     <options from_file="mothur_taxonomy.loc">
-      <column name="name" index="0" />
-      <column name="value" index="1" />
+     <options from_data_table="mothur_taxonomy">
      </options>
     </param>
    </when>
