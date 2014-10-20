@@ -39,9 +39,7 @@
    <when value="ref">
     <param name="lookup" type="select" format="tabular" label="lookup - intensity value per homopolymer length"
      help="table of the probability of observing an intensity value for a given homopolymer length">
-     <options from_file="mothur_lookup.loc">
-      <column name="name" index="0" />
-      <column name="value" index="1" />
+     <options from_data_table="mothur_lookup">
      </options>
     </param>
    </when>
