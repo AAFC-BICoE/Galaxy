@@ -3,8 +3,13 @@
 use strict;
 use warnings;
 
-use WebService::Simple;
+use REST::Client;
+use JSON;
 use Getopt::Long;
+use Pod::Usage;
+use Data::Dumper;
+
+my $DEBUG = 0;
 
 {
 # Default Options
@@ -16,9 +21,7 @@ my %options = (
 
 
 parse_and_validate_options ();
-
-
-
+get_sequences();
 
 
 
@@ -35,25 +38,24 @@ sub parse_and_validate_options {
 		-verbose => 1 
 	} );
 
-        print STDOUT "Validating options and arguements passed to the script." if ( DEBUG );
+        print STDOUT "Validating options and arguements passed to the script." if ( $DEBUG );
 
 	( exists $options{'help'} ) and
 		pod2usage ( { -exitval => 0, -verbose => 2 } );
 
-	( $options{'command'} =~ m/(create|read|update|delete)/i ) and
+	( $options{'command'} !~ m/(create|read|update|delete)/i ) and
 		pod2usage ( { -message => "Invalid command option. --command only supports CRUD.", -exitval => 1, verbose => 1 } );
 	
-	if ( $options{'command'} == 'read' ){
-		( not exists $options{'seqids'} ) or
+	if ( $options{'command'} eq 'read' ){
+		( not exists $options{'seqids'} ) and
 			pod2usage ( { -message => "You must specify a file containing a list of sequence identifiers.", -exitval => 1, -verbose => 1  } );
 	}	
 }
 
 sub init_webservice_client {
 	# Define the web service parameters
-	return WebService::Simple->new(
-		base_url => "http://seqdb.biodiversity.agr.gc.ca/webservice/v1/",
-		response_parser => 'JSON'
+	return REST::Client->new(
+		host => "http://10.117.203.95:8080/seqdbweb/webservice/v1/",
 		# Populate the following when API keys are supports
 		#param    => { api_key => , }
 	);
@@ -62,26 +64,40 @@ sub init_webservice_client {
 sub get_sequences {
 	my $seqdb_ws = init_webservice_client();
 
-	open ( SEQIDS, "<" . ($options{'seqids'} or "-") )
+	print STDOUT "Opening $options{'seqids'}\n";
+	open ( SEQIDS, "<" . $options{'seqids'} )
 		or die "Unable to read the SeqIDs.";
 
+	print STDOUT "Opening $options{'notfound'}\n";
 	open ( NOTFOUND, ">" . $options{'notfound'} )
 		or die "Unable to open $options{'notfound'} for writing.";
 
-	open ( SEQUENCES, ">" . ($options{'sequences'} or "-") )
+	print STDOUT "Opening $options{'sequences'}\n";
+	open ( SEQUENCES, ">" . ($options{'sequences'}) )
 		or die "Unable to write sequences.";
 	
-	while ( $seqid = <SEQIDS> ){
-		$response = $seqdb_ws->get( { method => "sequence/$seqid", name => "value" } );
+	while ( my $seqid = <SEQIDS> ){
+		# Skip comment lines or empty lines
+#		$seqid =~ m/^#/ or next;
+#		$seqid =~ m/.+/ or next;
+
+		# Remove leading > if they exist
+#		$seqid =~ s/^>//;
+
+		print STDOUT "Searching for $seqid\n";
+		my $response = $seqdb_ws->GET( "sequence/$seqid" );
 
 		if ( not $response ) {
-			print NOTFOUND $seqid;
+			print STDOUT "$seqid - not found\n";
+			print NOTFOUND $seqid . "\n";
 			next;
 		}
 
-		$sequence = $response->parse_response;
-		print SEQUENCES ">" . $sequence{'id'};
-		print SEQUENCES $sequence{'sequence'};
+		print STDOUT "Response: " . $response->responseContent() . "\n";
+		my $sequence = decode_json( $response->responseContent() )->{'entities'}[0]->{'sequence'};
+		print STDOUT Dumper($sequence);
+		print SEQUENCES ">" . $sequence->{'name'} . "\n";
+		print SEQUENCES $sequence->{'seq'} . "\n";
 	}
 
 	close SEQIDS;

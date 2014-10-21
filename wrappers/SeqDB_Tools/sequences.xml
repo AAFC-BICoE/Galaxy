@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tool id="seqdb_sequences" name="Get Sequences" version="1.0">
-	<requirements>
+	<!--	<requirements>
 		<requirement type="package" version="1.0">seqdb_webservices</requirement>
-		<requirement type="binary">perl</requirement>
-	</requirements>
+		<requirement type="package" version="5.18.1">perl</requirement>
+	</requirements> -->
 	<description>Get sequences from SeqDB</description>
 	<command interpreter="perl">
 		sequences.pl --seqids $seq_ids --sequences $sequences --notfound $notfound
@@ -47,7 +47,7 @@ SeqDB:
 
 **Description**
 
-Pulls a list of sequences from Sequence Database given a list of Sequence Identifiers.
+Pulls a list of sequences from SeqDB given a list of Sequence Identifiers.
 The file containing the sequence identifier must contain one identifier per line. Empty lines are ignored.
 
 **Inputs and Outputs**

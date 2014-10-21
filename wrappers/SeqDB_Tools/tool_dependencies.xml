@@ -1,12 +1,12 @@
 <tool_dependency>
 	<package name="perl" version="5.18.1">
-		<repository name="package_perl_5_18" owner="iuc" prior_installation_required="True" />
+		<repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" toolshed="http://onottar678127x:9009" />
 	</package>
 	<package name="seqdb_webservices" version="1.0">
 		<install version="1.0">
 			<actions>
 				<action type="setup_perl_environment">
-					<repository name="package_perl_5_18" owner="kandalafti" toolshed="http://onottar678127x:9009">
+					<repository name="package_perl_5_18" owner="galaxyuser" toolshed="http://onottar678127x:9009">
 						<package name="perl" version="5.18.1" />
 					</repository>
 					<package>WebService::Simple</package>
