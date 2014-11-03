@@ -91,9 +91,7 @@
    </param>
    <when value="ref">
     <param name="reference" type="select" label="reference - Select an alignment database " help="">
-     <options from_file="mothur_aligndb.loc">
-      <column name="name" index="0" />
-      <column name="value" index="1" />
+     <options from_data_table="mothur_aligndb">
      </options>
     </param>
    </when>

@@ -53,9 +53,7 @@
 			</param>
 			<when value="ref">
 				<param name="template" type="select" label="reference - Select an alignment database " help="">
-					<options from_file="mothur_aligndb.loc">
-						<column name="name" index="0" />
-						<column name="value" index="1" />
+					<options from_data_table="mothur_aligndb">
 					</options>
 				</param>
 			</when>
@@ -70,9 +68,7 @@
 			</param>
 			<when value="ref">
 				<param name="taxonomy" type="select" format="seq.taxonomy" label="taxonomy - Taxonomy reference">
-					<options from_file="mothur_taxonomy.loc">
-						<column name="name" index="0" />
-						<column name="value" index="1" />
+					<options from_data_table="mothur_taxonomy">
 					</options>
 				</param>
 			</when>

@@ -24,9 +24,7 @@
     </param>
     <when value="cached">
      <param name="map" type="select" label="map - Select a secondary structure map" help="Contact Galaxy team for additions">
-      <options from_file="mothur_map.loc">
-       <column name="name" index="0" />
-       <column name="value" index="1" />
+      <options from_data_table="mothur_map">
       </options>
      </param>
     </when>
