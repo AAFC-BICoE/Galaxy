@@ -38,28 +38,30 @@
 			</actions>
 		</install>
 		<readme>
-			
-Authors:
+*Authors &amp; Contacts*
 Jim Johnson
 Peter Briggs
-Iyad Kandalaft <Iyad.Kandalaft@Agr.gc.ca> | Agriculture and Agri-Foods Canada
+Iyad Kandalaft | Iyad.Kandalaft@Agr.gc.ca | Agriculture and Agri-Foods Canada
 Kevin Chen | Agriculture and Agri-Foods Canada
 
+*Description*
+
+The Mothur Tool Suite repository provides Galaxy wrappers for the majority of the Mothur tools.  In addition, it downloads and builds the Mothur binaries.
 
 Supports Linux environments such as Redhat/Centos/Ubuntu as well as Mac OSX. 
 
-Required utilities:
-- build tools (make, C libraries, GCC)
-- libncurses-dev(el)
-- simplejson (python library) 
-
-
-These links provide information for building the Mothur package in most environments .
+These links provide information for building the Mothur package in most environments.
 
 http://www.mothur.org/wiki/Download_mothur
 
 http://www.mothur.org/wiki/Installation
 http://www.mothur.org/wiki/Makefile_options
+
+*Requirements*
+
+- build tools (make, C libraries, GCC)
+- libncurses-dev(el)
+- simplejson (python library) 
 		</readme>
 	</package>
 	<package name="blast" version="2.2.26">
