@@ -1,20 +1,15 @@
-Provides galaxy tools for the Mothur metagenomics package -  http://www.mothur.org/wiki/Main_Page 
+Galaxy wrappers for the Mothur metagenomics tools (http://www.mothur.org/wiki/Main_Page)
 
+The Mothur Tool Suite repository:
+	- Provides Mothur wrappers for most Mothur tools
+	- Data type used by mothur and other metagenomics tools
+	- Downloads and builds Mothur on the Linux or Mac operating system
 
-Mothur should be able to be auto-installed as a tool_dependency
-  You may want to reorganize the tool panel after installing
-  See below: Reorganize integrated_tool_panel.xml
-  This was based on: http://www.mothur.org/wiki/Mothur_manual
-  (The environment variable MOTHUR_MAX_PROCESSORS can be used to limit the number of cpu processors used for mothur commands)
-   This will be set in: tool_dependencies/mothur/1.27/jjohnson/mothur_toolsuite/*/env.sh
-	Requirements for auto installation:
-	-	make (sudo-apt get install make)
-	- g++ (sudo apt-get install g++)
-	- gfortran (sudo apt-get install gfortran)
-	- pip (sudo apt-get install python-pip)
+Requirements:
+	- Build utilities (make, GCC, gfortran, etc)
 	- simplejson (pip install simplejson)
 
-	Repository Dependency: 
+Repository Dependency: 
 	- BLAST Legacy ver. 2.2.26 (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/release/LATEST/)
 	- The repository name should be package_blast_2_2_26 so it matches with the tool dependency.
 	
@@ -114,14 +109,11 @@ Install reference data from silva and greengenes
     /project/db/galaxy/mothur/RDP/trainset7_112011.rdp.fasta
     /project/db/galaxy/mothur/RDP/trainset7_112011.rdp.tax
 
-
-
 Add tool-data:  (contains  pointers to silva, greengenes, and RDP reference data)
   tool-data/mothur_aligndb.loc
   tool-data/mothur_map.loc
   tool-data/mothur_taxonomy.loc
   tool-data/shared/jars/TreeVector.jar
-
 
 ################################################################
 #### If you are manually adding this to your local galaxy:  ####
@@ -129,13 +121,10 @@ Add tool-data:  (contains  pointers to silva, greengenes, and RDP reference data
 
 add config files (*.xml) and wrapper code (*.py) from tools/mothur/*  to your galaxy installation 
 
-
 add datatype definition file: lib/galaxy/datatypes/metagenomics.py
 
 add the following import line to:  lib/galaxy/datatypes/registry.py
 import metagenomics # added for metagenomics mothur
-
-
 
 add datatypes to:  datatypes_conf.xml
 
@@ -172,7 +161,3 @@ Here is an example call to the mothur_wrapper.py script with an explanation befo
  # Each item  conatins:   a regex pattern for matching filenames and  a galaxy datatype (separated by :)
  # The regex match.groups()[0] is used as the id name of the dataset, and must result in  unique name for each output
  --new_datasets='^\S+?\.((\S+)\.(unique|[0-9.]*)\.dist)$:lower.dist'
-
- ## 
- ## NOTE:   The "read" commands were eliminated with Mothur version 1.18
- ##

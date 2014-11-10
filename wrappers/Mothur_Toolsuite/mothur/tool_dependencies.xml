@@ -24,7 +24,7 @@
 					<environment_variable name="MOTHUR_MAX_PROCESSORS" action="set_to">2</environment_variable>
 				</action>
 				<action type="set_environment_for_install">
-					<repository changeset_revision="32c158152e5e" name="package_blast_plus_2_2_26" owner="meowmeow" toolshed="http://onotta669816x:9001/">
+					<repository changeset_revision="" name="package_blast_2_2_26" owner="" toolshed="">
 						<package name="blast" version="2.2.26" />
 					</repository>
 				</action>
@@ -67,7 +67,7 @@ http://www.mothur.org/wiki/Makefile_options
 	<package name="blast" version="2.2.26">
 		<repository 
 			name="package_blast_plus_2_2_26"
-			owner="iyad"
+			owner=""
 			changeset_revision=""
 			toolshed=""
 			prior_installation_required="True"/>
