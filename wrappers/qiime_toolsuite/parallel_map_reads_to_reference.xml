@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<tool id="parallel_map_reads_to_reference" name="parallel map reads to reference" version="1.7.0">
+	<description></description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>parallel_map_reads_to_reference.py -i $input_seqs_filepath -o parallel_map_reads_to_reference_output -r $refseqs_fp
+#if str($observation_metadata_fp) != 'None':
+ -t $observation_metadata_fp
+#end if
+
+#if str($assignment_method) != 'None':
+ -m $assignment_method
+#end if
+
+#if $evalue:
+ -e $evalue
+#end if
+
+#if $min_percent_id:
+ -s $min_percent_id
+#end if
+
+#if $max_diff:
+ --max_diff=$max_diff
+#end if
+
+#if $queryalnfract:
+ --queryalnfract=$queryalnfract
+#end if
+
+#if $targetalnfract:
+ --targetalnfract=$targetalnfract
+#end if
+
+#if $max_accepts:
+ --max_accepts=$max_accepts
+#end if
+
+#if $max_rejects:
+ --max_rejects=$max_rejects
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+;
+compress_path.py -i parallel_map_reads_to_reference_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_seqs_filepath: Path to input sequences file" name="input_seqs_filepath" optional="False" type="data"/>
+		<param label="-r/--refseqs_fp: Path to reference sequences" name="refseqs_fp" optional="False" type="data"/>
+		<param label="-t/--observation_metadata_fp: Path to observation metadata (e.g., taxonomy, EC, etc) [default: None]" name="observation_metadata_fp" optional="True" type="data"/>
+		<param label="-m/--assignment_method: Method for picking OTUs.  Valid choices are: usearch blat bwa-short. [default: usearch]" name="assignment_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="usearch">usearch</option>
+			<option value="blat">blat</option>
+			<option value="bwa-short">bwa-short</option>
+		</param>
+		<param default="1e-10" label="-e/--evalue: Max e-value to consider a match [default: 1e-10]" name="evalue" optional="True" type="float"/>
+		<param default="0.75" label="-s/--min_percent_id: Min percent id to consider a match [default: 0.75]" name="min_percent_id" optional="True" type="float"/>
+		<param default="None" label="--max_diff: maxDiff to consider a match (applicable for -m bwa) -- see the aln section of &quot;man bwa&quot; for details [default (defined by bwa): 0.04]" name="max_diff" optional="True" type="float"/>
+		<param default="0.35" label="--queryalnfract: Min percent of the query seq that must match to consider a match (usearch only) [default: 0.35]" name="queryalnfract" optional="True" type="float"/>
+		<param default="0.0" label="--targetalnfract: Min percent of the target/reference seq that must match to consider a match (usearch only) [default: 0.0]" name="targetalnfract" optional="True" type="float"/>
+		<param default="1" label="--max_accepts: max_accepts value (usearch only) [default: 1]" name="max_accepts" optional="True" type="integer"/>
+		<param default="32" label="--max_rejects: max_rejects value to (usearch only) [default: 32]" name="max_rejects" optional="True" type="integer"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+</help>
+</tool>

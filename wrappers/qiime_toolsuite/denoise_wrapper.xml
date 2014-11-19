@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<tool id="denoise_wrapper" name="denoise wrapper" version="1.7.0">
+	<description>Denoise a flowgram file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>denoise_wrapper.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_file) -f $fasta_file -o denoise_wrapper_output
+#if $num_cpus:
+ -n $num_cpus
+#end if
+
+#if str($map_fname) != 'None':
+ -m $map_fname
+#end if
+
+#if str($primer):
+ -p $primer
+#end if
+
+#if $titanium:
+ --titanium
+#end if
+;
+compress_path.py -i denoise_wrapper_output -o $output_dir
+</command>
+	<inputs>
+		<repeat name="input_files_input_file" optional="False" title="input_file">
+			<param label="-i/--input_file: path to flowgram files (.sff.txt), comma separated" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-f/--fasta_file: path to fasta file from split_libraries.py" name="fasta_file" optional="False" type="data"/>
+		<param default="1" label="-n/--num_cpus: number of CPUs [default: 1]" name="num_cpus" optional="True" type="integer"/>
+		<param label="-m/--map_fname: name of mapping file, Has to contain field LinkerPrimerSequence. [REQUIRED unless --primer specified]" name="map_fname" optional="True" type="data"/>
+		<param default="None" label="-p/--primer: primer sequence [REQUIRED unless --map_fname specified]" name="primer" optional="True" type="text"/>
+		<param label="--titanium: Select Titanium defaults for denoiser, otherwise use FLX defaults [default: False]" name="titanium" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script will denoise a flowgram file in .sff.txt format, which is the output of sffinfo.
+This script results in a OTU like mapping file along with a sequence file of denoised (FASTA-format). Note that the sequences coming from denoising are no real OTUs, and have to be sent to pick_otus.py if the users wishes to have a defined similarity threshold.</help>
+</tool>

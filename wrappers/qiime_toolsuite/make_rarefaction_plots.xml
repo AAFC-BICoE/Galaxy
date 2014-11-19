@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<tool id="make_rarefaction_plots" name="make rarefaction plots" version="1.7.0">
+	<description>Generate Rarefaction Plots</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_dir -o make_rarefaction_plots_input;
+make_rarefaction_plots.py -i make_rarefaction_plots_input -m $map_fname
+#if str($colorby):
+ -b $colorby
+#end if
+
+#if str($prefs_path) != 'None':
+ -p $prefs_path
+#end if
+
+#if str($background_color) != 'None':
+ -k $background_color
+#end if
+
+#if str($imagetype) != 'None':
+ -g $imagetype
+#end if
+
+#if $resolution:
+ -d $resolution
+#end if
+
+#if $ymax:
+ -y $ymax
+#end if
+
+#if $webpage:
+ -w
+#end if
+
+#if $suppress_html_output:
+ -s
+#end if
+
+#if str($std_type) != 'None':
+ -e $std_type
+#end if
+ -o make_rarefaction_plots_output
+#if str($output_type) != 'None':
+ --output_type=$output_type
+#end if
+;
+compress_path.py -i make_rarefaction_plots_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_dir: Input directory containing results from collate_alpha.py. [REQUIRED]" name="input_dir" type="data"/>
+		<param label="-m/--map_fname: Input metadata mapping filepath. [REQUIRED]" name="map_fname" optional="False" type="data"/>
+		<param label="-b/--colorby: Comma-separated list categories metadata categories (column headers) to color by in the plots. The categories must match the name of a column header in the mapping file exactly. Multiple categories can be list by comma separating them without spaces. The user can also combine columns in the mapping file by separating the categories by &quot;&amp;&amp;&quot; without spaces. [default=color by all]" name="colorby" optional="True" type="text"/>
+		<param label="-p/--prefs_path: Input user-generated preferences filepath. NOTE: This is a file with a dictionary containing preferences for the analysis. [default: None]" name="prefs_path" optional="True" type="data"/>
+		<param label="-k/--background_color: Background color to use in the plots[default: white]" name="background_color" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="black">black</option>
+			<option value="white">white</option>
+		</param>
+		<param label="-g/--imagetype: Type of image to produce (i.e. png, svg, pdf). WARNING: Some formats may not properly open in your browser! [default: png]" name="imagetype" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="png">png</option>
+			<option value="pdf">pdf</option>
+			<option value="svg">svg</option>
+		</param>
+		<param default="75" label="-d/--resolution: Resolution of the plot. [default: 75]" name="resolution" optional="True" type="integer"/>
+		<param label="-y/--ymax: Maximum y-value to be used for the plots. Allows for directly comparable rarefaction plots between analyses [default: None]" name="ymax" optional="True" type="integer"/>
+		<param label="-w/--webpage: DEPRECATED: Suppress HTML output. [default: False]" name="webpage" selected="False" type="boolean"/>
+		<param label="-s/--suppress_html_output: Suppress HTML output. [default: False]" name="suppress_html_output" selected="False" type="boolean"/>
+		<param label="-e/--std_type: Calculation to perform for generating error bars. Options are standard deviation (stddev) or standard error (stderr). [default: stddev]" name="std_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="stddev">stddev</option>
+			<option value="stderr">stderr</option>
+		</param>
+		<param label="--output_type: Write the HTML output as one file, images embedded, or several. Options are file_creation, multiple files, and memory. [default: file_creation]" name="output_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="file_creation">file_creation</option>
+			<option value="memory">memory</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Once the batch alpha diversity files have been collated, you may want to compare the diversity using plots. Using the results from collate_alpha.py, you can plot the samples and or by category in the mapping file using this script.
+
+This script creates an html file of rarefaction plots based on the supplied collated alpha-diversity files in a folder or a comma-separated list of files, by passing the &quot;-i&quot; option.  Be aware that this script produces many images for the interactive html pages, so you may choose to not create these pages. The user may also supply optional arguments like an image type (-g), and a resolution (-d).
+The result of this script produces a folder and within that folder there is a sub-folder containing image files. Within the main folder, there is an html file.</help>
+</tool>

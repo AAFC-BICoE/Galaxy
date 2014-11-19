@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<tool id="multiple_rarefactions" name="multiple rarefactions" version="1.7.0">
+	<description>Perform multiple subsamplings/rarefactions on an otu table</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>multiple_rarefactions.py -i $input_path -o multiple_rarefactions_output -m $min -x $max -s $step
+#if $numreps:
+ -n $numreps
+#end if
+
+#if $lineages_included:
+ --lineages_included
+#end if
+
+#if $keep_empty_otus:
+ -k
+#end if
+
+#if $subsample_multinomial:
+ --subsample_multinomial
+#end if
+;
+compress_path.py -i multiple_rarefactions_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: Input OTU table filepath." name="input_path" optional="False" type="data"/>
+		<param label="-m/--min: Minimum number of seqs/sample for rarefaction." name="min" optional="False" type="integer" value="0"/>
+		<param label="-x/--max: Maximum number of seqs/sample (inclusive) for rarefaction. " name="max" optional="False" type="integer" value="0"/>
+		<param label="-s/--step: Size of each steps between the min/max of seqs/sample (e.g. min, min+step... for level &lt;= max)." name="step" optional="False" type="integer" value="0"/>
+		<param default="10" label="-n/--num-reps: The number of iterations at each step. [default: 10]" name="numreps" optional="True" type="integer"/>
+		<param label="--lineages_included: Retain taxonomic (lineage) information for each OTU. Note: this will only work if lineage information is in the input OTU table. [default: False]" name="lineages_included" selected="False" type="boolean"/>
+		<param label="-k/--keep_empty_otus: Retain OTUs of all zeros, which are usually omitted from the output OTU tables. [default: False]" name="keep_empty_otus" selected="False" type="boolean"/>
+		<param label="--subsample_multinomial: subsample using subsampling with replacement [default: False]" name="subsample_multinomial" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>To perform bootstrap, jackknife, and rarefaction analyses, the otu table must be subsampled (rarefied).  This script rarefies, or subsamples, OTU tables.  This does not provide curves of diversity by number of sequences in a sample.  Rather it creates a series of subsampled OTU tables by random sampling (without replacement) of the input OTU table.  Samples that have fewer sequences then the requested rarefaction depth for a given output otu table are omitted from those ouput otu tables.  The pseudo-random number generator used for rarefaction by subsampling is NumPy's default - an implementation of the Mersenne twister PRNG.
+The result of multiple_rarefactions.py consists of a number of biom files, which depend on the minimum/maximum number of sequences per samples, steps and iterations. The files have the same otu table format as the input otu_table.biom, and are named in the following way: rarefaction_100_0.biom, where &quot;100&quot; corresponds to the sequences per sample and &quot;0&quot; the iteration.</help>
+</tool>

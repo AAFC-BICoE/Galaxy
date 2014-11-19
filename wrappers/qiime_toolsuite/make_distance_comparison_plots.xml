@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<tool id="make_distance_comparison_plots" name="make distance comparison plots" version="1.7.0">
+	<description>Creates plots comparing distances between sample groupings</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_distance_comparison_plots.py -m $mapping_fp -o make_distance_comparison_plots_output -d $distance_matrix_fp -f $field -c $comparison_groups
+#if str($plot_type) != 'None':
+ -t $plot_type
+#end if
+
+#if str($imagetype) != 'None':
+ -g $imagetype
+#end if
+
+#if $save_raw_data:
+ --save_raw_data
+#end if
+
+#if $suppress_significance_tests:
+ --suppress_significance_tests
+#end if
+
+#if $num_permutations:
+ -n $num_permutations
+#end if
+
+#if str($tail_type) != 'None':
+ --tail_type=$tail_type
+#end if
+
+#if $width:
+ --width=$width
+#end if
+
+#if $height:
+ --height=$height
+#end if
+
+#if str($x_tick_labels_orientation) != 'None':
+ --x_tick_labels_orientation=$x_tick_labels_orientation
+#end if
+
+#if str($label_type) != 'None':
+ -a $label_type
+#end if
+
+#if str($y_min):
+ --y_min=$y_min
+#end if
+
+#if str($y_max):
+ --y_max=$y_max
+#end if
+
+#if $transparent:
+ --transparent
+#end if
+
+#if $whisker_length:
+ --whisker_length=$whisker_length
+#end if
+
+#if str($error_bar_type) != 'None':
+ --error_bar_type=$error_bar_type
+#end if
+
+#if $distribution_width:
+ --distribution_width=$distribution_width
+#end if
+;
+compress_path.py -i make_distance_comparison_plots_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-m/--mapping_fp: the mapping filepath" name="mapping_fp" optional="False" type="data"/>
+		<param label="-d/--distance_matrix_fp: input distance matrix filepath (i.e. the result of beta_diversity.py). WARNING: Only symmetric, hollow distance matrices may be used as input. Asymmetric distance matrices, such as those obtained by the UniFrac Gain metric (i.e. beta_diversity.py -m unifrac_g), should not be used as input" name="distance_matrix_fp" optional="False" type="data"/>
+		<param label="-f/--field: field in the mapping file to make comparisons on" name="field" optional="False" type="text"/>
+		<param label="-c/--comparison_groups: comma-separated list of field states to compare to every other field state, where the list of field states should be in quotes (e.g. &quot;FieldState1,FieldState2,FieldState3&quot;)" name="comparison_groups" optional="False" type="text"/>
+		<param label="-t/--plot_type: type of plot to produce (&quot;bar&quot; is bar chart, &quot;scatter&quot; is scatter plot, and &quot;box&quot; is box plot) [default: bar]" name="plot_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="bar">bar</option>
+			<option value="scatter">scatter</option>
+			<option value="box">box</option>
+		</param>
+		<param label="-g/--imagetype: type of image to produce (i.e. png, svg, pdf) [default: pdf]" name="imagetype" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pdf">pdf</option>
+			<option value="png">png</option>
+			<option value="svg">svg</option>
+		</param>
+		<param label="--save_raw_data: store raw data used to create plot in a tab-delimited file [default: False]" name="save_raw_data" selected="False" type="boolean"/>
+		<param label="--suppress_significance_tests: suppress performing signifance tests between each pair of distributions [default: False]" name="suppress_significance_tests" selected="False" type="boolean"/>
+		<param default="0" label="-n/--num_permutations: the number of Monte Carlo permutations to perform when calculating the nonparametric p-value in the significance tests. Must be an integer greater than or equal to zero. If zero, the nonparametric p-value will not be calculated and will instead be reported as &quot;N/A&quot;. This option has no effect if --suppress_significance_tests is supplied [default: 0]" name="num_permutations" optional="True" type="integer"/>
+		<param label="--tail_type: the type of tail test to compute when calculating the p-values in the significance tests. &quot;high&quot; specifies a one-tailed test for values greater than the observed t statistic, while &quot;low&quot; specifies a one-tailed test for values less than the observed t statistic. &quot;two-sided&quot; specifies a two-tailed test for values greater in magnitude than the observed t statistic. This option has no effect if --suppress_significance_tests is supplied. Valid choices: low or high or two-sided [default: two-sided]" name="tail_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="low">low</option>
+			<option value="high">high</option>
+			<option value="two-sided">two-sided</option>
+		</param>
+		<param default="12" label="--width: width of the output image in inches [default: 12]" name="width" optional="True" type="float"/>
+		<param default="6" label="--height: height of the output image in inches [default: 6]" name="height" optional="True" type="float"/>
+		<param label="--x_tick_labels_orientation: type of orientation for x-axis tick labels [default: vertical]" name="x_tick_labels_orientation" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="vertical">vertical</option>
+			<option value="horizontal">horizontal</option>
+		</param>
+		<param label="-a/--label_type: Label type (&quot;numeric&quot; or &quot;categorical&quot;). If the label type is defined as numeric, the x-axis will be scaled accordingly. Otherwise the x-values will treated categorically and will be evenly spaced [default: categorical]." name="label_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="categorical">categorical</option>
+			<option value="numeric">numeric</option>
+		</param>
+		<param default="0" label="--y_min: the minimum y-axis value in the resulting plot. If &quot;auto&quot;, it is automatically calculated [default: 0]" name="y_min" optional="True" type="text"/>
+		<param default="1" label="--y_max: the maximum y-axis value in the resulting plot. If &quot;auto&quot;, it is automatically calculated [default: 1]" name="y_max" optional="True" type="text"/>
+		<param label="--transparent: make output images transparent (useful for overlaying an image on top of a colored background ) [default: False]" name="transparent" selected="False" type="boolean"/>
+		<param default="1.5" label="--whisker_length: if --plot_type is &quot;box&quot;, determines the length of the whiskers as a function of the IQR. For example, if 1.5, the whiskers extend to 1.5 * IQR. Anything outside of that range is seen as an outlier. If --plot_type is not &quot;box&quot;, this option is ignored [default: 1.5]" name="whisker_length" optional="True" type="float"/>
+		<param label="--error_bar_type: if --plot_type is &quot;bar&quot;, determines the type of error bars to use. &quot;stdv&quot; is standard deviation and &quot;sem&quot; is the standard error of the mean. If --plot_type is not &quot;bar&quot;, this option is ignored [default: stdv]" name="error_bar_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="stdv">stdv</option>
+			<option value="sem">sem</option>
+		</param>
+		<param default="None" label="--distribution_width: width (in plot units) of each individual distribution (e.g. each bar if the plot type is a bar chart, or the width of each box if the plot type is a boxplot) [default: auto]" name="distribution_width" optional="True" type="float"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+This script creates plots (bar charts, scatter plots, or box plots) that
+allow for the comparison between samples grouped at different field states
+of a mapping file field.
+
+This script can work with any field in the mapping file, and it can compare
+any number of field states to all other field states within that field.
+This script may be especially useful for fields that represent a time series,
+because a plot can be generated showing the distances between samples at
+certain timepoints against all other timepoints.
+
+For example, a time field might contain the values 1, 2, 3, 4, and 5, which
+label samples that are from day 1, day 2, day 3, and so on. This time field
+can be specified when the script is run, as well as the timepoint(s) to
+compare to every other timepoint. For example, two comparison groups
+might be timepoints 1 and 2. The resulting plot would contain timepoints for
+days 3, 4, and 5 along the x-axis, and at each of those timepoints, the
+distances between day 1 and that timepoint would be plotted, as well as the
+distances between day 2 and the timepoint.
+
+The script also performs two-sample t-tests for all pairs of distributions to
+help determine which distributions are significantly different from each other.
+
+Tip: the script tries its best to fit everything into the plot, but there are
+cases where plot elements may get cut off (e.g. if axis labels are extremely
+long), or things may appear squashed, cluttered, or too small (e.g. if
+there are many boxplots in one plot). Increasing the width and/or height of the
+plot (using --width and --height) usually fixes these problems.
+
+For more information and examples pertaining to this script, please refer to
+the accompanying tutorial, which can be found at
+http://qiime.org/tutorials/creating_distance_comparison_plots.html.
+
+
+An image of the plot is written to the specified output directory. The raw data
+used in the plots and the results of significance tests can optionally be
+written into tab-delimited files that are most easily viewed in a spreadsheet
+program such as Microsoft Excel.
+</help>
+</tool>

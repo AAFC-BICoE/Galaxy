@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<tool id="compute_core_microbiome" name="compute core microbiome" version="1.7.0">
+	<description>Identify the core microbiome.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>compute_core_microbiome.py -i $input_fp -o compute_core_microbiome_output
+#if $max_fraction_for_core:
+ --max_fraction_for_core=$max_fraction_for_core
+#end if
+
+#if $min_fraction_for_core:
+ --min_fraction_for_core=$min_fraction_for_core
+#end if
+
+#if $num_fraction_for_core_steps:
+ --num_fraction_for_core_steps=$num_fraction_for_core_steps
+#end if
+
+#if str($otu_md):
+ --otu_md=$otu_md
+#end if
+
+#if str($mapping_fp) != 'None':
+ --mapping_fp=$mapping_fp
+#end if
+
+#if str($valid_states):
+ --valid_states=$valid_states
+#end if
+;
+compress_path.py -i compute_core_microbiome_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fp: the input otu table in BIOM format" name="input_fp" optional="False" type="data"/>
+		<param default="1.0" label="--max_fraction_for_core: the max fractions of samples that an OTU must be observed in to be considered part of the core as a number in the range [0,1] [default: 1.0]" name="max_fraction_for_core" optional="True" type="float"/>
+		<param default="0.5" label="--min_fraction_for_core: the min fractions of samples that an OTU must be observed in to be considered part of the core as a number in the range [0,1] [default: 0.5]" name="min_fraction_for_core" optional="True" type="float"/>
+		<param default="11" label="--num_fraction_for_core_steps: the number of evenly sizes steps to take between min_fraction_for_core and max_fraction_for_core [default: 11]" name="num_fraction_for_core_steps" optional="True" type="integer"/>
+		<param default="taxonomy" label="--otu_md: the otu metadata category to write to the output file [defualt: taxonomy]" name="otu_md" optional="True" type="text"/>
+		<param label="--mapping_fp: mapping file path (for use with --valid_states) [default: None]" name="mapping_fp" optional="True" type="data"/>
+		<param label="--valid_states: description of sample ids to retain (for use with --mapping_fp) [default: None]" name="valid_states" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+</help>
+</tool>

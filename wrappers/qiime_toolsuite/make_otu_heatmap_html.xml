@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<tool id="make_otu_heatmap_html" name="make otu heatmap html" version="1.7.0">
+	<description>Make heatmap of OTU table</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_otu_heatmap_html.py -i $otu_table_fp -o make_otu_heatmap_html_output
+#if $num_otu_hits:
+ -n $num_otu_hits
+#end if
+
+#if str($tree) != 'None':
+ -t $tree
+#end if
+
+#if str($map_fname) != 'None':
+ -m $map_fname
+#end if
+
+#if str($sample_tree) != 'None':
+ --sample_tree=$sample_tree
+#end if
+
+#if $log_transform:
+ --log_transform
+#end if
+
+#if $log_eps:
+ --log_eps=$log_eps
+#end if
+;
+compress_path.py -i make_otu_heatmap_html_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--otu_table_fp: path to the input OTU table (i.e., the output from make_otu_table.py)" name="otu_table_fp" optional="False" type="data"/>
+		<param default="5" label="-n/--num_otu_hits: Only include OTUs with at least this many sequences. [default: 5]" name="num_otu_hits" optional="True" type="integer"/>
+		<param default="None" label="-t/--tree: Path to newick tree where OTUs are tips, used for sorting OTUs in the heatmap" name="tree" optional="True" type="data"/>
+		<param default="None" label="-m/--map_fname: Input metadata mapping filepath, used for sorting samples in the heatmap" name="map_fname" optional="True" type="data"/>
+		<param default="None" label="--sample_tree: Path to newick tree where samples are tips (e.g, output from upgma_cluster.py) used for sorting samples in the heatmap. If both this and the metadata mapping file are provided, the mapping file will be ignored." name="sample_tree" optional="True" type="data"/>
+		<param label="--log_transform: Log-transform the data. All zeros will be set to a small value (default is 1/2 of the smallest non-zero entry). Data will be translated to be non-negative after log transform and the num_otu_hits will be set to 0." name="log_transform" selected="False" type="boolean"/>
+		<param default="None" label="--log_eps: Small value to replace zeros when performing log transformation. [default: 1/2 the smallest non-zero entry]." name="log_eps" optional="True" type="float"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Create an interactive OTU heatmap from an OTU table. This script parses the OTU count table and filters the table by counts per otu (user-specified), then converts the table into a javascript array, which can be loaded into a web application. The OTU heatmap displays raw OTU counts per sample, where the counts are colored based on the contribution of each OTU to the total OTU count present in that sample (blue: contributes low percentage of OTUs to sample; red: contributes high percentage of OTUs). This web application allows the user to filter the otu table by number of counts per otu. The user also has the ability to view the table based on taxonomy assignment. Additional features include: the ability to drag rows (up and down) by clicking and dragging on the row headers; and the ability to zoom in on parts of the heatmap by clicking on the counts within the heatmap.
+The interactive heatmap is located in OUTPUT_DIR/otu_table.html where OUTPUT_DIR is specified as -o. Safari is recommended for viewing the OTU Heatmap, since the HTML table generation is much faster than Firefox (as of this writing).</help>
+</tool>

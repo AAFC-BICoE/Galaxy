@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<tool id="consensus_tree" name="consensus tree" version="1.7.0">
+	<description>This script outputs a majority consensus tree given a collection of input trees.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_dir -o consensus_tree_input;
+consensus_tree.py -i consensus_tree_input -o $output_fname
+#if $strict:
+ -s
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_dir: input folder containing trees" name="input_dir" type="data"/>
+		<param label="-s/--strict: Use only nodes occurring &gt;50% of the time [default: False]" name="strict" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fname"/>
+	</outputs>
+	<help>
+The output is a newick formatted tree compatible with most standard tree viewing programs</help>
+</tool>

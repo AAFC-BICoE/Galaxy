@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<tool id="compare_taxa_summaries" name="compare taxa summaries" version="1.7.0">
+	<description>Compares taxa summary files</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>compare_taxa_summaries.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_taxa_summary_fps) -o compare_taxa_summaries_output -m $comparison_mode
+#if str($correlation_type) != 'None':
+ -c $correlation_type
+#end if
+
+#if str($tail_type) != 'None':
+ -t $tail_type
+#end if
+
+#if $num_permutations:
+ -n $num_permutations
+#end if
+
+#if $confidence_level:
+ -l $confidence_level
+#end if
+
+#if str($sample_id_map_fp) != 'None':
+ -s $sample_id_map_fp
+#end if
+
+#if str($expected_sample_id):
+ -e $expected_sample_id
+#end if
+
+#if $perform_detailed_comparisons:
+ --perform_detailed_comparisons
+#end if
+;
+compress_path.py -i compare_taxa_summaries_output -o $output_dir
+</command>
+	<inputs>
+		<repeat name="input_files_taxa_summary_fps" optional="False" title="taxa_summary_fps">
+			<param label="-i/--taxa_summary_fps: the two input taxa summary filepaths, comma-separated. These will usually be the files that are output by summarize_taxa.py. These taxa summary files do not need to have the same taxa in the same order, as the script will make them compatible before comparing them" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-m/--comparison_mode: the type of comparison to perform. Valid choices: paired or expected. &quot;paired&quot; will compare each sample in the taxa summary files that match based on sample ID, or that match given a sample ID map (see the --sample_id_map_fp option for more information). &quot;expected&quot; will compare each sample in the first taxa summary file to an expected sample (contained in the second taxa summary file). If &quot;expected&quot;, the second taxa summary file must contain only a single sample that all other samples will be compared to (unless the --expected_sample_id option is provided)" name="comparison_mode" optional="False" type="select">
+			<option value="paired">paired</option>
+			<option value="expected">expected</option>
+		</param>
+		<param label="-c/--correlation_type: the type of correlation coefficient to compute. Valid choices: pearson or spearman [default: pearson]" name="correlation_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pearson">pearson</option>
+			<option value="spearman">spearman</option>
+		</param>
+		<param label="-t/--tail_type: the type of tail test to compute when calculating the p-values. &quot;high&quot; specifies a one-tailed test for values greater than the observed correlation coefficient (positive association), while &quot;low&quot; specifies a one-tailed test for values less than the observed correlation coefficient (negative association). &quot;two-sided&quot; specifies a two-tailed test for values greater in magnitude than the observed correlation coefficient. Valid choices: low or high or two-sided [default: two-sided]" name="tail_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="low">low</option>
+			<option value="high">high</option>
+			<option value="two-sided">two-sided</option>
+		</param>
+		<param default="999" label="-n/--num_permutations: the number of permutations to perform when calculating the nonparametric p-value. Must be an integer greater than or equal to zero. If zero, the nonparametric test of significance will not be performed and the nonparametric p-value will be reported as &quot;N/A&quot; [default: 999]" name="num_permutations" optional="True" type="integer"/>
+		<param default="0.95" label="-l/--confidence_level: the confidence level of the correlation coefficient confidence interval. Must be a value between 0 and 1 (exclusive). For example, a 95% confidence interval would be 0.95 [default: 0.95]" name="confidence_level" optional="True" type="float"/>
+		<param default="None" label="-s/--sample_id_map_fp: map of original sample IDs to new sample IDs. Use this to match up sample IDs that should be compared between the two taxa summary files. Each line should contain an original sample ID, a tab, and the new sample ID. All original sample IDs from the two input taxa summary files must be mapped. This option only applies if the comparison mode is &quot;paired&quot;. If not provided, only sample IDs that exist in both taxa summary files will be compared [default: None]" name="sample_id_map_fp" optional="True" type="data"/>
+		<param default="None" label="-e/--expected_sample_id: the sample ID in the second &quot;expected&quot; taxa summary file to compare all samples to. This option only applies if the comparison mode is &quot;expected&quot;. If not provided, the second taxa summary file must have only one sample [default: None]" name="expected_sample_id" optional="True" type="text"/>
+		<param label="--perform_detailed_comparisons: Perform a comparison for each sample pair in addition to the single overall comparison. The results will include the Bonferroni-corrected p-values in addition to the original p-values [default: False]" name="perform_detailed_comparisons" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+This script compares two taxa summary files by computing the correlation
+coefficient between pairs of samples. This is useful, for example, if you want
+to compare the taxonomic composition of mock communities that were assigned
+using different taxonomy assigners in order to see if they are correlated or
+not. Another example use-case is to compare the taxonomic composition of
+several mock community replicate samples to a single expected, or known, sample
+community.
+
+This script is also useful for sorting and filling taxa summary files so that
+each sample has the same taxa listed in the same order (with missing taxa
+reporting an abundance of zero). The sorted and filled taxa summary files can
+then be passed to a script, such as plot_taxa_summary.py, to visually compare
+the differences using the same taxa coloring scheme.
+
+For more information and examples pertaining to this script, please refer to
+the accompanying tutorial, which can be found at
+http://qiime.org/tutorials/taxa_summary_comparison.html.
+
+
+The script will always output at least three files to the specified output
+directory. Two files will be the sorted and filled versions of the input taxa
+summary files, which can then be used in plot_taxa_summary.py to visualize the
+differences in taxonomic composition. These files will be named based on the
+basename of the input files. If the input files' basenames are the same, the
+output files will have '0' and '1' appended to their names to keep the
+filenames unique. The first input taxa summary file will have '0' in its
+filename and the second input taxa summary file will have '1' in its filename.
+
+The third output file will contain the results of the overall comparison of the
+input taxa summary files using the specified sample pairings. The correlation
+coefficient, parametric p-value, nonparametric p-value, and a confidence
+interval for the correlation coefficient will be included.
+
+If --perform_detailed_comparisons is specified, the fourth output file is a
+tab-separated file containing the correlation coefficients that were computed
+between each of the paired samples. Each line will contain the sample IDs of
+the samples that were compared, followed by the correlation coefficient that
+was computed, followed by the parametric and nonparametric p-values
+(uncorrrected and Bonferroni-corrected) and a confidence interval for the
+correlation coefficient.
+
+The output files will contain comments at the top explaining the types of tests
+that were performed.
+</help>
+</tool>

@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<tool id="parallel_multiple_rarefactions" name="parallel multiple rarefactions" version="1.7.0">
+	<description>Parallel multiple file rarefaction</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>parallel_multiple_rarefactions.py -i $input_path -o parallel_multiple_rarefactions_output -m $min -x $max
+#if $numreps:
+ -n $numreps
+#end if
+
+#if $suppress_lineages_included:
+ --suppress_lineages_included
+#end if
+
+#if $step:
+ -s $step
+#end if
+
+#if $subsample_multinomial:
+ --subsample_multinomial
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i parallel_multiple_rarefactions_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: input filepath, (the otu table) [REQUIRED]" name="input_path" optional="False" type="data"/>
+		<param label="-m/--min: min seqs/sample [REQUIRED]" name="min" optional="False" type="integer" value="0"/>
+		<param label="-x/--max: max seqs/sample (inclusive) [REQUIRED]" name="max" optional="False" type="integer" value="0"/>
+		<param default="10" label="-n/--num-reps: num iterations at each seqs/sample level [default: 10]" name="numreps" optional="True" type="integer"/>
+		<param label="--suppress_lineages_included: Exclude taxonomic (lineage) information for each OTU." name="suppress_lineages_included" selected="False" type="boolean"/>
+		<param default="1" label="-s/--step: levels: min, min+step... for level &lt;= max [default: 1]" name="step" optional="True" type="integer"/>
+		<param label="--subsample_multinomial: subsample using subsampling with replacement [default: False]" name="subsample_multinomial" selected="False" type="boolean"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>This script performs like the multiple_rarefactions.py script, but is intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+The result of parallel_multiple_rarefactions.py consists of a number of files, which depend on the minimum/maximum number of sequences per samples, steps and iterations. The files have the same otu table format as the input otu_table.biom, and are named in the following way: rarefaction_100_0.txt, where &quot;100&quot; corresponds to the sequences per sample and &quot;0&quot; for the iteration.</help>
+</tool>

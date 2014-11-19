@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<tool id="make_bootstrapped_tree" name="make bootstrapped tree" version="1.7.0">
+	<description>Make bootstrapped tree</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_bootstrapped_tree.py -m $master_tree -s $support -o $output_file</command>
+	<inputs>
+		<param label="-m/--master_tree: This is the path to the master tree" name="master_tree" optional="False" type="data"/>
+		<param label="-s/--support: This is the path to the bootstrap support file" name="support" optional="False" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_file"/>
+	</outputs>
+	<help>This script takes a tree and bootstrap support file and creates a pdf, colored by bootstrap support.
+The result of this script is a pdf file.</help>
+</tool>

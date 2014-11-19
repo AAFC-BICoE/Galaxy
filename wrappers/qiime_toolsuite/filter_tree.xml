@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="filter_tree" name="filter tree" version="1.7.0">
+	<description>This script prunes a tree based on a set of tip names</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>filter_tree.py -i $input_tree_filepath -o $output_tree_filepath
+#if $negate:
+ -n
+#end if
+
+#if str($tips_fp) != 'None':
+ -t $tips_fp
+#end if
+
+#if str($fasta_fp) != 'None':
+ -f $fasta_fp
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_tree_filepath: input tree filepath" name="input_tree_filepath" optional="False" type="data"/>
+		<param label="-n/--negate: if negate is True will remove input tips/seqs, if    negate is False, will retain input tips/seqs [default: False]" name="negate" selected="False" type="boolean"/>
+		<param label="-t/--tips_fp: A list of tips (one tip per line) or sequence identifiers   (tab-delimited lines with a seq identifier in the first field)   which should be retained   [default: None]" name="tips_fp" optional="True" type="data"/>
+		<param label="-f/--fasta_fp: A fasta file where the seq ids should be retained [default: None]" name="fasta_fp" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_tree_filepath"/>
+	</outputs>
+	<help>This script takes a tree and a list of OTU IDs (in one of several supported formats) and outputs a subtree retaining only the tips on the tree which are found in the inputted list of OTUs (or not found, if the --negate option is provided).
+Output is a pruned tree in newick format.</help>
+</tool>

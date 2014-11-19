@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<tool id="filter_distance_matrix" name="filter distance matrix" version="1.7.0">
+	<description>Filter a distance matrix to contain only a specified set of samples.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>filter_distance_matrix.py -i $input_distance_matrix -o $output_distance_matrix
+#if str($sample_id_fp) != 'None':
+ --sample_id_fp=$sample_id_fp
+#end if
+
+#if str($otu_table_fp) != 'None':
+ -t $otu_table_fp
+#end if
+
+#if str($mapping_fp) != 'None':
+ -m $mapping_fp
+#end if
+
+#if str($valid_states):
+ -s $valid_states
+#end if
+
+#if $negate:
+ --negate
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_distance_matrix: the input distance matrix" name="input_distance_matrix" optional="False" type="data"/>
+		<param label="--sample_id_fp: A list of sample identifiers (or tab-delimited lines with a sample identifier in the first field) which should be retained" name="sample_id_fp" optional="True" type="data"/>
+		<param label="-t/--otu_table_fp: the otu table filepath" name="otu_table_fp" optional="True" type="data"/>
+		<param label="-m/--mapping_fp: path to the mapping file" name="mapping_fp" optional="True" type="data"/>
+		<param label="-s/--valid_states: string containing valid states, e.g. 'STUDY_NAME:DOB'" name="valid_states" optional="True" type="text"/>
+		<param label="--negate: discard specified samples (instead of keeping them) [default: False]" name="negate" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_distance_matrix"/>
+	</outputs>
+	<help>Remove samples from a distance matrix based on a mapping file or an otu table or a list of sample ids.
+</help>
+</tool>

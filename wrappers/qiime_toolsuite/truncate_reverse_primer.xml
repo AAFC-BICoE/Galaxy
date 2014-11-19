@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<tool id="truncate_reverse_primer" name="truncate reverse primer" version="1.7.0">
+	<description>Takes a demultiplexed fasta file, finds a specified reverse primer sequence, and truncates this primer and subsequent sequences following the reverse primer.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>truncate_reverse_primer.py -f $fasta_fp -m $mapping_fp -o truncate_reverse_primer_output
+#if str($truncate_option) != 'None':
+ -z $truncate_option
+#end if
+
+#if $primer_mismatches:
+ -M $primer_mismatches
+#end if
+;
+compress_path.py -i truncate_reverse_primer_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-f/--fasta_fp: Fasta file.  Needs to have fasta labels in proper demultiplexed format." name="fasta_fp" optional="False" type="data"/>
+		<param label="-m/--mapping_fp: Mapping filepath.  ReversePrimer field required.  Reverse primers need to be in 5'-&gt;3' orientation." name="mapping_fp" optional="False" type="data"/>
+		<param label="-z/--truncate_option: Truncation option.  The default option, &quot;truncate_only&quot; will try to find the reverse primer to truncate, and if not found, will write the sequence unchanged.  If set to &quot;truncate_remove&quot;, sequences where the reverse primer is not found will not be written. [default: truncate_only]" name="truncate_option" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="truncate_only">truncate_only</option>
+			<option value="truncate_remove">truncate_remove</option>
+		</param>
+		<param default="2" label="-M/--primer_mismatches: Number of mismatches allowed in the reverse primer. [default: 2]" name="primer_mismatches" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Takes input mapping file and fasta sequences which have already have been demultiplexed (via split_libraries.py, denoise_wrapper.py, ampliconnoise.py, etc.) with fasta labels that are in QIIME format, i.e., SampleID_#. This script will use the SampleID and a mapping file with a ReversePrimer column to find the reverse primer by local alignment and remove this and any subsequent sequence in a filtered output fasta file.
+Truncated version of the input fasta file (based on input name with 'seqs_rev_primer_truncated' appended) will be generated in the output directory, along with a .log file.</help>
+</tool>

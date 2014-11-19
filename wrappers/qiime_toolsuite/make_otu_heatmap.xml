@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<tool id="make_otu_heatmap" name="make otu heatmap" version="1.7.0">
+	<description>Make heatmap of OTU table</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_otu_heatmap.py -i $otu_table_fp -o make_otu_heatmap_output
+#if str($otu_tree) != 'None':
+ -t $otu_tree
+#end if
+
+#if str($map_fname) != 'None':
+ -m $map_fname
+#end if
+
+#if str($category):
+ -c $category
+#end if
+
+#if str($sample_tree) != 'None':
+ -s $sample_tree
+#end if
+
+#if $no_log_transform:
+ --no_log_transform
+#end if
+
+#if $suppress_row_clustering:
+ --suppress_row_clustering
+#end if
+
+#if $suppress_column_clustering:
+ --suppress_column_clustering
+#end if
+
+#if $absolute_abundance:
+ --absolute_abundance
+#end if
+
+#if $log_eps:
+ --log_eps=$log_eps
+#end if
+;
+compress_path.py -i make_otu_heatmap_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--otu_table_fp: path to the input OTU table (i.e., the output from make_otu_table.py)" name="otu_table_fp" optional="False" type="data"/>
+		<param default="None" label="-t/--otu_tree: Tree file to be used for sorting OTUs in the heatmap" name="otu_tree" optional="True" type="data"/>
+		<param default="None" label="-m/--map_fname: Metadata mapping file to be used for sorting Samples in the heatmap." name="map_fname" optional="True" type="data"/>
+		<param default="None" label="-c/--category: Metadata category for sorting samples. Samples will be clustered within each category level using euclidean UPGMA." name="category" optional="True" type="text"/>
+		<param default="None" label="-s/--sample_tree: Tree file to be used for sorting samples (e.g, output from upgma_cluster.py). If both this and the sample mapping file are provided, the mapping file is ignored." name="sample_tree" optional="True" type="data"/>
+		<param label="--no_log_transform: Data will not be log-transformed. Without this option, all zeros will be set to a small value (default is 1/2 the smallest non-zero entry). Data will be translated to be non-negative after log transform, and num_otu_hits will be set to 0." name="no_log_transform" selected="False" type="boolean"/>
+		<param label="--suppress_row_clustering: No UPGMA clustering of OTUs (rows) is performed. If --otu_tree is provided, this flag is ignored." name="suppress_row_clustering" selected="False" type="boolean"/>
+		<param label="--suppress_column_clustering: No UPGMA clustering of Samples (columns) is performed. If --map_fname is provided, this flag is ignored." name="suppress_column_clustering" selected="False" type="boolean"/>
+		<param label="--absolute_abundance: Do not normalize samples to sum to 1.[default False]" name="absolute_abundance" selected="False" type="boolean"/>
+		<param default="None" label="--log_eps: Small value to replace zeros for log transform. [default: 1/2 the smallest non-zero entry]." name="log_eps" optional="True" type="float"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Once an OTU table has been generated, it can be visualized using a heatmap. In these heatmaps each row corresponds to an OTU, and each column corresponds to a sample. The higher the relative abundance of an OTU in a sample, the more intense the color at the corresponsing position in the heatmap. By default, the OTUs (rows) will be clustered by UPGMA hierarchical clustering, and the samples (columns) will be presented in the order in which they appear in the OTU table. Alternatively, the user may pass in a tree to sort the OTUs (rows) or samples (columns), or both. For samples, the user may also pass in a mapping file. If the user passes in a mapping file and a metadata category, samples (columns in the heatmap) will be grouped by category value and subsequently clustered within each group.
+The heatmap image is located in the specified output directory. It is formatted as a PDF file.</help>
+</tool>

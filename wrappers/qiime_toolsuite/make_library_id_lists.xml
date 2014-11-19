@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<tool id="make_library_id_lists" name="make library id lists" version="1.7.0">
+	<description>Make library id lists</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_library_id_lists.py -i $input_fasta
+#if str($screened_rep_seqs) != 'None':
+ -s $screened_rep_seqs
+#end if
+
+#if str($otus) != 'None':
+ -u $otus
+#end if
+ -o make_library_id_lists_output
+#if $field:
+ -f $field
+#end if
+
+#if $debug:
+ --debug
+#end if
+;
+compress_path.py -i make_library_id_lists_output -o $outdir
+</command>
+	<inputs>
+		<param default="None" label="-i/--input_fasta: The path to a FASTA file containing input sequences" name="input_fasta" optional="False" type="data"/>
+		<param default="None" label="-s/--screened_rep_seqs: The path to a FASTA file containing screened representative seqs[DEFAULT: None]" name="screened_rep_seqs" optional="True" type="data"/>
+		<param default="None" label="-u/--otus: The path to an OTU file mapping OTUs onto rep seqs[DEFAULT: None]" name="otus" optional="True" type="data"/>
+		<param default="1" label="-f/--field: Index of space-delimited field to read id from [DEFAULT: 1]" name="field" optional="True" type="integer"/>
+		<param label="--debug: Show debug output." name="debug" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="outdir"/>
+	</outputs>
+	<help>Makes a list of the ids corresponding to each library represented in the input fasta file. Assumes that the libraries are the output of split_libraries.py and that they contain the 454 read id for each sequence as is standard in the split_libraries.py output. Produces a separate file for each library.
+This script produces a separate file for each library.</help>
+</tool>

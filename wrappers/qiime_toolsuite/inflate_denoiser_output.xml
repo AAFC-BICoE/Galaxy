@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<tool id="inflate_denoiser_output" name="inflate denoiser output" version="1.7.0">
+	<description>Inflate denoiser results so they can be passed directly to OTU pickers.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>inflate_denoiser_output.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -c $list_dict_to_string($input_files_centroid_fps) -s $list_dict_to_string($input_files_singleton_fps) -f $list_dict_to_string($input_files_fasta_fps) -d $list_dict_to_string($input_files_denoiser_map_fps) -o $output_fasta_fp</command>
+	<inputs>
+		<repeat name="input_files_centroid_fps" optional="False" title="centroid_fps">
+			<param label="-c/--centroid_fps: the centroid fasta filepaths" name="additional_input" type="data"/>
+		</repeat>
+		<repeat name="input_files_singleton_fps" optional="False" title="singleton_fps">
+			<param label="-s/--singleton_fps: the singleton fasta filepaths" name="additional_input" type="data"/>
+		</repeat>
+		<repeat name="input_files_fasta_fps" optional="False" title="fasta_fps">
+			<param label="-f/--fasta_fps: the input (to denoiser) fasta filepaths" name="additional_input" type="data"/>
+		</repeat>
+		<repeat name="input_files_denoiser_map_fps" optional="False" title="denoiser_map_fps">
+			<param label="-d/--denoiser_map_fps: the denoiser map filepaths" name="additional_input" type="data"/>
+		</repeat>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fasta_fp"/>
+	</outputs>
+	<help>Inflate denoiser results so they can be passed directly to pick_otus.py, parallel_pick_otus_uclust_ref.py, or pick_de_novo_otus.py. Note that the results of this script have not be abundance sorted, so they must be before being passed to the OTU picker. The uclust OTU pickers incorporate this abundance presorting by default.
+
+The inflation process writes each centroid sequence n times, where n is the number of reads that cluster to that centroid, and writes each singleton once. Flowgram identifiers are mapped back to post-split_libraries identifiers in this process (i.e., identifiers in fasta fps).
+
+</help>
+</tool>

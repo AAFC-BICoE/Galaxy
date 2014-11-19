@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<tool id="neighbor_joining" name="neighbor joining" version="1.7.0">
+	<description>Build a neighbor joining tree comparing samples</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_path -o neighbor_joining_input;
+neighbor_joining.py -i neighbor_joining_input -o neighbor_joining_output;
+compress_path.py -i neighbor_joining_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: input path.  directory for batch processing, filename for single file operation" name="input_path" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>The input to this step is a distance matrix (i.e. resulting file from beta_diversity.py).
+The output is a newick formatted tree compatible with most standard tree viewing programs. Batch processing is also available, allowing the analysis of an entire directory of distance matrices.</help>
+</tool>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="categorized_dist_scatterplot" name="categorized dist scatterplot" version="1.7.0">
+	<description>makes a figure representing average distances between samples, broken down by categories. I call it a 'categorized distance scatterplot'</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>categorized_dist_scatterplot.py -m $map -d $distance_matrix -p $primary_state -a $axis_category -o categorized_dist_scatterplot_output
+#if str($colorby):
+ -c $colorby
+#end if
+
+#if str($secondary_state):
+ -s $secondary_state
+#end if
+;
+compress_path.py -i categorized_dist_scatterplot_output -o $output_path
+</command>
+	<inputs>
+		<param label="-m/--map: mapping file" name="map" optional="False" type="data"/>
+		<param label="-d/--distance_matrix: distance matrix" name="distance_matrix" optional="False" type="data"/>
+		<param label="-p/--primary_state: Samples matching this state will be plotted. E.g.: AgeCategory:Child . See qiime's filter_samples_from_otu_table.py for more syntax options" name="primary_state" optional="False" type="text"/>
+		<param label="-a/--axis_category: this will form the horizontal axis of the figure, e.g.: AgeYears . Must be numbers" name="axis_category" optional="False" type="text"/>
+		<param label="-c/--colorby: samples will first be separated by this column of the mapping file. They will be colored by this column of the mapping file, and all comparisons will be done only among samples with the same value in this column. e.g.: Country. You may omit -c, and the samples will not be separated" name="colorby" optional="True" type="text"/>
+		<param label="-s/--secondary_state: all samples matching the primary state will be compared to samples matcthing this secondary state. E.g.: AgeCategory:Adult" name="secondary_state" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>makes a figure representing average distances between samples, broken down by categories. I call it a 'categorized distance scatterplot'. See script usage for more details. The mapping file specifies the relavent data - if you have e.g. 'N/A' values or samples you don't want included, first use filter_samples_from_otu_table.py to remove unwanted samples from the mapping file, and thus the analysis. Note that the resulting plot will include only samples in both the mapping file AND the distance matrix.
+a figure and the text dat for that figure </help>
+</tool>

@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<tool id="process_sff" name="process sff" version="1.7.0">
+	<description>Convert sff to FASTA and QUAL files</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_dir -o process_sff_input;
+process_sff.py -i process_sff_input
+#if $no_trim:
+ --no_trim
+#end if
+
+#if $make_flowgram:
+ -f
+#end if
+
+#if $convert_to_FLX:
+ -t
+#end if
+
+#if $use_sfftools:
+ --use_sfftools
+#end if
+ -o process_sff_output;
+compress_path.py -i process_sff_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_dir: Input directory of sff files or a single sff filepath" name="input_dir" type="data"/>
+		<param label="--no_trim: do not trim sequence/qual (requires --use_sfftools option) [default: False]" name="no_trim" selected="False" type="boolean"/>
+		<param label="-f/--make_flowgram: generate a flowgram file. [default: False]" name="make_flowgram" selected="False" type="boolean"/>
+		<param label="-t/--convert_to_FLX: convert Titanium reads to FLX length. [default: False]" name="convert_to_FLX" selected="False" type="boolean"/>
+		<param label="--use_sfftools: use the external programs sfffile and sffinfo for processing, instead of the equivalent python implementation" name="use_sfftools" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script converts a directory of sff files into FASTA, QUAL and flowgram files.
+
+This script results in FASTA and QUAL formatted files.</help>
+</tool>

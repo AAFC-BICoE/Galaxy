@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<tool id="simsam" name="simsam" version="1.7.0">
+	<description>Simulate samples for each sample in an OTU table, using a phylogenetic tree.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>simsam.py -i $otu_table -t $tree_file -o simsam_output -d $dissim -n $num
+#if str($mapping_fp) != 'None':
+ -m $mapping_fp
+#end if
+;
+compress_path.py -i simsam_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--otu_table: the input otu table" name="otu_table" optional="False" type="data"/>
+		<param label="-t/--tree_file: tree file" name="tree_file" optional="False" type="data"/>
+		<param label="-d/--dissim: dissimilarity between nodes up the tree, as a single value or comma-separated list of values" name="dissim" optional="False" type="text"/>
+		<param label="-n/--num: number of simulated samples per input sample, as a single value or comma-separated list of values" name="num" optional="False" type="text"/>
+		<param default="None" label="-m/--mapping_fp: the mapping filepath. If provided, an output mapping file containing the replicated sample IDs (with all other metadata columns copied over) will also be created [default: None]" name="mapping_fp" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help> This script makes n samples related to each sample in an input otu table
+
+An input OTU table with 3 samples and n=2 will result in an output OTU table with 6 samples total: 3 clusters of 2 related samples.
+
+To simulate each of the new samples, this script uses a sample in the input OTU table, and for each OTU in that sample the script
+traverses rootward on the tree a distance specified by '-d' to a point x. It then randomly selects a tip that decends from x,
+(call that new tip 'o2'), and reassigns all observations of the original OTU to the tip/OTU 'o2'.
+
+
+The output directory will contain an OTU table with samples named:
+'original_sample_0, original_sample_1 ...'
+
+If a mapping file is provided via -m, an output mapping file containing the
+replicated sample IDs (with all other metadata columns copied over) will also
+be created.
+</help>
+</tool>

@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<tool id="parallel_assign_taxonomy_blast" name="parallel assign taxonomy blast" version="1.7.0">
+	<description>Parallel taxonomy assignment using BLAST</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>
+#if str($blast_db) != 'None':
+ uncompress_tgz.py -i $blast_db -o blast_db;
+ BLAST_DB_NAME=`get_blast_db_path.py -i blast_db`;
+#end if
+parallel_assign_taxonomy_blast.py -i $input_fasta_fp -o parallel_assign_taxonomy_blast_output
+#if str($reference_seqs_fp) != 'None':
+ -r $reference_seqs_fp
+#end if
+
+#if str($blast_db) != 'None':
+ -b \$BLAST_DB_NAME
+#end if
+
+#if $e_value:
+ -e $e_value
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+
+#if str($id_to_taxonomy_fp) != 'None':
+ -t $id_to_taxonomy_fp
+#end if
+;
+compress_path.py -i parallel_assign_taxonomy_blast_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: full path to input_fasta_fp [REQUIRED]" name="input_fasta_fp" optional="False" type="data"/>
+		<param default="/home/kevin/qiime_software/gg_otus-13_8-release/rep_set/97_otus.fasta" label="-r/--reference_seqs_fp: Ref seqs to blast against.  Must provide either --blast_db or --reference_seqs_db for assignment with blast [default: /home/kevin/qiime_software/gg_otus-13_8-release/rep_set/97_otus.fasta]" name="reference_seqs_fp" optional="True" type="data"/>
+		<param label="-b/--blast_db: Database to blast against.  Must provide either --blast_db or --reference_seqs_db for assignment with blast [default: None]" name="blast_db" optional="True" type="data"/>
+		<param default="0.001" label="-e/--e_value: Maximum e-value to record an assignment, only used for blast method [default: 0.001]" name="e_value" optional="True" type="float"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+		<param default="/home/kevin/qiime_software/gg_otus-13_8-release/taxonomy/97_otu_taxonomy.txt" label="-t/--id_to_taxonomy_fp: full path to id_to_taxonomy mapping file [default: /home/kevin/qiime_software/gg_otus-13_8-release/taxonomy/97_otu_taxonomy.txt]" name="id_to_taxonomy_fp" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script performs like the assign_taxonomy.py script, but is intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+Mapping of sequence identifiers to taxonomy and quality scores.</help>
+</tool>

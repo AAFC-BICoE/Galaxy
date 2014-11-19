@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<tool id="insert_seqs_into_tree" name="insert seqs into tree" version="1.7.0">
+	<description>Tree Insertion</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>insert_seqs_into_tree.py -i $input_fasta_fp -o insert_seqs_into_tree_output -t $starting_tree_fp -r $refseq_fp
+#if str($insertion_method) != 'None':
+ -m $insertion_method
+#end if
+
+#if str($stats_fp) != 'None':
+ -s $stats_fp
+#end if
+
+#if str($method_params_fp) != 'None':
+ -p $method_params_fp
+#end if
+;
+compress_path.py -i insert_seqs_into_tree_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-t/--starting_tree_fp: Starting Tree which you would like to insert into." name="starting_tree_fp" optional="False" type="data"/>
+		<param label="-r/--refseq_fp: Filepath for reference alignment" name="refseq_fp" optional="False" type="data"/>
+		<param label="-m/--insertion_method: Method for aligning sequences. Valid choices are: pplacer, raxml_v730, parsinsert [default: raxml_v730]" name="insertion_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pplacer">pplacer</option>
+			<option value="raxml_v730">raxml_v730</option>
+			<option value="parsinsert">parsinsert</option>
+		</param>
+		<param label="-s/--stats_fp: Stats file produced by tree-building software. REQUIRED if -m pplacer [default: None]" name="stats_fp" optional="True" type="data"/>
+		<param label="-p/--method_params_fp: Parameters file containing method-specific parameters to use. [default: None]" name="method_params_fp" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script takes a set of aligned sequences (query) either in the same file as the aligned reference set or separated (depending on method) along with a starting tree and produces a new tree containing the query sequences. This script requires that the user is running Raxml v7.3.0, PPlacer git repository version and ParsInsert 1.0.4.
+The result of this script produces a tree file (in Newick format) along with a log file containing the output from the underlying tool used for tree insertion.</help>
+</tool>

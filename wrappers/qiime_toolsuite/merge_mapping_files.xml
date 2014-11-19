@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="merge_mapping_files" name="merge mapping files" version="1.7.0">
+	<description>Merge mapping files</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>merge_mapping_files.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -m $list_dict_to_string($input_files_mapping_fps) -o $output_fp
+#if str($no_data_value):
+ -n $no_data_value
+#end if
+</command>
+	<inputs>
+		<repeat name="input_files_mapping_fps" optional="False" title="mapping_fps">
+			<param label="-m/--mapping_fps: the input mapping files in a comma-separated list" name="additional_input" type="data"/>
+		</repeat>
+		<param default="no_data" label="-n/--no_data_value: value to represent missing data (i.e., when all fields are not defined in all mapping files) [default: no_data]" name="no_data_value" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script provides a convenient interface for merging mapping files which contains data on different samples.
+The result of this script is a merged mapping file (tab-delimited).</help>
+</tool>

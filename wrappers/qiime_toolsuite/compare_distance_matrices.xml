@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<tool id="compare_distance_matrices" name="compare distance matrices" version="1.7.0">
+	<description>Computes Mantel correlation tests between sets of distance matrices</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>compare_distance_matrices.py --method=$method
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_dms) -o compare_distance_matrices_output
+#if $num_permutations:
+ -n $num_permutations
+#end if
+
+#if str($sample_id_map_fp) != 'None':
+ -s $sample_id_map_fp
+#end if
+
+#if str($tail_type) != 'None':
+ -t $tail_type
+#end if
+
+#if $alpha:
+ -a $alpha
+#end if
+
+#if str($image_type) != 'None':
+ -g $image_type
+#end if
+
+#if $variable_size_distance_classes:
+ --variable_size_distance_classes
+#end if
+
+#if str($control_dm) != 'None':
+ -c $control_dm
+#end if
+;
+compress_path.py -i compare_distance_matrices_output -o $output_dir
+</command>
+	<inputs>
+		<param label="--method: matrix correlation method to use. Valid options: [mantel, partial_mantel, mantel_corr]" name="method" optional="False" type="select">
+			<option value="mantel">mantel</option>
+			<option value="partial_mantel">partial_mantel</option>
+			<option value="mantel_corr">mantel_corr</option>
+		</param>
+		<repeat name="input_files_input_dms" optional="False" title="input_dms">
+			<param label="-i/--input_dms: the input distance matrices, comma-separated. WARNING: Only symmetric, hollow distance matrices may be used as input. Asymmetric distance matrices, such as those obtained by the UniFrac Gain metric (i.e. beta_diversity.py -m unifrac_g), should not be used as input" name="additional_input" type="data"/>
+		</repeat>
+		<param default="100" label="-n/--num_permutations: the number of permutations to perform when calculating the p-value [default: 100]" name="num_permutations" optional="True" type="integer"/>
+		<param default="None" label="-s/--sample_id_map_fp: Map of original sample ids to new sample ids [default: None]" name="sample_id_map_fp" optional="True" type="data"/>
+		<param label="-t/--tail_type: the type of tail test to perform when calculating the p-value. Valid options: [two sided, less, greater] Two sided is a two-tailed test, while less tests for r statistics less than the observed r statistic, and greater tests for r statistics greater than the observed r statistic. Only applies when method is mantel [default: two sided]" name="tail_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="two sided">two sided</option>
+			<option value="greater">greater</option>
+			<option value="less">less</option>
+		</param>
+		<param default="0.05" label="-a/--alpha: the value of alpha to use when denoting significance in the correlogram plot. Only applies when method is mantel_corr" name="alpha" optional="True" type="float"/>
+		<param label="-g/--image_type: the type of image to produce. Valid options: [png, svg, pdf]. Only applies when method is mantel_corr [default: pdf]" name="image_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pdf">pdf</option>
+			<option value="png">png</option>
+			<option value="svg">svg</option>
+		</param>
+		<param label="--variable_size_distance_classes: if this option is supplied, each distance class will have an equal number of distances (i.e. pairwise comparisons), which may result in variable sizes of distance classes (i.e. each distance class may span a different range of distances). If this option is not supplied, each distance class will have the same width, but may contain varying numbers of pairwise distances in each class. This option can help maintain statistical power if there are large differences in the number of distances in each class. See Darcy et al. 2011 (PLoS ONE) for an example of this type of correlogram. Only applies when method is mantel_corr [default: False]" name="variable_size_distance_classes" selected="False" type="boolean"/>
+		<param default="None" label="-c/--control_dm: the control matrix. Only applies (and is *required*) when method is partial_mantel. [default: None]" name="control_dm" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+This script compares two or more distance/dissimilarity matrices for correlation by providing the Mantel, partial Mantel, and Mantel correlogram matrix correlation tests.
+
+The Mantel test will test the correlation between two matrices. The data often represents the &quot;distance&quot; between objects or samples.
+
+The partial Mantel test is a first-order correlation analysis that utilizes three distance (dissimilarity) matrices. This test builds on the traditional Mantel test which is a procedure that tests the hypothesis that distances between the objects within a given matrix are linearly independent of the distances withing those same objects in a separate matrix. It builds on the traditional Mantel test by adding a third &quot;control&quot; matrix.
+
+Mantel correlogram produces a plot of distance classes versus Mantel statistics. Briefly, an ecological distance matrix (e.g. UniFrac distance matrix) and a second distance matrix (e.g. spatial distances, pH distances, etc.) are provided. The second distance matrix has its distances split into a number of distance classes (the number of classes is determined by Sturge's rule). A Mantel test is run over these distance classes versus the ecological distance matrix. The Mantel statistics obtained from each of these tests are then plotted in a correlogram. A filled-in point on the plot indicates that the Mantel statistic was statistically significant (you may provide what alpha to use).
+
+For more information and examples pertaining to this script, please refer to the accompanying tutorial, which can be found at http://qiime.org/tutorials/distance_matrix_comparison.html.
+
+
+Mantel: One file is created containing the Mantel 'r' statistic and p-value.
+
+Partial Mantel: One file is created in the output directory, which contains the partial Mantel statistic and p-value.
+
+Mantel Correlogram: Two files are created in the output directory: a text file containing information about the distance classes, their associated Mantel statistics and p-values, etc. and an image of the correlogram plot.
+</help>
+</tool>

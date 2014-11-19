@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<tool id="plot_semivariogram" name="plot semivariogram" version="1.7.0">
+	<description>Fits a model between two distance matrices and plots the result</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>plot_semivariogram.py -x $input_path_x -y $input_path_y -o plot_semivariogram_output
+#if str($binning):
+ -b $binning
+#end if
+
+#if $ignore_missing_samples:
+ --ignore_missing_samples
+#end if
+
+#if $x_max:
+ --x_max=$x_max
+#end if
+
+#if $x_min:
+ --x_min=$x_min
+#end if
+
+#if $y_max:
+ --y_max=$y_max
+#end if
+
+#if $y_min:
+ --y_min=$y_min
+#end if
+
+#if str($x_label):
+ -X $x_label
+#end if
+
+#if str($y_label):
+ -Y $y_label
+#end if
+
+#if str($fig_title):
+ -t $fig_title
+#end if
+
+#if str($dot_color):
+ --dot_color=$dot_color
+#end if
+
+#if str($dot_marker):
+ --dot_marker=$dot_marker
+#end if
+
+#if str($line_color):
+ --line_color=$line_color
+#end if
+
+#if $dot_alpha:
+ --dot_alpha=$dot_alpha
+#end if
+
+#if $line_alpha:
+ --line_alpha=$line_alpha
+#end if
+
+#if str($model) != 'None':
+ -m $model
+#end if
+
+#if $print_model:
+ -p
+#end if
+;
+compress_path.py -i plot_semivariogram_output -o $output_path
+</command>
+	<inputs>
+		<param label="-x/--input_path_x: path to distance matrix to be displayed in the x axis" name="input_path_x" optional="False" type="data"/>
+		<param label="-y/--input_path_y: path to distance matrix to be displayed in the y axis" name="input_path_y" optional="False" type="data"/>
+		<param default="None" label="-b/--binning: binning ranges. Format: [increment,top_limit], when top_limit is -1=infinitum; you can specify several ranges using the same format, i.e. [2.5,10][50,-1] will set two bins, one from 0-10 using 2.5 size steps and from 10-inf using 50 size steps. Note that the binning is used to clean the plots (reduce number of points) but ignored to fit the model. [default: None]" name="binning" optional="True" type="text"/>
+		<param label="--ignore_missing_samples: This will overpass the error raised when the matrices have different sizes/samples" name="ignore_missing_samples" selected="False" type="boolean"/>
+		<param default="None" label="--x_max: x axis max limit [default: auto]" name="x_max" optional="True" type="float"/>
+		<param default="None" label="--x_min: x axis min limit [default: auto]" name="x_min" optional="True" type="float"/>
+		<param default="None" label="--y_max: y axis max limit [default: auto]" name="y_max" optional="True" type="float"/>
+		<param default="None" label="--y_min: y axis min limit [default: auto]" name="y_min" optional="True" type="float"/>
+		<param default="Distance Dissimilarity (m)" label="-X/--x_label: Label for the x axis [default: Distance Dissimilarity (m)]" name="x_label" optional="True" type="text"/>
+		<param default="Community Dissimilarity" label="-Y/--y_label: Label for the y axis [default: Community Dissimilarity]" name="y_label" optional="True" type="text"/>
+		<param default="Semivariogram" label="-t/--fig_title: Title of the plot [default: Semivariogram]" name="fig_title" optional="True" type="text"/>
+		<param default="white" label="--dot_color: dot color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: white]" name="dot_color" optional="True" type="text"/>
+		<param default="o" label="--dot_marker: dot color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: o]" name="dot_marker" optional="True" type="text"/>
+		<param default="blue" label="--line_color: line color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: blue]" name="line_color" optional="True" type="text"/>
+		<param default="1" label="--dot_alpha: alpha for dots, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: 1]" name="dot_alpha" optional="True" type="float"/>
+		<param default="1" label="--line_alpha: alpha for dots, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: 1]" name="line_alpha" optional="True" type="float"/>
+		<param label="-m/--model: model to be fitted to the data. Valid choices are:nugget, exponential, gaussian, periodic, linear. [default: exponential]" name="model" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="nugget">nugget</option>
+			<option value="exponential">exponential</option>
+			<option value="gaussian">gaussian</option>
+			<option value="periodic">periodic</option>
+			<option value="linear">linear</option>
+		</param>
+		<param label="-p/--print_model: Print in the title of the plot the function of the fit. [default: False]" name="print_model" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>Fits a spatial autocorrelation model between two matrices and plots the result. This script will work with two distance matrices but will ignore the 0s at the diagonal and the values that go to N/A
+The resulting output file consists of a pdf image containing the plot between the two distances matrices and the fitted model</help>
+</tool>

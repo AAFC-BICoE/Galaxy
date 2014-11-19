@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<tool id="fix_arb_fasta" name="fix arb fasta" version="1.7.0">
+	<description>Reformat ARB FASTA files</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>fix_arb_fasta.py -f $input_fasta_fp -o $output_fp</command>
+	<inputs>
+		<param label="-f/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script fixes ARB FASTA formatting by repairing incorrect line break chararcters, stripping spaces and replacing &quot;.&quot; with &quot;-&quot; characters.
+The reformatted sequences are written to stdout or to the file path provided with -o.</help>
+</tool>

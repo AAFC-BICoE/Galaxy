@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="relatedness" name="relatedness" version="1.7.0">
+	<description>Calculate NRI (net relatedness index) and NTI (nearest taxon index) using the formulas from Phylocom 4.2/3.41 and Webb 2002.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>relatedness.py -t $tree_fp -g $taxa_fp
+#if $iters:
+ -i $iters
+#end if
+
+#if str($methods) != 'None':
+ -m $methods
+#end if
+ -o $output_fp</command>
+	<inputs>
+		<param label="-t/--tree_fp: the tree filepath" name="tree_fp" optional="False" type="data"/>
+		<param label="-g/--taxa_fp: taxa list filepath" name="taxa_fp" optional="False" type="data"/>
+		<param default="1000" label="-i/--iters: number of iterations to use for sampling tips without replacement (null model 2 community sampling, see see http://bodegaphylo.wikispot.org/Community_Phylogenetics). [default: 1000]" name="iters" optional="True" type="integer"/>
+		<param label="-m/--methods: comma-separated list of metrics to calculate. [default: nri,nti]" multiple="True" name="methods" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="nri">nri</option>
+			<option value="nti">nti</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script calculates NRI and NTI from a path to a Newick formatted tree and a path to a comma separated list of ids in that tree that form the group whose NRI/NTI you want to test. The tree is not required to have distances. If none are found script will use the number of nodes (self inclusive) as their distance from one another. NRI and NTI are calculated as described in the Phylocom manual (which is a slightly modified version of that found in Webb 2002, and Webb 2000). The Phylocom manual is freely available on the web and Webb 2002 can be found in the Annual Review of Ecology and Systematics: Phylogenies and Community Ecology Webb 2002.
+Outputs a value for specified tests</help>
+</tool>

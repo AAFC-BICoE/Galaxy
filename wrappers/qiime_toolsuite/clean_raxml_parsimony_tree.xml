@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<tool id="clean_raxml_parsimony_tree" name="clean raxml parsimony tree" version="1.7.0">
+	<description>Remove duplicate tips from Raxml Tree</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>clean_raxml_parsimony_tree.py -i $input_tree -t $tips_to_keep -o $output_fp
+#if str($scoring_method) != 'None':
+ -s $scoring_method
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_tree: the input raxml parsimony tree" name="input_tree" optional="False" type="data"/>
+		<param label="-t/--tips_to_keep: the input tips to score and retain (comma-separated list)" name="tips_to_keep" optional="False" type="text"/>
+		<param label="-s/--scoring_method: the scoring method either depth or numtips [default: depth]" name="scoring_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="depth">depth</option>
+			<option value="numtips">numtips</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script allows the user to remove specific duplicate tips from a Raxml tree.
+</help>
+</tool>

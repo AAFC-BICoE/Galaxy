@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<tool id="parallel_beta_diversity" name="parallel beta diversity" version="1.7.0">
+	<description>Parallel beta diversity</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_path -o parallel_beta_diversity_input;
+parallel_beta_diversity.py -i parallel_beta_diversity_input -o parallel_beta_diversity_output
+#if str($metrics) != 'None':
+ -m $metrics
+#end if
+
+#if str($tree_path) != 'None':
+ -t $tree_path
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $full_tree:
+ -f
+#end if
+;
+compress_path.py -i parallel_beta_diversity_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: input path, must be directory [REQUIRED]" name="input_path" type="data"/>
+		<param label="-m/--metrics: Beta-diversity metric(s) to use. A comma-separated list should be provided when multiple metrics are specified. [default: unweighted_unifrac,weighted_unifrac]" multiple="True" name="metrics" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="abund_jaccard">abund_jaccard</option>
+			<option value="binary_chisq">binary_chisq</option>
+			<option value="binary_chord">binary_chord</option>
+			<option value="binary_euclidean">binary_euclidean</option>
+			<option value="binary_hamming">binary_hamming</option>
+			<option value="binary_jaccard">binary_jaccard</option>
+			<option value="binary_lennon">binary_lennon</option>
+			<option value="binary_ochiai">binary_ochiai</option>
+			<option value="binary_otu_gain">binary_otu_gain</option>
+			<option value="binary_pearson">binary_pearson</option>
+			<option value="binary_sorensen_dice">binary_sorensen_dice</option>
+			<option value="bray_curtis">bray_curtis</option>
+			<option value="bray_curtis_faith">bray_curtis_faith</option>
+			<option value="bray_curtis_magurran">bray_curtis_magurran</option>
+			<option value="canberra">canberra</option>
+			<option value="chisq">chisq</option>
+			<option value="chord">chord</option>
+			<option value="euclidean">euclidean</option>
+			<option value="gower">gower</option>
+			<option value="hellinger">hellinger</option>
+			<option value="kulczynski">kulczynski</option>
+			<option value="manhattan">manhattan</option>
+			<option value="morisita_horn">morisita_horn</option>
+			<option value="pearson">pearson</option>
+			<option value="soergel">soergel</option>
+			<option value="spearman_approx">spearman_approx</option>
+			<option value="specprof">specprof</option>
+			<option value="unifrac">unifrac</option>
+			<option value="unifrac_g">unifrac_g</option>
+			<option value="unifrac_g_full_tree">unifrac_g_full_tree</option>
+			<option value="unweighted_unifrac">unweighted_unifrac</option>
+			<option value="unweighted_unifrac_full_tree">unweighted_unifrac_full_tree</option>
+			<option value="weighted_normalized_unifrac">weighted_normalized_unifrac</option>
+			<option value="weighted_unifrac">weighted_unifrac</option>
+		</param>
+		<param label="-t/--tree_path: path to newick tree file, required for phylogenetic metrics [default: None]" name="tree_path" optional="True" type="data"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-f/--full_tree: By default, each job removes calls _fast_unifrac_setup to remove unused parts of the tree. pass -f if you already have a minimal tree, and this script will run faster" name="full_tree" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>This script performs like the beta_diversity.py script, but is intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+The output of %prog is a folder containing text files, each a distance matrix between samples.</help>
+</tool>

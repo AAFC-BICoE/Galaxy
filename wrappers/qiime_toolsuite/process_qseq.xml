@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<tool id="process_qseq" name="process qseq" version="1.7.0">
+	<description>Given a directory of per-swath qseq files, this script generates a single fastq per lane.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_dir -o process_qseq_input;
+process_qseq.py -i process_qseq_input -o process_qseq_output -r $read
+#if str($lanes):
+ -l $lanes
+#end if
+
+#if $bases:
+ -b $bases
+#end if
+
+#if $ignore_pass_filter:
+ --ignore_pass_filter
+#end if
+;
+compress_path.py -i process_qseq_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_dir: the input directory" name="input_dir" type="data"/>
+		<param label="-r/--read: the read number to consider" name="read" optional="False" type="integer" value="0"/>
+		<param default="1,2,3,4,5,6,7,8" label="-l/--lanes: the lane numbers to consider, comma-separated [defaut: 1,2,3,4,5,6,7,8]" name="lanes" optional="True" type="text"/>
+		<param default="None" label="-b/--bases: the number of bases to include (useful for slicing a barcode) [defaut: all]" name="bases" optional="True" type="integer"/>
+		<param label="--ignore_pass_filter: ignore the illumina pass filter [default:False; reads with 0 in  pass filter field are discarded]" name="ignore_pass_filter" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+</help>
+</tool>

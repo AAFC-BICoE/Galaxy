@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<tool id="beta_diversity_through_plots" name="beta diversity through plots" version="1.7.0">
+	<description>A workflow script for computing beta diversity distance matrices and generating PCoA plots</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>beta_diversity_through_plots.py -i $otu_table_fp -m $mapping_fp -o beta_diversity_through_plots_output
+#if str($tree_fp) != 'None':
+ -t $tree_fp
+#end if
+
+#if str($parameter_fp) != 'None':
+ -p $parameter_fp
+#end if
+
+#if $color_by_all_fields:
+ --color_by_all_fields
+#end if
+
+#if str($histogram_categories):
+ -c $histogram_categories
+#end if
+
+#if $parallel:
+ -a
+#end if
+
+#if $seqs_per_sample:
+ -e $seqs_per_sample
+#end if
+
+#if $suppress_2d_plots:
+ --suppress_2d_plots
+#end if
+
+#if $suppress_3d_plots:
+ --suppress_3d_plots
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i beta_diversity_through_plots_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--otu_table_fp: the input biom table [REQUIRED]" name="otu_table_fp" optional="False" type="data"/>
+		<param label="-m/--mapping_fp: path to the mapping file [REQUIRED]" name="mapping_fp" optional="False" type="data"/>
+		<param label="-t/--tree_fp: path to the tree file [default: None; REQUIRED for phylogenetic measures]" name="tree_fp" optional="True" type="data"/>
+		<param label="-p/--parameter_fp: path to the parameter file, which specifies changes to the default behavior. See http://www.qiime.org/documentation/file_formats.html#qiime-parameters . [if omitted, default values will be used]" name="parameter_fp" optional="True" type="data"/>
+		<param label="--color_by_all_fields: plots will have coloring for all mapping fields [default: False; only include fields with greater than one value and fewer values than the number of samples]" name="color_by_all_fields" selected="False" type="boolean"/>
+		<param label="-c/--histogram_categories: mapping fields to use when plotting distance histograms [default: None]" name="histogram_categories" optional="True" type="text"/>
+		<param label="-a/--parallel: Run in parallel where available [default: False]" name="parallel" selected="False" type="boolean"/>
+		<param label="-e/--seqs_per_sample: depth of coverage for even sampling [default: None]" name="seqs_per_sample" optional="True" type="integer"/>
+		<param label="--suppress_2d_plots: Do not generate 2D plots [default: False]" name="suppress_2d_plots" selected="False" type="boolean"/>
+		<param label="--suppress_3d_plots: Do not generate 3D plots [default: False]" name="suppress_3d_plots" selected="False" type="boolean"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start. NOTE: you must also pass -a to run in parallel, this defines the number of jobs to be started if and only if -a is passed [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script will perform beta diversity, principal coordinate anlalysis, and generate a preferences file along with 3D PCoA Plots.
+
+This script results in a distance matrix (from beta_diversity.py), a principal coordinates file (from principal_coordinates.py), a preferences file (from make_prefs_file.py) and folders containing the resulting PCoA plots (accessible through html files).</help>
+</tool>

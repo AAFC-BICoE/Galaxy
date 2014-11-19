@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<tool id="demultiplex_fasta" name="demultiplex fasta" version="1.7.0">
+	<description>Demultiplex fasta data according to barcode sequences or data supplied in fasta labels.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>demultiplex_fasta.py -m $map
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -f $list_dict_to_string($input_files_fasta)
+#if $input_files_qual:
+ -q $list_dict_to_string($input_files_qual)
+#end if
+
+#if $keep_barcode:
+ -B
+#end if
+
+#if str($barcode_type):
+ -b $barcode_type
+#end if
+ -o demultiplex_fasta_output
+#if $max_barcode_errors:
+ -e $max_barcode_errors
+#end if
+
+#if $startnumberingat:
+ -n $startnumberingat
+#end if
+
+#if $retain_unassigned_reads:
+ --retain_unassigned_reads
+#end if
+
+#if $disable_bc_correction:
+ -c
+#end if
+
+#if $save_barcode_frequencies:
+ -F
+#end if
+
+#if str($added_demultiplex_field):
+ -j $added_demultiplex_field
+#end if
+;
+compress_path.py -i demultiplex_fasta_output -o $dir_prefix
+</command>
+	<inputs>
+		<param label="-m/--map: name of mapping file. NOTE: Must contain a header line indicating SampleID in the first column and BarcodeSequence in the second, LinkerPrimerSequence in the third." name="map" optional="False" type="data"/>
+		<repeat name="input_files_fasta" optional="False" title="fasta">
+			<param label="-f/--fasta: names of fasta files, comma-delimited" name="additional_input" type="data"/>
+		</repeat>
+		<repeat name="input_files_qual" optional="True" title="qual">
+			<param label="-q/--qual: file paths of qual files, comma-delimited [default: None]" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-B/--keep_barcode: do not remove barcode from sequences" name="keep_barcode" selected="False" type="boolean"/>
+		<param default="golay_12" label="-b/--barcode_type: barcode type, hamming_8, golay_12, variable_length (will disable any barcode correction if variable_length set), or a number representing the length of the barcode, such as -b 4. The max barcode errors (-e) should be lowered for short barcodes.  [default: golay_12]" name="barcode_type" optional="True" type="text"/>
+		<param default="1.5" label="-e/--max_barcode_errors: maximum number of errors in barcode.  If using generic barcodes every 0.5 specified counts as a primer mismatch. [default: 1.5]" name="max_barcode_errors" optional="True" type="float"/>
+		<param default="1" label="-n/--start-numbering-at: seq id to use for the first sequence [default: 1]" name="startnumberingat" optional="True" type="integer"/>
+		<param label="--retain_unassigned_reads: retain sequences which can not be demultiplexed in a seperate output sequence file [default: False]" name="retain_unassigned_reads" selected="False" type="boolean"/>
+		<param label="-c/--disable_bc_correction: Disable attempts to find nearest corrected barcode.  Can improve performance. [default: False]" name="disable_bc_correction" selected="False" type="boolean"/>
+		<param label="-F/--save_barcode_frequencies: Save frequences of barcodes as they appear in the given sequences.  Sorts in order of largest to smallest.  Will do nothing if barcode type is 0 or variable_length.  [default: False]" name="save_barcode_frequencies" selected="False" type="boolean"/>
+		<param default="None" label="-j/--added_demultiplex_field: Use -j to add a field to use in the mapping file as an additional demultiplexing option to the barcode.  All combinations of barcodes and the values in these fields must be unique. The fields must contain values that can be parsed from the fasta labels such as &quot;plate=R_2008_12_09&quot;.  In this case, &quot;plate&quot; would be the column header and &quot;R_2008_12_09&quot; would be the field data (minus quotes) in the mapping file.  To use the run prefix from the fasta label, such as &quot;&gt;FLP3FBN01ELBSX&quot;, where &quot;FLP3FBN01&quot; is generated from the run ID, use &quot;-j run_prefix&quot; and set the run prefix to be used as the data under the column headerr &quot;run_prefix&quot;.  [default: None]" name="added_demultiplex_field" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="dir_prefix"/>
+	</outputs>
+	<help>Using barcodes and/or data from fasta labels provided in a mapping file, will demultiplex sequences from an input fasta file.  Barcodes will be removed from the sequences in the output fasta file by default.  If a quality scores file is supplied, the quality score file will be truncated to match the output fasta file.  The default barcode type are 12 base pair Golay codes.  Alternative barcodes allowed are 8 base pair Hamming codes, variable_length, or generic barcodes of a specified length.  Generic barcodes utilize mismatch counts for correction.  One can also use an added demultiplex field (-j option) to specify data in the fasta labels that can be used alone or in conjunction with barcode sequences for demultiplexing.  All barcode correction is disabled when variable length barcodes are used.
+Four files can be generated by %prog
+
+1. seqs.fna - This contains the fasta sequences, demultiplexed according to barcodes and/or added demultiplexed field.
+
+2. demultiplexed_sequences.log - Contains details about demultiplexing stats
+
+3. seqs.qual - If quality score file(s) are supplied, these will be truncated to match the seqs.fna file after barcode removal if such is enabled.
+
+4. seqs_not_assigned.fna - If --retain_unassigned_reads is enabled, will write all sequences that can not be demultiplexed to this file.  Also will create a seqs_not_assigned.qual file if quality file supplied.</help>
+</tool>

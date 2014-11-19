@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<tool id="supervised_learning" name="supervised learning" version="1.7.0">
+	<description>Run supervised classification using OTUs as predictors and a mapping file category as class labels.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_data -o supervised_learning_input;
+supervised_learning.py -i supervised_learning_input -m $mapping_file -c $category -o supervised_learning_output
+#if $ntree:
+ --ntree=$ntree
+#end if
+
+#if str($errortype) != 'None':
+ -e $errortype
+#end if
+ -w $collate_results_fp;
+compress_path.py -i supervised_learning_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_data: Input data file containing predictors (e.g. otu table) or a directory of otu tables" name="input_data" type="data"/>
+		<param label="-m/--mapping_file: File containing meta data (response variables)" name="mapping_file" optional="False" type="data"/>
+		<param label="-c/--category: Name of meta data category to predict" name="category" optional="False" type="text"/>
+		<param default="500" label="--ntree: Number of trees in forest (more is better but slower) [default: 500]" name="ntree" optional="True" type="integer"/>
+		<param label="-e/--errortype: type of error estimation. Valid choices are: oob, loo, cv5, cv10. oob: out-of-bag, fastest, only builds one classifier, use for quick estimates; cv5: 5-fold cross validation, provides mean and standard deviation of error, use for good estimates on very large data sets; cv10: 10-fold cross validation, provides mean and standard deviation of error, use for best estimates; loo: leave-one-out cross validation, use for small data sets (less than ~30-50 samples) [default oob]" name="errortype" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="oob">oob</option>
+			<option value="loo">loo</option>
+			<option value="cv5">cv5</option>
+			<option value="cv10">cv10</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+		<data format="txt" name="collate_results_fp"/>
+	</outputs>
+	<help>This script trains a supervised classifier using OTUs (or other continuous input sample x observation data) as predictors, and a mapping file column containing discrete values as the class labels.
+
+Outputs:
+    * cv_probabilities.txt: the label probabilities for each of the         given samples. (if available)
+    * mislabeling.txt: A convenient presentation of cv_probabilities         for mislabeling detection.
+    * confusion_matrix.txt: confusion matrix for hold-out predictions.
+    * summary.txt: a summary of the results, including the expected         generalization error of the classifier
+    * feature_importance_scores.txt: a list of discriminative OTUs with their         associated importance scores (if available)
+    
+It is recommended that you remove low-depth samples and rare OTUs before running this script. This can drastically reduce the run-time, and in many circumstances will not hurt performance. It is also recommended to perform rarefaction to control for sampling effort before running this script. For example, to rarefy at depth 200, then remove OTUs present in &lt; 10 samples run:
+
+single_rarefaction.py -i otu_table_filtered.txt -d 200 -o otu_table_rarefied200.txt
+filter_otus_from_otu_table.py -i otu_table_rarefied200.txt -s 10
+
+For an overview of the application of supervised classification to microbiota, see PubMed ID 21039646.
+
+This script also has the ability to collate the supervised learning results produced on an input directory. For example, in order to reduce any variation introduced through producing a rarefied OTU table, the user can run multiple_rarefactions_even_depth.py on the OTU table, and then pass that directory into supervised_learning.py. The user can then pass a -w collate_results filepath to produce a single results file that contains the average estimated generalization error of the classified, and the pooled standard deviation (for cv5 and cv10 errortypes).
+
+This script requires that R be installed and in the search path. To install R visit: http://www.r-project.org/. Once R is installed, run R and excecute the command &quot;install.packages(&quot;randomForest&quot;)&quot;, then type q() to exit.
+Outputs a ranking of features (e.g. OTUs) by importance, an estimation of the generalization error of the classifier, and the predicted class labels and posterior class probabilities according to the classifier.</help>
+</tool>

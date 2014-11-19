@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<tool id="truncate_fasta_qual_files" name="truncate fasta qual files" version="1.7.0">
+	<description>Generates filtered fasta and quality score files by truncating at the specified base position.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>truncate_fasta_qual_files.py -f $fasta_fp -q $qual_fp -b $base_pos -o truncate_fasta_qual_files_output;
+compress_path.py -i truncate_fasta_qual_files_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-f/--fasta_fp: Input fasta filepath to be truncated." name="fasta_fp" optional="False" type="data"/>
+		<param label="-q/--qual_fp: Input quality scores filepath to be truncated." name="qual_fp" optional="False" type="data"/>
+		<param label="-b/--base_pos: Nucleotide position to truncate the fasta and quality score files at." name="base_pos" optional="False" type="integer" value="0"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This module is designed to remove regions of poor quality in 
+454 sequence data.  Drops in quality can be visualized with the 
+quality_scores_plot.py module.  The base position specified will
+be used as an index to truncate the sequence and quality scores, and 
+all data at that base position and to the end of the sequence will be
+removed in the output filtered files.
+Filtered versions of the input fasta and qual file (based on input name with '_filtered' appended) will be generated in the output directory</help>
+</tool>

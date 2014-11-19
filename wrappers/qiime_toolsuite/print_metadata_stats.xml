@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<tool id="print_metadata_stats" name="print metadata stats" version="1.7.0">
+	<description>Count the number of samples associated to a category value</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>print_metadata_stats.py -m $mapping_file -c $category -o $output_fp</command>
+	<inputs>
+		<param label="-m/--mapping_file: the input metadata file" name="mapping_file" optional="False" type="data"/>
+		<param label="-c/--category: the category to examine" name="category" optional="False" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>Sum up the number of samples with each category value and print this information.
+Two columns, the first being the category value and the second being the count. Output is to standard out. If there are unspecified values, the output category is identified as ***UNSPECIFIED***</help>
+</tool>

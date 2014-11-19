@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<tool id="ampliconnoise" name="ampliconnoise" version="1.7.0">
+	<description>Run AmpliconNoise</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>ampliconnoise.py -m $mapping_fp -i $sff_filepath -o $output_filepath
+#if $np:
+ -n $np
+#end if
+
+#if $chimera_alpha:
+ --chimera_alpha=$chimera_alpha
+#end if
+
+#if $chimera_beta:
+ --chimera_beta=$chimera_beta
+#end if
+
+#if str($seqnoise_resolution):
+ --seqnoise_resolution=$seqnoise_resolution
+#end if
+ -d ampliconnoise_output
+#if str($parameter_fp) != 'None':
+ -p $parameter_fp
+#end if
+
+#if $suppress_perseus:
+ --suppress_perseus
+#end if
+
+#if str($platform) != 'None':
+ --platform=$platform
+#end if
+
+#if $truncate_len:
+ --truncate_len=$truncate_len
+#end if
+;
+compress_path.py -i ampliconnoise_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-m/--mapping_fp: the mapping filepath" name="mapping_fp" optional="False" type="data"/>
+		<param label="-i/--sff_filepath: sff.txt filepath" name="sff_filepath" optional="False" type="data"/>
+		<param default="2" label="-n/--np: number of processes to use for mpi steps. Default: 2" name="np" optional="True" type="integer"/>
+		<param default="-3.8228" label="--chimera_alpha: alpha value to Class.pl used for chimera removal  Default: -3.8228" name="chimera_alpha" optional="True" type="float"/>
+		<param default="0.62" label="--chimera_beta: beta value to Class.pl used for chimera removal  Default: 0.62" name="chimera_beta" optional="True" type="float"/>
+		<param default="None" label="--seqnoise_resolution: -s parameter passed to seqnoise. Default is 25.0 for titanium, 30.0 for flx" name="seqnoise_resolution" optional="True" type="text"/>
+		<param label="-p/--parameter_fp: path to the parameter file, which specifies changes to the default behavior. See http://www.qiime.org/documentation/file_formats.html#qiime-parameters. [if omitted, default values will be used]" name="parameter_fp" optional="True" type="data"/>
+		<param label="--suppress_perseus: omit perseus from ampliconnoise workflow" name="suppress_perseus" selected="False" type="boolean"/>
+		<param label="--platform: sequencing technology, options are 'titanium','flx'. [default: flx]" name="platform" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="titanium">titanium</option>
+			<option value="flx">flx</option>
+		</param>
+		<param default="None" label="--truncate_len: Specify a truncation length for ampliconnoise.  Note that is this is not specified, the truncate length is chosen by the --platform option (220 for FLX, 400 for Titanium) [default: None]" name="truncate_len" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_filepath"/>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+The steps performed by this script are:
+
+1. Split input sff.txt file into one file per sample
+
+2. Run scripts required for PyroNoise
+
+3. Run scripts required for SeqNoise
+
+4. Run scripts requred for Perseus (chimera removal)
+
+5. Merge output files into one file similar to the output of split_libraries.py
+
+This script produces a denoised fasta sequence file such as:
+&gt;PC.355_41
+CATGCTGCCTC...
+...
+&gt;PC.636_23
+CATGCTGCCTC...
+...
+
+Additionally, the intermediate results of the ampliconnoise pipeline are
+written to an output directory.
+
+Ampliconnoise must be installed and correctly configured, and parallelized
+steps will be called with mpirun, not qiime's start_parallel_jobs_torque.py script.
+
+
+a fasta file of sequences, with labels as:'&gt;sample1_0' , '&gt;sample1_1' ...</help>
+</tool>

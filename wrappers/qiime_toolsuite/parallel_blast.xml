@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<tool id="parallel_blast" name="parallel blast" version="1.7.0">
+	<description>Parallel BLAST</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>
+#if str($blast_db) != 'None':
+ uncompress_tgz.py -i $blast_db -o blast_db;
+ BLAST_DB_NAME=`get_blast_db_path.py -i blast_db`;
+#end if
+parallel_blast.py -i $infile_path -o parallel_blast_output
+#if $disable_low_complexity_filter:
+ -c
+#end if
+
+#if $e_value:
+ -e $e_value
+#end if
+
+#if $num_hits:
+ -n $num_hits
+#end if
+
+#if $word_size:
+ -w $word_size
+#end if
+
+#if str($blastmat_dir):
+ -a $blastmat_dir
+#end if
+
+#if str($refseqs_path) != 'None':
+ -r $refseqs_path
+#end if
+
+#if str($blast_db) != 'None':
+ -b \$BLAST_DB_NAME
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+;
+compress_path.py -i parallel_blast_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--infile_path: Path of sequences to use as queries [REQUIRED]" name="infile_path" optional="False" type="data"/>
+		<param label="-c/--disable_low_complexity_filter: disable filtering of low-complexity sequences (i.e., -F F is passed to blast) [default: False]" name="disable_low_complexity_filter" selected="False" type="boolean"/>
+		<param default="1e-30" label="-e/--e_value: E-value threshold for blasts [default: 1e-30]" name="e_value" optional="True" type="float"/>
+		<param default="1" label="-n/--num_hits: number of hits per query for blast results [default: 1]" name="num_hits" optional="True" type="integer"/>
+		<param default="30" label="-w/--word_size: word size for blast searches [default: 30]" name="word_size" optional="True" type="integer"/>
+		<param default="/home/kevin/qiime_software/blast-2.2.22-release/data" label="-a/--blastmat_dir: full path to directory containing blastmat file [default: /home/kevin/qiime_software/blast-2.2.22-release/data]" name="blastmat_dir" optional="True" type="text"/>
+		<param label="-r/--refseqs_path: Path to fasta sequences to search against. Required if -b is not provided." name="refseqs_path" optional="True" type="data"/>
+		<param label="-b/--blast_db: Name of pre-formatted BLAST database. Required if -r is not provided." name="blast_db" optional="True" type="data"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script for performing blast while making use of multicore/multiprocessor environments to perform analyses in parallel.
+ </help>
+</tool>

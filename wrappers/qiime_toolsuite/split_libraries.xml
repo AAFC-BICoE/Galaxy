@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<tool id="split_libraries" name="split libraries" version="1.7.0">
+	<description>Split libraries according to barcodes specified in mapping file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>split_libraries.py -m $map
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -f $list_dict_to_string($input_files_fasta)
+#if $input_files_qual:
+ -q $list_dict_to_string($input_files_qual)
+#end if
+
+#if $minseqlength:
+ -l $minseqlength
+#end if
+
+#if $maxseqlength:
+ -L $maxseqlength
+#end if
+
+#if $trimseqlength:
+ -t
+#end if
+
+#if $minqualscore:
+ -s $minqualscore
+#end if
+
+#if $keepprimer:
+ -k
+#end if
+
+#if $keepbarcode:
+ -B
+#end if
+
+#if $maxambig:
+ -a $maxambig
+#end if
+
+#if $maxhomopolymer:
+ -H $maxhomopolymer
+#end if
+
+#if $maxprimermismatch:
+ -M $maxprimermismatch
+#end if
+
+#if str($barcodetype):
+ -b $barcodetype
+#end if
+ -o split_libraries_output
+#if $maxbarcodeerrors:
+ -e $maxbarcodeerrors
+#end if
+
+#if $startnumberingat:
+ -n $startnumberingat
+#end if
+
+#if $retain_unassigned_reads:
+ --retain_unassigned_reads
+#end if
+
+#if $disable_bc_correction:
+ -c
+#end if
+
+#if $qual_score_window:
+ -w $qual_score_window
+#end if
+
+#if $discard_bad_windows:
+ -g
+#end if
+
+#if $disable_primers:
+ -p
+#end if
+
+#if str($reverse_primers):
+ -z $reverse_primers
+#end if
+
+#if $reverse_primer_mismatches:
+ --reverse_primer_mismatches=$reverse_primer_mismatches
+#end if
+
+#if $record_qual_scores:
+ -d
+#end if
+
+#if str($median_length_filtering):
+ -i $median_length_filtering
+#end if
+
+#if str($added_demultiplex_field):
+ -j $added_demultiplex_field
+#end if
+
+#if $truncate_ambi_bases:
+ -x
+#end if
+;
+compress_path.py -i split_libraries_output -o $dirprefix
+</command>
+	<inputs>
+		<param label="-m/--map: name of mapping file. NOTE: Must contain a header line indicating SampleID in the first column and BarcodeSequence in the second, LinkerPrimerSequence in the third." name="map" optional="False" type="data"/>
+		<repeat name="input_files_fasta" optional="False" title="fasta">
+			<param label="-f/--fasta: names of fasta files, comma-delimited" name="additional_input" type="data"/>
+		</repeat>
+		<repeat name="input_files_qual" optional="True" title="qual">
+			<param label="-q/--qual: names of qual files, comma-delimited [default: None]" name="additional_input" type="data"/>
+		</repeat>
+		<param default="200" label="-l/--min-seq-length: minimum sequence length, in nucleotides [default: 200]" name="minseqlength" optional="True" type="integer"/>
+		<param default="1000" label="-L/--max-seq-length: maximum sequence length, in nucleotides [default: 1000]" name="maxseqlength" optional="True" type="integer"/>
+		<param label="-t/--trim-seq-length: calculate sequence lengths after trimming primers and barcodes [default: False]" name="trimseqlength" selected="False" type="boolean"/>
+		<param default="None" label="-s/--min-qual-score: min average qual score allowed in read [default: 25]" name="minqualscore" optional="True" type="integer"/>
+		<param label="-k/--keep-primer: do not remove primer from sequences" name="keepprimer" selected="False" type="boolean"/>
+		<param label="-B/--keep-barcode: do not remove barcode from sequences" name="keepbarcode" selected="False" type="boolean"/>
+		<param default="6" label="-a/--max-ambig: maximum number of ambiguous bases [default: 6]" name="maxambig" optional="True" type="integer"/>
+		<param default="6" label="-H/--max-homopolymer: maximum length of homopolymer run [default: 6]" name="maxhomopolymer" optional="True" type="integer"/>
+		<param default="0" label="-M/--max-primer-mismatch: maximum number of primer mismatches [default: 0]" name="maxprimermismatch" optional="True" type="integer"/>
+		<param default="golay_12" label="-b/--barcode-type: barcode type, hamming_8, golay_12, variable_length (will disable any barcode correction if variable_length set), or a number representing the length of the barcode, such as -b 4.  [default: golay_12]" name="barcodetype" optional="True" type="text"/>
+		<param default="1.5" label="-e/--max-barcode-errors: maximum number of errors in barcode [default: 1.5]" name="maxbarcodeerrors" optional="True" type="float"/>
+		<param default="1" label="-n/--start-numbering-at: seq id to use for the first sequence [default: 1]" name="startnumberingat" optional="True" type="integer"/>
+		<param label="--retain_unassigned_reads: retain sequences which are Unassigned in the output sequence file[default: False]" name="retain_unassigned_reads" selected="False" type="boolean"/>
+		<param label="-c/--disable_bc_correction: Disable attempts to find nearest corrected barcode.  Can improve performance. [default: False]" name="disable_bc_correction" selected="False" type="boolean"/>
+		<param default="0" label="-w/--qual_score_window: Enable sliding window test of quality scores.  If the average score of a continuous set of w nucleotides falls below the threshold (see -s for default), the sequence is discarded. A good value would be 50. 0 (zero) means no filtering. Must pass a .qual file (see -q parameter) if this functionality is enabled.  Default behavior for this function is to truncate the sequence at the beginning of the poor quality window, and test for minimal length (-l parameter) of the resulting sequence. [default: 0]" name="qual_score_window" optional="True" type="integer"/>
+		<param label="-g/--discard_bad_windows: If the qual_score_window option (-w) is enabled, this will override the default truncation behavior and discard any sequences where a bad window is found.  [default: False]" name="discard_bad_windows" selected="False" type="boolean"/>
+		<param label="-p/--disable_primers: Disable primer usage when demultiplexing.  Should be enabled for unusual circumstances, such as analyzing Sanger sequence data generated with different primers.  [default: False]" name="disable_primers" selected="False" type="boolean"/>
+		<param default="disable" label="-z/--reverse_primers: Enable removal of the reverse primer and any subsequence sequence from the end of each read.  To enable this, there has to be a &quot;ReversePrimer&quot; column in the mapping file. Primers a required to be in IUPAC format and written in the 5' to  3' direction.  Valid options are 'disable', 'truncate_only', and 'truncate_remove'.  'truncate_only' will remove the primer and subsequent sequence data from the output read and will not alter output of sequences where the primer cannot be found. 'truncate_remove' will flag sequences where the primer cannot be found to not be written and will record the quantity of such failed sequences in the log file. [default: disable]" name="reverse_primers" optional="True" type="text"/>
+		<param default="0" label="--reverse_primer_mismatches: Set number of allowed mismatches for reverse primers (option -z). [default: 0]" name="reverse_primer_mismatches" optional="True" type="integer"/>
+		<param label="-d/--record_qual_scores: Enables recording of quality scores for all sequences that are recorded.  If this option is enabled, a file named seqs_filtered.qual will be created in the output directory, and will contain the same sequence IDs in the seqs.fna file and sequence quality scores matching the bases present in the seqs.fna file. [default: False]" name="record_qual_scores" selected="False" type="boolean"/>
+		<param default="None" label="-i/--median_length_filtering: Disables minimum and maximum sequence length filtering, and instead calculates the median sequence length and filters the sequences based upon the number of median absolute deviations specified by this parameter.  Any sequences with lengths outside the number of deviations will be removed. [default: None]" name="median_length_filtering" optional="True" type="text"/>
+		<param default="None" label="-j/--added_demultiplex_field: Use -j to add a field to use in the mapping file as an additional demultiplexing option to the barcode.  All combinations of barcodes and the values in these fields must be unique. The fields must contain values that can be parsed from the fasta labels such as &quot;plate=R_2008_12_09&quot;.  In this case, &quot;plate&quot; would be the column header and &quot;R_2008_12_09&quot; would be the field data (minus quotes) in the mapping file.  To use the run prefix from the fasta label, such as &quot;&gt;FLP3FBN01ELBSX&quot;, where &quot;FLP3FBN01&quot; is generated from the run ID, use &quot;-j run_prefix&quot; and set the run prefix to be used as the data under the column headerr &quot;run_prefix&quot;.  [default: None]" name="added_demultiplex_field" optional="True" type="text"/>
+		<param label="-x/--truncate_ambi_bases: Enable to truncate at the first &quot;N&quot; character encountered in the sequences.  This will disable testing for ambiguous bases (-a option) [default: False]" name="truncate_ambi_bases" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="dirprefix"/>
+	</outputs>
+	<help>Since newer sequencing technologies provide many reads per run (e.g. the 454 GS FLX Titanium series can produce 400-600 million base pairs with 400-500 base pair read lengths) researchers are now finding it useful to combine multiple samples into a single 454 run. This multiplexing is achieved through the application of a pyrosequencing-tailored nucleotide barcode design (described in (Parameswaran et al., 2007)). By assigning individual, unique sample specific barcodes, multiple sequencing runs may be performed in parallel and the resulting reads can later be binned according to sample. The script %prog performs this task, in addition to several quality filtering steps including user defined cut-offs for: sequence lengths; end-trimming; minimum quality score. To summarize, by using the fasta, mapping, and quality files, the program %prog will parse sequences that meet user defined quality thresholds and then rename each read with the appropriate Sample ID, thus formatting the sequence data for downstream analysis. If a combination of different sequencing technologies are used in any particular study, %prog can be used to perform the quality-filtering for each library individually and the output may then be combined.
+
+Sequences from samples that are not found in the mapping file (no corresponding barcode) and sequences without the correct primer sequence will be excluded. Additional scripts can be used to exclude sequences that match a given reference sequence (e.g. the human genome; exclude_seqs_by_blast.py) and/or sequences that are flagged as chimeras (identify_chimeric_seqs.py).
+
+Three files are generated by %prog:
+
+1. .fna file (e.g. seqs.fna) - This is a FASTA file containing all sequences which meet the user-defined parameters, where each sequence identifier now contains its corresponding sample id from mapping file.
+
+2. histograms.txt- This contains the counts of sequences with a particular length.
+
+3. split_library_log.txt - This file contains a summary of the %prog analysis. Specifically, this file includes information regarding the number of sequences that pass quality control (number of seqs written) and how these are distributed across the different samples which, through the use of bar-coding technology, would have been pooled into a single 454 run. The number of sequences that pass quality control will depend on length restrictions, number of ambiguous bases, max homopolymer runs, barcode check, etc. All of these parameters are summarized in this file. If raw sequences do not meet the specified quality thresholds they will be omitted from downstream analysis. Since we never see a perfect 454 sequencing run, the number of sequences written should always be less than the number of raw sequences. The number of sequences that are retained for analysis will depend on the quality of the 454 run itself in addition to the default data filtering thresholds in the %prog script. The default parameters (minimum quality score = 25, minimum/maximum length = 200/1000, no ambiguous bases allowed, no mismatches allowed in primer sequence) can be adjusted to meet the user's needs.
+</help>
+</tool>

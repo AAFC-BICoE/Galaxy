@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<tool id="tree_compare" name="tree compare" version="1.7.0">
+	<description>Compare jackknifed/bootstrapped trees</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $support_dir -o tree_compare_input;
+tree_compare.py -m $master_tree -s tree_compare_input -o tree_compare_output;
+compress_path.py -i tree_compare_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-m/--master_tree: master tree filepath" name="master_tree" optional="False" type="data"/>
+		<param label="-s/--support_dir: path to dir containing support trees" name="support_dir" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Compares jackknifed/bootstrapped trees (support trees) with a master tree constructed typically from the entire dataset (e.g: a resulting file from upgma_cluster.py) and outputs support for nodes.
+
+if support trees do not have all tips that master has (e.g. because samples with few sequences were dropped during a jackknifing analysis), the output master tree will have only those tips included in all support trees
+
+if support trees have tips that the master tree does not, those tips will be ignored (removed from the support tree during analysis)
+The result of tree_compare.py contains the master tree, now with internal nodes uniquely named, a separate bootstrap/jackknife support file, listing the support for each internal node, and a jackknife_named_nodes.tre tree, where internal nodes are named with their support values from 0 to 1.0, for use with tree visualization software (e.g. FigTree).</help>
+</tool>

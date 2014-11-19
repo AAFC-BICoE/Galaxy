@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<tool id="make_per_library_sff" name="make per library sff" version="1.7.0">
+	<description>Make per-library sff files from ID lists</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $libdir -o make_per_library_sff_input;
+make_per_library_sff.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_sff) -l make_per_library_sff_input
+#if $use_sfftools:
+ --use_sfftools
+#end if
+
+#if $debug:
+ --debug
+#end if
+</command>
+	<inputs>
+		<repeat name="input_files_input_sff" optional="False" title="input_sff">
+			<param label="-i/--input_sff: Input sff file (separate multiple files w/ comma)" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-l/--libdir: Directory containing ID list text files, one per library" name="libdir" type="data"/>
+		<param label="--use_sfftools: Use external sfffile program instead of equivalent Python routines." name="use_sfftools" selected="False" type="boolean"/>
+		<param label="--debug: Print debugging output to stdout [default: False]" name="debug" selected="False" type="boolean"/>
+	</inputs>
+	<outputs/>
+	<help>This script generates per-library sff files using a directory of text files, one per library, which list read ID's to be included.
+
+The ID list files should contain one read ID per line. If a line contains multiple words (separated by whitespace), then only the first word is used. A '&gt;' character is stripped from the beginning of the line, if present. Blank lines in the file are skipped.
+
+The result of this script generates sff files for each library.</help>
+</tool>

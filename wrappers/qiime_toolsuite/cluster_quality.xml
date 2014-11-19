@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="cluster_quality" name="cluster quality" version="1.7.0">
+	<description>compute the quality of a cluster</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>cluster_quality.py -i $input_path -m $map -c $category -o $output_path
+#if $short:
+ -s
+#end if
+
+#if str($metric) != 'None':
+ --metric=$metric
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_path: input distance matrix file" name="input_path" optional="False" type="data"/>
+		<param label="-m/--map: mapping file" name="map" optional="False" type="data"/>
+		<param label="-c/--category: column of mapping file delimiting clusters" name="category" optional="False" type="text"/>
+		<param label="-s/--short: print only the ratio of mean dissimilarities between/within clusters instead of more detailed output" name="short" selected="False" type="boolean"/>
+		<param label="--metric: choice of quality metric to apply. Currently only one option exists, the ratio of mean(distances between samples from different clusters) to mean(distances between samples from the same cluster) Default: ratio" name="metric" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="ratio">ratio</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_path"/>
+	</outputs>
+	<help>The input is a distance matrix (i.e. resulting file from beta_diversity.py).
+The output is either a single number (with -s), or a more detailed output of the similarity between and within clusters.</help>
+</tool>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<tool id="blast_wrapper" name="blast wrapper" version="1.7.0">
+	<description>Blast Interface</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>blast_wrapper.py -i $input_fasta_fp -r $refseqs_fp
+#if $num_seqs_per_blast_run:
+ -n $num_seqs_per_blast_run
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-r/--refseqs_fp: path to blast database as a fasta file" name="refseqs_fp" optional="False" type="text"/>
+		<param default="1000" label="-n/--num_seqs_per_blast_run: number of sequences passed to each blast call - useful for very large sequence collections [default: 1000]" name="num_seqs_per_blast_run" optional="True" type="integer"/>
+	</inputs>
+	<outputs/>
+	<help>This script is a functionally-limited interface to the qiime.util.qiime_blast_seqs function, primarily useful for testing purposes. Once that function has been integrated into qiime as the primary blast interface it will move to PyCogent. An expanded version of this command line interface may replace the script functionality of cogent.app.blast at that point.
+This is a utility program, which returns BLAST results.</help>
+</tool>

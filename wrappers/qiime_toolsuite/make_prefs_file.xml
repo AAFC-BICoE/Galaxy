@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<tool id="make_prefs_file" name="make prefs file" version="1.7.0">
+	<description>Generate preferences file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_prefs_file.py -m $map_fname -o $output_fp
+#if str($mapping_headers_to_use):
+ -b $mapping_headers_to_use
+#end if
+
+#if str($background_color):
+ -k $background_color
+#end if
+
+#if str($monte_carlo_dists):
+ -d $monte_carlo_dists
+#end if
+
+#if str($input_taxa_file) != 'None':
+ -i $input_taxa_file
+#end if
+
+#if $ball_scale:
+ -s $ball_scale
+#end if
+
+#if str($arrow_line_color):
+ -l $arrow_line_color
+#end if
+
+#if str($arrow_head_color):
+ -a $arrow_head_color
+#end if
+</command>
+	<inputs>
+		<param label="-m/--map_fname: This is the metadata mapping file [default=None]" name="map_fname" optional="False" type="data"/>
+		<param default="ALL" label="-b/--mapping_headers_to_use: mapping fields to use in prefs file [default: ALL]" name="mapping_headers_to_use" optional="True" type="text"/>
+		<param default="black" label="-k/--background_color: This is the backgroundcolor to  use in the plots. [default: black]" name="background_color" optional="True" type="text"/>
+		<param default="10" label="-d/--monte_carlo_dists: monte carlo distanceto use for each sample header [default: 10]" name="monte_carlo_dists" optional="True" type="text"/>
+		<param label="-i/--input_taxa_file: summarized taxa file with samplecounts by taxonomy (resulting file from summarize_taxa.py)" name="input_taxa_file" optional="True" type="data"/>
+		<param default="1.0" label="-s/--ball_scale: scale factor for the size of each ball in the plots [default: 1.0]" name="ball_scale" optional="True" type="float"/>
+		<param default="white" label="-l/--arrow_line_color: arrow line color forprocrustes analysis. [default: white]" name="arrow_line_color" optional="True" type="text"/>
+		<param default="red" label="-a/--arrow_head_color: arrow head color forprocrustes analysis. [default: red]" name="arrow_head_color" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script generates a preferences (prefs) file, which can be passed to make_distance_histograms.py, make_2d_plots.py and make_3d_plots.py. The prefs file allows for defining the monte_carlo distance, gradient coloring of continuous values in the 2D and 3D plots, the ball size scale for all the samples and the color of the arrow and the line of the arrow for the procrustes analysis. Currently there is only one color gradient: red to blue.
+The result of this script is a text file, containing coloring preferences to be used by make_distance_histograms.py, make_2d_plots.py and make_3d_plots.py.</help>
+</tool>

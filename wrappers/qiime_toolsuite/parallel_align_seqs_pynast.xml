@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<tool id="parallel_align_seqs_pynast" name="parallel align seqs pynast" version="1.7.0">
+	<description>Parallel sequence alignment using PyNAST</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>
+#if str($blast_db) != 'None':
+ uncompress_tgz.py -i $blast_db -o blast_db;
+ BLAST_DB_NAME=`get_blast_db_path.py -i blast_db`;
+#end if
+parallel_align_seqs_pynast.py -i $input_fasta_fp -o parallel_align_seqs_pynast_output
+#if str($pairwise_alignment_method) != 'None':
+ -a $pairwise_alignment_method
+#end if
+
+#if str($blast_db) != 'None':
+ -d \$BLAST_DB_NAME
+#end if
+
+#if $min_length:
+ -e $min_length
+#end if
+
+#if $min_percent_id:
+ -p $min_percent_id
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+
+#if str($template_fp):
+ -t $template_fp
+#end if
+;
+compress_path.py -i parallel_align_seqs_pynast_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-a/--pairwise_alignment_method: Method to use for pairwise alignments [default: uclust]" name="pairwise_alignment_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="muscle">muscle</option>
+			<option value="pair_hmm">pair_hmm</option>
+			<option value="clustal">clustal</option>
+			<option value="blast">blast</option>
+			<option value="uclust">uclust</option>
+			<option value="mafft">mafft</option>
+		</param>
+		<param default="None" label="-d/--blast_db: Database to blast against [default: created on-the-fly from template_alignment]" name="blast_db" optional="True" type="data"/>
+		<param default="-1" label="-e/--min_length: Minimum sequence length to include in alignment [default: 75% of the median input sequence length]" name="min_length" optional="True" type="integer"/>
+		<param default="75.0" label="-p/--min_percent_id: Minimum percent sequence identity to closest blast hit to include sequence in alignment [default: 75.0]" name="min_percent_id" optional="True" type="float"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+		<param default="/home/kevin/qiime_software/core_set_aligned.fasta.imputed" label="-t/--template_fp: Filepath for template against [default: /home/kevin/qiime_software/core_set_aligned.fasta.imputed]" name="template_fp" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>A wrapper for the align_seqs.py PyNAST option, intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+This results in a multiple sequence alignment (FASTA-formatted).</help>
+</tool>

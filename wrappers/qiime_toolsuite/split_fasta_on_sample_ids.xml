@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<tool id="split_fasta_on_sample_ids" name="split fasta on sample ids" version="1.7.0">
+	<description>Split a single post-split_libraries.py fasta file into per-sample fasta files.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>split_fasta_on_sample_ids.py -i $input_fasta_fp -o split_fasta_on_sample_ids_output
+#if $buffer_size:
+ --buffer_size=$buffer_size
+#end if
+;
+compress_path.py -i split_fasta_on_sample_ids_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: the input fasta file to split" name="input_fasta_fp" optional="False" type="data"/>
+		<param default="500" label="--buffer_size: the number of sequences to read into memory before writing to file (you usually won't need to change this) [default: 500]" name="buffer_size" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>Split a single post-split_libraries.py fasta file into per-sample fasta files. This script requires that the sequences identitifers are in post-split_libraries.py format (i.e., SampleID_SeqID). A fasta file will be created for each unique SampleID.
+This script will produce an output directory with as many files as samples.</help>
+</tool>

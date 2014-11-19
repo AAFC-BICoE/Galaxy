@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="detrend" name="detrend" version="1.7.0">
+	<description>Detrend Principal Coordinates</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>detrend.py -i $input_fp -o $output_dir
+#if str($map_fp) != 'None':
+ -m $map_fp
+#end if
+
+#if str($gradient_variable):
+ -c $gradient_variable
+#end if
+
+#if $suppress_prerotate:
+ -r
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_fp: Path to read PCoA/PCA/ordination table" name="input_fp" optional="False" type="data"/>
+		<param default="None" label="-m/--map_fp: Path to metadata file [default: None]" name="map_fp" optional="True" type="data"/>
+		<param default="None" label="-c/--gradient_variable: Column header for gradient variable in metadata table [default: None]" name="gradient_variable" optional="True" type="text"/>
+		<param label="-r/--suppress_prerotate: Suppress pre-rotation of the coordinates for optimal detrending; not pre-rotating assumes that the curvature is symmetrical across the vertical axis [default: False]" name="suppress_prerotate" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_dir"/>
+	</outputs>
+	<help>Ordination plots (e.g. principal coordinates analysis) of samples that lay along a naturally occurring gradient (e.g. depth, time, pH) often exhibit a curved shape known as the &quot;arch&quot; or &quot;horseshoe&quot; effect. This can cause samples near the endpoints of the gradient to appear closer to one another than would be expected. This script will attempt to remove any (compounded) quadratic curvature in a set of 2D coordinates. If requested, it will also report an evaluation of the association of the transformed coordinates with a known gradient.
+Output is detrended PCoA matrices.</help>
+</tool>

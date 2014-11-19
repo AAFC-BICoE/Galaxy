@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<tool id="pick_de_novo_otus" name="pick de novo otus" version="1.7.0">
+	<description>A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>pick_de_novo_otus.py -i $input_fp -o pick_de_novo_otus_output
+#if str($parameter_fp) != 'None':
+ -p $parameter_fp
+#end if
+
+#if $parallel:
+ -a
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i pick_de_novo_otus_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fp: the input fasta file [REQUIRED]" name="input_fp" optional="False" type="data"/>
+		<param label="-p/--parameter_fp: path to the parameter file, which specifies changes to the default behavior. See http://www.qiime.org/documentation/file_formats.html#qiime-parameters . [if omitted, default values will be used]" name="parameter_fp" optional="True" type="data"/>
+		<param label="-a/--parallel: Run in parallel where available [default: False]" name="parallel" selected="False" type="boolean"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start. NOTE: you must also pass -a to run in parallel, this defines the number of jobs to be started if and only if -a is passed [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script takes a sequence file and performs all processing steps through building the OTU table.
+This script will produce an OTU mapping file (pick_otus.py), a representative set of sequences (FASTA file from pick_rep_set.py), a sequence alignment file (FASTA file from align_seqs.py), taxonomy assignment file (from assign_taxonomy.py), a filtered sequence alignment (from filter_alignment.py), a phylogenetic tree (Newick file from make_phylogeny.py) and a biom-formatted OTU table (from make_otu_table.py).</help>
+</tool>

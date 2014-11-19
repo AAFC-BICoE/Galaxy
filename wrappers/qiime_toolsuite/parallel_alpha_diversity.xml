@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<tool id="parallel_alpha_diversity" name="parallel alpha diversity" version="1.7.0">
+	<description>Parallel alpha diversity</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_path -o parallel_alpha_diversity_input;
+parallel_alpha_diversity.py -i parallel_alpha_diversity_input -o parallel_alpha_diversity_output
+#if str($tree_path) != 'None':
+ -t $tree_path
+#end if
+
+#if str($metrics) != 'None':
+ -m $metrics
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i parallel_alpha_diversity_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: input path, must be directory [REQUIRED]" name="input_path" type="data"/>
+		<param label="-t/--tree_path: path to newick tree file, required for phylogenetic metrics [default: None]" name="tree_path" optional="True" type="data"/>
+		<param label="-m/--metrics: metrics to use, comma delimited" multiple="True" name="metrics" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="ACE">ACE</option>
+			<option value="berger_parker_d">berger_parker_d</option>
+			<option value="brillouin_d">brillouin_d</option>
+			<option value="chao1">chao1</option>
+			<option value="chao1_confidence">chao1_confidence</option>
+			<option value="dominance">dominance</option>
+			<option value="doubles">doubles</option>
+			<option value="enspie">enspie</option>
+			<option value="equitability">equitability</option>
+			<option value="esty_ci">esty_ci</option>
+			<option value="fisher_alpha">fisher_alpha</option>
+			<option value="gini_index">gini_index</option>
+			<option value="goods_coverage">goods_coverage</option>
+			<option value="heip_e">heip_e</option>
+			<option value="kempton_taylor_q">kempton_taylor_q</option>
+			<option value="margalef">margalef</option>
+			<option value="mcintosh_d">mcintosh_d</option>
+			<option value="mcintosh_e">mcintosh_e</option>
+			<option value="menhinick">menhinick</option>
+			<option value="michaelis_menten_fit">michaelis_menten_fit</option>
+			<option value="observed_species">observed_species</option>
+			<option value="osd">osd</option>
+			<option value="simpson_reciprocal">simpson_reciprocal</option>
+			<option value="robbins">robbins</option>
+			<option value="shannon">shannon</option>
+			<option value="simpson">simpson</option>
+			<option value="simpson_e">simpson_e</option>
+			<option value="singles">singles</option>
+			<option value="strong">strong</option>
+			<option value="PD_whole_tree">PD_whole_tree</option>
+		</param>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>This script performs like the alpha_diversity.py script, but is intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+The resulting output will be the same number of files as supplied by the user. The resulting files are tab-delimited text files, where the columns correspond to alpha diversity metrics and the rows correspond to samples and their calculated diversity measurements. </help>
+</tool>

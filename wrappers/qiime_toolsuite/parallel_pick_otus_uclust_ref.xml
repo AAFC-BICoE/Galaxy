@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<tool id="parallel_pick_otus_uclust_ref" name="parallel pick otus uclust ref" version="1.7.0">
+	<description>Parallel pick otus using uclust_ref</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>parallel_pick_otus_uclust_ref.py -i $input_fasta_fp -o parallel_pick_otus_uclust_ref_output -r $refseqs_fp
+#if $similarity:
+ -s $similarity
+#end if
+
+#if $enable_rev_strand_match:
+ -z
+#end if
+
+#if $optimal_uclust:
+ -A
+#end if
+
+#if $exact_uclust:
+ -E
+#end if
+
+#if $max_accepts:
+ --max_accepts=$max_accepts
+#end if
+
+#if $max_rejects:
+ --max_rejects=$max_rejects
+#end if
+
+#if $stepwords:
+ --stepwords=$stepwords
+#end if
+
+#if $word_length:
+ --word_length=$word_length
+#end if
+
+#if $uclust_stable_sort:
+ --uclust_stable_sort
+#end if
+
+#if $suppress_uclust_stable_sort:
+ --suppress_uclust_stable_sort
+#end if
+
+#if $save_uc_files:
+ -d
+#end if
+
+#if str($uclust_otu_id_prefix):
+ --uclust_otu_id_prefix=$uclust_otu_id_prefix
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+
+#if $retain_temp_files:
+ -R
+#end if
+
+#if $poll_directly:
+ -T
+#end if
+
+#if $suppress_polling:
+ -W
+#end if
+
+#if str($job_prefix):
+ -X $job_prefix
+#end if
+
+#if $seconds_to_sleep:
+ -Z $seconds_to_sleep
+#end if
+;
+compress_path.py -i parallel_pick_otus_uclust_ref_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: full path to input_fasta_fp" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-r/--refseqs_fp: full path to reference collection" name="refseqs_fp" optional="False" type="data"/>
+		<param default="0.97" label="-s/--similarity: Sequence similarity threshold [default: 0.97]" name="similarity" optional="True" type="float"/>
+		<param label="-z/--enable_rev_strand_match: Enable reverse strand matching for uclust otu picking, will double the amount of memory used. [default: False]" name="enable_rev_strand_match" selected="False" type="boolean"/>
+		<param label="-A/--optimal_uclust: Pass the --optimal flag to uclust for uclust otu picking. [default: False]" name="optimal_uclust" selected="False" type="boolean"/>
+		<param label="-E/--exact_uclust: Pass the --exact flag to uclust for uclust otu picking. [default: False]" name="exact_uclust" selected="False" type="boolean"/>
+		<param default="20" label="--max_accepts: max_accepts value to uclust and uclust_ref [default: 20]" name="max_accepts" optional="True" type="integer"/>
+		<param default="500" label="--max_rejects: max_rejects value to uclust and uclust_ref [default: 500]" name="max_rejects" optional="True" type="integer"/>
+		<param default="20" label="--stepwords: stepwords value to uclust and uclust_ref [default: 20]" name="stepwords" optional="True" type="integer"/>
+		<param default="12" label="--word_length: w value to uclust and uclust_ref [default: 12]" name="word_length" optional="True" type="integer"/>
+		<param label="--uclust_stable_sort: Deprecated: stable sort enabled by default, pass --uclust_suppress_stable_sort to disable [default: False]" name="uclust_stable_sort" selected="False" type="boolean"/>
+		<param label="--suppress_uclust_stable_sort: Don't pass --stable-sort to uclust [default: False]" name="suppress_uclust_stable_sort" selected="False" type="boolean"/>
+		<param label="-d/--save_uc_files: Enable preservation of intermediate uclust (.uc) files that are used to generate clusters via uclust. [default: False]" name="save_uc_files" selected="False" type="boolean"/>
+		<param default="None" label="--uclust_otu_id_prefix: OTU identifier prefix (string) for the de novo uclust OTU picker [default: None, OTU ids are ascending integers]" name="uclust_otu_id_prefix" optional="True" type="text"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+		<param label="-R/--retain_temp_files: retain temporary files after runs complete (useful for debugging) [default: False]" name="retain_temp_files" selected="False" type="boolean"/>
+		<param label="-T/--poll_directly: Poll directly for job completion rather than running poller as a separate job. If -T is specified this script will not return until all jobs have completed. [default: False]" name="poll_directly" selected="False" type="boolean"/>
+		<param label="-W/--suppress_polling: suppress polling of jobs and merging of results upon completion [default: False]" name="suppress_polling" selected="False" type="boolean"/>
+		<param label="-X/--job_prefix: job prefix [default: descriptive prefix + random chars]" name="job_prefix" optional="True" type="text"/>
+		<param default="60" label="-Z/--seconds_to_sleep: Number of seconds to sleep between checks for run  completion when polling runs [default: 60]" name="seconds_to_sleep" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script works like the pick_otus.py script, but is intended to make use of multicore/multiprocessor environments to perform analyses in parallel.
+The output consists of two files (i.e. seqs_otus.txt and seqs_otus.log). The .txt file is composed of tab-delimited lines, where the first field on each line corresponds to an OTU identifier which is the reference sequence identifier, and the remaining fields correspond to sequence identifiers assigned to that OTU. The resulting .log file contains a list of parameters passed to this script along with the output location of the resulting .txt file.</help>
+</tool>

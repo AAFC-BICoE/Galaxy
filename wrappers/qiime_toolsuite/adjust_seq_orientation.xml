@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<tool id="adjust_seq_orientation" name="adjust seq orientation" version="1.7.0">
+	<description>Get the reverse complement of all sequences</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>adjust_seq_orientation.py -i $input_fasta_fp -o $output_fp
+#if $retain_seq_id:
+ -r
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-r/--retain_seq_id: leave seq description lines untouched [default: append &quot; RC&quot; to seq description lines]" name="retain_seq_id" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>Write the reverse complement of all seqs in seqs.fasta (-i) to seqs_rc.fasta (default, change output_fp with -o). Each sequence description line will have ' RC' appended to the end of it (default,
+leave sequence description lines untouched by passing -r):
+</help>
+</tool>

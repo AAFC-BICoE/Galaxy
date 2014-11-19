@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<tool id="conditional_uncovered_probability" name="conditional uncovered probability" version="1.7.0">
+	<description>Calculate the conditional uncovered probability on each sample in an otu table.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_path -o conditional_uncovered_probability_input;
+conditional_uncovered_probability.py -i conditional_uncovered_probability_input -o conditional_uncovered_probability_output
+#if $look_ahead:
+ -r $look_ahead
+#end if
+
+#if str($ci_type) != 'None':
+ -c $ci_type
+#end if
+
+#if $alpha:
+ -a $alpha
+#end if
+
+#if $f_ratio:
+ -f $f_ratio
+#end if
+
+#if str($metrics) != 'None':
+ -m $metrics
+#end if
+
+#if $show_metrics:
+ -s
+#end if
+;
+compress_path.py -i conditional_uncovered_probability_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: Input OTU table filepath. [default: None]" name="input_path" type="data"/>
+		<param default="25" label="-r/--look_ahead: Number of unobserved, new colors necessary for prediction. [default: 25]" name="look_ahead" optional="True" type="integer"/>
+		<param label="-c/--ci_type: Type of confidence interval.  Choice of ULCL, ULCU, U, L [default: ULCL]" name="ci_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="ULCL">ULCL</option>
+			<option value="ULCU">ULCU</option>
+			<option value="U">U</option>
+			<option value="L">L</option>
+		</param>
+		<param default="0.95" label="-a/--alpha: Desired confidence level for CI prediction. [default: 0.95]" name="alpha" optional="True" type="float"/>
+		<param default="10.0" label="-f/--f_ratio: Upper to lower bound ratio for CI prediction. [default: 10.0]" name="f_ratio" optional="True" type="float"/>
+		<param label="-m/--metrics: CUP metric(s) to use. A comma-separated list should be provided when multiple metrics are specified. [default: lladser_pe,lladser_ci]" multiple="True" name="metrics" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="lladser_pe">lladser_pe</option>
+			<option value="lladser_ci">lladser_ci</option>
+		</param>
+		<param label="-s/--show_metrics: Show the available CUP metrics and exit." name="show_metrics" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>This script calculates the conditional uncovered probability for each sample in an OTU table. It uses the methods introduced in Lladser, Gouet, and Reeder, &quot;Extrapolation of Urn Models via Poissonization: Accurate Measurements of the Microbial Unknown&quot; PLoS 2011. 
+
+Specifically, it computes a point estimate and a confidence interval using two different methods. Thus it can happen that the PE is actually outside of the CI. 
+
+The CI method requires precomputed constants that depend on the lookahead, the upper-to-lower bound ratio and the desired confidence.
+We only provide these constants for some frequently used combinations. These are (alpha:0.95, r=1..25)) for the the L and U interval types, and (alpha:0.9, 0.95, 0.99; f=10;  r=3..25,30,40,50). Also, there are a few hand picked special cases:
+
+f=2 and r=50 and alpha=0.95
+f=2 and r=33 and alpha=0.95
+f=1.5 and r=100 and alpha=0.95
+f=1.5 and r=94 and alpha=0.95
+f=2.5 and r=19 and alpha=0.95
+
+
+The resulting file(s) is a tab-delimited text file, where the columns correspond to estimates of the cond. uncovered probability and the rows correspond to samples. The output file is compatible with the alpha_diversity output files and thus could be tied into thes rarefaction workflow.
+
+Example Output:
+
+====== ======= ============= ================
+\      PE      Lower Bound   Upper Bound
+====== ======= ============= ================
+PC.354 0.111   0.0245        0.245
+PC.124 0.001   0.000564      0.00564
+====== ======= ============= ================
+
+</help>
+</tool>

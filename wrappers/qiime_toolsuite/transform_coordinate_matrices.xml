@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<tool id="transform_coordinate_matrices" name="transform coordinate matrices" version="1.7.0">
+	<description>Transform 2 coordinate matrices</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>transform_coordinate_matrices.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_fps) -o transform_coordinate_matrices_output
+#if $random_trials:
+ -r $random_trials
+#end if
+
+#if $num_dimensions:
+ -d $num_dimensions
+#end if
+
+#if str($sample_id_map_fp) != 'None':
+ -s $sample_id_map_fp
+#end if
+
+#if $store_trial_details:
+ --store_trial_details
+#end if
+;
+compress_path.py -i transform_coordinate_matrices_output -o $output_dir
+</command>
+	<inputs>
+		<repeat name="input_files_input_fps" optional="False" title="input_fps">
+			<param label="-i/--input_fps: comma-separated input files" name="additional_input" type="data"/>
+		</repeat>
+		<param default="None" label="-r/--random_trials: Number of random permutations of matrix2 to perform.  [default: (no Monte Carlo analysis performed)]" name="random_trials" optional="True" type="integer"/>
+		<param default="3" label="-d/--num_dimensions: Number of dimensions to include in output matrices [default: 3]" name="num_dimensions" optional="True" type="integer"/>
+		<param default="None" label="-s/--sample_id_map_fp: Map of original sample ids to new sample ids [default: None]" name="sample_id_map_fp" optional="True" type="data"/>
+		<param label="--store_trial_details: Store PC matrices for individual trials [default: False]" name="store_trial_details" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script transforms 2 coordinate matrices (e.g., the output of principal_coordinates.py) using procrustes analysis to minimize the distances between corresponding points. Monte Carlo simulations can additionally be performed (-r random trials are run) to estimate the probability of seeing an M^2 value as extreme as the actual M^2.
+Two transformed coordinate matrices corresponding to the two input coordinate matrices, and (if -r was specified) a text file summarizing the results of the Monte Carlo simulations.</help>
+</tool>

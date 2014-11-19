@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<tool id="process_iseq" name="process iseq" version="1.7.0">
+	<description>Given a directory of per-swath qseq files, this script generates a single fastq per lane.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>process_iseq.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_fps) -o $output_dir -b $barcode_length
+#if $barcode_in_header:
+ --barcode_in_header
+#end if
+
+#if str($barcode_qual_c) != 'None':
+ --barcode_qual_c=$barcode_qual_c
+#end if
+</command>
+	<inputs>
+		<repeat name="input_files_input_fps" optional="False" title="input_fps">
+			<param label="-i/--input_fps: the input filepaths (either iseq or gzipped iseq format; comma-separated if more than one). See Processing Illumina Data tutorial for a description of the iseq file type." name="additional_input" type="data"/>
+		</repeat>
+		<param label="-o/--output_dir: the output directory" name="output_dir" optional="False" type="text"/>
+		<param label="-b/--barcode_length: length of the barcode" name="barcode_length" optional="False" type="integer" value="0"/>
+		<param label="--barcode_in_header: pass if barcode is in the header index field (rather than at the beginning of the sequence)" name="barcode_in_header" selected="False" type="boolean"/>
+		<param label="--barcode_qual_c: if no barcode quality string is available, score each base with this quality [default: b]" name="barcode_qual_c" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="	">	</option>
+			<option value="
+">
+</option>
+			<option value=""></option>
+			<option value=" "> </option>
+			<option value="!">!</option>
+			<option value="&quot;">&quot;</option>
+			<option value="#">#</option>
+			<option value="$">$</option>
+			<option value="%">%</option>
+			<option value="&amp;">&amp;</option>
+			<option value="'">'</option>
+			<option value="(">(</option>
+			<option value=")">)</option>
+			<option value="*">*</option>
+			<option value="+">+</option>
+			<option value=",">,</option>
+			<option value="-">-</option>
+			<option value=".">.</option>
+			<option value="/">/</option>
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value=":">:</option>
+			<option value=";">;</option>
+			<option value="&lt;">&lt;</option>
+			<option value="=">=</option>
+			<option value="&gt;">&gt;</option>
+			<option value="?">?</option>
+			<option value="@">@</option>
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="C">C</option>
+			<option value="D">D</option>
+			<option value="E">E</option>
+			<option value="F">F</option>
+			<option value="G">G</option>
+			<option value="H">H</option>
+			<option value="I">I</option>
+			<option value="J">J</option>
+			<option value="K">K</option>
+			<option value="L">L</option>
+			<option value="M">M</option>
+			<option value="N">N</option>
+			<option value="O">O</option>
+			<option value="P">P</option>
+			<option value="Q">Q</option>
+			<option value="R">R</option>
+			<option value="S">S</option>
+			<option value="T">T</option>
+			<option value="U">U</option>
+			<option value="V">V</option>
+			<option value="W">W</option>
+			<option value="X">X</option>
+			<option value="Y">Y</option>
+			<option value="Z">Z</option>
+			<option value="[">[</option>
+			<option value="\">\</option>
+			<option value="]">]</option>
+			<option value="^">^</option>
+			<option value="_">_</option>
+			<option value="`">`</option>
+			<option value="a">a</option>
+			<option value="b">b</option>
+			<option value="c">c</option>
+			<option value="d">d</option>
+			<option value="e">e</option>
+			<option value="f">f</option>
+			<option value="g">g</option>
+			<option value="h">h</option>
+			<option value="i">i</option>
+			<option value="j">j</option>
+			<option value="k">k</option>
+			<option value="l">l</option>
+			<option value="m">m</option>
+			<option value="n">n</option>
+			<option value="o">o</option>
+			<option value="p">p</option>
+			<option value="q">q</option>
+			<option value="r">r</option>
+			<option value="s">s</option>
+			<option value="t">t</option>
+			<option value="u">u</option>
+			<option value="v">v</option>
+			<option value="w">w</option>
+			<option value="x">x</option>
+			<option value="y">y</option>
+			<option value="z">z</option>
+			<option value="{">{</option>
+			<option value="|">|</option>
+			<option value="}">}</option>
+			<option value="~">~</option>
+		</param>
+	</inputs>
+	<outputs/>
+	<help>
+</help>
+</tool>

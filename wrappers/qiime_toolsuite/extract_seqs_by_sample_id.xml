@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<tool id="extract_seqs_by_sample_id" name="extract seqs by sample id" version="1.7.0">
+	<description>Extract sequences based on the SampleID</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>extract_seqs_by_sample_id.py -i $input_fasta_fp -o $output_fasta_fp
+#if $negate:
+ -n
+#end if
+
+#if str($sample_ids):
+ -s $sample_ids
+#end if
+
+#if str($mapping_fp) != 'None':
+ -m $mapping_fp
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<param label="-n/--negate: negate the sample ID list (i.e., output sample ids not passed via -s) [default: False]" name="negate" selected="False" type="boolean"/>
+		<param label="-s/--sample_ids: comma-separated sample_ids to include in output fasta file (or exclude if --negate), or string describing mapping file states defining sample ids (mapping_fp must be provided for the latter)" name="sample_ids" optional="True" type="text"/>
+		<param label="-m/--mapping_fp: the mapping filepath" name="mapping_fp" optional="True" type="data"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fasta_fp"/>
+	</outputs>
+	<help>This script creates a fasta file which will contain only sequences that ARE associated with a set of sample IDs, OR all sequences that are NOT associated with a set of sample IDs (-n)
+The script produces a fasta file containing containing only the specified SampleIDs.</help>
+</tool>

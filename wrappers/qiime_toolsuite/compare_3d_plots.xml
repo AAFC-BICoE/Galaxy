@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<tool id="compare_3d_plots" name="compare 3d plots" version="1.7.0">
+	<description>Plot several PCoA files on the same 3D plot</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>compare_3d_plots.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_coord_fnames) -m $map_fname
+#if str($colorby):
+ -b $colorby
+#end if
+
+#if str($custom_axes):
+ -a $custom_axes
+#end if
+
+#if str($prefs_path) != 'None':
+ -p $prefs_path
+#end if
+
+#if str($background_color) != 'None':
+ -k $background_color
+#end if
+
+#if str($edges_file) != 'None':
+ -e $edges_file
+#end if
+
+#if $serial:
+ --serial
+#end if
+ -o compare_3d_plots_output;
+compress_path.py -i compare_3d_plots_output -o $output_dir
+</command>
+	<inputs>
+		<repeat name="input_files_coord_fnames" optional="False" title="coord_fnames">
+			<param label="-i/--coord_fnames: This is comma-separated list of the paths to the principal coordinates files (i.e., resulting file from principal_coordinates.py), e.g 'pcoa1.txt,pcoa2.txt'" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-m/--map_fname: This is the user-generated mapping file [default=None]" name="map_fname" optional="False" type="data"/>
+		<param label="-b/--colorby: This is a list of the categories to color by in the plots from the user-generated mapping file. The categories must match the name of a column header in the mapping file exactly and multiple categories can be list by comma separating them without spaces. The user can also combine columns in the mapping file by separating the categories by &quot;&amp;&amp;&quot; without spaces [default=None]" name="colorby" optional="True" type="text"/>
+		<param label="-a/--custom_axes: This is a category or list of categories from the user-generated mapping file to use as a custom axis in the plot.  For instance, if there is a pH category and one would like to see the samples plotted on that axis instead of PC1, PC2, etc., one can use this option.  It is also useful for plotting time-series data [default: None]" name="custom_axes" optional="True" type="text"/>
+		<param label="-p/--prefs_path: This is the user-generated preferences file. NOTE: This is a file with a dictionary containing preferences for the analysis. See make_prefs_file.py. [default: None]" name="prefs_path" optional="True" type="data"/>
+		<param label="-k/--background_color: This is the background color to use in the plots (Options are 'black' or 'white'. [default: None]" name="background_color" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="black">black</option>
+			<option value="white">white</option>
+		</param>
+		<param default="None" label="-e/--edges_file: A file where each line contains two sample IDs separated by a whitespace character; for each pair of sample IDs, an edge will be drawn from the first sample to the second sample. [default: None]" name="edges_file" optional="True" type="data"/>
+		<param label="--serial: Connect the 1st set of points to the 2nd, the 2nd to the 3rd, etc. Default behavior is to connect each set of points back to the 1st set. This flag is ignored if the user specifies an edges file." name="serial" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script generates a 3D plot comparing two or more sets of principal coordinates using as input two or more principal coordinates files. Edges are drawn in the plot connecting samples with the same ID across different principal coordinates files. The user can also include a file listing the edges to be drawn in the plot, in which case the user may submit any number of principal coordinates files (including one). If the user includes the edges file, the sample IDs need not match between principal coordinates files.
+
+The principal_coordinates coordinates files are obtained by applying &quot;principal_coordinates.py&quot; to a file containing beta diversity measures. The beta diversity files are optained by applying &quot;beta_diversity.py&quot; to an OTU table. One may apply &quot;transform_coordinate_matrices.py&quot; to the principal_coordinates coordinates files before using this script to compare them.
+This script results in a folder containing an html file which displays the 3D Plots generated.</help>
+</tool>

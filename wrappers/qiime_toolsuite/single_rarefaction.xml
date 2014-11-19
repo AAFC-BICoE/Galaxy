@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<tool id="single_rarefaction" name="single rarefaction" version="1.7.0">
+	<description>Perform rarefaction on an otu table</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>single_rarefaction.py -i $input_path -o $output_path -d $depth
+#if $suppress_lineages_included:
+ --suppress_lineages_included
+#end if
+
+#if $keep_empty_otus:
+ -k
+#end if
+
+#if $subsample_multinomial:
+ --subsample_multinomial
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_path: Input OTU table filepath." name="input_path" optional="False" type="data"/>
+		<param label="-d/--depth: Number of sequences to subsample per sample." name="depth" optional="False" type="integer" value="0"/>
+		<param label="--suppress_lineages_included: Exclude taxonomic (lineage) information for each OTU." name="suppress_lineages_included" selected="False" type="boolean"/>
+		<param label="-k/--keep_empty_otus: Retain OTUs of all zeros, which are usually omitted from the output OTU tables. [default: False]" name="keep_empty_otus" selected="False" type="boolean"/>
+		<param label="--subsample_multinomial: subsample using subsampling with replacement [default: False]" name="subsample_multinomial" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_path"/>
+	</outputs>
+	<help>To perform bootstrap, jackknife, and rarefaction analyses, the otu table must be subsampled (rarefied).  This script rarefies, or subsamples, an OTU table.  This does not provide curves of diversity by number of sequences in a sample. Rather it creates a subsampled OTU table by random sampling (without replacement) of the input OTU table.  Samples that have fewer sequences then the requested rarefaction depth are omitted from the ouput otu tables.  The pseudo-random number generator used for rarefaction by subsampling is NumPy's default - an implementation of the Mersenne twister PRNG.
+The results of single_rarefaction.py consist of a single subsampled OTU table. The file has the same otu table format as the input otu_table.biom. note: if the output file would be empty, no file is written</help>
+</tool>

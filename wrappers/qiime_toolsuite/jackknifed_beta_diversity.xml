@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<tool id="jackknifed_beta_diversity" name="jackknifed beta diversity" version="1.7.0">
+	<description>A workflow script for performing jackknifed UPGMA clustering and build jackknifed 2d and 3D PCoA plots.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>jackknifed_beta_diversity.py -i $otu_table_fp -o jackknifed_beta_diversity_output -e $seqs_per_sample -m $mapping_fp
+#if str($tree_fp) != 'None':
+ -t $tree_fp
+#end if
+
+#if str($parameter_fp) != 'None':
+ -p $parameter_fp
+#end if
+
+#if str($master_tree) != 'None':
+ --master_tree=$master_tree
+#end if
+
+#if $parallel:
+ -a
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i jackknifed_beta_diversity_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--otu_table_fp: the input fasta file [REQUIRED]" name="otu_table_fp" optional="False" type="data"/>
+		<param label="-e/--seqs_per_sample: number of sequences to include in each jackknifed subset [REQUIRED]" name="seqs_per_sample" optional="False" type="integer" value="0"/>
+		<param label="-m/--mapping_fp: path to the mapping file [REQUIRED]" name="mapping_fp" optional="False" type="data"/>
+		<param label="-t/--tree_fp: path to the tree file [default: None; REQUIRED for phylogenetic measures]" name="tree_fp" optional="True" type="data"/>
+		<param label="-p/--parameter_fp: path to the parameter file, which specifies changes to the default behavior. See http://www.qiime.org/documentation/file_formats.html#qiime-parameters . [if omitted, default values will be used]" name="parameter_fp" optional="True" type="data"/>
+		<param label="--master_tree: method for computing master trees in jackknife analysis. &quot;consensus&quot;: consensus of trees from jackknifed otu tables.  &quot;full&quot;: tree generated from input (unsubsambled) otu table.  [default: consensus]" name="master_tree" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="consensus">consensus</option>
+			<option value="full">full</option>
+		</param>
+		<param label="-a/--parallel: Run in parallel where available [default: False]" name="parallel" selected="False" type="boolean"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start. NOTE: you must also pass -a to run in parallel, this defines the number of jobs to be started if and only if -a is passed [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>To directly measure the robustness of individual UPGMA clusters and clusters in PCoA plots, one can perform jackknifing (repeatedly resampling a subset of the available data from each sample).
+This scripts results in several distance matrices (from beta_diversity.py), several rarified otu tables (from multiple_rarefactions.py) several UPGMA trees (from upgma_cluster.py), a supporting file and newick tree with support values (from tree_compare.py), and 2D and 3D PCoA plots.</help>
+</tool>

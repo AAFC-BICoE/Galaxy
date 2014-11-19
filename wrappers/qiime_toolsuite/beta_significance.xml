@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<tool id="beta_significance" name="beta significance" version="1.7.0">
+	<description>This script runs any of a set of common tests to determine if a sample is statistically significantly different from another sample</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>beta_significance.py -i $input_path -o $output_path -s $significance_test -t $tree_path
+#if $num_iters:
+ -n $num_iters
+#end if
+
+#if str($type_of_test) != 'None':
+ -k $type_of_test
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_path: input otu table in biom format" name="input_path" optional="False" type="data"/>
+		<param label="-s/--significance_test: significance test to use, options are 'unweighted_unifrac', 'weighted_unifrac', 'weighted_normalized_unifrac', or 'p-test'" name="significance_test" optional="False" type="select">
+			<option value="unweighted_unifrac">unweighted_unifrac</option>
+			<option value="weighted_unifrac">weighted_unifrac</option>
+			<option value="weighted_normalized_unifrac">weighted_normalized_unifrac</option>
+			<option value="p-test">p-test</option>
+		</param>
+		<param label="-t/--tree_path: path to newick tree file" name="tree_path" optional="False" type="data"/>
+		<param default="100" label="-n/--num_iters: number of monte carlo randomizations [default: 100]" name="num_iters" optional="True" type="integer"/>
+		<param label="-k/--type_of_test: type of significance test to perform, options are 'all_together', 'each_pair' or 'each_sample'. [default: each_pair]" name="type_of_test" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="all_together">all_together</option>
+			<option value="each_pair">each_pair</option>
+			<option value="each_sample">each_sample</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_path"/>
+	</outputs>
+	<help>The tests are conducted on each pair of samples present in the input otu table. See the unifrac tutorial online for more details (http://bmf2.colorado.edu/unifrac/tutorial.psp)
+The script outputs a tab delimited text file with each pair of samples and a p value representing the probability that a random sample/sequence assignment will result in more dissimilar samples than the actual pair of samples.</help>
+</tool>

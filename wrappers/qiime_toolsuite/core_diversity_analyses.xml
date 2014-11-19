@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<tool id="core_diversity_analyses" name="core diversity analyses" version="1.7.0">
+	<description>A workflow for running a core set of QIIME diversity analyses.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>core_diversity_analyses.py -i $input_biom_fp -o core_diversity_analyses_output -m $mapping_fp -e $sampling_depth
+#if str($parameter_fp) != 'None':
+ -p $parameter_fp
+#end if
+
+#if $parallel:
+ -a
+#end if
+
+#if $nonphylogenetic_diversity:
+ --nonphylogenetic_diversity
+#end if
+
+#if $suppress_taxa_summary:
+ --suppress_taxa_summary
+#end if
+
+#if $suppress_beta_diversity:
+ --suppress_beta_diversity
+#end if
+
+#if $suppress_alpha_diversity:
+ --suppress_alpha_diversity
+#end if
+
+#if $suppress_otu_category_significance:
+ --suppress_otu_category_significance
+#end if
+
+#if str($tree_fp) != 'None':
+ -t $tree_fp
+#end if
+
+#if str($categories):
+ -c $categories
+#end if
+
+#if $print_only:
+ -w
+#end if
+
+#if $jobs_to_start:
+ -O $jobs_to_start
+#end if
+;
+compress_path.py -i core_diversity_analyses_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_biom_fp: the input biom file [REQUIRED]" name="input_biom_fp" optional="False" type="data"/>
+		<param label="-m/--mapping_fp: the mapping filepath [REQUIRED]" name="mapping_fp" optional="False" type="data"/>
+		<param default="None" label="-e/--sampling_depth: Sequencing depth to use for even sub-sampling and maximum rarefaction depth. You should review the output of print_biom_table_summary.py to decide on this value." name="sampling_depth" optional="False" type="integer" value="0"/>
+		<param label="-p/--parameter_fp: path to the parameter file, which specifies changes to the default behavior. For more information, see www.qiime.org/documentation/qiime_parameters_files.html [if omitted, default values will be used]" name="parameter_fp" optional="True" type="data"/>
+		<param label="-a/--parallel: Run in parallel where available. Specify number of jobs to start with -O or in the parameters file. [default: False]" name="parallel" selected="False" type="boolean"/>
+		<param label="--nonphylogenetic_diversity: Apply non-phylogenetic alpha (chao1 and observed_species) and beta (bray_curtis) diversity calculations. This is useful if, for example, you are working with non-amplicon BIOM tables, or if a reliable tree is not available (e.g., if you're  working with ITS amplicons) [default: False]" name="nonphylogenetic_diversity" selected="False" type="boolean"/>
+		<param label="--suppress_taxa_summary: Suppress generation of taxa summary plots. [default: False]" name="suppress_taxa_summary" selected="False" type="boolean"/>
+		<param label="--suppress_beta_diversity: Suppress beta diversity analyses. [default: False]" name="suppress_beta_diversity" selected="False" type="boolean"/>
+		<param label="--suppress_alpha_diversity: Suppress alpha diversity analyses. [default: False]" name="suppress_alpha_diversity" selected="False" type="boolean"/>
+		<param label="--suppress_otu_category_significance: Suppress OTU/category significance analysis. [default: False]" name="suppress_otu_category_significance" selected="False" type="boolean"/>
+		<param label="-t/--tree_fp: Path to the tree file if one should be used. [default: no tree will be used]" name="tree_fp" optional="True" type="data"/>
+		<param label="-c/--categories: The metadata category or categories to compare (i.e., column headers in the mapping file) for categorical analyses. These should be passed  as a comma-separated list. [default: None; do not perform categorical analyses]" name="categories" optional="True" type="text"/>
+		<param label="-w/--print_only: Print the commands but don't call them -- useful for debugging or recovering from failed runs. [default: False]" name="print_only" selected="False" type="boolean"/>
+		<param default="1" label="-O/--jobs_to_start: Number of jobs to start. NOTE: you must also pass -a to run in parallel, this defines the number of jobs to be started if and only if -a is passed [default: 1]" name="jobs_to_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>This script plugs several QIIME diversity analyses together to form a basic workflow beginning with a BIOM table, mapping file, and optional phylogenetic tree. 
+
+The included scripts are those run by the workflow scripts alpha_rarefaction.py, beta_diversity_through_plots.py, summarize_taxa_through_plots.py, plus the (non-workflow) scripts make_distance_boxplots.py, compare_alpha_diversity.py, and otu_category_significance.py. To update parameters to the workflow scripts, you should pass the same parameters file that you would pass if calling the workflow script directly.
+
+</help>
+</tool>

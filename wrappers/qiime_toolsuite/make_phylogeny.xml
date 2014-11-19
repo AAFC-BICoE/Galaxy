@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<tool id="make_phylogeny" name="make phylogeny" version="1.7.0">
+	<description>Make Phylogeny</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_phylogeny.py -i $input_fp
+#if str($tree_method) != 'None':
+ -t $tree_method
+#end if
+ -o $result_fp -l $log_fp
+#if str($root_method) != 'None':
+ -r $root_method
+#end if
+</command>
+	<inputs>
+		<param label="-i/--input_fp: Path to read input fasta alignment, only first word in defline will be considered" name="input_fp" optional="False" type="data"/>
+		<param label="-t/--tree_method: Method for tree building. Valid choices are: clearcut, clustalw, fasttree_v1, fasttree, raxml_v730, muscle [default: fasttree]" name="tree_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="clearcut">clearcut</option>
+			<option value="clustalw">clustalw</option>
+			<option value="fasttree_v1">fasttree_v1</option>
+			<option value="fasttree">fasttree</option>
+			<option value="raxml_v730">raxml_v730</option>
+			<option value="muscle">muscle</option>
+		</param>
+		<param label="-r/--root_method: method for choosing root of phylo tree  Valid choices are: midpoint, tree_method_default [default: tree_method_default]" name="root_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="midpoint">midpoint</option>
+			<option value="tree_method_default">tree_method_default</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="result_fp"/>
+		<data format="txt" name="log_fp"/>
+	</outputs>
+	<help>Many downstream analyses require that the phylogenetic tree relating the OTUs in a study be present. The script make_phylogeny.py produces this tree from a multiple sequence alignment. Trees are constructed with a set of sequences representative of the OTUs, by default using FastTree (Price, Dehal, &amp; Arkin, 2009).
+The result of make_phylogeny.py consists of a newick formatted tree file (.tre) and optionally a log file. The tree file is formatted using the Newick format and this file can be viewed using most tree visualization tools, such as TopiaryTool, FigTree, etc.
+
+The tips of the tree are the first word from the input sequences from the fasta file, e.g.: '&gt;101 PC.481_71 RC:1..220' is represented in the tree as '101'.</help>
+</tool>

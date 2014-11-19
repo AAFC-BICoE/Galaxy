@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<tool id="plot_rank_abundance_graph" name="plot rank abundance graph" version="1.7.0">
+	<description>plot rank-abundance curve</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>plot_rank_abundance_graph.py -i $otu_table_fp -s $sample_name -o $result_fp
+#if $absolute_counts:
+ -a
+#end if
+
+#if $nolegend:
+ -n
+#end if
+
+#if $x_linear_scale:
+ -x
+#end if
+
+#if $y_linear_scale:
+ -y
+#end if
+
+#if str($file_type) != 'None':
+ -f $file_type
+#end if
+</command>
+	<inputs>
+		<param label="-i/--otu_table_fp: path to the input OTU table (i.e., the output from make_otu_table.py)" name="otu_table_fp" optional="False" type="data"/>
+		<param label="-s/--sample_name: name of the sample to plot. Use &quot;*&quot; to plot all." name="sample_name" optional="False" type="text"/>
+		<param label="-a/--absolute_counts: plot absolute abundance values instead of relative [default: False]" name="absolute_counts" selected="False" type="boolean"/>
+		<param label="-n/--no-legend: do not draw a legend [default: False]" name="nolegend" selected="False" type="boolean"/>
+		<param label="-x/--x_linear_scale: draw x axis in linear scale [default: False]" name="x_linear_scale" selected="False" type="boolean"/>
+		<param label="-y/--y_linear_scale: draw y axis in linear scale [default: False]" name="y_linear_scale" selected="False" type="boolean"/>
+		<param label="-f/--file_type: save plot using this image type. Choice of pdf, svg, png, eps [default: pdf]" name="file_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pdf">pdf</option>
+			<option value="svg">svg</option>
+			<option value="png">png</option>
+			<option value="eps">eps</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="txt" name="result_fp"/>
+	</outputs>
+	<help>Plot a set of rank-abundance graphs from an OTU table and a set of sample names. Multiple graphs will be plotted into the same figure, in order to allow for an easy comparison across samples.
+</help>
+</tool>

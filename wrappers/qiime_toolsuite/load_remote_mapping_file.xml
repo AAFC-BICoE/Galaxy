@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<tool id="load_remote_mapping_file" name="load remote mapping file" version="1.7.0">
+	<description>Downloads and saves a remote mapping file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>load_remote_mapping_file.py -k $spreadsheet_key -o $output_fp
+#if str($worksheet_name):
+ -w $worksheet_name
+#end if
+</command>
+	<inputs>
+		<param label="-k/--spreadsheet_key: the spreadsheet key that will be used to identify the Google Spreadsheet to load. This is the part of the Google Spreadsheet URL that comes after 'key='. You may instead provide the entire URL and the key will be extracted from it. If you provide the entire URL, you may need to enclose it in single quotes" name="spreadsheet_key" optional="False" type="text"/>
+		<param default="None" label="-w/--worksheet_name: the name of the worksheet in the Google Spreadsheet that contains the mapping file. If the worksheet name contains spaces, please include quotes around the name. [default: the first worksheet in the Google Spreadsheet will be used]" name="worksheet_name" optional="True" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>
+This script exports, downloads, and saves a mapping file that is stored
+remotely. Currently, the only type of remote mapping file that is supported is
+a Google Spreadsheet, though other methods of remote storage may be supported
+in the future.
+
+For more information and examples pertaining to this script and remote mapping
+files in general, please refer to the accompanying tutorial, which can be found
+at http://qiime.org/tutorials/remote_mapping_files.html.
+
+
+The script outputs a single file, which is the metadata mapping file obtained
+from the remote location (in QIIME-compatible format).
+</help>
+</tool>

@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<tool id="trim_sff_primers" name="trim sff primers" version="1.7.0">
+	<description>Trim sff primers</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $libdir -o trim_sff_primers_input;
+trim_sff_primers.py -l trim_sff_primers_input -m $input_map
+#if $use_sfftools:
+ --use_sfftools
+#end if
+
+#if $debug:
+ --debug
+#end if
+</command>
+	<inputs>
+		<param label="-l/--libdir: The directory containing per-library sff files" name="libdir" type="data"/>
+		<param label="-m/--input_map: Path to the input mapping file describing the libraries" name="input_map" optional="False" type="data"/>
+		<param label="--use_sfftools: Use external sffinfo and sfffile programs instead of equivalent Python implementation." name="use_sfftools" selected="False" type="boolean"/>
+		<param label="--debug: Print command-line output for debugging [default: False]" name="debug" selected="False" type="boolean"/>
+	</inputs>
+	<outputs/>
+	<help>Finds the technical read regions for each library, and resets the left trim.
+This script replaces the original sff files with the trimmed versions.</help>
+</tool>

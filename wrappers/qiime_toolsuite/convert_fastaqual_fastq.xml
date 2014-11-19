@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<tool id="convert_fastaqual_fastq" name="convert fastaqual fastq" version="1.7.0">
+	<description>From a FASTA file and a matching QUAL file, generates a FASTQ file. From FASTQ file generates FASTA file and  matching QUAL file.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>convert_fastaqual_fastq.py -f $fasta_file_path
+#if str($qual_file_path) != 'None':
+ -q $qual_file_path
+#end if
+ -o convert_fastaqual_fastq_output
+#if str($conversion_type) != 'None':
+ -c $conversion_type
+#end if
+
+#if $ascii_increment:
+ -a $ascii_increment
+#end if
+
+#if $full_fasta_headers:
+ -F
+#end if
+
+#if $full_fastq:
+ -b
+#end if
+
+#if $multiple_output_files:
+ -m
+#end if
+;
+compress_path.py -i convert_fastaqual_fastq_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-f/--fasta_file_path: Input FASTA or FASTQ file." name="fasta_file_path" optional="False" type="data"/>
+		<param default="None" label="-q/--qual_file_path: Required input QUAL file if converting to FASTQ." name="qual_file_path" optional="True" type="data"/>
+		<param label="-c/--conversion_type: type of conversion: fastaqual_to_fastq or fastq_to_fastaqual [default: fastaqual_to_fastq]" name="conversion_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="fastaqual_to_fastq">fastaqual_to_fastq</option>
+			<option value="fastq_to_fastaqual">fastq_to_fastaqual</option>
+		</param>
+		<param default="33" label="-a/--ascii_increment: The number to add (subtract if coverting from FASTQ) to the quality score to get the ASCII character (or numeric quality score). [default: 33]" name="ascii_increment" optional="True" type="integer"/>
+		<param label="-F/--full_fasta_headers: Include full FASTA headers in output file(s) (as opposed to merely the sequence label). [default: False]" name="full_fasta_headers" selected="False" type="boolean"/>
+		<param label="-b/--full_fastq: Include identifiers on quality lines in the FASTQ file (those beginning with a &quot;+&quot;). Irrelevant when converting from FASTQ. [default=False]" name="full_fastq" selected="False" type="boolean"/>
+		<param label="-m/--multiple_output_files: Create multiple FASTQ files, one for each sample, or create multiple matching FASTA/QUAL for each sample. [default=False]" name="multiple_output_files" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>From a FASTA file and a matching QUAL file, generates a FASTQ file. A minimal FASTQ file omits the redundant sequence label on the quality scores; the quality scores for a sequence are assumed to follow immediately after the sequence with which they are associated. The output FASTQ file will be generated in the specified output directory with the same name as the input FASTA file, suffixed with '.fastq'. A FASTQ file will be split into FASTA and QUAL files, and generated in the designated output directory.
+Outputs a complete or minimal FASTQ file, which omits the redundant sequence label on the quality scores, or splits FASTQ file into matching FASTA/QUAL files.</help>
+</tool>

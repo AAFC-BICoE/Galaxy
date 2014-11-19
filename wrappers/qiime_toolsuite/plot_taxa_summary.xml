@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<tool id="plot_taxa_summary" name="plot taxa summary" version="1.7.0">
+	<description>Make taxaonomy summary charts based on taxonomy assignment</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>plot_taxa_summary.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_counts_fname)
+#if str($labels):
+ -l $labels
+#end if
+
+#if $num_categories:
+ -n $num_categories
+#end if
+ -o plot_taxa_summary_output
+#if str($colorby):
+ -b $colorby
+#end if
+
+#if str($prefs_path) != 'None':
+ -p $prefs_path
+#end if
+
+#if str($background_color) != 'None':
+ -k $background_color
+#end if
+
+#if $dpi:
+ -d $dpi
+#end if
+
+#if $x_width:
+ -x $x_width
+#end if
+
+#if $y_height:
+ -y $y_height
+#end if
+
+#if $bar_width:
+ -w $bar_width
+#end if
+
+#if str($type_of_file) != 'None':
+ -t $type_of_file
+#end if
+
+#if str($chart_type) != 'None':
+ -c $chart_type
+#end if
+
+#if $resize_nth_label:
+ -r $resize_nth_label
+#end if
+
+#if $include_html_legend:
+ -s
+#end if
+
+#if $include_html_counts:
+ -m
+#end if
+
+#if str($label_type) != 'None':
+ -a $label_type
+#end if
+;
+compress_path.py -i plot_taxa_summary_output -o $dir_path
+</command>
+	<inputs>
+		<repeat name="input_files_counts_fname" optional="False" title="counts_fname">
+			<param label="-i/--counts_fname: Input comma-separated list of summarized taxa filepaths (i.e results from summarize_taxa.py) [REQUIRED]" name="additional_input" type="data"/>
+		</repeat>
+		<param default="None" label="-l/--labels: Comma-separated list of taxonomic levels (e.g. Phylum,Class,Order)  [default=None]" name="labels" optional="True" type="text"/>
+		<param default="20" label="-n/--num_categories: The maximum number of taxonomies to show in each pie chart. All additional taxonomies are grouped into an &quot;other&quot; category. NOTE: this functionality only applies to the pie charts. [default: 20]" name="num_categories" optional="True" type="integer"/>
+		<param label="-b/--colorby: This is the categories to color by in the plots from the metadata mapping file. The categories must match the name of a  column header in the mapping file exactly and multiple categories can be list by comma separating them without spaces. [default=None]" name="colorby" optional="True" type="text"/>
+		<param label="-p/--prefs_path: Input user-generated preferences filepath. NOTE: This is a file with a dictionary containing preferences for the analysis. The key taxonomy_coloring is used for the coloring. [default: None]" name="prefs_path" optional="True" type="data"/>
+		<param label="-k/--background_color: This is the background color to use in the plots (black or white) [default: white]" name="background_color" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="black">black</option>
+			<option value="white">white</option>
+		</param>
+		<param default="80" label="-d/--dpi: This is the resolution of the plot. [default: 80]" name="dpi" optional="True" type="integer"/>
+		<param default="12" label="-x/--x_width: This is the width of the x-axis to use in the plots. [default: 12]" name="x_width" optional="True" type="integer"/>
+		<param default="6" label="-y/--y_height: This is the height of the y-axis to use in the plots. [default: 6]" name="y_height" optional="True" type="integer"/>
+		<param default="0.75" label="-w/--bar_width: This the width of the bars in the bar graph and should be a number between 0 and 1. NOTE: this only applies to the bar charts. [default: 0.75]" name="bar_width" optional="True" type="float"/>
+		<param label="-t/--type_of_file: This is the type of image to produce (i.e. pdf,svg,png). [default: pdf]" name="type_of_file" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pdf">pdf</option>
+			<option value="svg">svg</option>
+			<option value="png">png</option>
+		</param>
+		<param label="-c/--chart_type: This is the type of chart to plot (i.e. pie, bar or area). The user has the ability to plot multiple types, by using a comma-separated list (e.g. area,pie) [default: area,bar]" multiple="True" name="chart_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="pie">pie</option>
+			<option value="bar">bar</option>
+			<option value="area">area</option>
+		</param>
+		<param default="0" label="-r/--resize_nth_label: Make every nth label larger than the other lables. This is for large area and bar charts where the font on the x-axis is small. This requires an integer value greater than 0. [default: 0]" name="resize_nth_label" optional="True" type="integer"/>
+		<param label="-s/--include_html_legend: Include HTML legend. If present, the writing of the legend in the html page is included. [default: False]" name="include_html_legend" selected="False" type="boolean"/>
+		<param label="-m/--include_html_counts: Include HTML counts. If present, the writing of the counts in the html table is included [default: False]" name="include_html_counts" selected="False" type="boolean"/>
+		<param label="-a/--label_type: Label type (&quot;numeric&quot; or &quot;categorical&quot;).  If the label type is defined as numeric, the x-axis will be scaled accordingly. Otherwise the x-values will treated categorically and be evenly spaced [default: categorical]." name="label_type" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="categorical">categorical</option>
+			<option value="numeric">numeric</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="dir_path"/>
+	</outputs>
+	<help>This script automates the construction of pie, bar and area charts showing the breakdown of taxonomy by given levels. The script creates an html file for each chart type for easy visualization. It uses the taxonomy or category counts from summarize_taxa.py for combined samples by level (-i) and user specified labels for each file passed in (-l). Output will be written to the user specified folder (-o) the, where the default is the current working directory. The user can also specify the number of categories displayed for within a single pie chart, where the rest are grouped together as the 'other category' using the (-n) option, default is 20.
+
+The script generates an output folder, which contains several files. For each pie chart there is a png and a pdf file. The best way to view all of the pie charts is by opening up the file taxonomy_summary_pie_chart.html.</help>
+</tool>

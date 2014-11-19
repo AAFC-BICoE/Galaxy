@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<tool id="make_fastq" name="make fastq" version="1.7.0">
+	<description>Make FASTQ file for ERA submission from paired FASTA and QUAL files</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>make_fastq.py -f $input_fasta_fp
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -q $list_dict_to_string($input_files_qual) -o $result_fp
+#if $split:
+ -s
+#end if
+</command>
+	<inputs>
+		<param label="-f/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>
+		<repeat name="input_files_qual" optional="False" title="qual">
+			<param label="-q/--qual: names of QUAL files, comma-delimited" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-s/--split: make separate file for each library [default:False]" name="split" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="result_fp"/>
+	</outputs>
+	<help>The ERA currently requires a separate FASTQ file for each library, split by library id. This code takes the output from split_libraries.py and the corresponding QUAL files and produces ERA-compatible FASTQ files.
+Matches QUAL info to FASTA entries by id, and writes FASTQ output to one file or to per-library files.
+
+The FASTQ format for each record is as follows:
+
+@seq_id [and optional description]
+seq as bases
++ [and optionally with repeat of seq_id and repeat line]
+qual scores as string of chr(33+qual)
+</help>
+</tool>

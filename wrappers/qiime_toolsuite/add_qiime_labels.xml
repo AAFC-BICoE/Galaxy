@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<tool id="add_qiime_labels" name="add qiime labels" version="1.7.0">
+	<description>Takes a directory, a metadata mapping file, and a column name that contains the fasta file names that SampleIDs are associated with, combines all files that have valid fasta extensions into a single fasta file, with valid QIIME fasta labels.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $fasta_dir -o add_qiime_labels_input;
+add_qiime_labels.py -m $mapping_fp -i add_qiime_labels_input -c $filename_column -o add_qiime_labels_output
+#if $count_start:
+ -n $count_start
+#end if
+;
+compress_path.py -i add_qiime_labels_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-m/--mapping_fp: SampleID to fasta file name mapping file filepath" name="mapping_fp" optional="False" type="data"/>
+		<param label="-i/--fasta_dir: Directory of fasta files to combine and label." name="fasta_dir" type="data"/>
+		<param label="-c/--filename_column: Specify column used in metadata mapping file for fasta file names." name="filename_column" optional="False" type="text"/>
+		<param default="0" label="-n/--count_start: Specify the number to start enumerating sequence labels with. [default: 0]" name="count_start" optional="True" type="integer"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>A metadata mapping file with SampleIDs 
+and fasta file names (just the file name itself, not the full or relative 
+filepath) is used to generate a combined fasta file with valid
+QIIME labels based upon the SampleIDs specified in the mapping file.
+
+See: http://qiime.org/documentation/file_formats.html#metadata-mapping-files
+for details about the metadata file format.
+
+Example mapping file:
+#SampleID	BarcodeSequence	LinkerPrimerSequence	InputFileName	Description
+Sample.1	AAAACCCCGGGG	CTACATAATCGGRATT	seqs1.fna	sample.1
+Sample.2	TTTTGGGGAAAA	CTACATAATCGGRATT	seqs2.fna	sample.2
+
+This script is to handle situations where fasta data comes already 
+demultiplexed into a one fasta file per sample basis.  Only alters
+the fasta label to add a QIIME compatible label at the beginning.
+
+Example:
+With the metadata mapping file above, and an specified directory containing the 
+files seqs1.fna and seqs2.fna, the first line from the seqs1.fna file might
+look like this:
+&gt;FLP3FBN01ELBSX length=250 xy=1766_0111 region=1 run=R_2008_12_09_13_51_01_
+AACAGATTAGACCAGATTAAGCCGAGATTTACCCGA
+
+and in the output combined fasta file would be written like this
+&gt;Sample.1_0 FLP3FBN01ELBSX length=250 xy=1766_0111 region=1 run=R_2008_12_09_13_51_01_
+AACAGATTAGACCAGATTAAGCCGAGATTTACCCGA
+
+No changes are made to the sequences.
+
+A combined_seqs.fasta file will be created in the output directory, with the sequences assigned to the SampleID given in the metadata mapping file.</help>
+</tool>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<tool id="summarize_otu_by_cat" name="summarize otu by cat" version="1.7.0">
+	<description>Summarize an OTU table by a single column in the mapping file.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>summarize_otu_by_cat.py -i $mapping_fp -c $otu_table_fp -m $mapping_category -o $output_fp
+#if $normalize:
+ -n
+#end if
+</command>
+	<inputs>
+		<param label="-i/--mapping_fp: Input metadata mapping filepath [REQUIRED]" name="mapping_fp" optional="False" type="data"/>
+		<param label="-c/--otu_table_fp: Input OTU table filepath. [REQUIRED]" name="otu_table_fp" optional="False" type="data"/>
+		<param label="-m/--mapping_category: Summarize OTU table using this category. The user can also combine columns in the mapping file by separating the categories by &quot;&amp;&amp;&quot; without spaces. [REQUIRED]" name="mapping_category" optional="False" type="text"/>
+		<param label="-n/--normalize: Normalize OTU counts, where the OTU table columns sum to 1." name="normalize" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>Collapse an OTU table based on values in a single column in the mapping file. For example, if you have 10 samples, five of which are from females and five of which are from males, you could use this script to collapse the ten samples into two corresponding based on their values in a 'Sex' column in your mapping file.
+</help>
+</tool>

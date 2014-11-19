@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<tool id="split_otu_table_by_taxonomy" name="split otu table by taxonomy" version="1.7.0">
+	<description>Script to split a single OTU table into multiple tables based on the taxonomy at some user-specified depth.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>split_otu_table_by_taxonomy.py -i $input_fp -o split_otu_table_by_taxonomy_output -L $level
+#if str($md_identifier):
+ --md_identifier=$md_identifier
+#end if
+
+#if $md_as_string:
+ --md_as_string
+#end if
+;
+compress_path.py -i split_otu_table_by_taxonomy_output -o $output_dir
+</command>
+	<inputs>
+		<param label="-i/--input_fp: the input otu table in BIOM format" name="input_fp" optional="False" type="data"/>
+		<param label="-L/--level: the taxonomic level to split at" name="level" optional="False" type="integer" value="0"/>
+		<param default="taxonomy" label="--md_identifier: the relevant observation metadat key [default: taxonomy]" name="md_identifier" optional="True" type="text"/>
+		<param label="--md_as_string: metadata is included as string [default: metadata is included as list]" name="md_as_string" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_dir"/>
+	</outputs>
+	<help>
+</help>
+</tool>

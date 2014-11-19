@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<tool id="multiple_rarefactions_even_depth" name="multiple rarefactions even depth" version="1.7.0">
+	<description>Perform multiple rarefactions on a single otu table, at one depth of sequences/sample</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>multiple_rarefactions_even_depth.py -i $input_path -o multiple_rarefactions_even_depth_output -d $depth
+#if $numreps:
+ -n $numreps
+#end if
+
+#if $lineages_included:
+ --lineages_included
+#end if
+
+#if $keep_empty_otus:
+ -k
+#end if
+;
+compress_path.py -i multiple_rarefactions_even_depth_output -o $output_path
+</command>
+	<inputs>
+		<param label="-i/--input_path: input otu table filepath" name="input_path" optional="False" type="data"/>
+		<param label="-d/--depth: sequences per sample to subsample" name="depth" optional="False" type="integer" value="0"/>
+		<param default="10" label="-n/--num-reps: num iterations at each seqs/sample level [default: 10]" name="numreps" optional="True" type="integer"/>
+		<param label="--lineages_included: output rarefied otu tables will include taxonomic (lineage) information for each otu, if present in input otu table [default: False]" name="lineages_included" selected="False" type="boolean"/>
+		<param label="-k/--keep_empty_otus: otus (rows) of all zeros are usually omitted from the output otu tables, with -k they will not be removed from the output files [default: False]" name="keep_empty_otus" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_path"/>
+	</outputs>
+	<help>To perform bootstrap, jackknife, and rarefaction analyses, the otu table must be subsampled (rarefied).  This script rarefies, or subsamples, an OTU table.  This does not provide curves of diversity by number of sequences in a sample.  Rather it creates a subsampled OTU table by random sampling (without replacement) of the input OTU table.  Samples that have fewer sequences then the requested rarefaction depth are omitted from the ouput otu tables.  The pseudo-random number generator used for rarefaction by subsampling is NumPy's default - an implementation of the Mersenne twister PRNG.
+The results of this script consist of n subsampled OTU tables, written to the directory specified by -o. The file has the same otu table format as the input otu_table.biom. Note: if the output files would be empty, no files are written.</help>
+</tool>

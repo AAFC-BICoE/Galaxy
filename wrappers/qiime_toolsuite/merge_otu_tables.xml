@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<tool id="merge_otu_tables" name="merge otu tables" version="1.7.0">
+	<description>Merge two or more OTU tables into a single OTU table.</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>merge_otu_tables.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_input_fps) -o $output_fp</command>
+	<inputs>
+		<repeat name="input_files_input_fps" optional="False" title="input_fps">
+			<param label="-i/--input_fps: the otu tables in biom format (comma-separated)" name="additional_input" type="data"/>
+		</repeat>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_fp"/>
+	</outputs>
+	<help>This script merges two or more OTU tables into a single OTU table. This is useful, for example, when you've created several reference-based OTU tables for different analyses and need to combine them for a larger analysis. 
+
+Requirements: It is also very important that your OTUs are consistent across the different OTU tables. For example, you cannot safely merge OTU tables from two independent de novo OTU picking runs. Finally, either all or none of the OTU tables can contain taxonomic information: you can't merge some OTU tables with taxonomic data and some without taxonomic data.
+</help>
+</tool>

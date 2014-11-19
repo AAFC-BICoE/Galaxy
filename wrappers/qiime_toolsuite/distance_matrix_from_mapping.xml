@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<tool id="distance_matrix_from_mapping" name="distance matrix from mapping" version="1.7.0">
+	<description>Calculate the pairwise dissimilarity on one column of a mappping file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>uncompress_tgz.py -i $input_path -o distance_matrix_from_mapping_input;
+distance_matrix_from_mapping.py -i distance_matrix_from_mapping_input -c $column -o distance_matrix_from_mapping_output;
+compress_path.py -i distance_matrix_from_mapping_output -o $output_fp
+</command>
+	<inputs>
+		<param label="-i/--input_path: Mapping filepath." name="input_path" type="data"/>
+		<param label="-c/--column: string containing the name of the column in the mapping file, e.g. 'DOB'. If you pass two colums separated by a comma (e.g. 'Latitude,Longitud') the script will calculate the Vincenty formula (WGS-84) for distance between two Latitude/Longitude points." name="column" optional="False" type="text"/>
+	</inputs>
+	<outputs>
+		<data format="tgz" name="output_fp"/>
+	</outputs>
+	<help>The input for this script is a mapping file and the name of a column, it has to be numeric, from which a distance matrix will be created. The output of this script is a distance matrix containing a dissimilarity value for each pairwise comparison.
+
+As this is a univariate procedure only one metric is supported: d = c-b.
+The output of distance_matrix_from_mapping.py is a file containing a distance matrix between rows corresponding to a pair of columns in a mapping file.</help>
+</tool>

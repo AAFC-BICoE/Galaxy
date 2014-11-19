@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<tool id="add_alpha_to_mapping_file" name="add alpha to mapping file" version="1.7.0">
+	<description>Add alpha diversity data to a metadata mapping file</description>
+	<requirements>
+		<requirement type="package">qiime</requirement>
+	</requirements>
+	<command>add_alpha_to_mapping_file.py
+#def list_dict_to_string(list_dict):
+	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')
+	#for d in list_dict[1:]:
+		#set $file_list = $file_list + ',' + d['additional_input'].__getattr__('file_name')
+	#end for
+	#return $file_list
+#end def
+ -i $list_dict_to_string($input_files_alpha_fps) -m $mapping_fp -o $output_mapping_fp
+#if $number_of_bins:
+ -b $number_of_bins
+#end if
+
+#if str($missing_value_name):
+ -x $missing_value_name
+#end if
+
+#if str($binning_method) != 'None':
+ --binning_method=$binning_method
+#end if
+
+#if $depth:
+ --depth=$depth
+#end if
+
+#if $collated_input:
+ --collated_input
+#end if
+</command>
+	<inputs>
+		<repeat name="input_files_alpha_fps" optional="False" title="alpha_fps">
+			<param label="-i/--alpha_fps: alpha diversity data with one or multiple metrics i. e. the output of alpha_diversity.py. This can also be a comma-separated list of collated alpha diversity file paths i. e. the output of collate_alpha.py, when using collated alpha diversity data the --depth option is required" name="additional_input" type="data"/>
+		</repeat>
+		<param label="-m/--mapping_fp: mapping file to modify by adding the alpha diversity data" name="mapping_fp" optional="False" type="data"/>
+		<param default="4" label="-b/--number_of_bins: number of bins [default: 4]." name="number_of_bins" optional="True" type="integer"/>
+		<param default="N/A" label="-x/--missing_value_name: bin prefix name for the sample identifiers that exist in the mapping file (mapping_fp) but not in the alpha diversity file (alpha_fp) [default: N/A]." name="missing_value_name" optional="True" type="text"/>
+		<param label="--binning_method: Select the method name to create the bins, the options are 'equal' and 'quantile'. Both methods work over the normalized alpha diversity values. On the one hand 'equal' will assign the bins on equally spaced limits, depending on the value of --number_of_bins i. e. if you select 4 the limits will be [0.25, 0.50, 0.75]. On the other hand 'quantile' will select the limits based on the --number_of_bins i. e. the limits will be the quartiles if 4 is selected [default: equal]." name="binning_method" optional="True" type="select">
+			<option selected="True" value="None">Selection is Optional</option>
+			<option value="equal">equal</option>
+			<option value="quantile">quantile</option>
+		</param>
+		<param default="None" label="--depth: Select the rarefaction depth to use when the alpha_fps refers to collated alpha diversity file(s) i. e. the output of collate_alpha.py. All the iterations contained at this depth will be averaged to form a single mean value [default: highest depth available]." name="depth" optional="True" type="integer"/>
+		<param label="--collated_input: Use to specify that the -i option is composed of collated alpha diversity data." name="collated_input" selected="False" type="boolean"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="output_mapping_fp"/>
+	</outputs>
+	<help>Add alpha diversity data to a mapping file for use with other QIIME scripts, i. e. make_3d_plots.py. The resulting mapping file will contain three new columns per metric in the alpha diversity data; the first column being the raw value, the second being a normalized raw value and the third one a label classifying the bin where this value fits based on the normalized value.
+The result of running this script is a metadata mapping file that will include 3 new columns per alpha diversity metric included in the alpha diversity file. For example, with an alpha diversity file with only PD_whole_tree, the new columns will PD_whole_tree_alpha, PD_whole_tree_normalized and PD_whole_tree_bin.</help>
+</tool>
