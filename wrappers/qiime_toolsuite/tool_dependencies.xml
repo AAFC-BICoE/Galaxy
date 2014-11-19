@@ -2,7 +2,15 @@
 <tool_dependency>
 	<package name="qiime" version="1.7.0">
 		<install version="1.0">
-			<actions>
+            <actions>
+                <action type = "change_directory">$INSTALL_DIR</action>
+                <action type = "shell_command">
+                    git clone --recursive https://github.com/qiime/qiime-galaxy.git
+                </action>
+                <action type = "set_environment">
+                    <environment_variable name = "PATH" action="prepend_to">$INSTALL_DIR/qiime-galaxy/scripts</environment_variable>
+                    <environment_variable name = "PYTHONPATH" action="prepend_to">$INSTALL_DIR/qiime-galaxy/lib</environment_variable>
+                </action>
 				<action type = "setup_virtualenv">
                     numpy
                 </action>

@@ -2,17 +2,20 @@
 <tool id="print_qiime_config" name="print qiime config" version="1.7.0">
 	<description>Print out the qiime config settings.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
+		<requirement type="package" version="1.7.0">qiime</requirement>
 	</requirements>
 	<command>print_qiime_config.py
 #if $test:
  -t
 #end if
+ > $output
 </command>
 	<inputs>
 		<param label="-t/--test: Test the qiime config for sanity [default: False]" name="test" selected="False" type="boolean"/>
 	</inputs>
-	<outputs/>
+    <outputs>
+        <data format="txt" name="output" label="qiime config output"/>
+    </outputs>
 	<help>A simple scripts that prints out the qiime config settings and does some sanity checks.
 This prints the qiime_config to stdout.</help>
 </tool>
