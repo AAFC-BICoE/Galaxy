@@ -2,8 +2,7 @@
 <tool id="insert_seqs_into_tree" name="insert seqs into tree" version="1.7.0">
 	<description>Tree Insertion</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>insert_seqs_into_tree.py -i $input_fasta_fp -o insert_seqs_into_tree_output -t $starting_tree_fp -r $refseq_fp
 #if str($insertion_method) != 'None':
  -m $insertion_method

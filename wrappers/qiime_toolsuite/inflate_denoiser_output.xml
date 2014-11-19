@@ -2,8 +2,7 @@
 <tool id="inflate_denoiser_output" name="inflate denoiser output" version="1.7.0">
 	<description>Inflate denoiser results so they can be passed directly to OTU pickers.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>inflate_denoiser_output.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

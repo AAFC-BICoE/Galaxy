@@ -2,8 +2,7 @@
 <tool id="summarize_taxa_through_plots" name="summarize taxa through plots" version="1.7.0">
 	<description>A workflow script for performing taxonomy summaries and plots</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>summarize_taxa_through_plots.py -i $otu_table_fp -o summarize_taxa_through_plots_output
 #if str($parameter_fp) != 'None':
  -p $parameter_fp

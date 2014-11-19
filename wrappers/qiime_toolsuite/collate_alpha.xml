@@ -2,8 +2,7 @@
 <tool id="collate_alpha" name="collate alpha" version="1.7.0">
 	<description>Collate alpha diversity results</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o collate_alpha_input;
 collate_alpha.py -i collate_alpha_input -o collate_alpha_output
 #if str($example_path) != 'None':

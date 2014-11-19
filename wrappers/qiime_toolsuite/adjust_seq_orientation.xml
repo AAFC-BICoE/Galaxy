@@ -2,8 +2,7 @@
 <tool id="adjust_seq_orientation" name="adjust seq orientation" version="1.7.0">
 	<description>Get the reverse complement of all sequences</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>adjust_seq_orientation.py -i $input_fasta_fp -o $output_fp
 #if $retain_seq_id:
  -r

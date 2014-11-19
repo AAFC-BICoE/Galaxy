@@ -2,8 +2,7 @@
 <tool id="fix_arb_fasta" name="fix arb fasta" version="1.7.0">
 	<description>Reformat ARB FASTA files</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>fix_arb_fasta.py -f $input_fasta_fp -o $output_fp</command>
 	<inputs>
 		<param label="-f/--input_fasta_fp: path to the input fasta file" name="input_fasta_fp" optional="False" type="data"/>

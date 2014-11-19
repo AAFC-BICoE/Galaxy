@@ -2,8 +2,7 @@
 <tool id="truncate_reverse_primer" name="truncate reverse primer" version="1.7.0">
 	<description>Takes a demultiplexed fasta file, finds a specified reverse primer sequence, and truncates this primer and subsequent sequences following the reverse primer.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>truncate_reverse_primer.py -f $fasta_fp -m $mapping_fp -o truncate_reverse_primer_output
 #if str($truncate_option) != 'None':
  -z $truncate_option

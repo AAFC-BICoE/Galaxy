@@ -2,8 +2,7 @@
 <tool id="make_distance_boxplots" name="make distance boxplots" version="1.7.0">
 	<description>Creates boxplots to compare distances between categories</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_distance_boxplots.py -m $mapping_fp -o make_distance_boxplots_output -d $distance_matrix_fp -f $fields
 #if str($imagetype) != 'None':
  -g $imagetype

@@ -2,8 +2,7 @@
 <tool id="beta_diversity_through_plots" name="beta diversity through plots" version="1.7.0">
 	<description>A workflow script for computing beta diversity distance matrices and generating PCoA plots</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>beta_diversity_through_plots.py -i $otu_table_fp -m $mapping_fp -o beta_diversity_through_plots_output
 #if str($tree_fp) != 'None':
  -t $tree_fp

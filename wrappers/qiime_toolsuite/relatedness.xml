@@ -2,8 +2,7 @@
 <tool id="relatedness" name="relatedness" version="1.7.0">
 	<description>Calculate NRI (net relatedness index) and NTI (nearest taxon index) using the formulas from Phylocom 4.2/3.41 and Webb 2002.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>relatedness.py -t $tree_fp -g $taxa_fp
 #if $iters:
  -i $iters

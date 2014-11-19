@@ -2,8 +2,7 @@
 <tool id="multiple_rarefactions_even_depth" name="multiple rarefactions even depth" version="1.7.0">
 	<description>Perform multiple rarefactions on a single otu table, at one depth of sequences/sample</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>multiple_rarefactions_even_depth.py -i $input_path -o multiple_rarefactions_even_depth_output -d $depth
 #if $numreps:
  -n $numreps

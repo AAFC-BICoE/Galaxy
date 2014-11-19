@@ -2,8 +2,7 @@
 <tool id="nmds" name="nmds" version="1.7.0">
 	<description>Nonmetric Multidimensional Scaling (NMDS)</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o nmds_input;
 nmds.py -i nmds_input -o nmds_output
 #if $dimensions:

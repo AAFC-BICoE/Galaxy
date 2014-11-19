@@ -2,8 +2,7 @@
 <tool id="shared_phylotypes" name="shared phylotypes" version="1.7.0">
 	<description>Compute shared OTUs between all pairs of samples</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $otu_table_fp -o shared_phylotypes_input;
 shared_phylotypes.py -i shared_phylotypes_input -o $output_fp
 #if str($reference_sample):

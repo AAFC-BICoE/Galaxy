@@ -2,8 +2,7 @@
 <tool id="parallel_map_reads_to_reference" name="parallel map reads to reference" version="1.7.0">
 	<description></description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>parallel_map_reads_to_reference.py -i $input_seqs_filepath -o parallel_map_reads_to_reference_output -r $refseqs_fp
 #if str($observation_metadata_fp) != 'None':
  -t $observation_metadata_fp

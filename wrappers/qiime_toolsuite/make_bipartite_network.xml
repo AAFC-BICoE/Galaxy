@@ -2,8 +2,7 @@
 <tool id="make_bipartite_network" name="make bipartite network" version="1.7.0">
 	<description>This script makes a bipartite network connecting samples to observations. It is most suitable for visualization with cytoscape.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_bipartite_network.py -i $biom_fp -m $map_fp -o make_bipartite_network_output -k $observation_md_header_key --md_fields=$md_fields
 #if str($scolors):
  --scolors=$scolors

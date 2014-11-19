@@ -2,8 +2,7 @@
 <tool id="extract_seqs_by_sample_id" name="extract seqs by sample id" version="1.7.0">
 	<description>Extract sequences based on the SampleID</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>extract_seqs_by_sample_id.py -i $input_fasta_fp -o $output_fasta_fp
 #if $negate:
  -n

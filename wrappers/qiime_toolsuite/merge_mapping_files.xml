@@ -2,8 +2,7 @@
 <tool id="merge_mapping_files" name="merge mapping files" version="1.7.0">
 	<description>Merge mapping files</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>merge_mapping_files.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

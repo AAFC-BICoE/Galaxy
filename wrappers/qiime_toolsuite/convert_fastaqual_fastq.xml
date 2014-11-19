@@ -2,8 +2,7 @@
 <tool id="convert_fastaqual_fastq" name="convert fastaqual fastq" version="1.7.0">
 	<description>From a FASTA file and a matching QUAL file, generates a FASTQ file. From FASTQ file generates FASTA file and  matching QUAL file.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>convert_fastaqual_fastq.py -f $fasta_file_path
 #if str($qual_file_path) != 'None':
  -q $qual_file_path

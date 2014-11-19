@@ -2,8 +2,7 @@
 <tool id="compare_3d_plots" name="compare 3d plots" version="1.7.0">
 	<description>Plot several PCoA files on the same 3D plot</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compare_3d_plots.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

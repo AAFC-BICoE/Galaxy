@@ -2,8 +2,7 @@
 <tool id="parallel_pick_otus_trie" name="parallel pick otus trie" version="1.7.0">
 	<description>Parallel pick otus using a trie</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>parallel_pick_otus_trie.py -i $input_fasta_fp -o parallel_pick_otus_trie_output
 #if $prefix_length:
  -p $prefix_length

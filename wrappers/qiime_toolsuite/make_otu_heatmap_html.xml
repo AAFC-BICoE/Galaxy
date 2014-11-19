@@ -2,8 +2,7 @@
 <tool id="make_otu_heatmap_html" name="make otu heatmap html" version="1.7.0">
 	<description>Make heatmap of OTU table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_otu_heatmap_html.py -i $otu_table_fp -o make_otu_heatmap_html_output
 #if $num_otu_hits:
  -n $num_otu_hits

@@ -2,8 +2,7 @@
 <tool id="jackknifed_beta_diversity" name="jackknifed beta diversity" version="1.7.0">
 	<description>A workflow script for performing jackknifed UPGMA clustering and build jackknifed 2d and 3D PCoA plots.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>jackknifed_beta_diversity.py -i $otu_table_fp -o jackknifed_beta_diversity_output -e $seqs_per_sample -m $mapping_fp
 #if str($tree_fp) != 'None':
  -t $tree_fp

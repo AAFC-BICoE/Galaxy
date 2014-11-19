@@ -2,8 +2,7 @@
 <tool id="clean_raxml_parsimony_tree" name="clean raxml parsimony tree" version="1.7.0">
 	<description>Remove duplicate tips from Raxml Tree</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>clean_raxml_parsimony_tree.py -i $input_tree -t $tips_to_keep -o $output_fp
 #if str($scoring_method) != 'None':
  -s $scoring_method

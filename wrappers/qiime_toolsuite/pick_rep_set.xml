@@ -2,8 +2,7 @@
 <tool id="pick_rep_set" name="pick rep set" version="1.7.0">
 	<description>Pick representative set of sequences</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>pick_rep_set.py -i $input_file
 #if str($fasta_file) != 'None':
  -f $fasta_file

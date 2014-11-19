@@ -2,8 +2,7 @@
 <tool id="beta_significance" name="beta significance" version="1.7.0">
 	<description>This script runs any of a set of common tests to determine if a sample is statistically significantly different from another sample</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>beta_significance.py -i $input_path -o $output_path -s $significance_test -t $tree_path
 #if $num_iters:
  -n $num_iters

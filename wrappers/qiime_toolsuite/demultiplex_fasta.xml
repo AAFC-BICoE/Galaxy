@@ -2,8 +2,7 @@
 <tool id="demultiplex_fasta" name="demultiplex fasta" version="1.7.0">
 	<description>Demultiplex fasta data according to barcode sequences or data supplied in fasta labels.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>demultiplex_fasta.py -m $map
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

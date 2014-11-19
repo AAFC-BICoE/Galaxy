@@ -2,8 +2,7 @@
 <tool id="validate_demultiplexed_fasta" name="validate demultiplexed fasta" version="1.7.0">
 	<description>Checks a fasta file to verify if it has  been properly demultiplexed, i.e., it is in QIIME compatible format.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>validate_demultiplexed_fasta.py -m $mapping_fp -i $input_fasta_fp -o validate_demultiplexed_fasta_output
 #if str($tree_fp) != 'None':
  -t $tree_fp

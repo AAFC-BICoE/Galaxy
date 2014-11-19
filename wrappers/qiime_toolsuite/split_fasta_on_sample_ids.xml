@@ -2,8 +2,7 @@
 <tool id="split_fasta_on_sample_ids" name="split fasta on sample ids" version="1.7.0">
 	<description>Split a single post-split_libraries.py fasta file into per-sample fasta files.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>split_fasta_on_sample_ids.py -i $input_fasta_fp -o split_fasta_on_sample_ids_output
 #if $buffer_size:
  --buffer_size=$buffer_size

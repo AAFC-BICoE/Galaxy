@@ -2,8 +2,7 @@
 <tool id="plot_taxa_summary" name="plot taxa summary" version="1.7.0">
 	<description>Make taxaonomy summary charts based on taxonomy assignment</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>plot_taxa_summary.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

@@ -2,8 +2,7 @@
 <tool id="alpha_rarefaction" name="alpha rarefaction" version="1.7.0">
 	<description>A workflow script for performing alpha rarefaction</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>alpha_rarefaction.py -i $otu_table_fp -m $mapping_fp -o alpha_rarefaction_output
 #if str($parameter_fp) != 'None':
  -p $parameter_fp

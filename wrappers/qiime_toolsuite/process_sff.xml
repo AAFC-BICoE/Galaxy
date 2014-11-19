@@ -2,8 +2,7 @@
 <tool id="process_sff" name="process sff" version="1.7.0">
 	<description>Convert sff to FASTA and QUAL files</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_dir -o process_sff_input;
 process_sff.py -i process_sff_input
 #if $no_trim:

@@ -2,8 +2,7 @@
 <tool id="distance_matrix_from_mapping" name="distance matrix from mapping" version="1.7.0">
 	<description>Calculate the pairwise dissimilarity on one column of a mappping file</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o distance_matrix_from_mapping_input;
 distance_matrix_from_mapping.py -i distance_matrix_from_mapping_input -c $column -o distance_matrix_from_mapping_output;
 compress_path.py -i distance_matrix_from_mapping_output -o $output_fp

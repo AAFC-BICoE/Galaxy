@@ -2,8 +2,7 @@
 <tool id="filter_distance_matrix" name="filter distance matrix" version="1.7.0">
 	<description>Filter a distance matrix to contain only a specified set of samples.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_distance_matrix.py -i $input_distance_matrix -o $output_distance_matrix
 #if str($sample_id_fp) != 'None':
  --sample_id_fp=$sample_id_fp

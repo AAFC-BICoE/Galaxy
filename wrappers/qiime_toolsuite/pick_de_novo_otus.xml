@@ -2,8 +2,7 @@
 <tool id="pick_de_novo_otus" name="pick de novo otus" version="1.7.0">
 	<description>A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>pick_de_novo_otus.py -i $input_fp -o pick_de_novo_otus_output
 #if str($parameter_fp) != 'None':
  -p $parameter_fp

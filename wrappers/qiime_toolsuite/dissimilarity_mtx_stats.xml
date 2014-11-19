@@ -2,8 +2,7 @@
 <tool id="dissimilarity_mtx_stats" name="dissimilarity mtx stats" version="1.7.0">
 	<description>Calculate mean, median and standard deviation from a set of distance matrices</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_dir -o dissimilarity_mtx_stats_input;
 dissimilarity_mtx_stats.py -i dissimilarity_mtx_stats_input -o dissimilarity_mtx_stats_output;
 compress_path.py -i dissimilarity_mtx_stats_output -o $output_dir

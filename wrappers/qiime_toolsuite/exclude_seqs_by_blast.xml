@@ -2,8 +2,7 @@
 <tool id="exclude_seqs_by_blast" name="exclude seqs by blast" version="1.7.0">
 	<description>Exclude contaminated sequences using BLAST</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $blastmatroot -o exclude_seqs_by_blast_input;
 exclude_seqs_by_blast.py -i $querydb -d $subjectdb -o exclude_seqs_by_blast_output
 #if $e_value:

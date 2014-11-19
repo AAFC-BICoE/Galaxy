@@ -2,8 +2,7 @@
 <tool id="filter_otus_by_sample" name="filter otus by sample" version="1.7.0">
 	<description>Filter OTU mapping file and sequences by SampleIDs</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_otus_by_sample.py -i $otu_map_fp -f $input_fasta_fp -s $samples_to_extract -o filter_otus_by_sample_output;
 compress_path.py -i filter_otus_by_sample_output -o $output_dir
 </command>

@@ -2,8 +2,7 @@
 <tool id="compare_distance_matrices" name="compare distance matrices" version="1.7.0">
 	<description>Computes Mantel correlation tests between sets of distance matrices</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compare_distance_matrices.py --method=$method
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

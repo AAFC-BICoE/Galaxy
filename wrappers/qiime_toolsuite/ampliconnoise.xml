@@ -2,8 +2,7 @@
 <tool id="ampliconnoise" name="ampliconnoise" version="1.7.0">
 	<description>Run AmpliconNoise</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>ampliconnoise.py -m $mapping_fp -i $sff_filepath -o $output_filepath
 #if $np:
  -n $np

@@ -2,8 +2,7 @@
 <tool id="pick_closed_reference_otus" name="pick closed reference otus" version="1.7.0">
 	<description>Closed-reference OTU picking/Shotgun UniFrac workflow.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>pick_closed_reference_otus.py -i $input_fp -r $reference_fp -o pick_closed_reference_otus_output
 #if str($parameter_fp) != 'None':
  -p $parameter_fp

@@ -2,8 +2,7 @@
 <tool id="parallel_pick_otus_blast" name="parallel pick otus blast" version="1.7.0">
 	<description>Parallel pick otus using BLAST</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>
 #if str($blast_db) != 'None':
  uncompress_tgz.py -i $blast_db -o blast_db;

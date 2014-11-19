@@ -2,8 +2,7 @@
 <tool id="blast_wrapper" name="blast wrapper" version="1.7.0">
 	<description>Blast Interface</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>blast_wrapper.py -i $input_fasta_fp -r $refseqs_fp
 #if $num_seqs_per_blast_run:
  -n $num_seqs_per_blast_run

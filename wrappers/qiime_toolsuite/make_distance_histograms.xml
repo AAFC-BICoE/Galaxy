@@ -2,8 +2,7 @@
 <tool id="make_distance_histograms" name="make distance histograms" version="1.7.0">
 	<description>Make distance histograms</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_distance_histograms.py -d $distance_matrix_file -m $map_fname
 #if str($prefs_path) != 'None':
  -p $prefs_path

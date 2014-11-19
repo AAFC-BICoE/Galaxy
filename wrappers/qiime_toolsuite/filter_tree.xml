@@ -2,8 +2,7 @@
 <tool id="filter_tree" name="filter tree" version="1.7.0">
 	<description>This script prunes a tree based on a set of tip names</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_tree.py -i $input_tree_filepath -o $output_tree_filepath
 #if $negate:
  -n

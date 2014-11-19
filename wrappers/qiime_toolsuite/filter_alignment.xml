@@ -2,8 +2,7 @@
 <tool id="filter_alignment" name="filter alignment" version="1.7.0">
 	<description>Filter sequence alignment by removing highly variable regions</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_alignment.py -i $input_fasta_file -o filter_alignment_output
 #if str($lane_mask_fp) != 'None':
  -m $lane_mask_fp

@@ -2,8 +2,7 @@
 <tool id="filter_fasta" name="filter fasta" version="1.7.0">
 	<description>This script can be applied to remove sequences from a fasta or fastq file based on input criteria.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_fasta.py -f $input_fasta_fp -o $output_fasta_fp
 #if str($otu_map) != 'None':
  -m $otu_map

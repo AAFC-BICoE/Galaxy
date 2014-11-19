@@ -2,8 +2,7 @@
 <tool id="trflp_file_to_otu_table" name="trflp file to otu table" version="1.7.0">
 	<description>Convert TRFLP text file to an OTU table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>trflp_file_to_otu_table.py -i $input_path -o $output_path</command>
 	<inputs>
 		<param label="-i/--input_path: input path: TRFLP text file" name="input_path" optional="False" type="data"/>

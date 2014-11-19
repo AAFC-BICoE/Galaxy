@@ -2,8 +2,7 @@
 <tool id="single_rarefaction" name="single rarefaction" version="1.7.0">
 	<description>Perform rarefaction on an otu table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>single_rarefaction.py -i $input_path -o $output_path -d $depth
 #if $suppress_lineages_included:
  --suppress_lineages_included

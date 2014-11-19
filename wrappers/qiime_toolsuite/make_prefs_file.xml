@@ -2,8 +2,7 @@
 <tool id="make_prefs_file" name="make prefs file" version="1.7.0">
 	<description>Generate preferences file</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_prefs_file.py -m $map_fname -o $output_fp
 #if str($mapping_headers_to_use):
  -b $mapping_headers_to_use

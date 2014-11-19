@@ -2,8 +2,7 @@
 <tool id="parallel_pick_otus_usearch61_ref" name="parallel pick otus usearch61 ref" version="1.7.0">
 	<description>Parallel pick otus using usearch_ref</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>parallel_pick_otus_usearch61_ref.py -i $input_fasta_fp -o parallel_pick_otus_usearch61_ref_output -r $refseqs_fp
 #if $similarity:
  -s $similarity

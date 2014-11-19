@@ -2,8 +2,7 @@
 <tool id="make_otu_network" name="make otu network" version="1.7.0">
 	<description>Make an OTU network and calculate statistics</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_otu_network.py -i $input_fp -m $map_fname -o make_otu_network_output
 #if str($colorby):
  -b $colorby

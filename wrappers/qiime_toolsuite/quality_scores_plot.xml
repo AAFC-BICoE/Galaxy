@@ -2,8 +2,7 @@
 <tool id="quality_scores_plot" name="quality scores plot" version="1.7.0">
 	<description>Generates histograms of sequence quality scores and number of nucleotides recorded at a particular index</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>quality_scores_plot.py -q $qual_fp -o quality_scores_plot_output
 #if $score_min:
  -s $score_min

@@ -2,8 +2,7 @@
 <tool id="truncate_fasta_qual_files" name="truncate fasta qual files" version="1.7.0">
 	<description>Generates filtered fasta and quality score files by truncating at the specified base position.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>truncate_fasta_qual_files.py -f $fasta_fp -q $qual_fp -b $base_pos -o truncate_fasta_qual_files_output;
 compress_path.py -i truncate_fasta_qual_files_output -o $output_dir
 </command>

@@ -2,8 +2,7 @@
 <tool id="compare_categories" name="compare categories" version="1.7.0">
 	<description>Analyzes statistical significance of sample groupings using distance matrices</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compare_categories.py --method=$method -i $input_dm -m $mapping_file -c $categories -o compare_categories_output
 #if $num_permutations:
  -n $num_permutations

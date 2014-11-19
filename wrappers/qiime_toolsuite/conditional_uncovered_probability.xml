@@ -2,8 +2,7 @@
 <tool id="conditional_uncovered_probability" name="conditional uncovered probability" version="1.7.0">
 	<description>Calculate the conditional uncovered probability on each sample in an otu table.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o conditional_uncovered_probability_input;
 conditional_uncovered_probability.py -i conditional_uncovered_probability_input -o conditional_uncovered_probability_output
 #if $look_ahead:

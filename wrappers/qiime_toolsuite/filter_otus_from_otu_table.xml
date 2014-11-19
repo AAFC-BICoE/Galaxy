@@ -2,8 +2,7 @@
 <tool id="filter_otus_from_otu_table" name="filter otus from otu table" version="1.7.0">
 	<description>Filter OTUs from an OTU table based on their observation counts or identifier.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>filter_otus_from_otu_table.py -i $input_fp -o $output_fp
 #if $negate_ids_to_exclude:
  --negate_ids_to_exclude

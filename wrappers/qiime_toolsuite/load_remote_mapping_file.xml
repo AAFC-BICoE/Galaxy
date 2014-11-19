@@ -2,8 +2,7 @@
 <tool id="load_remote_mapping_file" name="load remote mapping file" version="1.7.0">
 	<description>Downloads and saves a remote mapping file</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>load_remote_mapping_file.py -k $spreadsheet_key -o $output_fp
 #if str($worksheet_name):
  -w $worksheet_name

@@ -2,8 +2,7 @@
 <tool id="sort_otu_table" name="sort otu table" version="1.7.0">
 	<description>Script for sorting the sample IDs in an OTU table based on a specified value in a mapping file.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>sort_otu_table.py -i $input_otu_table -o $output_fp
 #if str($mapping_fp) != 'None':
  -m $mapping_fp

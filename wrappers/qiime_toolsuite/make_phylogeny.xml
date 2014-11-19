@@ -2,8 +2,7 @@
 <tool id="make_phylogeny" name="make phylogeny" version="1.7.0">
 	<description>Make Phylogeny</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_phylogeny.py -i $input_fp
 #if str($tree_method) != 'None':
  -t $tree_method

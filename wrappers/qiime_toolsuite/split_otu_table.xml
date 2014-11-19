@@ -2,8 +2,7 @@
 <tool id="split_otu_table" name="split otu table" version="1.7.0">
 	<description>Split in a single OTU table into one OTU table per value in a specified field of the mapping file.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>split_otu_table.py -i $otu_table_fp -m $mapping_fp -f $mapping_field -o split_otu_table_output;
 compress_path.py -i split_otu_table_output -o $output_dir
 </command>

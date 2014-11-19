@@ -2,8 +2,7 @@
 <tool id="add_qiime_labels" name="add qiime labels" version="1.7.0">
 	<description>Takes a directory, a metadata mapping file, and a column name that contains the fasta file names that SampleIDs are associated with, combines all files that have valid fasta extensions into a single fasta file, with valid QIIME fasta labels.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $fasta_dir -o add_qiime_labels_input;
 add_qiime_labels.py -m $mapping_fp -i add_qiime_labels_input -c $filename_column -o add_qiime_labels_output
 #if $count_start:

@@ -2,8 +2,7 @@
 <tool id="trim_sff_primers" name="trim sff primers" version="1.7.0">
 	<description>Trim sff primers</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $libdir -o trim_sff_primers_input;
 trim_sff_primers.py -l trim_sff_primers_input -m $input_map
 #if $use_sfftools:

@@ -2,8 +2,7 @@
 <tool id="make_per_library_sff" name="make per library sff" version="1.7.0">
 	<description>Make per-library sff files from ID lists</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $libdir -o make_per_library_sff_input;
 make_per_library_sff.py
 #def list_dict_to_string(list_dict):

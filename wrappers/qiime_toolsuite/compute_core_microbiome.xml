@@ -2,8 +2,7 @@
 <tool id="compute_core_microbiome" name="compute core microbiome" version="1.7.0">
 	<description>Identify the core microbiome.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compute_core_microbiome.py -i $input_fp -o compute_core_microbiome_output
 #if $max_fraction_for_core:
  --max_fraction_for_core=$max_fraction_for_core

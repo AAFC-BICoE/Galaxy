@@ -2,8 +2,7 @@
 <tool id="plot_semivariogram" name="plot semivariogram" version="1.7.0">
 	<description>Fits a model between two distance matrices and plots the result</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>plot_semivariogram.py -x $input_path_x -y $input_path_y -o plot_semivariogram_output
 #if str($binning):
  -b $binning

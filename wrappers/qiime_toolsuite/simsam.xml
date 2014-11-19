@@ -2,8 +2,7 @@
 <tool id="simsam" name="simsam" version="1.7.0">
 	<description>Simulate samples for each sample in an OTU table, using a phylogenetic tree.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>simsam.py -i $otu_table -t $tree_file -o simsam_output -d $dissim -n $num
 #if str($mapping_fp) != 'None':
  -m $mapping_fp

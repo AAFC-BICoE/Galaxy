@@ -2,8 +2,7 @@
 <tool id="make_3d_plots" name="make 3d plots" version="1.7.0">
 	<description>Make 3D PCoA plots</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $coord_fname -o make_3d_plots_input;
 make_3d_plots.py -i make_3d_plots_input -m $map_fname
 #if str($colorby):

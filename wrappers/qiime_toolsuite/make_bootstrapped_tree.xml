@@ -2,8 +2,7 @@
 <tool id="make_bootstrapped_tree" name="make bootstrapped tree" version="1.7.0">
 	<description>Make bootstrapped tree</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_bootstrapped_tree.py -m $master_tree -s $support -o $output_file</command>
 	<inputs>
 		<param label="-m/--master_tree: This is the path to the master tree" name="master_tree" optional="False" type="data"/>

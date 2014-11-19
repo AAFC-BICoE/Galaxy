@@ -2,8 +2,7 @@
 <tool id="unweight_fasta" name="unweight fasta" version="1.7.0">
 	<description>Transform fasta files with abundance weighting into unweighted</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>unweight_fasta.py -i $input_fasta -o $output_file -l $label</command>
 	<inputs>
 		<param label="-i/--input_fasta: the input fasta file" name="input_fasta" optional="False" type="data"/>

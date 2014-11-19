@@ -2,8 +2,7 @@
 <tool id="core_diversity_analyses" name="core diversity analyses" version="1.7.0">
 	<description>A workflow for running a core set of QIIME diversity analyses.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>core_diversity_analyses.py -i $input_biom_fp -o core_diversity_analyses_output -m $mapping_fp -e $sampling_depth
 #if str($parameter_fp) != 'None':
  -p $parameter_fp

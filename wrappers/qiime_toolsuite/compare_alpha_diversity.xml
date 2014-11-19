@@ -2,8 +2,7 @@
 <tool id="compare_alpha_diversity" name="compare alpha diversity" version="1.7.0">
 	<description>This script compares alpha diversities based on a two-sample t-test using either parametric or non-parametric (Monte Carlo) methods.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compare_alpha_diversity.py -i $alpha_diversity_filepath -m $mapping_filepath -c $category -o $output_fp
 #if str($test_type) != 'None':
  -t $test_type

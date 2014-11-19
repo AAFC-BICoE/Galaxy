@@ -2,8 +2,7 @@
 <tool id="principal_coordinates" name="principal coordinates" version="1.7.0">
 	<description>Principal Coordinates Analysis (PCoA)</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o principal_coordinates_input;
 principal_coordinates.py -i principal_coordinates_input -o principal_coordinates_output;
 compress_path.py -i principal_coordinates_output -o $output_path

@@ -2,8 +2,7 @@
 <tool id="detrend" name="detrend" version="1.7.0">
 	<description>Detrend Principal Coordinates</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>detrend.py -i $input_fp -o $output_dir
 #if str($map_fp) != 'None':
  -m $map_fp

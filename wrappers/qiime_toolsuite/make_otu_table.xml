@@ -2,8 +2,7 @@
 <tool id="make_otu_table" name="make otu table" version="1.7.0">
 	<description>Make OTU table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_otu_table.py -i $otu_map_fp -o $output_biom_fp
 #if str($taxonomy) != 'None':
  -t $taxonomy

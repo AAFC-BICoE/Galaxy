@@ -2,8 +2,7 @@
 <tool id="check_id_map" name="check id map" version="1.7.0">
 	<description>Checks user's metadata mapping file for required data, valid format</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>check_id_map.py -m $mapping_fp -o check_id_map_output
 #if $verbose:
  -v

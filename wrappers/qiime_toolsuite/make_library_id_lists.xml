@@ -2,8 +2,7 @@
 <tool id="make_library_id_lists" name="make library id lists" version="1.7.0">
 	<description>Make library id lists</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_library_id_lists.py -i $input_fasta
 #if str($screened_rep_seqs) != 'None':
  -s $screened_rep_seqs

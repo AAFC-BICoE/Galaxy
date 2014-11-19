@@ -2,8 +2,7 @@
 <tool id="plot_rank_abundance_graph" name="plot rank abundance graph" version="1.7.0">
 	<description>plot rank-abundance curve</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>plot_rank_abundance_graph.py -i $otu_table_fp -s $sample_name -o $result_fp
 #if $absolute_counts:
  -a

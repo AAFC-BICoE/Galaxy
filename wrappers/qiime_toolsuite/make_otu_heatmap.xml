@@ -2,8 +2,7 @@
 <tool id="make_otu_heatmap" name="make otu heatmap" version="1.7.0">
 	<description>Make heatmap of OTU table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_otu_heatmap.py -i $otu_table_fp -o make_otu_heatmap_output
 #if str($otu_tree) != 'None':
  -t $otu_tree

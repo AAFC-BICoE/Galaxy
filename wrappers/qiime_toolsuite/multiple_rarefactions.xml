@@ -2,8 +2,7 @@
 <tool id="multiple_rarefactions" name="multiple rarefactions" version="1.7.0">
 	<description>Perform multiple subsamplings/rarefactions on an otu table</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>multiple_rarefactions.py -i $input_path -o multiple_rarefactions_output -m $min -x $max -s $step
 #if $numreps:
  -n $numreps

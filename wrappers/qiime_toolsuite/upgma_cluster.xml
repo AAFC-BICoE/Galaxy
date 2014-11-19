@@ -2,8 +2,7 @@
 <tool id="upgma_cluster" name="upgma cluster" version="1.7.0">
 	<description>Build a UPGMA tree comparing samples</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o upgma_cluster_input;
 upgma_cluster.py -i upgma_cluster_input -o upgma_cluster_output;
 compress_path.py -i upgma_cluster_output -o $output_path

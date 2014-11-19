@@ -2,8 +2,7 @@
 <tool id="categorized_dist_scatterplot" name="categorized dist scatterplot" version="1.7.0">
 	<description>makes a figure representing average distances between samples, broken down by categories. I call it a 'categorized distance scatterplot'</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>categorized_dist_scatterplot.py -m $map -d $distance_matrix -p $primary_state -a $axis_category -o categorized_dist_scatterplot_output
 #if str($colorby):
  -c $colorby

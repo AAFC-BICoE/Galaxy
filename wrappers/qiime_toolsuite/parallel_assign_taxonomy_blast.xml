@@ -2,8 +2,7 @@
 <tool id="parallel_assign_taxonomy_blast" name="parallel assign taxonomy blast" version="1.7.0">
 	<description>Parallel taxonomy assignment using BLAST</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>
 #if str($blast_db) != 'None':
  uncompress_tgz.py -i $blast_db -o blast_db;

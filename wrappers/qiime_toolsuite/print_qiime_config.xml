@@ -2,8 +2,7 @@
 <tool id="print_qiime_config" name="print qiime config" version="1.7.0">
 	<description>Print out the qiime config settings.</description>
 	<requirements>
-		<requirement type="package" version="1.7.0">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>print_qiime_config.py
 #if $test:
  -t

@@ -2,8 +2,7 @@
 <tool id="cluster_quality" name="cluster quality" version="1.7.0">
 	<description>compute the quality of a cluster</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>cluster_quality.py -i $input_path -m $map -c $category -o $output_path
 #if $short:
  -s

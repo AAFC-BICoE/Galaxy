@@ -2,8 +2,7 @@
 <tool id="process_iseq" name="process iseq" version="1.7.0">
 	<description>Given a directory of per-swath qseq files, this script generates a single fastq per lane.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>process_iseq.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

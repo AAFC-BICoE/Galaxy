@@ -2,8 +2,7 @@
 <tool id="compare_taxa_summaries" name="compare taxa summaries" version="1.7.0">
 	<description>Compares taxa summary files</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>compare_taxa_summaries.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

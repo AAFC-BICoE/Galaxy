@@ -2,8 +2,7 @@
 <tool id="alpha_diversity" name="alpha diversity" version="1.7.0">
 	<description>Calculate alpha diversity on each sample in an otu table, using a variety of alpha diversity metrics</description>
 	<requirements>
-		<requirement type="package" version="1.7.0">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o alpha_diversity_input;
 alpha_diversity.py -i alpha_diversity_input -o alpha_diversity_output
 #if str($metrics) != 'None':

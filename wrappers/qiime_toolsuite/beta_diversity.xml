@@ -2,8 +2,7 @@
 <tool id="beta_diversity" name="beta diversity" version="1.7.0">
 	<description>Calculate beta diversity (pairwise sample dissimilarity) on one or many otu tables</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o beta_diversity_input;
 beta_diversity.py -i beta_diversity_input
 #if str($rows):

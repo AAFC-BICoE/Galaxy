@@ -2,8 +2,7 @@
 <tool id="summarize_otu_by_cat" name="summarize otu by cat" version="1.7.0">
 	<description>Summarize an OTU table by a single column in the mapping file.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>summarize_otu_by_cat.py -i $mapping_fp -c $otu_table_fp -m $mapping_category -o $output_fp
 #if $normalize:
  -n

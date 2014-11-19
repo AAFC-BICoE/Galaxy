@@ -2,8 +2,7 @@
 <tool id="parallel_beta_diversity" name="parallel beta diversity" version="1.7.0">
 	<description>Parallel beta diversity</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_path -o parallel_beta_diversity_input;
 parallel_beta_diversity.py -i parallel_beta_diversity_input -o parallel_beta_diversity_output
 #if str($metrics) != 'None':

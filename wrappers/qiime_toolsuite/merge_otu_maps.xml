@@ -2,8 +2,7 @@
 <tool id="merge_otu_maps" name="merge otu maps" version="1.7.0">
 	<description>Merge OTU mapping files</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>merge_otu_maps.py
 #def list_dict_to_string(list_dict):
 	#set $file_list = list_dict[0]['additional_input'].__getattr__('file_name')

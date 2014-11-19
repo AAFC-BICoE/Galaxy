@@ -2,8 +2,7 @@
 <tool id="make_2d_plots" name="make 2d plots" version="1.7.0">
 	<description>Make 2D PCoA Plots</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $coord_fname -o make_2d_plots_input;
 make_2d_plots.py -i make_2d_plots_input -m $map_fname
 #if str($colorby):

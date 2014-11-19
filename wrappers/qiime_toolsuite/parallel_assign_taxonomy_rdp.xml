@@ -2,8 +2,7 @@
 <tool id="parallel_assign_taxonomy_rdp" name="parallel assign taxonomy rdp" version="1.7.0">
 	<description>Parallel taxonomy assignment using RDP</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>parallel_assign_taxonomy_rdp.py -i $input_fasta_fp -o parallel_assign_taxonomy_rdp_output
 #if $confidence:
  -c $confidence

@@ -2,8 +2,7 @@
 <tool id="parallel_multiple_rarefactions" name="parallel multiple rarefactions" version="1.7.0">
 	<description>Parallel multiple file rarefaction</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>parallel_multiple_rarefactions.py -i $input_path -o parallel_multiple_rarefactions_output -m $min -x $max
 #if $numreps:
  -n $numreps

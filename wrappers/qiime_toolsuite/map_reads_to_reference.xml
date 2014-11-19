@@ -2,8 +2,7 @@
 <tool id="map_reads_to_reference" name="map reads to reference" version="1.7.0">
 	<description> Script for performing assignment of reads against a reference database </description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>map_reads_to_reference.py -i $input_seqs_filepath -r $refseqs_fp
 #if str($assignment_method) != 'None':
  -m $assignment_method

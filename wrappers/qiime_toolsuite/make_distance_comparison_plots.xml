@@ -2,8 +2,7 @@
 <tool id="make_distance_comparison_plots" name="make distance comparison plots" version="1.7.0">
 	<description>Creates plots comparing distances between sample groupings</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>make_distance_comparison_plots.py -m $mapping_fp -o make_distance_comparison_plots_output -d $distance_matrix_fp -f $field -c $comparison_groups
 #if str($plot_type) != 'None':
  -t $plot_type

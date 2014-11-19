@@ -2,8 +2,7 @@
 <tool id="supervised_learning" name="supervised learning" version="1.7.0">
 	<description>Run supervised classification using OTUs as predictors and a mapping file category as class labels.</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>uncompress_tgz.py -i $input_data -o supervised_learning_input;
 supervised_learning.py -i supervised_learning_input -m $mapping_file -c $category -o supervised_learning_output
 #if $ntree:

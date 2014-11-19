@@ -2,8 +2,7 @@
 <tool id="submit_to_mgrast" name="submit to mgrast" version="1.7.0">
 	<description>This script submits a FASTA file to MG-RAST</description>
 	<requirements>
-		<requirement type="package">qiime</requirement>
-	</requirements>
+<requirement type="package" version="1.7.0">qiime</requirement>	</requirements>
 	<command>submit_to_mgrast.py -i $input_fasta_fp -w $web_key_auth -p $project_id -o submit_to_mgrast_output;
 compress_path.py -i submit_to_mgrast_output -o $output_dir
 </command>
