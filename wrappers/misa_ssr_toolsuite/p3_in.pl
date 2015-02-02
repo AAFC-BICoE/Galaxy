@@ -11,7 +11,7 @@ MISA to Primer3 Input Converter
 
 =head1 SYNOPSIS
 
-./p3_in.pl -i <misa file> -o <output primer3_in file>
+./p3_in.pl -misa-file <input_misa> --fasta-file <input_fasta> -o <output output_primer3 file>
 
 =head1 DESCRIPTION
 
@@ -23,11 +23,15 @@ Creates a PRIMER3 input file based on SSR search results
 
 =over
 
-=item --input-file | -i		<Multi Fasta File>
+=item --misa-file | -m		<Misa File>
 
 The path to the input multi-fasta file.
 
-=item --output-file | -o		<Multi Fasta File>
+=item --fasta-file | -f		<Fasta File>
+
+The path to the input multi-fasta file.
+
+=item --output-file | -o		<Primer3 File>
 
 The path to write the output file to.
 
@@ -49,19 +53,19 @@ use strict;
 use constant DEBUG => 0; 
 
 use Getopt::Long;
-
-
-{
+use Pod::Usage;
 
 my $help;
 my %options = (
 );
 
+parse_options();
 
 sub parse_options {
 	GetOptions ( \%options,
-		"input-file|i=s",
-		"output-file|o=s",
+		"misa-file|m=s",
+		"fasta-file|f=s",
+		"primer3-file|p=s",
 		"help|h|?!" => \$help
 	) or pod2usage( {
 		-message => "Invalid arguements",
@@ -74,24 +78,19 @@ sub parse_options {
 	( defined $help ) and
 		pod2usage ( { -exitval => 0, -verbose => 2 } );
 
-	( $options{'input-file'} ) or
-		pod2usage ( { -message => "You must specify an input file path using the --input-file option",
-			-exitval => 1,
-			-verbose => 1  } );
-			
-	( $options{'output-file'} ) or
-		pod2usage ( { -message => "You must specify an output file path using the --output-file option",
+	( $options{'misa-file'} and  $options{'fasta-file'} ) or
+		pod2usage ( { -message => "You must specify a misa and fasta file path using the --misa-file and --fasta-file option",
 			-exitval => 1,
 			-verbose => 1  } );
 }
 
 
-my $misa_file = $ARGV[0];
-my $fasta_file = $ARGV[1];
-my $output_file = $ARGV[2] if ( scalar( @ARGV ) > 2 );
+my $misa_file = $options{'misa-file'};
+my $fasta_file = $options{'fasta-file'};
+my $output_file = $options{'primer3-file'};
 
-open (IN,"<$misa_file") || die ( "\nError: Couldn't open misa.pl results file (*.misa) !\n" );
-open (SRC,"<$fasta_file") || die ( "\nError: Couldn't open source file containing original FASTA sequences !\n" );
+open (IN,"<$misa_file") || die ( "\nError: Couldn't open misa file " . $misa_file . " !\n" );
+open (SRC,"<$fasta_file") || die ( "\nError: Couldn't open source file containing original FASTA sequences " . $fasta_file . " !\n" );
 if ( defined $output_file ){
 	open (OUT,">$output_file") or die( "Couldn't open $output_file for writing.\n" );
 } else {
@@ -110,6 +109,7 @@ my $offset_end = 3;
 my $target_multiplier = 10;
 
 my $count = 0;
+
 while (<SRC>) {
 	next unless (my ($id,$seq) = /(.*?)\n(.*)/s);
 	$seq =~ s/[\d\s>]//g;#remove digits, spaces, line breaks,...
@@ -141,6 +141,4 @@ while (<SRC>) {
 		print OUT "PRIMER_MAX_END_STABILITY=250\n";
 		print OUT "=\n"; # End of record
 	}
-}
-
 }

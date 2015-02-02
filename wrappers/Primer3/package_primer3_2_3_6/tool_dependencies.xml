@@ -6,12 +6,14 @@
 				<action type="download_by_url">http://downloads.sourceforge.net/project/primer3/primer3/2.3.6/primer3-src-2.3.6.tar.gz</action>
 				<action type="change_directory">./src</action>
 				<action type="shell_command">make; rm *.c; rm *.h; rm *.o;</action>
+				<action type="shell_command">echo "PRIMER_THERMODYNAMIC_PARAMETERS_PATH=$INSTALL_DIR/primer3_config" > $INSTALL_DIR/p3_settings.txt</action>
 				<action type="move_directory_files">
 					<source_directory>.</source_directory>
 					<destination_directory>$INSTALL_DIR</destination_directory>
 				</action>
 				<action type="set_environment">
 					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+					<environment_variable name="PRIMER3_CONFIG_PATH" action="set_to">$INSTALL_DIR/p3_settings.txt</environment_variable>	
 				</action>
 			</actions>
 		</install>
@@ -32,4 +34,3 @@ Ottawa, Ontario, Canada
 		</readme>
 	</package>
 </tool_dependency>
-

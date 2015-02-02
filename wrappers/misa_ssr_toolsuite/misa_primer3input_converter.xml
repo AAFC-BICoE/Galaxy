@@ -1,15 +1,15 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <tool id="misa_primer3input_converter" name="MISA to Primer3 Input Converter" version="1.0">
 	<description>Identification and localization of perfect microsatellites	as well as compound microsatellites</description>
 	<command interpreter="perl">
-	
+		p3_in.pl --misa-file $input_misa --fasta-file $input_fasta --primer3-file $output_primer3
 	</command>
 	<inputs>
 		<param format="tabular" name="input_misa" type="data" label="MISA's Output File" help="Select the tab separated file that misa generates." />
 		<param format="fasta" name="input_fasta" type="data" label="Fasta File Provided to MISA " help="Select the Fasta file you provided to MISA." />
 	</inputs>
 	<outputs>
-		<data format="txt" name="output" label="${tool.name} on ${on_string}: Primer3 input" />
+		<data format="txt" name="output_primer3" label="${tool.name} on ${on_string}: Primer3 input" />
 	</outputs>
 	<stdio>
 		<exit_code range="1:" level="fatal" description="Error" />
@@ -32,7 +32,7 @@ Converts MISA output into a Primer3 input file containing Primer3 directives to 
 
 **Inputs and Outputs**
 
-- Input - Accepts MISA's tabular output file as input
+- Input - Accepts MISA's tabular output file and FASTA file as input
 - Output - Produces a Primer3 input file with directives to create flanking primers. 
 	</help>
 </tool>

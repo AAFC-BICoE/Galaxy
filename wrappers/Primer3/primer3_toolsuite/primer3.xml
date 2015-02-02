@@ -6,13 +6,14 @@
 	</requirements>
 	<description>Identification and localization of perfect microsatellites
 		as well as compound microsatellites</description>
-	<command>primer3_core -output="$output" "$input"</command>
+	<command>primer3_core -output="$output" "$input" -p3_settings_file="\$PRIMER3_CONFIG_PATH"</command>
 	<inputs>
 		<param format="txt" name="input" type="data" label="Primer3 Input File"
 			help="A text file with Primer3-specific instructions. See http://primer3.sourceforge.net/primer3_manual.htm" />
 	</inputs>
-	<outputs />
-
+	<outputs>
+		<data format="input" name="output"/>
+	</outputs>
 	<stdio>
 		<exit_code range="1:" level="fatal" description="Error" />
 	</stdio>
