@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
 	<package name="mauve" version="2.3.1">
-		<repository name="package_mauve_2_3_1" owner="galaxyuser" toolshed="http://onotta669816x:9009" changeset_revision="235acfe83edf" />
+		<repository name="package_mauve_2_3_1" owner="galaxyuser" toolshed="http://onotta669816x:9009" changeset_revision="e6c99667eb52" />
 	</package>
 </tool_dependency>
