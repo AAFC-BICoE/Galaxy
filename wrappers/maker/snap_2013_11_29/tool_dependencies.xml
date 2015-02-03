@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="snap" version="2006-07-28">
+    <package name="snap" version="2013-11-29">
         <install version="1.0">
             <actions>
                 <action type="download_by_url">http://korflab.ucdavis.edu/Software/snap-2013-11-29.tar.gz</action>
@@ -14,7 +14,7 @@
             </actions>
         </install>
         <readme>
-this is installer for SNAP version 2006-07-28
+this is installer for SNAP version 2013-11-29
 
         </readme>
     </package>

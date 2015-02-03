@@ -111,7 +111,7 @@ genewise is a dependency for CEGMA
     <package name="ncbiblast" version="2.2.29">
         <install version="1.0">
             <actions>
-                <action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
+                <action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
                 <!-- <action type="move_file">
                     <source>../ncbi-blast-2.2.29+</source>
                     <destination>$INSTALL_DIR</destination>

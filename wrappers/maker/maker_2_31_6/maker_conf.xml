@@ -5,9 +5,9 @@
                 <!-- <requirement type="set_environment">PATH</requirement> -->
                 <requirement type="package" version="2.31.6">maker</requirement>
 		<requirement type="package" version="3.0.2">augustus</requirement>
-		<requirement type="package" version="2006-07-28">snap</requirement>
+		<requirement type="package" version="2013-11-29">snap</requirement>
 		<requirement type="package" version="2.2.28">rmblast</requirement>
-		<requirement type="package" version="4.0.5">repeatmasker</requirement>
+		<requirement type="package" version="4.0.3">repeatmasker</requirement>
 		<requirement type="package" version="2.2.0">exonerate</requirement>
         </requirements>
 

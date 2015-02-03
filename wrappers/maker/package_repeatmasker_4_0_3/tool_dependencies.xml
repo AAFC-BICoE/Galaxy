@@ -2,10 +2,10 @@
 <tool_dependency>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="liuyue" prior_installation_required="True" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="dc60e6bcf006" toolshed="http://onottar669810x:9009"/>
     </package>
 
-    <package name="repeatmasker" version="4.0.5">
+    <package name="repeatmasker" version="4.0.3">
         <install version="1.0">
             <actions>
                 <action type="download_by_url" >http://tandem.bu.edu/trf/downloads/trf404.linux64</action>
@@ -14,7 +14,7 @@
 		</action> --> <!--this doesn't work, cause crash-->
 		<action type="shell_command">chmod a+x trf404.linux64</action> 
 		<action type="set_environment_for_install">
-			<repository name="package_rmblast_2_2_28" owner="liuyue" changeset_revision="e1bd654373b8" toolshed="http://onotta669816x:9009">
+			<repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="dc60e6bcf006" toolshed="http://onottar669810x:9009">
 				<package name="rmblast" version="2.2.28" />
 			</repository>
 		</action>

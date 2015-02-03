@@ -1,7 +1,7 @@
 <tool id="snap" name="SNAP" version="1.0">
   <description>Semi-HMM-based Nucleic Acid Parser</description>
   <requirements>
-    <requirement type="package" version="2006-07-28">snap</requirement>
+    <requirement type="package" version="2013-11-29">snap</requirement>
   </requirements>
   <command>    snap
 		$plus $minus

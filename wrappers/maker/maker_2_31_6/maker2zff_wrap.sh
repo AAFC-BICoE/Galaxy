@@ -5,7 +5,7 @@ shift;
 output_dna=$1;
 shift;
 
-maker $@;
+maker2zff $@;
 
 cat genome.ann > $output_ann;
 cat genome.dna > $output_dna;

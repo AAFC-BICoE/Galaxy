@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <tool_dependency>
     <package name="cegma" version="2.5">
-        <repository name="package_cegma_2_5" owner="liuyue" prior_installation_required="True" changeset_revision="0f837f72b321" toolshed="http://onotta669816x:9009"/>
+        <repository name="cegma_2_5" owner="galaxyuser" prior_installation_required="True" changeset_revision="b09d58d3ebe9" toolshed="http://onottar669810x:9009"/>
     </package>
-    <package name="snap" version="2006-07-28">
-        <repository name="package_snap_2006_07_28" owner="liuyue" prior_installation_required="True" changeset_revision="e0729ff4910c" toolshed="http://onotta669816x:9009"/>
+    <package name="snap" version="2013-11-29">
+        <repository name="snap_2013_11_29" owner="galaxyuser" prior_installation_required="True" changeset_revision="dfe2b78a0e58" toolshed="http://onottar669810x:9009"/>
     </package>
     <package name="augustus" version="3.0.2">
-        <repository name="package_augustus_3_0_2" owner="liuyue" prior_installation_required="True" changeset_revision="cb5a5f95cb05" toolshed="http://onotta669816x:9009"/>
+        <repository name="augustus_3_0_2" owner="galaxyuser" prior_installation_required="True" changeset_revision="671200f137bf" toolshed="http://onottar669810x:9009"/>
     </package> 
     <!-- <package name="genemark" version="2.3e">
         <repository name="genemark" owner="liuyue" prior_installation_required="True" toolshed="http://onotta669816x:9009"/>
     </package> -->
     <package name="maker" version="2.31.6">
-        <repository name="package_maker_2_10" owner="liuyue" prior_installation_required="True" changeset_revision="9b9814c036a2" toolshed="http://onotta669816x:9009"/>
+        <repository name="maker_2_31_6" owner="galaxyuser" prior_installation_required="True" changeset_revision="64d7c39c0a3b" toolshed="http://onottar669810x:9009"/>
     </package> 
 </tool_dependency>
 

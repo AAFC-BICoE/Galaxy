@@ -1,7 +1,7 @@
 <tool id="snaptrain" name="SNAP Training" version="1.0">
   <description>Training program for SNAP</description>
   <requirements>
-    <requirement type="package" version="2006-07-28">snap</requirement>
+    <requirement type="package" version="2013-11-29">snap</requirement>
   </requirements>
   <command>    
 

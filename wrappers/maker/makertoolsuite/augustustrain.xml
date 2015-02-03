@@ -5,31 +5,7 @@
     <requirement type="package" version="2.31.6">maker</requirement>
   </requirements>
   <command interpreter="bash">  
-		<!-- set aug path and aug config path correctly, assume cwd at begining contain root folder of maker -->
-		mkdir trainaugtmp; cd trainaugtmp;
-
-		#if $source.__str__ == 'maker':
-		<!-- perl makerOutputTruncate.pl $gff trimmed.gff;
-		perl makergff2augustus.pl trimmed.gff > augustus.gff;   these steps are no longer needed since we are converting to gb first -->
-		maker2zff $gff ;
-		#else
-		<!-- perl cegma2gff.pl $gff > augustus.gff ; -->
-		cegma2zff $gff $genome;
-		#end if
-
-		<!-- simplifyFastaHeaders.pl $genome namestem simplified.fa header.map; -->
-		perl gff2gbSmallDNA.pl $gff genome.dna 1000 genes.gb;
-		perl autoAugTrain.pl --trainingset=genes.gb --species=${species};
-		RESULT=${?};
-		cd ..; rm -R trainaugtmp;
-		
-		if [ ${RESULT} -eq 0 ]; then
-		echo "Training for ${species} finished successfully" > $out; true;
-		else
-		echo "Training for ${species} failed" > $out; false;
-		fi
-
-
+		augustustrain_run.sh $source.__str__ $gff $species $genome $out
         </command>
 	<inputs>
 		<param name="source" type="select" label="Source" help="Source of training gff file">
@@ -45,6 +21,9 @@
      	   <data format="txt" name="out"> </data>
 	</outputs>
 
+	<stdio>
+                <exit_code range="1:"   level="fatal"   description="Refer to output for error." />
+        </stdio>
 <!--  need tests  -->
 
 	<help>

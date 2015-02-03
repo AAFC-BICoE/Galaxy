@@ -3,7 +3,7 @@
     <package name="rmblast" version="2.2.28">
         <install version="1.0">
             <actions>
-		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
+		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
 		<action type="shell_command">echo "blast";ls</action>
                 <action type="change_directory">..</action>
 		<!--<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-2.2.28-x64-linux.tar.gz</action> apparently this time it will not auto cd in ?-->
