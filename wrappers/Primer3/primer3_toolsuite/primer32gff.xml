@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<tool id="primer32gff" name="Primer3 to gff" version="1.0">
+	<requirements>
+		<requirement type="package" version="2.3.6">primer3</requirement>
+		<requirement type="binary">primer3_core</requirement>
+	</requirements>
+	<description>Identification and localization of perfect microsatellites
+		as well as compound microsatellites</description>
+	<command interpreter="perl">
+		primer32gff.pl --output $output --input $p3_out
+	</command>
+	<inputs>
+		<param format="txt" name="p3_out" type="data" label="Primer3 Output File"
+			help="A text file with Primer3-specific instructions. See http://primer3.sourceforge.net/primer3_manual.htm" />
+	</inputs>
+	<outputs>
+		<data format="txt" name="output"/>
+	</outputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error" />
+	</stdio>
+	<help>
+**Tool Information**
+
+Primer3 to GFF mini-pipeline
+	
+**Author**
+
+Primer3:
+	Steve Rozen, Andreas
+	Untergasser, Maido Remm, Triinu Koressaar, and Helen Skaletsky.
+	Whitehead Institute for Biomedical Research
+	URL: http://bioinfo.ut.ee/primer3/primer3web_help.htm#
+
+Primer3 to GFF mini-pipeline:
+	Iyad Kandalaft
+	iyad.kandalaft@agr.gc.ca;
+	Agriculture and Agri-foods Canada
+	Ottawa, ON, Canada
+
+Primer3 to GFF mini-pipeline Galaxy Wrapper:
+	Yuxuan Chen
+	yuxuan.chen@agr.gc.ca;
+	Agriculture and Agri-foods Canada
+	Ottawa, ON, Canada
+
+**Description**
+
+Takes Primer3's output file and converts it to GFF3 format. Limits the number of primers generated per target (default 5).
+
+**Inputs and Outputs**
+
+- Input - Primer3 output file
+
+- Output - Produces a GFF3 format text output
+
+	</help>
+</tool>
