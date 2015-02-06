@@ -6,6 +6,7 @@
                 <!-- install perl -->
                 <action type="download_by_url">http://www.cpan.org/src/5.0/perl-5.18.1.tar.gz</action>
                 <action type="shell_command">./Configure -des -Dprefix=$INSTALL_DIR</action>
+                <action type="make" />
                 <action type="make_install" />
                 <action type="change_directory">..</action>
                 <action type="download_file">http://www.cpan.org/authors/id/A/AP/APEIRON/local-lib-1.008009.tar.gz</action>
