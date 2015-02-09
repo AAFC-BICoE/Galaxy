@@ -6,8 +6,12 @@
                 <!-- install perl -->
                 <action type="download_by_url">http://www.cpan.org/src/5.0/perl-5.18.1.tar.gz</action>
                 <action type="shell_command">./Configure -des -Dprefix=$INSTALL_DIR</action>
-                <action type="make" />
-                <action type="make_install" />
+                <action type="shell_command">make || true</action>
+                <action type="shell_command">make clean</action>
+                <action type="shell_command">make</action>
+                <!-- <action type="shell_command">make test</action> -->
+                <action type="shell_command">make install</action>
+                <!-- <action type="make_install" /> -->
                 <action type="change_directory">..</action>
                 <action type="download_file">http://www.cpan.org/authors/id/A/AP/APEIRON/local-lib-1.008009.tar.gz</action>
                 <action type="shell_command">tar xfvz local-lib-1.008009.tar.gz</action>
@@ -21,7 +25,7 @@
                 <action type="change_directory">..</action>
                 <action type="download_file">https://raw.github.com/miyagawa/cpanminus/c0c88f71118ecec334d62ba280e883933e7a6d39/cpanm</action>
                 <!-- prepanding means that the new install perl binary will be used after the pipe -->
-                <action type="shell_command">export PERL5LIB=$INSTALL_DIR/lib/perl5/:$PERL5LIB ; export PATH=$INSTALL_DIR/bin/:$PATH ; cat cpanm | perl - App::cpanminus</action>
+                <action type="shell_command">export PERL5LIB=$INSTALL_DIR/lib/perl5/:$PERL5LIB ; export PATH=$INSTALL_DIR/bin/:$PATH ; export HOME=$INSTALL_DIR; cat cpanm | perl - App::cpanminus</action>
 
                 <!--
                 <action type="chmod">
