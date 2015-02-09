@@ -2,11 +2,14 @@
 <tool id="misa_primer3input_converter" name="MISA to Primer3 Input Converter" version="1.0">
 	<description>Identification and localization of perfect microsatellites	as well as compound microsatellites</description>
 	<command interpreter="perl">
-		p3_in.pl --misa-file $input_misa --fasta-file $input_fasta --primer3-file $output_primer3
+		p3_in.pl --misa-file $input_misa --fasta-file $input_fasta --primer3-file $output_primer3 --target-multiplier $target_multiplier
 	</command>
 	<inputs>
 		<param format="tabular" name="input_misa" type="data" label="MISA's Output File" help="Select the tab separated file that misa generates." />
 		<param format="fasta" name="input_fasta" type="data" label="Fasta File Provided to MISA " help="Select the Fasta file you provided to MISA." />
+		<param name="target_multiplier" type="integer" value="10"
+			label="Target multiplier"
+			help="Number of primers per target this tool should attempt to return" />
 	</inputs>
 	<outputs>
 		<data format="txt" name="output_primer3" label="${tool.name} on ${on_string}: Primer3 input" />

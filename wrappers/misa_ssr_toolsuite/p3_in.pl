@@ -19,7 +19,7 @@ Creates a PRIMER3 input file based on SSR search results
 
 =head1 OPTIONS
 
-=head2 REQUIRED ARGUEMENTS
+=head2 REQUIRED ARGUMENTS
 
 =over
 
@@ -45,6 +45,15 @@ The maximum number of bases between two SSRs to consider them as one compound mi
 
 =back
 
+=head2 OPTIONAL ARGUMENTS
+
+=over
+
+=item --target-multiplier | -t		<Target multiplier>
+
+=back
+
+Number of primers this tool should attempt to design for each target
 =cut
 
 use warnings;
@@ -66,6 +75,7 @@ sub parse_options {
 		"misa-file|m=s",
 		"fasta-file|f=s",
 		"primer3-file|p=s",
+		"target-multiplier|t=s",
 		"help|h|?!" => \$help
 	) or pod2usage( {
 		-message => "Invalid arguements",
@@ -88,6 +98,7 @@ sub parse_options {
 my $misa_file = $options{'misa-file'};
 my $fasta_file = $options{'fasta-file'};
 my $output_file = $options{'primer3-file'};
+my $target_multiplier = $options{'target-multiplier'};
 
 open (IN,"<$misa_file") || die ( "\nError: Couldn't open misa file " . $misa_file . " !\n" );
 open (SRC,"<$fasta_file") || die ( "\nError: Couldn't open source file containing original FASTA sequences " . $fasta_file . " !\n" );
@@ -106,7 +117,6 @@ $/= ">";
 
 my $offset_start = 3;
 my $offset_end = 3;
-my $target_multiplier = 10;
 
 my $count = 0;
 
