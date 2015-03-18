@@ -69,6 +69,12 @@
      	   <data format="tabular" name="comrep" label="CEGMA completeness report on ${on_string}"/>
 	</outputs>
 
+	<stdio>
+		<regex match="Use of uninitialized value in division" source="stderr" level="warning" 
+		       description="Use of uninitialized division, should still work."/>
+		<regex match="ERROR" source="stderr" level="fatal" />
+	</stdio>
+
 	<tests>
 	
 	<test>

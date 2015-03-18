@@ -65,7 +65,7 @@ Geneid is a dependency for CEGMA
                 </action> -->
                 <action type="shell_command">mv aclocal.m4 config* binaries easel include lib libdivsufsort profmark share $INSTALL_DIR</action>
                 <action type="set_environment">
-                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/binaries</environment_variable>
                 </action>
             </actions>
         </install>
@@ -94,7 +94,7 @@ hmmer is a dependency for CEGMA
                 </action> -->
                 <action type="shell_command">mv * $INSTALL_DIR</action>
                 <action type="set_environment">
-                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/src/bin</environment_variable>
                 </action>
                 <action type="set_environment">
                     <environment_variable name="WISECONFIGDIR" action="set_to">$INSTALL_DIR/wisecfg</environment_variable>

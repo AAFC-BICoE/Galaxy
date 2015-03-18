@@ -1,28 +1,27 @@
 <?xml version="1.0"?>
 <tool_dependency>
     <package name="perl" version="5.18.1">
-        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="ac10b176f772" toolshed="http://onottar669810x:9009"/>
+        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="0563bbbefdf5" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="augustus" version="3.0.2">
-        <repository name="augustus_3_0_2" owner="galaxyuser" prior_installation_required="True" changeset_revision="671200f137bf" toolshed="http://onottar669810x:9009"/>
-    </package> 
+        <repository name="augustus_3_0_2" owner="galaxyuser" prior_installation_required="True" changeset_revision="0888d66ae79f" toolshed="http://localhost:9009"/>
+    </package>
 
     <package name="snap" version="2013-11-29">
-        <repository name="snap_2013_11_29" owner="galaxyuser" prior_installation_required="True" changeset_revision="dfe2b78a0e58" toolshed="http://onottar669810x:9009"/>
+        <repository name="snap_2013_11_29" owner="galaxyuser" prior_installation_required="True" changeset_revision="6e3fb48ddda2" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="dc60e6bcf006" toolshed="http://onottar669810x:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="c25918850e04" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="repeatmasker" version="4.0.3">
-        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" 
-			changeset_revision="ef8b544ea639" toolshed="http://onottar669810x:9009"/>
+        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="524197675eea" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="exonerate" version="2.2.0">
-        <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="492a9bd974ed" toolshed="http://onottar669810x:9009"/>
+        <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="acb0c73acb20" toolshed="http://localhost:9009"/>
     </package>
 
 
@@ -32,32 +31,32 @@
 		<!-- download must be the first action, otherwise the file disappears after downloading OR it downloads and decompress but don't cd into it-->
                 <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/maker_downloads/F7BF/36D9/5A75/F93993D356C3396F722AD07D8B52/maker-2.31.6.tgz</action>
 		<action type="set_environment_for_install">
-			<repository name="snap_2013_11_29" owner="galaxyuser" changeset_revision="dfe2b78a0e58" toolshed="http://onottar669810x:9009">
-				<package name="snap" version="2006-07-28" />
+			<repository name="snap_2013_11_29" owner="galaxyuser" changeset_revision="6e3fb48ddda2" toolshed="http://localhost:9009">
+				<package name="snap" version="2013-11-29" />
 			</repository>
 		</action>
 		<action type="set_environment_for_install">
-			<repository name="augustus_3_0_2" owner="galaxyuser" changeset_revision="671200f137bf" toolshed="http://onottar669810x:9009">
+			<repository name="augustus_3_0_2" owner="galaxyuser" changeset_revision="0888d66ae79f" toolshed="http://localhost:9009">
 				<package name="augustus" version="3.0.2" />
 			</repository>
-		</action>
+		</action> 
 		<action type="set_environment_for_install">
-			<repository name="package_repeatmasker_4_0_5" owner="galaxyuser" changeset_revision="ef8b544ea639" toolshed="http://onottar669810x:9009">
-				<package name="repeatmasker" version="4.0.5" />
+			<repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="524197675eea" toolshed="http://localhost:9009">
+				<package name="repeatmasker" version="4.0.3" />
 			</repository>
 		</action>
 		<action type="set_environment_for_install">
-		   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="ac10b176f772" toolshed="http://onottar669810x:9009">
+		   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="0563bbbefdf5" toolshed="http://localhost:9009">
 			<package name="perl" version="5.18.1" />
 		   </repository>
 		</action>
 		<action type="set_environment_for_install">
-		   <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="dc60e6bcf006" toolshed="http://onottar669810x:9009">
+		   <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="c25918850e04" toolshed="http://localhost:9009">
 			<package name="rmblast" version="2.2.28" />
 		   </repository>
 		</action>
 		<action type="set_environment_for_install">
-		   <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="492a9bd974ed" toolshed="http://onottar669810x:9009">
+		   <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="acb0c73acb20" toolshed="http://localhost:9009">
 			<package name="exonerate" version="2.2.0" />
 		   </repository>
 		</action>
@@ -98,6 +97,7 @@
 			<source_directory>.</source_directory>
 			<destination_directory>$INSTALL_DIR</destination_directory>
 		</action>
+		<action type="shell_command">cpanm Text::Soundex</action>
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
                 </action>
