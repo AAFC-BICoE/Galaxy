@@ -1,0 +1,9 @@
+<suite id='velvet_toolsuite' name='Suite of Velvet assembler tools' version="1.0.0">
+	<description>Velvet assembler (a different version than in galaxy-central)</description>
+	<tool id="velveth_jgi" name="velveth" version="1.0.0">
+		<description>Hash reads</description>
+	</tool>
+	<tool id="velvetg_jgi" name="velvetg" version="1.0.0">
+		<description>Generate contigs</description>
+	</tool>
+</suite>

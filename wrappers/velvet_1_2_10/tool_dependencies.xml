@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="velvet" version="1.2.10">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url">https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=31' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg31</action>
+				<action type="shell_command">mv velveth velveth31</action>
+				<action type="shell_command">mv velvetg31 velveth31 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=63' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg63</action>
+				<action type="shell_command">mv velveth velveth63</action>
+				<action type="shell_command">mv velvetg63 velveth63 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=127' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg127</action>
+				<action type="shell_command">mv velveth velveth127</action>
+				<action type="shell_command">mv velvetg127 velveth127 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=145' 'CATEGORIES=5' </action>				
+				<action type="shell_command">mv velvetg velvetg145</action>
+				<action type="shell_command">mv velveth velveth145</action>
+				<action type="shell_command">mv velvetg145 velveth145 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=195' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg195</action>
+				<action type="shell_command">mv velveth velveth195</action>
+				<action type="shell_command">mv velvetg195 velveth195 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=245' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg245</action>
+				<action type="shell_command">mv velveth velveth245</action>
+				<action type="shell_command">mv velvetg245 velveth245 $INSTALL_DIR</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+				</action>
+			</actions>
+		</install>
+	<readme>
+		this is installer for velvet
+	</readme>
+	</package>
+</tool_dependency>

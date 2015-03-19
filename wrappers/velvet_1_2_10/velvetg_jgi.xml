@@ -1,0 +1,137 @@
+<tool id="velvetg_jgi" name="velvetg" version="1.0.0">
+<description>Assemble preprocessed reads</description>
+<requirements>
+  <requirement type="package" version="1.2.10">velvet</requirement>
+</requirements>
+<command interpreter='perl'>velvetg_jgi_wrapper.pl
+$velveth.extra_files_path
+$velvetg_outfile.extra_files_path
+$velvetg_outfile
+$contigs_outfile
+$stats_outfile
+$lastgraph_outfile
+$unused_reads_outfile
+$amos_outfile
+velvetg $velvetg_outfile.extra_files_path
+-very_clean yes
+#if $ins_length != '':
+-ins_length $ins_length
+    #if $ins_length_sd != '':
+    -ins_length_sd $ins_length_sd
+    #end if
+#end if
+#if $ins_length2 != '':
+-ins_length2 $ins_length2
+    #if $ins_length2_sd != '':
+    -ins_length2_sd $ins_length2_sd
+    #end if
+#end if
+#if $ins_length3 != '':
+-ins_length3 $ins_length3
+    #if $ins_length3_sd != '':
+    -ins_length3_sd $ins_length3_sd
+    #end if
+#end if
+#if $ins_length4 != '':
+-ins_length4 $ins_length4
+    #if $ins_length4_sd != '':
+    -ins_length4_sd $ins_length4_sd
+    #end if
+#end if
+#if $ins_length5 != '':
+-ins_length5 $ins_length5
+    #if $ins_length5_sd != '':
+    -ins_length5_sd $ins_length5_sd
+    #end if
+#end if
+#if $ins_length_long != '':
+-ins_length_long $ins_length_long
+    #if $ins_length_long_sd != '':
+    -ins_length_long_sd $ins_length_long_sd
+    #end if
+#end if
+-exp_cov $exp_cov
+-cov_cutoff $cov_cutoff
+-long_cov_cutoff $long_cov_cutoff
+-max_coverage $max_coverage
+-min_contig_lgth $min_contig_lgth
+-read_trkg $read_trkg
+-amos_file $amos_file
+-unused_reads $unused_reads
+-max_branch_length $max_branch_length
+-max_divergence $max_divergence
+-max_gap_count $max_gap_count
+-scaffolding $scaffolding
+-long_mult_cutoff $long_mult_cutoff
+-min_pair_count $min_pair_count
+-alignments $alignments
+-exportFiltered $exportFiltered
+</command>
+<inputs>
+    <param name="velveth" type="data" format="velveth" label="velvet hash"/>
+
+    <param name="ins_length" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length_sd" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+    <param name="ins_length2" type="text" value='auto' label="[ins_length2] Insert length (bp) of short2 library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length2_sd" type="text" value='auto' label="[-ins_length2_sd] Insert length standard deviation (bp) of short2 library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+    <param name="ins_length3" type="text" value='auto' label="[ins_length3] Insert length (bp) of short3 library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length3_sd" type="text" value='auto' label="[-ins_length3_sd] Insert length standard deviation (bp) of short3 library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+    <param name="ins_length4" type="text" value='auto' label="[ins_length4] Insert length (bp) of short4 library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length4_sd" type="text" value='auto' label="[-ins_length4_sd] Insert length standard deviation (bp) of short4 library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+    <param name="ins_length5" type="text" value='auto' label="[ins_length5] Insert length (bp) of short5 library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length5_sd" type="text" value='auto' label="[-ins_length5_sd] Insert length standard deviation (bp) of short5 library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+    <param name="ins_length_long" type="text" value='auto' label="[ins_length_long] Insert length (bp) of long library" help="blank=no read pairing; auto=infer; or supply value (integer)" />
+    <param name="ins_length_long_sd" type="text" value='auto' label="[-ins_length_sd_long] Insert length standard deviation (bp) of long library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer)" />
+
+    <param name='exp_cov' type='text' value='-1' label='[-exp_cov] Expected short read k-mer coverage' help='-1=no long or paired-end read resolution; auto=infer it; or supply value (real number)' />
+    <param name="cov_cutoff" type="text" value='-1' label="[-cov_cutoff] Removal of low coverage nodes AFTER tour bus" help="-1=no removal; auto=infer cutoff; or specify cutoff (real number)" />
+    <param name="long_cov_cutoff" type="float" value='-1' label="[-long_cov_cutoff] Removal of low long-read coverage nodes AFTER tour bus" help="-1=no removal; or specify cutoff (real number)" />
+    <param name='max_coverage' type='float' value='-1' label="[-max_coverage] Exclude highly covered data from your assembly (e.g. plasmid, mitochondrial, and chloroplast sequences)" help='-1 for default: no removal' />
+    <param name="min_contig_lgth" type="integer" value='-1' label="Minimum contig length" help="-1 for default: hash length *2" />
+    <param name="scaffolding" type="boolean" checked='true' label="Scaffolding" truevalue='yes' falsevalue='no'/>
+
+    <!-- Tour Bus Parameters -->
+    <param name="max_branch_length" type="integer" value='100' label="Maximum branch length" help="Default recommended"/>
+    <param name="max_divergence" type="float" value='0.20' label="Maximum divergence rate" help="Default recommended"/>
+    <param name="max_gap_count" type="integer" value='3' label="Maximum gap count" help="Default recommended"/>
+
+    <!-- Rock Band Parameters -->
+    <param name='long_mult_cutoff' type="integer" value='2' label="Minimum long read connection cutoff"/> 
+
+    <!-- Pebble Parameters -->
+    <param name="min_pair_count" type="integer" value='10' label="Minimum Read-Pair Validation"/>
+
+    <!-- Output Parameters -->
+    <param name='unused_reads' type='boolean' truevalue='yes' falsevalue='no' checked='true' label='Export unused reads' />
+    <param name='read_trkg' type='boolean' truevalue='yes' falsevalue='no' checked='false' label="[-read_trkg] tracking of short read positions in assembly" help="This will cost slightly more memory and calculation time, but will have the advantage of producing in the end a more detailed description of the assembly.  The additional information will be included in the LastGraph file and optionally the Amos assembly file (below)." />
+    <param name='amos_file' type='boolean' truevalue='yes' falsevalue='no' checked='false' label="[-amos_file] export assembly to AMOS file" help="If selecting this option, you may also want to select -read_trkg (above)" />
+    <param name="alignments" type="boolean" truevalue="yes" falsevalue="no" checked="false" label="[-alignments] export a summary of contig alignment to the reference sequences" />
+    <param name="exportFiltered" type="boolean" truevalue="yes" falsevalue="no" checked="false" label="[-exportFiltered] export the long nodes which were eliminated by the coverage filters" />
+</inputs>
+
+<outputs>
+    <data name="velvetg_outfile" format="txt" />
+    <data name="contigs_outfile" format="fasta" label='Contigs' />
+    <data name="stats_outfile" format="tabular" label='Contig Stats' />
+    <data name="lastgraph_outfile" format="txt" label="LastGraph" />
+    <data name='unused_reads_outfile' format='fasta' label='Unused Reads'>
+        <filter>unused_reads is True</filter>
+    </data>
+    <data name='amos_outfile' format='txt' label='Amos Assembly'>
+        <filter>amos_file is True</filter>
+    </data>
+</outputs>
+
+<help>
+
+**What it does**
+
+This tool assembles contigous sequences from preprocessed reads by constructing a de Bruijn graph.
+
+Sequences must be preprocessed by the velveth tool.
+
+**Manual**
+
+http://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf
+</help>
+</tool>
