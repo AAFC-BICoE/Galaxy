@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="push_seqdb_its_feat" version="1.0">
+        <install version="1.0">
+            <actions>
+                <action type="setup_virtualenv">
+                    requests
+                </action>
+
+                <action type="set_environment">
+                        <environment_variable name="SEQDBPUSHDEPDIR" action="set_to">$INSTALL_DIR</environment_variable>
+                </action>
+
+                <action type="download_file" target_filename="push_seqdb_its_feat.py">
+                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/b560e88a8ac11324e298dc9b312f7b92f15e6171/tools/push_seqdb_its_feat.py
+                </action>
+                
+                <action type="make_directory">api</action>
+                <action type="change_directory">api</action>
+                <action type="shell_command">touch __init__.py</action>
+                <action type="download_file" target_filename="seqdbWebService.py">
+                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/b560e88a8ac11324e298dc9b312f7b92f15e6171/api/seqdbWebService.py
+                </action>
+
+            </actions>
+        </install>
+        <readme>
+            This tool (push_seqdb_its_feat.py) is located at the bitbucket repo. In order not to duplicate the code, it is installed as its own dependency.
+            
+            This copies the script, together with its python dependencies from bitbucket repo at install time, as well as creates a virtual environment for the python execution and installs required python modules.
+            
+            We create an envirnment variable pointing to the install directory of this dependency, so that we can use it to setup the script execution in tool definition. This is done because by default the script is expected to be in the tool shed repo, whilie this dependency is downloaded to the galaxy tool dependency repo.
+            
+        </readme>
+    </package>
+</tool_dependency>
+
