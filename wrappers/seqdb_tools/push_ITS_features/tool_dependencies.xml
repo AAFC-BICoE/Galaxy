@@ -12,14 +12,14 @@
                 </action>
 
                 <action type="download_file" target_filename="push_seqdb_its_feat.py">
-                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/b560e88a8ac11324e298dc9b312f7b92f15e6171/tools/push_seqdb_its_feat.py
+                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/4644c8ba08bed9ab2a4cd017c392840f1bc4f0e5/tools/push_seqdb_its_feat.py
                 </action>
                 
                 <action type="make_directory">api</action>
                 <action type="change_directory">api</action>
                 <action type="shell_command">touch __init__.py</action>
                 <action type="download_file" target_filename="seqdbWebService.py">
-                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/b560e88a8ac11324e298dc9b312f7b92f15e6171/api/seqdbWebService.py
+                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/4644c8ba08bed9ab2a4cd017c392840f1bc4f0e5/api/seqdbWebService.py
                 </action>
 
             </actions>

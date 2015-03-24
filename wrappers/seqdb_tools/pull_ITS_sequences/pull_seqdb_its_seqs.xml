@@ -55,7 +55,6 @@
       No, and you don't need to go to Sequence Database each time either. Just save the key, once it is generated, and re-use it for the next run(s). 
       Note: you will only need to get the api key again if it was re-generated in Sequence Database.
       
-      
   </help>
 
 </tool>
