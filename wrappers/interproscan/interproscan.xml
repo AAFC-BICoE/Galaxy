@@ -1,20 +1,16 @@
-<tool id="interproscan" name="Interproscan 5"  version="5.0.0">
+<tool id="interproscan" name="Interproscan"  version="1.0">
     <description>Interproscan functional predictions of ORFs</description>
     <requirements>
-        <requirement type="package">signalp</requirement>
-        <requirement type="package">phobius</requirement>
-        <requirement type="package">tmhmm</requirement>
-        <requirement type="set_environment">INTERPROSCAN_SCRIPT_PATH</requirement>
+	<requirement type="package" version="5.8-49.0">interproscan</requirement>
     </requirements>
     <command interpreter="bash">
 
         #import os
-        interproscan_run.sh
+        interproscan.sh
             --input $infile
             --seqtype $seqtype
             -f $oformat
             --applications $appl
-            ##--tempdir \$TEMP
 
         $pathways
         $goterms
