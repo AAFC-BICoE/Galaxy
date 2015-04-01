@@ -70,35 +70,6 @@
 		   </repository>
 		</action>
 
-		<!--<action type="shell_command">wget http://backpan.perl.org/authors/id/T/TI/TIMB/DBI-1.57.tar.gz</action>
-		<action type="shell_command">tar -xvzf DBI-1.57.tar.gz</action>
-		<action type="change_directory">DBI-1.57</action>
-		<action type="shell_command">ls</action>
-		<action type="shell_command">perl Makefile.PL; make; make test</action>
-		<action type="change_directory">..</action>-->
-
-                <!--<action type="shell_command">echo "checking perl requirements"</action> 
-                <action type="shell_command">perldoc perllocal</action>   cpan -l -->
-
-		<!--<action type="setup_perl_environment">
-		   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="ffeb7bc77ca9" toolshed="http://onottar669810x:9009">
-			<package name="perl" version="5.18.1" />
-		   </repository>
-			<package>DBI</package>
-			<package>LWP::Simple</package>
-			<package>Bio::Root::Version</package>
-			<package>Bit::Vector</package>
-			<package>DBD::SQLite</package>
-			<package>IO::All</package>
-			<package>Inline::C</package>
-			<package>Perl::Unsafe::Signals</package>
-			<package>Want</package>
-			<package>forks</package>
-			<package>forks::shared</package>
-		</action>-->
-
-
-
                 <action type="shell_command">echo "n" | perl ./src/Build.PL</action> 
 		<action type="shell_command">echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> 
                 <action type="shell_command">./src/Build install</action>
