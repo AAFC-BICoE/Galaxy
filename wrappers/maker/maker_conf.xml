@@ -12,7 +12,10 @@
         </requirements>
 
 	<command interpreter="bash">
-	maker_conf.sh $maker_opts $maker_bopts $opts $bopts $exe
+        maker -CTL;
+        cat $maker_opts > $opts;
+        cat $maker_bopts > $bopts;
+        cat maker_exe.ctl > $exe
 	</command>
 
 	<inputs>
