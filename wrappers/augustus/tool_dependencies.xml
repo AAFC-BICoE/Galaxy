@@ -15,7 +15,42 @@
             </actions>
         </install>
         <readme>
-this is installer for augustus 3.0.2
+===============================
+Augustus Tool Dependencies File
+===============================
+
+This file automatically installs Augustus.
+
+=======
+Authors
+=======
+
+Original authors for Augustus:
+University of Göttingen - Faculty of Biology - Institute of Microbiology and Genetics - Department of Bioinformatics
+
+Galaxy port authors for Augustus: 
+AAFC-MBB Group
+
+Augustus wrapper based on original by B. Gruening.
+
+=============
+Tool Wrappers
+=============
+
+Augustus:
+
+Runs Augustus gene predictor. Suggested to first run the tool Train Augustus from the Maker repository. 
+Enter the name for the trained species. Select the genome, direction of sttrands read, and gene model.
+check various boxes for advanced options.
+Outputs a GFF file with the gene predictions.
+
+========
+Citation
+========
+
+The link below contains the references for citations in scientific works:
+
+http://augustus.gobics.de/references
 
         </readme>
     </package>

@@ -20,12 +20,91 @@
 		<action type="shell_command">sed -i "s,http://www.ebi.ac.uk/interpro/match-lookup,http://10.128.124.251:8000/," $INSTALL_DIR/interproscan.properties</action>
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
-                    <environment_variable name="INTERPROSCAN_SCRIPT_PATH" action="set_to">$REPOSITORY_INSTALL_DIR</environment_variable>
                 </action>
             </actions>
         </install>
         <readme>
-Installer for InterProScan 5.8-49.0 (64-bit distribution)
+===================================
+Interproscan Tool Dependencies File
+===================================
+
+This file automatically installs Interproscan and most of its dependencies.
+Interproscan requires Java 6.0 or higher to run. Additional perl modules may also need to be installed.
+
+=======
+Authors
+=======
+
+Original authors for Interproscan: Rob Finn, Gift Nuka, Maxim Scheremetjew, Matthew Fraser
+EMBL-EDI Interpro Service Team
+
+Tool wrapper based on original by Bjoern Gruening, Konrad Paszkiewicz
+Tool dependency created and tool wrapper modified by AAFC-MBB Group
+
+=============
+Tool Wrappers
+=============
+
+Interproscan:
+
+
+Creates detailed annotations for proteins found in genomes.
+Select the protein FASTA file to annotate. Select the type of fasta file used for input (amino acids/  nucleic acids). Check the applications to run for annotating. Check whether or not pathway information, include gene ontology mappings, and provide additional mappings. Select the output format. Currently only GFF3 and XML outputs are valid.
+
+Applications available to run: 
+* TIGRFAM: protein families based on Hidden Markov Models or HMMs
+* PIRSF: non-overlapping clustering of UniProtKB sequences into a hierarchical order (evolutionary relationships)
+* ProDom: set of protein domain families generated from the UniProtKB
+* Panther: Protein ANalysis THrough Evolutionary Relationships
+* SMART: identification and analysis of domain architectures based on Hidden Markov Models or HMMs
+* PROSITE Profiles: protein domains, families and functional sites as well as associated profiles to identify them
+* PROSITE Pattern: protein domains, families and functional sites as well as associated patterns to identify them
+* HAMAP: High-quality Automated Annotation of Microbial Proteomes
+* PfamA: protein families, each represented by multiple sequence alignments and hidden Markov models
+* PRINTS: group of conserved motifs (fingerprints) used to characterise a protein family
+* SUPERFAMILY: database of structural and functional annotation
+* Coils: Prediction of Coiled Coil Regions in Proteins
+* Gene3d: Structural assignment for whole genes and genomes using the CATH domain structure database
+
+Applications not available in current installation:
+* SignalP Gram Positive Bacteria
+* SignalP Gram Negative Bacteria
+* SignalP Eukaryotic Bacteria
+* Phobius: combined transmembrane topology and signal peptide predictor
+* TMHMM: Prediction of transmembrane helices in proteins
+
+Output is the annotations for the proteins in the selected file format.
+
+========
+Citation
+========
+
+To cite InterProScan, please refer to:
+
+Philip Jones, David Binns, Hsin-Yu Chang, Matthew Fraser, Weizhong Li, Craig McAnulla, Hamish McWilliam, John Maslen, Alex Mitchell, Gift Nuka, Sebastien Pesseat, Antony F. Quinn, Amaia Sangrador-Vegas, Maxim Scheremetjew, Siew-Yit Yong, Rodrigo Lopez, and Sarah Hunter (2014). InterProScan 5: genome-scale protein function classification. Bioinformatics, Jan 2014; doi:10.1093/bioinformatics/btu031
+
+=============
+Licence (MIT)
+=============
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
         </readme>
     </package>
 

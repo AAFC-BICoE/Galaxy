@@ -51,7 +51,7 @@
                 <option value="PfamA" selected="true">PfamA: protein families, each represented by multiple sequence alignments and hidden Markov models</option>
                 <option value="PRINTS" selected="true">PRINTS: group of conserved motifs (fingerprints) used to characterise a protein family</option>
                 <option value="SuperFamily" selected="true">SUPERFAMILY: database of structural and functional annotation</option>
-                <option value="Coils" selected="false">Coils: Prediction of Coiled Coil Regions in Proteins</option>
+                <option value="Coils" selected="true">Coils: Prediction of Coiled Coil Regions in Proteins</option>
                 <option value="Gene3d" selected="true">Gene3d: Structural assignment for whole genes and genomes using the CATH domain structure database</option>
                 <option value="SignalP-GRAM_POSITIVE" selected="false">SignalP Gram Positive Bacteria</option>
                 <option value="SignalP-GRAM_NEGATIVE" selected="false">SignalP Gram Negative Bacteria</option>

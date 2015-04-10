@@ -14,7 +14,45 @@
             </actions>
         </install>
         <readme>
-this is installer for SNAP version 2013-11-29
+===========================
+SNAP Tool Dependencies File
+===========================
+
+This file automatically installs SNAP.
+
+=======
+Authors
+=======
+
+Original authors for SNAP:
+Korf Lab - University of California, Davis
+
+Galaxy port authors for SNAP: 
+AAFC-MBB Group
+
+=============
+Tool Wrappers
+=============
+
+SNAP:
+
+Runs SNAP Gene predictor. It is suggested to run the SNAP Training tool first.
+Select the genome FASTA file. check whether to predict on plus or minus strand only. Select if using pre-made .hmm file or providing your own generated from the SNAP training. Enter or select the .hmm file that will be used. A list of pre-made .hmm are shown below the tool menu.
+Outputs a GFF file with the gene predictions.
+
+SNAP Training:
+
+Trains a .hmm file to use for SNAP or Maker.
+Select the ZFF .dna and .ann files generated from Maker to SNAP ZFF tool or CEGMA to ZFF. Both tools are available in the Maker package.
+Outputs the trained .hmm file.
+
+========
+Citation
+========
+
+The link below can be useful for citations in scientific works:
+
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC421630/
 
         </readme>
     </package>

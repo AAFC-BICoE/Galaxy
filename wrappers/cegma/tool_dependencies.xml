@@ -26,7 +26,40 @@
             </actions>
         </install>
         <readme>
-This is tool dependency file for CEGMA installation
+============================
+CEGMA Tool Dependencies File
+============================
+
+This file automatically installs CEGMA and its dependencies.
+
+=======
+Authors
+=======
+
+Original authors for CEGMA:
+Korf Lab - University of California, Davis
+
+Galaxy port authors for CEGMA: 
+AAFC-MBB Group
+
+=============
+Tool Wrappers
+=============
+
+CEGMA:
+
+Annotates core eukaryotic genes.
+Select the protein FASTA file to annotate. check whether or not to use vertebrae optimization and mammal optimization. Enter max intron size. Optionally, select protein file, TBLASTN result, Genewise result, and any additional annotations.
+Outputs a completeness report, KOG ID on proteins found, local gene predictions, complete gene predictions, DNA prediction, and protein predictions.
+
+========
+Citation
+========
+
+The link below can be useful for citations in scientific works:
+
+http://bioinformatics.oxfordjournals.org/content/23/9/1061.full
+
         </readme>
     </package>
 
