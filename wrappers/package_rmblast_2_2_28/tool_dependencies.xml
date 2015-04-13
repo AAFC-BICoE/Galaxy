@@ -25,6 +25,26 @@
                 </action>
             </actions>
         </install>
+        <readme>
+==============================
+RMBlast Tool Dependencies File
+==============================
+
+This file automatically installs RMBlast.
+RMBlast is a version of NCBI BLAST that is made to be compatible with RepeatMasker.
+
+=======
+Authors
+=======
+
+Original author for RMBlast:
+Arian Smit - Institute for Systems Biology
+Robert Hubley - Institute for Systems Biology
+
+Galaxy port authors for RMBlast: 
+AAFC-MBB Group
+
+        </readme>
     </package>
 </tool_dependency>
 

@@ -35,11 +35,11 @@ Interproscan requires Java 6.0 or higher to run. Additional perl modules may als
 Authors
 =======
 
-Original authors for Interproscan: Rob Finn, Gift Nuka, Maxim Scheremetjew, Matthew Fraser
-EMBL-EDI Interpro Service Team
+Original authors for Interproscan:
+Rob Finn, Gift Nuka, Maxim Scheremetjew, Matthew Fraser
 
 Tool wrapper based on original by Bjoern Gruening, Konrad Paszkiewicz
-Tool dependency created and tool wrapper modified by AAFC-MBB Group
+Tool dependency created and tool wrapper modified by Sam Li, AAFC-MBB Group
 
 =============
 Tool Wrappers

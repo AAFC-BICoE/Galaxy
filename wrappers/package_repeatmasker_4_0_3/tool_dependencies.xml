@@ -48,6 +48,26 @@
                 <action type="shell_command">cd $INSTALL_DIR;tmp=`which blastn`;tmp=${tmp%/*};echo "" > configfeed.txt;echo "`which perl`" >> configfeed.txt;echo $INSTALL_DIR >> configfeed.txt;echo "$INSTALL_DIR/trf404.linux64" >> configfeed.txt;echo "2" >> configfeed.txt;echo "${tmp}" >> configfeed.txt;echo "y" >> configfeed.txt;echo "5" >> configfeed.txt;$INSTALL_DIR/configure &lt; configfeed.txt</action>
             </actions>
         </install>
+        <readme>
+===================================
+RepeatMasker Tool Dependencies File
+===================================
+
+This file automatically installs RepeatMasker.
+RepeatMasker masks simple repeats and low complexity DNA sequences.
+
+=======
+Authors
+=======
+
+Original author for RepeatMasker:
+Arian Smit - Institute for Systems Biology
+Robert Hubley - Institute for Systems Biology
+
+Galaxy port authors for RepeatMasker: 
+AAFC-MBB Group
+
+        </readme>
     </package>
 </tool_dependency>
 
