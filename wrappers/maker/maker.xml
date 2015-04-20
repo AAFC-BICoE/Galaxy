@@ -157,7 +157,7 @@
 		<!-- Gene Prediction -->
 		<param label="SNAP HMM file" name="snaphmm" type="data" format="txt" optional="True"/>
 		<param label="GeneMark es.mod file" name="gmhmm" type="data" format="txt" optional="True"/>
-		<param label="Specify which Augustus Species Model to use" name="augustus_species" type="text" help="Enter the name of the folder."  optional="True" value=""/>
+		<param label="Specify which Augustus Species Model to use" name="augustus_species" type="data" format="txt" help="Select file with name of folder."  optional="True" value=""/>
 		<param label="Fenesh parameter file" name="fgenesh_par_file" type="data" format="mod" optional="True"/>
 		<param label="Provide any additional predictions in a GFF3 file" name="pred_gff" type="data" format="gff" optional="True"/>
 		<param label="Provide any additional gene annotations in a GFF3 file" name="model_gff" type="data" format="gff" optional="True"/>
