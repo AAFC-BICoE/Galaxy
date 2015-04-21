@@ -1,91 +1,85 @@
 <?xml version="1.0"?>
 <tool_dependency>
     <package name="perl" version="5.18.1">
-        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="0563bbbefdf5" toolshed="http://localhost:9009"/>
+        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="ebbc12c9963c" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="cegma" version="2.5">
-        <repository name="cegma" owner="galaxyuser" prior_installation_required="True" changeset_revision="df3809d4931d" toolshed="http://localhost:9009"/>
+        <repository name="cegma" owner="galaxyuser" prior_installation_required="True" changeset_revision="7f2b7139268b" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="augustus" version="3.0.2">
-        <repository name="augustus" owner="galaxyuser" prior_installation_required="True" changeset_revision="0888d66ae79f" toolshed="http://localhost:9009"/>
+        <repository name="augustus" owner="galaxyuser" prior_installation_required="True" changeset_revision="3bd7ee641915" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="snap" version="2013-11-29">
-        <repository name="snap" owner="galaxyuser" prior_installation_required="True" changeset_revision="6e3fb48ddda2" toolshed="http://localhost:9009"/>
+        <repository name="snap" owner="galaxyuser" prior_installation_required="True" changeset_revision="d193d1e8f9a4" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="c25918850e04" toolshed="http://localhost:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="23d511287b33" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="repeatmasker" version="4.0.3">
-        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="524197675eea" toolshed="http://localhost:9009"/>
+        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="c32ffb815db4" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="exonerate" version="2.2.0">
-        <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="acb0c73acb20" toolshed="http://localhost:9009"/>
+        <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="dd1ae81368cc" toolshed="http://localhost:9009"/>
     </package>
 
 
     <package name="maker" version="2.31.6">
         <install version="1.0">
             <actions>
-		<!-- download must be the first action, otherwise the file disappears after downloading OR it downloads and decompress but don't cd into it-->
+                <!-- download must be the first action, otherwise the file disappears after downloading OR it downloads and decompress but don't cd into it-->
                 <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/maker_downloads/F7BF/36D9/5A75/F93993D356C3396F722AD07D8B52/maker-2.31.6.tgz</action>
-		<action type="set_environment_for_install">
-			<repository name="snap" owner="galaxyuser" changeset_revision="6e3fb48ddda2" toolshed="http://localhost:9009">
-				<package name="snap" version="2013-11-29" />
-			</repository>
-		</action>
-		<action type="set_environment_for_install">
-			<repository name="augustus" owner="galaxyuser" changeset_revision="0888d66ae79f" toolshed="http://localhost:9009">
-				<package name="augustus" version="3.0.2" />
-			</repository>
-		</action> 
-		<action type="set_environment_for_install">
-			<repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="524197675eea" toolshed="http://localhost:9009">
-				<package name="repeatmasker" version="4.0.3" />
-			</repository>
-		</action>
-		<action type="set_environment_for_install">
-		   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="0563bbbefdf5" toolshed="http://localhost:9009">
-			<package name="perl" version="5.18.1" />
-		   </repository>
-		</action>
-		<!-- In case Maker's own set-up does not automatically install Perl modules from CPAN properly on your environment, uncomment and modify the tag below to accommodate its installations, then comment out the tag above. --> 
-                <!--<action type="setup_perl_environment">
-                    <repository name="package_perl_5_18" owner="galaxyuser">
-                        <package name="perl" version="5.18.1" />
+                <action type="set_environment_for_install">
+                    <repository name="snap" owner="galaxyuser" changeset_revision="d193d1e8f9a4" toolshed="http://localhost:9009">
+                        <package name="snap" version="2013-11-29" />
                     </repository>
-                </action>-->
-		<action type="set_environment_for_install">
-		   <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="c25918850e04" toolshed="http://localhost:9009">
-			<package name="rmblast" version="2.2.28" />
-		   </repository>
-		</action>
-		<action type="set_environment_for_install">
-		   <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="acb0c73acb20" toolshed="http://localhost:9009">
-			<package name="exonerate" version="2.2.0" />
-		   </repository>
-		</action>
-		<action type="set_environment_for_install">
-		   <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="acb0c73acb20" toolshed="http://localhost:9009">
-			<package name="exonerate" version="2.2.0" />
-		   </repository>
-		</action>
-
+                </action>
+                <action type="set_environment_for_install">
+                    <repository name="augustus" owner="galaxyuser" changeset_revision="3bd7ee641915" toolshed="http://localhost:9009">
+                        <package name="augustus" version="3.0.2" />
+                    </repository>
+                </action> 
+                <action type="set_environment_for_install">
+                    <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="c32ffb815db4" toolshed="http://localhost:9009">
+                        <package name="repeatmasker" version="4.0.3" />
+                    </repository>
+                </action>
+                <action type="set_environment_for_install">
+                   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="ebbc12c9963c" toolshed="http://localhost:9009">
+                    <package name="perl" version="5.18.1" />
+                   </repository>
+                </action>
+                <!-- In case Maker's own set-up does not automatically install Perl modules from CPAN properly on your environment, uncomment and modify the tag below to accommodate its installations, then comment out the tag above. --> 
+                    <!--<action type="setup_perl_environment">
+                        <repository name="package_perl_5_18" owner="galaxyuser">
+                            <package name="perl" version="5.18.1" />
+                        </repository>
+                    </action>-->
+                <action type="set_environment_for_install">
+                   <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="23d511287b33" toolshed="http://localhost:9009">
+                    <package name="rmblast" version="2.2.28" />
+                   </repository>
+                </action>
+                <action type="set_environment_for_install">
+                   <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="c32ffb815db4" toolshed="http://localhost:9009">
+                    <package name="exonerate" version="2.2.0" />
+                   </repository>
+                </action>
                 <action type="shell_command">echo "n" | perl ./src/Build.PL</action> 
-		<action type="shell_command">echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> 
+                <action type="shell_command">echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> 
                 <action type="shell_command">./src/Build install</action>
-		<action type="move_directory_files">
-			<source_directory>.</source_directory>
-			<destination_directory>$INSTALL_DIR</destination_directory>
-		</action>
+                <action type="move_directory_files">
+                    <source_directory>.</source_directory>
+                    <destination_directory>$INSTALL_DIR</destination_directory>
+                </action>
                 <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                </action>
+                </action>           
                 <action type="set_environment">
                     <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
                 </action>

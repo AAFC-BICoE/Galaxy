@@ -28,13 +28,13 @@ cd ..;
 
 
 if [ ${RESULT} -eq 0 ]; then
-	echo "Training for $species_in finished successfully" >> $out_file; true;
+	echo $species_in >> $out_file; true;
 else
 	echo "Training for $species_in failed" > $out_file; false;
 fi
 
 #====== debug info here ======
-echo "Exit status returned: $RESULT" >> $out_file;
+#echo "Exit status returned: $RESULT" >> $out_file;
 #ls "trainaugtmp/" >> $out_file;
 #cat "trainaugtmp/genes.gb" >> $out_file;
 #======    end debug    ======

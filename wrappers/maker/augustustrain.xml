@@ -32,7 +32,9 @@ This program automatically trains Augustus given initial input from either maker
 
 The result dataset in stored in Augustus' configuration folder.
 
-To use it in Maker, simply provide the species name to Maker.
+Successful runs will produce an output with the species name.
+
+To use it in Maker, simply provide the file with the species name to Maker.
 
 The name of species you train must be unique from built in species and all species you and others have trained before.
 
