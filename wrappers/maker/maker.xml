@@ -4,125 +4,106 @@
 	
 	<requirements>
 		<!--<requirement type="set_environment">PATH</requirement>-->
-                <requirement type="package" version="2.31.6">maker</requirement>
+        <requirement type="package" version="2.31.6">maker</requirement>
+        <requirement type="package" version="2.5">cegma</requirement>
 		<requirement type="package" version="3.0.2">augustus</requirement>
 		<requirement type="package" version="2013-11-29">snap</requirement>
 		<requirement type="package" version="2.2.28">rmblast</requirement>
 		<requirement type="package" version="4.0.3">repeatmasker</requirement>
 		<requirement type="package" version="2.2.0">exonerate</requirement>
+		<requirement type="package" version="5.18.1">perl</requirement>
 	</requirements>
 
 	<parallelism method="multi" split_inputs="genome" split_mode="to_size" split_size="1" merge_outputs="output_datastore,output_gff3,output_trans,output_protein,other_trans,other_protein"></parallelism>
 
 	<command interpreter="bash">
 		maker_wrap.sh $genome $maker_exe $maker_opts $maker_bopts $output_datastore $output_gff3 $output_trans $output_protein 
-
-	
-		$other_trans $other_protein
-
-
-		#if $genome_gff
-		$genome_gff
+		$other_trans $other_protein 
+		#if $genome_gff 
+		$genome_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-		
 		#if $est
-		$est
+		$est 
 		#else
-		"empty"
+		"empty" 
 		#end if
-		
 		#if $est_gff
-		$est_gff
+		$est_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $altest
-		$altest
+		$altest 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $altest_gff
-		$altest_gff
+		$altest_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $protein
-		$protein
+		$protein 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $protein_gff
-		$protein_gff
+		$protein_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-		
 		#if $snaphmm
-		$snaphmm
+		$snaphmm 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $gmhmm
-		$gmhmm
+		$gmhmm 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $augustus_species
-		$augustus_species
+		$augustus_species 
 		#else
-		"empty"
+		"empty" 
 		#end if
-		
 		#if $fgenesh_par_file
-		$fgenesh_par_file
+		$fgenesh_par_file 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $pred_gff
-		$pred_gff
+		$pred_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $model_gff
-		$model_gff
+		$model_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $other_gff
-		$other_gff
+		$other_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $rmlib
-		$rmlib
+		$rmlib 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $repeat_protein
-		$repeat_protein
+		$repeat_protein 
 		#else
-		"empty"
+		"empty" 
 		#end if
-
 		#if $rm_gff
-		$rm_gff
+		$rm_gff 
 		#else
-		"empty"
+		"empty" 
 		#end if
-		
 		$logfile
 	</command>
 

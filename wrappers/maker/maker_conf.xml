@@ -10,13 +10,13 @@
 		<requirement type="package" version="4.0.3">repeatmasker</requirement>
 		<requirement type="package" version="2.2.0">exonerate</requirement>
         </requirements>
-
-	<command interpreter="bash">
+    <command>maker -CTL; cat $maker_opts > $opts; cat $maker_bopts > $bopts; cat maker_exe.ctl > $exe</command>
+	<!--<command interpreter="bash">
         maker -CTL;
         cat $maker_opts > $opts;
         cat $maker_bopts > $bopts;
         cat maker_exe.ctl > $exe
-	</command>
+	</command>-->
 
 	<inputs>
 				<param label="Organism type" name="organism_type" type="select" display="radio" multiple="false">
