@@ -15,7 +15,7 @@
         maker -CTL;
         cat $maker_opts > $opts;
         cat $maker_bopts > $bopts;
-        cat maker_exe.ctl > $exe
+        cat maker_exe.ctl > $exe;
 	</command>
 
 	<inputs>

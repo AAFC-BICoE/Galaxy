@@ -2,7 +2,7 @@
 <tool_dependency>
 
     <package name="rmblast" version="2.2.28">
-        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="c25918850e04" toolshed="http://localhost:9009"/>
+        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="23d511287b33" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="repeatmasker" version="4.0.3">
@@ -14,7 +14,7 @@
 		</action> --> <!--this doesn't work, cause crash-->
 		<action type="shell_command">chmod a+x trf404.linux64</action> 
 		<action type="set_environment_for_install">
-			<repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="c25918850e04" toolshed="http://localhost:9009">
+			<repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="23d511287b33" toolshed="http://localhost:9009">
 				<package name="rmblast" version="2.2.28" />
 			</repository>
 		</action>
