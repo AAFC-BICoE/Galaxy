@@ -33,6 +33,8 @@ cp $2 maker_exe.ctl || { eval echo "Unable to rename the maker_exe file"; exit 1
 cp $3 maker_opts.ctl || { eval echo "Unable to rename the maker_opts file"; exit 113; }
 cp $4 maker_bopts.ctl || { eval echo "Unable to rename the maker_bopts file"; exit 113; }
 
+augfolder=$(cat $20);
+
 ##Substute all evidence and data files into control files
 #Genome file
 sed -i s%^genome=.*%genome=genome.fasta% maker_opts.ctl
