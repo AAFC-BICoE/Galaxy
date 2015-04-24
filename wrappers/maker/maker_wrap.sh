@@ -74,7 +74,7 @@ if [ "${19}" != "empty" ]; then
 fi
 #Augustus Species Model
 if [ "${20}" != "empty" ]; then
-	sed -i s%^augustus_species=.*%augustus_species=${20}% maker_opts.ctl
+        sed -i s%^augustus_species=.*%augustus_species=${augfolder}% maker_opts.ctl
 fi
 #FGENESH parameter file
 if [ "${21}" != "empty" ]; then
@@ -130,6 +130,8 @@ cat genome_master_datastore_index.log >> $5
 cat genome.all.gff >> $6
 cat genome.all.maker.transcripts.fasta >> $7 || echo "No annotations available for one contig" >> ${28}
 cat genome.all.maker.proteins.fasta >> $8
+
+augfolder=$(cat $20);
 
 ##Save unused predictions
 if [ "$9" != "empty" -a "${10}" != "empty" ]; then
