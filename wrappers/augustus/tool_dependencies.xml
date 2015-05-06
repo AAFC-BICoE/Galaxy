@@ -9,7 +9,7 @@
     <package name="augustus" version="3.0.2">
         <install version="1.0">
             <actions>
-                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.0.2.tar.gz</action>
+                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.0.2.tar.gz</action>
                 <action type="set_environment_for_install">
                   <repository changeset_revision="e7496bb47e52" name="package_bzlib_1_0" owner="galaxyuser" toolshed="http://onottar678135m.agr.gc.ca:9009">
                       <package name="bzlib" version="1.0.6" />
