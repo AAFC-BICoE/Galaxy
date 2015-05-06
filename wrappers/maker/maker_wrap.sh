@@ -33,6 +33,8 @@ cp $2 maker_exe.ctl || { eval echo "Unable to rename the maker_exe file"; exit 1
 cp $3 maker_opts.ctl || { eval echo "Unable to rename the maker_opts file"; exit 113; }
 cp $4 maker_bopts.ctl || { eval echo "Unable to rename the maker_bopts file"; exit 113; }
 
+augfolder=$(cat $20);
+
 ##Substute all evidence and data files into control files
 #Genome file
 sed -i s%^genome=.*%genome=genome.fasta% maker_opts.ctl
@@ -74,7 +76,7 @@ if [ "${19}" != "empty" ]; then
 fi
 #Augustus Species Model
 if [ "${20}" != "empty" ]; then
-	sed -i s%^augustus_species=.*%augustus_species=${20}% maker_opts.ctl
+        sed -i s%^augustus_species=.*%augustus_species=${augfolder}% maker_opts.ctl
 fi
 #FGENESH parameter file
 if [ "${21}" != "empty" ]; then
@@ -130,6 +132,8 @@ cat genome_master_datastore_index.log >> $5
 cat genome.all.gff >> $6
 cat genome.all.maker.transcripts.fasta >> $7 || echo "No annotations available for one contig" >> ${28}
 cat genome.all.maker.proteins.fasta >> $8
+
+augfolder=$(cat $20);
 
 ##Save unused predictions
 if [ "$9" != "empty" -a "${10}" != "empty" ]; then
