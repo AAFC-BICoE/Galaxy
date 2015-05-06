@@ -1,7 +1,9 @@
 <tool id="augustus" name="Augustus" version="1.0.0">
   <description>Gene prediction tool for eukaryotes</description>
  <requirements>
-  <requirement type="package" version="3.0.2">augustus</requirement>
+    <requirement type="package" version="1.0.6">bzlib</requirement>
+    <requirement type="package" version="1.55.0">boost</requirement>
+    <requirement type="package" version="3.0.2">augustus</requirement>
  </requirements>
   <command> augustus --species=$species
 	--strand=$strand

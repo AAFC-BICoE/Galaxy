@@ -9,7 +9,7 @@
     </package>
 
     <package name="augustus" version="3.0.2">
-        <repository name="augustus" owner="galaxyuser" prior_installation_required="True" changeset_revision="3bd7ee641915" toolshed="http://localhost:9009"/>
+        <repository name="augustus" owner="galaxyuser" prior_installation_required="True" changeset_revision="7f56435fa19d" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="snap" version="2013-11-29">
@@ -21,7 +21,7 @@
     </package>
 
     <package name="repeatmasker" version="4.0.3">
-        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="c32ffb815db4" toolshed="http://localhost:9009"/>
+        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="7a72b089814d" toolshed="http://localhost:9009"/>
     </package>
 
     <package name="exonerate" version="2.2.0">
@@ -40,12 +40,12 @@
                     </repository>
                 </action>
                 <action type="set_environment_for_install">
-                    <repository name="augustus" owner="galaxyuser" changeset_revision="3bd7ee641915" toolshed="http://localhost:9009">
+                    <repository name="augustus" owner="galaxyuser" changeset_revision="7f56435fa19d" toolshed="http://localhost:9009">
                         <package name="augustus" version="3.0.2" />
                     </repository>
                 </action> 
                 <action type="set_environment_for_install">
-                    <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="c32ffb815db4" toolshed="http://localhost:9009">
+                    <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="7a72b089814d" toolshed="http://localhost:9009">
                         <package name="repeatmasker" version="4.0.3" />
                     </repository>
                 </action>
