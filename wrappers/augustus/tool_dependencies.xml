@@ -20,7 +20,8 @@
                         <package name="boost" version="1.55.0" />
                     </repository>
                 </action>
-                <action type="shell_command">cd src</action>
+                <!-- <action type="shell_command">cd src</action> -->
+                <action type="shell_command">sed -i  -E 's|LIBS\s+= |LIBS  = -L'"$BOOST_ROOT_DIR"'/lib |' src/Makefile</action>
                 <action type="shell_command">make</action>
                 <!-- <action type="shell_command">make install</action> -->
                 <action type="shell_command">mv auxprogs bin common.mk config include Makefile mysql++ retraining.html scripts $INSTALL_DIR</action>

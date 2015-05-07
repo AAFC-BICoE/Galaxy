@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<tool_dependency>
+  <package name="bzlib" version="1.0.6">
+      <repository changeset_revision="e7496bb47e52" name="package_bzlib_1_0" owner="galaxyuser" prior_installation_required="True" toolshed="http://onottar678135m.agr.gc.ca:9009" />
+    </package>
+    <package name="boost" version="1.55.0">
+      <install version="1.0">
+          <actions>
+              <action type="download_by_url">http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.gz</action>
+                <!-- populate the environment variables from the dependend repos -->
+                <action type="set_environment_for_install">
+                  <repository changeset_revision="e7496bb47e52" name="package_bzlib_1_0" owner="galaxyuser" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                      <package name="bzlib" version="1.0.6" />
+                    </repository>
+                </action>
+                <action type="shell_command">./bootstrap.sh --prefix=$INSTALL_DIR/boost --with-libraries=filesystem,program_options,system,serialization,iostreams</action>
+                <!-- try to set the right architecture with uname -m -->
+                <action type="shell_command">
+                    ./bjam address-model=64 cflags=-fPIC cxxflags=-fPIC install --prefix=$INSTALL_DIR/boost/ -sBZIP2_INCLUDE=$BZLIB_INCLUDE_DIR -sBZIP2_LIB=$BZLIB_LIB_DIR -sBZIP2_SOURCE=$BZLIB_SOURCE_DIR 2>/dev/null || true; 
+                </action>
+                <action type="set_environment">
+                  <environment_variable action="set_to" name="BOOST_ROOT_DIR">$INSTALL_DIR/boost</environment_variable>
+                  <environment_variable action="append_to" name="LD_LIBRARY_PATH">$INSTALL_DIR/boost/lib/</environment_variable>
+		  <environment_variable action="prepend_to" name="LIBRARY_PATH">$INSTALL_DIR/boost/lib/</environment_variable>
+                    <environment_variable action="prepend_to" name="CPLUS_INCLUDE_PATH">$INSTALL_DIR/boost/include</environment_variable>
+                    <environment_variable action="prepend_to" name="C_INCLUDE_PATH">$INSTALL_DIR/boost/include</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+        Compiling boost requires a C++ compiler (typically gcc). 
+        You can access the boost root directory through the $BOOST_ROOT_DIR system variable. All modules will be build.
+        Development of that wrapper happens in https://github.com/bgruening/galaxytools/.
+        </readme>
+    </package>
+</tool_dependency>
