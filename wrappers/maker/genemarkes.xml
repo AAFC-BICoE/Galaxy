@@ -1,6 +1,10 @@
 <tool id="genemarkes" name="GeneMark ES" version="1.0.0">
   <description>Self-training ab initio gene prediction program for eukaryotes</description>
-  <command interpreter="bash">  perl gm_es.pl
+         <requirements>
+                <requirement type="package" version="5.18.1">perl</requirement>
+        </requirements>
+ 
+ <command interpreter="bash">  perl gm_es.pl
 				--BP $bp
 				--max_nnn $maxnnn
 				--min_contig $minc

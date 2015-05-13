@@ -3,7 +3,8 @@
   <requirements>
     <requirement type="package" version="3.0.2">augustus</requirement>
     <requirement type="package" version="2.31.6">maker</requirement>
-  </requirements>
+    <requirement type="package" version="5.18.1">perl</requirement> 
+ </requirements>
   <command interpreter="bash">  
 		augustustrain_run.sh $source.__str__ $gff $species $genome $out
         </command>

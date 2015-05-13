@@ -3,7 +3,7 @@
     <package name="augustus" version="3.0.2">
         <install version="1.0">
             <actions>
-                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.0.2.tar.gz</action>
+                <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.0.2.tar.gz</action>
                 <action type="shell_command">cd src</action>
                 <action type="shell_command">make</action>
                 <!-- <action type="shell_command">make install</action> -->
