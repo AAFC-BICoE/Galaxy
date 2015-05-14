@@ -5,6 +5,11 @@
         <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
 
+
+    <package name="perl" version="5.18.1">
+        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="e118300979ee" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
+    </package>
+
     <package name="repeatmasker" version="4.0.3">
         <install version="1.0">
             <actions>
@@ -16,6 +21,11 @@
 		<action type="set_environment_for_install">
 			<repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009">
 				<package name="rmblast" version="2.2.28" />
+			</repository>
+		</action>
+		<action type="set_environment_for_install">
+			<repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="e118300979ee" toolshed="http://onottar678135m.agr.gc.ca:9009">
+				<package name="perl" version="5.18.1" />
 			</repository>
 		</action>
 		<action type="move_file">
