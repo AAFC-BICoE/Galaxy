@@ -11,11 +11,9 @@
             <actions>
                 <action type="download_by_url">http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.0.2.tar.gz</action>
                 <action type="set_environment_for_install">
-                  <repository changeset_revision="e7496bb47e52" name="package_bzlib_1_0" owner="galaxyuser" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                    <repository changeset_revision="e7496bb47e52" name="package_bzlib_1_0" owner="galaxyuser" toolshed="http://onottar678135m.agr.gc.ca:9009">
                       <package name="bzlib" version="1.0.6" />
                     </repository>
-                </action>
-                <action type="set_environment_for_install">
                     <repository changeset_revision="2feb22535a67" name="package_boost_1_55" owner="galaxyuser" toolshed="http://onottar678135m.agr.gc.ca:9009">
                         <package name="boost" version="1.55.0" />
                     </repository>

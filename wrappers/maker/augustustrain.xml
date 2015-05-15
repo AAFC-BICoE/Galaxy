@@ -4,8 +4,10 @@
     <requirement type="package" version="3.0.2">augustus</requirement>
     <requirement type="package" version="2.31.6">maker</requirement>
     <requirement type="package" version="5.18.1">perl</requirement> 
+    <requirement type="set_environment">PERL_ROOT_DIR</requirement>
  </requirements>
-  <command interpreter="bash">  
+  <command interpreter="bash">
+        export PERL5LIB=$PERL_ROOT_DIR/lib/perl5:$PERL_ROOT_DIR/lib/perl5/x86_64-linux:$PERL5LIB
 		augustustrain_run.sh $source.__str__ $gff $species $genome $out
         </command>
 	<inputs>

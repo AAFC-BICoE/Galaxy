@@ -20,8 +20,8 @@ else
 	gff_in=aug_trainable.gff;
 fi
 
-gff2gbSmallDNA.pl $gff_in genome.dna 1000 genes.gb;
-autoAugTrain.pl --trainingset=genes.gb --species=$species_in;
+perl gff2gbSmallDNA.pl $gff_in genome.dna 1000 genes.gb;
+perl autoAugTrain.pl --trainingset=genes.gb --species=$species_in;
 RESULT=${?};
 
 cd ..;

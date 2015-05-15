@@ -1,16 +1,20 @@
 <?xml version="1.0"?>
 <tool_dependency>
+    <set_environment version="1.0">
+        <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+        <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
+    </set_environment>
     <package name="exonerate" version="2.2.0">
         <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="8adcf2b78b66" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
     <package name="perl" version="5.18.1">
-        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="e118300979ee" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
+        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="4667c250ffda" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
     <package name="rmblast" version="2.2.28">
         <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
     <package name="repeatmasker" version="4.0.3">
-        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="0e597ad0dee0" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
+        <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" prior_installation_required="True" changeset_revision="49b7bc67e4eb" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
     <package name="augustus" version="3.0.2">
         <repository name="augustus" owner="galaxyuser" prior_installation_required="True" changeset_revision="d84dc3aad43d" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
@@ -21,7 +25,6 @@
     <package name="cegma" version="2.5">
         <repository name="cegma" owner="galaxyuser" prior_installation_required="True" changeset_revision="6eb66be43c48" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
-
     <package name="maker" version="2.31.6">
         <install version="1.0">
             <actions>
@@ -31,41 +34,26 @@
                    <repository name="package_exonerate_2_2_0" owner="galaxyuser" changeset_revision="8adcf2b78b66" toolshed="http://onottar678135m.agr.gc.ca:9009">
                     <package name="exonerate" version="2.2.0" />
                    </repository>
-                </action>
-                 <action type="set_environment_for_install">
-                   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="e118300979ee" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                   <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="4667c250ffda" toolshed="http://onottar678135m.agr.gc.ca:9009">
                     <package name="perl" version="5.18.1" />
                    </repository>
-                </action>
-                <action type="set_environment_for_install">
                    <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009">
                     <package name="rmblast" version="2.2.28" />
                    </repository>
-                </action>
-                <action type="set_environment_for_install">
-                    <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="0e597ad0dee0" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                    <repository name="package_repeatmasker_4_0_3" owner="galaxyuser" changeset_revision="49b7bc67e4eb" toolshed="http://onottar678135m.agr.gc.ca:9009">
                         <package name="repeatmasker" version="4.0.3" />
                     </repository>
-                </action>
-                <action type="set_environment_for_install">
                     <repository name="augustus" owner="galaxyuser" changeset_revision="d84dc3aad43d" toolshed="http://onottar678135m.agr.gc.ca:9009">
                         <package name="augustus" version="3.0.2" />
                     </repository>
-                </action> 
-                <action type="set_environment_for_install">
                     <repository name="snap" owner="galaxyuser" changeset_revision="628ca41c4b81" toolshed="http://onottar678135m.agr.gc.ca:9009">
                         <package name="snap" version="2013-11-29" />
                     </repository>
-                </action>
-                <action type="set_environment_for_install">
                     <repository name="cegma" owner="galaxyuser" changeset_revision="6eb66be43c48" toolshed="http://onottar678135m.agr.gc.ca:9009">
                         <package name="cegma" version="2.5" />
                     </repository>
                 </action>
-                <!-- new stuff.. got list of modules from http://www.vcru.wisc.edu/simonlab/bioinformatics/programs/install/maker.htm 
-                    note that '\-\-self-contained' is required to force the install of all modules into the tool-dep/.../perl/lib dir.
-                    Have to do this as otherwise it could omit the install as it is on tools-server, but actually not on biocluster
-                    where it is needed during execution. -->              
+                <!-- see redmine bug 4844 for more details on shell commands in following action. -->
                 <action type="shell_command">
                     eval $(perl -I$PERL_ROOT_DIR/lib/perl5 -Mlocal::lib=$PERL_ROOT_DIR);
                     HOME=$PERL_ROOT_DIR cpanm --self-contained --notest ExtUtils::MakeMaker
@@ -79,19 +67,13 @@
 
                 <action type="shell_command">echo "n" | perl ./src/Build.PL</action> 
                 
-                <!-- cpanm installs above should cover the following next step so no longer needed. check output of above step to be sure. -->
+                <!-- the cpanm installs above should cover the following next step so no longer needed. check output of Build.PL step above to be sure. -->
                 <!-- <action type="shell_command"  echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> -->
                 
                 <action type="shell_command">./src/Build install</action>
                 <action type="move_directory_files">
                     <source_directory>.</source_directory>
                     <destination_directory>$INSTALL_DIR</destination_directory>
-                </action>
-                <action type="set_environment">
-                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                </action>           
-                <action type="set_environment">
-                    <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
                 </action>
             </actions>
         </install>
