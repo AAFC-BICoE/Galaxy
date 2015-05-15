@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <set_environment version="1.0">
-        <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-        <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
-    </set_environment>
     <package name="exonerate" version="2.2.0">
         <repository name="package_exonerate_2_2_0" owner="galaxyuser" prior_installation_required="True" changeset_revision="8adcf2b78b66" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
     </package>
