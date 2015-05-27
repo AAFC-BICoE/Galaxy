@@ -1,10 +1,10 @@
 <tool id="seqdb_its_seq" name="Load ITS Sequences from Sequence Database">
   <description> through web services </description>
   <requirements>
-      <requirement type="package" version="1.0">pull_seqdb_its_seqs</requirement>
+      <requirement type="package" version="1.0">seqdb-py</requirement>
   </requirements>
-  <command interpreter="python">
-      /\$SEQDBPULLDEPDIR/pull_seqdb_its_seqs.py
+  <command>
+      pull_seqdb_its_seqs
         -p
         -k $api_key
         

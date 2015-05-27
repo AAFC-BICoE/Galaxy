@@ -1,37 +1,23 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="delete_seqdb_features" version="1.0">
+    <package name="seqdb-py" version="1.0">
         <install version="1.0">
             <actions>
                 <action type="setup_virtualenv">
-                    requests
+                    git+https://bitbucket.org/aafc-mbb/seqdb-py.git@1.0#egg=seqdb-py
                 </action>
-                
-                <action type="set_environment">
-                    <environment_variable name="SEQDBDELDEPDIR" action="set_to">$INSTALL_DIR</environment_variable>
-                </action>
-
-                <action type="download_file" target_filename="delete_seqdb_features.py">
-                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/4644c8ba08bed9ab2a4cd017c392840f1bc4f0e5/tools/delete_seqdb_features.py
-                </action>
-                
-                <action type="make_directory">api</action>
-
-                <action type="change_directory">api</action>
-                <action type="shell_command">touch __init__.py</action>
-                <action type="download_file" target_filename="seqdbWebService.py">
-                    https://bitbucket.org/aafc-mbb/seqdb-py/raw/4644c8ba08bed9ab2a4cd017c392840f1bc4f0e5/api/seqdbWebService.py
-                </action>
-
             </actions>
         </install>
         <readme>
-            This tool (delete_seqdb_features.py) is located at the bitbucket repo. In order not to duplicate the code, it is installed as its own dependency.
+            This tool (delete_seqdb_features) is packaged as part of seqdb-py distribution.
             
-            This copies the script, together with its python dependencies from bitbucket repo at install time, as well as creates a virtual environment for the python execution and installs required python modules.
+            Required Galaxy packages: python-devel
             
-            We create an envirnment variable pointing to the install directory of this dependency, so that we can use it to setup the script execution in tool definition. This is done because by default the script is expected to be in the tool shed repo, whilie this dependency is downloaded to the galaxy tool dependency repo.
+            This dependency definition creates a virtual environment (virtualenv) and installs seqdb-py into the virtual environment directly from bitbucket. The tool can then be executed by running:
             
+            delete_seqdb_features
+            
+            which is defined as an entry point to seqdb-py and can be executed from any system location.
         </readme>
     </package>
 </tool_dependency>

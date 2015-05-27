@@ -1,11 +1,11 @@
 <tool id="seqdb_its_feat_push" name="Write Features to Sequence Database">
   <description>through web services </description>
   <requirements>
-      <requirement type="package" version="1.0">push_seqdb_its_feat</requirement>
+      <requirement type="package" version="1.0">seqdb-py</requirement>
   </requirements>
   
-  <command interpreter="python">
-      /\$SEQDBPUSHDEPDIR/push_seqdb_its_feat.py
+  <command>
+      push_seqdb_its_feat
         -p
         -k $api_key
         -f $ifile

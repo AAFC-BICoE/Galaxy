@@ -1,11 +1,11 @@
 <tool id="seqdb_its_feat_push" name="Delete Features from Sequence Database">
   <description>through web services </description>
   <requirements>
-      <requirement type="package" version="1.0">delete_seqdb_features</requirement>
+      <requirement type="package" version="1.0">seqdb-py</requirement>
   </requirements>
   
-  <command interpreter="python">
-      /\$SEQDBDELDEPDIR/delete_seqdb_features.py
+  <command>
+      delete_seqdb_features
         -p
         -k $api_key
         -f $ifile
