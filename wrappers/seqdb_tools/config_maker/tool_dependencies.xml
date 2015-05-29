@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <tool_dependency>
     <package name="seqdb-py" version="1.1-SNAPSHOT">
-        <install version="1.1">
+        <install version="1.0">
             <actions>
                 <action type="setup_virtualenv">
                     git+https://bitbucket.org/aafc-mbb/seqdb-py.git@dev#egg=seqdb-py
@@ -9,13 +9,13 @@
             </actions>
         </install>
         <readme>
-            This tool (pull_seqdb_its_seqs) is packaged as part of seqdb-py distribution.
+            This tool (seqdb_config_maker) is packaged as part of seqdb-py distribution.
             
             Required Galaxy packages: python-devel
             
             This dependency definition creates a virtual environment (virtualenv) and installs seqdb-py into the virtual environment directly from bitbucket. The tool can then be executed by running:
             
-            pull_seqdb_its_seqs
+            seqdb_config_maker
             
             which is defined as an entry point to seqdb-py and can be executed from any system location.
             
