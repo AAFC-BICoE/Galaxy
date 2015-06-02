@@ -1,7 +1,7 @@
 <tool id="seqdb_config" name="SeqDB Configuration">
   <description> creates a Sequence Database API configuration file. </description>
   <requirements>
-      <requirement type="package" version="1.1-SNAPSHOT">seqdb-py</requirement>
+      <requirement type="package" version="1.1">seqdb-py</requirement>
   </requirements>
   <command>
       pull_seqdb_its_seqs -k $api_key
