@@ -19,7 +19,8 @@
             - In the install directory (typically "path to install/venv/lib/python2.7/site-packages"), go to config directory
             - Rename config.yaml.sample to config.yaml
             - Modify config.yaml according to instruction inside
-            - cp config.yaml /galaxy/database/job_working_directory/000/config.yaml
+            - Copy config.yaml to the job working directory:
+               cp config.yaml /galaxy/database/job_working_directory/000/config.yaml
             
             
             The tool can then be executed by running:

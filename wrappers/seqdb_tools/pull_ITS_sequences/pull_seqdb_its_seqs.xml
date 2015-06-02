@@ -1,7 +1,7 @@
 <tool id="seqdb_its_seq" name="Load ITS Sequences from Sequence Database">
   <description> through web services </description>
   <requirements>
-      <requirement type="package" version="1.1-SNAPSHOT">seqdb-py</requirement>
+      <requirement type="package" version="1.1">seqdb-py</requirement>
   </requirements>
   <command>
       pull_seqdb_its_seqs -c $config_file
