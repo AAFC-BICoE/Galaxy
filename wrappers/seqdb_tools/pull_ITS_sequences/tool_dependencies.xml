@@ -16,7 +16,7 @@
             Required Galaxy packages: python-devel
             
             After the tool is installed, need to create a config.yaml with the local install information:
-            - In the install directory (typically "path to install/venv/lib/python2.7/site-packages"), go to config directory
+            - In the install directory (typically "installlocation"/venv/lib/python2.7/site-packages"), go to config directory
             - Rename config.yaml.sample to config.yaml
             - Modify config.yaml according to instruction inside
             - Copy config.yaml to the job working directory:

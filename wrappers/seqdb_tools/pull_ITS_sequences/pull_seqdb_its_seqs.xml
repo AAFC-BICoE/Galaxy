@@ -3,23 +3,24 @@
   <requirements>
       <requirement type="package" version="1.1">seqdb-py</requirement>
   </requirements>
+  
   <command>
       pull_seqdb_its_seqs -c $config_file
   </command>
 
-
   <inputs>
       <param name="config_file" type="data" label="Sequence Database Configuration File" />
   </inputs>
+  
   <outputs>
-    <data
+    <data name="ITS_sequences"
         format="fasta"
         from_work_dir="seqdb_ITS_seqs.fasta"
         label="ITS Sequences from Sequence Database" />
-    <data
+    <data name="SeqDB_pull_log"
         format="text"
         from_work_dir="seqdb_pull.log"
-        label="Log file of the tool execution" />
+        label="Log file of extracting ITS sequences from SeqDB" />
   </outputs>
 
   <tests>
@@ -35,7 +36,7 @@
       The tool requests ITS sequences from Sequence DB and writes them to a fasta file.
       
       
-      **What is an "Sequence Database Configuration File"?**
+      **What is a "Sequence Database Configuration File"?**
       
       Sequence Database Configuration File is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
       
