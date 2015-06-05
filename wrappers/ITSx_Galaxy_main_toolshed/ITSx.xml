@@ -1,21 +1,24 @@
-<tool id="ITSx" name="ITSx Extractor" version="1.0.6">
+<tool id="ITSx" name="ITSx Extractor" version="1.0.11">
 
   <description> 
   ITSx -- Identifies ITS sequences and extracts the ITS region
   </description>
 
   <command interpreter="perl">
-  ITSx -i $input --detailed_results T --cpu $cpu $preserve $reset 
+      ITSx -i $input --detailed_results T -N $domain_num --cpu=\${GALAXY_SLOTS:-1} $preserve $reset
+
   </command>
   <requirements>
 	<requirement type="package" version="3.1b1">hmmer</requirement>
   </requirements>
   <inputs>
 	<param name="input" type="data" format="fasta" label="Input Fasta"/>
-	<param name="cpu" type="integer" value="1" label="cpu"/>
+	<param name="domain_num" type="integer" value="2" label="Minimum number of domains"
+    help="The minimum number of domains (different HMM gene profiles) that must match a sequence or it to be included in the output (detected as an ITS sequence). Setting the value lower than two will increase the number of false positives, while increasing it above two will decrease ITSx detection abilities on fragmentary data. "/>
+    <!--  <param name="cpu" type="integer" value="1" label="cpu"/> -->
 	<param name="complement" type="boolean" checked="true" truevalue="--complement T" falsevalue="--complement F" label="Check both DNA strands against the database"/>
 	<param name="heuristics" type="boolean" checked="false" truevalue="--heuristics T" falsevalue="--heuristics F" label="Use HMMER's heuristic filtering"/>
-	<param name="reset" type="boolean" checked="false" truevalue="--reset T" falsevalue="--reset F" label="Re-creates the HMM-database before ITSx is run"/>
+	<param name="reset" type="boolean" checked="true" truevalue="--reset T" falsevalue="--reset F" label="Re-creates the HMM-database before ITSx is run"/>
 	<param name="preserve" type="boolean" checked="false" truevalue="--preserve T" falsevalue="--preserve F" label=" Preserve sequence headers instead of printing out ITSx headers"/>
   </inputs>
 
