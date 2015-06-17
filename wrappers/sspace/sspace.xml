@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<tool id="sspace" name="sspace" version="2.0">
+	<description> The SSPACE Tool</description>
+	<requirements>
+		<requirement type="package" version="5.18.1.1">perl</requirement>
+		<requirement type="package" version="1.0">extra_perl</requirement>
+	</requirements>
+	<command interpreter='perl'>
+		 sspace_command.pl
+			
+			$output1
+			$output2
+			$output3
+			$output4
+			
+			#for $i in $lib:
+				
+				$i.name
+				$i.first
+				$i.second
+				$i.insert_size
+				$i.error
+				$i.orientation
+				
+			#end for
+			-s $s_contigs
+			#if $x_contigs:
+				-x 1
+			#end if
+			-m $min_overlap
+			-o $base_coverage
+			-t $trimming
+			
+			#if $unpaired_cond.unpaired_select == "yes" :
+				-u $unpaired_cond.u_contigs
+			#end if
+			
+	</command>
+	<inputs>
+		
+		<repeat name="lib" title="Pair libraries" min="1">
+			<param name="name" type="text" label="Name of the pair(no spaces, underscores (_), slashes (/,\) or other special characters)"/>
+			<param name="first" type="data" format=' ' label="First pair"/>
+			<param name="second" type="data" format=' ' label="Second pair"/>
+			<param name="insert_size" type="text" label="Expected/Observed insert size between paired reads"/>
+			<param name="error" type="text" label="The minimum allowed error between 0 to 1.0"/>
+			<param name="orientation" type="select" label="The orientation between the pairs">
+				<option value="FR">FR</option>
+				<option value="FF">FF</option>
+				<option value="RR">RR</option>
+				<option value="RF">RF</option>
+			</param>
+		</repeat>
+		
+		<param name="s_contigs" type="data" format='FASTA' label="Contigs file"/>
+		<param name="x_contigs" type='boolean' label="Indicate whether to extend the contigs of the contigs file using the paired reads in pair libraries"/> <!-- Change to bool -->
+		<param name="min_overlap" type="text" label="The minimum number of overlapping bases"/>
+		<param name="base_coverage" type="text" label="The minimum number of reads to call a base during an extension."/>
+		<param name="trimming" type="text" label="Max number of bases to trim on the contig end when all possiblities for an extension have been used."/>
+		<conditional name="unpaired_cond">
+			<param name="unpaired_select" type="select" label="Provide a Fasta/fastq file with unpaired sequence reads ?">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</param>
+			<when value="yes" >
+				<param name="u_contigs" type="data" format='FASTA' label="Contigs file"/>
+			</when>
+		</conditional>
+		<param name="min_scaffolding" type="text" value="0" label="The minimum contig length for scaffolding. Filters out contigs that are below the provided value."/>
+		<param name="min_links" type="text" value="5" label="The minimum number of links (read pairs) to compute scaffold."/>
+		<param name="min_overlap" type="text" value="15" label="The minimum overlap needed between contigs to merge adjacent contigs in a scaffold."/>
+		<!--   						   -->
+		
+		<param name="threads" type="text" value="1" label="The number of threads in bowtie."/>
+		<param name="max_gap" type="text" value="0" label="The maximum allowed number of gaps when mapping with bowtie."/>
+		
+	</inputs>
+	<outputs>
+		<data format="txt" name="output1" label="Final_Evidence"/>
+		<data format="txt" name="output2" label="Final scaffolds"/>
+		<data format="txt" name="output3" label="Log File"/>
+		<data format="txt" name="output4" label="Summary file"/>
+	</outputs>
+</tool>
