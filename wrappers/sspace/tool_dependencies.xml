@@ -1,6 +1,6 @@
 <tool_dependency>
 	<package name="perl" version="5.18.1.1">
-
+		<!-- Perl must have multiple threads -->
 		<repository name="package_perl_5_18" changeset_revision="623739d90d67" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
 	</package>
 	<package name="extra_perl" version="1.0">
