@@ -5,7 +5,7 @@
 
                 <!-- install perl -->
                 <action type="download_by_url">http://www.cpan.org/src/5.0/perl-5.18.1.tar.gz</action>
-                <action type="shell_command">./Configure -des -Dprefix=$INSTALL_DIR</action>
+                <action type="shell_command">./Configure -Dusethreads -des -Dprefix=$INSTALL_DIR</action>
                 <action type="shell_command">make || true</action>
                 <action type="shell_command">make clean</action>
                 <action type="shell_command">make</action>
