@@ -1,7 +1,7 @@
-<tool id="seqdb_its_feat_push" name="Delete Features from Sequence Database">
+<tool id="seqdb_its_feat_push" name="Delete Features from Sequence Database" version="1.1">
   <description>through web services </description>
   <requirements>
-      <requirement type="package" version="1.1">seqdb-py</requirement>
+      <requirement type="package" version="dev">package_seqdb_py</requirement>
   </requirements>
   
   <command>
@@ -19,7 +19,7 @@
         from_work_dir="delete_failed_feature_ids.txt"
         label="Feature ids that failed to be deleted" />
       <data name="SeqDB_delete_log"
-        format="text"
+        format="txt"
         from_work_dir="seqdb_delete.log"
         label="Log file of deleting ITSx features from SeqDB" />
   </outputs>

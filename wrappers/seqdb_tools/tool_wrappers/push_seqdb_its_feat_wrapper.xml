@@ -1,7 +1,7 @@
-<tool id="seqdb_its_feat_push" name="Write Features to Sequence Database">
+<tool id="seqdb_its_feat_push" name="Write Features to Sequence Database" version="1.1">
   <description>through web services </description>
   <requirements>
-      <requirement type="package" version="1.1">seqdb-py</requirement>
+      <requirement type="package" version="dev">package_seqdb_py</requirement>
   </requirements>
   
   <command>
@@ -19,7 +19,7 @@
         from_work_dir="seqdb_feature_ids.txt"
         label="ITS feature IDs, saved to SeqDB" />
       <data name="SeqDB_push_log"
-        format="text"
+        format="txt"
         from_work_dir="seqdb_push.log"
         label="Log file of writing ITSx features to SeqDB" />
   </outputs>

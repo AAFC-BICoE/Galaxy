@@ -1,31 +1,37 @@
-<tool id="seqdb_its_seq" name="Load ITS Sequences from Sequence Database">
+<tool id="seqdb_its_seq" name="Load Sequences from SeqDB" version="1.1">
   <description> through web services </description>
   <requirements>
-      <requirement type="package" version="1.1">seqdb-py</requirement>
+      <requirement type="package" version="dev">package_seqdb_py</requirement>
   </requirements>
   
   <command>
-      pull_seqdb_its_seqs -c $config_file
+      pull_seqdb_seqs -c $config_file $pull_type
   </command>
 
   <inputs>
       <param name="config_file" type="data" label="Sequence Database Configuration File" />
+      <param name="pull_type" type="select" display="radio"
+          label="Select which sequences you would loke to load:">
+          <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS seqiences</option>
+          <option value="consensus">Consensus sequences</option>
+          <!-- <option value="raw">Load raw seqiences</option> -->
+      </param>
   </inputs>
   
   <outputs>
-    <data name="ITS_sequences"
+    <data name="seqdb_sequences"
         format="fasta"
-        from_work_dir="seqdb_ITS_seqs.fasta"
-        label="ITS Sequences from Sequence Database" />
+        from_work_dir="seqdb_sequences.fasta"
+        label="Sequences from SeqDB" />
     <data name="SeqDB_pull_log"
-        format="text"
+        format="txt"
         from_work_dir="seqdb_pull.log"
         label="Log file of extracting ITS sequences from SeqDB" />
   </outputs>
 
   <tests>
     <test>
-      <output name="out_file" file="seqdb_ITS_seqs.fasta" />
+      <output name="out_file" file="seqdb_sequences.fasta" />
     </test>
   </tests>
 
