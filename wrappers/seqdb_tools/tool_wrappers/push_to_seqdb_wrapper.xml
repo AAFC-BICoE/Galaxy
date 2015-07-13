@@ -5,19 +5,44 @@
   </requirements>
   
   <command>
-      push_seqdb_its_feat -c $config_file -f $ifile
+      push_to_seqdb -c $config_file $push_type_cond.push_type -ifile $ifile
   </command>
   
   <inputs>
       <param name="config_file" type="data" label="Sequence Database Configuration File" />
-      <param name="ifile" type="data" label="ITSx positions file" />
+      
+      <conditional name="push_type_cond">
+          <param name="push_type" type="select" label="Select which sequences you would like to load *">
+              <option value="itsx_features" help="Will write features found in *.positions.txt file from ITSx execution">ITS features from ITSx tool</option>
+              <option value="findLCA_taxonomy" help="Will write taxonomy lineage, derived from the results of Find LCA tool" >Taxonomy from Find LCA tool</option>
+          </param>
+          <when value="itsx_features">
+              <param name="ifile" type="data" label="ITSx feature positions file" />
+          </when>
+          <when value="findLCA_taxonomy">
+              <param name="ifile" type="data" label="Find LCA results file" />
+          </when>
+      </conditional>
+      
   </inputs>
   
   <outputs>
       <data name="seqdb_feature_ids"
         format="tabular"
         from_work_dir="seqdb_feature_ids.txt"
-        label="ITS feature IDs, saved to SeqDB" />
+        label="ITS feature IDs, saved to SeqDB">
+      
+        <filter>push_type_cond['push_type'] == "itsx_features"</filter>
+      </data>
+      
+    <data name="seqdb_taxon_ids"
+        format="tabular"
+        from_work_dir="seqdb_taxon_ids.txt"
+        label="Taxon IDs, saved to SeqDB">
+        
+        <filter>push_type_cond['push_type'] == "findLCA_taxonomy"</filter>
+    </data>
+        
       <data name="SeqDB_push_log"
         format="txt"
         from_work_dir="seqdb_push.log"
@@ -43,8 +68,6 @@
       **What is a "Sequence Database Configuration File"?**
       
       Sequence Database Configuration File is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
-     
-     
      
       
   </help>
