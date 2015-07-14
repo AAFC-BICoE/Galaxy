@@ -9,11 +9,11 @@
       pull_seqdb_seqs -c $config_file $pull_type_cond.pull_type
         #if $pull_type_cond.pull_type != "its"
             #if $pull_type_cond.specimen_num
-                -specNum $pull_type_cond.specimen_num
+                --specNum $pull_type_cond.specimen_num
             #end if
         
             #if $pull_type_cond.sequence_name
-                -seqName  $pull_type_cond.sequence_name
+                --seqName  $pull_type_cond.sequence_name
             #end if
         #end if
       

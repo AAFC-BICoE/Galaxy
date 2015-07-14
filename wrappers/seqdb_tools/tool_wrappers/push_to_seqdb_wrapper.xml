@@ -5,7 +5,17 @@
   </requirements>
   
   <command>
-      push_to_seqdb -c $config_file $push_type_cond.push_type -ifile $ifile
+      push_to_seqdb -c $config_file $push_type_cond.push_type
+      
+      #if $push_type_cond.push_type == "itsx_features"
+        --itsx_positions_file $itsx_positions_file
+        --itsx_extraction_file $itsx_extraction_file
+        
+      #else if $push_type_cond.push_type == "findLCA_taxonomy"
+        --lca_results_file $lca_results_file
+        
+      #end if
+      
   </command>
   
   <inputs>
@@ -17,10 +27,11 @@
               <option value="findLCA_taxonomy" help="Will write taxonomy lineage, derived from the results of Find LCA tool" >Taxonomy from Find LCA tool</option>
           </param>
           <when value="itsx_features">
-              <param name="ifile" type="data" label="ITSx feature positions file" />
+              <param name="itsx_positions_file" type="data" label="ITSx feature positions file" />
+              <param name="itsx_extraction_file" type="data" label="ITSx extraction results file" />
           </when>
           <when value="findLCA_taxonomy">
-              <param name="ifile" type="data" label="Find LCA results file" />
+              <param name="lca_results_file" type="data" label="Find LCA results file" />
           </when>
       </conditional>
       
