@@ -1,5 +1,5 @@
 <tool id="seqdb_config" name="SeqDB Configuration" version="1.1">
-  <description> creates a Sequence Database API configuration file. </description>
+  <description> creates a personalized configuration file, used to access SeqDB Web Services. </description>
   <requirements>
       <requirement type="package" version="dev">package_seqdb_py</requirement>
   </requirements>
