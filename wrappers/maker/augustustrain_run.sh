@@ -12,6 +12,9 @@ out_file=$1;
 
 mkdir trainaugtmp;
 cd trainaugtmp;
+
+fasta_line=`grep -n "##FASTA" $gff_in  | cut -f1 -d":"`;
+
 if [ "$source_in" == maker ]; then
 	maker2zff $gff_in ;
 else
@@ -20,7 +23,10 @@ else
 	gff_in=aug_trainable.gff;
 fi
 
-perl gff2gbSmallDNA.pl $gff_in genome.dna 1000 genes.gb;
+head -$fasta_line $gff_in > fasta_free.gff;
+new_gff=fasta_free.gff;
+
+perl gff2gbSmallDNA.pl $new_gff genome.dna 1000 genes.gb;
 perl autoAugTrain.pl --trainingset=genes.gb --species=$species_in;
 RESULT=${?};
 
