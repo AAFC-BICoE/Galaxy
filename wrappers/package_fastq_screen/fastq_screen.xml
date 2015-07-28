@@ -1,0 +1,237 @@
+<tool id="fastq_screen" name="FASTQ_SCREEN" version="1.0">
+	<description>FASTQ SCREEN TOOL</description>
+	<requirements>
+		<requirement type="package" version="2.2.5">bowtie2</requirement>
+		<requirement type="package" version="5.18.1.1">perl</requirement>
+		<requirement type="package" version="0.4.4.1">fq_screen</requirement>
+	</requirements>
+	<command interpreter='perl'>
+		screen_runner.pl
+			$output
+			$output.id
+			$__new_file_path__
+
+	<!--		#for $i in $databases:
+				$i.name
+				#if $i.bowtie_cond.bowtie_select == "1":
+					BOWTIE
+				#end if
+				#if $i.bowtie_cond.bowtie_select == "2":
+					BOWTIE2
+				#end if
+				$i.database
+			#end for
+			eNd_oF_dB
+	-->
+			#for $j in $ref_databases:
+				
+				#for $i in $j.references:
+					$i.reference
+				#end for
+				NoDATABASE34908235
+				#if $j.bmax_cond.bmax_select == "2":
+					--bmax $j.bmax_cond.bmax
+				#end if
+				#if $j.bmaxdivn_cond.bmaxdivn_select == "2":
+					--bmaxdivn $j.bmaxdivn_cond.bmaxdiv
+				#end if
+				#if $j.dcv_cond.dcv_select == "2":
+					--dcv $j.dcv_cond.dcv
+				#end if
+				#if $j.nodc_cond.nodc_select == "2":
+					--nodc
+				#end if
+				#if $j.offrate_cond.offrate_select == "2":
+					-o $j.offrate_cond.offrate
+				#end if
+				#if $j.ftabchars_cond.ftabchars_select == "2":
+					-t $j.ftabchars_cond.ftabchars
+				#end if
+				#if $j.ntoa_cond.ntoa_select == "2":
+					--ntoa $j.ntoa_cond.ntoa
+				#end if
+				#if $j.seed_cond.seed_select == "2":
+					$j.seed_cond.seed
+				#end if
+				$j.name
+				end_of_bowtie
+			#end for
+			fastq_screen
+			
+			#if $quality_cond.quality_select == "2":
+				--illumina1_3
+			#end if
+			
+			#if $subset_cond.subset_select == "2":
+				--subset $subset_cond.subset
+			#end if
+			
+			--threads $threads
+			
+			--aligner bowtie2
+			--nohits
+			#if $pair_cond.pair_select == "2":
+				--paired
+				#for $i in $pair_cond.seqs:
+					$i.name
+					$i.seq1
+					$i.seq2
+				#end for
+			#end if
+			
+			#if $pair_cond.pair_select == "1":
+				#for $i in $pair_cond.seqs:
+					$i.name
+					$i.seq
+				#end for
+			#end if
+			
+
+	</command>
+	<inputs>
+	<!--<param name="threads" type="text" label="Number of CPU cores to be used:"/>
+	<repeat name="databases" title="The databases" min="1">
+		<param name="name" type="text" label="The database name (no spaces)"/>
+		<conditional name="bowtie_cond" >
+			<param name="bowtie_select" type="select" label="What type of Bowtie?">
+				<option value="1">BOWTIE</option>
+				<option value="2">BOWTIE2</option>
+			</param>	
+		</conditional>
+		<param name="database" type="data" format='fastq' label="Bowtie indicies file"/> 
+	</repeat>
+	-->
+		<repeat name="ref_databases" title="The DB's to compare against" min="1">
+			<repeat name="references" title="The databases" min="1">
+				<param name="reference" type="data" format='fasta' label="The reference files used to build the bowtie2 indexes."/> 
+			</repeat>
+			<param name="name" type="text" label="EWBT Name (No duplicated names)"/>
+			<conditional name="bmax_cond" >
+				<param name="bmax_select" type="select" label="Provide a max bucket sz for blockwise suffix-array builder ?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="bmax" type="text" label="Bmax value:"/> 
+				</when>
+			</conditional>
+			<conditional name="bmaxdivn_cond" >
+				<param name="bmaxdivn_select" type="select" label="Provide a max bucket sz as divisor of ref len (default 4)?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="bmaxdivn" type="text" value="4" label="Bmaxdivn value:"/> 
+				</when>
+			</conditional>
+			<conditional name="dcv_cond" >
+				<param name="dcv_select" type="select" label="Provide difference coverage for blockwise (default 1024) ?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="dcv" type="text" value="1024" label="Bmaxdivn value:"/> 
+				</when>
+			</conditional>
+			<conditional name="nodc_cond" >
+				<param name="nodc_select" type="select" label="Disable diff-coverage (algorithm becomes quadratic)?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+			</conditional>
+		<!--	<conditional name="noref_cond" >
+				<param name="noref_select" type="select" label="Disable diff-coverage (algorithm becomes quadratic)?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+			</conditional> -->
+			<conditional name="offrate_cond" >
+				<param name="offrate_select" type="select" label="SA is sampled every 2^offRate BWT chars (default 5) ?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="offrate" type="text" value="5" label="The offrate"/> 
+				</when>
+			</conditional>
+			<conditional name="ftabchars_cond" >
+				<param name="ftabchars_select" type="select" label="Change the number of characters consumed in inital look up (default:10) ?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="ftabchars" type="text" value="10"/> 
+				</when>
+			</conditional>
+			<conditional name="ntoa_cond" >
+				<param name="ntoa_select" type="select" label="Convert Ns into As in the reference?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+			</conditional>
+			<conditional name="seed_cond" >
+				<param name="seed_select" type="select" label="Provide a seed value to the random number generator ?">
+					<option value="1">No</option>
+					<option value="2">Yes</option>
+				</param>
+				<when value="2">
+					<param name="seed" type="text"/> 
+				</when>
+			</conditional>
+		</repeat>
+		<conditional name="pair_cond" >
+			<param name="pair_select" type="select" label="Are the fastq files that you want to screen paired?">
+				<option value="1">No</option>
+				<option value="2">Yes</option>
+			</param>
+			<when value="1">
+				<repeat name="seqs" title="The databases" min="1">
+					<param name="name" type="text" label="The name of the database"/>
+					<param name="seq" type="data" format='fastq' label="DNA sequences"/> 
+				</repeat>
+			</when>
+			<when value="2">
+				<repeat name="seqs" title="The databases" min="1">
+					<param name="name" type="text" label="The name of the database"/>
+					<param name="seq1" type="data" format='fastq' label="DNA sequences"/>
+					<param name="seq2" type="data" format='fastq' label="DNA sequences"/> 
+				</repeat>
+			</when>
+		</conditional>
+		
+		<conditional name="subset_cond" >
+			<param name="subset_select" type="select" label="Use a subset of the sequence files (If not it will use the default value 100,000. To use the whole file provide the value 0)?">
+				<option value="1">No</option>
+				<option value="2">Yes</option>
+			</param>
+			<when value="2">
+				<param name="subset" type="text" label="Subset:"/>
+			</when>
+		</conditional>
+
+		
+		<conditional name="quality_cond" >
+			<param name="quality_select" type="select" label="What type of Bowtie?">
+				<option value="1">Illumina v1.3</option>
+				<option value="2">Sanger</option>
+			</param>	
+		</conditional>
+<!--		<conditional name="nohit_cond" >
+			<param name="nohit_select" type="select" label="Write to a file the sequences that did not map to any of the genome libraries?">
+				<option value="1">No</option>
+				<option value="2">Yes</option>
+			</param>	
+		</conditional>
+-->		<param name="threads" type="text" label="Threads:" value="1"/>
+<!--		<param name="vi " type="text" value="1024" label="Bmaxdivn value:"/> -->
+	</inputs>
+	<outputs>
+		<data name="output" format="tabular" label="fastq_screen on ${on_string}" />
+	</outputs>
+	<tests>
+		
+	</tests>
+	<help>	
+		
+	</help>
+</tool>
