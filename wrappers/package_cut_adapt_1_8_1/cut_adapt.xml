@@ -5,24 +5,45 @@
 	<description>Cut Adapt Tool</description>
 		<command>
 			cutadapt
-				#for $i in $pair_cond.format_cond.adapters_read1 :
-					#if $i.adaptor_cond.first_adaptor_select == "1":
-						-a $i.first_adaptor
-					#end if
-					#if $i.adaptor_cond.first_adaptor_select == "2":
-						-g $i.first_adaptor
-					#end if	
-					#if $i.adaptor_cond.first_adaptor_select == "3":
-						-a $i.first_adaptor\$
-					#end if	
-					#if $i.adaptor_cond.first_adaptor_select == "4":
-						-g ^$i.first_adaptor
-					#end if	
-					#if $i.adaptor_cond.first_adaptor_select == "5":
-						-b $i.first_adaptor
-					#end if
-				#end for				
+				#if $pair_cond.pair_select == "2":
+					#for $i in $pair_cond.format_cond.adapters_read1 :
+						#if $i.adaptor_cond.first_adaptor_select == "1":
+							-a $i.first_adaptor
+						#end if
+						#if $i.adaptor_cond.first_adaptor_select == "2":
+							-g $i.first_adaptor
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "3":
+							-a $i.first_adaptor\$
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "4":
+							-g ^$i.first_adaptor
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "5":
+							-b $i.first_adaptor
+						#end if
+					#end for				
+				#end if
 				#if $pair_cond.pair_select == "1":
+					
+					#for $i in $pair_cond.format_cond.adapters_read1 :
+						#if $i.adaptor_cond.first_adaptor_select == "1":
+							-a $i.first_adaptor
+						#end if
+						#if $i.adaptor_cond.first_adaptor_select == "2":
+							-g $i.first_adaptor
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "3":
+							-a $i.first_adaptor\$
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "4":
+							-g ^$i.first_adaptor
+						#end if	
+						#if $i.adaptor_cond.first_adaptor_select == "5":
+							-b $i.first_adaptor
+						#end if
+					#end for
+					
 					#for $i in $pair_cond.format_cond.adapters_read2:
 						#if $i.sec_adaptor_cond.second_adaptor_select == "1":
 							-A $i.second_adaptor
@@ -45,10 +66,6 @@
 				
 				-u $first_cut
 				-e $error_tol
-				
-				#if $quality.quality_select == "1":
-					-q $quality.q
-				#end if
 				
 				#if $no_indels == "true":
 					--no-indels
@@ -84,34 +101,158 @@
 				#if $discard_untrimmed_cond.discard_untrimmed_select == "1":
 					--discard-untrimmed
 				#end if
-				
-				#if $pair_cond.format_cond.format_select == "2":
-					-f fastq
-				#end if
-				
-				#if $pair_cond.format_cond.format_select == "1":
-					-f fasta
-				#end if
-				
-				$pair_cond.format_cond.file1
-				
-				-o $output1
-				
+					
 				#if $pair_cond.pair_select == "1":
-					-p $output2
+					
+					#if $pair_cond.format_cond.format_select == "2":
+						#if $pair_cond.format_cond.quality.quality_select == "1":
+							-q $pair_cond.format_cond.quality.q
+						#end if
+						-f fastq
+					#end if
+				
+					#if $pair_cond.format_cond.format_select == "1":
+						-f fasta
+					#end if
+				
+					$pair_cond.format_cond.file1
+					
+					-o $output1
+					
+					#if $pair_cond.pair_select == "1":
+						-p $output2
+					#end if
+					
+					#if $pair_cond.pair_select == "1":
+						$pair_cond.format_cond.file2
+					#end if
 				#end if
 				
-				#if $pair_cond.pair_select == "1":
-					$pair_cond.format_cond.file2
+				
+				#if $pair_cond.pair_select == "2":
+									
+					#if $pair_cond.format_cond.format_select == "2":
+						#if $pair_cond.format_cond.quality.quality_select == "1":
+							-q $pair_cond.format_cond.quality.q
+						#end if
+						-f fastq
+					#end if
+				
+					#if $pair_cond.format_cond.format_select == "1":
+						-f fasta
+					#end if
+				
+					$pair_cond.format_cond.file1
+					
+					-o $output1
+					
+					#if $pair_cond.pair_select == "1":
+						-p $output2
+					#end if
+					
+					#if $pair_cond.pair_select == "1":
+						$pair_cond.format_cond.file2
+					#end if
 				#end if
+				
+				
+				#if $pair_cond.pair_select == "3":
+					-c
+					-o $output1
+					#if $pair_cond.color_input_cond.color_input_select == "2":
+						#if $pair_cond.color_input_cond.format_cond.format_select == "2":
+							#if $pair_cond.color_input_cond.format_cond.quality.quality_select == "1":
+								-q $pair_cond.color_input_cond.format_cond.quality.q
+							#end if
+							-f fastq
+						#end if
+						#if $pair_cond.color_input_cond.format_cond.format_select == "1":
+							-f fasta
+						#end if
+						$pair_cond.color_input_cond.format_cond.file1
+					#end if
+
+					#if $pair_cond.color_input_cond.color_input_select == "1":
+						$pair_cond.color_input_cond.f1
+						$pair_cond.color_input_cond.f2
+					#end if
+				#end if
+				
+				
+				
+				
+				
+				
 				> $log
+				
+				
 		</command>
 		<inputs>
 			<conditional name="pair_cond">
-				<param name="pair_select" type="select" value="2" label="Do you want to enter end paired files ?">
-					<option value="2">No</option>
-					<option value="1">Yes</option>
+				<param name="pair_select" type="select" value="2" label="Input format type ?">
+					<option value="3">Colorspace</option>					
+					<option value="2">Not Colorspace Single Input Files</option>
+					<option value="1">Not Colorspace Paired Ended Input Files</option>
 				</param>
+				<when value="3">
+					<conditional name="color_input_cond">
+						<param name="color_input_select" type="select" value="2" label="">
+							<option value="2">Fasta or Fastq file</option>
+							<option value="1">Csfasta and a qual file</option>
+						</param>
+						<when value="2">
+							<conditional name="format_cond">
+								<param name="format_select" type="select" value="2" label="Select the input files format:">
+									<option value="2">Fastq</option>
+									<option value="1">Fasta</option>
+								</param>
+								<when value="1">
+									<param name="file1" type="data" format='fasta'/>
+								</when>
+								<when value="2">
+									<param name="file1" type="data" format='fastq'/>
+
+									
+									
+									
+									<conditional name="quality">
+										<param name="quality_select" type="select" label="Do you want to trim low-quality ends from reads before adapter removal?">
+											<option value="1">Yes</option>
+											<option value="2">No</option>
+										</param>
+										<when value="1">
+											<param name="q" type="text" value="" label="OFF, --quality-cutoff=[5'CUTOFF,]3'CUTOFF. Trim low-quality bases from 5' and/or 3' ends of reads before adapter removal. If one value is given, only the 3' end is trimmed. If two comma-separated cutoffs are given, the 5' end is trimmed with the first cutoff, the 3' end with the second."/>
+										</when>
+									</conditional>
+
+
+
+										
+								</when>
+							</conditional>
+						</when>
+						<when value="1">
+							<param name="f1" type="data" label="CSfasta:" format='CSFASTA'/>
+							<param name="f2" type="data" label="Qual File:" format='QUAL'/>
+						</when>
+					</conditional>
+					<repeat name="adapters_read1" title="The adapters for the first reads file" min="1"  >
+						<conditional name="adaptor_cond" >
+							<param name="first_adaptor_select" type="select" label="What adaptor type should be used ?">
+								<option value="1">3'</option>
+								<option value="2">5'</option>
+								<option value="3">3' anchored</option>
+								<option value="4">5' anchored</option>
+								<option value="5">3' or 5'</option>
+							</param>
+							<when value="1">
+								
+							</when>
+						</conditional>
+						<param name="first_adaptor" type="text" label="The first adaptor"/>
+					</repeat>
+					
+				</when>
 				<when value="2">
 					<conditional name="format_cond">
 						<param name="format_select" type="select" value="2" label="Select the input files format:">
@@ -151,9 +292,21 @@
 									
 									</when>
 								</conditional>
-								<param name="first_adaptor" type="text" label="The first adaptor"/>
+								<param name="first_adaptor" type="text" label="The first adaptor"/>	
 							</repeat>
-							<param name="second_cut" type="text" value="0" label="Remove bases from the beginning or end of the second read. This is done before any adapter trimming. A positive number will remove bases from the beginning and a negative number will remove the bases from the end."/>
+							
+
+							<conditional name="quality">
+								<param name="quality_select" type="select" label="Do you want to trim low-quality ends from reads before adapter removal? (ONLY FOR FASTQ INPUT)">
+									<option value="1">Yes</option>
+									<option value="2">No</option>
+								</param>
+								<when value="1">
+									<param name="q" type="text" value="" label="OFF, --quality-cutoff=[5'CUTOFF,]3'CUTOFF. Trim low-quality bases from 5' and/or 3' ends of reads before adapter removal. If one value is given, only the 3' end is trimmed. If two comma-separated cutoffs are given, the 5' end is trimmed with the first cutoff, the 3' end with the second."/>
+								</when>
+							</conditional>
+							
+							
 						</when>
 					</conditional>
 				</when>
@@ -231,9 +384,18 @@
 										
 									</when>
 								</conditional>
-									<param name="second_adaptor" type="text" label="The second adaptor"/>
+								<param name="second_adaptor" type="text" label="The second adaptor"/>
 							</repeat>
 							<param name="file2" type="data" format='fastq'/>
+							<conditional name="quality">
+								<param name="quality_select" type="select" label="Do you want to trim low-quality ends from reads before adapter removal? (ONLY FOR FASTQ INPUT)">
+									<option value="1">Yes</option>
+									<option value="2">No</option>
+								</param>
+								<when value="1">
+									<param name="q" type="text" value="" label="OFF, --quality-cutoff=[5'CUTOFF,]3'CUTOFF. Trim low-quality bases from 5' and/or 3' ends of reads before adapter removal. If one value is given, only the 3' end is trimmed. If two comma-separated cutoffs are given, the 5' end is trimmed with the first cutoff, the 3' end with the second."/>
+								</when>
+							</conditional>
 						</when>
 					</conditional>
 				</when>
@@ -241,16 +403,7 @@
 			
 			<param name="first_cut" type="text" value="0" label="Remove bases from the beginning or end of the first read. This is done before any adapter trimming. A positive number will remove bases from the beginning and a negative number will remove the bases from the end."/>
 			<param name="error_tol" type="text" value="0.1" label="Enter the desired error tolerance for the searches for adapter sequences. The default is 0.1"/>
-			<conditional name="quality">
-				<param name="quality_select" type="select" label="Do you want to trim low-quality ends from reads before adapter removal.">
-					<option value="1">Yes</option>
-					<option value="2">No</option>
-				</param>
-				<when value="1">
-					<param name="q" type="text" value="" label="OFF, --quality-cutoff=[5'CUTOFF,]3'CUTOFF. Trim low-quality bases from 5' and/or 3' ends of reads before adapter removal. If one value is given, only the 3' end is trimmed. If two comma-separated cutoffs are given, the 5' end is trimmed with the first cutoff, the 3' end with the second."/>
-				</when>
-			</conditional>
-			
+	
 			<param name="no_indels" type="boolean" value="false" label="Do not allow allow indels in alignments. (Only allowed for anchored adapters.) (Default allow both mismatches and indels)"/>
 			<param name="times" type="text" value="1" label="How many times at most should it be attempted to remove an adapter ?"/>
 			<param name="length" type="text" value="3" label="The minimum overlap length. If the overlap between the read and the adapter is shorter than length, the read is not modified by default 3"/>
