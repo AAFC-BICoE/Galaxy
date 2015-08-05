@@ -9,7 +9,7 @@
 		<requirement type="package" version="2.2.28">rmblast</requirement>
 		<requirement type="package" version="4.0.3">repeatmasker</requirement>
 		<requirement type="package" version="2.2.0">exonerate</requirement>
-		<requirement type="package" version="5.18.1">perl</requirement> 
+		<requirement type="package" version="5.18.1.1">perl</requirement> 
        </requirements>
 
 	<command>

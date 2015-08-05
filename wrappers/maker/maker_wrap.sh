@@ -119,7 +119,7 @@ sed -i s%^cpus=.*%cpus=1% maker_opts.ctl
 #Check if all evidence files are valid and exist
 #if [ $genome_gff ]; then
 
-maker >> ${28} 2>&1 || { echo "MAKER has run ino an error. Aborting."; exit 114; }
+maker --ignore_nfs_tmp >> ${28} 2>&1 || { echo "MAKER has run ino an error. Aborting."; exit 114; }
 
 #Get files from datastore
 cd genome.maker.output
