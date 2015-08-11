@@ -12,7 +12,7 @@
       <param name="api_key" type="text" label="Sequence Database API Key" />
   </inputs>
   <outputs>
-    <data
+    <data name="seqdb_configuration”
         format="txt"
         from_work_dir="user_config.yaml"
         label="Sequence Database Configuration" />

@@ -23,7 +23,7 @@
       
       <conditional name="push_type_cond">
           <param name="push_type" type="select" label="Select which sequences you would like to load *">
-              <option value="itsx_features" help="Will write features found in *.positions.txt file from ITSx execution">ITS features from ITSx tool</option>
+              <option value="itsx_features" help="Will write features found in .positions.txt file from ITSx execution">ITS features from ITSx tool</option>
               <option value="findLCA_taxonomy" help="Will write taxonomy lineage, derived from the results of Find LCA tool" >Taxonomy from Find LCA tool</option>
           </param>
           <when value="itsx_features">
