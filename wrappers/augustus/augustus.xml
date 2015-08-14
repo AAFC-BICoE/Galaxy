@@ -12,7 +12,7 @@
 	#if $hints.hintsboolean == 1 <!-- NOTE HOW THIS WORKS!!! -->
 		--hintsfile=$hintsfile
 	#end if
-
+	
 	#if $excfg.excfgboolean == 1
 		--extrinsicCfgFile=$cfgfilename
 	#end if
@@ -22,7 +22,7 @@
 	--stop=$stop
 	--cds=$cds
 	--alternatives-from-evidence=$altevi
-
+	
 	#if $altsap.altsapboolean == 1
 	--alternatives-from-sampling=true
 	--sample=$altsap.sample
@@ -30,11 +30,11 @@
 	--minmeanexonintronprob=$altsap.minmeanexonintronprob
 	--maxtracks=$altsap.maxtracks
 	#end if
-
+	
 	--noInFrameStop=$noifs
 	--noprediction=$np
 	--contentmodels=$cm
-
+	
 	--outfile=$out
 	$in 
         </command>
@@ -126,22 +126,16 @@
   (emiprobs), initial k-mers in coding region (Pls), intron and intergenic regin Markov chain. This option is intended for
   special applications that require judging gene structures from the signal models only, e.g. for predicting the effect of
   SNPs or mutations on splicing. For all typical gene predictions, this should be true."/>
-
+		
 		
 	</inputs>
 
 	<outputs>
-     	   <data format="gff" name="out" label="augustus gene prediction on ${on_string}">
+     	   <data format="txt" name="out" label="augustus gene prediction on ${on_string}">
      	   </data>
 	</outputs>
 
-	<tests>
-	<test>
-		<param name="species" value="human"/>
-		<param name="in" value="humanChr1.fasta"/>
-		<output name="out" file="out.gff"/>
-	</test>
-	</tests>
+
 
 	<help>
 
