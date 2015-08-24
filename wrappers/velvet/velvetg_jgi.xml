@@ -1,0 +1,318 @@
+<tool id="velvetg_jgi" name="velvetg" version="1.0.0">
+<description>Assemble preprocessed reads</description>
+<requirements>
+<requirement type="package" version="1.2.10.1">velvet</requirement>
+<requirement type="package" version="5.18.1.1">perl</requirement>
+<requirement type="package" version="2.3">quast</requirement>
+<requirement type="package" version="3.4">python</requirement>
+<requirement type="package" version="1.0">velvetk</requirement>
+</requirements>
+<command interpreter='perl'>velvetg_jgi_wrapper.pl
+$velveth
+ $velveth.extra_files_path
+$velvetg_outfile.extra_files_path
+$velvetg_outfile
+<!--$contigs_outfile -->
+<!--$stats_outfile
+$pregraph_outfile
+$kmer
+$kmerBoolean -->
+<!--$contigs_outfile.id -->
+$velvetg_outfile.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+$__new_file_path__
+fasta
+
+
+$kmer_input_type.kmer_select
+
+
+#if $kmer_input_type.kmer_select =='no':
+
+	#for $i in $kmer_input_type.kmers :
+		
+		$i.kmer
+		$i.exp_cov
+		
+	#end for
+
+#else :
+	$kmer_input_type.size
+	$kmer_input_type.kmer
+
+<!--	#for $i in $kmer_input_type.files:
+		$i.File
+	#end for
+-->
+
+
+#end if
+
+quast.py
+
+
+$gene_selection
+
+$min_contig
+
+
+<!--$unused_reads_outfile
+$amos_outfile -->
+
+
+velvetg $velvetg_outfile.extra_files_path
+-very_clean yes
+
+
+
+#if  $insLenSelect :
+-ins_length $ins_length
+    #if $insLenSDSelect:
+		-ins_length_sd $ins_length_sd
+    #end if
+#end if
+
+
+
+#if  $insLenSelect2 :
+-ins_length2 $ins_length2
+    #if $insLenSDSelect2:
+		-ins_length2_sd $ins_length_sd2
+    #end if
+#end if
+
+
+#if  $insLenSelect3 :
+-ins_length3 $ins_length3
+    #if $insLenSDSelect3:
+		-ins_length3_sd $ins_length_sd3
+    #end if
+#end if
+
+
+#if  $insLenSelect4 :
+-ins_length4 $ins_length4
+    #if $insLenSDSelect4:
+		-ins_length4_sd $ins_length_sd4
+    #end if
+#end if
+
+#if  $insLenSelect5 :
+-ins_length5 $ins_length5
+    #if $insLenSDSelect5:
+		-ins_length5_sd $ins_length_sd5
+    #end if
+#end if
+
+#if  $insLenSelectLong :
+    -ins_length_long $ins_lengthLong
+#end if
+
+#if $cov_cutoff_boolean :
+	-cov_cutoff $cov_cutoff_condition.cov_cutoff
+#end if
+
+#if $long_cov_cutoff_select:
+	-long_cov_cutoff $long_cov_cutoff
+#end if
+
+#if $max_coverage_select == "yes":
+
+-max_coverage $max_coverage
+
+#end if
+
+
+#if $min_contig_lgth_select == "yes" :
+
+-min_contig_lgth $min_contig_lgth
+
+#end if
+
+
+#if $read_trkg:
+
+-read_trkg $read_trkg 
+
+#end if
+
+
+#if $amos_file:
+
+-amos_file $amos_file
+
+#end if
+
+#if $unused_reads:
+
+-unused_reads $unused_reads
+
+#end if
+
+#if $max_branch_length_select:
+
+-max_branch_length $max_branch_length
+
+#end if
+
+
+#if $max_divergence_length_select:
+
+-max_divergence $max_divergence
+
+#end if
+
+#if $max_gap_count_select:
+
+-max_gap_count $max_gap_count 
+
+#end if
+#if $scaffolding :
+-scaffolding $scaffolding
+
+#end if
+
+
+#if $long_mult_cutoff_select :
+
+-long_mult_cutoff $long_mult_cutoff
+
+#end if
+
+#if $min_pair_count_select:
+
+-min_pair_count $min_pair_count
+
+#end if
+
+#if $alignments:
+
+-alignments $alignments
+
+#end if
+
+
+#if $exportFiltered:
+
+-exportFiltered $exportFiltered
+
+#end if
+
+</command>
+<inputs>
+	<param name="velveth" type="data" format="txt" label="velvet hash"/>
+	
+	<conditional name="kmer_input_type">
+		<param name="kmer_select" type="select" label="Do you want the tool to create the expected coverages for a range of Kmers or manually enter the kmers and their corresponding expected coverage">
+			<option value="no">Manual</option>
+			<option value="yes"  >Automatically</option>
+		</param>
+		<when value="yes" >
+	<!--		<repeat name="files" title="Reads Files">
+				<param name="File" type="data" label= "The Fastq file"/>
+			</repeat>
+		-->	<param name="size" type="text" label="The expected genome size" /> 
+			<param name="kmer" type="text" value="-1" label="Enter the range of kmers you want the velvetg job to run on. In the format m,M,s where m is the first kmer, M is the last (not inclusive) and s is the step size." />
+		</when>
+		<when value="no">
+			<repeat name="kmers" title="Kmers">
+				<param name="kmer" type="text" label="Kmer"/>
+				<param name="exp_cov" type="text" label="Expected Coverage"/>
+			</repeat>
+		</when>
+	</conditional>
+	
+	<param name="gene_selection" type="select" >
+		<option value="eukaryote">Eukaryote</option>
+		<option value="prokaryotes">Prokaryotes</option>
+		<option value="Metagenes">Metagenomes</option>
+	</param>
+	<param name="min_contig" type="integer" value="500" label="Set the threshold for the contig length (default is 500)"/>
+	
+	<param name="insLenSelect" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the first data set?"/>
+	<param name="ins_length" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+	<param name="insLenSDSelect" type="boolean" value="false" label="Do you want to enter a length standard deviation (bp) of short library for the first data set?"/>
+	<param name="ins_length_sd" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer) " />
+
+
+	<param name="insLenSelect2" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the second data set?"/>
+	<param name="ins_length2" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+	<param name="insLenSDSelect2" type="boolean" value="false" label="Do you want to enter a length standard deviation (bp) of short library for the second data set?"/>
+	<param name="ins_length_sd2" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer) " />
+
+
+
+	<param name="insLenSelect3" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the third data set?"/>
+	<param name="ins_length3" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+	<param name="insLenSDSelect3" type="boolean" value="false" label="Do you want to enter a length standard deviation (bp) of short library for the third data set?"/>
+	<param name="ins_length_sd3" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer) " />
+
+
+	<param name="insLenSelect4" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the fourth data set?"/>
+	<param name="ins_length4" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+	<param name="insLenSDSelect4" type="boolean" value="false" label="Do you want to enter a length standard deviation (bp) of short library for the fourth data set?"/>
+	<param name="ins_length_sd4" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer) " />
+
+	<param name="insLenSelect5" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the fifth data set?"/>
+	<param name="ins_length5" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+	<param name="insLenSDSelect5" type="boolean" value="false" label="Do you want to enter a length standard deviation (bp) of short library for the fifth data set?"/>
+	<param name="ins_length_sd5" type="text" value='auto' label="[ins_length_sd] Insert length standard deviation (bp) of short library; requires above" help="blank=default of 10% of corresponding length; auto=infer; or supply value (integer) " />
+
+	<param name="insLenSelectLong" type="boolean" value="false" label="Do you want to enter an expected distance between two paired end reads for the long data set?"/>
+	<param name="ins_lengthLong" type="text" value='auto' label="[-ins_length] Insert length (bp) of short library" help="auto=infer; or supply value (integer)" />
+
+	<param name="cov_cutoff_boolean" type="boolean" value="false" label="Enter the coverage cutoff to remove low coverage nodes after tour bus or allow the system to infer it ?" />
+	<param name="cov_cutoff" type="text" value='-1' label="[-cov_cutoff] Removal of low coverage nodes AFTER tour bus" help="auto=infer cutoff; or specify cutoff (real number)" />
+        <param name="long_cov_cutoff_select" type="boolean" value="false" label="Remove nodes with low long-read coverage after tour bus ? "/>
+	<param name="long_cov_cutoff" type="float" value='-1' label="[-long_cov_cutoff] Removal of low long-read coverage nodes AFTER tour bus" help="Specify cutoff (real number)" />
+        <param name="max_coverage_select" type="boolean" value="false" label="Remove high coverage nodes after tour bus ? "/>
+        <param name='max_coverage' type='float' value='-1' label="[-max_coverage] Exclude highly covered data from your assembly (e.g. plasmid, mitochondrial, and chloroplast sequences)" help='-1 for default: no removal' />
+        <param name="min_contig_lgth_select" type="boolean" value="false" label="Set the minimum contigs length exported to contigs.fa (default:hash length * 2) ? "/>
+	<param name="min_contig_lgth" type="integer" value='-1' label="Minimum contig length" />
+    <param name="scaffolding" type="boolean" checked='true' label="Scaffolding" truevalue='yes' falsevalue='no'/>
+    <!-- Tour Bus Parameters -->
+    	<param name="max_branch_length_select" type="boolean" value="false" label="Set the maximum length in the base pair of bubble (default 100) ? "/>
+    	<param name="max_branch_length" type="integer" value='100' label="Maximum branch length" help="Default recommended"/>
+    	<param name="max_divergence_length_select" type="boolean" label="Set the maximum divergence rate between two branches in bubble? "/>
+    	<param name="max_divergence" type="float" value='0.20' label="Maximum divergence rate" help="Default recommended"/>
+        <param name="max_gap_count_select" type="boolean" value="false" label="Set maximum number of gaps allowed in the alignment of two branches of a bubble (default: 3) ? "/>     
+        <param name="max_gap_count" type="integer" value='3' label="Maximum gap count" help="Default recommended"/>
+    <!-- Rock Band Parameters -->
+        <param name="long_mult_cutoff_select" type="boolean" value="false" label="Set the minimum number of reads required to merge contigs (default 2) ? "/>
+        <param name='long_mult_cutoff' type="integer" value='2' label="Minimum long read connection cutoff"/>
+    <!-- Pebble Parameters -->
+        <param name="min_pair_count_select" type="boolean" value="false" label="Set the mimum paired end connections to justify the scaffolding of two long contigs(default: 5) ? "/>
+	<param name="min_pair_count" type="integer" value='5' label="Minimum Read-Pair Validation"/>
+    <!-- Output Parameters -->
+    <param name='unused_reads' type='boolean' truevalue='yes' falsevalue='no' checked='true' label='Export unused reads' />
+    <param name='read_trkg' type='boolean' truevalue='yes' falsevalue='no' checked='false' label="[-read_trkg] tracking of short read positions in assembly" help="This will cost slightly more memory and calculation time, but will have the advantage of producing in the end a more detailed description of the assembly.  The additional information will be included in the LastGraph file and optionally the Amos assembly file (below)." />
+    <param name='amos_file' type='boolean' truevalue='yes' falsevalue='no' checked='false' label="[-amos_file] export assembly to AMOS file" help="If selecting this option, you may also want to select -read_trkg (above)" />
+    <param name="alignments" type="boolean" truevalue="yes" falsevalue="no" checked="false" label="[-alignments] export a summary of contig alignment to the reference sequences" />
+    <param name="exportFiltered" type="boolean" truevalue="yes" falsevalue="no" checked="false" label="[-exportFiltered] export the long nodes which were eliminated by the coverage filters" />
+</inputs>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Velvetg error"/>
+	</stdio>
+<outputs>
+    <data name="velvetg_outfile" format="txt" />
+</outputs>
+<help>
+**What it does**
+This tool assembles contigous sequences from preprocessed reads by constructing a de Bruijn graph.
+Sequences must be preprocessed by the velveth tool.
+**Manual**
+http://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf
+</help>
+</tool>

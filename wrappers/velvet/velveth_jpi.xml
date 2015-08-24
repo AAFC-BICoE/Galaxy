@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<tool id="velveth_jgi" name="velveth" version="1.0.0">
+<description>Preprocess sequences for velvet assembly</description>
+<requirements>
+  <requirement type="package" version="1.2.10.1">velvet</requirement>
+  <requirement type="package" version="1.0">velvetk</requirement>
+  <requirement type="package" version="5.18.1.1">perl</requirement> -->
+</requirements>
+<command interpreter='perl'>
+	
+	velveth_jgi_wrapper.pl $output $output.extra_files_path
+		$output.id
+		$__new_file_path__
+
+		$range_input.range_select
+
+		#if $range_input.range_select == 'yes':
+			$range_input.cov
+			$range_input.size
+			$range_input.offset
+			$range_input.step
+		#else
+			$range_input.kmer
+		#end if
+
+		#for $i in $shortLibs:
+	                #if $i.short.libtype == '-shortPaired' :
+	                        #for $j in $i.short.files:
+	                                $j.file
+	                        #end for
+	                #else :
+	                        $i.short.file
+	                #end if
+	        #end for
+	   <!--     #if $shortUseLong.shortSelectLong == "yes":
+	                #for $i in $shortUseLong.long.files
+	                        $i.filetype.file
+	                #end for
+	        #end if
+	--> 
+		
+		#if $shortUseLong.shortSelectLong == "yes":
+			#for $i in $shortUseLong.long.files
+				$i.filetype.file
+			#end for
+		#end if
+		
+		
+	velveth
+	$output.extra_files_path
+	range_temp
+	#for $i in $shortLibs:
+		-fmtAuto
+		$i.short.libtype
+		-$i.short_select
+		#if $i.short.libtype == '-shortPaired' :
+			#for $j in $i.short.files:
+				$j.file
+			#end for
+		#else :
+			$i.short.file
+		#end if
+	#end for
+	#if $shortUseLong.shortSelectLong == "yes":
+		$shortUseLong.long.libtype
+		#for $i in $shortUseLong.long.files
+			$i.filetype.select
+		#end for
+		#for $i in $shortUseLong.long.files
+			$i.filetype.file
+		#end for
+	#end if
+	#if $noHash  :
+		-noHash
+	#end if
+	#if $create_binary :
+		-create_binary
+	#end if
+	$strand_specific
+	
+</command>
+<inputs>
+	<conditional name="range_input">
+		<param name="range_select" type="select" label="Do you want to have the tool generate an estimated range using velvetk or do you want to enter a manual range ?" > 
+			<option value="no">Manul Range</option>		
+			<option value="yes">Automatically Generated</option>
+		</param>
+		<when value="yes">
+			<param name="cov" type="text" value='21' label="Enter the desired expected kmer coverage for velvetk to build the range."/>
+			<param name="size" type="text" value='2500000' label="Enter the expected size of the genome"/>
+			<param name="offset" type="text" value='5' label="Enter the offset from the best kmer (should be even)"/>
+			<param name="step" type="text" value='2' label="Enter the step size (should be even)"/>
+		</when>
+		<when value="no">
+			<param name="kmer" type="text" value="-1" label="Enter the range of kmers you want the velvetg job to run on. In the format m,M,s (no spaces between commas) where m is the first kmer, M is the last (not inclusive) and s is the step size." help="For example the input 1,17,4 will run velveth on the kmers 1, 5 , 9 and 13." />
+		</when>
+	</conditional>
+	<param name="noHash" type="boolean" label="Just prepare Sequences file don't read hashs or make a Roadmaps file (default off)"/>
+	<param name="create_binary" type="boolean" label="Create a binary CnyUnifiedSeq file (default off)" />
+	<psssssaram name="hash_length" type="text" value='21' label="Hash length. Odd numbers only. Maximum 75. Or min,max,increment as comma seperated values with no spaces"/>	
+	<param name="strand_specific" type='boolean' label="All libraries strand-specific?" truevalue='-strand_specific' falsevalue=''/>
+	<repeat name="shortLibs" title="Short Libraries" min="0" max="5" >
+		<param name="short_select" type="select" label="Read 2 separate files for paired reads or the file contains paired reads that are interleaved (default)" >
+			<option value="separate">separate</option>
+			<option value="interleaved">interleaved</option>
+		</param>
+		<conditional name="short">
+        		<param name="libtype" type="select" label="Short Library Type">
+        			<option value="-shortPaired">Paired</option>
+				<option value="-short">Unpaired</option>
+        		</param>
+        		<when value="-shortPaired">
+				<repeat name="files" title="Files">
+					<param name="file" type="data" format=' ' label="File"/>
+          			</repeat>
+        		</when>
+        		<when value="-short">
+                	       	<param name="file" type="data" format=' ' label="File"/>
+        		</when>
+    		</conditional>	
+	</repeat>	
+
+	<conditional name="shortUseLong">
+		<param name="shortSelectLong" type="select" label="Do you have a long short libary" > 
+			<option value="no">No</option>		
+			<option value="yes">Yes</option>
+		</param>
+		<when value="yes">
+			<param name="short_selectlong" type="select" label="Read 2 separate files for paired reads or the file contains paired reads that are interleaved (default)" >
+				<option value="separate">separate</option>
+				<option value="interleaved">interleaved</option>	
+			</param>
+
+    			<conditional name="long">
+				<param name="libtype" type="select" label="Long Library Type">
+					<option value="-longPaired">Paired</option>
+					<option value="-long">Unpaired</option>
+        			</param>
+        			<when value="-longPaired">
+					<repeat name="files" title="Files">
+						<conditional name="filetype">
+							<param name='select' type='select' label='File Type'>
+								<option value='-fastq'>Fastq</option>
+								<option value='-fasta'>Fasta</option>
+							</param>
+							<when value="-fasta">
+								<param name="file" type="data" format="fasta" label="File"/>
+							</when>
+							<when value="-fastq">
+								<param name="file" type="data" format="fastq" label="File"/>
+							</when>
+						</conditional>
+					</repeat>
+				</when>
+				<when value="-long">
+					<repeat name="files" title="Files">
+						<conditional name="filetype">
+							<param name='select' type='select' label='File Type'>
+								<option value='-fastq'>Fastq</option>
+								<option value='-fasta'>Fasta</option>
+							</param>
+						<when value="-fasta">
+							<param name="file" type="data" format="fasta" label="File"/>
+					</when>
+					<when value="-fastq">
+						<param name="file" type="data" format="fastq" label="File"/>
+					</when>
+						</conditional>
+					</repeat>
+				</when>
+		    </conditional>
+		</when>
+	</conditional>
+</inputs>
+<outputs>
+    <data name="output" label="Velveth Hash" format="txt"/>
+</outputs>
+
+<stdio>
+	<exit_code range="1:" level="fatal" description="Velveth error"/>
+</stdio>
+
+<help>
+
+**What it does**
+
+This tool preprocesses the sequence data using the specified hash length.  A larger hash length increases sensitivity at the expense of read depth.
+
+**Manual**
+
+http://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf
+</help>
+</tool>
