@@ -22,6 +22,7 @@
 		<data name="genome_alignment" label="${tool.name} on ${on_string}: Genomes Alignment file" format="txt"/>
 		<data name="backbone_file" label="${tool.name} on ${on_string}: Backbone file" format="tabular"/>
 	</outputs>
+	<version_command>progressiveMauve --version</version_command>
 	<help>
 **Tool Information**
 
@@ -33,7 +34,7 @@ Mauve v2.3.1 - progressiveMauve
 
 progressiveMauve:
 	Aaron E. Darling
-	http://gel.ahabs.wisc.edu/mauve/ 
+	http://gel.ahabs.wisc.edu/mauve/
 
 Mauve Galaxy Wrapper:
 	Iyad Kandalaft
