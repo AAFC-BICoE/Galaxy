@@ -2,6 +2,7 @@
 <tool_dependency>
     <package name="package_seqdb_py" version="dev">
         <repository name="package_seqdb_py" owner="galaxyuser" toolshed="http://onottra678134x.agr.gc.ca:9009/" prior_installation_required="True" />
+        <!-- <repository name="package_seqdb_py" owner="galaxyuser" toolshed="http://onottra678134x.agr.gc.ca:9009/" prior_installation_required="True" /> -->
         <!-- <repository name="package_seqdb_py" owner="galaxyuser" changeset_revision="047aa5e634cf" toolshed="http://onottra678134x.agr.gc.ca:9009/" prior_installation_required="True" /> -->
     </package>
 </tool_dependency>
