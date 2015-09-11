@@ -5,12 +5,18 @@
   </requirements>
   
   <command>
-      delete_seqdb_features -c $config_file -f $ifile
+      delete_seqdb_features -c $config_file $delete_type -f $ifile
   </command>
   
   <inputs>
       <param name="config_file" type="data" label="Sequence Database Configuration File" />
-      <param name="ifile" type="data" label="List of Feature IDs from Sequence Database" />
+     
+      <param name="delete_type" type="select" label="Select what you would like to delete from SeqDB *">
+      	<option value="features" help="Will delete any features from SeqDB. Can be used to delete features found through ITSx tool.">Features</option>
+		<option value="taxonomy" help="Will delete any determinations (taxonomy) from SeqDB. Can be used to delete determinations found through Find LCA tool." >Determinations (i.e. Taxonomy)</option>
+      </param>
+
+      <param name="ifile" type="data" label="File with list of IDs from Sequence Database" help="File that contains ONLY IDs of items that will be deleted from SeqDB. File format: IDs can be on a separate line; one line, separated by comma or tab." />
   </inputs>
   
   <outputs>
@@ -32,9 +38,9 @@
       
       **What it does**
       
-      Deletes features from SeqDB.
+      Deletes items from SeqDB.
       
-      Expected input is the file with SeqDB feature ids. Ids can be tab delimited, comma separated, one on each line or a combination of all the above.
+      Expected input is the type of items to be deleted and file with SeqDB ids. Ids can be tab delimited, comma separated, one on each line or a combination of all the above.
 
       
       **What is a "Sequence Database Configuration File"?**

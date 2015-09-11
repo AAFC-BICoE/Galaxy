@@ -3,6 +3,7 @@
   <requirements>
       <requirement type="package" version="dev">package_seqdb_py</requirement>
   </requirements>
+  
   <command>
       seqdb_config_maker -k $api_key
   </command>
