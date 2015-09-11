@@ -1,0 +1,93 @@
+<tool id="ITSx" name="ITSx Extractor" version="1.0.11">
+
+  <description> 
+  ITSx -- Identifies ITS sequences and extracts the ITS region
+  </description>
+
+  <command interpreter="perl">
+      ITSx -i $input --detailed_results T -N $domain_num --cpu=\${GALAXY_SLOTS:-1} $preserve $reset
+
+  </command>
+  <requirements>
+	<requirement type="package" version="3.1b1">hmmer</requirement>
+  </requirements>
+  <inputs>
+	<param name="input" type="data" format="fasta" label="Input Fasta"/>
+	<param name="domain_num" type="integer" value="2" label="Minimum number of domains"
+    help="The minimum number of domains (different HMM gene profiles) that must match a sequence or it to be included in the output (detected as an ITS sequence). Setting the value lower than two will increase the number of false positives, while increasing it above two will decrease ITSx detection abilities on fragmentary data. "/>
+    <!--  <param name="cpu" type="integer" value="1" label="cpu"/> -->
+	<param name="complement" type="boolean" checked="true" truevalue="--complement T" falsevalue="--complement F" label="Check both DNA strands against the database"/>
+	<param name="heuristics" type="boolean" checked="false" truevalue="--heuristics T" falsevalue="--heuristics F" label="Use HMMER's heuristic filtering"/>
+	<param name="reset" type="boolean" checked="true" truevalue="--reset T" falsevalue="--reset F" label="Re-creates the HMM-database before ITSx is run"/>
+	<param name="preserve" type="boolean" checked="false" truevalue="--preserve T" falsevalue="--preserve F" label=" Preserve sequence headers instead of printing out ITSx headers"/>
+  </inputs>
+
+  <outputs>
+    <data name="ITS1" format="fasta" label="Extracted ITS1 Fasta File" from_work_dir="ITSx_out.ITS1.fasta"/>
+    <data name="ITS2" format="fasta" label="Extracted ITS2 Fasta File" from_work_dir="ITSx_out.ITS2.fasta"/>
+    <data name="fullfasta" format="fasta" label="Full Fasta of ITS extracted" from_work_dir="ITSx_out.full.fasta"/>
+    <data name="graph" format="txt" label="Graph of ITS regions" from_work_dir="ITSx_out.graph"/>
+    <data name="nodetect" format="fasta" label="No ITS region" from_work_dir="ITSx_out_no_detections.fasta"/>
+    <data name="positions" format="tabular" label="ITSx feature positions" from_work_dir="ITSx_out.positions.txt"/>
+    <data name="problematic" format="tabular" label="Problematic sequences" from_work_dir="ITSx_out.problematic.txt"/>
+    <data name="summary" format="txt" label="ITSx summary" from_work_dir="ITSx_out.summary.txt"/>
+    <data name="extractions" format="tabular" label="ITSx extraction results" from_work_dir="ITSx_out.extraction.results"/>
+  </outputs>
+
+  <stdio>
+        <regex match="ITSx" source="both" level="log"/>
+        <regex match="analysis" source="both" level="log"/>
+        <regex match="ERROR" source="both" level="fatal"/>
+        <regex match="error" source="both" level="fatal"/>
+  </stdio>
+
+  <tests>
+      <test>
+          <param name="input" value="test-data/testITSsequences.fasta"/>
+          <param name="cpu" value="1" />
+          <param name="complement" value="--complement T"/>
+          <param name="reset" value="--reset F" />
+          <param name="preserve" value="--preserve F" />
+          
+          <output name="positions" file="test-data/expectedOutput.positions.txt" />
+          <output name="fullfasta" file="test-data/expectedOutput.full.fasta" />
+          <output name="summary" file="test-data/expectedOutput.summary.txt" />
+          <output name="problematic" file="test-data/expectedOutput.problematic.txt" />
+      </test>
+  </tests>
+  
+  <help>
+**What it does**
+
+Identifies ITS sequences and extracts the ITS regions.
+
+ITSx is an open source software utility to extract the highly variable ITS1 and ITS2 subregions from ITS sequences, which is commonly used as a molecular barcode for e.g. fungi. As the inclusion of parts of the neighbouring, very conserved, ribosomal genes (SSU, 5S and LSU rRNA sequences) in the sequence identification process can lead to severely misleading results, ITSx identifies and extracts only the ITS regions themselves.
+
+------
+
+
+**Galaxy wrapper**
+
+Microbial Biodiversity Bioinformatics Group, Agriculture and Agri-Food Canada
+
+Contact: Oksana Korol, oksana.korol[at]agr.gc.ca
+mbb[at]agr.gc.ca
+
+**ITSx tool**
+
+Version: 1.0.11
+
+Source code available at:http://microbiology.se/software/itsx
+
+Copyright (C) 2012-2013 Johan Bengtsson-Palme et al.
+
+Contact: Johan Bengtsson-Palme, johan[at]microbiology.se
+
+
+**Citation**
+
+Bengtsson‐Palme, Johan, et al. "Improved software detection and extraction of ITS1 and ITS2 from ribosomal ITS sequences of fungi and other eukaryotes for analysis of environmental sequencing data." Methods in Ecology and Evolution 4.10 (2013): 914-919.
+
+  </help>
+
+</tool>

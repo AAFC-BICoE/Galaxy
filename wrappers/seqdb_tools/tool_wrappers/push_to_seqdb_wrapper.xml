@@ -1,0 +1,86 @@
+<tool id="seqdb_its_feat_push" name="Write information to Sequence Database" version="1.1">
+    <description>through web services. Supported file formats: outputs of ITSx and FindLCA tool. </description>
+  <requirements>
+      <requirement type="package" version="dev">package_seqdb_py</requirement>
+  </requirements>
+  
+  <command>
+      push_to_seqdb -c $config_file $push_type_cond.push_type
+      
+      #if $push_type_cond.push_type == "itsx_features"
+        --itsx_positions_file $itsx_positions_file
+        --itsx_extraction_file $itsx_extraction_file
+        
+      #else if $push_type_cond.push_type == "findLCA_taxonomy"
+        --lca_results_file $lca_results_file
+        
+      #end if
+      
+  </command>
+  
+  <inputs>
+      <param name="config_file" type="data" label="Sequence Database Configuration File" />
+      
+      <conditional name="push_type_cond">
+          <param name="push_type" type="select" label="Select which sequences you would like to load *">
+              <option value="itsx_features" help="Will write features found in .positions.txt file from ITSx execution">ITS features from ITSx tool</option>
+              <option value="findLCA_taxonomy" help="Will write taxonomy lineage, derived from the results of Find LCA tool" >Taxonomy from Find LCA tool</option>
+          </param>
+          <when value="itsx_features">
+              <param name="itsx_positions_file" type="data" label="ITSx feature positions file" />
+              <param name="itsx_extraction_file" type="data" label="ITSx extraction results file" />
+          </when>
+          <when value="findLCA_taxonomy">
+              <param name="lca_results_file" type="data" label="Find LCA results file" />
+          </when>
+      </conditional>
+      
+  </inputs>
+  
+  <outputs>
+      <data name="seqdb_feature_ids"
+        format="tabular"
+        from_work_dir="seqdb_feature_ids.txt"
+        label="ITS feature IDs, saved to SeqDB">
+      
+        <filter>push_type_cond['push_type'] == "itsx_features"</filter>
+      </data>
+      
+    <data name="seqdb_taxon_ids"
+        format="tabular"
+        from_work_dir="seqdb_taxon_ids.txt"
+        label="Taxon IDs, saved to SeqDB">
+        
+        <filter>push_type_cond['push_type'] == "findLCA_taxonomy"</filter>
+    </data>
+        
+      <data name="SeqDB_push_log"
+        format="txt"
+        from_work_dir="seqdb_push.log"
+        label="Log file of writing ITSx features to SeqDB" />
+  </outputs>
+  <tests>
+    <test>
+    </test>
+  </tests>
+
+  <help>
+      
+      **What it does**
+      
+      
+      Writes features, found by ITSx tool, to Sequence DB. The tool goes together with the SeqDB ITS sequence extractor.
+      
+      Expected input is the .positions.txt files, returned by ITSx tool. Sequence identifiers in the .positions.txt file are expected to be of the format "seqdb|12345".
+      
+      Output is a file with the feature ids that were written to SeqDB.
+      
+      
+      **What is a "Sequence Database Configuration File"?**
+      
+      Sequence Database Configuration File is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
+     
+      
+  </help>
+
+</tool>

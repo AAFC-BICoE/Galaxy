@@ -1,0 +1,76 @@
+<tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="1.1">
+  <description> through web services. Produces a fasta file of the specified sequences. </description>
+  <requirements>
+      <requirement type="package" version="dev">package_seqdb_py</requirement>
+  </requirements>
+  
+  <command>
+      
+      pull_seqdb_seqs -c $config_file $pull_type_cond.pull_type
+        #if $pull_type_cond.pull_type != "its"
+            #if $pull_type_cond.specimen_num
+                --specNum $pull_type_cond.specimen_num
+            #end if
+        
+            #if $pull_type_cond.sequence_name
+                --seqName  $pull_type_cond.sequence_name
+            #end if
+        #end if
+      
+  </command>
+
+  <inputs>
+      <param name="config_file" type="data" label="Sequence Database Configuration File *" optional="False" />
+      
+      <conditional name="pull_type_cond">
+          <param name="pull_type" type="select" label="Select which sequences you would like to load *">
+              <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
+              <option value="consensus">Consensus sequences</option>
+              <option value="all">All sequences</option>
+          </param>
+          <when value="all">
+              <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
+              <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+          </when>
+          <when value="consensus">
+              <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
+              <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+          </when>
+      </conditional>
+      
+  </inputs>
+  
+  <outputs>
+    <data name="seqdb_sequences"
+        format="fasta"
+        from_work_dir="seqdb_sequences.fasta"
+        label="Sequences from SeqDB" />
+    <data name="SeqDB_pull_log"
+        format="txt"
+        from_work_dir="seqdb_pull.log"
+        label="Log file of extracting ITS sequences from SeqDB" />
+  </outputs>
+
+  <tests>
+    <test>
+      <output name="out_file" file="seqdb_sequences.fasta" />
+    </test>
+  </tests>
+
+  <help>
+      
+      Required fields are marked with a * .
+      
+      **What it does**
+      
+      The tool fetches different types of sequences from Sequence DB and writes them to a fasta file.
+      
+      
+      **What is a "Sequence Database Configuration File"?**
+      
+      Sequence Database Configuration File is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
+      
+      
+  </help>
+
+</tool>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="package_seqdb_py" version="dev">
+        <install version="1.0">
+            <actions>
+                <action type="setup_virtualenv"  python="python2.7" use_requirements_file="False">
+                    git+https://bitbucket.org/aafc-mbb/seqdb-py.git@dev#egg=seqdb-py
+                </action>
+            </actions>
+        </install>
+        <readme>
+            This is seqdb-py distribution, which contains a number of SeqDB tools.
+            
+            This dependency definition creates a virtual environment (virtualenv) and installs seqdb-py into the virtual environment directly from bitbucket.
+            
+            Required Galaxy packages: python-devel
+            
+            After the tool is installed, need to create a config.yaml with the local install information:
+            - In the install directory (typically "installlocation"/venv/lib/python2.7/site-packages"), go to config directory
+            - Rename config.yaml.sample to config.yaml
+            - Modify config.yaml according to instruction inside
+            - Copy config.yaml to the job working directory:
+               cp config.yaml /galaxy/database/job_working_directory/000/config.yaml
+            
+            
+            The tools in seqdb-py can then be executed by running their distribution entry point (see setup.py for details). Example of executing a pull sequences tool:
+            
+            pull_seqdb_seqs
+            
+            
+        </readme>
+    </package>
+</tool_dependency>
+

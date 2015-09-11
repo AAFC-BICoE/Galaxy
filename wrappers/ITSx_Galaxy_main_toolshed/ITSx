@@ -1,0 +1,2695 @@
+#!/usr/bin/perl
+# ITSx ITS Extractor
+$app_title     = "ITSx -- Identifies ITS sequences and extracts the ITS region";
+$app_author    = "Johan Bengtsson-Palme et al., University of Gothenburg";
+$app_version   = "1.0.11";
+$app_message   = "";
+# ----------------------------------------------------------------- #
+
+# License information
+$license =
+"    ITSx - ITS Extractor -- Identifies ITS sequences and extracts the ITS region\
+    Copyright (C) 2012-2014 Johan Bengtsson-Palme et al.\
+\
+    This program is free software: you can redistribute it and/or modify\
+    it under the terms of the GNU General Public License as published by\
+    the Free Software Foundation, either version 3 of the License, or\
+    (at your option) any later version.\
+\
+    This program is distributed in the hope that it will be useful,\
+    but WITHOUT ANY WARRANTY; without even the implied warranty of\
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\
+    GNU General Public License for more details.\
+\
+    You should have received a copy of the GNU General Public License\
+    along with this program, in a file called 'license.txt'\
+    If not, see: http://www.gnu.org/licenses/.\
+";
+
+## BUGS:
+$bugs = "New features in this version ($app_version):\
+- None\
+\
+Fixed bugs in this version ($app_version):\
+- Fixed a bug causing newline characters to be occasionally skipped in the 'its1.full_and_partial.fasta' FASTA output file when the '--anchor' option was used\
+\
+Known bugs in this version ($app_version):\
+- None\
+";
+
+## OPTIONS:
+$options = "\
+-i {file} : DNA FASTA input file to investigate\
+-o {file} : Base for the names of output file(s)\
+-p {directory} : A path to a directory of HMM-profile collections representing ITS conserved regions, default is in the same directory as ITSx itself\
+--date {T or F} : Adds a date and time stamp to the output directory, off (F) by default\
+--reset {T or F} : Re-creates the HMM-database before ITSx is run, off (F) by default\
+
+Sequence selection options:\
+-t {character code} : Profile set to use for the search, see the User's Guide (comma-separated), default is all\
+-E {value} : Domain E-value cutoff for a sequence to be included in the output, default = 1e-5\
+-S {value} : Domain score cutoff for a sequence to be included in the output, default = 0\
+-N {value} : The minimal number of domains that must match a sequence before it is included, default = 2\
+--selection_priority {sum, domains, eval, score} : Selects what will be of highest priority when determining the origin of the sequence, default is sum\
+--search_eval {value} : The E-value cutoff used in the HMMER search, high numbers may slow down the process, cannot be used with the --search_score option, default is 0.01\
+--search_score {value} : The score cutoff used in the HMMER search, low numbers may slow down the process, cannot be used with the --search_eval option, default is to used E-value cutoff, not score\
+--allow_single_domain {e-value,score or F} : Allow inclusion of sequences that only find a single domain, given that they meet the given E-value and score thresholds, on with parameters 1e-9,0 by default\
+--allow_reorder {T or F} : Allows profiles to be in the wrong order on extracted sequences, off (F) by default\
+--complement {T or F} : Checks both DNA strands against the database, creating reverse complements, on (T) by default\
+--cpu {value} : the number of CPU threads to use, default is 1\
+--multi_thread {T or F} : Multi-thread the HMMER-search, on (T) if number of CPUs (--cpu option > 1), else off (F) by default\
+--heuristics {T or F} : Selects whether to use HMMER's heuristic filtering, off (F) by default\
+
+Output options:\
+--summary {T or F} : Summary of results output, on (T) by default\
+--graphical {T or F} : 'Graphical' output, on (T) by default\
+--fasta {T or F} : FASTA-format output of extracted ITS sequences, on (T) by default\
+--preserve {T or F} : Preserve sequence headers in input file instead of printing out ITSx headers, off (F) by default\
+--save_regions {SSU,ITS1,5.8S,ITS2,LSU,all,none} : A comma separated list of regions to output separate FASTA files for, 'ITS1,ITS2' by default\
+--anchor {integer or HMM} : Saves an additional number of bases before and after each extracted region. If set to 'HMM' all bases matching the corresponding HMM will be output, default = 0\
+--only_full {T or F} : If true, output is limited to full-length regions, off (F) by default\
+--partial {integer} : Saves additional FASTA-files for full and partial ITS sequences longer than the specified cutoff, default = 0 (off)\
+--concat {T or F} : Saves a FASTA-file with concatenated ITS sequences (with 5.8S removed), off (F) by default\
+--minlen {integer} : Minimum length the ITS regions must be to be outputted in the concatenated file (see above), default = 0\
+--positions {T or F} : Table format output containing the positions ITS sequences were found in, on (T) by default\
+--table {T or F} : Table format output of sequences containing probable ITS sequences, off (F) by default\
+--not_found {T or F} : Saves a list of non-found entries, on (T) by default\
+--detailed_results {T or F} : Saves a tab-separated list of all results, off (F) by default\
+--truncate {T or F} : Truncates the FASTA output to only contain the actual ITS sequences found, on (T) by default\
+--silent {T or F} : Supresses printing progress info to stderr, off (F) by default\
+--graph_scale {value} : Sets the scale of the graph output, if value is zero, a percentage view is shown, default = 0\
+--save_raw {T or F} : Saves all raw data for searches etc. instead of removing it on finish, off (F) by default\
+
+-h : displays this help message\
+--help : displays this help message\
+--bugs : displays the bug fixes and known bugs in this version of ITSx\
+--license : displays licensing information\
+";
+
+
+## Print title message
+print STDERR "$app_title\nby $app_author\nVersion: $app_version\n$app_message";
+print STDERR "-----------------------------------------------------------------\n";
+
+## Setup default variable values
+use List::Util qw(first max maxstr min minstr reduce shuffle sum);
+
+$bindir = $0;
+$bindir =~ s/_x//;
+$input = "";
+$output = "ITSx_out";
+$hmmscan = "";
+$profileDB = "$bindir\_db/HMMs";
+$type = "all";
+$E = 1e-5;
+$S = 0;
+$N = 2;
+$priority = "sum";
+$search_eval = 0.01;
+$search_score = "";
+$allow_single_E = 1e-9;
+$allow_single_score = 0;
+#$allow_single_E = -1;   # Turns off single-domain matching by E-value
+#$allow_single_score = 0;   # Turns off single-domain matching by score
+$allow_reorder = 0;
+$complement = 1;
+$cpu = 1;
+$multi_thread = "unset";
+$heuristics = 0;
+$out_sum = 1;
+$out_graph = 1;
+$out_fasta = 1;
+$out_preserve = 0;
+$out_ssu = 0;
+$out_its1 = 1;
+$out_its2 = 1;
+$out_58S = 0;
+$out_lsu = 0;
+$out_pos = 1;
+$out_table = 0;
+$out_not = 1;
+$out_date = 0;
+$out_joined = 0;
+$out_results = 0;
+$out_partial = 0;
+$out_concat = 0;
+$concat_minlen = 0;
+$truncate = 1;
+$anchor = 0;
+$only_full = 0;
+$graph_scale = 0;
+$debug = 0;
+$reset = 0;
+
+## Read command-line options
+for ($i = 0; $i <= scalar(@ARGV); $i++) {   # Goes through the list of arguments
+  $arg = @ARGV[$i];   # Stores the current argument in $arg
+
+  if ($arg eq "-i") {   # Read input files from -i flag
+    $i++;
+    $input = @ARGV[$i];
+  }
+  if ($arg eq "-o") {   # Read output files from -o flag
+    $i++;
+    $output = @ARGV[$i];
+  }
+  if ($arg eq "-p") {   # Read profile database from -p flag
+    $i++;
+    $profileDB = @ARGV[$i];
+  }
+  if ($arg eq "--hmmscan") {   # Read pre-computed hmmscan output file from --hmmscan flag ('undocumented' feature)
+    $i++;
+    $hmmscan = @ARGV[$i];
+  }
+  if ($arg eq "--date") {   # Determine whether or not to add a date stamp based on the --date flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Ff0]/) {   # Check if argument begins with "F", "f", or "0"
+      $out_date = 0;
+    } else {
+      $out_date = 1;
+    }
+  }
+  if ($arg eq "--reset") {   # Reset HMM database?
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Ff0]/) {   # Check if argument begins with "F", "f", or "0"
+      $reset = 0;
+    } else {
+      $reset = 1;
+    }
+  }
+
+  if ($arg eq "-t") {   # Select what types of ITSs to look for using the -t flag
+    $i++;
+    $type = @ARGV[$i];
+  }
+  if ($arg eq "-E") {   # Set the E-value cutoff using the -E flag
+    $i++;
+    $E = @ARGV[$i];
+  }
+  if ($arg eq "-S") {   # Set the score cutoff using the -S flag
+    $i++;
+    $S = @ARGV[$i];
+  }
+  if ($arg eq "-N") {   # Set the number of found domains cutoff using the -N flag
+    $i++;
+    $N = @ARGV[$i];
+  }
+  if ($arg eq "--selection_priority") {   # Set how to order the ITS types using the --selection_priority flag
+    $i++;
+    $priority = @ARGV[$i];
+  }
+  if ($arg eq "--search_eval") {   # Set the E-value cutoff for the HMMER search using the --search_eval flag
+    $i++;
+    $search_eval = @ARGV[$i];
+    $search_score = "";   #  Turns off score cutoff
+  }
+  if ($arg eq "--search_score") {   # Set the score cutoff for the HMMER search using the --search_score flag
+    $i++;
+    $search_score = @ARGV[$i];
+    $search_eval = "";   #  Turns off E-value cutoff
+  }
+  if ($arg eq "--allow_single_domain") {   # Determine whether or not to allow single domain matches based on the --allow_single_domain flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Ff0]/) {   # Check if argument begins with "F", "f", or "0"
+      $allow_single_E = -1;   # Turns off single-domain matching by E-value
+      $allow_single_score = 0;   # Turns off single-domain matching by score
+    } else {
+      ($allow_single_E,$allow_single_score) = split(',',@ARGV[$i]);   # Turns on single-domain matching, assigning the first given value as the E-value cutoff, and the second as score cutoff
+    }
+  }
+  if ($arg eq "--allow_reorder") {   # Determine whether or not to allow the domains to be in the wrong order based on the --allow_reorder flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $allow_reorder = 1;
+    } else {
+      $allow_reorder = 0;
+    }
+  }
+  if ($arg eq "--complement") {   # Determine whether or not to scan the complementary strand of the input file based on the --complement flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $complement = 1;
+    } else {
+      $complement = 0;
+    }
+  }
+  if ($arg eq "--cpu") {   # Set the number of CPUs to use based on the --cpu flag
+    $i++;
+    $cpu = @ARGV[$i];
+  }
+  if ($arg eq "--multi_thread") {   # Determine whether or not to multi-thread the HMMER step based on the --multi_thread flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $multi_thread = 1;
+    } else {
+      $multi_thread = 0;
+    }
+  }
+  if ($arg eq "--heuristics") {   # Determine whether or not to use HMMER's heuristic filtering based on the --heuristics flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $heuristics = 1;
+    } else {
+      $heuristics = 0;
+    }
+  }
+
+  if ($arg eq "--summary") {   # Determine whether or not to output a summary based on the --summary flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_sum = 1;
+    } else {
+      $out_sum = 0;
+    }
+  }
+  if ($arg eq "--graphical") {   # Determine whether or not to output a graphical representation of matches based on the --graphical flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_graph = 1;
+    } else {
+      $out_graph = 0;
+    }
+  }
+  if ($arg eq "--detailed_results") {   # Determine whether or not to output a detailed results list, based on the --detailed_results flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_results = 1;
+    } else {
+      $out_results = 0;
+    }
+  }
+  if ($arg eq "--partial") {   # Set the full-and-partial cutoff
+    $i++;
+    $out_partial = @ARGV[$i];
+  }
+  if ($arg eq "--anchor") {   # Set the length of the sequence "anchors"
+    $i++;
+    $anchor = @ARGV[$i];
+  }
+  if ($arg eq "--only_full") {   # Output only full-length regions
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $only_full = 1;
+    } else {
+      $only_full = 0;
+    }
+  }
+  if ($arg eq "--save_regions") {   # Determine which regions to output FASTA files for based on the --save_regions flag
+    $i++;
+    @save_regions = split(',',uc(@ARGV[$i]));
+    $out_ssu = 0;
+    $out_its1 = 0;
+    $out_its2 = 0;
+    $out_58S = 0;
+    $out_lsu = 0;
+    foreach $save_region (@save_regions) {
+      if ($save_region eq "SSU") {
+	$out_ssu = 1;
+      }
+      if ($save_region eq "ITS1") {
+	$out_its1 = 1;
+      }
+      if ($save_region eq "5.8S") {
+	$out_58S = 1;
+      }
+      if ($save_region eq "ITS2") {
+	$out_its2 = 1;
+      }
+      if ($save_region eq "LSU") {
+	$out_lsu = 1;
+      }
+      if ($save_region eq "ALL") {
+	$out_ssu = 1;
+	$out_its1 = 1;
+	$out_its2 = 1;
+	$out_58S = 1;
+	$out_lsu = 1;
+      }
+      if ($save_region eq "NONE") {
+	$out_ssu = 0;
+	$out_its1 = 0;
+	$out_its2 = 0;
+	$out_58S = 0;
+	$out_lsu = 0;
+      }
+    }
+  }
+  if ($arg eq "--positions") {   # Determine whether or not to output a positions file based on the --positions flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_pos = 1;
+    } else {
+      $out_pos = 0;
+    }
+  }
+  if ($arg eq "--concat") {   # Determine whether or not to output a concatednated ITS1 + ITS2 file
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_concat = 1;
+    } else {
+      $out_concat = 0;
+    }
+  }
+  if ($arg eq "--minlen") {   # Set the min length of the combined ITS1 and ITS2 sequences for concatenation
+    $i++;
+    $concat_minlen = @ARGV[$i];
+  }
+  if ($arg eq "--fasta") {   # Determine whether or not to output FASTA-files based on the --fasta flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_fasta = 1;
+    } else {
+      $out_fasta = 0;
+    }
+  }
+  if ($arg eq "--preserve") {   # Determine whether or not to preserve FASTA-headers based on the --preserve flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_preserve = 1;
+    } else {
+      $out_preserve = 0;
+    }
+  }
+  if ($arg eq "--joined") {   # Determine whether or not to output a FASTA-file containing ALL sorts of output sequences (for debugging)
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_joined = 1;
+    } else {
+      $out_joined = 0;
+    }
+  }
+  if ($arg eq "--table") {   # Determine whether or not to output tables of all potential matches based on the --table flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_table = 1;
+    } else {
+      $out_table = 0;
+    }
+  }
+  if ($arg eq "--not_found") {   # Determine whether or not to output a list of sequences that are not ITSs based on the --not_found flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $out_not = 1;
+    } else {
+      $out_not = 0;
+    }
+  }
+  if ($arg eq "--silent") {   # Determine whether or not to output anything to the screen based on the --silent flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $silent = 1;
+    } else {
+      $silent = 0;
+    }
+  }
+  if ($arg eq "--graph_scale") {   # Set the scale of the graphical output based on the --graph_scale flag
+    $i++;
+    $graph_scale = @ARGV[$i];
+  }
+  if ($arg eq "--save_raw") {   # Determine whether or not to save all the raw intermediate data based on the --save_raw flag
+    $i++;
+    if (substr(@ARGV[$i],0,1) =~ m/^[Tt1]/) {   # Check if argument begins with "T", "t", or "1"
+      $save_raw = 1;
+    } else {
+      $save_raw = 0;
+    }
+  }
+
+  ## If "-h" or "--help" are among the options, output usage data and options
+  if (($arg eq "-h") || ($arg eq "--help")) {
+    print "Usage: ITSx -i <input file> -o <output file>\nOptions:$options";
+    print "-----------------------------------------------------------------\n";
+    exit;   # Exit ITSx
+  }
+
+  ## If "--bugs" is among the options, output bugs and features information
+  if ($arg eq "--bugs") {
+    print "$bugs\n";
+    exit;   # Exit ITSx
+  }
+
+  ## If "--license" is among the options, output license information
+  if ($arg eq "--license") {
+    print "$license\n";
+    exit;   # Exit ITSx
+  }
+
+  if ($arg eq "--debug") {   # Run ITSx in debug mode
+    $debug = 1;
+  }
+  if ($arg eq "--pipeline") {   # Run ITSx in pipeline mode
+    $pipeline = 1;
+  }
+}
+
+## Setup some variables dependent on input
+
+if ($multi_thread eq "unset") {   # If the multi-thread option is not set
+  if ($cpu > 1) {   # Then if the number of CPUs used > 1, then multi-thread HMMER searches
+    $multi_thread = 1;
+  } else {   # Else, run HMMER searches sequentially on one CPU
+    $multi_thread = 0;
+  }
+}
+
+if ($hmmscan ne "") {   # If a pre-computed hmmscan output is supplied
+  $output = $hmmscan;   # Then set the base of the output directory name to be the same as that hmmscan output file
+}
+
+## Check for binaries
+
+chomp($path = `which hmmpress`);   # Get the path for hmmpress
+if ($path eq "") {   # If the path is empty, then show an error message and exit ITSx
+  print STDERR "FATAL ERROR :: Could not locate HMMER binaries! It seems that hmmpress is not installed properly.\
+Consult the manual for installation instructions. Note that HMMER3 is required. Previous HMMER-versions will not work.\
+This error is fatal, and ITSx will now abort.\n";
+  print STDERR "-----------------------------------------------------------------\n";
+  exit;
+}
+
+chomp($path = `which hmmscan`);   # Get the path for hmmscan
+if ($path eq "") {   # If the path is empty, then show an error message and exit ITSx
+  print STDERR "FATAL ERROR :: Could not locate HMMER binaries! It seems that hmmscan is not installed properly.\
+Consult the manual for installation instructions. Note that HMMER3 is required. Previous HMMER-versions will not work.\
+This error is fatal, and ITSx will now abort.\n";
+  print STDERR "-----------------------------------------------------------------\n";
+  exit;
+}
+
+
+## Check for database
+chomp($errormsg = `ls $profileDB* 2>&1 1>/dev/null`);   # Get the error msg when looking for the profile database
+if (substr($errormsg,0,4) eq "ls: ") {   # If the error message begins with "ls: ", then show an error message and exit ITSx
+  print STDERR "FATAL ERROR :: The specified profile database could not be found.\
+Consult the manual for installation instructions.\
+This error is fatal, and ITSx will now abort.\n";
+  print STDERR "-----------------------------------------------------------------\n";
+  exit;
+}
+
+if ($pipeline == 0) {   # If ITSx is not run in pipeline mode (i.e. from ITSx)
+  if ($out_date == 1) {   # If a date and time stamp should be supplied
+    ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);   # Get the date and time
+    $year = $year + 1900;   # Format the year
+    $mon = $mon + 1;   # Format the month
+    if ($mon < 10) {   # Add a zero to the month, if needed
+      $mon = "0" . $mon;
+    }
+    if ($mday < 10) {   # Add a zero to the day, if needed
+      $mday = "0" . $mday;
+    }
+    if ($hour < 10) {   # Add a zero to the hour, if needed
+      $hour = "0" . $hour;
+    }
+    if ($min < 10) {   # Add a zero to the minute, if needed
+      $min = "0" . $min;
+    }
+    $outputDate = ".$year\-$mon\-$mday\_$hour.$min";   # Create a date and time stamp
+    $outputDate =~ s./.-.g;   # Remove any potential slashes in the output name (as this will confuse ITSx's file naming)
+    $output = $output . $outputDate;   # Add the date and time stamp top the output base name
+  }
+}
+
+$tempDir = "ITSx_temp_directory__$output";   # Setup a temporary directory variable
+$tempDir =~ s./.-.g;   # Remove any potential slashes in the output name (as this will confuse ITSx's file naming)
+
+if ($pipeline == 0) {   # If not running in pipeline mode
+  ## Create a summary file
+  if ($out_sum == 1) {   # If summary output is on
+    $now = localtime;   # Get the current time
+    open (SUMMARY, ">$output.summary.txt");   # Create the summary file
+    print SUMMARY "ITSx run started at $now.\n";   # Output the starting time for the analysis
+    print SUMMARY "-----------------------------------------------------------------\n";
+    close (SUMMARY);   # Close summary file
+  }
+}
+
+## Create a temporary directory for ITSx
+if ($pipeline == 0) {   # If ITSx is not run in pipeline mode (i.e. from ITSx)
+  `mkdir $tempDir 2> /dev/null`;   # Create a temporary directory
+}
+
+
+## Prepare profile database
+## Get the current time and output info message
+$now = localtime;
+if ($silent == 0) {
+  print STDERR "$now : Preparing HMM database (should be quick)...\n";
+}
+
+## Setup profile index
+%profileIndex = {};
+
+# A = Alveolata
+# B = Bryophyta
+# C = Bacillariophyta
+# D = Amoebozoa
+# E = Euglenozoa
+# F = Fungi
+# G = Chlorophyta (green algae)
+# H = Rhodophyta (red algae)
+# I = Phaeophyceae (brown algae)
+# L = Marchantiophyta (liverworts)
+# M = Metazoa
+# N = Microsporidia
+# O = Oomycota
+# P = Haptophyceae (prymnesiophytes)
+# Q = Raphidophyceae
+# R = Rhizaria
+# S = Synurophyceae
+# T = Tracheophyta (higher plants)
+# U = Eustigmatophyceae
+# X = Apusozoa
+# Y = Parabasalia
+
+$profileIndex{"A"} = "alveolates";
+$profileIndex{"B"} = "bryophyta";
+$profileIndex{"C"} = "bacillariophyta";
+$profileIndex{"D"} = "amoebozoa";
+$profileIndex{"E"} = "euglenozoa";
+$profileIndex{"F"} = "fungi";
+$profileIndex{"G"} = "chlorophyta";
+$profileIndex{"H"} = "rhodophyta";
+$profileIndex{"I"} = "phaeophyceae";
+$profileIndex{"J"} = "undefined";
+$profileIndex{"K"} = "undefined";
+$profileIndex{"L"} = "marchantiophyta";
+$profileIndex{"M"} = "metazoa";
+$profileIndex{"N"} = "microsporidia";
+$profileIndex{"O"} = "oomycota";
+$profileIndex{"P"} = "haptophyceae";
+$profileIndex{"Q"} = "raphidophyceae";
+$profileIndex{"R"} = "rhizaria";
+$profileIndex{"S"} = "synurophyceae";
+$profileIndex{"T"} = "tracheophyta";
+$profileIndex{"U"} = "eustigmatophyceae";
+$profileIndex{"V"} = "undefined";
+$profileIndex{"W"} = "undefined";
+$profileIndex{"X"} = "apusozoa";
+$profileIndex{"Y"} = "parabasalia";
+$profileIndex{"Z"} = "undefined";
+
+
+@profileList = split(',',uc($type));   # Get the list of profile types
+foreach $entry (@profileList) {   # Go through the entered types
+  if (($entry eq "ALL") || ($entry eq ".")) {   # If "all" among the entries
+    push(@profileSet,"A");   # Add the alveolates profiles to the investigation set
+    push(@profileSet,"B");   # Add the bryophytes profiles to the investigation set
+    push(@profileSet,"C");   # Add the bacillariophyta profiles to the investigation set
+    push(@profileSet,"D");   # Add the amoebozoa profiles to the investigation set
+    push(@profileSet,"E");   # Add the euglenozoa profiles to the investigation set
+    push(@profileSet,"F");   # Add the fungi profiles to the investigation set
+    push(@profileSet,"G");   # Add the green algae profiles to the investigation set
+    push(@profileSet,"H");   # Add the red algae profiles to the investigation set
+    push(@profileSet,"I");   # Add the brown algae profiles to the investigation set
+    push(@profileSet,"L");   # Add the liverworts profiles to the investigation set
+    push(@profileSet,"M");   # Add the metazoa profiles to the investigation set
+    #push(@profileSet,"N");   # Add the microsporidia profiles to the investigation set
+    push(@profileSet,"O");   # Add the oomycetes profiles to the investigation set
+    push(@profileSet,"P");   # Add the prymnesiophytes profiles to the investigation set
+    push(@profileSet,"Q");   # Add the raphidophytes profiles to the investigation set
+    push(@profileSet,"R");   # Add the rhizaria profiles to the investigation set
+    push(@profileSet,"S");   # Add the synurophyceae profiles to the investigation set
+    push(@profileSet,"T");   # Add the tracheophyta (higher plants) profiles to the investigation set
+    push(@profileSet,"U");   # Add the eustigmatophytes profiles to the investigation set
+    #push(@profileSet,"X");   # Add the apusozoa profiles to the investigation set
+    #push(@profileSet,"Y");   # Add the parabasalia profiles to the investigation set
+  } else {
+    if (length($entry) == 1) {  # If the name has only one character
+      if ($entry =~ m/[ABCDERFHILMNOPQRSTUXY]/) {  # If the selected set exists
+	push(@profileSet,$entry);   # Add the selected profiles to the investigation set
+      }
+    } else {
+      if ($entry =~ m/ALVEOL/) {
+	push(@profileSet,"A");   # Add the alveolates profiles to the investigation set
+      }
+      if ($entry =~ m/BRYO/) {
+	push(@profileSet,"B");   # Add the bryophytes profiles to the investigation set
+      }
+      if ($entry =~ m/MOSS/) {
+	push(@profileSet,"B");   # Add the bryophytes profiles to the investigation set
+      }
+      if ($entry =~ m/BACILL/) {
+	push(@profileSet,"C");   # Add the bacillariophyta profiles to the investigation set
+      }
+      if ($entry =~ m/DIATOM/) {
+	push(@profileSet,"C");   # Add the bacillariophyta profiles to the investigation set
+      }
+      if ($entry =~ m/AMOEB/) {
+	push(@profileSet,"D");   # Add the amoebozoa profiles to the investigation set
+      }
+      if ($entry =~ m/EUGLE/) {
+	push(@profileSet,"E");   # Add the euglenozoa profiles to the investigation set
+      }
+      if ($entry =~ m/FUNG/) {
+	push(@profileSet,"F");   # Add the fungi profiles to the investigation set
+      }
+      if ($entry =~ m/GREEN/) {
+	push(@profileSet,"G");   # Add the green algae profiles to the investigation set
+      }
+      if ($entry =~ m/CHLORO/) {
+	push(@profileSet,"G");   # Add the green algae profiles to the investigation set
+      }
+      if ($entry =~ m/RED-AL/) {
+	push(@profileSet,"H");   # Add the red algae profiles to the investigation set
+      }
+      if ($entry =~ m/RHODO/) {
+	push(@profileSet,"H");   # Add the red algae profiles to the investigation set
+      }
+      if ($entry =~ m/BROWN/) {
+	push(@profileSet,"I");   # Add the brown algae profiles to the investigation set
+      }
+      if ($entry =~ m/PHAEOP/) {
+	push(@profileSet,"I");   # Add the brown algae profiles to the investigation set
+      }
+      if ($entry =~ m/LIVER/) {
+	push(@profileSet,"L");   # Add the liverworts profiles to the investigation set
+      }
+      if ($entry =~ m/MARCH/) {
+	push(@profileSet,"L");   # Add the liverworts profiles to the investigation set
+      }
+      if ($entry =~ m/METAZ/) {
+	push(@profileSet,"M");   # Add the metazoa profiles to the investigation set
+      }
+      if ($entry =~ m/ANIMAL/) {
+	push(@profileSet,"M");   # Add the metazoa profiles to the investigation set
+      }
+      if ($entry =~ m/MICROSPOR/) {
+	push(@profileSet,"N");   # Add the microsporidia profiles to the investigation set
+      }
+      if ($entry =~ m/OOMYC/) {
+	push(@profileSet,"O");   # Add the oomycetes profiles to the investigation set
+      }
+      if ($entry =~ m/PRYMN/) {
+	push(@profileSet,"P");   # Add the prymnesiophytes profiles to the investigation set
+      }
+      if ($entry =~ m/HAPTO/) {
+	push(@profileSet,"P");   # Add the prymnesiophytes profiles to the investigation set
+      }
+      if ($entry =~ m/RAPHID/) {
+	push(@profileSet,"Q");   # Add the raphidophytes profiles to the investigation set
+      }
+      if ($entry =~ m/RHIZA/) {
+	push(@profileSet,"R");   # Add the rhizaria profiles to the investigation set
+      }
+      if ($entry =~ m/SYNUR/) {
+	push(@profileSet,"S");   # Add the synurophyceae profiles to the investigation set
+      }
+      if ($entry =~ m/TRACHE/) {
+	push(@profileSet,"T");   # Add the tracheophyta profiles to the investigation set
+      }
+      if ($entry =~ m/PLANTS/) {
+	push(@profileSet,"T");   # Add the tracheophyta profiles to the investigation set
+      }
+      if ($entry =~ m/EUSTIG/) {
+	push(@profileSet,"U");   # Add the eustigmatophytes profiles to the investigation set
+      }
+      if ($entry =~ m/APUSO/) {
+	push(@profileSet,"X");   # Add the apusozoa profiles to the investigation set
+      }
+      if ($entry =~ m/PARAB/) {
+	push(@profileSet,"Y");   # Add the parabasalia profiles to the investigation set
+      }
+    }
+  }
+}
+
+foreach $set (@profileSet) {   # For each set of profiles in the the full profile set for investigation
+  $hmmPath = $profileDB . "/" . $set . ".hmm";   # Determine the path to the HMM-file
+  chomp($modelCount = `grep -c "//" $hmmPath`);   # Count the number of models in the HMM-file
+  push(@modelCount,$modelCount);   # Add the number of models in this HMM-file to the list of model counts
+  if ($reset == 1) {
+    `rm -f $hmmPath.h3* 2> /dev/null`;   # Delete old HMM-files
+    `hmmpress $hmmPath 2> /dev/null`;   # Prepare the HMM-file for searching
+    ## Redirecting stderr is a quick and dirty solution to get rid of the messages... Could be made more elegant
+  }
+}
+
+## Clean-up input files and create complementary strand if needed
+## Get the current time and output an info message
+$now = localtime;
+if ($silent == 0) {
+  print STDERR "$now : Checking and handling input sequence data (should not take long)...\n";
+}
+
+## Open the summary file for writing
+if ($out_sum == 1) {   # If summary output is on
+  open (SUMMARY, ">>$output.summary.txt");   # Append to the summary file
+}
+
+if ($input ne "") {   # If an input file is given
+  ## Read from file
+  open (SEQUENCES, $input);   # Open the input file for reading
+  open (MAIN, ">$tempDir/main.fasta");   # Create a temporary file for storing the cleaned sequences representing the main strand
+  open (COMPLEMENT, ">$tempDir/complement.fasta");   # Create a temporary file for storing the cleaned sequences representing the complementary strand
+  $inputSequenceCount = 0;   # Reset input sequence counter
+  while ($sequence = <SEQUENCES>) {   # Repeat for every line in the input file
+    chomp($sequence);   # Truncate any potential line feeds
+    $sequence =~ tr/\r\n//d;  # Remove all carriage return and new line characters
+    if (substr($sequence,0,1) eq ">") {   # If a new FASTA entry is found in the input file
+      $inputSequenceCount++;   # Add one to the input sequence counter
+      print MAIN $mainSeq . "\n";   # Write the previous main DNA sequence to the main sequence file
+      print MAIN $sequence . " main\n";   # Write the definition line of the new sequence to the main sequence file
+      $sequenceDB{"$sequenceID"} = $mainSeq;  # Add sequence to sequence database
+      $headers{"$sequenceID"} = $header;  # Add the header to the header database
+      push(@sequenceOrder,$sequenceID);  # Add this sequence ID to the ordered list of sequences
+      ($sequenceID) = split(" ",substr($sequence,1));
+      $header = $sequence;  # Save the sequence header
+      $mainSeq = "";   # Empty the main sequence entry
+      if ($complement == 1) {   # If the complementary file should be written
+	$complementSeq = reverse($complementSeq);   # Reverse the complementary DNA sequence
+	print COMPLEMENT $complementSeq . "\n";   # Write the previous complementary DNA sequence to the complementary sequence file
+	print COMPLEMENT $sequence . " complement\n";   # Write the definition line of the new sequence to the complement sequence file
+	$complementSeq = "";   # Empty the complementary sequence entry
+      }
+    } else {    # If this line is just a continuation of the current DNA sequence
+      $mseq = $sequence;   # Store this part of the DNA sequence in the intermediate varaible $mseq
+      $mseq =~ s/[ .-]//g;   # Remove any gap characters present in this sequence part (good if input was an alignment)
+      $mseq =~ tr/[a-z]/[A-Z]/;   # Make all letters uppercase
+      $mseq =~ s/[^A-Z]//g;  # Remove all non-alphabetic characters
+      $mseq =~ tr/U/T/;   # Exchanges U:s for T:s (Uracil to Thymine, good if input was RNA sequence)
+      $mainSeq = $mainSeq . $mseq;   # Add the intermediate DNA sequence to the end of the main DNA sequence entry
+      
+      if ($complement == 1) {   # If the complementary file should be written
+	$cseq = $sequence;   # Store this part of the DNA sequence in the intermediate varaible $cseq
+	$cseq =~ s/[ .-]//g;   # Remove any gap characters present in this sequence part (good if input was an alignment)
+	$cseq =~ tr/[a-z]/[A-Z]/;   # Make all letters uppercase
+	$cseq =~ s/[^A-Z]//g;  # Remove all non-alphabetic characters
+	$cseq =~ tr/ACGTURYSWKMBDHVN/TGCAAYRWSMKVHDBN/;   # Replace all characters with its complementary base
+	$complementSeq = $complementSeq . $cseq;   # Add the intermediate DNA sequence to the end of the complementary DNA sequence entry
+      }
+    }
+  }
+  ## When the input file's end is reached
+  print MAIN $mainSeq . "\n";   # Write the last main DNA sequence to the main sequence file
+  if ($complement == 1) {   # If the complementary file should be written
+    $complementSeq = reverse($complementSeq);   # Reverse the complementary DNA sequence
+    print COMPLEMENT $complementSeq . "\n";   # Write the last complementary DNA sequence to the complementary sequence file
+  }
+  $sequenceDB{"$sequenceID"} = $mainSeq;  # Add sequence to sequence database
+  $headers{"$sequenceID"} = $header;  # Add the header to the header database
+  push(@sequenceOrder,$sequenceID);  # Add this sequence ID to the ordered list of sequences
+  $mainSeq = "";   # Empty the main sequence entry
+  $complementSeq = "";   # Empty the complementary sequence entry
+  close (SEQUENCES);   # Close the sequence input file
+  close (COMPLEMENT);   # Close the complementary output file
+  close (MAIN);   # Close the main output file
+} else {   # If no input file is supplied, then read from stdin instead
+  $input = "$tempDir/main.fasta";   # Set up a temporary input file path
+  open (MAIN, ">$tempDir/main.fasta");   # Create a temporary file for storing the cleaned sequences representing the main strand
+  open (COMPLEMENT, ">$tempDir/complement.fasta");   # Create a temporary file for storing the cleaned sequences representing the complementary strand
+  $inputSequenceCount = 0;   # Reset input sequence counter
+  while ($sequence = <STDIN>) {   # Repeat for every line in the standard input
+    chomp($sequence);   # Truncate any potential line feeds
+    if (substr($sequence,0,1) eq ">") {   # If a new FASTA entry is found in the input
+      $inputSequenceCount++;   # Add one to the input sequence counter
+      print MAIN $mainSeq . "\n";   # Write the previous main DNA sequence to the main sequence file
+      print MAIN $sequence . " main\n";   # Write the definition line of the new sequence to the main sequence file
+      $sequenceDB{"$sequenceID"} = $mainSeq;  # Add sequence to sequence database
+      $headers{"$sequenceID"} = $header;  # Add the header to the header database
+      push(@sequenceOrder,$sequenceID);  # Add this sequence ID to the ordered list of sequences
+      $sequenceID = split(" ",substr($sequence,1));
+      $header = $sequence;  # Save the sequence header
+      $mainSeq = "";   # Empty the main sequence entry
+      if ($complement == 1) {   # If the complementary file should be written
+	$complementSeq = reverse($complementSeq);   # Reverse the complementary DNA sequence
+	print COMPLEMENT $complementSeq . "\n";   # Write the previous complementary DNA sequence to the complementary sequence file
+	print COMPLEMENT $sequence . " complement\n";   # Write the definition line of the new sequence to the complement sequence file
+	$complementSeq = "";   # Empty the complementary sequence entry
+      }
+    } else {    # If this line is just a continuation of the current DNA sequence
+      $mseq = $sequence;   # Store this part of the DNA sequence in the intermediate varaible $mseq
+      $mseq =~ s/[ .-]//g;   # Remove any gap characters present in this sequence part (good if input was an alignment)
+      $mseq =~ tr/[a-z]/[A-Z]/;   # Make all letters uppercase
+      $mseq =~ s/[^A-Z]//g;  # Remove all non-alphabetic characters
+      $mseq =~ tr/U/T/;   # Exchanges U:s for T:s (Uracil to Thymine, good if input was RNA sequence)
+      $mainSeq = $mainSeq . $mseq;   # Add the intermediate DNA sequence to the end of the main DNA sequence entry
+      
+      if ($complement == 1) {   # If the complementary file should be written
+	$cseq = $sequence;   # Store this part of the DNA sequence in the intermediate varaible $cseq
+	$cseq =~ s/[ .-]//g;   # Remove any gap characters present in this sequence part (good if input was an alignment)
+	$cseq =~ tr/[a-z]/[A-Z]/;   # Make all letters uppercase
+	$cseq =~ s/[^A-Z]//g;  # Remove all non-alphabetic characters
+	$cseq =~ tr/ACGTURYSWKMBDHVN/TGCAAYRWSMKVHDBN/;   # Replace all characters with its complementary base
+	$complementSeq = $complementSeq . $cseq;   # Add the intermediate DNA sequence to the end of the complementary DNA sequence entry
+      }
+    }
+  }
+  ## When the input file's end is reached
+  print MAIN $mainSeq . "\n";   # Write the last main DNA sequence to the main sequence file
+  if ($complement == 1) {   # If the complementary file should be written
+    $complementSeq = reverse($complementSeq);   # Reverse the complementary DNA sequence
+    print COMPLEMENT $complementSeq . "\n";   # Write the last complementary DNA sequence to the complementary sequence file
+  }
+  $sequenceDB{"$sequenceID"} = $mainSeq;  # Add sequence to sequence database
+  $headers{"$sequenceID"} = $header;  # Add the header to the header database
+  push(@sequenceOrder,$sequenceID);  # Add this sequence ID to the ordered list of sequences
+  $mainSeq = "";   # Empty the main sequence entry
+  $complementSeq = "";   # Empty the complementary sequence entry
+  close (COMPLEMENT);   # Close the complementary output file
+  close (MAIN);   # Close the main output file
+}
+
+if ($out_sum == 1) {   # If summary output should be written
+  print SUMMARY "Number of sequences in input file:       \t$inputSequenceCount\n";   # Write info on the number of input sequences to the summary file
+}
+
+
+## Perform HMM-scan
+if ($hmmscan eq "") {   # If a pre-computed hmmscan output file is not supplied
+  if ($heuristics == 0) {  # If HMMER's heuristic filtering should not be used
+    $heurMax = "--max";  # Set the heurMax to "--max" (indicating that HMMER should turn off filtering)
+  } else {
+    $heurMax = "";  # Set the heurMax to empty (indicating that HMMER should turn on filtering)
+  }
+  if ($multi_thread == 0) {   # If multi-threading is off
+    ## Get the current time and output info message
+    $now = localtime;
+    if ($silent == 0) {
+      print STDERR "$now : Comparing sequences to HMM database (this may take a long while)...\n";
+    }
+    foreach $set (@profileSet) {   # Go sequentially through all profile sets to search for
+      $hmmPath = $profileDB . "/" . $set . ".hmm";   # Set the path to the HMM-file of the current set
+      if ($search_eval ne "") {   # If E-value cutoff is use for the search
+	hmmerSearch("hmmscan --cpu $cpu $heurMax -E $search_eval $hmmPath $tempDir/main.fasta","$tempDir/main.$set.hmmscan","M",$set);   # Call HMMER with E-value cutoff
+      } else {   # If score cutoff is use for the search
+	hmmerSearch("hmmscan --cpu $cpu $heurMax -T $search_score $hmmPath $tempDir/main.fasta","$tempDir/main.$set.hmmscan","M",$set);   # Call HMMER with score cutoff
+      }
+      if ($complement == 1) {   # If the complementary file should be scanned
+	if ($search_eval ne "") {   # If E-value cutoff is use for the search
+	  hmmerSearch("hmmscan --cpu $cpu $heurMax -E $search_eval $hmmPath $tempDir/complement.fasta","$tempDir/complement.$set.hmmscan","C",$set);   # Call HMMER with E-value cutoff
+	} else {   # If score cutoff is use for the search
+	  hmmerSearch("hmmscan --cpu $cpu $heurMax -T $search_score $hmmPath $tempDir/complement.fasta","$tempDir/complement.$set.hmmscan","C",$set);   # Call HMMER with score cutoff
+	}
+      }
+    }
+  } else {   # If multi-threading is on
+    ## Get the current time and output info message
+    $now = localtime;
+    if ($silent == 0) {
+      print STDERR "$now : Doing paralellised comparison to HMM database (this may take a long while)...\n";
+    }
+
+    ## Determining number of cpus per thread
+    if ($complement == 1) {   # If the complementary file should be scanned
+      $hmmcpu = int(0.5 * $cpu / scalar(@profileSet));   # Assign X CPUs to each thread, X = 0.5 * (TOTAL_CPUs_USED) / (TOTAL_NUMBER_OF_PROFILE_SETS)
+    } else {   # If the complementary file should not be scanned
+      $hmmcpu = int($cpu / scalar(@profileSet));   # Assign X CPUs to each thread, X = (TOTAL_CPUs_USED) / (TOTAL_NUMBER_OF_PROFILE_SETS)
+    }
+    if ($hmmcpu < 1) {   # If the number of CPUs per thread is smaller than 1
+      $hmmcpu = 1;   # Give each thread at least one CPU to work on
+    }
+    ## Main strand searches...
+    $cpuCount = 0;
+    foreach $set (@profileSet) {   # Go through each profile set to investigate
+      if ($cpuCount < $cpu) {
+	$cpuCount++;
+	$pid = fork();   # Fork off a copy of this process for this set
+      } else {
+	$deceasedPID = wait();   # Wait until a PID is finished, and gather its number
+	$pid = fork();   # Fork off a copy of this process for this set
+      }
+      if ($pid != 0) {   # If this is the parent process
+	push(@pids,$pid);   # Add the new process ID to the list of active process IDs
+      } else {   # If this is the new child process
+	$hmmPath = $profileDB . "/" . $set . ".hmm";   # Set the path to the HMM-file of the current set
+	if ($search_eval ne "") {   # If E-value cutoff is use for the search
+	  hmmerSearch("hmmscan --cpu $hmmcpu $heurMax -E $search_eval $hmmPath $tempDir/main.fasta","$tempDir/main.$set.hmmscan","M",$set);   # Call HMMER with E-value cutoff
+	} else {   # If score cutoff is use for the search
+	  hmmerSearch("hmmscan --cpu $hmmcpu $heurMax -T $search_score $hmmPath $tempDir/main.fasta","$tempDir/main.$set.hmmscan","M",$set);   # Call HMMER with score cutoff
+	}
+	## Stop child process...
+	exit;   # Exits the child process
+      }
+    }
+    ## Revese strand searches...
+    if ($complement == 1) {   # If the complementary file should be scanned
+      foreach $set (@profileSet) {   # Go through each profile set to investigate
+	if ($cpuCount < $cpu) {
+	  $cpuCount++;
+	  $pid = fork();   # Fork off a copy of this process for this set
+	} else {
+	  $deceasedPID = wait();   # Wait until a PID is finished, and gather its number
+	  $pid = fork();   # Fork off a copy of this process for this set
+	}
+	if ($pid != 0) {   # If this is the parent process
+	  push(@pids,$pid);   # Add the new process ID to the list of active process IDs
+	} else {   # If this is the new child process
+	  $hmmPath = $profileDB . "/" . $set . ".hmm";   # Set the path to the HMM-file of the current set
+	  if ($search_eval ne "") {   # If E-value cutoff is use for the search
+	    hmmerSearch("hmmscan --cpu $hmmcpu $heurMax -E $search_eval $hmmPath $tempDir/complement.fasta","$tempDir/complement.$set.hmmscan","C",$set);   # Call HMMER with E-value cutoff
+	  } else {   # If score cutoff is use for the search
+	    hmmerSearch("hmmscan --cpu $hmmcpu $heurMax -T $search_score $hmmPath $tempDir/complement.fasta","$tempDir/complement.$set.hmmscan","C",$set);   # Call HMMER with score cutoff
+	  }
+	  ## Stop child process...
+	  exit;   # Exits the child process
+	}
+      }
+    }
+    ## Get the current time and output the active process IDs
+    $now = localtime;
+    #print STDERR "    $now : Active PIDs: ";
+    #foreach $p (@pids) {   # Go through the list of PIDs
+    #  print STDERR "$p ";   # Print the PID
+    #}
+    #print STDERR "\n";   # Print a new line
+    do {   # Loop until all child PIDs have finished.
+      $deceasedPID = wait();   # Wait until a PID is finished, and gather its number
+      $now = localtime;   # Get the current time
+      if ($deceasedPID > -1) {   # If the PID that finished wasn't the last active one
+#	print STDERR "    $now : PID $deceasedPID finished.\n";   # Print finished PID
+      } else {   # If PID that finished was the last
+	print STDERR "    $now : All processes finished.\n";   # Print that all PIDs have finished
+      }
+    } until (wait() == -1);   # Do this loop until all PIDs have finished
+    $now = localtime;   # Get current time
+    print STDERR "$now : Parallel HMM-scan finished.\n";   # Print informative finishing message
+  }
+} else {    # If a pre-computed hmmscan file is supplied then
+## Get the current time and output that the hmmscan step is skipped
+  $now = localtime;
+  if ($silent == 0) {
+    print STDERR "$now : Skipping hmmscan! Using $hmmscan as input for the analysis instead.\n";
+  }
+}
+
+## Analyse HMM-scan output
+## Get the current time and output info
+$now = localtime;
+if ($silent == 0) {
+  print STDERR "$now : Analysing results of HMM-scan (this might take quite some time)...\n";
+}
+
+## Set up output files
+if ($out_table == 1) {   # If table output is on
+  open (TABLE, ">$output.hmmer.table");   # Create a table output file
+}
+if ($out_graph == 1) {   # If graphical output is on
+  open (GRAPH, ">$output.graph");   # Create a graph output file
+}
+if ($out_not == 1) {   # If not-found output is on
+  open (NOTFOUND, ">$tempDir/$output\_hmmer_no_detections.txt");   # Create a HMMER not-found output file
+}
+
+$setI = 0;   # Set the profile set indicator to zero
+foreach $set (@profileSet) {   # Go through all the profile sets to be investigated
+  for ($co = 0; $co <= 1; $co++) {   # Do main (and complementary) strand analysis in order
+    if ($co > 0) {   # If main strand analysis is finished
+      if ($complement == 1) {   # If complementary strand should be analysed
+	open (HMMOUTPUT, "$tempDir/complement.$set.hmmscan");   # Open hmmscan output for reading
+	open (SEQUENCES, "$tempDir/complement.fasta");   # Open complementary sequence file for reading
+	if ($out_table == 1) {   # If table output is on, write a header for this set
+	  print TABLE "***********************************************************\n";
+	  print TABLE "$set matches on complementary strand:\n";
+	}
+	if ($out_graph == 1) {   # If graphical output is on, write a header for this set
+	  print GRAPH "***********************************************************\n";
+	  print GRAPH "$set matches on complementary strand:\n";
+	}
+      } else {   # If complementary strand should not be analysed
+	last;   # Exit this loop
+      }
+    }
+    if ($co == 0) {   # If main strand analysis is not finished
+      open (HMMOUTPUT, "$tempDir/main.$set.hmmscan");   # Open hmmscan output for reading
+      open (SEQUENCES, "$tempDir/main.fasta");   # Open main sequence file for reading
+      if ($out_table == 1) {   # If table output is on, write a header for this set
+	print TABLE "***********************************************************\n";
+	print TABLE "$set matches on main strand:\n";
+      }
+      if ($out_graph == 1) {   # If graphical output is on, write a header for this set
+	print GRAPH "***********************************************************\n";
+	print GRAPH "$set matches on main strand:\n";
+      }
+    }
+  ## Read and analyse hmmscan output file
+  while ($line = <HMMOUTPUT>) {   # Read in the hmmscan output file, line by line
+    chomp($line);   # Remove any potential line feeds
+    if (substr($line,0,13) eq "## New query:") {   # If this line begin with "## New query:", then this is a new entry
+      undef %hits;   # Empty the hits hash
+      undef %evals;   # Empty the e-value hash
+      undef %scores;   # Empty the score hash
+      $querytemp = substr($line,14);   # Extract everything from this line, except for the start ("## New query:")
+      ($query,$length) = split('\t',$querytemp);  # Split query name, length and DNA sequence
+      if ($co == 0) {   # If main strand analysis
+	$DNA = $sequenceDB{"$query"};
+      } else {  # If complementary strand
+	$cseq = $sequenceDB{"$query"};   # Store the DNA sequence in the intermediate varaible $cseq
+	$cseq =~ tr/[a-z]/[A-Z]/;   # Make all letters uppercase
+	$cseq =~ s/[^A-Z]//g;  # Remove all non-alphabetic characters
+	$cseq =~ tr/ACGTURYSWKMBDHVN/TGCAAYRWSMKVHDBN/;   # Replace all characters with its complementary base
+	$DNA = reverse($cseq);
+      }
+    } else {
+      
+      if ($line ne "//") {
+	## Find domain annotations...
+	($query,$matchProfile,$length,$domNo,$sign,$score,$bias,$cE,$iE,$hmmFrom,$hmmTo,$hmmends,$queryFrom,$queryTo,$queryends,$envFrom,$envTo,$envends,$acc) = split('\t',$line);   # Split the line into a collection of stat variables
+
+	$useQueryFrom = $queryFrom;
+	if ($hmmFrom > 1) {  # If the HMM-profile is not matched from the beginning
+	  $hmmDiff = $hmmFrom - 1;
+	  if ($useQueryFrom > $hmmDiff) {
+	    $useQueryFrom = $queryFrom - $hmmDiff;
+	  } else {
+	    $useQueryFrom = 1;
+	  }
+	}
+
+	if (uc($anchor) eq "HMM") {
+	  $anchorLen = $hmmTo - $hmmFrom + 1;
+	} else {
+	  $anchorLen = $anchor;
+	}
+	  
+
+	$query_profile_match = $query . ":" . $matchProfile;
+	$profileExists = 0;   # Assume that the newly found match profile ($matchProfile) is not already found for this sequence
+	if (exists($hits{$query_profile_match})) {   # If a profile from the list is the same as the match profile
+	  ($hitFrom,$hitTo,$hitProfile,$hitScore,$hitE) = split('\t',$hits{$query_profile_match});   # Split the entry in list into stat variables
+	  if ($iE < $hitE) {   # If the new match profile has a smaller E-value than the one from the list
+	    $hits{$query_profile_match} = "$useQueryFrom\t$envTo\t$matchProfile\t$score\t$iE\t$anchorLen";   # Replace the data in the hit list with the data for the newly found match profile
+	    $evals{$query_profile_match} = $iE;   # Replace the E-value in the hit list with the E-value for the newly found match profile
+	    $scores{$query_profile_match} = $score;   # Replace the score in the hit list with the score for the newly found match profile
+	  }
+	  $profileExists = 1;   # Indicate that this match profile was found in the hit list
+	}
+	if ($profileExists == 0) {   # If the match profile was not found in the hit list
+	  if (($iE <= $E) && ($score >= $S)) {  # If this hits lives up to the minimal score and E-value cutoffs
+	    $hits{$query_profile_match} = "$useQueryFrom\t$envTo\t$matchProfile\t$score\t$iE\t$anchorLen";   # Add the data for the newly found match profile
+	    $evals{$query_profile_match} = $iE;   # Add the E-value for the newly found match profile
+	    $scores{$query_profile_match} = $score;   # Add the score for the newly found match profile
+	  }
+	}
+      } else {   # If the line only contains "//", the end of this sequence's hmmscan entry is reached
+      ## Save analysis results
+	@sortedKeys = sort {$hits{$a} <=> $hits{$b}} keys(%hits);   # Sort the the list of hits numerically ascending (smallest first)
+	undef @sortedHits;
+	undef @scores;
+	undef @evals;
+	foreach $key (@sortedKeys) {
+	  push(@sortedHits, $hits{$key});   # Add the hit to the list of hits numerically ascending (smallest first)
+	  push(@scores, $scores{$key});  # Add the score to the scores array
+	  push(@evals, $evals{$key});  # Add the E-value to the evals array
+	}
+
+	## If the number of hits > N, the min eval < E and the max score > S then include query sequence
+	## OR if a single domain satisfies the thresholds and this is allowed, include it!
+	if ( ((scalar(@sortedHits) >= $N) && (min(@evals) <= $E) && (max(@scores) >= $S)) ||
+	     ((scalar(@sortedHits) > 0) && ($allow_single_E >= 0) && (min(@evals) <= $allow_single_E) && (max(@scores) >= $allow_single_score)) ) {
+	  if ($debug == 1) {   # If debugging mode is on
+	    print STDERR $query . " :\t" . scalar(@sortedHits) . "\t" . min(@evals) . "\t" . max(@scores) . "\n";   # Print some top hit statistics
+	  }
+	  
+	  ## Save some total stats to be able to determine origin of ITS sequence
+	  if (scalar(@evals) > 0) {   # If there are any E-values stored
+	    $averageE = sum(@evals) / scalar(@evals);   # Calculate the average E-value for this profile set
+	    $averageScore = sum(@scores) / scalar(@scores);   # Calculate the average score for this profile set
+	    $numberOfDomains = scalar(@sortedHits);   # Calculate the number of domains matched on this sequence
+	    
+	    #$scoreSum = sum(@scores) / @modelCount[$setI];   # Calculate score sum as: sum / (no. of profiles of this given type)
+	    $scoreSum = sum(@scores) / 4;   # Calculate score sum as: sum / (no. of profiles of this given type)
+	    
+	    $saveThis = "$query\t$set\t$co\t$numberOfDomains\t$averageE\t$averageScore\t$scoreSum\t$DNA\t";   # Collect the variables to save for this sequence and this profile set
+	    foreach $hit (@sortedHits) {   # Go through the list of hits and add specific information to save from each hit
+	      ($hitFrom,$hitTo,$hitProfile,$hitScore,$hitE,$hitanchorlen) = split('\t',$hit);   # Extract information from this hit
+	      $saveThis = $saveThis . "$hitFrom;$hitTo;$hitProfile;$hitScore;$hitE;$hitanchorlen\t";   # Add information to the list of variables to save
+	    }
+	    #push(@allHits, $saveThis);   # Add this information to the collection of all hits for this sequence, across all profile sets
+	    if (exists($allHits{$query})) {
+	      $allHits{$query} = $allHits{$query} . "\n" . $saveThis;
+	    } else {
+	      $allHits{$query} = $saveThis;
+	    }
+	  }
+	  
+	  if ($out_table == 1) {   # If table output is on
+	    print TABLE $query . "\t" . $length . "\t";   # Print query and length information to table
+	    foreach $hit (@sortedHits) {   # Go through each hit in the hit list
+	      ($hitFrom,$hitTo,$hitProfile,$hitScore,$hitE,$hitanchorlen) = split('\t',$hit);   # Extract data corresponding to this hit
+	      print TABLE "$hitFrom - $hitTo: $hitProfile ($hitScore, $hitE)\t";   # Print hit information to table
+	    }
+	    print TABLE "\n";   # Print new line
+	  }
+	  
+	  if ($out_graph == 1) {   # If graphical output is on
+	    print GRAPH ">> " . $query . "\t" . $length . " bp\n";   # Print a sequence header
+	    $insertPoint = 0;   # Set the domain insert point to beginning of line
+	    $hi = 0;   # Set hit number to zero
+	    foreach $hit (@sortedHits) {   # Go through the hit list
+	      ($hitFrom,$hitTo,$hitProfile,$hitScore,$hitE,$anchorLen) = split('\t',$hit);   # Split the hit into stat variables
+	      if ($graph_scale == 0) {   # If the graph scale is scaled individually to 100% for each sequence
+		$pFrom = $hitFrom / $length * 100;   # Set the profile start on graph relative to its position in the sequence
+		$pTo = $hitTo / $length * 100;   # Set the profile end on graph relative to its position in the sequence
+		$pEnd = 100;   # Set the end of the sequence graph to be at 100
+	      } else {   # If the scale is the same for all sequences
+		$pFrom = $hitFrom * $graph_scale;   # Set the profile start on graph scaled to the parameter given
+		$pTo = $hitTo * $graph_scale;   # Set the profile end on graph scaled to the parameter given
+		$pEnd = $length * $graph_scale;   # Set the end of the sequence graph to be at the end of the sequence scaled to the parameter given
+	      }
+	      for ($insertPoint = $insertPoint; $insertPoint <= $pFrom; $insertPoint++) {   # Go forward through the sequence, moving the insert point one step at a time until the beginning of the next profile is reached
+		print GRAPH "-";   # Print a "-"
+	      }
+	      print GRAPH substr($hitProfile,2,3);   # When the profile is reached, print its name
+	      $insertPoint = $insertPoint + 3;   # Move the insert point three steps forward, to account for the inserted name
+	      ($nextHitStart,$nextHitEnd,$nextProfile) = split('\t',@sortedHits[$hi + 1]);   # Check where the next hit in the list is located
+	      if (($nextHitStart <= $hitTo) && ($nextHitStart > 0)) {   # If the next hit in the list overlaps with this profile
+		if ($graph_scale == 0) {   # If the scale is relative
+		  $pTo = $nextHitStart / $length * 100 - 1;   # Change the profile end on the graph to be where this next profile starts
+		} else {   # If the scale is the same for all sequences
+		  $pTo = $nextHitStart * $graph_scale - 1;   # Change the profile end on the graph to be where this next profile starts
+		}
+	      }
+	      for ($insertPoint = $insertPoint; $insertPoint <= $pTo; $insertPoint++) {   # Go forward through the sequence, moving the insert point one step at a time until the end of the current profile is reached
+		print GRAPH "=";   # Print a "="
+	      }
+	      if (($nextHitStart <= $hitTo) && ($nextHitStart > 0)) {   # If the next hit in the list overlaps with this profile
+		print GRAPH ">";   # Print a ">" to indicate the profile overlap
+		$insertPoint++;   # Move the insert point one additional step forward to account for the ">" inserted
+	      }
+	      $hi++;   # Increase the hit number by one
+	    }
+	    for ($insertPoint = $insertPoint; $insertPoint <= $pEnd; $insertPoint++) {   # If there is no more profile matches to sequence, go forward through the sequence, moving the insert point one step at a time until the end of the sequence is reached
+	      print GRAPH "-";   # Print a "-"
+	    }
+	    print GRAPH "\n";   # Print a new line, indicating the end of this sequence entry
+	  }
+	} else {   # If this sequence didn't find any good-enough profile matches
+	  if ($out_not == 1) {   # If not-found output is on
+	    print NOTFOUND $query . "\n";   # Print the name of this query to the not-found list
+	  }
+	}
+      }
+    }
+  }
+  close (SEQUENCES);   # Close the input sequence file
+  close (HMMOUTPUT);   # Close the hmmscan output file
+  }
+  $setI++;   # Add one to the profile set indicator
+}
+
+## Close output files
+if ($out_table == 1) {   # If table output is on, close the table file
+  close (TABLE);
+}
+if ($out_graph == 1) {   # If graphical output is on, close the graph file
+  close (GRAPH);
+}
+if ($out_not == 1) {   # If not-found output is on, close the not-found file
+  close (NOTFOUND);
+  #$profileCount = scalar(@profileSet);   # Count the number of profile sets
+  #if ($complement == 1) {   # If complementary strand was scanned
+  #  $profileCount = $profileCount * 2;   # Double the number of profile sets that was investigated (and thus the number of not-founds that could at max be found)
+  #}
+  #`sort $tempDir/hmmer_no_detections.txt | uniq -c | grep "  *$profileCount " | sed "s/  *$profileCount //" > $output\_no_detections.txt`;   # Sort the not-found list, count the number of profile sets having no matches for each query. Save those that have only non-matches to the hmmer-not-found file
+}
+
+
+## Create total collected output and FASTA output
+
+if ($out_results == 1) {
+  open (RESULTS, ">$output.extraction.results");   # Create a results file
+}
+open (RAWOUT, ">$tempDir/ITSx_output.raw");   # Create a raw output file for ALL data
+open (PROBLEM, ">$output.problematic.txt");   # Create a file for problematic entries
+$foundProblem = 0;
+if ($out_pos == 1) {
+  open (POS, ">$output.positions.txt");   # Create a positions file
+}
+if ($out_fasta == 1) {   # If FASTA output should be written
+  open (FASTA, ">$output.full.fasta");   # Create a FASTA output file for found sequences
+  if ($allow_reorder == 0) {   # If reordering of domains is not allowed
+    open (CHIMERA, ">$output.chimeric.fasta");   # Create a FASTA file for potential chimera sequences with profile matches in the wrong order
+    $foundChimera = 0;
+  }
+  if ($out_partial > 0) {
+    open (FULLPARTIAL, ">$output.full_and_partial.fasta");
+  }
+}
+
+if ($out_joined == 1) {   # If SSU FASTA output should be written
+  open (JOINED, ">$output.joined.fasta");
+}
+if ($out_ssu == 1) {   # If SSU FASTA output should be written
+  open (SSU, ">$output.SSU.fasta");
+}
+if ($out_lsu == 1) {   # If LSU FASTA output should be written
+  open (LSU, ">$output.LSU.fasta");
+}
+if ($out_58S == 1) {   # If 5.8S FASTA output should be written
+  open (MID, ">$output.5_8S.fasta");
+}
+if ($out_its1 == 1) {   # If ITS1 FASTA output should be written
+  open (ITS1, ">$output.ITS1.fasta");
+  if ($out_partial > 0) {
+    open (ITS1PARTIAL, ">$output.ITS1.full_and_partial.fasta");
+  }
+}
+if ($out_its2 == 1) {   # If ITS2 FASTA output should be written
+  open (ITS2, ">$output.ITS2.fasta");
+  if ($out_partial > 0) {
+    open (ITS2PARTIAL, ">$output.ITS2.full_and_partial.fasta");
+  }
+}
+if ($out_concat == 1) {  # If concatenated output should be written
+  open (CONCAT, ">$output.concat.fasta");
+}
+
+undef @sortedHits;   # Empty the array of sorted hits
+
+# @sortedHits = sort @allHits;   # Sort the full list of hits in alphabetical order (to be able to analyse all sequences with same ID at once)
+if ($out_not == 1) {   # If not-found output is on
+  open (NOTFOUND, ">$output\_no_detections.txt");   # Create a not-found output file
+  $noDetect = 0;
+}
+foreach $sequenceID (@sequenceOrder) {   # Sort the full list of hits in their original order (to be able to analyse all sequences with same ID at once)
+  if ($sequenceID ne "") {
+    $countsInList = 0;
+    if (exists($allHits{$sequenceID})) {
+      @allHits = split('\n',$allHits{$sequenceID});
+    } else {
+      undef @allHits;
+    }
+    foreach $line (@allHits) {
+      @item = split('\t',$line);   # Split the line into an array
+      if (@item[0] eq $sequenceID) {  # If this item corresponds to the current sequence ID
+	push(@sortedHits,$line);  # Add it to the sorted list of hits
+	$countsInList++;
+      }
+    }
+    if ($countsInList == 0) {  # If no matches were found
+      if ($out_not == 1) {   # If not-found output is on
+	print NOTFOUND "$sequenceID\n";  # Output the sequence ID
+	$noDetect++;
+      }
+    }
+  }
+}
+if ($out_not == 1) {   # If not-found output is on
+  close (NOTFOUND);
+  if ($noDetect == 0) {
+    `rm $output\_no_detections.txt 2> /dev/null`;
+  }
+}
+
+## Set all counts for different ITS types to zero
+undef @itsCounts;
+$itsChimeric = 0;
+$itsMain = 0;
+$itsCompl = 0;
+
+push(@sortedHits,"--END--");   # Add a last item to the sorted list, so that all items are securely saved
+$lc = 1;   # Set the line count to one
+foreach $line (@sortedHits) {   # Go through the list of found hits
+  print RAWOUT "$line\n";   # Write the raw data associated with this hit to the raw data output file
+  @item = split('\t',$line);   # Split the line into an array
+  ## If this sequence ID is the same as the saved ones, then add it, else empty the array sequence ID and save
+  if ((@seqID[0] ne @item[0]) && (@item[0] ne "") || ($lc > scalar(@sortedHits))) {   # If this sequence ID is not the same as the last one and is non-empty, or if the end of the list has been reached
+    ## Save profile-type which is most likely...
+    if ($priority eq "sum") {   # If the sum-of-scores algorithm should be used to determine the most likely profile-type
+      ## Reset variables to unrealisticly high or low values
+      $best = 0;
+      $bestCount = 0;
+      $bestEval = 1000;
+      $bestScore = -1000;
+      $bestSum = -1000;
+      
+      for ($i = 0; $i < scalar(@seqScoreSum); $i++) {   # Go through all sum-of-scores entries
+	if (@seqScoreSum[$i] > $bestSum) {   # If the current value is larger than the previous top value
+	  $best = $i;   # Set the best value to be the current value
+	  ## Set all other best variables to those corresponding to the current value
+	  $bestCount = @seqDomCounts[$i];
+	  $bestEval = @seqAvgE[$i];
+	  $bestScore = @seqAvgScore[$i];
+	  $bestSum = @seqScoreSum[$i];
+	}
+	if (@seqScoreSum[$i] == $bestSum) {   # If the current value is equal to the previous top value
+	  if (@seqDomCounts[$i] > $bestCount) {   # If the current domain count is larger than the previous top domain count
+	    $best = $i;   # Set the best value to be the current value
+	    ## Set all other best variables to those corresponding to the current value
+	    $bestCount = @seqDomCounts[$i];
+	    $bestEval = @seqAvgE[$i];
+	    $bestScore = @seqAvgScore[$i];
+	    $bestSum = @seqScoreSum[$i];
+	  }
+	  if (@seqDomCounts[$i] == $bestCount) {   # If the current domain count is equal to the previous top domain count
+	    if (@seqAvgE[$i] < $bestEval) {   # If the current E-value is smaller than the previous top E-value
+	      $best = $i;   # Set the best value to be the current value
+	      ## Set all other best variables to those corresponding to the current value
+	      $bestCount = @seqDomCounts[$i];
+	      $bestEval = @seqAvgE[$i];
+	      $bestScore = @seqAvgScore[$i];
+	      $bestSum = @seqScoreSum[$i];
+	    }
+	  }
+	}
+      }
+    }
+    if ($priority eq "domains") {   # If the number of found domains should be used to determine the most likely profile-type
+      ## Reset variables to unrealisticly high or low values
+      $best = 0;
+      $bestCount = 0;
+      $bestEval = 1000;
+      $bestScore = -1000;
+
+      for ($i = 0; $i < scalar(@seqDomCounts); $i++) {   # Go through all domain count entries
+	if (@seqDomCounts[$i] > $bestCount) {   # If the current domain count is larger than the previous top domain count
+	  $best = $i;   # Set the best value to be the current value
+	  ## Set all other best variables to those corresponding to the current value
+	  $bestCount = @seqDomCounts[$i];
+	  $bestEval = @seqAvgE[$i];
+	  $bestScore = @seqAvgScore[$i];
+	}
+	if (@seqDomCounts[$i] == $bestCount) {   # If the current domain count is equal to the previous top domain count
+	  if (@seqAvgE[$i] < $bestEval) {   # If the current E-value is smaller than the previous top E-value
+	    $best = $i;   # Set the best value to be the current value
+	    ## Set all other best variables to those corresponding to the current value
+	    $bestCount = @seqDomCounts[$i];
+	    $bestEval = @seqAvgE[$i];
+	    $bestScore = @seqAvgScore[$i];
+	  }
+	  if (@seqAvgE[$i] == $bestEval) {   # If the current E-value is equal to the previous top E-value
+	    if (@seqAvgScore[$i] > $bestScore) {   # If the current average score is larger than the previous top average score
+	      $best = $i;   # Set the best value to be the current value
+	      ## Set all other best variables to those corresponding to the current value
+	      $bestCount = @seqDomCounts[$i];
+	      $bestEval = @seqAvgE[$i];
+	      $bestScore = @seqAvgScore[$i];
+	    }
+	  }
+	}
+      }
+    }
+    if ($priority eq "eval") {   # If the average E-value should be used to determine the most likely profile-type
+      ## Reset variables to unrealisticly high or low values
+      $best = 0;
+      $bestCount = 0;
+      $bestEval = 1000;
+      $bestScore = -1000;
+
+      for ($i = 0; $i < scalar(@seqDomCounts); $i++) {   # Go through all domain counts entries
+	if (@seqAvgE[$i] < $bestEval) {   # If the current E-value is smaller than the previous top E-value
+	  $best = $i;   # Set the best value to be the current value
+	  ## Set all other best variables to those corresponding to the current value
+	  $bestCount = @seqDomCounts[$i];
+	  $bestEval = @seqAvgE[$i];
+	  $bestScore = @seqAvgScore[$i];
+	}
+	if (@seqAvgE[$i] == $bestEval) {   # If the current E-value is equal to the previous top E-value
+	  if (@seqAvgScore[$i] > $bestScore) {   # If the current average score is larger than the previous top average score
+	    $best = $i;   # Set the best value to be the current value
+	    ## Set all other best variables to those corresponding to the current value
+	    $bestCount = @seqDomCounts[$i];
+	    $bestEval = @seqAvgE[$i];
+	    $bestScore = @seqAvgScore[$i];
+	  }
+	  if (@seqAvgScore[$i] == $bestScore) {   # If the current average score is equal to the previous top average score
+	    if (@seqDomCounts[$i] > $bestCount) {   # If the current number of domains is larger than the previous top number of domains
+	      $best = $i;   # Set the best value to be the current value
+	      ## Set all other best variables to those corresponding to the current value
+	      $bestCount = @seqDomCounts[$i];
+	      $bestEval = @seqAvgE[$i];
+	      $bestScore = @seqAvgScore[$i];
+	    }
+	  }
+	}
+      }
+    }
+    if ($priority eq "score") {   # If the average score should be used to determine the most likely profile-type
+      ## Reset variables to unrealisticly high or low values
+      $best = 0;
+      $bestCount = 0;
+      $bestEval = 1000;
+      $bestScore = -1000;
+
+      for ($i = 0; $i < scalar(@seqDomCounts); $i++) {   # Go through all domain counts entries
+	if (@seqAvgScore[$i] > $bestScore) {   # If the current average score is larger than the previous top average score
+	  $best = $i;   # Set the best value to be the current value
+	  ## Set all other best variables to those corresponding to the current value
+	  $bestCount = @seqDomCounts[$i];
+	  $bestEval = @seqAvgE[$i];
+	  $bestScore = @seqAvgScore[$i];
+	}
+	if (@seqAvgScore[$i] == $bestScore) {   # If the current average score is equal to the previous top average score
+	  if (@seqAvgE[$i] < $bestEval) {   # If the current E-value is smaller than the previous top E-value
+	    $best = $i;   # Set the best value to be the current value
+	    ## Set all other best variables to those corresponding to the current value
+	    $bestCount = @seqDomCounts[$i];
+	    $bestEval = @seqAvgE[$i];
+	    $bestScore = @seqAvgScore[$i];
+	  }
+	  if (@seqAvgE[$i] == $bestEval) {   # If the current E-value is equal to the previous top E-value
+	    if (@seqDomCounts[$i] > $bestCount) {   # If the current number of domains is larger than the previous top number of domains
+	      $best = $i;   # Set the best value to be the current value
+	      ## Set all other best variables to those corresponding to the current value
+	      $bestCount = @seqDomCounts[$i];
+	      $bestEval = @seqAvgE[$i];
+	      $bestScore = @seqAvgScore[$i];
+	    }
+	  }
+	}
+      }
+    }
+    
+    if (@seqID[$best] ne "") {   # If the sequence ID of the most likely profile is not empty
+
+      $allanchorLens = @anchorLens[$best];  # Get the best anchor lengths
+      @allanchorLens = split(',', $allanchorLens);  # Split the anchor lens into an array
+
+      $chimeric = 0;   # Assume the sequence is not chimeric
+      if ($allow_reorder == 0) {   # If re-order of domain is not allowed
+	$domain_order = @allSeqDomains[$best];   # Gather the order the domains are found in
+	@domain_order = split(' ',$domain_order);   # Split the list into an array
+	@sorted_domain_order = sort {$a cmp $b} @domain_order;   # Sort the array alphabetically
+	for ($di = 0; $di <= scalar(@domain_order); $di++) {   # Go through the sorted array
+	  if ((@domain_order[$di] ne @sorted_domain_order[$di]) || (@problemCode[$best] =~ m/C/)) {    # Check if the order of the arrays differ at any poiny
+	    $chimeric = 1;   # If they do differ, mark the sequence as chimeric
+	  }
+	}
+      }
+
+      $seqDNALength = length(@seqDNA[$best]);   # Get the length of the DNA sequence
+
+      ## Print sequence and match data...
+      ## Order of columns in the output file:
+      ## ID Length Type Main/Compl Domains Avg.Eval Avg.Score Start End Start_domain End_domain Chimeric
+      if ($out_results == 1) {
+	print RESULTS @seqID[$best] . "\t" . $seqDNALength . "\t" . @seqITSType[$best] . "\t" . @seqCompl[$best] . "\t" . @seqDomCounts[$best] . "\t" . @seqAvgE[$best] . "\t" . @seqAvgScore[$best] . "\t" . @seqScoreSum[$best] . "\t" . @dnaStart[$best] . "\t" . @dnaEnd[$best] . "\t" . @startDomain[$best] . "\t" . @endDomain[$best] . "\t";   # Print sequence and match data to the results file
+	if ($chimeric == 1) {   # If the sequence was regarded chimeric
+	  print RESULTS "Chimeric\t";   # Add a chimeric tag to the entry
+	} else {   # If not chimeric
+	  print RESULTS "\t";   # Add an empty column
+	}
+	$allDomains = @allSeqDomains[$best];   # Get the domain order of the entry
+	$allDomains =~ tr/ /,/;   # Replace spaces with commas in the domain order string
+	$allDomains = substr($allDomains,0,length($allDomains) - 1);   # Remove the last character (a comma)
+	print RESULTS $allDomains;   # Write the domain order to the results file
+	print RESULTS "\t";   # Write a tab to the results file
+      }
+
+      if ($out_pos == 1) {
+	$out_all_pos = 1;
+	if ($out_all_pos == 1) {  # Output positions of all domains
+	  $seqPartLen = @dnaEnd[$best] - @dnaStart[$best] + 1;
+	  if ($seqPartLen < 0) {
+	    $seqPartLen = $seqPartLen * -1;
+	  }
+	  ## Print the positions of all identified domains to the position file
+	  print POS @seqID[$best] . "\t" . $seqDNALength . " bp." . "\t";
+	  if (@problemCode[$best] !~ m/S/) {
+	    print POS "SSU: " . @ssuStart[$best] . "-" . @ssuEnd[$best] . "\t";
+	  } else {
+	    print POS "SSU: Not found\t";
+	  }
+	  if ((@problemCode[$best] =~ m/X/) || ((@problemCode[$best] =~ m/[15]/) && (@problemCode[$best] =~ m/S/))) {
+	    print POS "ITS1: Not found\t";
+	  } else {
+	    if (@problemCode[$best] =~ m/O/) {
+	      print POS "ITS1: " . (@ssuEnd[$best] + 1) . "-" . (@ssuEnd[$best] + 1) . "\t";
+	    } else {
+	      print POS "ITS1: " . @its1Start[$best] . "-" . @its1End[$best] . "\t";
+	    }
+	  }
+	  if (@problemCode[$best] !~ m/[125OP]/) {
+	    print POS "5.8S: " . @midStart[$best] . "-" . @midEnd[$best] . "\t";
+	  } else {
+	    if (@problemCode[$best] =~ m/5/) {
+	      print POS "5.8S: Not found\t";
+	    } else {
+	      if (@problemCode[$best] =~ m/1/) {
+		print POS "5.8S: No start\t";
+	      } else {
+		if (@problemCode[$best] =~ m/O/) {
+		  print POS "5.8S: Overlap SSU\t";
+		} else {
+		  if (@problemCode[$best] =~ m/P/) {
+		    print POS "5.8S: Overlap LSU\t";
+		  } else {
+		    print POS "5.8S: No end\t";
+		  }
+		}
+	      }
+	    }
+	  }
+	  if ((@problemCode[$best] =~ m/Y/) ||((@problemCode[$best] =~ m/[25]/) && (@problemCode[$best] =~ m/L/))) {
+	    print POS "ITS2: Not found\t";
+	  } else {
+	    if (@problemCode[$best] =~ m/O/) {
+	      print POS "ITS2: " . (@lsuStart[$best] - 1) . "-" . (@lsuStart[$best] - 1) . "\t";
+	    } else {
+	      print POS "ITS2: " . @its2Start[$best] . "-" . @its2End[$best] . "\t";
+	    }
+	  }
+	  if (@problemCode[$best] !~ m/L/) {
+	    print POS "LSU: " . @lsuStart[$best] . "-" . @lsuEnd[$best] . "\t";
+	  } else {
+	    print POS "LSU: Not found" . "\t";
+	  }
+
+	  if (@problemCode[$best] =~ m/5/) {
+	    print POS "Broken or partial sequence, no 5.8S! ";
+	  } else {
+	    if (@problemCode[$best] =~ m/[12]/) {
+	      print POS "Broken or partial sequence, only partial 5.8S! ";
+	    }
+	  }
+	  if (@problemCode[$best] =~ m/B/) {
+	    print POS "ITS region too long! ";
+	  }
+	  if (@problemCode[$best] =~ m/O/) {
+	    print POS "5.8S seem to overlap with SSU! ";
+	  }
+	  if (@problemCode[$best] =~ m/P/) {
+	    print POS "5.8S seem to overlap with LSU! ";
+	  }
+	  if (@problemCode[$best] =~ m/C/) {
+	    print POS "Chimeric! ";
+	  }
+	  print POS "\n";
+
+	} else {  # Output only ITS positions
+	  $seqPartLen = @dnaEnd[$best] - @dnaStart[$best] + 1;
+	  print POS @seqID[$best] . "\t" . $seqDNALength . " bp." . "\t" . "ITS1: " . @its1Start[$best] . "-" . @its1End[$best] . "\t" . "ITS2: " . @its2Start[$best] . "-" . @its2End[$best] . "\n";  # Print the positions of the ITS sequences to the position file
+	}
+      }
+
+      if (@problem[$best] ne "") {
+	$foundProblem++;
+	print PROBLEM @seqID[$best] . "\t" . @problem[$best] . "\n";
+      }
+      
+      ## Set extended type string (the string going into the definition line of the FASTA file)
+      $extendedType = $profileIndex{@seqITSType[$best]} . " ITS sequence";
+      @itsCounts[ord(@seqITSType[$best])]++;   # Add one ITS to the appropriate counter
+
+      if (@seqCompl[$best] == 1) {   # If domains were found on complementary strand
+	$extendedStrand = "complementary strand";   # Set the strand string to complementary
+	$itsCompl++;   # Add one to the complementary strand counter
+      } else {   # If domains were found on the main strand
+	$extendedStrand = "main strand";   # Set the strand string to main
+	$itsMain++;   # Add one to the main strand counter
+      }
+      
+      ## Print (extracted) ITS sequence...
+      if ($out_fasta == 1) {   # If FASTA-output is on
+	if ($truncate == 0) {   # If the whole sequence should be kept in output file
+	  if ($chimeric == 0) {   # If the sequence is not chimeric
+	    if (@problemCode[$best] !~ m/[SL]/) {
+	      if ($out_preserve == 1) {  # If sequence headers should be preserved
+		print FASTA $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	      } else {
+		print FASTA ">" . @seqID[$best] . "|" . @seqITSType[$best] ." " . $extendedType . " (" . $seqDNALength . " bp)  on " . $extendedStrand . "\n";   # Write FASTA definition line
+	      }
+	      print FASTA  @seqDNA[$best] . "\n";   # Write DNA sequence
+	    }
+	    if ($out_partial > 0) {
+	      if (@problemCode[$best] !~ m/[SL125]/) {
+	      if ($out_preserve == 1) {  # If sequence headers should be preserved
+		print FULLPARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	      } else {
+		print FULLPARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] ." " . $extendedType . " (" . $seqDNALength . " bp) Full ITS region on " . $extendedStrand . "\n";   # Write FASTA defline
+	      }
+		print FULLPARTIAL  @seqDNA[$best] . "\n";   # Write DNA sequence
+	      } else {
+		$its1PartLen = @its1End[$best] - @its1Start[$best] + 1;
+		$its2PartLen = @its2End[$best] - @its2Start[$best] + 1;
+		if (($out_partial < $its1PartLen) && ($out_partial < $its2PartLen)) {
+		  if ($out_preserve == 1) {  # If sequence headers should be preserved
+		    print FULLPARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+		  } else {
+		    print FULLPARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] ." " . $extendedType . " (" . $seqDNALength . " bp) Partial ITS region on " . $extendedStrand . "\n";   # Write FASTA defline
+		  }
+		  print FULLPARTIAL  @seqDNA[$best] . "\n";   # Write DNA sequence
+		}
+	      }
+	    }
+	  } else {   # If sequence is regarded chimeric
+	    $itsChimeric++;   # Add one to the chimeric counter
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print CHIMERA $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print CHIMERA ">" . @seqID[$best] . "|" . @seqITSType[$best] ." Chimeric " . $extendedType . " (" . length(@seqDNA[$best]) . " bp)  on " . $extendedStrand . "\n";   # Write FASTA definition line
+	    }
+	    print CHIMERA  @seqDNA[$best] . "\n";   # Write DNA sequence
+	    $foundChimera++;
+	  }
+	} else {    # If only the ITS part of the sequence should be saved to output file
+	  $fastaStartPoint = @dnaStart[$best] - 1;   # Start extraction at the start of the first domain
+	  $fastaEndPoint = @dnaEnd[$best]+10;   # End extraction 10 bp after the last domain
+
+	  if (@seqDomCounts[$best] > 1) {   # If more than one domain was found
+	    if (substr(@startDomain[$best],0,5) eq "1_SSU")  {   # If the first domain was SSU
+	      $fastaStartPoint = @ssuEnd[$best];   # Set the start point of the extraction to the end of the SSU domain
+	    }
+	    if (substr(@startDomain[$best],0,5) eq "4_LSU")  {   # If the first domain was LSU
+	      $fastaStartPoint = @lsuEnd[$best];   # Set the start point of the extraction to the end of the LSU domain
+	    }
+	    if (substr(@endDomain[$best],0,5) eq "1_SSU")  {   # If the last domain was SSU
+	      $fastaEndPoint = @ssuStart[$best] - 1;   # Set the end point of the extraction to the start of the SSU domain
+	    }
+	    if (substr(@endDomain[$best],0,5) eq "4_LSU")  {   # If the last domain was LSU
+	      $fastaEndPoint = @lsuStart[$best] - 1;   # Set the end point of the extraction to the start of the LSU domain
+	    }
+	  }
+	  
+	  if ($fastaStartPoint < 0) {   # If the start point is smaller than zero, set the start point to zero
+	    $fastaStartPoint = 0;
+	  }
+	  if ($fastaEndPoint > length(@seqDNA[$best])) {   # If the end point is larger than the length of the sequence, set the end point to the sequence end
+	    $fastaEndPoint = length(@seqDNA[$best]);
+	  }
+
+	  $fastaLength = $fastaEndPoint - $fastaStartPoint + 1;
+
+	  if ($chimeric == 0) {   # If the sequence is not chimeric
+	    if (@problemCode[$best] !~ m/[SL]/) {
+	      if ($out_preserve == 1) {  # If sequence headers should be preserved
+		print FASTA $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	      } else {
+		print FASTA ">" . @seqID[$best] . "|" . @seqITSType[$best] . " " . $extendedType . " (" . $fastaLength . " bp) on " . $extendedStrand . "\n";   # Write FASTA definition line
+	      }
+	      if ($anchorLen > 0) {
+		if ($fastaStartPoint - @allanchorLens[0] > 0) {
+		  print FASTA substr(@seqDNA[$best],$fastaStartPoint - @allanchorLens[0],$fastaLength + @allanchorLens[0] + @allanchorLens[3]) . "\n";   # Write DNA sequence
+		} else {
+		  print FASTA substr(@seqDNA[$best],0,$fastaLength + $fastaStartPoint + @allanchorLens[3]) . "\n";   # Write DNA sequence
+		}
+	      } else {
+		print FASTA substr(@seqDNA[$best],$fastaStartPoint,$fastaLength) . "\n";   # Write DNA sequence
+	      }
+	    }
+	    if ($out_partial > 0) {
+	      if (@problemCode[$best] !~ m/[SL125]/) {
+		if ($out_preserve == 1) {  # If sequence headers should be preserved
+		  print FULLPARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+		} else {
+		  print FULLPARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] ." " . $extendedType . " (" . $seqDNALength . " bp) Full ITS region on " . $extendedStrand . "\n";   # Write FASTA defline
+		}
+		print FULLPARTIAL substr(@seqDNA[$best],$fastaStartPoint,$fastaLength) . "\n";   # Write DNA sequence
+	      } else {
+		$its1PartLen = @its1End[$best] - @its1Start[$best] + 1;
+		$its2PartLen = @its2End[$best] - @its2Start[$best] + 1;
+		if (($out_partial < $its1PartLen) && ($out_partial < $its2PartLen)) {
+		  if ($out_preserve == 1) {  # If sequence headers should be preserved
+		    print FULLPARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+		  } else {
+		    print FULLPARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] ." " . $extendedType . " (" . $seqDNALength . " bp) Partial ITS region on " . $extendedStrand . "\n";   # Write FASTA defline
+		  }
+		  print FULLPARTIAL substr(@seqDNA[$best],$fastaStartPoint,$fastaLength) . "\n";   # Write DNA sequence
+		}
+	      }
+	    }
+	  } else {   # If sequence is regarded chimeric
+	    $itsChimeric++;   # Add one to the chimeric counter
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print CHIMERA $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print CHIMERA ">" . @seqID[$best] . "|" . @seqITSType[$best] . " Chimeric " . $extendedType . " (" . $fastaLength . " bp) on " . $extendedStrand . "\n";   # Write FASTA definition line
+	    }
+	    print CHIMERA @seqDNA[$best] . "\n";   # Write DNA sequence
+	    $foundChimera++;
+	  }
+	}
+      }
+
+      if ($out_joined == 1) {
+	if ($chimeric == 0) {   # If the sequence is not chimeric
+	  if ($out_preserve == 1) {  # If sequence headers should be preserved
+	    print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	  } else {
+	    print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . " " . $extendedType . " (" . $fastaLength . " bp) From domain " . @startDomain[$best] . " to " . @endDomain[$best] . " on " . $extendedStrand . " Found domains: ";   # Write FASTA definition line
+	    print JOINED substr(@allSeqDomains[$best],0,length(@allSeqDomains[$best]) - 1) . "\n";   # Write domain order
+	  }
+	  print JOINED substr(@seqDNA[$best],$fastaStartPoint,$fastaLength) . "\n";   # Write DNA sequence
+	} else {   # If sequence is regarded chimeric
+	  if ($out_preserve == 1) {  # If sequence headers should be preserved
+	    print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	  } else {
+	    print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . " Chimeric " . $extendedType . " (" . $fastaLength . " bp) From domain " . @startDomain[$best] . " to " . @endDomain[$best] . " on " . $extendedStrand . " Found domains: ";   # Write FASTA definition line
+	    print JOINED substr(@allSeqDomains[$best],0,length(@allSeqDomains[$best]) - 1) . "\n";   # Write domain order
+	  }
+	  print JOINED substr(@seqDNA[$best],$fastaStartPoint,$fastaLength) . "\n";   # Write DNA sequence
+	}
+      }
+
+      ## Write SSU sequence to file
+      if ($out_ssu == 1) {  # If SSU output is on
+	if (@problemCode[$best] !~ m/S/) {
+	  if ($only_full == 0) {
+	    $seqPartLen =  @ssuEnd[$best] - @ssuStart[$best] + 1;
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print SSU $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print SSU ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|SSU " . "Extracted SSU sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	    }
+	    if (uc($anchor) ne "HMM") {
+	      if (@ssuStart[$best] - 1 - $anchorLen > 0) {
+		print SSU substr(@seqDNA[$best], @ssuStart[$best] - 1 - $anchorLen, $anchorLen);
+	      } else {
+		print SSU substr(@seqDNA[$best], 0, @ssuStart[$best] - 1);
+	      }
+	      print SSU substr(@seqDNA[$best], @ssuStart[$best] - 1, @ssuEnd[$best] - @ssuStart[$best] + 1);
+	      if (@ssuEnd[$best] - @ssuStart[$best] + 1 - $anchorLen > 0) {
+		print SSU substr(@seqDNA[$best], @ssuEnd[$best], $anchorLen);
+	      } else {
+		print SSU substr(@seqDNA[$best], @ssuEnd[$best]);
+	      }
+	    } else {
+	      print SSU substr(@seqDNA[$best], @ssuStart[$best] - 1, @ssuEnd[$best] - @ssuStart[$best] + 1);
+	    }
+	    print SSU "\n";   # Write DNA sequence
+	  }
+	}
+      }
+
+      ## Write LSU sequence to file
+      if ($out_lsu == 1) {  # If LSU output is on
+	if ($only_full == 0) {
+	  if (@problemCode[$best] !~ m/L/) {
+	    $seqPartLen = @lsuEnd[$best] - @lsuStart[$best] + 1;
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print LSU $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print LSU ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|LSU " . "Extracted LSU sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	    }
+	    if (uc($anchor) ne "HMM") {
+	      if (@lsuStart[$best] - 1 - $anchorLen > 0) {
+		print LSU substr(@seqDNA[$best], @lsuStart[$best] - 1 - $anchorLen, $anchorLen);
+	      } else {
+		print LSU substr(@seqDNA[$best], 0, @lsuStart[$best] - 1);
+	      }
+	      print LSU substr(@seqDNA[$best], @lsuStart[$best] - 1, @lsuEnd[$best] - @lsuStart[$best] + 1);
+	      #if (@lsuEnd[$best] - @lsuStart[$best] + 1 - $anchorLen > 0) {
+	      #  print LSU substr(@seqDNA[$best], @lsuEnd[$best] - @lsuStart[$best] + 1, $anchorLen);
+	      #} else {
+	      #  print LSU substr(@seqDNA[$best], @lsuEnd[$best] - @lsuStart[$best] + 1);
+	      #}
+	    } else {
+	      print LSU substr(@seqDNA[$best], @lsuStart[$best] - 1, @lsuEnd[$best] - @lsuStart[$best] + 1);
+	    }
+	    print LSU "\n";   # Write DNA sequence
+	  }
+	}
+      }
+
+      ## Write 5.8S sequence to file
+      if ($out_58S == 1) {  # If 5.8S output is on
+	if (@problemCode[$best] !~ m/[125]/) {
+	  $seqPartLen = @midEnd[$best] - @midStart[$best] + 1;
+	  if ($out_preserve == 1) {  # If sequence headers should be preserved
+	    print MID $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	  } else {
+	    print MID ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|5.8S " . "Extracted 5.8S sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	  }
+	  if (uc($anchor) ne "HMM") {
+	    if (@midStart[$best] - 1 - $anchorLen > 0) {
+	      print MID substr(@seqDNA[$best], @midStart[$best] - 1 - $anchorLen, $anchorLen);
+	    } else {
+	      print MID substr(@seqDNA[$best], 0, @midStart[$best] - 1);
+	    }
+	    print MID substr(@seqDNA[$best], @midStart[$best] - 1, @midEnd[$best] - @midStart[$best] + 1);
+	    if (@midEnd[$best] - @midStart[$best] + 1 - $anchorLen > 0) {
+	      print MID substr(@seqDNA[$best], @midEnd[$best], $anchorLen);
+	    } else {
+	      print MID substr(@seqDNA[$best], @midEnd[$best]);
+	    }
+	  } else {
+	    print MID substr(@seqDNA[$best], @midStart[$best] - 1, @midEnd[$best] - @midStart[$best] + 1);
+	  }
+	  print MID "\n";   # Write DNA sequence
+	}
+      }
+
+      ## Write ITS1 sequence to file
+      if ($out_its1 == 1) {  # If ITS1 output is on
+	$seqPartLen = @its1End[$best] - @its1Start[$best] + 1;
+	if ($seqPartLen > 1) {
+	  if ( (($only_full == 0) && (@problemCode[$best] !~ m/[15]/)) || (($only_full == 1) && (@problemCode[$best] !~ m/[S15]/))) {
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print ITS1 $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print ITS1 ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1 " . "Extracted ITS1 sequence " . @its1Start[$best] . "-" . @its1End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	    }
+	    if (uc($anchor) ne "HMM") {
+	      if (@its1Start[$best] - 1 - $anchorLen > 0) {
+		print ITS1 substr(@seqDNA[$best], @its1Start[$best] - 1 - $anchorLen, $anchorLen);
+	      } else {
+		print ITS1 substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+	      }
+	      print ITS1 substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its1End[$best] - $anchorLen > 0) {
+		print ITS1 substr(@seqDNA[$best], @its1End[$best], $anchorLen);
+	      } else {
+		print ITS1 substr(@seqDNA[$best], @its1End[$best]);
+	      }
+	    } else {
+	      if (@its1Start[$best] - 1 - @allanchorLens[0] > 0) {
+		print ITS1 substr(@seqDNA[$best], @its1Start[$best] - 1 - @allanchorLens[0], @allanchorLens[0]);
+	      } else {
+		print ITS1 substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+	      }
+	      print ITS1 substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its1End[$best] - @allanchorLens[1] > 0) {
+		print ITS1 substr(@seqDNA[$best], @its1End[$best], @allanchorLens[1]);
+	      } else {
+		print ITS1 substr(@seqDNA[$best], @its1End[$best]);
+	      }
+	      
+	    }
+	    print ITS1 "\n";   # Write DNA sequence
+	  }
+	}
+	if ($out_partial > 0) {
+	  if (@problemCode[$best] !~ m/[S15]/) {
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print ITS1PARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print ITS1PARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1 " . "Extracted Full ITS1 sequence " . @its1Start[$best] . "-" . @its1End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	    }
+	    if (uc($anchor) ne "HMM") {
+	      if (@its1Start[$best] - 1 - $anchorLen > 0) {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1 - $anchorLen, $anchorLen);
+	      } else {
+		print ITS1PARTIAL substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+	      }
+	      print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its1End[$best] - $anchorLen > 0) {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best], $anchorLen);
+	      } else {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best]);
+	      }
+	    } else {
+	      if (@its1Start[$best] - 1 - @allanchorLens[0] > 0) {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1 - @allanchorLens[0], @allanchorLens[0]);
+	      } else {
+		print ITS1PARTIAL substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+	      }
+	      print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its1End[$best] - @allanchorLens[1] > 0) {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best], @allanchorLens[1]);
+	      } else {
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best]);
+	      }
+	      
+	    }
+	    print ITS1PARTIAL "\n";   # Write DNA sequence
+	  } else {
+	    if ($out_partial < $seqPartLen) {
+	      if ($out_preserve == 1) {  # If sequence headers should be preserved
+		print ITS1PARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	      } else {
+		print ITS1PARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1 " . "Extracted Partial ITS1 sequence " . @its1Start[$best] . "-" . @its1End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	      }
+	      if (uc($anchor) ne "HMM") {
+		if (@its1Start[$best] - 1 - $anchorLen > 0) {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1 - $anchorLen, $anchorLen);
+		} else {
+		  print ITS1PARTIAL substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+		}
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+		if (length(@seqDNA[$best]) - @its1End[$best] - $anchorLen > 0) {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best], $anchorLen);
+		} else {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best]);
+		}
+	      } else {
+		if (@its1Start[$best] - 1 - @allanchorLens[0] > 0) {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1 - @allanchorLens[0], @allanchorLens[0]);
+		} else {
+		  print ITS1PARTIAL substr(@seqDNA[$best], 0, @its1Start[$best] - 1);
+		}
+		print ITS1PARTIAL substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);
+		if (length(@seqDNA[$best]) - @its1End[$best] - @allanchorLens[1] > 0) {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best], @allanchorLens[1]);
+		} else {
+		  print ITS1PARTIAL substr(@seqDNA[$best], @its1End[$best]);
+		}
+	      }
+	      print ITS1PARTIAL "\n";   # Write DNA sequence
+	    }
+	  }
+	}
+      }
+      
+      ## Write ITS2 sequence to file
+      if ($out_its2 == 1) {  # If ITS2 output is on
+	$seqPartLen = @its2End[$best] - @its2Start[$best] + 1;
+	if ($seqPartLen > 1) {
+	  if ( (($only_full == 0) && (@problemCode[$best] !~ m/[25]/)) || (($only_full == 1) && (@problemCode[$best] !~ m/[L25]/))) {
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print ITS2 $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print ITS2 ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS2 " . "Extracted ITS2 sequence " . @its2Start[$best] . "-" . @its2End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	    }
+	    if (uc($anchor) ne "HMM") {
+	      if (@its2Start[$best] - 1 - $anchorLen > 0) {
+		print ITS2 substr(@seqDNA[$best], @its2Start[$best] - 1 - $anchorLen, $anchorLen);
+	      } else {
+		print ITS2 substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+	      }
+	      print ITS2 substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its2End[$best] - $anchorLen > 0) {
+		print ITS2 substr(@seqDNA[$best], @its2End[$best], $anchorLen);
+	      } else {
+		print ITS2 substr(@seqDNA[$best], @its2End[$best]);
+	      }
+	    } else {
+	      if (@its2Start[$best] - 1 - @allanchorLens[2] > 0) {
+		print ITS2 substr(@seqDNA[$best], @its2Start[$best] - 1 - @allanchorLens[2], @allanchorLens[2]);
+	      } else {
+		print ITS2 substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+	      }
+	      print ITS2 substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+	      if (length(@seqDNA[$best]) - @its2End[$best] - @allanchorLens[3] > 0) {
+		print ITS2 substr(@seqDNA[$best], @its2End[$best], @allanchorLens[3]);
+	      } else {
+		print ITS2 substr(@seqDNA[$best], @its2End[$best]);
+	      }
+	    }
+	    print ITS2 "\n";   # Write DNA sequence
+	  }
+	  if ($out_partial > 0) {
+	    if (@problemCode[$best] !~ m/[L25]/) {
+	      if ($out_preserve == 1) {  # If sequence headers should be preserved
+		print ITS2PARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	      } else {
+		print ITS2PARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS2 " . "Extracted Full ITS2 sequence " . @its2Start[$best] . "-" . @its2End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	      }
+	      if (uc($anchor) ne "HMM") {
+		if (@its2Start[$best] - 1 - $anchorLen > 0) {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1 - $anchorLen, $anchorLen);
+		} else {
+		  print ITS2PARTIAL substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+		}
+		print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+		if (length(@seqDNA[$best]) - @its2End[$best] - $anchorLen > 0) {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best], $anchorLen);
+		} else {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best]);
+		}
+	      } else {
+		if (@its2Start[$best] - 1 - @allanchorLens[2] > 0) {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1 - @allanchorLens[2], @allanchorLens[2]);
+		} else {
+		  print ITS2PARTIAL substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+		}
+		print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+		if (length(@seqDNA[$best]) - @its2End[$best] - @allanchorLens[3] > 0) {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best], @allanchorLens[3]);
+		} else {
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best]);
+		}
+	      }
+	      print ITS2PARTIAL "\n";   # Write DNA sequence
+	    } else {
+	      if ($out_partial < $seqPartLen) {
+		if ($out_preserve == 1) {  # If sequence headers should be preserved
+		  print ITS2PARTIAL $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+		} else {
+		  print ITS2PARTIAL ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS2 " . "Extracted Partial ITS2 sequence " . @its2Start[$best] . "-" . @its2End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+		}
+		if (uc($anchor) ne "HMM") {
+		  if (@its2Start[$best] - 1 - $anchorLen > 0) {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1 - $anchorLen, $anchorLen);
+		  } else {
+		    print ITS2PARTIAL substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+		  }
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+		  if (length(@seqDNA[$best]) - @its2End[$best] - $anchorLen > 0) {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best], $anchorLen);
+		  } else {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best]);
+		  }
+		} else {
+		  if (@its2Start[$best] - 1 - @allanchorLens[2] > 0) {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1 - @allanchorLens[2], @allanchorLens[2]);
+		  } else {
+		    print ITS2PARTIAL substr(@seqDNA[$best], 0, @its2Start[$best] - 1);
+		  }
+		  print ITS2PARTIAL substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);
+		  if (length(@seqDNA[$best]) - @its2End[$best] - @allanchorLens[3] > 0) {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best], @allanchorLens[3]);
+		  } else {
+		    print ITS2PARTIAL substr(@seqDNA[$best], @its2End[$best]);
+		  }
+		}
+		print ITS2PARTIAL "\n";   # Write DNA sequence
+	      }
+	    }
+	  }
+	}
+      }
+
+      ## Output concatenated ITS1 + ITS2 sequences
+      if ($out_concat == 1) {
+	$seqPartLen1 = @its1End[$best] - @its1Start[$best] + 1;
+	$seqPartLen2 = @its2End[$best] - @its2Start[$best] + 1;
+	if (($seqPartLen1 >= $concat_minlen) && ($seqPartLen2 >= $concat_minlen)) {
+	  if ($out_preserve == 1) {  # If sequence headers should be preserved
+	    print CONCAT $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	  } else {
+	    print CONCAT ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1+2 " . "Concatenated ITS1 and ITS2 sequences (" . ($seqPartLen1 + $seqPartLen2) . " bp)\n";   # Write FASTA definition line
+	  }
+	  print CONCAT substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);   # Write ITS1 DNA sequence
+	  print CONCAT "-----";  # Write spacer
+	  print CONCAT substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);   # Write ITS2 DNA sequence
+	  print CONCAT "\n";  # Write newline
+	} else {
+	  if ($seqPartLen1 >= $concat_minlen) {
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print CONCAT $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print CONCAT ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1 " . "ITS1 sequence (ITS2 too short) (" . $seqPartLen1 . " bp)\n";   # Write FASTA definition line
+	    }
+	    print CONCAT substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1);   # Write ITS1 DNA sequence
+	    print CONCAT "-----";  # Write spacer
+	    print CONCAT "\n";  # Write newline
+	  }
+	  if ($seqPartLen2 >= $concat_minlen) {
+	    if ($out_preserve == 1) {  # If sequence headers should be preserved
+	      print CONCAT $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	    } else {
+	      print CONCAT ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS2 " . "ITS2 sequence (ITS1 too short) (" . $seqPartLen2 . " bp)\n";   # Write FASTA definition line
+	    }
+	    print CONCAT "-----";  # Write spacer
+	    print CONCAT substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1);   # Write ITS2 DNA sequence
+	    print CONCAT "\n";  # Write newline
+	  }
+	}
+      }
+
+      ## Print all sequences to the joined file for debugging
+      if ($out_joined == 1) {
+	$seqPartLen =  @ssuEnd[$best] - @ssuStart[$best] + 1;
+	if ($out_preserve == 1) {  # If sequence headers should be preserved
+	  print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	} else {
+	  print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|SSU " . "Extracted SSU sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	}
+	print JOINED substr(@seqDNA[$best], @ssuStart[$best] - 1, @ssuEnd[$best] - @ssuStart[$best] + 1) . "\n";   # Write DNA sequence
+	
+	$seqPartLen = @its1End[$best] - @its1Start[$best] + 1;
+	if ($out_preserve == 1) {  # If sequence headers should be preserved
+	  print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	} else {
+	  print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS1 " . "Extracted ITS1 sequence " . @its1Start[$best] . "-" . @its1End[$best] . " (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	}
+	print JOINED substr(@seqDNA[$best], @its1Start[$best] - 1, @its1End[$best] - @its1Start[$best] + 1) . "\n";   # Write DNA sequence
+	
+	$seqPartLen = @midEnd[$best] - @midStart[$best] + 1;
+	if ($out_preserve == 1) {  # If sequence headers should be preserved
+	  print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	} else {
+	  print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|5.8S " . "Extracted 5.8S sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	}
+	print JOINED substr(@seqDNA[$best], @midStart[$best] - 1, @midEnd[$best] - @midStart[$best] + 1) . "\n";   # Write DNA sequence
+	
+	$seqPartLen = @its2End[$best] - @its2Start[$best] + 1;
+	if ($out_preserve == 1) {  # If sequence headers should be preserved
+	  print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	} else {
+	  print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|ITS2 " . "Extracted ITS2 sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	}
+	print JOINED substr(@seqDNA[$best], @its2Start[$best] - 1, @its2End[$best] - @its2Start[$best] + 1) . "\n";   # Write DNA sequence
+	
+	$seqPartLen = @lsuEnd[$best] - @lsuStart[$best] + 1;
+	if ($out_preserve == 1) {  # If sequence headers should be preserved
+	  print JOINED $headers{@seqID[$best]} . "\n";   # Write FASTA definition line
+	} else {
+	  print JOINED ">" . @seqID[$best] . "|" . @seqITSType[$best] . "|LSU " . "Extracted LSU sequence (" . $seqPartLen . " bp)\n";   # Write FASTA definition line
+	}
+	print JOINED substr(@seqDNA[$best], @lsuStart[$best] - 1, @lsuEnd[$best] - @lsuStart[$best] + 1) . "\n";   # Write DNA sequence
+      }
+      
+      
+      if ($out_results == 1) {
+	## Print info on all matches, also not top ones to the results file...
+	for ($i = 0; $i < scalar(@seqITSType); $i++) {   # Go through all the possible ITS types...
+	  print RESULTS @seqITSType[$i] . ": " . @seqDomCounts[$i] . " " . @seqAvgE[$i] . " " . @seqAvgScore[$i];   # Write some info on this type (Type, Domain count, Average E-value, Average score)
+	  if ($i < scalar(@seqITSType) - 1) {   # If this is no the last domain type
+	    print RESULTS ", ";   # Write a comma
+	  }
+	}
+	print RESULTS "\n";   # Write end of line
+      }
+    }
+    
+    ## Undefine all used arrays for the next round...
+    undef @seqID;
+    undef @seqITSType;
+    undef @seqCompl;
+    undef @seqDomCounts;
+    undef @seqAvgE;
+    undef @seqAvgScore;
+    undef @seqScoreSum;
+    undef @seqDNA;
+    undef @allSeqDomains;
+    undef @dnaStart;
+    undef @dnaEnd;
+    undef @ssuStart;
+    undef @ssuEnd;
+    undef @lsuStart;
+    undef @lsuEnd;
+    undef @midStart;
+    undef @midEnd;
+    undef @its1Start;
+    undef @its1End;
+    undef @its2Start;
+    undef @its2End;
+    undef @startDomain;
+    undef @endDomain;
+    undef @domain_order;
+    undef @sorted_domain_order;
+    undef @problem;
+    undef @problemCode;
+    undef @anchorLens;
+  }
+  if (@item[0] ne "") {   # Add this entry to the set (regardless if the entry has the same ID as entries already in the set), as long as it is non-empty
+    push(@seqID, @item[0]);   # Add sequence ID
+    push(@seqITSType, @item[1]);   # Add ITS type
+    push(@seqCompl, @item[2]);   # Add main/complementary strand info
+    push(@seqDomCounts, @item[3]);   # Add domain count
+    push(@seqAvgE, @item[4]);   # Add average E-value
+    push(@seqAvgScore, @item[5]);   # Add average score
+    push(@seqScoreSum, @item[6]);   # Add sum-of-scores
+    push(@seqDNA, @item[7]);   # Add DNA sequence
+    
+    ## Determine first and last domains, and their positions
+    ## Set variables to unrealistic values
+    $dnaEnd = length(@item[7]);
+    $startDomain = "***";
+    $endDomain = "***";
+    $dnaStart = 1;
+    $allDomains = "";
+    $ssuStart = 1;
+    $ssuEnd = 0;
+    $midStart = 1;
+    $midEnd = 0;
+    $lsuStart = 1;
+    $lsuEnd = 0;
+    $its1Start = 1;
+    $its1End = length(@item[7]);
+    $its2Start = 1;
+    $its2End = length(@item[7]);
+    $problem = "";
+    $problemCode = "";
+
+    $ssuFound = 0;
+    $lsuFound = 0;
+    $midSFound = 0;
+    $midEFound = 0;
+    $order = "";
+    undef @hitanchorlens;
+    
+    for ($i = 8; $i < scalar(@item); $i++) {   # Go through the list of found domains in this sequence
+      ($hitStart,$hitEnd,$hitProfile,$hitScore,$hitEval,$hitanchorlen) = split(';',@item[$i]);   # Separate the hit stats into variables
+      $allDomains = $allDomains . $hitProfile . " ";   # Add found domain to the list of all domains
+
+#      if ($hitStart < $dnaStart) {   # If this domain is the first one so far
+#	$dnaStart = $hitStart;   # Set the start of the ITS sequence to this domain's start
+#	$startDomain = $hitProfile;   # Set this domain as the starting domain
+#      }
+#      if ($hitEnd > $dnaEnd) {   # If this domain is the last one so far
+#	$dnaEnd = $hitEnd;   # Set the end of the ITS sequence to this domain's end
+#	$endDomain = $hitProfile;   # Set this domain as the ending domain
+#      }
+
+      if (substr($hitProfile,0,5) eq "1_SSU" ) {   # If this domain is the SSU's end
+	$dnaStart = $hitStart;   # Set the start of the ITS sequence to this domain's start
+	$startDomain = $hitProfile;   # Set this domain as the starting domain
+	$ssuStart = 1;   # Set the start of the SSU sequence to the start of the sequence
+	$ssuEnd = $hitEnd;   # Set the end of the SSU sequence to this domain's end
+	$its1Start = $hitEnd + 1;   # Set the start of the ITS1 sequence to right after this domain's end
+	if ($midEFound == 0) {
+	  $its2Start = $hitEnd + 1;   # Set the end of the ITS2 sequence to right after this domain's end
+	}
+	$ssuFound = 1;
+	$order = $order . "1";
+	@hitanchorlens[1] = $hitanchorlen;
+      }
+
+      if (substr($hitProfile,0,5) eq "2_5.8" ) {   # If this domain is the 5.8S's start
+	if ($startDomain eq "***") {
+	  $dnaStart = 1;   # Set the start of the ITS sequence to the start of the sequence
+	  $startDomain = $hitProfile;   # Set this domain as the starting domain
+	}
+	$its1End = $hitStart - 1;   # Set the end of the ITS1 sequence to right before this domain's start
+	if ($midEFound == 0) {
+	  $its2Start = $hitEnd + 1;   # Set the start of the ITS2 sequence to right after this domain's end
+	}
+	$midStart = $hitStart;   # Set the start of the 5.8S sequence to this domain's start
+	$midSFound = 1;
+	$order = $order . "2";
+	@hitanchorlens[2] = $hitanchorlen;
+      }
+
+      if (substr($hitProfile,0,5) eq "3_End" ) {   # If this domain is the 5.8S's end
+	if ($startDomain eq "***") {
+	  $dnaStart = 1;   # Set the start of the ITS sequence to the start of the sequence
+	  $startDomain = $hitProfile;   # Set this domain as the starting domain
+	}
+	if ($midSFound == 0) {
+	  $its1End = $hitStart - 1;   # Set the end of the ITS1 sequence to right before this domain's start
+	}
+	$its2Start = $hitEnd + 1;   # Set the end of the ITS2 sequence to right after this domain's end
+	$midEnd = $hitEnd;   # Set the end of the 5.8S sequence to this domain's end
+	$midEFound = 1;
+	$order = $order . "3";
+	@hitanchorlens[3] = $hitanchorlen;
+      }
+
+      if (substr($hitProfile,0,5) eq "4_LSU" ) {   # If this domain is the LSU's start
+	if ($startDomain eq "***") {
+	  $dnaStart = 1;   # Set the start of the ITS sequence to the start of the sequence
+	  $startDomain = $hitProfile;   # Set this domain as the starting domain
+	}
+	$dnaEnd = $hitEnd;   # Set the end of the ITS sequence to this domain's end
+	$endDomain = $hitProfile;   # Set this domain as the ending domain
+	$lsuStart = $hitStart;   # Set the start of the LSU sequence to the start of the this domain
+	$lsuEnd = length(@item[7]);   # Set the end of the LSU sequence to the end of the sequence
+	$its2End = $hitStart - 1;   # Set the end of the ITS2 sequence to right before this domain's start
+	if ($midSFound == 0) {
+	  $its1End = $hitStart - 1;   # Set the end of the ITS1 sequence to right before this domain's start
+	}
+	$lsuFound = 1;
+	$order = $order . "4";
+	@hitanchorlens[4] = $hitanchorlen;
+      }
+    }
+
+    if ($ssuFound == 0) {
+      if ($problem ne "") {
+	$problem = $problem . "; ";
+      }
+      $problem = $problem . "End of SSU sequence not found";
+      $problemCode = $problemCode . "S";
+      $order = "1" .  $order;
+    }
+
+    if ($lsuFound == 0) {
+      if ($problem ne "") {
+	$problem = $problem . "; ";
+      }
+      $problem = $problem . "Start of LSU sequence not found";
+      $problemCode = $problemCode . "L";
+      $order = $order . "4";
+    }
+
+    if (($midSFound == 0) && ($midEFound == 0)) {
+      if ($problem ne "") {
+	$problem = $problem . "; ";
+      }
+      $problem = $problem . "The 5.8S sequence was not found at all";
+      $problemCode = $problemCode . "5";
+    } else {
+      if ($midSFound == 0) {
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "Start of 5.8S sequence not found";
+	$problemCode = $problemCode . "1";
+      }
+      if ($midEFound == 0) {
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "End of 5.8S sequence not found";
+	$problemCode = $problemCode . "2";
+      }
+    }
+
+    if ($dnaEnd - $dnaStart > 1500) {
+      if ($problem ne "") {
+	$problem = $problem . "; ";
+      }
+      $problem = $problem . "ITS region is suspiciously long (> 1500 bp)";
+      $problemCode = $problemCode . "B";
+    }
+
+    if (length($order) == 4) {
+      if ($order ne "1234") {
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "Domains found in wrong order, sequence may be chimeric";
+	$problemCode = $problemCode . "C";
+      }
+    } else {
+      if ((substr($order,0,1) ne "1") || (substr($order,-1) ne "4")) {
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "Domains found in wrong order, sequence may be chimeric";
+	$problemCode = $problemCode . "C";
+      } else {
+	if (($midSFound == 1) && ($midEFound == 1)) {
+	  if ($order !~ m/23/) {
+	    if ($problem ne "") {
+	      $problem = $problem . "; ";
+	    }
+	    $problem = $problem . "Domains found in wrong order, sequence may be chimeric";
+	    $problemCode = $problemCode . "C";
+	  }
+	}
+      }
+    }
+
+    if ($its1End - $its1Start < 0) {  # 5.8S overlaps SSU
+      if (($midSFound == 1) && ($ssuFound == 1)) {
+	$problemCode = $problemCode . "OC";
+	$its1Start = 0;
+	$its1End = 0;
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "SSU seems to overlap 5.8S, sequence may be chimeric";
+      } else {
+	$problemCode = $problemCode . "X";
+	$its1Start = 0;
+	$its1End = 0;
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "No ITS1 sequence";
+      }
+    }
+    if ($its2End - $its2Start < 0) {  # 5.8S overlaps LSU
+      if (($midEFound == 1) && ($lsuFound == 1)) {
+	$problemCode = $problemCode . "PC";
+	$its2Start = 0;
+	$its2End = 0;
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "LSU seems to overlap 5.8S, sequence may be chimeric";
+       } else {
+	$problemCode = $problemCode . "Y";
+	$its2Start = 0;
+	$its2End = 0;
+	if ($problem ne "") {
+	  $problem = $problem . "; ";
+	}
+	$problem = $problem . "No ITS2 sequence";
+      }
+    }
+
+
+    if (($problemCode =~ m/[15]/) && ($problemCode =~ m/[S]/)) {  # Sequence lack all indications of ITS1
+      $its1Start = 0;
+      $its1End = 0;
+    }
+    if (($problemCode =~ m/[25]/) && ($problemCode =~ m/[L]/)) {  # Sequence lack all indications of ITS2
+      $its2Start = 0;
+      $its2End = 0;
+    }
+
+
+    $allhitanchorlens = @hitanchorlens[1] . "," . @hitanchorlens[2] . "," . @hitanchorlens[3] . "," . @hitanchorlens[4];
+
+    push(@allSeqDomains,$allDomains);   # Add list of all domains
+    push(@dnaStart, $dnaStart);   # Add start of the ITS sequence
+    push(@startDomain, $startDomain);   # Add start domain
+    push(@dnaEnd, $dnaEnd);   # Add end of ITS sequence
+    push(@endDomain, $endDomain);   # Add end domain
+    push(@ssuStart, $ssuStart);   # Add start of the SSU sequence
+    push(@ssuEnd, $ssuEnd);   # Add end of the SSU sequence
+    push(@midStart, $midStart);   # Add start of the 5.8S sequence
+    push(@midEnd, $midEnd);   # Add end of the 5.8S sequence
+    push(@lsuStart, $lsuStart);   # Add start of the LSU sequence
+    push(@lsuEnd, $lsuEnd);   # Add end of the LSU sequence
+    push(@its1Start, $its1Start);   # Add start of the ITS1 sequence
+    push(@its1End, $its1End);   # Add end of the ITS1 sequence
+    push(@its2Start, $its2Start);   # Add start of the ITS2 sequence
+    push(@its2End, $its2End);   # Add end of the ITS2 sequence
+    push(@problem, $problem);  # Add potential problem info
+    push(@problemCode, $problemCode);  # Add potential problem info in code form
+    push(@anchorLens, $allhitanchorlens);  # Add the anchor lengths
+  }
+  $lc++;   # Increase the line count by one
+}
+
+## Save results to the summary file
+if ($out_sum == 1) {   # If summary file should be written
+  $itsTotal = 0;   # Reset the total ITS sum
+  foreach $typeCount (@itsCounts) {   # Add ITSs from all different origins
+    $itsTotal += $typeCount;   # Add the number of ITSs for this origin
+  }
+  ## Write info on the found ITS sequences to the summary file
+  print SUMMARY "Sequences detected as ITS by ITSx:\t$itsTotal\n";
+  print SUMMARY "  On main strand:         \t$itsMain\n";
+  print SUMMARY "  On complementary strand:\t$itsCompl\n";
+  if ($allow_reorder == 0) {   # If re-ordering of domains is not allowed
+    print SUMMARY "Sequences detected as chimeric by ITSx:\t$itsChimeric\n";   # Write the number of reported chimeric sequences to the summary file
+  }
+  ## Write info on the found ITS sequence types to the summary file
+  print SUMMARY "ITS sequences by preliminary origin:\n";
+  print SUMMARY "  Alveolates:      \t" . int(@itsCounts[ord("A")]) . "\n";
+  print SUMMARY "  Amoebozoa:       \t" . int(@itsCounts[ord("D")]) . "\n";
+  print SUMMARY "  Bacillariophyta: \t" . int(@itsCounts[ord("C")]) . "\n";
+  print SUMMARY "  Brown algae:     \t" . int(@itsCounts[ord("I")]) . "\n";
+  print SUMMARY "  Bryophytes:      \t" . int(@itsCounts[ord("B")]) . "\n";
+  print SUMMARY "  Euglenozoa:      \t" . int(@itsCounts[ord("E")]) . "\n";
+  print SUMMARY "  Eustigmatophytes:\t" . int(@itsCounts[ord("U")]) . "\n";
+  print SUMMARY "  Fungi:           \t" . int(@itsCounts[ord("F")]) . "\n";
+  print SUMMARY "  Green algae:     \t" . int(@itsCounts[ord("G")]) . "\n";
+  print SUMMARY "  Liverworts:      \t" . int(@itsCounts[ord("L")]) . "\n";
+  print SUMMARY "  Metazoa:         \t" . int(@itsCounts[ord("M")]) . "\n";
+  print SUMMARY "  Microsporidia:   \t" . int(@itsCounts[ord("N")]) . "\n";
+  print SUMMARY "  Oomycetes:       \t" . int(@itsCounts[ord("O")]) . "\n";
+  print SUMMARY "  Prymnesiophytes: \t" . int(@itsCounts[ord("P")]) . "\n";
+  print SUMMARY "  Raphidophytes:   \t" . int(@itsCounts[ord("Q")]) . "\n";
+  print SUMMARY "  Red algae:       \t" . int(@itsCounts[ord("H")]) . "\n";
+  print SUMMARY "  Rhizaria:        \t" . int(@itsCounts[ord("R")]) . "\n";
+  print SUMMARY "  Synurophyceae:   \t" . int(@itsCounts[ord("S")]) . "\n";
+  print SUMMARY "  Tracheophyta:    \t" . int(@itsCounts[ord("T")]) . "\n";
+  print SUMMARY "-----------------------------------------------------------------\n";
+  close (SUMMARY);   # Close the summary file
+}
+
+if ($out_results == 1) {
+  close (RESULTS);   # Close the results file
+}
+close (RAWOUT);   # Close the raw output file
+close (PROBLEM);   # Close the file for problematic entries
+if ($foundProblem == 0) {
+  `rm $output.problematic.txt 2> /dev/null`;
+}
+if ($out_pos == 1) {
+  close (POS);   # Close the positions file
+}
+if ($out_fasta == 1) {   # If FASTA output is on
+  close (FASTA);   # Close the FASTA output file
+  if ($allow_reorder == 0) {   # If re-ordering of domains is not allowed
+    close (CHIMERA);   # Close the chimera file
+    if ($foundChimera == 0) {
+      `rm $output.chimeric.fasta 2> /dev/null`;
+    }
+  }
+  if ($out_partial > 0) {
+    close FULLPARTIAL;
+  }
+}
+if ($out_ssu == 1) {
+  close (SSU);   # Close the SSU file
+}
+if ($out_lsu == 1) {
+  close (LSU);   # Close the LSU file
+}
+if ($out_58S == 1) {
+  close (MID);   # Close the 58S file
+}
+if ($out_its1 == 1) {
+  close (ITS1);   # Close the ITS1 file
+  if ($out_partial > 0) {
+    close ITS1PARTIAL;
+  }
+}
+if ($out_its2 == 1) {
+  close (ITS2);   # Close the ITS2 file
+  if ($out_partial > 0) {
+    close ITS2PARTIAL;
+  }
+}
+if ($out_concat == 1) {
+  close CONCAT;
+}
+
+if ($out_not == 1) {   # If not-found output is on
+  open (NOTFOUND, "$output\_no_detections.txt");   # Open the not-found output file
+  while ($line = <NOTFOUND>) {  # Read all entries from file
+    chomp($line);  # Remove newline char
+    push(@nodetectionlist,$line);  # Add to non-detection list
+  }
+  close NOTFOUND;
+
+  open (NOTFOUND, ">$output\_no_detections.fasta");   # Create a not-found FASTA output file
+  foreach $seqID (@nodetectionlist) {  # For all non-detections
+    $seq = $sequenceDB{"$seqID"};  # Get sequence from sequence database
+    print NOTFOUND ">$seqID\n";  # Print not found sequence ID
+    print NOTFOUND $seq . "\n";  # Print not found sequence
+  }
+  close NOTFOUND;
+}
+
+## Clean up and finish
+
+if ($pipeline == 0) {   # If ITSx is not called from the pipeline mode (i.e. from ITSx)
+  if ($save_raw == 1) {   # If raw data should be saved
+    `mv $tempDir $output\_ITSx_raw_output`;   # Change the name of the temporary directory to ..._ITSx_raw_output
+  } else {   # Else, discard the raw data
+    `rm -rf $tempDir`;   # Remove the temporary directory
+  }
+}
+
+## Get the current time and output a finished message
+$now = localtime;
+if ($silent == 0) {
+  print STDERR "$now : Extraction finished!\n";
+  print STDERR "-----------------------------------------------------------------\n";
+  print STDERR "Thank you for using ITSx!\n";
+  print STDERR "Please report bugs or unsupported lineages to itsx\@microbiology.se\n";
+  print STDERR "\n";
+}
+
+## Write end time a summary file
+if ($pipeline == 0) {    # If not running in pipeline mode
+  if ($out_sum == 1) {   # If summary output is on
+    open (SUMMARY, ">>$output.summary.txt");   # Append to the summary file
+    print SUMMARY "ITSx run finished at $now.\n";   # Write ending time for the analysis
+    close (SUMMARY);   # Close summary file
+  }
+}
+
+sub hmmerSearch {
+  $hmmerCommand = $_[0];
+  $outputFile = $_[1];
+  $strand = $_[2];
+  $profileSet = $_[3];
+  open (HMMEROUTPUT, ">$outputFile");
+  open (HMMER, "$hmmerCommand |");
+  $totalHitCount = 0;
+  $hitCount = 0;
+  $SSUCount = 0;
+  $LSUCount = 0;
+  $startCount = 0;
+  $endCount = 0;
+  $maxCount = 1;
+  while (chomp($line = <HMMER>)) {
+    if (substr($line,0,6) eq "Query:") {
+      $hitCount = 0;
+      $SSUCount = 0;
+      $LSUCount = 0;
+      $startCount = 0;
+      $endCount = 0;
+      undef @bestScore;
+      undef @bestEntry;
+      
+      $query = substr($line,7);
+      $queryLength = $query;
+      $queryLength =~ s/.*  *//;
+      $queryLength =~ s/[^0-9]//g;
+      $query =~ s/  *//;
+      $query =~ s/  *.*//;
+      
+      print HMMEROUTPUT "## New query:\t$query\t$queryLength\n";
+
+    }
+    if (substr($line,0,12) eq "Description:") {
+      $desc = $line;
+    }
+    if (substr($line,0,3) eq ">> ") {
+      ($tempshit,$hmmerSubjectName) = split(' ',$line);
+    }
+    if ($line =~ m/[0-9] ! /) {
+      $stats = $line;
+      $stats =~ s/  */\t/g;
+      ($empty,$no,$excl,$score) = split('\t',$stats);
+      $hitCount++;
+      $totalHitCount++;
+      if ($maxCount == 0) {
+	print HMMEROUTPUT "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+      } else {
+	if (substr($hmmerSubjectName,0,5) eq "1_SSU") {
+	  $SSUCount++;
+	  if ($SSUCount <= $maxCount) {
+	    @bestScore[1] = $score;
+	    @bestEntry[1] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	  } else {
+	    if ($score > @bestScore[1]) {
+	      @bestScore[1] = $score;
+	      @bestEntry[1] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	    }
+	  }
+	}
+	if (substr($hmmerSubjectName,0,5) eq "4_LSU") {
+	  $LSUCount++;
+	  if ($LSUCount <= $maxCount) {
+	    @bestScore[4] = $score;
+	    @bestEntry[4] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	  } else { 
+	    if ($score > @bestScore[4]) {
+	      @bestScore[4] = $score;
+	      @bestEntry[4] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	    }
+	  }
+	}
+	if (substr($hmmerSubjectName,0,5) eq "2_5.8") {
+	  $startCount++;
+	  if ($startCount <= $maxCount) {
+	    @bestScore[2] = $score;
+	    @bestEntry[2] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	  } else {
+	    if ($score > @bestScore[2]) {
+	      @bestScore[2] = $score;
+	      @bestEntry[2] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	    }
+	  }
+	}
+	if (substr($hmmerSubjectName,0,5) eq "3_End") {
+	  $endCount++;
+	  if ($endCount <= $maxCount) {
+	    @bestScore[3] = $score;
+	    @bestEntry[3] = "$query\t$hmmerSubjectName\t$queryLength$stats\n";
+	  } else {
+	    if ($score > @bestScore[3]) {
+	      @bestScore[3] = $score;
+	      @bestEntry[3] = "$query\t$hmmerSubjectName\t$queryLength$stats\n"
+	    }
+	  }
+	}
+      }
+    }
+    if (substr($line,0,2) eq "//") {
+      if ($maxCount > 0) {
+	if ($SSUCount > 0) {
+	  print HMMEROUTPUT @bestEntry[1];
+	}
+	if ($startCount > 0) {
+	  print HMMEROUTPUT @bestEntry[2];
+	}
+	if ($endCount > 0) {
+	  print HMMEROUTPUT @bestEntry[3];
+	}
+	if ($LSUCount > 0) {
+	  print HMMEROUTPUT @bestEntry[4];
+	}
+      }
+      print HMMEROUTPUT "//\n";
+    }
+  }
+  close(HMMEROUTPUT);
+  $now = localtime;
+  if ($silent == 0) {
+    if ($strand eq "M") {
+      print STDERR "    $now : " . ucfirst($profileIndex{$profileSet}) . " analysis of main strand finished.\n";   # Print finished type
+    } else {
+      print STDERR "    $now : " . ucfirst($profileIndex{$profileSet}) . " analysis of complementary strand finished.\n";   # Print finished type
+    }
+  }
+}
+
+
+## Please send beers, pizzas, cakes, fruit pies, job positions and other types of feedback to:
+## johan.bengtsson [at] microbiology.se
+## Looking forward to hearing from you.... visit my website: www.microbiology.se for info on my research
+## //Johan Bengtsson, 2012-2014
