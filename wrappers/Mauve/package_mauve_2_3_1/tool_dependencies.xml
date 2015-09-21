@@ -4,7 +4,7 @@
 		<install version="1.0">
 			<actions_group>
 				<actions os="linux" architecture="x86_64">
-					<action type="download_by_url">http://gel.ahabs.wisc.edu/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
+					<action type="download_by_url">http://darlinglab.org/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
 					<action type="move_directory_files">
 						<source_directory>.</source_directory>
 						<destination_directory>$INSTALL_DIR</destination_directory>
@@ -15,7 +15,7 @@
 					</action>
 				</actions>
 				<actions>
-					<action type="download_by_url">http://gel.ahabs.wisc.edu/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
+					<action type="download_by_url">http://darlinglab.org/mauve/downloads/mauve_linux_2.3.1.tar.gz</action>
 					<action type="move_directory_files">
 						<source_directory>.</source_directory>
 						<destination_directory>$INSTALL_DIR</destination_directory>
@@ -30,7 +30,7 @@
 		<readme>
 Software: Mauve 
 Version: 3.23
-Source: http://gel.ahabs.wisc.edu/mauve/
+Source: http://darlinglab.org/mauve/
 Supported OS: Linux x86 or x86_64
 Citation: Aaron E. Darling, Bob Mau, and Nicole T. Perna. 2010.  progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss, and Rearrangement.  PLoS One.  5(6):e11147. 
 
