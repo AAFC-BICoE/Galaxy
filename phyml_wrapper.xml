@@ -1,0 +1,202 @@
+<?xml version="1.0">
+	<tool id="phyml" name="PhyML: Phylogenetic estimation using Maximum Likelihood" version="1.0">
+		<description>Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences</description>
+
+		<requirements>
+		</requirements>
+
+		<command interpreter="">
+		</command>
+
+		<inputs>
+			<param format="phylip" name="input_1" type="data" label="Sequences" help="PHYLIP format"/>
+		
+			<conditional name="models">
+				<param name="data_type" type="select" label="Data Type">
+					<option value="dna"> DNA </option>
+					<option value="aa"> Amino-Acids </option>
+				</param>
+				<when value="dna">
+					<conditional name="ttr_selection">
+						<param name="substitution_model" type="select" label="Substitution Model">
+							<option value="hky"> HKY85 </option>
+							<option value="jc"> JC69 </option>
+							<option value="k"> K80 </option>
+							<option value="f"> F81 </option>
+							<option value="ff"> F84 </option>
+							<option value="tn"> TN93 </option>
+							<option value="gtr"> GTR </option>
+						</param>
+						<when value="hky">
+							<param name="ttr" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="ttr_fixed"> Fixed </option>
+								<option value="ttr_estimated"> Estimated </option>
+							</param>
+						</when>
+						<when value="jc" />
+						<when value="k"> 
+							<param name="ttr" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="ttr_fixed"> Fixed </option>
+								<option value="ttr_estimated"> Estimated </option>
+							</param>
+						</when>
+						<when value="f" />
+						<when value="ff"> 
+							<param name="ttr" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="ttr_fixed"> Fixed </option>
+								<option value="ttr_estimated"> Estimated </option>
+							</param>
+						</when>
+						<when value="tn" />
+						<when value="gtr" />
+					</conditional>
+				
+					<param name="eq_freq" type="select" label="Equilibrium Frequencies">
+						<option value="eq_freq_optimized"> Optimized </option>
+						<option value="eq_freq_empirical"> Empirical </option>
+					</param>
+				</when>
+				<when value="aa">
+					<param name="substitution_model" type="select" label="Subsitution Model">
+						<option value="lg"> LG </option>
+						<option value="blosum"> Blosum62 </option>
+						<option value="cprev"> CpREV </option>
+						<option value="dayhoff"> Dayhoff </option>
+						<option value="dcmut"> DCMut </option>
+						<option value="flu"> FLU </option>
+						<option value="hivb"> HIVb </option>
+						<option value="hivw"> HIVw </option>
+						<option value="jit"> JIT </option>
+						<option value="mtart"> MtArt </option>
+						<option value="mtmam"> MtMam </option>
+						<option value="mtrev"> MtREV </option>
+						<option value="rtrev"> RtREV </option>
+						<option value="vt"> VT </option>
+						<option value="wag"> WAG </option>
+					</param>
+					<param name="eq_freq" type="select" label="Equilibrium Frequencies">
+						<option value="eq_freq_model"> Model </option>
+						<option value="eq_freq_empirical"> Empirical </option> 
+					</param>
+				</when>
+			</conditional>
+
+			<param name="seq_file" type="select" label="Sequence File">
+				<option value="i"> Interleaved </option>
+				<option value="s"> Sequential </option>
+			</param>
+
+			<param name="data_sets" type="integer" value="1" label="Number of Data Sets"/>
+			
+			<param name="prop_inv_sites" type="select" label="Proportion of Invariable Sites">
+				<option value="prop_fixed"> Fixed </option>
+				<option value="prop_estimated"> Estimated </option>
+			</param>
+
+			<param name="num_sub_rate_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/>
+
+			<conditional name="gamma">
+				<param name="gamma_shape" type="select" label="Gamma Shape Parameter">
+					<option value="gamma_fixed"> Fixed </option>
+					<option value="gamma_estimated"> Estimated </option>
+				</param>
+				<when value="gamma_fixed">
+					<param name="num_gamma_shape" type="integer" />
+				</when>
+				<when value="gamma_estimated" />
+			</conditional> 
+
+			<conditional name="tree_searching">
+				<param name="starting_tree" type="select" label="Starting Tree(s)">
+					<option value="tree_file"> Upload File </option>
+					<option value="tree_bionj"> BIONJ </option>
+				</param>
+				<when value="tree_file">
+					<param name="input_2" type="data" />
+				</when>
+				<when value="tree_bionj" />
+			</conditional>
+
+			<conditional name="topology">
+				<param name="opt_topology" type="select" label="Optimise Topology">
+					<option value="opt_topology_y"> Yes </option>
+					<option value="opt_topology_n"> No </option>
+				</param>
+				<when value="opt_topology_y">
+					<param name="opt_branch_lengths" type="select" label="Optimise Branch Lengths">
+						<option value="opt_branch_lengths_y"> Yes </option>
+					</param>
+					<param name="type_tree_improvement" type"select" label="Type of Tree Improvement">
+						<option value="nni"> NNI </option>
+						<option value="spr"> SPR </option>
+						<option value="spr_nni"> SPR & NNI </option>
+					</param>
+				</when>
+				<when value="opt_topology_n">
+					<param name="opt_branch_lengths" type="select" label="Optimise Branch Lengths">
+						<option value="opt_branch_lengths_y"> Yes </option>
+						<option value="opt_branch_lengths_n"> No </option>
+					</param>
+				</when>
+			</conditional> 
+
+			<conditional name="branch_support">
+				<param name="fast_likelihood_based_method" type="select" label="Fast Likelihood-Based Method">
+					<option value="branch_support_y"> Yes </option>
+					<option value="branch_support_n"> No </option>
+				</param>
+				<when value="branch_support_y">
+					<param name="method" type="select">
+						<option value="alrt_sh_like"> aLRT SH-Like </option>
+						<option value="alrt_chi2_based"> aLRT Chi2-Based </option>
+						<option value="abayes"> aBayes </option>
+					</param>
+					
+				</when>
+				<when value="branch_support_n">
+					<conditional="perform_bootsrap">
+						<param name="boostrap" type="select" label="Perform Boostrap">
+							<option value="bootsrap_y"> Yes </option>
+							<option value="boostrap_n"> No </option>
+						</param>
+						<when value="boostrap_y">
+							<param name="num_bootsrap" type="integer" value="100">
+						</when>
+						<when value="boostrap_n" />
+					</conditional>
+				</when>
+			</conditional>
+		</inputs>
+
+		<outputs>
+			<data format="txt" name="output1" label="${tool.name} on ${on_string}: PhyML "/>
+			<data format="txt" name="output2" label="${tool.name} on ${on_string}: PhyML"/>
+			<data format="txt" name="output3" label="${tool.name} on ${on_string}:PhyML"/>
+			<data format="txt" name="output4" label="${tool.name} on ${on_string}: PhyML"/>
+		
+		<help>
+
+		**Tool Information**
+
+		PhyML Tool v3.0
+			Release date: 
+
+		**Author**
+
+		**Description**
+
+		**Inputs and Outputs**
+		
+		- Input:
+			- Accepts alignments of DNA or protein sequences in PHYLIP sequential or interleaved format (seq_phyml_tree.txt)
+			- Accepts one or several phylogenetic trees from an input file 
+		</help>
+
+		- Output:
+			- Tree File in Newick format (seq_phyml_tree.txt)
+			- Model Parameter File (seq_phyml_stats.txt)
+			- If bootsrap support were evalutated:
+				- The Maximum Likelihood Trees (seq_phyml_boot_tree.txt)
+				- The Substitution Model parameters estimated from each bootstrap replicate (seq_boot_phyml_stats.txt)
+
+	</tool>
