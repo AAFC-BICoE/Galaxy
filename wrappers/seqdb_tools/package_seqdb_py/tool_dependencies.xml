@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="package_seqdb_py" version="dev">
+    <package name="package_seqdb_py" version="1.2">
         <install version="1.0">
             <actions>
                 <action type="setup_virtualenv"  python="python2.7" use_requirements_file="False">
-                    git+https://bitbucket.org/aafc-mbb/seqdb-py.git@dev#egg=seqdb-py
+                    git+https://bitbucket.org/aafc-mbb/seqdb-py.git@1.2#egg=seqdb-py
                 </action>
             </actions>
         </install>
