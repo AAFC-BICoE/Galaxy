@@ -7,7 +7,7 @@
 	</requirements>
 	
 	<command>
-		phyml -i "$seq_file_name" -d "$data_type" -q "$seq_file" -m "$model_name" -f "$eq_freq" -t "$ts_tv_ratio" -n "$nb_data_sets" -v "$prop_invar" -c "$nb_subst_cat" -a "$gamma_shape" -g "$num_gamma_shape" -u "$user_tree_file" -w "$tree_file_name" -k "$opt_topology" -l "$opt_branch_lengths" -s "$move" -p "$fast_likelihood_based_method" -e "$method" -b "$bootstrap" -e "$num_bootstrap" -j "$model_name"" -o "$output1" -out "$output2"
+		phyml -i "$seq_file_name" -d "$data_type" -q "$seq_file" -m "$model_name" -f "$eq_freq" -t "$ts_tv_ratio" -n "$nb_data_sets" -v "$prop_invar" -c "$nb_subst_cat" -a "$gamma_shape" -g "$num_gamma_shape" -u "$user_tree_file" -w "$tree_file_name" -k "$opt_topology" -l "$opt_branch_lengths" -s "$tree_imp" -p "$fast_likelihood_based_method" -e "$method" -b "$bootstrap" -e "$num_bootstrap" -j "$model_name"" -o "$output1" -out "$output2"
 	</command> 
 	
 	<inputs>
@@ -95,6 +95,7 @@
 		</param>
 		
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/> 
+		
 		<conditional name="gamma">
 			<param name="gamma_shape" type="select" label="Gamma Shape Parameter">
 				<option value="gamma_fixed"> Fixed </option>
@@ -117,7 +118,7 @@
 			</when>
 			<when value="tree_bionj" />
 		</conditional>
-		
+
 		<conditional name="topology"> 
 			<param name="opt_topology" type="select" label="Optimise Topology">
 				<option value="opt_topology_y"> Yes </option>
@@ -127,11 +128,11 @@
 				<param name="opt_branch_lengths" type="select" label="Optimise Branch Lengths">
 					<option value="opt_branch_lengths_y"> Yes </option>
 				</param>
-				<!--  <param name="move" type="select" label="Type of Tree Improvement">
-						<option value="nni"> NNI </option>
-						<option value="spr"> SPR </option>
-						<option value="spr_nni"> SPR & NNI </option>
-				</param> -->
+				<param name="tree_imp" type="select" label="Type of Tree Improvement">
+					<option value="tree_imp_nni"> NNI </option>
+					<option value="tree_imp_spr"> SPR </option>
+					<option value="tree_imp_both"> SPR and NNI </option>
+				</param> 
 			</when>
 			<when value="opt_topology_n">
 				<param name="opt_branch_lengths" type="select" label="Optimise Branch Lengths">
@@ -147,24 +148,24 @@
 				<option value="branch_support_n"> No </option>
 			</param>
 			<when value="branch_support_y">
-				<param name="method" type="select">
+				<param name="method" label="Method" type="select">
 					<option value="alrt_sh_like"> aLRT SH-Like </option>
 					<option value="alrt_chi2_based"> aLRT Chi2-Based </option>
 					<option value="abayes"> aBayes </option>
 				</param>	
 			</when>
-			<when value="branch_support_n" />
-				<!--  <conditional name="perform_bootstrap">
+			<when value="branch_support_n">
+				<conditional name="perform_bootstrap">
 					<param name="bootstrap" type="select" label="Perform Bootstrap">
 						<option value="bootstrap_y"> Yes </option>
 						<option value="bootstrap_n"> No </option>
 					</param>
 					<when value="bootstrap_y">
-						<param name="num_bootstrap" type="integer" value="100">
+						<param name="num_bootstrap" label="Bootsratp Number" type="integer" value="100" />
 					</when>
 					<when value="bootstrap_n" />
-				</conditional> -->
-			<!--  </when> -->
+				</conditional> 
+			</when>
 		</conditional> 
 	</inputs>
 	
