@@ -95,7 +95,6 @@
 		</param>
 		
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/> 
--u "$user_tree_file" -w "$tree_file_name"
 		<conditional name="gamma">
 			<param name="gamma_shape" type="select" label="Gamma Shape Parameter">
 				<option value="gamma_fixed"> Fixed </option>
