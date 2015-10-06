@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="phyml" version="3.1">
+		<repository name="package_phyml" owner="galaxyuser" toolshed="http://onottar669810x.agr.gc.ca:9009" changeset_revision="76a65e687b9d" />
+	</package>
+</tool_dependency>
+
