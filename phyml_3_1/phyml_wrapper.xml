@@ -7,7 +7,7 @@
 	</requirements>
 	
 	<command>
-		phyml -i "$seq_file_name" -d "$data_type" -q "$seq_file" -m "$model_name" -f "$eq_freq" -t "$ts_tv_ratio" -n "$nb_data_sets" -v "$prop_invar" -c "$nb_subst_cat" -a "$gamma_shape" -g "$num_gamma_shape" -u "$user_tree_file" -w "$tree_file_name" -k "$opt_topology" -l "$opt_branch_lengths" -s "$tree_imp" -p "$fast_likelihood_based_method" -e "$method" -b "$bootstrap" -e "$num_bootstrap" -j "$model_name"" -o "$output1" -out "$output2"
+		phyml -i "$seq_file_name" -d "$data_type" -q "$seq_file" -m "$model_name" -f "$eq_freq" -t "$ts_tv_ratio" -n "$nb_data_sets" -v "$prop_invar" -c "$nb_subst_cat" -a "$gamma_shape" -g "$num_gamma_shape" -u "$user_tree_file" -w "$tree_file_name" -k "$opt_topology" -l "$opt_branch_lengths" -s "$tree_imp" -p "$fast_likelihood_based_method" -e "$method" -b "$bootstrap" -e "$num_bootstrap" -o "$output1" -out "$output2"
 	</command> 
 	
 	<inputs>
