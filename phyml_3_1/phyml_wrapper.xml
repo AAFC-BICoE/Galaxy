@@ -175,7 +175,6 @@
 		<data format="txt" name="output2" label="${tool.name} on ${on_string}: PhyML"/>
 	</outputs>
 	
-	
 	<tests>
 	    <test>
 	        <param name="seq_file_name" value="test.phy" />
@@ -198,10 +197,11 @@
 	        <param name="method" value="alrt_sh_like" />
 	        <!-- <param name="bootstrap" value="" /> -->
 	        <!-- <param name="num_bootstrap" value="" /> -->
-	        <param name="output1" file="test_phyml_tree.txt" />
-	        <param name="output2" file="test_phyml_stats.txt" />
+	        <output name="output1" file="test_phyml_tree.txt" />
+	        <output name="output2" file="test_phyml_stats.txt" />
 	    </test>
 	</tests>
+	
 	
 	<stdio>
 		<exit_code range="1:" level="fatal" description="An error occured. Check STDERR for more information." />
