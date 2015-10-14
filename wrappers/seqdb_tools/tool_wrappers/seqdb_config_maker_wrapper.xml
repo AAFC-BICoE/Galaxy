@@ -1,7 +1,7 @@
-<tool id="seqdb_config" name="SeqDB Configuration" version="1.1">
+<tool id="seqdb_config" name="SeqDB Configuration" version="1.2">
   <description> creates a personalized configuration file, used to access SeqDB Web Services. </description>
   <requirements>
-      <requirement type="package" version="dev">package_seqdb_py</requirement>
+      <requirement type="package" version="1.2">package_seqdb_py</requirement>
   </requirements>
   
   <command>
@@ -29,7 +29,7 @@
       
       **What it does**
       
-      The tool creates a Sequence Database API configuration file, which can be used in a number of SeqDB API tools (e.g. tools in ITSs workflow).
+      The tool creates a Sequence Database API configuration file, which can be used in a number of SeqDB API tools (e.g. tools in ITSx workflow).
       
       
       **What is an API Key?**

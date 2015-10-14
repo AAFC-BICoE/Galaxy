@@ -1,7 +1,7 @@
-<tool id="seqdb_its_feat_push" name="Write information to Sequence Database" version="1.1">
+<tool id="seqdb_its_feat_push" name="Write information to Sequence Database" version="1.2">
     <description>through web services. Supported file formats: outputs of ITSx and FindLCA tool. </description>
   <requirements>
-      <requirement type="package" version="dev">package_seqdb_py</requirement>
+      <requirement type="package" version="1.2">package_seqdb_py</requirement>
   </requirements>
   
   <command>
