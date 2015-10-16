@@ -51,6 +51,19 @@
         label="Log file of extracting ITS sequences from SeqDB" />
   </outputs>
 
+  <!-- Provide explanations for various exit status codes. Avoid situations where tool exists with status 0 but other errors (in Galaxy) set its status to Error -->
+  <stdio>
+  	   <!-- Since exit code 0 is not specified, the tool will execute successfully, even if Galaxy writes something to stderr. -->
+  	  <exit_code range="1:" level="fatal" description="Error" />
+      <exit_code range="2"   level="fatal"   description="Out of Memory" />
+      <exit_code range="3:5" level="warning" description="Low disk space" />
+      <exit_code range="6:63"  level="fatal"   description="Tool execution error (exit codes 6-63)" />
+      <exit_code range="64"  level="fatal"   description="Command line usage error" />
+      <exit_code range="65:72"  level="fatal"   description="Tool execution error (exit codes 65-72)" />
+      <exit_code range="73"  level="fatal"   description="Can't create (user) output file" />
+      <exit_code range="74:"  level="fatal"   description="Tool execution error (exit codes 74 and up)" />
+  </stdio>
+
   <tests>
     <test>
       <output name="out_file" file="seqdb_sequences.fasta" />
