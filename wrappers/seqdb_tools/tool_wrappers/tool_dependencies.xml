@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <tool_dependency>
     <package name="package_seqdb_py" version="1.2">
-        <repository name="package_seqdb_py" owner="korolo" toolshed="http://galaxy.biodiversity.agr.gc.ca/galaxy-toolshed/" prior_installation_required="True" />  
+        <repository name="package_seqdb_py" owner="galaxyuser" toolshed="http://onottra678134x.agr.gc.ca:9009/" prior_installation_required="True" />  
+        <!--  <repository name="package_seqdb_py" owner="korolo" toolshed="http://galaxy.biodiversity.agr.gc.ca/galaxy-toolshed/" prior_installation_required="True" />  -->
     </package>
 </tool_dependency>
