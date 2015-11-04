@@ -44,11 +44,6 @@
 			-e "$prop_invar_selector.prop_invar_fixed"
 		#end if 
 
-		-a "$gamma_selector.gamma"
-		#if $gamma_selector.gamma == "f"
-			-j "$gamma_selector.gamma_fixed"
-		#end if
-
 		-c "$nb_subst_cat" &&
 		
 		cp \${filename}_phyml_tree.txt $phyml_tree &&
@@ -96,10 +91,7 @@
 							<option value="f"> Fixed </option>
 						</param>
 					</when>
-					<whe-a "$gamma_selector.gamma"
-		#if $gamma_selector.gamma == "f"
-			-j "$gamma_selector.gamma_fixed"
-		#end ifn value="F81" />
+					<when value="F81" />
 					<when value="F84" />
 					<when value="TN93">
 						 <param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
@@ -153,18 +145,6 @@
 		</conditional>
 	
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/>
-
-		<!-- When gamma shape parameter is fixed by the user, the value needs to be a double. Have to check with Galaxy the options to implement that. -->
-		<conditional name="gamma_selector">
-			<param name="gamma" type="select" label="Gamma Shape Parameter">
-				<option value="e"> Maximum Likelihood Estimate </option>
-				<option value="f"> Fixed </option>
-			</param>
-			<when value="e"/>
-			<when value="f">
-				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="integer" value="1"/>
-			</when>
-		</conditional>
 
 
         </inputs>
