@@ -12,10 +12,8 @@
                 
 		cp $seq_file_name \$filename &&
                 
-		phyml -i \$filename 
-		
-		-s "$seq_file" 
-		
+		phyml -i \$filename
+
 		-d "$sequences.data_type"
 		#if $sequences.data_type == "nt"
 			-m "$sequences.ts_tv_selection.model_name"
@@ -35,16 +33,30 @@
 		#end if
 		#if $sequences.data_type == "aa"
 			-f "$sequences.eq_freq"
-		#end if 
-		
-		-n "$nb_data_sets"  
-		
+		#end if
+	
 		-v "$prop_invar_selector.prop_invar"
 		#if $prop_invar_selector.prop_invar == "f"
 			-e "$prop_invar_selector.prop_invar_fixed"
 		#end if 
 
-		-c "$nb_subst_cat" &&
+		-a "$gamma_selector.gamma"
+		#if $gamma_selector.gamma == "f"
+			-j "$gamma_selector.gamma_fixed"
+		#end if
+		
+		-b "$bootstrap_selector.bootstrap"
+		#if $bootstrap_selector.bootstrap == "one"
+			-g "$bootstrap_selector.num_bootstrap"
+		#end if
+		
+		-s "$seq_file"
+		
+		-n "$nb_data_sets"
+	
+		-c "$nb_subst_cat"   
+ 
+		-u "$user_tree_file" &&
 		
 		cp \${filename}_phyml_tree.txt $phyml_tree &&
 		
@@ -54,13 +66,13 @@
 
         <inputs>
                 <param name="seq_file_name" type="data" label="Sequences" help="PHYLIP format"/>
-		
+
 		<param name="seq_file" type="select" label="Sequence File">
 			<option value="i"> Interleaved </option>
 			<option value="s"> Sequential </option>
 		</param>
-	
-		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/> 
+
+		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/>
 
 		<conditional name="sequences">
 			<param name="data_type" type="select" label="Data Type">
@@ -131,8 +143,7 @@
 			</when>
 		</conditional>
 
-		<!-- When proportion of invariable sites is fixed by the user, the value needs to be a double. Have to check with Galaxy the options to implement that. -->
-		<conditional name="prop_invar_selector">
+		 <conditional name="prop_invar_selector">
 			<param name="prop_invar" type="select" label="Proportion of Invariable Sites">
 				<option value="e"> Maximum Likelihood Estimate </option>
 				<option value="f"> Fixed </option>
@@ -143,9 +154,44 @@
 				<param name="prop_invar_fixed" label="Fixed Value" type="integer" value="0" help="Range [0,1]" />
 			</when>
 		</conditional>
-	
+		
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/>
 
+		<conditional name="gamma_selector">
+			<param name="gamma" type="select" label="Gamma Shape Parameter">
+				<option value="e"> Maximum Likelihood Estimate </option>
+				<option value="f"> Fixed </option>
+			</param>
+			<when value="e"/>
+			<when value="f">
+				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="integer" value="1"/>
+			</when>
+		</conditional>
+	
+		<!-- Option to upload several files? Also, how to set default to Bionj?-->
+		<param name="user_tree_file" label="Starting Tree" type="data" />
+
+		<conditional name="bootstrap_selector">
+			<param name="bootstrap" type="select" label="Bootstrap">
+				<option value="one"> Number of Bootstrap Replicates </option>
+				<option value="zero"> Neither approximate likelihood ratio test nor bootstrap values are computed </option>
+				<option value="minus_one"> Approximate likelihood ratio test retruning aLRT statistics </option>
+				<option value ="minus_two"> Approximate likelihood ratio test returning Chi2-based parametric branch supports </option>
+				<option value="minus_four"> SH-like branch supports alone </option> 
+			</param>
+			<when value="one">
+				<param name="num_bootstrap" label="Number of Bootstrap Replicates" type="integer" value="1" />
+			</when>
+			<when value="zero">
+			</when>
+			<when value="minus_one">
+			</when>
+			<when value="minus_two">
+			</when>
+			<when value="minus_four">
+			</when>
+		</conditional>
+	
 
         </inputs>
 
