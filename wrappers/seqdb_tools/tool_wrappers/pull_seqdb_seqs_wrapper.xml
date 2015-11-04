@@ -1,7 +1,7 @@
-<tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="1.2">
+<tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="dev1.3">
   <description> through web services. Produces a fasta file of the specified sequences. </description>
   <requirements>
-      <requirement type="package" version="1.2">package_seqdb_py</requirement>
+      <requirement type="package" version="dev1.3">package_seqdb_py</requirement>
   </requirements>
   
   <command>
@@ -14,6 +14,14 @@
         
             #if $pull_type_cond.sequence_name
                 --seqName  $pull_type_cond.sequence_name
+            #end if
+
+            #if $pull_type_cond.region_name
+                --geneRegion  $pull_type_cond.region_name
+            #end if
+
+            #if $pull_type_cond.collection_code
+                --collectionCode  $pull_type_cond.collection_code
             #end if
         #end if
       
@@ -31,10 +39,14 @@
           <when value="all">
               <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+              <param name="region_name" type="text" label="Region Name keyword" optional="True" />
+              <param name="collection_code" type="text" label="Collection Code" optional="True" />
           </when>
           <when value="consensus">
               <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+              <param name="region_name" type="text" label="Region Name keyword" optional="True" />
+              <param name="collection_code" type="text" label="Collection Code" optional="True" />
           </when>
       </conditional>
       

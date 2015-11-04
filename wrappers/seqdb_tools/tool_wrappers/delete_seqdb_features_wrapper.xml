@@ -1,7 +1,7 @@
-<tool id="seqdb_delete_feat" name="Delete Features from Sequence Database" version="1.2">
+<tool id="seqdb_delete_feat" name="Delete Features from Sequence Database" version="dev1.3">
   <description>through web services </description>
   <requirements>
-      <requirement type="package" version="1.2">package_seqdb_py</requirement>
+      <requirement type="package" version="dev1.3">package_seqdb_py</requirement>
   </requirements>
   
   <command>
