@@ -1,13 +1,20 @@
 <?xml version="1.0"?>
 <tool id="phyml_wrapper" name="PhyML" version="1.0">
-	<description> Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences </description>
-	
-	<requirements>
-	    <requirement type="package" version="3.1">phyml</requirement>
-	</requirements>
-	
-	<command>
-		phyml -i "$seq_file_name" 
+        <description> Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences </description>
+
+        <requirements>
+            <requirement type="package" version="3.1">phyml</requirement>
+        </requirements>
+
+        <command>
+	<![CDATA[
+                filename=./`basename $seq_file_name` &&
+                
+		cp $seq_file_name \$filename &&
+                
+		phyml -i \$filename 
+		
+		-s "$seq_file" 
 		
 		-d "$sequences.data_type"
 		#if $sequences.data_type == "nt"
@@ -28,47 +35,33 @@
 		#end if
 		#if $sequences.data_type == "aa"
 			-f "$sequences.eq_freq"
-		#end if
-	
-		-s "$seq_file" 
-
-		-n "$nb_data_sets"
-
+		#end if 
+		
+		-n "$nb_data_sets"  
+		
 		-v "$prop_invar_selector.prop_invar"
 		#if $prop_invar_selector.prop_invar == "f"
 			-e "$prop_invar_selector.prop_invar_fixed"
 		#end if 
 
-		-c "$nb_subst_cat"
-
-		-a "$gamma_selector.gamma"
-		#if $gamma_selector.gamma == "f"
-			-j "$gamma_selector.gamma_fixed"
-		#end if  PhyML
-
-		-u "$user_tree_file"
+		-c "$nb_subst_cat" &&
 		
-		<!-- -u "$tree_searching.user_tree_file"
-		#if $tree_searching.user_tree_file == "Yes"
-			-h "$tree_searching.tree_file_name"
-		#end if-->
+		cp \${filename}_phyml_tree.txt $phyml_tree &&
+		
+		cp \${filename}_phyml_stats.txt $phyml_stats
+       	]]>
+	</command>
 
-		-b "$bootstrap_selector.bootstrap"
-		#if $bootstrap_selector.bootstrap == "one"
-			-g "$bootstrap_selector.num_bootstrap"
-		#end if
-
-		-o "$optimise_selector.optimise"
-		#if $optimise_selector.optimise == "tlr"
-			-l "$optimise_selector.move"
-		#else if $optimise_selector.optimise == "tl"
-			-l "$optimise_selector.move"
-		#end if
-	</command> 
+        <inputs>
+                <param name="seq_file_name" type="data" label="Sequences" help="PHYLIP format"/>
+		
+		<param name="seq_file" type="select" label="Sequence File">
+			<option value="i"> Interleaved </option>
+			<option value="s"> Sequential </option>
+		</param>
 	
-	<inputs>
-		<param name="seq_file_name" type="data" label="Sequences" help="PHYLIP format"/>
-		
+		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/> 
+
 		<conditional name="sequences">
 			<param name="data_type" type="select" label="Data Type">
 				<option value="nt"> DNA </option>
@@ -133,17 +126,10 @@
 				</param>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies">
 					<option value="m"> Model </option>
-					<option value="e"> Empirical </option> 
+					<option value="e"> Empirical </option>		
 				</param>
 			</when>
 		</conditional>
-
-		<param name="seq_file" type="select" label="Sequence File">
-			<option value="i"> Interleaved </option>
-			<option value="s"> Sequential </option>
-		</param>
-	
-		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/> 
 
 		<!-- When proportion of invariable sites is fixed by the user, the value needs to be a double. Have to check with Galaxy the options to implement that. -->
 		<conditional name="prop_invar_selector">
@@ -159,94 +145,17 @@
 		</conditional>
 	
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories"/>
-		
-		<!-- When gamma shape parameter is fixed by the user, the value needs to be a double. Have to check with Galaxy the options to implement that. -->
-		<conditional name="gamma_selector">
-			<param name="gamma" type="select" label="Gamma Shape Parameter">
-				<option value="e"> Maximum Likelihood Estimate </option>
-				<option value="f"> Fixed </option>
-			</param>
-			<when value="e"/>
-			<when value="f">
-				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="integer" value="1"/>
-			</when>
-		</conditional>
-	
-		<!-- Option to upload several files? Also, how to set default to Bionj?-->
-		<param name="user_tree_file" label="Starting Tree" type="data" />
-		
-	<!-- <conditional name="tree_searching">
-			<param name="user_tree_file" type="select" label="Starting Tree(s): Upload file?"> 
-				<option value="Yes"> Yes, Upload File </option>
-				<option value="No"> No </option>		
-			</param>
-			<when value="No">
-			</when>
-			<when value="Yes">
-				<param name="tree_file_name" label="Upload the file" type="data" />
-			</when>
-		</conditional> -->
 
-		<conditional name="optimise_selector">
-			<param name="optimise" type="select" label="Optimise Starting Tree(s) options">
-				<option value="tlr"> Tree topology, Branch Lengths, Rate Parameters </option>
-				<option value="tl"> Tree topology, Branch Lengths </option>
-				<option value="lr"> Branch Lengths, Rate Parameters </option>
-				<option value="l"> Branch Lengths </option>
-				<option value="r"> Rate Parameters </option>
-				<option value="n"> No paramater is optimised </option> 
-			</param>
-			<when value="tlr">
-				<param name="move" type="select" label="Topology Search Operation">
-					<option value="NNI"> NNI </option>
-					<option value="SPR"> SPR </option>
-					<option value="BEST"> BEST </option>
-				</param>
-			</when>
-			<when value="tl">
-				<param name="move" type="select" label="Topology Search Operation">
-					<option value="NNI"> NNI </option>
-					<option value="SPR"> SPR </option>
-					<option value="BEST"> BEST </option>
-				</param>
-			</when>
-			<when value="lr">
-			</when>
-			<when value="l">
-			</when>
-			<when value="r">
-			</when>
-			<when value="n">
-			</when>
-		</conditional>
-	
-		<conditional name="bootstrap_selector">
-			<param name="bootstrap" type="select" label="Bootstrap">
-				<option value="one"> Number of Bootstrap Replicates </option>
-				<option value="zero"> Neither approximate likelihood ratio test nor bootstrap values are computed </option>
-				<option value="minus_one"> Approximate likelihood ratio test retruning aLRT statistics </option>
-				<option value ="minus_two"> Approximate likelihood ratio test returning Chi2-based parametric branch supports </option>
-				<option value="minus_four"> SH-like branch supports alone </option> 
-			</param>
-			<when value="one">
-				<param name="num_bootstrap" label="Number of Bootstrap Replicates" type="integer" value="1" />
-			</when>
-			<when value="zero">
-			</when>
-			<when value="minus_one">
-			</when>
-			<when value="minus_two">
-			</when>
-			<when value="minus_four">
-			</when>
-		</conditional>
-	</inputs>
-	
-	<outputs>
-		<data format="txt" name="output1" label="${tool.name} on ${on_string}: PhyML" />
-		<data format="txt" name="output2" label="${tool.name} on ${on_string}: PhyML"/>
-		<!-- For bootstrap 
-		<data format="txt" name="output1" label="${tool.name} on ${on_string}: PhyML" />
-		<data format="txt" name="output2" label="${tool.name} on ${on_string}: PhyML"/> -->
-	</outputs>
+
+        </inputs>
+
+        <outputs>
+                <data name="phyml_tree"
+                      format="txt" 
+                      label="PhyML Tree"/>
+                <data name="phyml_stats"
+                      format="txt" 
+                      label="PhyML Stats"/>
+        </outputs>
 </tool>
+
