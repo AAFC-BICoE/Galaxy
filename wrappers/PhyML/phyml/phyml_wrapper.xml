@@ -16,20 +16,34 @@
 
 		-d "$sequences.data_type"
 		#if $sequences.data_type == "nt"
-			-m "$sequences.ts_tv_selection.model_name"
-			#if $sequences.ts_tv_selection.model_name == "HKY85"
-				-t "$sequences.ts_tv_selection.ts_tv_ratio"
-			#else if $sequences.ts_tv_selection.model_name == "K80"
-				-t "$sequences.ts_tv_selection.ts_tv_ratio" 
-			#else if $sequences.ts_tv_selection.model_name == "TN93"
-				-t "$sequences.ts_tv_selection.ts_tv_ratio"
+			-m "$sequences.selection.model_name"
+			#if $sequences.selection.model_name == "HKY85"
+				#if $sequences.selection.ratio.ts_tv_ratio == "e"
+					-t "$sequences.selection.ratio.ts_tv_ratio"
+				#else 
+					-t "$sequences.selection.ratio.fixed"
+				#end if
 			#end if
-		#end if		
+			#if $sequences.selection.model_name == "K80"
+				#if $sequences.selection.ratio.ts_tv_ratio == "e"
+					-t "$sequences.selection.ratio.ts_tv_ratio"
+				#else
+					-t "$sequences.selection.ratio.fixed"
+				#end if
+			#end if
+			#if $sequences.selection.model_name == "F84"
+				#if $sequences.selection.ratio.ts_tv_ratio == "e"
+					-t "$sequences.selection.ratio.ts_tv_ratio"
+				#else
+					-t "$sequences.selection.ratio.fixed"
+				#end if
+			#end if
+		#end if	
 		#if $sequences.data_type == "nt"
 			-f "$sequences.eq_freq"
-		#end if 
+		#end if	
 		#if $sequences.data_type == "aa"
-			-m "$sequences.model_name"	  
+			-m "$sequences.model_name"
 		#end if
 		#if $sequences.data_type == "aa"
 			-f "$sequences.eq_freq"
@@ -69,10 +83,12 @@
 			-q 
 		#end if
 
+
 		#if $tree_searching.user_tree_file == "upload"
 			-u "$tree_searching.tree_file_name"                         
 		#end if
 		
+
 		-n "$nb_data_sets"
 	
 		-c "$nb_subst_cat" &&
@@ -105,10 +121,10 @@
 		<conditional name="sequences">
 			<param name="data_type" type="select" label="Data Type">
 				<option value="nt"> DNA </option>
-				<option value="aa"> Amino-Acids </option>
+				<option value="aa"> Amino Acids </option>
 			</param>
 			<when value="nt">
-				<conditional name="ts_tv_selection">
+				<conditional name="selection">
 					<param name="model_name" type="select" label="Substitution Model">
 						<option value="HKY85"> HKY85 </option>
 						<option value="JC69"> JC69 </option>
@@ -119,35 +135,53 @@
 						<option value="GTR"> GTR </option>
 					</param>
 					<when value="HKY85">
-						<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
-							<option value="e"> Maximum Likelihood Estimate </option>							
-							<option value="f"> Fixed </option>
-						</param>
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="e"> Maximum Likelihood Estimate </option>							
+								<option value="f"> Fixed </option>
+							</param>
+							<when value="e" />
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+						</conditional>
 					</when>
-					<when value="JC69" />
+					<when value="JC69"/>
 					<when value="K80">
-						 <param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
-							<option value="e"> Maximum Likelihood Estimate </option>							
-							<option value="f"> Fixed </option>
-						</param>
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="e"> Maximum Likelihood Estimate </option>							
+								<option value="f"> Fixed </option>
+							</param>
+							<when value="e" />
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+						</conditional>		
 					</when>
-					<when value="F81" />
-					<when value="F84" />
-					<when value="TN93">
-						 <param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
-							<option value="e"> Maximum Likelihood Estimate </option>							
-							<option value="f"> Fixed </option>
-						</param>
+					<when value="F81"/>
+					<when value="F84">
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
+								<option value="e"> Maximum Likelihood Estimate </option>							
+								<option value="f"> Fixed </option>
+							</param>
+							<when value="e" />
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+						</conditional>	
 					</when>
-					<when value="GTR" />
+					<when value="TN93"/>
+					<when value="GTR"/>
 				</conditional>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies">
-					<option value="m"> ML </option>
+					<option value="m"> Substitution Model Estimate </option>
 					<option value="e"> Empirical </option>
 				</param>
 			</when>
 			<when value="aa">
-				<param name="model_name" type="select" label="Subsitution Model">
+				<param name="model_name" type="select" label="Substitution Model">
 					<option value="LG"> LG </option>
 					<option value="BLOSUM"> Blosum62 </option>
 					<option value="CpREV"> CpREV </option>
@@ -165,7 +199,7 @@
 					<option value="WAG"> WAG </option>
 				</param>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies">
-					<option value="m"> Model </option>
+					<option value="m"> Estimated Using the frequencies defines by the Substitution Model </option>
 					<option value="e"> Empirical </option>		
 				</param>
 			</when>
@@ -192,15 +226,16 @@
 			</param>
 			<when value="e"/>
 			<when value="f">
-				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="integer" value="1"/>
+				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="float" value="1.0"/>
 			</when>
 		</conditional>
 	
 		<conditional name="tree_searching">
-			<param name="user_tree_file" type="select" label="Starting Tree(s): Upload file?"> 
-				<option value="upload"> Yes, Upload File </option>
+			<param name="user_tree_file" type="select" label="Starting Tree(s)"> 
+				<option value="upload"> Upload File </option>
 				<option value="bionj"> BIONJ </option>		
 			</param>
+			<!-- Possibility to upload several trees in Newick format -->
 			<when value="upload">
 				<param name="tree_file_name" label="Upload the file" type="data" />
 			</when>
