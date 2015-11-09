@@ -34,43 +34,71 @@
 		#if $sequences.data_type == "aa"
 			-f "$sequences.eq_freq"
 		#end if
-	
-		-v "$prop_invar_selector.prop_invar"
-		#if $prop_invar_selector.prop_invar == "f"
-			-e "$prop_invar_selector.prop_invar_fixed"
-		#end if 
 
-		-a "$gamma_selector.gamma"
+	
+		#if $prop_invar_selector.prop_invar == "f"
+			-v "$prop_invar_selector.prop_invar_fixed"
+		#else
+			-v "$prop_invar_selector.prop_invar"
+		#end if
+
+
 		#if $gamma_selector.gamma == "f"
-			-j "$gamma_selector.gamma_fixed"
+			-a "$gamma_selector.gamma_fixed"
+		#else
+			-a "$gamma_selector.gamma"
 		#end if
+
 		
-		-b "$bootstrap_selector.bootstrap"
-		#if $bootstrap_selector.bootstrap == "one"
-			-g "$bootstrap_selector.num_bootstrap"
+		#if $bootstrap_selector.bootstrap == "1"
+			-b "$bootstrap_selector.num_bootstrap"				
+		#else 
+			-b "$bootstrap_selector.bootstrap"
 		#end if
+
+
+		-o "$optimise_selector.optimise"
+		#if $optimise_selector.optimise == "tlr"
+			-s "$optimise_selector.move"
+		#else if $optimise_selector.optimise == "tl"
+			-s "$optimise_selector.move"
+		#end if
+
 		
-		-s "$seq_file"
+		#if $seq_file_selector.seq_file == "s"
+			-q 
+		#end if
+
+		#if $tree_searching.user_tree_file == "upload"
+			-u "$tree_searching.tree_file_name"                         
+		#end if
 		
 		-n "$nb_data_sets"
 	
-		-c "$nb_subst_cat"   
- 
-		-u "$user_tree_file" &&
+		-c "$nb_subst_cat" &&
 		
 		cp \${filename}_phyml_tree.txt $phyml_tree &&
 		
 		cp \${filename}_phyml_stats.txt $phyml_stats
+	
+		#if $bootstrap_selector.bootstrap == "1"
+			&& cp \${filename}_phyml_boot_trees.txt $phyml_boot_trees &&
+			cp \${filename}_phyml_boot_stats.txt $phyml_boot_stats
+		#end if
        	]]>
 	</command>
 
         <inputs>
                 <param name="seq_file_name" type="data" label="Sequences" help="PHYLIP format"/>
 
-		<param name="seq_file" type="select" label="Sequence File">
-			<option value="i"> Interleaved </option>
-			<option value="s"> Sequential </option>
-		</param>
+		<conditional name="seq_file_selector">
+			<param name="seq_file" type="select" label="Sequence File">
+				<option value="i"> Interleaved </option>
+				<option value="s"> Sequential </option>
+			</param>
+			<when value="i" />
+			<when value="s" />
+		</conditional>
 
 		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/>
 
@@ -151,7 +179,7 @@
 			<when value="e">
 			</when>
 			<when value="f">
-				<param name="prop_invar_fixed" label="Fixed Value" type="integer" value="0" help="Range [0,1]" />
+				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0" help="Range [0,1]" />
 			</when>
 		</conditional>
 		
@@ -168,27 +196,69 @@
 			</when>
 		</conditional>
 	
-		<!-- Option to upload several files? Also, how to set default to Bionj?-->
-		<param name="user_tree_file" label="Starting Tree" type="data" />
+		<conditional name="tree_searching">
+			<param name="user_tree_file" type="select" label="Starting Tree(s): Upload file?"> 
+				<option value="upload"> Yes, Upload File </option>
+				<option value="bionj"> BIONJ </option>		
+			</param>
+			<when value="upload">
+				<param name="tree_file_name" label="Upload the file" type="data" />
+			</when>
+			<when value="bionj">	
+			</when>
+		</conditional> 
+
+		<conditional name="optimise_selector">
+			<param name="optimise" type="select" label="Optimise Starting Tree(s) options">
+				<option value="tlr"> Tree topology, Branch Lengths, Rate Parameters </option>
+				<option value="tl"> Tree topology, Branch Lengths </option>
+				<option value="lr"> Branch Lengths, Rate Parameters </option>
+				<option value="l"> Branch Lengths </option>
+				<option value="r"> Rate Parameters </option>
+				<option value="n"> No paramater is optimised </option> 
+			</param>
+			<when value="tlr">
+				<param name="move" type="select" label="Topology Search Operation">
+					<option value="NNI"> NNI </option>
+					<option value="SPR"> SPR </option>
+					<option value="BEST"> BEST </option>
+				</param>
+			</when>
+			<when value="tl">
+				<param name="move" type="select" label="Topology Search Operation">
+					<option value="NNI"> NNI </option>
+					<option value="SPR"> SPR </option>
+					<option value="BEST"> BEST </option>
+				</param>
+			</when>
+			<when value="lr">
+			</when>
+			<when value="l">
+			</when>
+			<when value="r">
+			</when>
+			<when value="n">
+			</when>
+		</conditional>
 
 		<conditional name="bootstrap_selector">
 			<param name="bootstrap" type="select" label="Bootstrap">
-				<option value="one"> Number of Bootstrap Replicates </option>
-				<option value="zero"> Neither approximate likelihood ratio test nor bootstrap values are computed </option>
-				<option value="minus_one"> Approximate likelihood ratio test retruning aLRT statistics </option>
-				<option value ="minus_two"> Approximate likelihood ratio test returning Chi2-based parametric branch supports </option>
-				<option value="minus_four"> SH-like branch supports alone </option> 
+				<option value="1"> Number of Bootstrap Replicates </option>
+				<option value="0"> Neither approximate likelihood ratio test nor bootstrap values are computed </option>
+				<option value="-1"> Approximate likelihood ratio test retruning aLRT statistics </option>
+				<option value ="-2"> Approximate likelihood ratio test returning Chi2-based parametric branch supports </option>
+				<option value="-4"> SH-like branch supports alone </option> 
 			</param>
-			<when value="one">
+			<when value="1">
 				<param name="num_bootstrap" label="Number of Bootstrap Replicates" type="integer" value="1" />
 			</when>
-			<when value="zero">
+			<when value="0">
 			</when>
-			<when value="minus_one">
+			<when value="-1">
 			</when>
-			<when value="minus_two">
+			<when value="-2">
 			</when>
-			<when value="minus_four">
+			<when value="-4">
 			</when>
 		</conditional>
 	
@@ -196,12 +266,19 @@
         </inputs>
 
         <outputs>
-                <data name="phyml_tree"
-                      format="txt" 
-                      label="PhyML Tree"/>
-                <data name="phyml_stats"
-                      format="txt" 
-                      label="PhyML Stats"/>
+                <data name="phyml_tree" format="txt" label="PhyML Tree"/>
+                <data name="phyml_stats" format="txt" label="PhyML Stats"/>
+		<data name="phyml_boot_trees" format="txt" label="PhyML Bootstrap Tree">
+    			<filter>bootstrap_selector['bootstrap'] == "1"</filter> 
+		</data>
+		<data name="phyml_boot_stats" format="txt" label="PhyML Bootstrap Stats">
+		    <filter>bootstrap_selector['bootstrap'] == "1"</filter> 
+		</data>
         </outputs>
+
+	<stdio>
+	    <exit_code range="1:"   level="fatal"   description="The tool's exit code was 1, which suggests that something went wrong." />
+	</stdio>
+        
 </tool>
 
