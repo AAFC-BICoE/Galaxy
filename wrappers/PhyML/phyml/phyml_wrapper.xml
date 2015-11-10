@@ -213,7 +213,7 @@
 			<when value="e">
 			</when>
 			<when value="f">
-				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0" help="Range [0,1]" />
+				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0.0" help="Range [0.0,1.0]" />
 			</when>
 		</conditional>
 		
@@ -232,14 +232,13 @@
 	
 		<conditional name="tree_searching">
 			<param name="user_tree_file" type="select" label="Starting Tree(s)"> 
-				<option value="upload"> Upload File </option>
-				<option value="bionj"> BIONJ </option>		
+				<option value="bionj"> BIONJ </option>					
+				<option value="upload"> Upload File </option>		
 			</param>
-			<!-- Possibility to upload several trees in Newick format -->
+			<when value="bionj">	
+			</when>
 			<when value="upload">
 				<param name="tree_file_name" label="Upload the file" type="data" />
-			</when>
-			<when value="bionj">	
 			</when>
 		</conditional> 
 
@@ -296,9 +295,7 @@
 			<when value="-4">
 			</when>
 		</conditional>
-	
-
-        </inputs>
+	</inputs>
 
         <outputs>
                 <data name="phyml_tree" format="txt" label="PhyML Tree"/>
@@ -355,7 +352,5 @@
 				- The Maximum Likelihood Trees ((sequence file name)_phyml_boot_tree.txt)
 				- The Substitution Model parameters estimated from each bootstrap replicate ((sequence file name)_boot_phyml_stats.txt)
 		
-	</help>
-        
+	</help>    
 </tool>
-
