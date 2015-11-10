@@ -91,16 +91,7 @@
 
 		-n "$nb_data_sets"
 	
-		-c "$nb_subst_cat" &&
-		
-		cp \${filename}_phyml_tree.txt $phyml_tree &&
-		
-		cp \${filename}_phyml_stats.txt $phyml_stats
-	
-		#if $bootstrap_selector.bootstrap == "1"
-			&& cp \${filename}_phyml_boot_trees.txt $phyml_boot_trees &&
-			cp \${filename}_phyml_boot_stats.txt $phyml_boot_stats
-		#end if
+		-c "$nb_subst_cat"
        	]]>
 	</command>
 
@@ -298,12 +289,12 @@
 	</inputs>
 
         <outputs>
-                <data name="phyml_tree" format="txt" label="PhyML Tree"/>
-                <data name="phyml_stats" format="txt" label="PhyML Stats"/>
-		<data name="phyml_boot_trees" format="txt" label="PhyML Bootstrap Tree">
+                <data name="phyml_tree" format="txt" from_work_dir="${filename}_phyml_tree.txt" label="PhyML Tree"/>
+                <data name="phyml_stats" format="txt" from_work_dir="${filename}_phyml_stats.txt" label="PhyML Stats"/>
+		<data name="phyml_boot_trees" format="txt" from_work_dir="${filename}_phyml_boot_trees.txt" label="PhyML Bootstrap Tree">
     			<filter>bootstrap_selector['bootstrap'] == "1"</filter> 
 		</data>
-		<data name="phyml_boot_stats" format="txt" label="PhyML Bootstrap Stats">
+		<data name="phyml_boot_stats" format="txt" from_work_dir="${filename}_phyml_boot_stats.txt" label="PhyML Bootstrap Stats">
 		    <filter>bootstrap_selector['bootstrap'] == "1"</filter> 
 		</data>
         </outputs>
