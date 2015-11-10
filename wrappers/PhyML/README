@@ -1,0 +1,27 @@
+PhyML is a software package that estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences. 
+
+The PhyML Tool Suite repository:
+	- Provides PhyML wrapper for the PhyML tool
+	- Downloads and installs PhyML on the Linux operating system
+
+Requirements:
+	- phyml 
+
+Repository Dependency:
+	- PhyML version 3.1 (http://www.atgc-montpellier.fr/phyml/download.php)
+	- The repository name is package_phyml_3_1
+
+On local ToolShed, create two repositories:
+	- phyml (Unrestricted Repository)
+	- package_phyml_3_1 (Tool Dependency Repository)
+
+First, for the package_phyml_3_1, upload the file called tool_dependencies.xml. This file will automatically install PhyML v.3.1 on Galaxy.
+Second, for the phyml repository, upload phyml_wrapper.xml and tool_dependencies.xml.
+Some changes need to be made to phyml/tool_dependencies.xml before uploading:
+	- Change the toolshed attribute to match your hostname.
+	- Change the changeset_revision to match the revision of the package_phyml_3_1/tool_dependencies.xml once this file was uploaded. 
+
+You can now install PhyML on your local Galaxy, and run the tool. 
+
+
+
