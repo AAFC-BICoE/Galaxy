@@ -23,6 +23,10 @@
             #if $pull_type_cond.collection_code
                 --collectionCode  $pull_type_cond.collection_code
             #end if
+
+            #if $pull_type_cond.taxon_value
+                --taxRank $pull_type_cond.taxon_rank --taxValue $pull_type_cond.taxon_value
+            #end if
         #end if
       
   </command>
@@ -41,12 +45,30 @@
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
               <param name="region_name" type="text" label="Region Name keyword" optional="True" />
               <param name="collection_code" type="text" label="Collection Code" optional="True" />
+              <param name="taxon_rank" type="select" label="Taxonomic Rank " optional="True" >
+                  <option value="species">Species</option>
+                  <option value="genus">Genus</option>
+                  <option value="family">Family</option>
+                  <option value="order">Order</option>
+                  <option value="class">Class</option>
+                  <option value="phylum">Phylum</option>
+              </param>
+              <param name="taxon_value" type="text" label="Taxonomic Value " optional="True" />
           </when>
           <when value="consensus">
               <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
               <param name="region_name" type="text" label="Region Name keyword" optional="True" />
               <param name="collection_code" type="text" label="Collection Code" optional="True" />
+              <param name="taxon_rank" type="select" label="Taxonomic Rank " optional="True" >
+                  <option value="species">Species</option>
+                  <option value="genus">Genus</option>
+                  <option value="family">Family</option>
+                  <option value="order">Order</option>
+                  <option value="class">Class</option>
+                  <option value="phylum">Phylum</option>
+              </param>
+              <param name="taxon_value" type="text" label="Taxonomic Value " optional="True" />
           </when>
       </conditional>
       
