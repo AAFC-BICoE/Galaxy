@@ -5,7 +5,7 @@ This repository contains a Galaxy tool wrapper for the PhyML program, which esti
 PhyML has been developed within the PhyML Development Team at ATGC Montpellier Bioinformatics platform (http://www.atgc-montpellier.fr/phyml/)
 
 The reference for PhyML is:
-	- Guindon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., & Gascuel O. (2010). New Alogirthms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 		3.0. System Biology, 59(3):307-21.
+	- Guindon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., & Gascuel O. (2010). New Alogirthms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0. System Biology, 59(3):307-21.
 
 The PhyML Tool Suite repository:
 	- Provides PhyML wrapper for the PhyML tool
@@ -16,7 +16,9 @@ Requirements:
 	- Galaxy
 	- Galaxy Tool Shed 
 
-Installation via the Galaxy Tool Shed to install the tool wrapper and the PhyML program:<
+
+
+Installation via the Galaxy Tool Shed to install the tool wrapper and the PhyML program:
 1- Start your virtual environment
 
 2- Create a category on your local Tool Shed called PhyML
