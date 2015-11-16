@@ -14,11 +14,14 @@ The PhyML Tool Suite repository:
 Requirements:
 	- Virtual Machine
 	- Galaxy
-	- Galaxy Tool Shed 
+	- Galaxy Tool Shed
+	- Linux 
 
 
 
-Installation via the Galaxy Tool Shed to install the tool wrapper and the PhyML program:
+Automated Installation
+Installation via the Galaxy Tool Shed will take care of installing the tool wrapper, and the phyml program. 
+
 1- Start your virtual environment
 
 2- Create a category on your local Tool Shed called PhyML
@@ -38,6 +41,37 @@ Installation via the Galaxy Tool Shed to install the tool wrapper and the PhyML 
 	
 
 6- Go to your local Galaxy instance, Admin -> Search and Browse Tool Sheds -> Local Tool Shed -> PhyML. You can now install PhyML and run the tool. 
+
+
+
+Manual Installation
+There are two files to install:
+	- phyml_wrapper.xml (Galaxy Wrapper)
+	- phyml (the binaries for the PhyML Tool)
+
+The suggested location is in a tools/phyml/ folder. 
+
+How to get the wrapper?
+1. cd tools
+2. mkdir phyml
+3. cd phyml
+4. wget https://raw.githubusercontent.com/AAFC-MBB/Galaxy/phyml/wrappers/PhyML/phyml/phyml_wrapper.xml
+
+How to get the binaries?
+1. cd tools/phyml
+2. wget http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
+3. unzip PhyML-3.1.zip
+4. rm <everything except PhyML-3.1_linux64>
+5. mv PhyML-3.1_linux64 phyml
+6. mv phyml ../ 
+
+You will then need to modify the tools_conf.xml file to tell Galaxy to offer the tool by adding the following:
+<section id="phyml" name="Phylogeny Maximum Likelihood">
+    <tool file="phyml/phyml_wrapper.xml" />
+</section> 
+
+Don't forget to restart Galaxy!
+
 			
 
 
