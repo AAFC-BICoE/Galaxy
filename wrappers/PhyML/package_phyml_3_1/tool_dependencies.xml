@@ -17,15 +17,15 @@
 			</actions>
 		</install>
 		<readme>
-			Software: PhyML
-			Version: 3.1
-			Source: http://www.atgc-montpellier.fr/
-			Supported OS: Linux x86_64
 			Galaxy Package Developer:
 			Cime Ajouz
 			Cime.Ajouz@agr.gc.ca
 			Agriculture and Agri-Food Canada
 			Ottawa, Ontario, Canada 
+			Software: PhyML
+			Version: 3.1
+			Source: http://www.atgc-montpellier.fr/
+			Supported OS: Linux x86_64
 		</readme>
 	</package>
 </tool_dependency>
