@@ -1,6 +1,6 @@
 # **PhyML Galaxy Wrapper** <br>
-This repository contains a Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acide sequences. <br>
-PhyML has been developed within the PhyML Development Team at ATGC Montpellier Bioinformatics platform (*http://www.atgc-montpellier.fr/phyml/*)
+This repository contains a Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences. <br>
+PhyML has been developed within the PhyML Development Team at ATGC Montpellier Bioinformatics platform. (*http://www.atgc-montpellier.fr/phyml/*)
 
 The reference for PhyML is: <br>
 	*New Alogirthms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML*
