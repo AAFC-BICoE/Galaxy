@@ -13,9 +13,9 @@ The PhyML Tool Suite repository: <br>
 
 Requirements: <br>
 	<pre>* Linux 
-	* Virtual Machine 
-	* Galaxy
-	* Galaxy Tool Shed </pre>
+* Virtual Machine 
+* Galaxy
+* Galaxy Tool Shed </pre>
 
 
 ### **Automated Installation** <br>
@@ -38,7 +38,7 @@ Name: package_phyml_3_1, Type: Tool Dependency Repository </pre>
 ### **Manual Installation**
 There are two files to install: 
 	<pre>* phyml_wrapper.xml (Galaxy Wrapper)
-	* phyml (the binaries for the PhyML Tool) </pre>
+* phyml (the binaries for the PhyML Tool) </pre>
 
 The suggested location is in a tools/phyml/ folder. 
 
