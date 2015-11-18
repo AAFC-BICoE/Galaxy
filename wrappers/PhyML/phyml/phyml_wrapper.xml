@@ -2,53 +2,31 @@
 <tool id="phyml_wrapper" name="PhyML" version="1.0">
         <description> Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences </description>
 
-        <requirements>
-            <requirement type="package" version="3.1">phyml</requirement>
-        </requirements>
-
         <command>
 	<![CDATA[
                 filename=./`basename $seq_file_name` &&
                 
 		cp $seq_file_name \$filename &&
                 
-		phyml -i \$filename
+		/galaxy/tools/phyml/phyml -i \$filename
 
 		-d "$sequences.data_type"
 		#if $sequences.data_type == "nt"
 			-m "$sequences.selection.model_name"
-			#if $sequences.selection.model_name == "HKY85"
+			#if $sequences.selection.model_name == "HKY85" or $sequences.selection.model_name == "K80" or $sequences.selection.model_name == "F84"
 				#if $sequences.selection.ratio.ts_tv_ratio == "e"
 					-t "$sequences.selection.ratio.ts_tv_ratio"
 				#else 
 					-t "$sequences.selection.ratio.fixed"
 				#end if
 			#end if
-			#if $sequences.selection.model_name == "K80"
-				#if $sequences.selection.ratio.ts_tv_ratio == "e"
-					-t "$sequences.selection.ratio.ts_tv_ratio"
-				#else
-					-t "$sequences.selection.ratio.fixed"
-				#end if
-			#end if
-			#if $sequences.selection.model_name == "F84"
-				#if $sequences.selection.ratio.ts_tv_ratio == "e"
-					-t "$sequences.selection.ratio.ts_tv_ratio"
-				#else
-					-t "$sequences.selection.ratio.fixed"
-				#end if
-			#end if
-		#end if	
-		#if $sequences.data_type == "nt"
 			-f "$sequences.eq_freq"
 		#end if	
 		#if $sequences.data_type == "aa"
 			-m "$sequences.model_name"
-		#end if
-		#if $sequences.data_type == "aa"
 			-f "$sequences.eq_freq"
 		#end if
-
+		
 	
 		#if $prop_invar_selector.prop_invar == "f"
 			-v "$prop_invar_selector.prop_invar_fixed"
@@ -103,8 +81,6 @@
 				<option value="i"> Interleaved </option>
 				<option value="s"> Sequential </option>
 			</param>
-			<when value="i" />
-			<when value="s" />
 		</conditional>
 
 		<param name="nb_data_sets" type="integer" value="1" label="Number of Data Sets"/>
@@ -131,40 +107,33 @@
 								<option value="e"> Maximum Likelihood Estimate </option>							
 								<option value="f"> Fixed </option>
 							</param>
-							<when value="e" />
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
 						</conditional>
 					</when>
-					<when value="JC69"/>
 					<when value="K80">
 						<conditional name="ratio">
 							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
 								<option value="e"> Maximum Likelihood Estimate </option>							
 								<option value="f"> Fixed </option>
 							</param>
-							<when value="e" />
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
 						</conditional>		
 					</when>
-					<when value="F81"/>
 					<when value="F84">
 						<conditional name="ratio">
 							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="For DNA Models under K80, HK85 or TN93">
 								<option value="e"> Maximum Likelihood Estimate </option>							
 								<option value="f"> Fixed </option>
 							</param>
-							<when value="e" />
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
 						</conditional>	
 					</when>
-					<when value="TN93"/>
-					<when value="GTR"/>
 				</conditional>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies">
 					<option value="m"> Substitution Model Estimate </option>
@@ -201,8 +170,6 @@
 				<option value="e"> Maximum Likelihood Estimate </option>
 				<option value="f"> Fixed </option>
 			</param>
-			<when value="e">
-			</when>
 			<when value="f">
 				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0.0" help="Range [0.0,1.0]" />
 			</when>
@@ -215,7 +182,6 @@
 				<option value="e"> Maximum Likelihood Estimate </option>
 				<option value="f"> Fixed </option>
 			</param>
-			<when value="e"/>
 			<when value="f">
 				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="float" value="1.0"/>
 			</when>
@@ -226,8 +192,6 @@
 				<option value="bionj"> BIONJ </option>					
 				<option value="upload"> Upload File </option>		
 			</param>
-			<when value="bionj">	
-			</when>
 			<when value="upload">
 				<param name="tree_file_name" label="Upload the file" type="data" />
 			</when>
@@ -256,14 +220,6 @@
 					<option value="BEST"> BEST </option>
 				</param>
 			</when>
-			<when value="lr">
-			</when>
-			<when value="l">
-			</when>
-			<when value="r">
-			</when>
-			<when value="n">
-			</when>
 		</conditional>
 
 		<conditional name="bootstrap_selector">
@@ -276,14 +232,6 @@
 			</param>
 			<when value="1">
 				<param name="num_bootstrap" label="Number of Bootstrap Replicates" type="integer" value="1" />
-			</when>
-			<when value="0">
-			</when>
-			<when value="-1">
-			</when>
-			<when value="-2">
-			</when>
-			<when value="-4">
 			</when>
 		</conditional>
 	</inputs>
@@ -311,13 +259,12 @@
 			<param name="prop_invar" value="e"/>
 			<param name="nb_subst_cat" value="4"/>
 			<param name="gamma" value="e"/>
-			<param name="user_tree_file" value="upload"/>
-			<param name="tree_file_name" value="tree"/>
+			<param name="user_tree_file" value="bionj"/>
 			<param name="optimise" value="tlr"/>
 			<param name="move" value="NNI"/>
 			<param name="bootstrap" value="0"/>
-			<output name="phyml_tree" file="dna_aligned_phyml_tree.txt"/>
-			<output name="phyml_stats" file="dna_aligned_phyml_stats.txt"/>
+			<output name="phyml_tree" file="dna_aligned_phyml_tree.txt" />
+			<output name="phyml_stats" file="dna_aligned_phyml_stats.txt" />
 		</test>
 	</tests>
 
@@ -326,49 +273,53 @@
 	</stdio>
 
 	<help>
-		**Tool Information**
-		
-		PhyML Tool v3.1
-			Release Date: March 2013
-			Source URL: http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
-		
-		**Author**
-		
-		PhyML:
-			Stephane Guindon, Olivier Gascuel, Wim Hordjik, Maria Anisimova,
-			Franck Lethiec, Jean-Francois Dufayard, Vincent Lefort, Patrice Duroux 
-			ATGC: PhyML - ATGC: Monpellier Bioinformatics platform
-			URL:  http://www.atgc-montpellier.fr/phyml/
-		
-		PhyML Galaxy Wrapper:
-			Cime Ajouz
-			cime.ajouz@agr.gc.ca
-			Agriculture and Agri-foods Canada
-			Ottawa, ON, Canada
-			
-		**Description**
-		
-		Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences.
-		
-		**Citation**
-                
-		"New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0."
-                Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O.
-                Systematic Biology, 59(3):307-21, 2010.
 
-			
-		**Inputs and Outputs**
-		
-		- Input:
-			- Accepts alignments of DNA or protein sequences in PHYLIP sequential or interleaved format 
-			- Accepts one or several phylogenetic trees from an input file 
+**Tool Information**
 
-		- Output:
-			- Tree File in Newick format ((sequence file name)_phyml_tree.txt)
-			- Model Parameter File ((sequence file name)_phyml_stats.txt)
-			- If bootsrap support were evalutated:
-				- The Maximum Likelihood Trees ((sequence file name)_phyml_boot_tree.txt)
-				- The Substitution Model parameters estimated from each bootstrap replicate ((sequence file name)_boot_phyml_stats.txt)
+- PhyML Tool v3.1: 
+	+ Release Date: March 2013  
+	+ Source URL: http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
+
+-----
 		
+**Author**
+		
+- PhyML:
+	+ Stephane Guindon, Olivier Gascuel, Wim Hordjik, Maria Anisimova, Franck Lethiec, Jean-Francois Dufayard, Vincent Lefort, Patrice Duroux  
+	+ ATGC: PhyML - ATGC: Monpellier Bioinformatics platform 
+	+ URL: http://www.atgc-montpellier.fr/phyml/ 
+		
+- PhyML Galaxy Wrapper:
+	+ Cime Ajouz 
+	+ cime.ajouz@agr.gc.ca 
+	+ Agriculture and Agri-foods Canada, Ottawa, ON, Canada
+
+-----
+			
+**Description**
+		
+Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences.
+
+-----
+		
+**Citation**
+		
+"New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0." Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O. Systematic Biology, 59(3):307-21, 2010.
+
+----- 
+			
+**Inputs and Outputs**
+		
+- Inputs:
+	+ Accepts alignments of DNA or protein sequences in PHYLIP sequential or interleaved format 
+	+ Accepts one or several phylogenetic trees from an input file 
+
+- Outputs:
+	+ Tree File in Newick format ((sequence file name)_phyml_tree.txt)
+	+ Model Parameter File ((sequence file name)_phyml_stats.txt)
+	+ If bootstrap support were evaluated - The Maximum Likelihood Trees ((sequence file name)_phyml_boot_tree.txt)
+	+ If bootstrap support were evaluated: The Substitution Model parameters estimated from each bootstrap replicate ((sequence file name)_boot_phyml_stats.txt)
+
 	</help>    
 </tool>
+
