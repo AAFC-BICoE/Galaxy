@@ -338,7 +338,7 @@
 			Stephane Guindon, Olivier Gascuel, Wim Hordjik, Maria Anisimova,
 			Franck Lethiec, Jean-Francois Dufayard, Vincent Lefort, Patrice Duroux 
 			ATGC: PhyML - ATGC: Monpellier Bioinformatics platform
-			URL: http://www.atgc-montpellier.fr/download/papers/phyml_manual_2012.pdf
+			URL:  http://www.atgc-montpellier.fr/phyml/
 		
 		PhyML Galaxy Wrapper:
 			Cime Ajouz
@@ -347,10 +347,15 @@
 			Ottawa, ON, Canada
 			
 		**Description**
-		PhyML is a software package which primary task is to estimate maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences.
+		
+		Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences.
 		
 		**Citation**
-		"PhyML - Manual" Guindon S., 2012"
+                
+		"New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0."
+                Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O.
+                Systematic Biology, 59(3):307-21, 2010.
+
 			
 		**Inputs and Outputs**
 		
