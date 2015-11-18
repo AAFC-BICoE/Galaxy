@@ -8,7 +8,7 @@
                 
 		cp $seq_file_name \$filename &&
                 
-		/galaxy/tools/phyml/phyml -i \$filename
+		phyml -i \$filename
 
 		-d "$sequences.data_type"
 		#if $sequences.data_type == "nt"
