@@ -26,8 +26,8 @@ Installation via the Galaxy Tool Shed will take care of installing the tool wrap
 		<pre>Name: phyml, Type: Unristricted Repository 
 Name: package_phyml_3_1, Type: Tool Dependency Repository </pre>
 
-</pre>	4. For the repository package_phyml_3_1, you need to upload the file tool_dependencies.xml (located in wrappers/PhyML/package_phyml_3_1). This file wile will take care of installing PhyML. <br>
-	5. For the repository phyml, you need to upload two files called phyml_wrapper.xml and tool_dependencies.xml  (located in wrappers/PhyML/phyml). But before you upload these files, some changes must be made for the 	 wrappers/PhyML/phyml/tool_dependencies.xml. <br>
+</pre>	4. For the package_phyml_3_1 repository, you need to upload the file tool_dependencies.xml (located in wrappers/PhyML/package_phyml_3_1). This file wile will take care of installing PhyML. <br>
+	5. For the phyml repository, you need to upload two files called phyml_wrapper.xml and tool_dependencies.xml  (located in wrappers/PhyML/phyml). But before you upload these files, some changes must be made for the 	 wrappers/PhyML/phyml/tool_dependencies.xml. <br>
 	<pre>*Change the toolshed attribute to match your hostname: 
 		&lt;repository name="package_phyml_3_1 owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"  ... >
 *Change the changeset_revision to match the revision of the package_phyml_3_1 repository
