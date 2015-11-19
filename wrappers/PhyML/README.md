@@ -50,12 +50,12 @@ How to get the binaries?
 4. rm <all the files in PhyML-3.1 except PhyML-3.1_linux64>
 5. mv PhyML-3.1_linux64 phyml
 6. mv phyml ../ 
-7. cd ...
+7. cd ..
 8. rm -r PhyML-3.1
 9. chmod 755 phyml </pre>
 
-Then, modify the tools_conf.xml and tools_conf.xml.sample files to tell Galaxy about the new tool:
-<pre> &lt;section id="phyml" name="Phylogeny Maximum Likelihood" >
+Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
+<pre>&lt;section id="phyml" name="Phylogeny Maximum Likelihood" >
     &lt;tool file="phyml/phyml_wrapper.xml" />
 &lt;/section> </pre>
 
