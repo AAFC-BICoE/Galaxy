@@ -16,7 +16,7 @@ How to Check Out the Repository? <br>
 $ git clone -b phyml --single-branch https://github.com/AAFC-MBB/Galaxy.git </pre>
 
 ##**Automated Installation** <br>
-The Tool Shed allows you to create repositories, and let's you select files from your local file system and upload them to the repository.Once they are uploaded, you can install the repositories into your local Galaxy instance.<br>
+The Tool Shed allows you to create repositories, and let's you select files from your local file system and upload them to the repository. Once they are uploaded, you can install the repositories into your local Galaxy instance.<br>
 
 ###Steps
 1. Start your local Galaxy and Galaxy Tool Shed. <br>
@@ -25,7 +25,7 @@ The Tool Shed allows you to create repositories, and let's you select files from
 	* In the PhyML category, create two repositories: <br>
 		<pre>Name: phyml, Type: Unristricted Repository 
 Name: package_phyml_3_1, Type: Tool Dependency Repository </pre>
-	* For the package_phyml_3_1 repository, upload the file tool_dependencies.xml (located in wrappers/PhyML/package_phyml_3_1). This file wile will take care of installing PhyML. <br>
+	* For the package_phyml_3_1 repository, upload the file tool_dependencies.xml, located in wrappers/PhyML/package_phyml_3_1. This file will take care of installing PhyML. <br>
 	* For the phyml repository, some changes must be made to the wrappers/PhyML/phyml/tool_dependencies.xml before uploading any file. <br>
 	<pre>Change the toolshed attribute to match your hostname: 
 		&lt;repository name="package_phyml_3_1 owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"  ... > </pre>
@@ -33,24 +33,23 @@ Name: package_phyml_3_1, Type: Tool Dependency Repository </pre>
 3. How to install the repositories on local Galaxy? 
 	* Go to your local Galaxy instance, click on "Admin", then on "Search and Browse Tool Sheds". <br>
 	* Click on "Local Tool Shed", and then click on "PhyML". <br>
-	* Click on "phyml", then "Preview and Install". This will take care of installed the PhyML tool as well as the PhyML wrapper. <br>
-	* Finally. click on "Install to Galaxy". <br>
+	* Click on "phyml", then "Preview and Install". This will take care of installing the PhyML tool as well as the PhyML wrapper. <br>
+	* Finally, click on "Install to Galaxy". <br>
 	* You can now run the tool. <br>
 
 ## **Manual Installation**
 There are two files to install: 
 <pre>* phyml_wrapper.xml (Galaxy Wrapper)
 * phyml (the binaries for the PhyML Tool) </pre>
-
 The suggested location is in a tools/phyml/ folder. 
 
-How to get the wrapper?
+###Steps 
+1. How to get the wrapper?
 <pre>$ cd tools
 $ mkdir phyml
 $ cd phyml
 $ wget https://raw.githubusercontent.com/AAFC-MBB/Galaxy/phyml/wrappers/PhyML/phyml/phyml_wrapper.xml </pre>
-
-How to get the binaries?
+2. How to get the binaries?
 <pre>$ cd tools/phyml
 $ wget http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
 $ unzip PhyML-3.1.zip
@@ -60,10 +59,8 @@ $ mv phyml ../
 $ cd ..
 $ rm -r PhyML-3.1
 $ chmod 755 phyml </pre>
-
-Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
+3. Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
 <pre>&lt;section id="phyml" name="Phylogeny Maximum Likelihood" >
     &lt;tool file="phyml/phyml_wrapper.xml" />
 &lt;/section> </pre>
-
-Don't forget to restart Galaxy! 
+4. Don't forget to restart Galaxy! 
