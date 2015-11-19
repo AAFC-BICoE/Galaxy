@@ -16,7 +16,7 @@ How to Check Out the Repository? <br>
 $ git clone -b phyml --single-branch https://github.com/AAFC-MBB/Galaxy.git </pre>
 
 ##**Automated Installation** <br>
-The Tool Shed allows you to create repositories, and let's you select files from your local file system and upload them to the repository. Once they are uploaded, you can install the repositories into your local Galaxy instance.<br>
+The Tool Shed allows you to create repositories, and lets you select files from your local file system and upload them to the repositories. Once they are uploaded on your local Tool Shed, you can install the repositories into your local Galaxy instance.<br>
 
 ###Steps
 1. Start your local Galaxy and Galaxy Tool Shed. <br>
@@ -24,11 +24,11 @@ The Tool Shed allows you to create repositories, and let's you select files from
 	* Create a category on Toolshed and call it PhyML. <br>
 	* In the PhyML category, create two repositories: <br>
 		<pre>Name: phyml, Type: Unristricted Repository 
-Name: package_phyml_3_1, Type: Tool Dependency Repository </pre>
-	* For the package_phyml_3_1 repository, upload the file tool_dependencies.xml, located in wrappers/PhyML/package_phyml_3_1. This file will take care of installing PhyML. <br>
+Name: package_phyml, Type: Tool Dependency Repository </pre>
+	* For the package_phyml repository, upload the file tool_dependencies.xml, located in wrappers/PhyML/package_phyml. This file will take care of installing PhyML. <br>
 	* For the phyml repository, some changes must be made to the wrappers/PhyML/phyml/tool_dependencies.xml before uploading any file. <br>
 	<pre>Change the toolshed attribute to match your hostname: 
-		&lt;repository name="package_phyml_3_1 owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"  ... > </pre>
+		&lt;repository name="package_phyml owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"  ... > </pre>
 	* Now, upload wrappers/PhyML/phyml/phyml_wrapper.xml and wrappers/PhyML/phyml/tool_dependencies.xml to the phyml repository. <br>
 3. How to install the repositories on local Galaxy? 
 	* Go to your local Galaxy instance, click on "Admin", then on "Search and Browse Tool Sheds". <br>
