@@ -53,11 +53,12 @@ $ wget https://raw.githubusercontent.com/AAFC-MBB/Galaxy/phyml/wrappers/PhyML/ph
 <pre>$ cd tools/phyml
 $ wget http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
 $ unzip PhyML-3.1.zip
-$ rm &lt;all the files in PhyML-3.1 except PhyML-3.1_linux64>
+$ cd PhyML-3.1
 $ mv PhyML-3.1_linux64 phyml
 $ mv phyml ../ 
 $ cd ..
 $ rm -r PhyML-3.1
+$ rm -r PhyML-3.1_linux64
 $ chmod 755 phyml </pre>
 3. Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
 <pre>&lt;section id="phyml" name="Phylogeny Maximum Likelihood" >
