@@ -28,7 +28,7 @@ Name: package_phyml, Type: Tool Dependency Repository </pre>
 	* For the package_phyml repository, upload the file tool_dependencies.xml, located in wrappers/PhyML/package_phyml. This file will take care of installing PhyML. <br>
 	* For the phyml repository, some changes must be made to the wrappers/PhyML/phyml/tool_dependencies.xml before uploading any file. <br>
 	<pre>Change the toolshed attribute to match your hostname: 
-		&lt;repository name="package_phyml owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"  ... > </pre>
+		&lt;repository name="package_phyml owner="galaxyuser" toolshed="http://yourmachinename.agr.gc.ca:9009"> </pre>
 	* Now, upload wrappers/PhyML/phyml/phyml_wrapper.xml and wrappers/PhyML/phyml/tool_dependencies.xml to the phyml repository. <br>
 3. How to install the repositories on local Galaxy? 
 	* Go to your local Galaxy instance, click on "Admin", then on "Search and Browse Tool Sheds". <br>
