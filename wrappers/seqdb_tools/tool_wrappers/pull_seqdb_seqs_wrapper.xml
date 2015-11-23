@@ -34,11 +34,12 @@
           <when value="all">
               <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+              <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
           <when value="consensus">
               <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
-              <param name="output_taxonomy" type="text" label="Output taxonomy file?">
+              <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
       </conditional>
       
