@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<tool id="phyml_wrapper" name="PhyML" version="1.0">
+        
+	<description> 
+		Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences
+	</description>
+
+	<requirements>
+		<requirement type="package" version="3.1">phyml</requirement>
+	</requirements>
+
+        <command>
+	<![CDATA[
+                filename=./`basename $seq_file_name` &&
+                
+		cp $seq_file_name \$filename &&
+                
+		phyml -i \$filename
+	
+		#if $data_sets_selector.data_sets == "1"
+			-n "$data_sets_selector.data_sets"
+			#if $data_sets_selector.bootstrap_selector.bootstrap == "1"
+				-b "$data_sets_selector.bootstrap_selector.num_bootstrap"
+			#else 
+				-b "$data_sets_selector.bootstrap_selector.bootstrap"
+			#end if
+		#else 
+			-n "$data_sets_selector.nb_data_sets"
+			-b "$data_sets_selector.bootstrap"
+		#end if	
+       	]]>
+	</command>
+
+        <inputs>
+                <param name="seq_file_name" type="data" label="Sequences" help="In PHYLIP Format (-i, --input)"/>
+
+		<conditional name="data_sets_selector">
+			<param name="data_sets" type="select" label="Data Sets">
+				<option value="1"> One Data Set </option>
+				<option value="multiple"> Multiple Data Sets </option>
+			</param>
+			<when value="multiple">
+				<param name="nb_data_sets" type="integer" value="2" label="Number of Data Sets"/>
+				<param name="bootstrap" type="select" label="Bootstrap">
+					<option value="0"> No Approximate Likelihood Ratio Test </option>
+					<option value="-1"> aLRT statistics </option>
+					<option value="-2"> Chi2-based </option>
+					<option value="-4"> SH-like </option>
+				</param>
+			</when>
+			<when value="1">
+				<conditional name="bootstrap_selector">
+					<param name="bootstrap" type="select" label="Bootstrap">
+						<option value="0"> No Bootstrap and No Approximate Likelihood Ratio Test </option>
+						<option value="-1"> aLRT statistics </option>
+						<option value="-2"> Chi2-based </option>
+						<option value="-4"> SH-like </option>
+						<option value="1"> Number of Bootstrap </option>
+					</param>
+					<when value="0"/>
+					<when value="-1"/>
+					<when value="-2"/>
+					<when value="-4"/>
+					<when value="1">
+						<param name="num_bootstrap" label="Number of Bootstrap" type="integer" value="1"/>
+					</when>
+				</conditional>
+			</when>
+		</conditional>
+	</inputs>
+
+        <outputs>
+                <data name="phyml_tree" format="txt" from_work_dir="${filename}_phyml_tree.txt" label="PhyML Tree"/>
+                <data name="phyml_stats" format="txt" from_work_dir="${filename}_phyml_stats.txt" label="PhyML Stats"/>
+		<data name="phyml_boot_trees" format="txt" from_work_dir="${filename}_phyml_boot_trees.txt" label="PhyML Bootstrap Trees">
+    			<filter>(data_sets_selector['bootstrap_selector']=="1")</filter> 
+		</data>
+		<data name="phyml_boot_stats" format="txt" from_work_dir="${filename}_phyml_boot_stats.txt" label="PhyML Bootstrap Stats">
+			<filter>(data_sets_selector['bootstrap_selector']=="1") </filter> 
+		</data>
+        </outputs>	
+</tool>
