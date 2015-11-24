@@ -40,16 +40,16 @@
       
       <conditional name="pull_type_cond">
           <param name="pull_type" type="select" label="Select which sequences you would like to load *">
-              <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
               <option value="consensus">Consensus sequences</option>
               <option value="all">All sequences</option>
+              <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
           <when value="all">
-              <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
-              <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
-              <param name="region_name" type="text" label="Region Name keyword" optional="True" />
-              <param name="collection_code" type="text" label="Collection Code" optional="True" />
-              <param name="taxon_rank" type="select" label="Taxonomic Rank " optional="True" >
+              <param name="specimen_num" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
+              <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
+              <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
+              <param name="taxon_rank" type="select" label="Filter on Taxonomic Rank " optional="True" >
                   <option value="species">Species</option>
                   <option value="genus">Genus</option>
                   <option value="family">Family</option>
@@ -57,12 +57,23 @@
                   <option value="class">Class</option>
                   <option value="phylum">Phylum</option>
               </param>
-              <param name="taxon_value" type="text" label="Taxonomic Value " optional="True" />
+              <param name="taxon_value" type="text" label="Taxonomic Value (for the Taxonomic Rank above) " optional="True" />
               <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
           <when value="consensus">
-              <param name="specimen_num" type="text" label="Specimen Identifier" optional="True" />
-              <param name="sequence_name" type="text" label="Sequence Name keyword" optional="True" />
+              <param name="specimen_num" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="sequence_name" type="text" label="Filter on Sequence Name keyword" optional="True" />
+              <param name="region_name" type="text" label="Filter on Region Name keyword" optional="True" />
+              <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
+              <param name="taxon_rank" type="select" label="Filter on Taxonomic Rank " optional="True" >
+                  <option value="species">Species</option>
+                  <option value="genus">Genus</option>
+                  <option value="family">Family</option>
+                  <option value="order">Order</option>
+                  <option value="class">Class</option>
+                  <option value="phylum">Phylum</option>
+              </param>
+              <param name="taxon_value" type="text" label="Taxonomic Value (for the Taxonomic Rank above)" optional="True" />
               <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
       </conditional>
@@ -77,7 +88,10 @@
     <data name="seqdb_taxonomy_file"
         format="txt"
         from_work_dir="seqdb_taxonomy_file.txt"
-        label="Taxonomy file for SeqDB sequences" />
+        label="Taxonomy file for SeqDB sequences">
+
+        <filter>pull_type_cond['output_taxonomy']</filter> 
+    </data>
   </outputs>
 
   <!-- Provide explanations for various exit status codes. Avoid situations where tool exists with status 0 but other errors (in Galaxy) set its status to Error -->
@@ -100,18 +114,36 @@
   </tests>
 
   <help>
-      
-      Required fields are marked with a * .
-      
-      **What it does**
-      
-      The tool fetches different types of sequences from Sequence DB and writes them to a fasta file.
-      
-      
-      **What is a "Sequence Database Configuration File"?**
-      
-      Sequence Database Configuration File is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
-      
+Required fields are marked with a * .
+
+--------
+
+.. class:: warningmark
+
+**Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "All Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
+
+--------
+
+**What it does**
+
+The tool fetches different types of sequences from Sequence DB and writes them to a fasta file.
+
+--------
+
+**Tool Parameters**
+
+**Sequence Database Configuration File** is a file that contains SeqDB API connection parameters. To generate this file, use "SeqDB Configuration" tool.
+
+**Output taxonomy file?** when selected, the tool will produce a taxonomy file to complement a fasta sequence file. The taxonomy is extracted from SeqDB and is an accepted taxonomic determination of a specimen, which contains requested sequence. The file is of the following format::
+
+	[SeqDb sequence ID]  [kingdom];[phylum];[class];[order];[family];[genus];[species]
+
+Example::
+
+	27755	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
+	27761	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
+	...
+
       
   </help>
 
