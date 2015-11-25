@@ -60,8 +60,14 @@ $ cd ..
 $ rm -r PhyML-3.1
 $ rm -r PhyML-3.1_linux64
 $ chmod 755 phyml </pre>
-3. Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
+3. Add this to the command section in the PhyML Wrapper, so that Galaxy can locate the phyml binaries:
+<pre>&lt;command>
+filename=./`basename $seq_file_name` &&
+cp $seq_file_name \$filename &&
+/galaxy/tools/phyml/phyml -i \$filename ...
+&lt;command>
+4. Then, modify the tool_conf.xml and tool_conf.xml.sample files to tell Galaxy about the new tool:
 <pre>&lt;section id="phyml" name="Phylogeny Maximum Likelihood" >
     &lt;tool file="phyml/phyml_wrapper.xml" />
 &lt;/section> </pre>
-4. Don't forget to restart Galaxy! 
+5. Don't forget to restart Galaxy! 
