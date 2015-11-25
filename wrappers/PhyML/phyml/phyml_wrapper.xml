@@ -147,10 +147,9 @@
 					<option value="CpREV">CpREV</option>
 					<option value="Dayhoff">Dayhoff</option>
 					<option value="DCMut">DCMut</option>
-					<option value="FLU">FLU</option>
 					<option value="HIVb">HIVb</option>
 					<option value="HIVw">HIVw</option>
-					<option value="JIT">JIT</option>
+					<option value="JTT">JIT</option>
 					<option value="MtArt">MtArt</option>
 					<option value="MtMam">MtMam</option>
 					<option value="MtREV">MtREV</option>
@@ -188,7 +187,7 @@
 						<option value="-2">Chi2-based</option>
 						<option value="-4">SH-like</option>
 						<option value="-3">Minimum of Chi2-based and SH-like</option>
-						<option value="1">Number of Bootstrap Replicates</option>
+						<option value="1">Numober of Bootstrap Replicates</option>
 					</param>
 					<when value="1">
 						<param name="num_bootstrap" label="Number of Bootstrap" type="integer" value="1"/>
