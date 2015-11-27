@@ -1,7 +1,7 @@
-<tool id="seqdb_config" name="SeqDB Configuration" version="dev1.3">
+<tool id="seqdb_config" name="SeqDB Configuration" version="1.3">
   <description> creates a personalized configuration file, used to access SeqDB Web Services. </description>
   <requirements>
-      <requirement type="package" version="dev1.3">package_seqdb_py</requirement>
+      <requirement type="package" version="1.3_test">package_seqdb_py</requirement>
   </requirements>
   
   <command>

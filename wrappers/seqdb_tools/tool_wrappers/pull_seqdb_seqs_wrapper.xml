@@ -1,15 +1,15 @@
-<tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="dev1.3">
+<tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="1.3">
   <description> through web services. Produces a fasta file of the specified sequences. </description>
   <requirements>
-      <requirement type="package" version="dev1.3">package_seqdb_py</requirement>
+      <requirement type="package" version="1.3_test">package_seqdb_py</requirement>
   </requirements>
   
   <command>
       
       pull_seqdb_seqs -c $config_file $pull_type_cond.pull_type
         #if $pull_type_cond.pull_type != "its"
-            #if $pull_type_cond.specimen_num
-                --specNum $pull_type_cond.specimen_num
+            #if $pull_type_cond.specimen_nums
+                --specNums "$pull_type_cond.specimen_nums"
             #end if
         
             #if $pull_type_cond.sequence_name
@@ -45,7 +45,7 @@
               <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
           <when value="all">
-              <param name="specimen_num" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
@@ -61,7 +61,7 @@
               <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
           <when value="consensus">
-              <param name="specimen_num" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name keyword" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name keyword" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
