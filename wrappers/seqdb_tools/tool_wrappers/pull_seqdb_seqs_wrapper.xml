@@ -20,6 +20,10 @@
                 --geneRegion  $pull_type_cond.region_name
             #end if
 
+            #if $pull_type_cond.project_name
+                --projectName  $pull_type_cond.project_name
+            #end if
+
             #if $pull_type_cond.collection_code
                 --collectionCode  $pull_type_cond.collection_code
             #end if
@@ -48,6 +52,7 @@
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
+              <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
               <param name="taxon_rank" type="select" label="Filter on Taxonomic Rank " optional="True" >
                   <option value="species">Species</option>
@@ -62,8 +67,9 @@
           </when>
           <when value="consensus">
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
-              <param name="sequence_name" type="text" label="Filter on Sequence Name keyword" optional="True" />
-              <param name="region_name" type="text" label="Filter on Region Name keyword" optional="True" />
+              <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
+              <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
+              <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
               <param name="taxon_rank" type="select" label="Filter on Taxonomic Rank " optional="True" >
                   <option value="species">Species</option>
