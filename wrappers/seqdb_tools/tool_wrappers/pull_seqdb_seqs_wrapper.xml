@@ -49,7 +49,7 @@
               <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
           <when value="all">
-              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
               <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
@@ -66,7 +66,7 @@
               <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
           <when value="consensus">
-              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier" optional="True" />
+              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
               <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
