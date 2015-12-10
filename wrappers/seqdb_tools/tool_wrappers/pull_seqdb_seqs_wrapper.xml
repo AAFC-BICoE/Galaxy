@@ -1,7 +1,7 @@
 <tool id="seqdb_pull_seqs" name="Load Sequences from SeqDB" version="1.3">
   <description> through web services. Produces a fasta file of the specified sequences. </description>
   <requirements>
-      <requirement type="package" version="1.3_test">package_seqdb_py</requirement>
+      <requirement type="package" version="1.3">seqdb-py</requirement>
   </requirements>
   
   <command>
