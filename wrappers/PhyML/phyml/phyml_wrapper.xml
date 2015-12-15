@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tool id="phyml_wrapper" name="PhyML" version="1.0">
+<tool id="phyml_wrapper" name="PhyML" version="phyml_wrap1">
         
 	<description> 
 		Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences
@@ -8,6 +8,10 @@
 	<requirements>
 		<requirement type="package" version="3.1">phyml</requirement>
 	</requirements>
+
+	<stdio>
+	    <exit_code range="1:" level="fatal" description="The tool's exit code was 1, which suggests that something went wrong." />
+	</stdio>
 
         <command>
 	<![CDATA[
@@ -76,13 +80,15 @@
 	</command>
 
         <inputs>
-                <param name="seq_file_name" type="data" label="Sequences" help="In PHYLIP Format (-i, --input)"/>
+                <param name="seq_file_name" type="data" format="txt" label="Sequences" help="In PHYLIP Format (-i, --input)"/>
 
 		<conditional name="seq_file_selector">
 			<param name="seq_file" type="select" label="Sequence File" help="(-q, --sequential)">
 				<option value="i">Interleaved</option>
 				<option value="s">Sequential</option>
 			</param>
+			<when value="i"/>
+			<when value="s"/>
 		</conditional>
 
 		<conditional name="sequences">
@@ -110,6 +116,7 @@
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
+							<when value="e"/>
 						</conditional>
 					</when>
 					<when value="K80">
@@ -121,6 +128,7 @@
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
+							<when value="e"/>
 						</conditional>		
 					</when>
 					<when value="F84">
@@ -132,8 +140,13 @@
 							<when value="f">
 								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
 							</when>
+							<when value="e"/>
 						</conditional>	
 					</when>
+					<when value="JC69"/>
+					<when value="F81"/>
+					<when value="TN93"/>
+					<when value="GTR"/>
 				</conditional>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies" help="-f">
 					<option value="m">Substitution Model Estimate</option>
@@ -158,7 +171,7 @@
 					<option value="WAG">WAG</option>
 				</param>
 				<param name="eq_freq" type="select" label="Equilibrium Frequencies" help="-f">
-					<option value="m">Estimated Using the frequencies defines by the Substitution Model</option>
+					<option value="m">Estimated using the frequencies defined by the Substitution Model</option>
 					<option value="e">Empirical</option>		
 				</param>
 			</when>
@@ -185,13 +198,18 @@
 						<option value="0">Neither Approximate Likelihood Test Nor Bootstrap</option>
 						<option value="-1">aLRT statistics</option>
 						<option value="-2">Chi2-based</option>
-						<option value="-4">SH-like</option>
 						<option value="-3">Minimum of Chi2-based and SH-like</option>
-						<option value="1">Numober of Bootstrap Replicates</option>
+						<option value="-4">SH-like</option>
+						<option value="1">Number of Bootstrap Replicates</option>
 					</param>
 					<when value="1">
 						<param name="num_bootstrap" label="Number of Bootstrap" type="integer" value="1"/>
 					</when>
+					<when value="0"/>
+					<when value="-1"/>
+					<when value="-2"/>
+					<when value="-3"/>
+					<when value="-4"/>
 				</conditional>
 			</when>
 		</conditional>
@@ -204,6 +222,7 @@
 			<when value="f">
 				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0.0" help="Range [0,1]" />
 			</when>
+			<when value="e"/>
 		</conditional>
 		
 		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories" help="Set to 4 by default (-c, --nclasses)"/>
@@ -216,6 +235,7 @@
 			<when value="f">
 				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="float" value="1.0"/>
 			</when>
+			<when value="e"/>
 		</conditional>
 	
 		<conditional name="tree_searching">
@@ -224,8 +244,9 @@
 				<option value="upload">Upload File</option>		
 			</param>
 			<when value="upload">
-				<param name="tree_file_name" label="Upload the file" type="data"/>
+				<param name="tree_file_name" label="Upload the file" type="data" format="txt"/>
 			</when>
+			<when value="bionj"/>
 		</conditional> 
 
 		<conditional name="optimise_selector">
@@ -251,6 +272,10 @@
 					<option value="BEST">BEST</option>
 				</param>
 			</when>
+			<when value="lr"/>
+			<when value="l"/>
+			<when value="r"/>
+			<when value="n"/>
 		</conditional>
 	</inputs>
 
@@ -285,10 +310,6 @@
 			<output name="phyml_stats" file="dna_aligned_phyml_stats.txt"/>
 		</test>
 	</tests>
-
-	<stdio>
-	    <exit_code range="1:" level="fatal" description="The tool's exit code was 1, which suggests that something went wrong." />
-	</stdio>
 
 	<help>
 **Description**
@@ -337,5 +358,13 @@ For more information regarding the settings of the tool, please visit the PhyML 
 **Citation**
 		
 "New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0." Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O. Systematic Biology, 59(3):307-21, 2010.
-	</help>    
+	</help> 
+
+	<citations>
+		<citation type="bibtex">@ARTICLE{a1,
+		author = {Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O.},
+		title = {New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0.},
+		year = {2010}
+		}</citation>
+	</citations>  
 </tool>
