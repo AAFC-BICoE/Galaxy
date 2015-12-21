@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<tool id="phyml_wrapper" name="PhyML" version="phyml_wrap1">
+        
+	<description> 
+		Estimates maximum likelihood phylogenies from alignments of nucleotide or amino-acid sequences
+	</description>
+
+	<requirements>
+		<requirement type="package" version="3.1">phyml</requirement>
+	</requirements>
+
+	<stdio>
+	    <exit_code range="1:" level="fatal" description="The tool's exit code was 1, which suggests that something went wrong." />
+	</stdio>
+
+        <command>
+	<![CDATA[
+                filename=./`basename $seq_file_name` &&
+                
+		cp $seq_file_name \$filename &&
+                
+		phyml -i \$filename
+	
+		#if $data_sets_selector.data_sets == "1"
+			-n "$data_sets_selector.data_sets"
+			#if $data_sets_selector.bootstrap_selector.bootstrap == "1"
+				-b "$data_sets_selector.bootstrap_selector.num_bootstrap"
+			#else 
+				-b "$data_sets_selector.bootstrap_selector.bootstrap"
+			#end if
+		#else 
+			-n "$data_sets_selector.nb_data_sets"
+			-b "$data_sets_selector.bootstrap"
+		#end if	
+	
+		-c "$nb_subst_cat"
+
+		-d "$sequences.data_type"
+		#if $sequences.data_type == "nt"
+			-m "$sequences.selection.model_name"
+			#if $sequences.selection.model_name == "HKY85" or $sequences.selection.model_name == "K80" or $sequences.selection.model_name == "F84"
+				#if $sequences.selection.ratio.ts_tv_ratio == "e"
+					-t "$sequences.selection.ratio.ts_tv_ratio"
+				#else 
+					-t "$sequences.selection.ratio.fixed"
+				#end if
+			#end if
+			-f "$sequences.eq_freq"
+		#end if	
+		#if $sequences.data_type == "aa"
+			-m "$sequences.model_name"
+			-f "$sequences.eq_freq"
+		#end if
+		
+		#if $prop_invar_selector.prop_invar == "f"
+			-v "$prop_invar_selector.prop_invar_fixed"
+		#else
+			-v "$prop_invar_selector.prop_invar"
+		#end if
+
+		#if $gamma_selector.gamma == "f"
+			-a "$gamma_selector.gamma_fixed"
+		#else
+			-a "$gamma_selector.gamma"
+		#end if
+
+		-o "$optimise_selector.optimise"
+		#if $optimise_selector.optimise == "tlr" or $optimise_selector.optimise == "tl"
+			-s "$optimise_selector.move"
+		#end if
+
+		#if $seq_file_selector.seq_file == "s"
+			-q 
+		#end if
+
+		#if $tree_searching.user_tree_file == "upload"
+			-u "$tree_searching.tree_file_name"                         
+		#end if	
+       	]]>
+	</command>
+
+        <inputs>
+                <param name="seq_file_name" type="data" format="txt" label="Sequences" help="In PHYLIP Format (-i, --input)"/>
+
+		<conditional name="seq_file_selector">
+			<param name="seq_file" type="select" label="Sequence File" help="(-q, --sequential)">
+				<option value="i">Interleaved</option>
+				<option value="s">Sequential</option>
+			</param>
+			<when value="i"/>
+			<when value="s"/>
+		</conditional>
+
+		<conditional name="sequences">
+			<param name="data_type" type="select" label="Data Type" help="-d, --datatype">
+				<option value="nt">DNA</option>
+				<option value="aa">Amino Acids</option>
+			</param>
+			<when value="nt">
+				<conditional name="selection">
+					<param name="model_name" type="select" label="Substitution Model" help="Model to Construct Trees (-m, --model)">
+						<option value="HKY85">HKY85</option>
+						<option value="JC69">JC69</option>
+						<option value="K80">K80</option>
+						<option value="F81">F81</option>
+						<option value="F84">F84</option>
+						<option value="TN93">TN93</option>
+						<option value="GTR">GTR</option>
+					</param>
+					<when value="HKY85">
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="-t, --ts/tv">
+								<option value="e">Maximum Likelihood Estimate</option>							
+								<option value="f">Fixed</option>
+							</param>
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+							<when value="e"/>
+						</conditional>
+					</when>
+					<when value="K80">
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="-t, --ts/tv">
+								<option value="e">Maximum Likelihood Estimate</option>							
+								<option value="f">Fixed</option>
+							</param>
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+							<when value="e"/>
+						</conditional>		
+					</when>
+					<when value="F84">
+						<conditional name="ratio">
+							<param name="ts_tv_ratio" type="select" label="Transition/Transversion Ratio" help="-t, --ts/tv">
+								<option value="e">Maximum Likelihood Estimate</option>							
+								<option value="f">Fixed</option>
+							</param>
+							<when value="f">
+								<param name="fixed" label="Fix Transition/Transversion Ratio" type="float" value="4.0"/>
+							</when>
+							<when value="e"/>
+						</conditional>	
+					</when>
+					<when value="JC69"/>
+					<when value="F81"/>
+					<when value="TN93"/>
+					<when value="GTR"/>
+				</conditional>
+				<param name="eq_freq" type="select" label="Equilibrium Frequencies" help="-f">
+					<option value="m">Substitution Model Estimate</option>
+					<option value="e">Empirical</option>
+				</param>
+			</when>
+			<when value="aa">
+				<param name="model_name" type="select" label="Substitution Model" help="Model to Construct Trees (-m, --model)">
+					<option value="LG">LG</option>
+					<option value="BLOSUM">Blosum62</option>
+					<option value="CpREV">CpREV</option>
+					<option value="Dayhoff">Dayhoff</option>
+					<option value="DCMut">DCMut</option>
+					<option value="HIVb">HIVb</option>
+					<option value="HIVw">HIVw</option>
+					<option value="JTT">JTT</option>
+					<option value="MtArt">MtArt</option>
+					<option value="MtMam">MtMam</option>
+					<option value="MtREV">MtREV</option>
+					<option value="RtREV">RtREV</option>
+					<option value="VT">VT</option>
+					<option value="WAG">WAG</option>
+				</param>
+				<param name="eq_freq" type="select" label="Equilibrium Frequencies" help="-f">
+					<option value="m">Estimated using the frequencies defined by the Substitution Model</option>
+					<option value="e">Empirical</option>		
+				</param>
+			</when>
+		</conditional>
+
+		<conditional name="data_sets_selector">
+			<param name="data_sets" type="select" label="Data Sets" help="-n, --multiple">
+				<option value="1">One Data Set</option>
+				<option value="multiple">Multiple Data Sets</option>
+			</param>
+			<when value="multiple">
+				<param name="nb_data_sets" type="integer" value="2" label="Number of Data Sets"/>
+				<param name="bootstrap" type="select" label="Bootstrap" help="Compute aLRT (Statistical Test to Compute Branch Supports) (-b, --boostrap)">
+					<option value="0">No Approximate Likelihood Ratio Test</option>
+					<option value="-1">aLRT statistics</option>
+					<option value="-2">Chi2-based</option>
+					<option value="-3">Minimum of Chi2-based and SH-like</option>
+					<option value="-4">SH-like</option>
+				</param>
+			</when>
+			<when value="1">
+				<conditional name="bootstrap_selector">
+					<param name="bootstrap" type="select" label="Bootstrap" help="Perform Bootstrap or Compute aLRT (Statistical Test to Compute Branch Supports) (-b, --boostrap)">
+						<option value="0">Neither Approximate Likelihood Test Nor Bootstrap</option>
+						<option value="-1">aLRT statistics</option>
+						<option value="-2">Chi2-based</option>
+						<option value="-3">Minimum of Chi2-based and SH-like</option>
+						<option value="-4">SH-like</option>
+						<option value="1">Number of Bootstrap Replicates</option>
+					</param>
+					<when value="1">
+						<param name="num_bootstrap" label="Number of Bootstrap" type="integer" value="1"/>
+					</when>
+					<when value="0"/>
+					<when value="-1"/>
+					<when value="-2"/>
+					<when value="-3"/>
+					<when value="-4"/>
+				</conditional>
+			</when>
+		</conditional>
+
+		 <conditional name="prop_invar_selector">
+			<param name="prop_invar" type="select" label="Proportion of Invariable Sites" help="-v, --pinv">
+				<option value="e">Maximum Likelihood Estimate</option>
+				<option value="f">Fixed</option>
+			</param>
+			<when value="f">
+				<param name="prop_invar_fixed" label="Fixed Value" type="float" value="0.0" help="Range [0,1]" />
+			</when>
+			<when value="e"/>
+		</conditional>
+		
+		<param name="nb_subst_cat" type="integer" value="4" label="Number of Substitution Rate Categories" help="Set to 4 by default (-c, --nclasses)"/>
+
+		<conditional name="gamma_selector">
+			<param name="gamma" type="select" label="Gamma Shape Parameter" help="Determines Range of Rate Variation Across Sites (-a, --alpha)">
+				<option value="e">Maximum Likelihood Estimate</option>
+				<option value="f">Fixed</option>
+			</param>
+			<when value="f">
+				<param name="gamma_fixed" label="Gamma Shape Parameter Fixed by User" type="float" value="1.0"/>
+			</when>
+			<when value="e"/>
+		</conditional>
+	
+		<conditional name="tree_searching">
+			<param name="user_tree_file" type="select" label="Starting Tree(s)" help="Starting Tree to be Refined by the ML Algorithm (-u, --inputtree)"> 
+				<option value="bionj" help="Default Distance-Based Tree">BIONJ</option>					
+				<option value="upload">Upload File</option>		
+			</param>
+			<when value="upload">
+				<param name="tree_file_name" label="Upload the file" type="data" format="txt"/>
+			</when>
+			<when value="bionj"/>
+		</conditional> 
+
+		<conditional name="optimise_selector">
+			<param name="optimise" type="select" label="Optimise Starting Tree(s) options" help="-o">
+				<option value="tlr">Tree topology, Branch Lengths, Rate Parameters</option>
+				<option value="tl">Tree topology, Branch Lengths</option>
+				<option value="lr">Branch Lengths, Rate Parameters</option>
+				<option value="l">Branch Lengths</option>
+				<option value="r">Rate Parameters</option>
+				<option value="n">No paramater is optimised</option> 
+			</param>
+			<when value="tlr">
+				<param name="move" type="select" label="Topology Search Operation" help="Option to Estimate Tree Topologies (-s, --search)">
+					<option value="NNI">NNI</option>
+					<option value="SPR">SPR</option>
+					<option value="BEST">BEST</option>
+				</param>
+			</when>
+			<when value="tl">
+				<param name="move" type="select" label="Topology Search Operation" help="Option to Estimate Tree Topologies (-s, --search)">
+					<option value="NNI">NNI</option>
+					<option value="SPR">SPR</option>
+					<option value="BEST">BEST</option>
+				</param>
+			</when>
+			<when value="lr"/>
+			<when value="l"/>
+			<when value="r"/>
+			<when value="n"/>
+		</conditional>
+	</inputs>
+
+        <outputs>
+                <data name="phyml_tree" format="txt" from_work_dir="${filename}_phyml_tree.txt" label="PhyML Tree"/>
+                <data name="phyml_stats" format="txt" from_work_dir="${filename}_phyml_stats.txt" label="PhyML Stats"/>
+		<data name="phyml_boot_trees" format="txt" from_work_dir="${filename}_phyml_boot_trees.txt" label="PhyML Bootstrap Trees">
+    			<filter>(data_sets_selector['data_sets']=="1" and data_sets_selector['bootstrap_selector']['bootstrap']=="1")</filter> 
+		</data>
+		<data name="phyml_boot_stats" format="txt" from_work_dir="${filename}_phyml_boot_stats.txt" label="PhyML Bootstrap Stats">
+    			<filter>(data_sets_selector['data_sets']=="1" and data_sets_selector['bootstrap_selector']['bootstrap']=="1")</filter> 
+		</data>
+        </outputs>
+
+	<tests>
+		<test>
+			<param name="seq_file_name" value="dna_aligned"/>
+			<param name="seq_file" value="s"/>
+			<param name="nb_data_sets" value="1"/>
+			<param name="data_type" value="nt"/>
+			<param name="model_name" value="HKY85"/>
+			<param name="ts_tv_ratio" value="e"/>
+			<param name="eq_freq" value="e"/>
+			<param name="prop_invar" value="e"/>
+			<param name="nb_subst_cat" value="4"/>
+			<param name="gamma" value="e"/>
+			<param name="user_tree_file" value="bionj"/>
+			<param name="optimise" value="tlr"/>
+			<param name="move" value="NNI"/>
+			<param name="bootstrap" value="0"/>
+			<output name="phyml_tree" file="dna_aligned_phyml_tree.txt"/>
+			<output name="phyml_stats" file="dna_aligned_phyml_stats.txt"/>
+		</test>
+	</tests>
+
+	<help>
+**Description**
+		
+Galaxy tool wrapper for the PhyML program, which estimates the maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences.
+For more information regarding the settings of the tool, please visit the PhyML Manual on http://www.atgc-montpellier.fr/download/papers/phyml_manual_2012.pdf
+
+-----
+
+**Inputs and Outputs**
+		
+- Inputs:
+	+ Accepts alignments of DNA or protein sequences in PHYLIP sequential or interleaved format 
+	+ Accepts one or several phylogenetic trees from an input file 
+
+- Outputs:
+	+ Tree File in Newick format ((sequence file name)_phyml_tree.txt)
+	+ Model Parameter File ((sequence file name)_phyml_stats.txt)
+	+ If bootstrap support were evaluated - The Maximum Likelihood Trees ((sequence file name)_phyml_boot_tree.txt)
+	+ If bootstrap support were evaluated: The Substitution Model parameters estimated from each bootstrap replicate ((sequence file name)_boot_phyml_stats.txt)
+
+-----
+
+**Tool Information**
+
+- PhyML Tool v3.1: 
+	+ Release Date: March 2013  
+	+ Source URL: http://www.atgc-montpellier.fr/download/binaries/phyml/PhyML-3.1.zip
+
+-----
+		
+**Author**
+		
+- PhyML:
+	+ Stephane Guindon, Olivier Gascuel, Wim Hordjik, Maria Anisimova, Franck Lethiec, Jean-Francois Dufayard, Vincent Lefort, Patrice Duroux  
+	+ ATGC: PhyML - ATGC: Monpellier Bioinformatics platform 
+	+ URL: http://www.atgc-montpellier.fr/phyml/ 
+		
+- PhyML Galaxy Wrapper:
+	+ Cime Ajouz 
+	+ cime.ajouz@agr.gc.ca 
+	+ Agriculture and Agri-foods Canada, Ottawa, ON, Canada
+
+-----
+					
+**Citation**
+		
+"New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0." Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O. Systematic Biology, 59(3):307-21, 2010.
+	</help> 
+
+	<citations>
+		<citation type="bibtex">@ARTICLE{a1,
+		author = {Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O.},
+		title = {New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0.},
+		year = {2010}
+		}</citation>
+	</citations>  
+</tool>
