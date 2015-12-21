@@ -1,0 +1,2 @@
+seqdb|1685	321 bp.	SSU: 1-46	ITS1: 47-283	5.8S: No end	ITS2: Not found	LSU: Not found	Broken or partial sequence, only partial 5.8S! 
+seqdb|2703	574 bp.	SSU: Not found	ITS1: 1-174	5.8S: 175-332	ITS2: 333-499	LSU: 500-574	
