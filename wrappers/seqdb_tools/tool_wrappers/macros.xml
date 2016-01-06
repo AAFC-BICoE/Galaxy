@@ -24,15 +24,11 @@
 
     <token name="@HELP__WHAT_IT_DOES@">
 <![CDATA[
---------
-
 **What it does**
 ]]>
     </token>
     <token name="@HELP__TOOL_PARAMS@">
 <![CDATA[
---------
-
 **Tool Parameters**
 ]]>
     </token>

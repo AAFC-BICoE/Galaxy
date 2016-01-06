@@ -42,6 +42,8 @@ Deletes items from SeqDB.
       
 Expected input is the type of items to be deleted and file with SeqDB ids. Ids can be tab delimited, comma separated, one on each line or a combination of all the above.
 
+--------
+
 @HELP__TOOL_PARAMS@
 @HELP__CONFIG_FILE_PARAM@
       

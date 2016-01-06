@@ -67,17 +67,17 @@
       
 @HELP__WHAT_IT_DOES@
       
-      
 Writes features, found by ITSx tool, to Sequence DB. The tool goes together with the SeqDB ITS sequence extractor.
 
 Expected input is the .positions.txt files, returned by ITSx tool. Sequence identifiers in the .positions.txt file are expected to be of the format "seqdb|12345".
 
 Output is a file with the feature ids that were written to SeqDB.
-      
+
+--------
+
 @HELP__TOOL_PARAMS@
 @HELP__CONFIG_FILE_PARAM@
     
-      
   </help>
 
 </tool>
