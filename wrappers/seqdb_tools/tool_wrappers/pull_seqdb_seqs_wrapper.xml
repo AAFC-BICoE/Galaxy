@@ -118,9 +118,13 @@ Required fields are marked with a * .
 
 **Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "All Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
 
+--------
+
 @HELP__WHAT_IT_DOES@
 
 The tool fetches different types of sequences from Sequence DB and writes them to a fasta file.
+
+--------
 
 @HELP__TOOL_PARAMS@
 @HELP__CONFIG_FILE_PARAM@
