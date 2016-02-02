@@ -5,7 +5,23 @@
   	</description>
 
   	<command interpreter="perl">
-      		ITSx -i $input --detailed_results T -N $domain_num --cpu=\${GALAXY_SLOTS:-1} $preserve $reset
+      		ITSx -i $input 
+		--detailed_results T
+		-E $domain_eval 
+		-S $domain_score  
+		-N $domain_num 
+		--cpu=\${GALAXY_SLOTS:-1}
+		$allow_reorder 
+		$complement
+		$heuristics 
+		$preserve 
+		$reset
+		$truncate
+		#if $hmmer_search.search == "eval"
+			--search_eval $hmmer_search.eval_cutoff
+		#else
+			--search_score $hmmer_search.score_cutoff
+		#end if
 	</command>
 
 	<stdio>
@@ -21,13 +37,44 @@
  
 	<inputs>
 		<param name="input" type="data" format="fasta" label="Input Fasta"/>
+		
+		<param name="domain_eval" type="float" value="0.00001" label="Domain E-value Cutoff" 
+		help="Domain E-value cutoff a sequence must obtain in the HMMER-based step to be included in the output."/>
+
+		<param name="domain_score" type="integer" value="0" label="Domain Score Cutoff"
+		help="Domain score cutoff that a sequence must obtain in the HMMER-based step to be included in the output."/>
+
 		<param name="domain_num" type="integer" value="2" label="Minimum number of domains"
     		help="The minimum number of domains (different HMM gene profiles) that must match a sequence or it to be included in the output (detected as an ITS sequence). Setting the value 			lower than two will increase the number of false positives, while increasing it above two will decrease ITSx detection abilities on fragmentary data. "/>
-   		<!--  <param name="cpu" type="integer" value="1" label="cpu"/> -->
-		<param name="complement" type="boolean" checked="true" truevalue="--complement T" falsevalue="--complement F" label="Check both DNA strands against the database"/>
-		<param name="heuristics" type="boolean" checked="false" truevalue="--heuristics T" falsevalue="--heuristics F" label="Use HMMER's heuristic filtering"/>
+   		
+		<conditional name="hmmer_search">
+			<param name="search" type="select" label="HMMER Search Type">
+				<option value="eval">Search E-value</option>
+				<option value="score">Search Score</option>
+			</param>
+			<when value="eval">
+				<param name="eval_cutoff" type="float" value="0.01" label="Search E-value"
+				help="The actual E-value cutoff used in the HMMER search. High numbers may slow down the process. Should never be set to a lower value than the Domain E-value Cutoff opion. 					Cannot be used in combination with Search Score option."/>
+			</when>
+			<when value="score">
+				<param name="score_cutoff" type="integer" value="0" label="Seach Score" 
+				help="The score cutoff used in the HMMER search. Low numbers may slow down the process. Should never be set to a higher number than the Domain Score Cutoff. Cannot be used 					in combination with the Search E-value option."/>
+			</when>
+		</conditional>
+
 		<param name="reset" type="boolean" checked="true" truevalue="--reset T" falsevalue="--reset F" label="Re-creates the HMM-database before ITSx is run"/>
+
+		<!--  <param name="cpu" type="integer" value="1" label="cpu"/> -->
+
+		<param name="allow_reorder" type="boolean" checked="false" truevalue="--allow_reorder T" falsevalue="--allow_reorder F" label="Allow profiles not to be in the expected order on the 			extracted sequences"/>
+		
+		<param name="complement" type="boolean" checked="true" truevalue="--complement T" falsevalue="--complement F" label="Check both DNA strands against the database"/>
+		
+		<param name="heuristics" type="boolean" checked="false" truevalue="--heuristics T" falsevalue="--heuristics F" label="Use HMMER's heuristic filtering"/>
+			
 		<param name="preserve" type="boolean" checked="false" truevalue="--preserve T" falsevalue="--preserve F" label=" Preserve sequence headers instead of printing out ITSx headers"/>
+
+		<param name="truncate" type="boolean" checked="true" truevalue="--truncate T" falsevalue="--truncate F" label="Remove ends of ITS sequences if they are outside of the ITS region"/>
   	</inputs>
 
 	<outputs>
@@ -42,9 +89,7 @@
     		<data name="extractions" format="tabular" label="ITSx extraction results" from_work_dir="ITSx_out.extraction.results"/>
   	</outputs>
 
-
-
-  	<tests>
+	<tests>
       		<test>
           		<param name="input" value="test-data/testITSsequences.fasta"/>
           		<param name="cpu" value="1" />
