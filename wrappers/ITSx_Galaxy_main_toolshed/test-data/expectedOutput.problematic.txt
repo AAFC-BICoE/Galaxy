@@ -1,0 +1,3 @@
+gi|50874860|emb|AJ634045.1|	End of SSU sequence not found
+gi|50874843|emb|AJ634028.1|	End of SSU sequence not found; Start of LSU sequence not found
+
