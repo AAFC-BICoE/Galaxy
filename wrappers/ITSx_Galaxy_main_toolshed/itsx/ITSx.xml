@@ -4,6 +4,17 @@
   		ITSx -- Identifies ITS sequences and extracts the ITS region
   	</description>
 
+	<requirements>
+                <requirement type="package" version="3.1b2">hmmer</requirement>
+        </requirements>
+
+	<stdio>
+                <regex match="ITSx" source="both" level="log"/>
+                <regex match="analysis" source="both" level="log"/>
+                <regex match="ERROR" source="both" level="fatal"/>
+                <regex match="error" source="both" level="fatal"/>
+        </stdio>
+	
   	<command interpreter="perl">
       		ITSx -i $input 
 		--detailed_results T
@@ -23,17 +34,6 @@
 			--search_score $hmmer_search.score_cutoff
 		#end if
 	</command>
-
-	<stdio>
-        	<regex match="ITSx" source="both" level="log"/>
-        	<regex match="analysis" source="both" level="log"/>
-        	<regex match="ERROR" source="both" level="fatal"/>
-        	<regex match="error" source="both" level="fatal"/>
-  	</stdio>
-
-	<requirements>
-		<requirement type="package" version="3.1b2">hmmer</requirement>
-  	</requirements>
  
 	<inputs>
 		<param name="input" type="data" format="fasta" label="Input Fasta"/>
@@ -44,7 +44,7 @@
 		<param name="domain_score" type="integer" value="0" label="Domain Score Cutoff"
 		help="Domain score cutoff that a sequence must obtain in the HMMER-based step to be included in the output."/>
 
-		<param name="domain_num" type="integer" value="2" label="Minimum number of domains"
+		<param name="domain_num" type="integer" value="2" label="Minimum Number of Domains"
     		help="The minimum number of domains (different HMM gene profiles) that must match a sequence or it to be included in the output (detected as an ITS sequence). Setting the value 			lower than two will increase the number of false positives, while increasing it above two will decrease ITSx detection abilities on fragmentary data. "/>
    		
 		<conditional name="hmmer_search">
