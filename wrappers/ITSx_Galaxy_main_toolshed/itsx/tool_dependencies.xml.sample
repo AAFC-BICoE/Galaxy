@@ -1,5 +1,6 @@
+<?xml version="1.0"?>
 <tool_dependency>
 	<package name="hmmer" version="3.1b2">
-		<repository name="package_hmmer_3_1b2" owner="cime-ajouz" toolshed="http://onottar669810x.agr.gc.ca:9009/"/>
+		<repository name="package_hmmer_3_1b2" owner="{Tool Shed user name of the user who will upload the tool to Tool Shed}" toolshed="{Tool Shed URL. Ex: http://galaxy.biodiversity.agr.gc.ca/galaxy-toolshed/}"/>
 	</package>
 </tool_dependency>
