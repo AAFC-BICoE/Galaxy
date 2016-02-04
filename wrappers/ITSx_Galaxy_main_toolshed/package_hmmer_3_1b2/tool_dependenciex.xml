@@ -13,16 +13,13 @@
 				</action>
 			</actions>
 		</install>
-		<readme>
-			Galaxy Package Developer:
-			Cime Ajouz
-			Cime.Ajouz@agr.gc.ca
-			Agriculture and Agri-Food Canada
-			Ottawa, Ontario, Canada 
+		<readme> 
 			Software: HMMER
 			Version: 3.1b2
 			Source: https://www.ebi.ac.uk/Tools/hmmer/
 			Supported OS: Linux x86_64
+
+			For more info, contact: mbb@agr.gc.ca
 		</readme>
 	</package>
 </tool_dependency>
