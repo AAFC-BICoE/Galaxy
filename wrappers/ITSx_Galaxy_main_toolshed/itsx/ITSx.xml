@@ -128,36 +128,26 @@ For more information regarding the settings of the tool, please visit the ITSx U
 	+ A list of sequence IDs representing the entries (if they exist) that did not contain any ITS region 
 	+ A file containing chimeric sequences (if they are found)
 	+ A file for problematic sequences
+
 -----
 
 **Tool Information**
 
 - ITSx tool v1.0.11: 
-	+ Release Date: December 2014  
+	+ Release Date: December 2014 
+	+ URL: http://microbiology.se/software/itsx/  
 	+ Source URL: http://microbiology.se/sw/ITSx_1.0.11.tar.gz
+	+ Copyright (C) 2012-2013 Johan Bengtsson-Palme et al.
 
 -----
 		
-**Author**
+**Contact Information**
 		
-- ITSx Tool:
-	+ Johan Bengtsson-Palme
-	+ johan@microbiology.se  
-	+ Copyright (C) 2012-2013 Johan Bengtsson-Palme et al.
-	+ Microbiology, Metagenomics and Bioinformatics, Johan Bengtsson-Palme, University of Gothenburg 
-	+ URL: http://microbiology.se/software/itsx/ 
-		
-- ITSx Galaxy Wrapper:
-	+ Oksana Korol 
-	+ oksana.korol@agr.gc.ca or mmb@agr.gc.ca
-	+ Microbial Biodiversity Bioinformatics Group
+- For more information, contact:
+	+ AAFC-MBB Team
+	+ E-mail: mbb@agr.gc.ca
 	+ Agriculture and Agri-foods Canada, Ottawa, ON, Canada
 
------
-					
-**Citation**
-		
-Bengtsson‐Palme, Johan, et al. "ITSx: Improved software detection and extraction of ITS1 and ITS2 from ribosomal ITS sequences of fungi and other eukaryotes for use in environmental sequencing" Methods in Ecology and Evolution 4.10 (2013): 914-919.
 	</help> 
 
 	<citations>
