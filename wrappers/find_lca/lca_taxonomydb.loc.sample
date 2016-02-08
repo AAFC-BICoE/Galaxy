@@ -8,7 +8,6 @@ aphidPlusCOI5P	aphis COI Jan 2014	/isilon/biodiversity/reference/customDB/aphidP
 gg_13_5_99_otus	greengenes May 2013	/isilon/biodiversity/reference/customDB/gg_13_5_99_otus.dmp
 unite_10_05_13	unite May 2013	/isilon/biodiversity/reference/customDB/unite_10_05_13.dmp
 ncbi_taxonomy	ncbi Jan 2014	/isilon/biodiversity/reference/ncbi_taxonomy
-
 #
 #The captions typically contain spaces and might end with the build date.
 #It is important that the actual database name does not have a space in it,
