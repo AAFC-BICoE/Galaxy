@@ -73,7 +73,7 @@ At least one of the flags must be specified select at least one of: qiimeotu, na
 
 **Author** 
 
-- Create Cluster Map Script and Warpper:
+- Create Cluster Map Script and Wrapper:
 	+ Script Name: createClusterMap.pl
 	+ Wrapper Name: createClusterMap.xml
 	+ Christopher Lewis, Johnny Zhang, Nan Zhang
