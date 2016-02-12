@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<tool_dependency>
-  <package name="hmmer" version="3.1b1">
-      <repository name="package_hmmer_3_1" owner="lionelguy" changeset_revision="007c736bf7e8" />
-    </package>
-</tool_dependency>
-
