@@ -1,0 +1,215 @@
+<tool id="findLCA" name="Find LCA" version="1.0">
+
+	  <description> 
+	  	The LCA algorithm to get the lowest common ancestor from a tabular blast output.
+	  </description>
+
+	  <stdio>
+	  	<exit_code range="1:" level="fatal" description="Error"/>
+	  </stdio>
+
+	  <command interpreter="perl">
+	  findLCA.pl 
+		--galaxy 
+		-i $infile 
+		#if $taxasource.source.__str__ == "locfile":
+			--taxa-dir $taxasource.taxonomydisk.fields.path 
+		#elif $taxasource.source.__str__ == "history":
+			--taxa-dmp $taxasource.taxadump
+			--taxa-mapdb $taxasource.taxamapdb
+		#end if
+		#if float($qminmatch.__str__) > 0:
+		  --query-min-match=$qminmatch 
+		#end if
+		#if int($qminlen.__str__) > 0:
+		  --query-min-length=$qminlen
+		#end if
+		#if float($sminmatch.__str__) > 0:
+		  --subject-min-match=$sminmatch 
+		#end if
+		#if int($sminlen.__str__) > 0:
+		  --subject-min-length=$sminlen
+		#end if
+		#if float($requiresupport.__str__) > 0:
+		  --require-support=$requiresupport
+		#end if
+		#if int($minmatchid.__str__) > 0:
+		  --min-match-id=$minmatchid
+		#end if
+		$useminevalue 
+		$maxquerycover 
+		$usegitotax 	
+		#if $extraoptions.extra.__str__ == "yes":
+			$extraoptions.reindex
+			$extraoptions.pushdescendent
+			$extraoptions.notestinfor
+			#if int($extraoptions.useminbitscore.__str__) > 0:
+			  --use-min-bitscore=$extraoptions.useminbitscore
+			#end if
+			#if $extraoptions.minreadcond.minreadflag == True:
+			  --use-min-reads=$extraoptions.minreadcond.useminread
+			  --namesfile=$extraoptions.minreadcond.namesfile
+			#end if
+			#if float($extraoptions.usepertopbit.__str__) > 0:
+			  --use-percent-top-bitscore=$extraoptions.usepertopbit
+			#end if
+			#if $extraoptions.maximumrank.__str__ != '':
+			  --maximum-rank=$extraoptions.maximumrank
+			#end if
+			#if $extraoptions.matchtorank.__str__ != '':
+			  --match-to-rank=$extraoptions.matchtorank
+			#end if
+			#if $extraoptions.usereject.rejectflag == True:
+			  --rejectfile=$extraoptions.usereject.rejectfile
+			#end if
+			#if $extraoptions.usesynonym.synonymflag == True:
+			  --synonymfile=$extraoptions.usesynonym.synonymfile
+			#end if
+		#end if
+	</command>
+
+	  <inputs>
+		<param name="infile" type="data" label="blast tabular output file"/>
+	    
+	    	<conditional name="taxasource">
+			<param name="source" type="select" label="taxonomy source">
+				<option value="locfile">From Local Database</option>
+				<option value="history">From Galaxy History</option>
+			</param>
+			<when value="locfile">
+	    			<param name="taxonomydisk" type="select" label="taxonomy database">
+					<options from_file="lca_taxonomydb.loc">
+						<column name="value" index="0"/>
+						<column name="name" index="1"/>
+						<column name="path" index="2"/>
+					</options>
+				</param>
+			</when>
+			<when value="history">
+				<param name="taxadump" type="data" label="taxonomy dump"/>
+				<param name="taxamapdb" type="data" label="berkley map db"/>
+			</when>
+	   	 </conditional>
+	    
+	    	<param name="qminmatch" type="float" value="0.95" label="query min match decimal (set to 0 to ignore)"/>
+	    	<param name="qminlen" type="integer" value="0" label="query min length (set to 0 to ignore)"/>
+	    	<param name="sminmatch" type="float" value="0" label="subject min match decimal (set to 0 to ignore)"/> 
+	    	<param name="sminlen" type="integer" value="0" label="subject min length (set to 0 to ignore)"/>
+	    
+	    	<param name="requiresupport" type="float" value="0" label="require support level decimal (set to 0 to ignore)"/>
+	    	<param name="minmatchid" type="integer" value="95" label="min match identity % (set to 0 to ignore)"/>
+	    	<param name="useminevalue" type="select" label="use-min-evalue (T/F)">
+			<option value="">no</option>
+			<option value="--use-min-evalue">yes</option>
+	    	</param>
+	   	 <param name="maxquerycover" type="select" label="max-query-coverage (T/F)">
+			<option value="--use-max-query-coverage">yes</option>
+			<option value="">no</option>
+	    	</param>
+	    	<param name="usegitotax" type="select" label="use-gi-to-taxa-lookup (T/F)">
+			<option value="--use-gi-taxa-lookup">yes</option>
+			<option value="">no</option>
+	    	</param>
+	
+	   	<conditional name="extraoptions">
+			<param name="extra" type="select" label="advance options">
+				<option value="no">Do Not Display</option>
+				<option value="yes">Display</option>
+			</param>
+			<when value="yes">
+		    		<conditional name="usereject">
+					<param name="rejectflag" type="boolean" label="Specify Reject File"/>
+					<when value="true"> 
+	    					<param name="rejectfile" type="data" label="reject file"/>
+					</when>
+		   		</conditional>
+		    		<conditional name="usesynonym">
+					<param name="synonymflag" type="boolean" label="Specify Synonym File"/>
+					<when value="true">
+						<param name="synonymfile" type="data" label="synonym file"/>
+					</when>
+		    		</conditional>
+				<param name="reindex" type="select" label="reindex (T/F)">
+					<option value="">no</option>
+					<option value="--reindex">yes</option>
+				</param>
+				<param name="maximumrank" type="text" value="" label="maximum rank (species,genus,family...)"/>
+				<param name="matchtorank" type="text" value="" label="match to rank (species,genus,family...)"/>
+				<param name="notestinfor" type="select" label="no test informative (T/F)">
+					<option value="">no</option>
+					<option value="--no-test-informative">yes</option>
+				</param>
+				<param name="useminbitscore" type="integer" value="0" label="use-min-bit-score"/>
+				<param name="usepertopbit" type="float" value="0" label="use-percent-top-bitscore"/>
+				<conditional name="minreadcond">
+					<param name="minreadflag" type="boolean"/>
+					<when value="true">
+						<param name="useminread" type="integer" value="0" label="use-min-reads"/>
+						<param name="namesfile" type="data" label="names file for min reads"/>
+					</when>
+				</conditional>
+				<param name="pushdescendent" type="select" label="push descendent (T/F)">
+					<option value="">no</option>
+					<option value="--push-to-descendent">yes</option>
+				</param>
+			</when>
+		</conditional>
+	</inputs>
+
+	<outputs>
+		<data name="lcafile" format="tabular" label="LCA Results" from_work_dir="representative.lca"/>
+		<data name="logfile" format="tabular" label="LCA Log" from_work_dir="representative.lca.log"/>
+		<data name="tablogfile" format="tabular" label="LCA Tabular Log" from_work_dir="representative.lca.log.tab"/>
+		<data name="warnings" format="txt" label="Missing GIs" from_work_dir="missing.txt"/>
+	</outputs>
+  
+	<test>
+	</test>
+  
+	<help>
+**Description**
+
+This tool parses blast results and performs lowest-common-ancestor queries on NCBI/custom taxonomy.
+It will take an extended tabular blast output file with columns defined as:
+
+        - std sallseqid score nident positive gaps ppos qframe sframe qseq sseq qlen slen salltitles
+
+where std is
+
+        - qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore 
+
+
+.. class:: infomark
+
+A custom Taxonomy database can be generated by create_custom_taxa.
+
+-----
+
+**Inputs and Outputs**
+
+- Inputs:
+	+ Tabular blast output file
+
+- Outputs:
+	+ LCA Results
+	+ LCA Log
+	+ LCA Tabular Log
+
+-----
+
+**Author**
+
+- Find LCA Script and Wrapper:
+	+ Script Name: findLCA.pl
+	+ Wrapper Name: findLCA.xml
+	+ Christopher Lewis, Johnny Zhand, Nan Zhang
+	+ Agriculture and Agri-food Canada, Ottawa, ON, Canada
+
+----
+
+**References:**
+
+AAFC-AAC Bioinformatics
+	</help>
+
+</tool>

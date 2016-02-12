@@ -1,0 +1,55 @@
+#This is a sample file distributed with lcapipeline for use in Galaxy
+#used to define a list of taxonomy databases, using three columns
+#tab seperated (longer whitespace are TAB characters):
+#
+#<unique_id>	<database_caption>	<base_name_path>
+aphidPlusCOI5P_test	testing aphis COI Jan 2014	/home/AAFC-AAC/zhangn/Desktop/COI_REFERENCE/aphidPlusCOI5P.dmp
+aphidPlusCOI5P	aphis COI Jan 2014	/isilon/biodiversity/reference/customDB/aphidPlusCOI5P.dmp
+gg_13_5_99_otus	greengenes May 2013	/isilon/biodiversity/reference/customDB/gg_13_5_99_otus.dmp
+unite_10_05_13	unite May 2013	/isilon/biodiversity/reference/customDB/unite_10_05_13.dmp
+ncbi_taxonomy	ncbi Jan 2014	/isilon/biodiversity/reference/ncbi_taxonomy
+#
+#The captions typically contain spaces and might end with the build date.
+#It is important that the actual database name does not have a space in it,
+#and that the first tab that appears in the line is right before the path.
+#
+#So, for example, if your database is ncbi taxa dump the path to your base name 
+#is /isilon/biodiversity/reference/ncbi_taxonomy, then the taxonomy.loc entry 
+#would look like this:
+#
+#nt_01_Jan_2014      nt 01 Jan 2014      /isilon/biodiversity/reference/ncbi_taxonomy
+#
+#and your /isilon/biodiversity/reference/ncbi_taxonomy directory would contain all of:
+#
+#-rw-r--r-- 1 reference domain users    11208273 Jan  8 11:20 citations.dmp
+#-rw-r--r-- 1 reference domain users     2769661 Jan  8 11:20 delnodes.dmp
+#-rw-r--r-- 1 reference domain users         419 Jan  8 11:20 division.dmp
+#-rw-r--r-- 1 reference domain users       11559 Jan  8 11:20 gc.prt
+#-rw-r--r-- 1 reference domain users        3566 Jan  8 11:20 gencode.dmp
+#-rw-rw-r-- 1 reference domain users 16534290432 Jan  8 12:08 gi_taxid_nucl.db
+#-rw-rw-r-- 1 reference domain users  5349840465 Jan  7 13:01 gi_taxid_nucl.dmp
+#-rw-rw-r-- 1 reference domain users    46022639 Jan  8 12:12 id2names
+#-rwxr-xr-x 1 reference domain users        1688 Jan  7 14:55 indexNcbiGiTaxonomy.pl
+#-rw-r--r-- 1 reference domain users      550809 Jan  8 11:20 merged.dmp
+#-rwxr-xr-x 1 reference domain users         806 Jan  8 13:13 merge.pl
+#-rw-rw-r-- 1 reference domain users    85966848 Jan  8 12:12 names2id
+#-rw-r--r-- 1 reference domain users    95987236 Jan  8 11:20 names.dmp
+#-rw-rw-r-- 1 reference domain users    34128605 Jan  8 12:09 nodes
+#-rw-r--r-- 1 reference domain users    75449850 Jan  8 11:20 nodes.dmp
+#-rw-rw-r-- 1 reference domain users    29409280 Jan  8 12:09 parents
+#-rw-rw---- 1 reference domain users        2652 Jun 13  2006 readme.txt
+#-rwxr-xr-x 1 reference domain users        2516 Jan  8 08:54 taxaLookup.pl
+#-rwxr-xr-x 1 reference domain users        1494 Jan  8 13:12 updateNcbiTaxonomy.sh
+#
+#and if your database is a custom taxonomy database generated from 
+#loadCustomTaxa.pl the entry would look like this using the .dmp file:
+#
+#aphidPlusCOI	aphis COI Jan 2014	/isilon/biodiversity/reference/customDB/aphidPlusCOI5P.dmp
+#
+#and your /isilon/biodiversity/reference/customDB/aphidPlusCOI5P.dmp directory would contain all of:
+#
+#-rw-r--r-- 1 reference domain users   1370984 Jan 28 15:47 aphidPlusCOI5P.dmp
+#-rw-r--r-- 1 reference domain users   3396531 Jan 28 15:47 aphidPlusCOI5P.fasta
+#-rw-r--r-- 1 reference domain users    121594 Jan 28 15:47 aphidPlusCOI5P.map
+#-rw-r--r-- 1 reference domain users    311296 Jan 28 15:47 aphidPlusCOI5P.map.bdb
+#-rw-r--r-- 1 reference domain users    691682 Jan 28 15:47 aphidPlusCOI5P_taxonomy.txt
