@@ -52,9 +52,20 @@
     		</data>
   	</outputs>
   
-
-  	<test>
-	</test>
+	<tests>
+		<test>
+			<param name="cluster" value="Galaxy11-[CD-HIT-EST_on_data_9__clusters].txt"/>
+			<param name="format" value="clstr"/>
+			<param name="namesflag" value="yes"/>
+			<param name="names" value="Galaxy10-[Unique.seqs_on_data_6__names].names"/>
+			<param name="qiimeotu" value="true"/>
+			<param name="namesotu" value="true"/>
+			<param name="countotu" value="true"/>
+			<output name="outqiimeotu" file="QIIME OTU mapping"/>
+			<output name="outmothurotu" file="Mothur OTU mapping"/>
+			<output name="outcountotu" file="OTU sequence counts"/>
+		</test>
+	</tests>
  
 	<help>
 **Description**
