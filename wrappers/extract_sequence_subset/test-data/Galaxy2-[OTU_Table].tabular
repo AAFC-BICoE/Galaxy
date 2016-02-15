@@ -1,0 +1,2526 @@
+#OTU ID	MID3	MID9	MID8	MID11	MID4	MID20	MID10	MID7	MID5	MID1	MID2	HCO2198	MID12	MID6	taxonomy
+0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1	113	170	22	47	122	0	38	396	202	0	133	0	41	61	Unassignable
+2	14	63	16	0	52	0	4	120	96	0	121	0	0	22	Unassignable
+3	31	17	3	0	234	0	0	18	33	0	4	0	0	1	Unassignable
+4	2	0	0	1	1	0	0	0	10	0	1	0	0	1	Unassignable
+5	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+6	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+7	9	3	0	0	1	0	3	1	10	0	0	0	0	3	Unassignable
+8	132	2	1	0	3	0	27	1	4	0	0	0	0	87	Unassignable
+9	1	54	1	0	0	0	0	0	2	0	2	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+10	2	21	0	0	2	0	0	1	4	0	2	0	0	8	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Chaetothyriomycetidae; o__Chaetothyriales; f__Trichomeriaceae; t__; g__Knufia; s__
+11	2	19	4	0	3	0	0	38	11	0	32	0	0	1	Unassignable
+12	24	8	0	0	2	0	30	0	41	0	2	0	0	16	Unassignable
+13	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+14	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+15	375	3020	646	7	1013	0	454	4553	2633	0	5704	0	392	235	Unassignable
+16	0	4	0	0	0	0	4	0	0	0	0	0	0	15	Unassignable
+17	3	71	0	0	1	0	1	0	11	0	1	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Lophiostomataceae; t__; g__Lophiostoma; s__
+18	0	4	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+19	5	3	0	0	0	0	0	0	4	0	2	1	0	2	Unassignable
+20	0	1	0	0	0	0	0	0	2	0	0	0	0	1	Unassignable
+21	1	5	0	0	0	0	0	1	0	0	2	0	0	1	Unassignable
+22	292	17	2	11	15	0	1	9	34	0	24	0	0	5	Unassignable
+23	1	22	6	0	1	0	1	24	13	0	17	0	0	0	Unassignable
+24	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+25	2	1	0	0	1	0	0	0	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+26	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+27	1	0	0	0	1	0	0	0	11	0	8	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__; t__; g__Latorua; s__Latorua_caligans
+28	75	2	1	0	12	0	0	7	96	0	1	0	0	4	Unassignable
+29	0	0	0	1	0	0	0	0	0	0	0	0	0	3	Unassignable
+30	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+31	0	5	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+32	0	4	0	0	0	0	0	0	0	0	1	1	0	52	Unassignable
+33	0	2	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+34	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+35	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+36	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+37	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+38	0	2	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+39	0	0	0	0	0	0	1	0	0	0	0	0	0	1	Unassignable
+40	0	4	0	0	9	0	0	1	87	0	5	0	0	4	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+41	21	2	0	0	2	0	0	3	31	0	0	0	0	0	Unassignable
+42	47	12	2	0	2	0	74	3	174	0	2	0	1	55	Unassignable
+43	1	1	0	0	2	0	0	0	0	0	1	0	0	1	Unassignable
+44	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+45	0	0	0	0	0	0	0	0	1	0	0	0	1	0	Unassignable
+46	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+47	0	18	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+48	3	1	2	0	2	0	0	0	4	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+49	0	0	0	0	0	0	0	0	0	0	0	1	0	1	Unassignable
+50	0	19	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+51	2	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+52	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+53	0	0	0	0	0	0	0	0	0	0	0	0	0	6	Unassignable
+54	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+55	0	10	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__Venturiales; f__; t__; g__; s__
+56	0	3	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+57	0	1	0	0	1	0	0	0	0	0	1	0	1	0	Unassignable
+58	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Eurotiomycetidae; o__Eurotiales; f__; t__; g__; s__
+59	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+60	1	3	0	0	1	0	2	2	1	0	5	0	1	12	Unassignable
+61	0	9	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+62	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Didymellaceae; t__; g__Phoma; s__Phoma_sp_2_TMS-2011
+63	0	5	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Chaetothyriomycetidae; o__Chaetothyriales; f__; t__; g__; s__
+64	1131	3362	238	1	686	0	71	609	270	0	2815	0	135	211	Unassignable
+65	1	0	1	0	1	0	0	0	0	0	0	1	0	0	Unassignable
+66	0	0	0	0	1	0	1	0	1	0	0	0	0	0	Unassignable
+67	0	0	0	0	0	0	1	0	0	0	0	0	0	1	Unassignable
+68	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+69	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+70	0	3	0	0	0	0	15	0	0	0	0	0	0	14	Unassignable
+71	1	0	0	0	0	0	0	0	0	0	1	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+72	44	113	8	0	379	0	1	29	0	0	52	0	4	18	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+73	85	229	54	0	33	0	22	408	429	0	272	0	7	114	Unassignable
+74	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+75	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+76	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+77	0	4	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+78	0	0	0	0	2	0	0	0	1	0	0	0	0	0	Unassignable
+79	3	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+80	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+81	0	0	0	0	0	0	0	1	1	0	16	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+82	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+83	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+84	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+85	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+86	3	15	1	0	0	0	0	0	3	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Cladosporiaceae; t__; g__Cladosporium; s__
+87	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+88	0	2	0	0	66	0	0	1	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+89	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+90	0	43	0	0	0	0	1	1	4	0	0	0	0	15	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Didymosphaeriaceae; t__; g__Paraphaeosphaeria; s__
+91	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Sordariomycetidae; o__; f__; t__; g__; s__
+92	0	4	0	0	0	0	3	1	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+93	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+94	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+95	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Sordariomycetidae; o__Magnaporthales; f__Magnaporthaceae; t__; g__Ophioceras; s__Ophioceras_leptosporum
+96	0	3	0	0	3	0	0	0	0	0	7	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; o__; f__; t__; g__; s__
+97	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+98	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__Cryptococcus; s__Cryptococcus_cuniculi
+99	0	5	0	0	0	0	0	2	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__; t__; g__; s__Capnodiales_sp_TR006
+100	1218	2	2	0	0	0	346	1	25	0	1	0	0	634	Unassignable
+101	0	0	2	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+102	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Pezizomycetes; o__Pezizales; f__Sarcosomataceae; t__; g__; s__
+103	0	0	0	0	0	0	0	1	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+104	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Eurotiomycetidae; o__Eurotiales; f__Aspergillaceae; t__; g__Aspergillus; s__
+105	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+106	0	0	0	0	0	0	0	11	0	0	0	0	4	0	Unassignable
+107	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+108	0	0	0	1	0	0	0	0	0	0	0	0	0	2	Unassignable
+109	1	103	1	0	0	0	95	77	2	0	733	0	0	46	Unassignable
+110	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__Basidiomycota_sp_3262
+111	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+112	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+113	0	1	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+114	0	19	0	0	1	0	16	57	0	0	112	0	0	6	Unassignable
+115	61	1612	32	0	145	0	20	1651	198	0	1262	0	386	61	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+116	0	0	0	1	0	0	0	0	0	0	0	0	0	1	Unassignable
+117	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+118	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+119	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+120	0	14	1	0	1	0	10	36	3	0	16	0	0	7	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Microascales; f__Halosphaeriaceae; t__; g__Periconia; s__
+121	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+122	6	19	8	0	0	0	0	1	0	0	1	1	0	1	Unassignable
+123	0	2	0	1	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__; t__; g__Trichothecium; s__Trichothecium_roseum
+124	0	11	0	0	0	0	0	1	0	0	3	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Sporormiaceae; t__; g__Preussia; s__
+125	0	1	0	0	0	0	0	2	0	0	1	0	0	0	Unassignable
+126	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+127	0	77	0	0	0	0	0	0	3	0	8	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__; t__; g__; s__Pleosporales_sp_VKM-3176
+128	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+129	377	47	57	0	3115	0	1	102	84	0	14	0	3	15	Unassignable
+130	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+131	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__uncultured_Ascomycota
+132	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+133	0	0	0	0	0	0	0	2	0	0	4	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+134	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+135	0	4	0	0	1	0	0	1	2	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+136	0	0	0	0	0	0	0	0	0	0	2	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Eurotiomycetidae; o__Eurotiales; f__; t__; g__; s__
+137	0	0	0	0	2	0	0	0	0	0	1	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Didymellaceae; t__; g__Leptosphaerulina; s__Leptosphaerulina_sp_DBCMVB
+138	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+139	1	0	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+140	0	8	0	0	0	0	0	0	1	0	0	0	0	1	Unassignable
+141	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+142	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+143	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+144	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Chaetothyriomycetidae; o__Chaetothyriales; f__Herpotrichiellaceae; t__; g__; s__
+145	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+146	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+147	0	3	0	0	1	0	0	1	0	0	0	0	0	1	Unassignable
+148	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+149	2	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+150	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+151	0	0	0	0	0	0	0	0	0	0	2	0	0	3	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Mycosphaerellaceae; t__; g__Zymoseptoria; s__
+152	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+153	0	1	0	0	1	0	0	0	0	0	1	0	0	0	Unassignable
+154	0	6	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+155	0	0	3	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__Stachybotriaceae; t__; g__Myrothecium; s__Myrothecium_cinctum
+156	0	208	0	0	0	0	0	0	2	0	3	1	0	0	Unassignable
+157	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+158	0	4	0	0	0	0	1	6	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Xylaria; s__
+159	0	0	0	0	0	0	0	0	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+160	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+161	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+162	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+163	19	0	0	0	80	0	0	6	70	0	8	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+164	0	0	0	0	0	0	0	2	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__; t__; g__; s__
+165	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+166	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+167	0	26	0	0	0	0	0	0	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+168	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+169	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+170	0	1	0	0	0	0	1	0	0	0	1	0	0	0	Unassignable
+171	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+172	0	8	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+173	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+174	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Phaeolus; s__Phaeolus_schweinitzii
+175	1	134	3	0	0	0	8	0	7	0	11	0	0	5	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+176	0	0	0	0	0	0	0	0	0	0	2	0	0	1	Unassignable
+177	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+178	0	0	0	0	0	0	0	0	8	0	0	0	0	9	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Paxillaceae; t__; g__Paxillus; s__Paxillus_involutus
+179	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+180	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__fungal_sp_M18
+181	0	6	0	0	0	0	0	2	0	0	91	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+182	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__; f__Pseudeurotiaceae; t__; g__Pseudeurotium; s__Pseudeurotium_bakeri
+183	6	0	0	0	1	0	0	0	7	0	0	0	0	7	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Dissoconiaceae; t__; g__; s__
+184	15	223	2	0	15	0	2	6	0	0	36	1	8	2	Unassignable
+185	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+186	0	0	0	0	1	0	0	0	1	0	0	0	0	0	Unassignable
+187	0	13	0	0	11	0	0	2	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__; o__; f__; t__; g__; s__
+188	0	2	0	0	0	0	0	0	8	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Eurotiomycetidae; o__Eurotiales; f__Aspergillaceae; t__; g__Penicillium; s__
+189	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+190	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+191	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+192	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+193	1	0	0	0	1	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+194	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_G47
+195	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+196	1	0	0	0	0	0	1	0	13	0	0	0	0	6	Unassignable
+197	0	2	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+198	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Dothideales; f__; t__; g__; s__Dothideales_sp_TR054
+199	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+200	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+201	0	19	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+202	0	2	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+203	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+204	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Hypoxylon; s__Hypoxylon_perforatum
+205	0	3	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_F45
+206	3	0	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+207	3	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+208	12	0	0	0	2	0	0	0	1	0	0	0	1	0	Unassignable
+209	1	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+210	0	0	0	0	0	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+211	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+212	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+213	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+214	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+215	0	0	0	0	0	0	0	0	3	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; sf__Boletoideae; t__; g__Boletus; s__
+216	0	4	0	0	7	0	0	2	1	0	2	0	0	0	Unassignable
+217	0	3	0	0	0	0	0	0	0	0	3	0	0	0	Unassignable
+218	0	0	0	0	0	0	0	0	1	0	1	0	0	1	Unassignable
+219	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+220	1	1	0	0	4	0	0	2	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Piloderma; s__
+221	0	0	0	0	1	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Trechispora; s__Trechispora_mollusca
+222	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+223	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+224	3	0	0	0	11	0	0	0	3	0	0	0	1	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__Tremellales_sp_LM195
+225	0	0	1	0	0	0	1	0	0	0	1	0	0	2	Unassignable
+226	0	0	3	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__; t__; g__; s__
+227	0	7	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__; f__; t__; g__; s__
+228	0	1	0	0	0	0	0	3	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Trechispora; s__
+229	0	0	0	0	0	0	0	1	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+230	1	5	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Teratosphaeriaceae; t__; g__Capnobotryella; s__Capnobotryella_sp_MA_4565
+231	0	2	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+232	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+233	0	0	0	0	0	0	0	0	5	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__; t__; g__Phialocephala; s__
+234	0	0	0	0	1	0	0	0	0	0	0	0	0	1	Unassignable
+235	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+236	0	1	0	0	0	0	0	1	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; o__; f__; t__; g__; s__
+237	0	0	0	0	2	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+238	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+239	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+240	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+241	0	4	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Hypoxylon; s__Hypoxylon_rubiginosum
+242	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+243	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+244	0	0	0	0	1	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+245	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+246	0	0	0	0	0	0	0	1	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+247	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+248	64	4	3	0	92	0	0	32	98	0	49	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__Tremellaceae; t__; g__Bulleromyces; s__Bulleromyces_albus
+249	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+250	2437	8	13	0	251	0	2	128	2638	0	6	1	0	12	Unassignable
+251	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+252	0	1	2	0	1	0	0	0	0	0	0	1	1	1	Unassignable
+253	42	58	2	0	392	0	15	90	11	0	25	0	1	18	Unassignable
+254	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+255	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+256	0	0	0	0	0	0	0	0	0	0	5	0	0	0	Unassignable
+257	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+258	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+259	2	12	2	0	0	0	1	9	6	0	102	0	0	13	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Mycosphaerellaceae; t__; g__Passalora; s__Passalora_graminis
+260	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+261	0	3	0	0	1	0	0	0	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Dothideales; f__; t__; g__; s__
+262	0	1	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__ascomycete_sp_XL-A24
+263	2	0	0	0	0	0	0	1	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+264	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+265	0	6	0	0	4	0	0	3	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_soil_fungus
+266	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Nemania; s__Nemania_aenea
+267	0	3	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__; t__; g__; s__Pleosporales_sp_5_TMS-2011
+268	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+269	44	0	0	1	107	0	4	1	4	0	6	0	0	4	Unassignable
+270	0	0	0	0	0	0	0	0	1	0	0	0	0	1	Unassignable
+271	0	3	0	0	0	0	9	1	0	0	1	0	0	32	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Teratosphaeriaceae; t__; g__Capnobotryella; s__
+272	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Sordariomycetidae; o__Sordariales; f__Lasiosphaeriaceae; t__; g__Podospora; s__Podospora_appendiculata
+273	2	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Lecanoromycetes; o__; f__; t__; g__Sarea; s__Sarea_difformis
+274	86	12	47	0	1	0	10	9	2862	0	0	0	1	7	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Sporidiobolales; f__; t__; g__; s__
+275	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+276	0	2	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+277	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+278	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+279	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+280	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+281	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+282	1	0	0	0	0	0	0	0	0	0	0	0	0	3	Unassignable
+283	0	19	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+284	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+285	0	12	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+286	1	43	2	0	0	0	0	4	0	0	20	0	0	7	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+287	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+288	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__Venturiales; f__Venturiaceae; t__; g__; s__
+289	0	0	0	0	0	0	0	2	0	0	12	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Sordariomycetidae; o__Magnaporthales; f__Magnaporthaceae; t__; g__; s__
+290	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+291	0	0	0	0	0	0	0	0	1	0	2	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+292	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+293	0	3	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+294	0	0	5	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__Nectriaceae; t__; g__; s__
+295	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+296	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+297	0	4	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+298	0	1	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+299	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+300	1	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+301	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+302	0	19	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+303	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+304	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+305	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+306	2	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+307	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Mycosphaerellaceae; t__; g__Trimmatostroma; s__Trimmatostroma_salicis
+308	0	0	0	0	0	0	0	1	0	0	0	0	3	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__Cordycipitaceae; t__; g__Cordyceps; s__
+309	0	0	0	0	1	0	0	2	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+310	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+311	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__uncultured_Ascomycota
+312	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+313	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__; f__; t__; g__Sclerostagonospora; s__Sclerostagonospora_cycadis
+314	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+315	1	19	0	0	3	0	0	5	1	0	0	0	0	0	sk__Eukaryota; k__Viridiplantae; p__Streptophyta; c__Liliopsida; sc__commelinids; o__Poales; f__Poaceae; sf__Bambusoideae; t__Arundinarieae; g__Sinobambusa; s__Sinobambusa_tootsik
+316	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+317	14	11	1	0	24	0	0	5	7	0	14	0	0	5	Unassignable
+318	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+319	0	0	0	0	0	0	0	1	0	0	0	0	1	0	Unassignable
+320	0	2	0	0	0	0	0	1	2	0	3	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Microascales; f__Halosphaeriaceae; t__; g__Periconia; s__Periconia_sp_0511ARD16P1
+321	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+322	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+323	0	0	0	0	0	0	0	0	2	0	0	0	0	4	Unassignable
+324	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+325	0	4	1	0	0	0	0	1	1	0	44	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+326	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+327	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+328	0	62	0	0	5	0	1	0	0	0	7	0	0	1	Unassignable
+329	4	7	0	0	6	0	1	553	0	0	43	1	0	23	Unassignable
+330	6	0	1	0	0	0	0	0	12	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__
+331	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+332	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+333	0	0	0	0	0	0	0	0	11	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__; o__; f__; t__; g__; s__
+334	0	0	0	0	9	0	0	0	0	0	2	0	0	7	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+335	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+336	1	0	0	0	0	0	0	1	2	0	0	0	0	1	Unassignable
+337	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+338	0	0	1	0	2	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_I364
+339	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+340	0	0	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Exobasidiomycetes; o__Entylomatales; f__Entylomataceae; t__; g__Tilletiopsis; s__Tilletiopsis_pallescens
+341	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+342	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+343	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+344	1	0	0	0	0	0	0	0	11	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Sporidiobolales; f__; t__; g__; s__
+345	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+346	11	0	1	0	2	0	0	4	155	0	0	0	0	1	Unassignable
+347	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+348	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__; t__; g__; s__Pleosporales_sp_MSW
+349	0	1	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Massarinaceae; t__; g__Stagonospora; s__
+350	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+351	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+352	0	0	0	0	0	0	0	0	5	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+353	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__Helotiaceae; t__; g__Bisporella; s__Bisporella_citrina
+354	0	0	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+355	0	1	0	0	0	0	0	11	0	0	1	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+356	0	0	0	0	1	0	1	9	1	0	1	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Sarcoporia; s__Sarcoporia_polyspora
+357	8	15	2	0	247	0	12	1	2	0	6	1	0	2	Unassignable
+358	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+359	0	1	0	0	0	0	1	0	0	0	2	0	0	2	Unassignable
+360	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+361	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+362	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+363	0	0	0	0	0	0	0	0	22	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__
+364	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+365	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Viridiplantae; p__Streptophyta; c__; sc__rosids; o__Brassicales; f__Brassicaceae; t__Brassiceae; g__Brassica; s__Brassica_oleracea
+366	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+367	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+368	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+369	0	0	0	0	0	0	0	1	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Trechispora; s__Trechispora_farinacea
+370	0	0	0	0	1	0	1	0	2	0	0	0	0	0	Unassignable
+371	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+372	0	0	0	0	1	0	0	0	0	0	0	1	0	0	Unassignable
+373	0	0	0	0	0	0	0	0	1	0	0	0	0	1	Unassignable
+374	0	0	0	0	0	0	0	1	0	0	2	0	0	0	Unassignable
+375	0	0	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+376	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+377	0	1	0	0	4	0	0	0	0	0	0	0	0	0	Unassignable
+378	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+379	0	77	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+380	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+381	0	1	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+382	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+383	5	13	3	0	1	0	0	3	1	0	10	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Cladosporiaceae; t__; g__Cladosporium; s__Cladosporium_allicinum
+384	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+385	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+386	0	0	0	0	0	0	0	0	15	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+387	0	4	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+388	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+389	0	1	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+390	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+391	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Sclerodermataceae; t__; g__Scleroderma; s__
+392	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; sp__Mucoromycotina; c__; o__Mucorales; f__Mucoraceae; t__; g__Mucor; s__
+393	0	0	0	0	0	0	0	0	1	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+394	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+395	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+396	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+397	0	0	0	0	0	0	2	7	17	0	0	0	0	7	Unassignable
+398	1	2	2	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Ustilaginomycetes; o__Ustilaginales; f__Ustilaginaceae; t__; g__Sporisorium; s__Sporisorium_reilianum
+399	0	1	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+400	0	0	0	0	0	0	0	2	0	0	0	0	0	0	Unassignable
+401	0	0	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+402	123	3	63	0	1	0	0	3	0	0	6	0	1	3	Unassignable
+403	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Phaeosphaeriaceae; t__; g__Phaeosphaeria; s__Phaeosphaeria_sp_G330
+404	0	5	0	0	0	0	0	0	0	0	1	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+405	1	0	0	0	31	0	0	58	1	0	0	0	0	0	Unassignable
+406	0	18	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+407	0	2	0	0	0	0	0	0	6	0	0	0	0	8	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Suillaceae; t__; g__Suillus; s__
+408	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+409	0	0	0	0	0	0	0	0	31	0	0	0	0	0	Unassignable
+410	0	0	0	0	0	0	1	1	0	0	1	0	0	0	Unassignable
+411	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+412	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+413	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+414	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+415	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+416	6	0	0	0	0	0	1	0	0	0	1	0	0	0	Unassignable
+417	1	12	1	0	4	0	0	10	0	0	24	0	6	0	Unassignable
+418	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+419	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+420	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+421	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+422	0	0	0	0	2	0	0	23	4	0	3	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Phlebia; s__Phlebia_fuscoatra
+423	0	0	0	0	4	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__Cordycipitaceae; t__; g__Lecanicillium; s__
+424	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+425	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+426	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+427	0	2	0	0	0	0	0	0	4	0	0	0	0	0	Unassignable
+428	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+429	170	7	15	0	20	0	0	65	281	0	4	0	2	1	Unassignable
+430	0	0	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+431	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+432	0	32	0	0	3	0	0	0	0	0	10	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_endophytic_fungus
+433	6	10	7	0	7	0	1	2	137	0	18	0	0	0	Unassignable
+434	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+435	0	71	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+436	2	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+437	0	2	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_AR-2010
+438	0	5	0	0	1	0	10	8	2	0	23	0	0	9	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+439	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__; p__; c__; o__; f__; t__; g__; s__uncultured_eukaryote
+440	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+441	0	0	1	0	0	0	0	1	2	0	0	0	0	0	Unassignable
+442	3	3	21	0	4	0	8	3	870	0	3	0	0	1	Unassignable
+443	0	0	0	0	1	0	0	1	0	0	0	0	0	0	Unassignable
+444	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Pezizomycetes; o__Pezizales; f__Pezizaceae; t__; g__Peziza; s__
+445	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+446	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+447	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+448	0	0	0	0	0	0	0	0	0	0	0	0	0	6	Unassignable
+449	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+450	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Pezizomycetes; o__Pezizales; f__Discinaceae; t__; g__Hydnotrya; s__Hydnotrya_bailii
+451	0	1	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Nemania; s__Nemania_serpens
+452	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+453	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__; t__; g__; s__
+454	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+455	36	7	12	0	312	0	0	18	18	0	3	1	0	4	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__Sclerotiniaceae; t__; g__; s__
+456	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+457	0	0	0	0	2	0	0	1	0	0	1	0	0	0	Unassignable
+458	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+459	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+460	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+461	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+462	0	0	0	0	1	0	2	1	14	0	0	0	0	5	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Suillaceae; t__; g__Suillus; s__Suillus_granulatus
+463	1	9	0	0	1	0	0	0	7	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniaceae; t__; g__Puccinia; s__
+464	0	0	0	0	0	0	0	0	6	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Sordariomycetidae; o__Diaporthales; f__Valsaceae; t__; g__Cytospora; s__
+465	0	13	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+466	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__; f__; t__; g__Catinella; s__Catinella_olivacea
+467	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+468	0	1	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+469	0	3	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__; p__; c__; o__; f__; t__; g__; s__
+470	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+471	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+472	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+473	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+474	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__; o__; f__; t__; g__; s__
+475	0	1	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+476	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+477	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+478	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+479	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+480	0	1	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+481	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+482	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+483	0	1	0	0	0	0	0	30	4	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Phlebia; s__
+484	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+485	0	0	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Laetiporus; s__
+486	0	9	0	0	142	0	0	10	0	0	0	0	0	0	Unassignable
+487	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+488	1	0	0	0	0	0	0	0	3	0	1	0	0	0	Unassignable
+489	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+490	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__uncultured_Ascomycota
+491	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_6_RB-2011
+492	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+493	0	0	0	0	0	0	1	0	0	0	2	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+494	0	0	0	0	0	0	0	0	1	0	1	0	0	3	Unassignable
+495	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+496	0	0	0	0	1	0	0	0	29	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__
+497	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+498	0	1	0	0	1	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Suillaceae; t__; g__Suillus; s__Suillus_intermedius
+499	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+500	1	0	0	0	1	0	0	0	0	0	5	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+501	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+502	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+503	0	4	0	0	0	0	0	0	1	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+504	0	3	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+505	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+506	0	0	0	0	1	0	0	1	0	0	0	0	1	0	Unassignable
+507	0	1	0	0	0	0	0	1	0	0	0	0	0	2	Unassignable
+508	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+509	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+510	0	0	0	0	0	0	0	0	1	0	0	0	0	1	Unassignable
+511	0	0	0	0	0	0	0	1	2	0	0	0	0	0	Unassignable
+512	0	1	1	0	0	0	0	3	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+513	0	1	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+514	0	0	0	0	7	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__; t__; g__Infundichalara; s__Infundichalara_microchona
+515	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+516	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+517	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+518	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+519	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+520	0	0	0	0	0	0	0	0	4	0	0	0	0	0	Unassignable
+521	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+522	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+523	0	0	0	0	0	0	0	0	0	0	1	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+524	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+525	2	9	0	0	2	0	0	10	0	0	15	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+526	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+527	0	0	1	0	0	0	0	40	1	0	1	0	0	8	Unassignable
+528	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+529	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+530	0	0	0	0	1	0	0	4	0	0	3	0	0	0	Unassignable
+531	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+532	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+533	0	0	0	0	0	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Cantharellales; f__Botryobasidiaceae; t__; g__Botryohypochnus; s__Botryohypochnus_isabellinus
+534	0	1	0	0	0	0	0	3	13	0	2	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__; f__; t__; g__; s__
+535	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+536	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+537	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+538	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+539	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+540	0	0	0	0	5	0	0	5	0	0	1	1	0	2	Unassignable
+541	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+542	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+543	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniaceae; t__; g__; s__
+544	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+545	50	0	6	0	0	0	0	0	0	0	1	0	1	0	Unassignable
+546	0	27	0	0	1	0	0	0	0	0	9	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniaceae; t__; g__Puccinia; s__Puccinia_graminis
+547	0	6	0	0	2	0	0	4	3	0	0	0	0	6	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+548	0	0	1	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+549	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+550	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+551	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+552	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+553	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+554	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+555	0	0	0	0	0	0	0	0	4	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+556	0	2	0	0	0	0	0	7	6	0	2	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+557	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+558	0	0	0	0	21	0	0	4	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__Basidiomycota_sp_UC2023008
+559	8	5	1	0	8	0	1	0	1	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Microbotryales; f__Microbotryaceae; t__; g__Sphacelotheca; s__Sphacelotheca_polygoni-persicariae
+560	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+561	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+562	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+563	5	0	0	0	0	0	0	3	5	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Sporidiobolales; f__; t__; g__; s__
+564	0	0	0	0	0	0	1	0	1	0	0	0	0	1	Unassignable
+565	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+566	0	0	0	1	0	0	0	0	0	0	0	0	0	1	Unassignable
+567	0	0	0	0	0	0	0	1	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+568	0	8	1	0	0	0	0	13	40	0	0	0	0	45	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Pholiota; s__Pholiota_highlandensis
+569	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+570	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+571	0	0	0	0	3	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Filobasidiales; f__; t__; g__Cryptococcus; s__Cryptococcus_sp_YKS_2004
+572	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+573	0	27	0	0	1	0	0	3	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+574	0	0	1	0	2	0	0	2	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Lyophyllaceae; t__; g__Ossicaulis; s__Ossicaulis_lignatilis
+575	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+576	0	1	10	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+577	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+578	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+579	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+580	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+581	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+582	0	0	1	0	0	0	0	0	76	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__Tremellaceae; t__; g__Bulleribasidium; s__Bulleribasidium_oberjochense
+583	0	0	0	0	0	0	0	1	5	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+584	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+585	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+586	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+587	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+588	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+589	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+590	0	36	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+591	0	3	0	0	0	0	0	1	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+592	1	0	0	0	24	0	0	19	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Schizopora; s__
+593	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+594	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+595	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+596	1	0	0	0	11	0	0	4	0	0	0	0	0	0	Unassignable
+597	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+598	0	0	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Amphinema; s__
+599	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+600	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+601	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+602	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+603	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+604	0	22	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+605	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+606	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+607	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+608	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+609	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+610	0	253	7	0	1	0	16	1	1	0	4	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+611	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+612	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+613	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+614	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+615	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+616	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+617	0	2	0	0	0	0	1	3	20	0	1	0	0	79	Unassignable
+618	0	0	0	0	0	0	0	2	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Ceriporiopsis; s__Ceriporiopsis_sp_DLL2009-111
+619	0	0	0	0	0	0	0	0	7	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Suillaceae; t__; g__Suillus; s__Suillus_pictus
+620	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+621	3	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+622	0	0	0	0	0	0	0	0	2	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__; t__; g__Leucogyrophana; s__Leucogyrophana_mollusca
+623	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+624	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+625	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniastraceae; t__; g__Pucciniastrum; s__Pucciniastrum_epilobii
+626	2	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+627	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+628	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+629	16	10	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+630	13	8	4	0	0	0	0	0	0	0	0	0	1	2	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+631	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Microdochiaceae; t__; g__Microdochium; s__
+632	0	0	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+633	0	0	1	0	0	0	0	1	6	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__; o__; f__; t__; g__; s__
+634	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+635	0	44	2	0	0	0	1	0	2	0	1	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+636	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+637	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+638	0	1	0	0	0	0	0	2	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Suillaceae; t__; g__Suillus; s__Suillus_pictus
+639	0	0	0	0	4	0	1	18	0	0	1	0	0	2	Unassignable
+640	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+641	0	0	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+642	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+643	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+644	0	0	0	0	0	0	0	5	15	0	0	0	0	29	Unassignable
+645	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+646	0	0	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Hypocreales; f__Cordycipitaceae; t__; g__; s__
+647	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+648	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+649	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+650	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Trechispora; s__Trechispora_stellulata
+651	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+652	0	1	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+653	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+654	2	0	1	0	5	0	0	0	8	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+655	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+656	1	0	0	0	0	0	0	0	5	0	0	0	0	14	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Microdochiaceae; t__; g__Microdochium; s__Microdochium_bolleyi
+657	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+658	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__uncultured_Ascomycota
+659	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+660	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+661	0	21	0	0	0	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+662	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+663	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+664	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__Sclerotiniaceae; t__; g__Sclerotinia; s__Sclerotinia_pseudotuberosa
+665	0	0	0	0	0	0	0	1	0	0	3	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Pleosporaceae; t__; g__Curvularia; s__Curvularia_nicotiae
+666	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Saccharomycotina; c__Saccharomycetes; o__Saccharomycetales; f__Dipodascaceae; t__; g__Geotrichum; s__Geotrichum_candidum
+667	0	0	0	0	0	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+668	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+669	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+670	7	0	0	0	0	0	0	0	24	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__fungal_endophyte
+671	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+672	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+673	3	0	0	0	3	0	0	1	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+674	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+675	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+676	0	39	0	0	0	0	0	10	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Pleosporaceae; t__; g__Pyrenophora; s__Pyrenophora_tritici-repentis
+677	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+678	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+679	0	0	1	0	14	0	0	16	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Tyromyces; s__Tyromyces_chioneus
+680	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+681	0	0	0	0	0	0	0	14	0	0	4	0	0	0	Unassignable
+682	0	0	0	0	6	0	0	6	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__; s__
+683	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+684	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__uncultured_Basidiomycota
+685	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+686	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+687	0	1	0	0	2	0	0	3	1	0	0	0	0	25	sk__Eukaryota; k__; p__; c__; o__; f__; t__; g__; s__
+688	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+689	2	0	2	0	1	0	0	0	16	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__Dioszegia; s__Dioszegia_changbaiensis
+690	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+691	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+692	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+693	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+694	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+695	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Diatrypaceae; t__; g__; s__
+696	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Amphisphaeriaceae; t__; g__Sarcostroma; s__Sarcostroma_bisetulatum
+697	0	0	0	0	1	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Postia; s__Postia_sericeomollis
+698	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+699	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Phallomycetidae; o__Geastrales; f__Geastraceae; t__; g__Geastrum; s__Geastrum_rufescens
+700	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+701	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+702	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+703	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+704	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+705	0	0	0	0	0	0	1	3	8	0	3	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Ceraceomyces; s__
+706	0	0	0	0	0	0	0	1	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+707	0	0	0	0	0	0	0	1	1	0	0	0	0	2	Unassignable
+708	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+709	0	18	0	0	2	0	0	33	2	0	6	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Melampsoraceae; t__; g__Melampsora; s__Melampsora_larici-populina
+710	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Hapalopilaceae; t__; g__Trametopsis; s__Trametopsis_cervina
+711	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+712	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+713	0	0	0	0	2	0	0	0	0	0	0	0	0	0	Unassignable
+714	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+715	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+716	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+717	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+718	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+719	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+720	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+721	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+722	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+723	1	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+724	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Dothideomycetidae; o__Capnodiales; f__Mycosphaerellaceae; t__; g__Pseudocercosporella; s__Pseudocercosporella_fraxini
+725	0	0	0	0	0	0	1	0	0	0	0	0	0	1	Unassignable
+726	0	0	0	0	0	0	0	2	0	0	0	0	0	0	Unassignable
+727	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+728	0	0	0	0	0	0	0	1	3	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Ceriporiopsis; s__Ceriporiopsis_aneirina
+729	0	17	0	0	16	0	0	9	25	0	3	0	0	147	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__Cortinarius; s__
+730	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+731	0	3	0	0	0	0	0	2	1	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_soil_fungus
+732	0	2	0	0	0	0	0	1	6	0	0	0	1	11	Unassignable
+733	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+734	0	1	0	0	2	0	0	0	3	0	6	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__uncultured_Ascomycota
+735	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+736	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+737	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+738	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+739	0	0	0	0	2	0	0	1	0	0	0	0	0	0	Unassignable
+740	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+741	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+742	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__; o__; f__; t__; g__; s__
+743	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+744	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+745	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+746	12	12	0	0	17	0	0	0	0	0	6	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniaceae; t__; g__Puccinia; s__Puccinia_coronata
+747	1	11	0	0	0	0	0	18	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Melampsoraceae; t__; g__Melampsora; s__
+748	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+749	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+750	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+751	0	0	0	0	3	0	0	0	0	0	0	0	0	0	Unassignable
+752	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+753	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+754	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+755	0	3	10	0	0	0	0	0	1	0	0	0	1	0	Unassignable
+756	0	1	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+757	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+758	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+759	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+760	0	16	0	0	3	0	0	6	20	0	4	0	0	42	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Stropharia; s__
+761	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+762	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+763	3	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+764	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+765	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+766	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+767	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+768	0	0	0	0	0	0	0	6	2	0	0	0	0	0	Unassignable
+769	0	1	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+770	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+771	3	490	6	0	2	0	27	3	33	0	79	0	0	23	Unassignable
+772	1	0	0	0	1	0	0	0	1	0	1	0	0	1	Unassignable
+773	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+774	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+775	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Nodulisporium; s__Nodulisporium_sp_JP60-3
+776	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+777	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Amphinema; s__Amphinema_sp_6_UK-2011
+778	0	3	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+779	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+780	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+781	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_UNEX_FECRGA_2012E186
+782	0	0	1	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+783	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+784	0	5	1	0	3	0	0	13	57	0	3	0	0	11	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__Hyphodontia_breviseta
+785	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+786	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+787	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Entolomataceae; t__; g__; s__
+788	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+789	0	0	0	0	3	0	0	4	4	0	1	0	0	11	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__; t__; g__; s__
+790	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+791	0	3	1	0	0	0	2	14	2	0	7	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Phlebia; s__Phlebia_uda
+792	0	156	0	0	0	0	0	5	0	0	18	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Pleosporaceae; t__; g__Setosphaeria; s__Setosphaeria_monoceras
+793	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+794	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+795	0	2	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Erysiphales; f__Erysiphaceae; t__; g__; s__
+796	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+797	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+798	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Pluteaceae; t__; g__Pluteus; s__Pluteus_umbrosus
+799	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+800	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+801	53	14	2	0	33	0	7	2	3	0	4	0	0	15	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+802	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+803	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+804	3	134	1	0	7	0	21	14	61	0	25	0	0	165	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Psathyrellaceae; t__; g__Coprinellus; s__Coprinellus_aff_radians_1-2PS
+805	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+806	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+807	1	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+808	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+809	0	0	0	0	0	0	0	2	0	0	0	0	0	0	Unassignable
+810	0	17	2	0	3	0	1	36	50	0	1	0	0	48	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+811	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+812	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+813	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+814	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+815	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; sf__Chalciporoideae; t__; g__Chalciporus; s__Chalciporus_piperatus
+816	0	0	0	0	2	0	0	26	1	0	0	0	0	6	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Postia; s__
+817	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+818	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+819	0	0	0	0	2	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Phlebia; s__Phlebia_unica
+820	0	0	0	0	0	0	0	1	12	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Stereaceae; t__; g__Stereum; s__
+821	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+822	0	0	0	0	0	0	0	0	1	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__uncultured_Basidiomycota
+823	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+824	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+825	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+826	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+827	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+828	0	0	0	0	8	0	0	2	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__; t__; g__Resinicium; s__Resinicium_bicolor
+829	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+830	1	1	0	0	0	0	0	1	0	0	4	0	0	0	Unassignable
+831	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+832	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+833	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+834	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+835	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+836	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+837	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+838	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+839	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+840	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+841	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+842	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+843	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+844	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+845	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+846	0	0	0	0	0	0	1	1	0	0	1	0	0	6	Unassignable
+847	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+848	0	0	0	0	1	0	0	0	1	0	0	0	0	8	Unassignable
+849	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+850	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+851	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__
+852	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+853	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+854	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Viridiplantae; p__Streptophyta; c__; sc__rosids; o__Fabales; f__Fabaceae; sf__Papilionoideae; t__Trifolieae; g__Medicago; s__Medicago_truncatula
+855	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+856	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+857	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+858	0	0	0	0	0	0	0	0	3	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__; t__; g__Phialocephala; s__Phialocephala_sphaeroides
+859	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+860	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+861	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+862	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+863	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+864	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+865	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+866	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+867	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+868	0	0	0	0	0	0	0	0	0	0	3	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; o__; f__; t__; g__; s__
+869	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+870	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+871	0	0	5	0	1	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+872	0	0	2	0	29	0	3	0	9	0	1	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__
+873	0	0	0	0	2	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Pezizomycetes; o__Pezizales; f__Pezizaceae; t__; g__Plicaria; s__
+874	0	14	0	0	0	0	1	5	3	0	1	0	0	204	Unassignable
+875	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+876	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+877	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+878	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+879	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+880	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+881	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+882	0	2	0	0	0	0	0	3	1	0	0	0	0	6	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Bolbitiaceae; t__; g__; s__uncultured_Agrocybe
+883	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Oxyporus; s__Oxyporus_corticola
+884	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+885	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+886	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+887	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__Ascomycota_sp_UNEX_FECRGA_2012E516
+888	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+889	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+890	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+891	0	4	0	0	0	0	0	0	1	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Pucciniaceae; t__; g__Puccinia; s__Puccinia_coronata
+892	0	44	1	0	2	0	0	0	1	0	8	0	1	2	Unassignable
+893	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+894	0	0	0	0	1	0	0	1	1	0	0	0	0	14	Unassignable
+895	0	0	1	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+896	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+897	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+898	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+899	1	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+900	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+901	0	0	0	0	3	0	0	1	0	0	0	0	0	0	Unassignable
+902	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+903	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+904	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+905	0	0	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Schizophyllaceae; t__; g__Chondrostereum; s__Chondrostereum_purpureum
+906	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+907	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+908	0	1	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+909	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+910	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+911	0	0	0	0	1	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+912	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+913	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+914	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Barrmaelia; s__Barrmaelia_macrospora
+915	0	0	0	0	0	0	0	1	0	0	1	0	0	0	Unassignable
+916	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+917	9	183	29	0	54	0	20	196	277	0	15	0	3	579	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__; s__
+918	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+919	0	2	0	0	0	0	0	3	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Xylariomycetidae; o__Xylariales; f__Xylariaceae; t__; g__Hypoxylon; s__Hypoxylon_submonticulosum
+920	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+921	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+922	0	1	1	0	1	0	0	7	7	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+923	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+924	2	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+925	0	0	0	0	5	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Cantharellales; f__Botryobasidiaceae; t__; g__Botryobasidium; s__Botryobasidium_subcoronatum
+926	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+927	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+928	3	0	0	0	0	0	0	2	0	0	2	1	0	24	Unassignable
+929	0	0	40	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__; t__; g__; s__
+930	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+931	0	3	0	0	0	0	1	9	7	0	0	0	0	24	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Crepidotaceae; t__; g__Crepidotus; s__Crepidotus_sp_PBM3463
+932	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+933	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+934	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+935	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+936	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+937	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+938	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+939	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; sf__Boletoideae; t__; g__Tylopilus; s__
+940	0	0	0	0	0	0	0	1	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+941	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+942	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+943	0	0	0	0	0	0	0	1	0	0	1	0	0	0	Unassignable
+944	0	0	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+945	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+946	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+947	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+948	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+949	0	4	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+950	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+951	0	20	0	0	0	0	2	3	5	0	2	0	0	8	Unassignable
+952	0	0	0	0	0	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Porodaedalea; s__
+953	0	1	0	0	1	0	0	1	0	0	0	0	0	0	Unassignable
+954	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+955	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+956	0	1	0	0	0	0	0	1	0	0	0	0	0	2	Unassignable
+957	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+958	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+959	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+960	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+961	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+962	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+963	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+964	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+965	0	0	0	0	0	0	0	0	0	0	0	0	0	3	Unassignable
+966	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+967	0	0	0	0	1	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Microbotryales; f__Microbotryaceae; t__; g__Microbotryum; s__Microbotryum_anomalum
+968	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+969	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+970	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+971	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+972	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+973	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+974	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+975	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+976	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+977	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+978	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+979	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+980	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+981	0	1	0	0	1	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+982	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+983	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+984	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+985	0	0	0	0	0	0	0	1	7	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Peniophorella; s__Peniophorella_pubera
+986	0	0	0	0	0	0	0	4	50	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Eurotiomycetes; sc__Eurotiomycetidae; o__Eurotiales; f__Aspergillaceae; t__; g__Thysanophora; s__Thysanophora_penicillioides
+987	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+988	0	1	0	0	0	0	0	0	1	0	0	0	0	11	Unassignable
+989	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+990	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+991	0	0	0	0	0	0	0	1	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Boidinia; s__Boidinia_parva
+992	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+993	3	1	3	0	1	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__uncultured_Basidiomycota
+994	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+995	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+996	0	2	0	0	0	0	0	1	0	0	0	0	0	19	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__Gymnopilus; s__Gymnopilus_cf_rugulosus_Verma_M130
+997	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+998	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+999	0	4	0	0	0	0	0	3	1	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Phellinus; s__Phellinus_lundellii
+1000	0	0	0	0	0	0	0	0	3	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Mensularia; s__Mensularia_radiata
+1001	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1002	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Cantharellales; f__Ceratobasidiaceae; t__; g__; s__Ceratobasidiaceae_sp_CBS_57083
+1003	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1004	0	0	0	0	0	0	0	2	0	0	0	0	0	0	Unassignable
+1005	0	0	0	0	1	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Sistotrema; s__Sistotrema_sp_1_LR-2015
+1006	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1007	0	0	0	0	2	0	0	3	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Sistotremastrum; s__
+1008	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1009	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1010	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1011	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Lachnocladiaceae; t__; g__; s__Lachnocladiaceae_sp_LM164
+1012	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Hymenochaete; s__Hymenochaete_sallei
+1013	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1014	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1015	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1016	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1017	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1018	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Cantharellales; f__Botryobasidiaceae; t__; g__Botryobasidium; s__
+1019	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+1020	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1021	0	0	0	0	1	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1022	0	27	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1023	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Hygrophoropsidaceae; t__; g__Hygrophoropsis; s__
+1024	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Polyporus; s__Polyporus_varius
+1025	1	4	3	0	9	0	1	52	55	0	16	0	0	12	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1026	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1027	0	1	0	0	0	0	0	0	0	0	0	0	0	20	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1028	0	1	0	0	0	0	0	0	9	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1029	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1030	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1031	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Sordariomycetes; sc__Hypocreomycetidae; o__Glomerellales; f__Plectosphaerellaceae; t__; g__Plectosphaerella; s__
+1032	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1033	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1034	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1035	2	2	0	0	0	0	0	0	3	0	1	0	0	1	Unassignable
+1036	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1037	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Sistotremastrum; s__Sistotremastrum_suecicum
+1038	0	7	1	0	1	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Ustilaginomycetes; o__Ustilaginales; f__Ustilaginaceae; t__; g__Pseudozyma; s__Pseudozyma_prolifica
+1039	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1040	0	27	6	0	0	0	1	1	0	0	0	0	0	5	Unassignable
+1041	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1042	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1043	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__uncultured_Dioszegia
+1044	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1045	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1046	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1047	0	0	0	0	0	0	3	0	0	0	0	0	1	2	Unassignable
+1048	0	3	0	0	1	0	0	11	2	0	1	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1049	0	0	0	0	0	0	0	0	4	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; sf__Xerocomoideae; t__; g__Xerocomus; s__Xerocomus_badius
+1050	0	0	0	0	0	0	1	0	1	0	0	0	0	0	Unassignable
+1051	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1052	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1053	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1054	0	0	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+1055	0	0	0	0	0	0	0	1	1	0	3	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Phanerochaetaceae; t__; g__Phanerochaete; s__
+1056	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1057	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1058	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1059	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1060	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Galerina; s__Galerina_sp_KUC20121102-23
+1061	0	0	0	0	1	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1062	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1063	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1064	0	7	0	0	0	0	0	2	5	0	1	0	0	5	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Psathyrellaceae; t__; g__Psathyrella; s__
+1065	1	2	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+1066	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Tricholomataceae; t__; g__Cantharellula; s__Cantharellula_umbonata
+1067	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1068	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__
+1069	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1070	0	0	0	0	0	0	0	2	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Cristinia; s__Cristinia_sp_FP-100305
+1071	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1072	0	3	0	0	0	0	0	2	4	0	0	0	0	6	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__; t__; g__; s__
+1073	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1074	0	3	0	0	0	0	0	0	0	0	14	0	0	1	Unassignable
+1075	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1076	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1077	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1078	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1079	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1080	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1081	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1082	0	0	0	0	0	0	0	4	0	0	0	0	0	0	Unassignable
+1083	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1084	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1085	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1086	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1087	0	0	0	0	1	0	0	2	1	0	0	0	0	13	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__Cortinarius; s__
+1088	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1089	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1090	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1091	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1092	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1093	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1094	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1095	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1096	0	0	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Athelia; s__Athelia_decipiens
+1097	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1098	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1099	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1100	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1101	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1102	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1103	0	1	0	0	6	0	0	225	4	0	12	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Gloeoporus; s__Gloeoporus_dichrous
+1104	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1105	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1106	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1107	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1108	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1109	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1110	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1111	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1112	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1113	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1114	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1115	0	0	0	0	3	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__Hyphodontia_aff_abieticola_UC2022838
+1116	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1117	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1118	4	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1119	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1120	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1121	5	69	2	0	9	0	2	9	67	0	17	0	0	133	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1122	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1123	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1124	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1125	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1126	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1127	0	0	0	0	1	0	0	1	1	0	0	0	0	0	Unassignable
+1128	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1129	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1130	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1131	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1132	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1133	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Tubulicrinis; s__Tubulicrinis_sp_9_LR-2015
+1134	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1135	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Entolomataceae; t__; g__Entoloma; s__Entoloma_sp_H27
+1136	0	0	0	0	13	0	0	364	15	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Fomitopsis; s__
+1137	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1138	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1139	0	4	0	0	0	0	0	1	3	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Hypholoma; s__
+1140	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1141	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1142	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1143	0	0	0	0	22	0	0	4	9	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__
+1144	0	0	0	0	1	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1145	0	1	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+1146	0	0	0	0	0	0	0	1	0	0	0	0	2	0	Unassignable
+1147	0	0	0	0	0	0	0	1	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Crepidotaceae; t__; g__Crepidotus; s__Crepidotus_subverrucisporus
+1148	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1149	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1150	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1151	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1152	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1153	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1154	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1155	0	0	0	0	0	0	0	1	6	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Tapinellaceae; t__; g__Tapinella; s__Tapinella_panuoides
+1156	0	3	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1157	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1158	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Tubulicrinis; s__Tubulicrinis_subulatus
+1159	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1160	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Russulaceae; t__; g__Russula; s__Russula_granulata
+1161	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1162	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1163	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1164	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1165	0	5	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1166	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1167	0	0	0	0	0	0	1	1	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1168	0	2	0	0	2	0	0	7	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1169	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1170	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1171	0	0	0	0	0	0	0	9	14	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__Sporidiobolales; f__; t__; g__; s__
+1172	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1173	0	0	0	0	0	0	0	1	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__Inocybe_fuscidula
+1174	3	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1175	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1176	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1177	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__; p__; c__; o__; f__; t__; g__; s__
+1178	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1179	0	0	0	0	0	0	0	16	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1180	0	65	0	0	0	0	0	1	10	0	5	0	0	10	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+1181	0	4	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Ustilaginomycetes; o__Urocystidales; f__Urocystidaceae; t__; g__Melanoxa; s__Melanoxa_oxalidis
+1182	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1183	0	0	0	0	1	0	0	1	10	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Fuscoporia; s__
+1184	0	1	0	0	0	0	0	0	5	0	0	0	0	4	Unassignable
+1185	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1186	0	0	0	0	2	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Amphinema; s__Amphinema_sp_2_DK-2015
+1187	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1188	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1189	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1190	0	0	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Cantharellales; f__Botryobasidiaceae; t__; g__Botryobasidium; s__Botryobasidium_botryosum
+1191	0	0	0	0	23	0	0	0	0	0	0	0	0	0	Unassignable
+1192	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1193	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1194	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__Inocybe_cf_soriora_JMP0032
+1195	0	1	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__Gymnopilus; s__
+1196	0	0	0	0	1	0	0	0	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Tapinellaceae; t__; g__Tapinella; s__Tapinella_atrotomentosa
+1197	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1198	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1199	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1200	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1201	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1202	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1203	0	0	0	0	0	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+1204	0	1	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Bolbitiaceae; t__; g__Conocybe; s__Conocybe_apala
+1205	0	0	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+1206	1	0	2	0	0	0	0	3	28	0	5	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Exobasidiomycetes; o__Entylomatales; f__; t__; g__Tilletiopsis; s__Tilletiopsis_washingtonensis
+1207	0	3	0	0	0	0	2	3	0	0	3	0	0	0	Unassignable
+1208	0	0	0	0	2	0	0	46	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Amyloporia; s__Amyloporia_xantha
+1209	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1210	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1211	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1212	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1213	0	0	0	0	1	0	0	6	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Skeletocutis; s__Skeletocutis_nivea
+1214	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1215	0	0	0	0	2	0	0	1	2	0	0	0	0	3	Unassignable
+1216	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1217	0	0	0	0	1	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Phlebiella; s__Phlebiella_christiansenii
+1218	0	1	0	0	0	0	0	0	6	0	0	0	0	9	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Psilocybe; s__
+1219	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__Phellinus; s__Phellinus_conchatus
+1220	0	11	0	0	0	0	0	4	28	0	0	0	0	33	Unassignable
+1221	0	0	2	0	0	0	0	15	12	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__Hyphodontia_sp_6_LR-2015
+1222	0	0	0	0	0	0	0	3	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Dacryobolus; s__Dacryobolus_sudans
+1223	0	0	2	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1224	0	1	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1225	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Amphinema; s__
+1226	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1227	0	1	0	0	0	0	0	1	1	0	0	0	1	0	Unassignable
+1228	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1229	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1230	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1231	0	7	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Agaricostilbomycetes; o__; f__; t__; g__Bensingtonia; s__Bensingtonia_sorbi
+1232	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1233	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1234	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1235	0	0	0	0	2	0	0	0	10	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Trechisporales; f__Hydnodontaceae; t__; g__Sistotremastrum; s__Sistotremastrum_sp_UC2022913
+1236	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1237	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1238	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1239	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1240	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1241	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1242	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1243	0	0	0	0	0	0	0	1	1	0	2	0	0	0	sk__Eukaryota; k__; p__; c__; o__; f__; t__; g__; s__uncultured_eukaryote
+1244	0	0	0	0	0	0	0	0	7	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Athelia; s__Athelia_pellicularis
+1245	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1246	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1247	0	0	0	0	0	0	0	0	1	0	0	0	0	10	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__; t__; g__; s__
+1248	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1249	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1250	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1251	0	0	0	0	11	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Skeletocutis; s__Skeletocutis_chrysella
+1252	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1253	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1254	0	0	0	0	0	0	0	0	2	0	0	0	0	1	Unassignable
+1255	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1256	3	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1257	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1258	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1259	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1260	0	0	0	0	0	0	0	10	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Postia; s__Postia_guttulata
+1261	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1262	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1263	0	0	0	0	4	0	0	0	0	0	0	0	0	0	Unassignable
+1264	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1265	0	0	0	0	0	0	0	0	4	0	0	0	0	2	Unassignable
+1266	0	0	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__; t__; g__; s__
+1267	0	0	0	0	2	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Russulaceae; t__; g__Lactarius; s__
+1268	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Tylospora; s__
+1269	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1270	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1271	0	3	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1272	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1273	0	0	0	0	0	0	0	3	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Physalacriaceae; t__; g__Flammulina; s__Flammulina_velutipes
+1274	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+1275	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1276	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1277	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1278	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1279	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1280	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1281	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1282	0	4	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1283	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1284	0	0	0	0	1	0	0	1	0	0	1	0	0	5	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Atheliales; f__Atheliaceae; t__; g__Athelia; s__Athelia_bombacina
+1285	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1286	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1287	0	0	0	0	0	0	0	0	1	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Coniophoraceae; t__; g__Coniophora; s__
+1288	0	0	0	0	0	0	1	0	1	0	0	0	0	0	Unassignable
+1289	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+1290	0	0	0	0	1	0	0	0	0	0	0	0	0	1	Unassignable
+1291	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Hygrophoraceae; t__; g__Cuphophyllus; s__Cuphophyllus_pratensis
+1292	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1293	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1294	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1295	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1296	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1297	0	0	0	0	2	0	0	0	0	0	0	0	0	0	Unassignable
+1298	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1299	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1300	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1301	0	0	0	0	1	0	0	1	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__
+1302	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1303	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1304	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1305	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1306	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1307	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1308	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1309	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1310	0	0	0	0	0	0	0	0	5	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Auriculariales; f__; t__; g__Heterochaetella; s__Heterochaetella_brachyspora
+1311	0	0	0	0	0	0	0	0	4	0	0	0	0	6	Unassignable
+1312	0	9	0	0	1	0	0	4	3	0	2	0	0	76	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Lycoperdaceae; t__; g__; s__
+1313	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1314	0	0	0	0	0	0	0	0	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Lachnocladiaceae; t__; g__Vararia; s__Vararia_sp_UC2023140
+1315	0	0	0	0	0	0	0	1	3	0	0	0	0	19	Unassignable
+1316	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1317	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1318	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1319	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1320	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1321	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1322	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1323	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1324	0	0	0	0	0	0	0	0	8	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Amanitaceae; t__; g__Amanita; s__
+1325	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1326	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+1327	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1328	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1329	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1330	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1331	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Helotiales; f__Helotiaceae; t__; g__; s__uncultured_Helotiaceae
+1332	0	3	0	0	0	0	0	1	1	0	0	0	0	2	Unassignable
+1333	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1334	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1335	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1336	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1337	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hypochnicium; s__Hypochnicium_subrigescens
+1338	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1339	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1340	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__Inocybe_lilacina
+1341	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1342	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1343	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1344	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1345	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1346	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1347	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1348	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1349	0	1	0	0	0	0	0	2	2	0	0	0	0	1	Unassignable
+1350	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1351	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1352	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1353	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1354	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1355	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Russulaceae; t__; g__Russula; s__
+1356	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1357	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1358	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1359	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1360	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1361	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1362	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1363	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1364	0	0	0	0	0	1	0	0	0	0	0	0	0	0	Unassignable
+1365	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1366	0	0	4	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1367	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1368	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1369	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1370	0	0	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+1371	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1372	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1373	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1374	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1375	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphoderma; s__Hyphoderma_setigerum
+1376	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1377	0	0	1	0	0	0	0	13	0	0	5	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__; t__; g__; s__
+1378	0	0	0	0	0	0	0	1	2	0	0	0	0	6	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Psathyrellaceae; t__; g__Psathyrella; s__
+1379	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1380	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1381	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1382	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1383	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1384	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1385	0	0	0	0	0	0	0	0	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1386	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1387	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1388	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1389	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1390	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1391	0	0	0	0	3	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Gelatoporia; s__Gelatoporia_subvermispora
+1392	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1393	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1394	0	0	0	0	0	0	0	1	1	0	0	0	0	1	Unassignable
+1395	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1396	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1397	0	0	0	0	0	0	0	0	0	0	3	0	0	0	Unassignable
+1398	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1399	0	0	0	0	0	0	0	4	1	0	0	0	0	0	Unassignable
+1400	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1401	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1402	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1403	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1404	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1405	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1406	0	0	0	0	0	0	0	0	0	0	2	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1407	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1408	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Tricholomataceae; t__; g__Rickenella; s__
+1409	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1410	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1411	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1412	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1413	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Pleosporaceae; t__; g__Alternaria; s__
+1414	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1415	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1416	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1417	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1418	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Tapinellaceae; t__; g__Pseudomerulius; s__
+1419	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1420	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1421	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1422	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1423	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1424	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1425	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Omphalotaceae; t__; g__Rhodocollybia; s__Rhodocollybia_butyracea
+1426	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1427	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1428	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1429	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1430	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1431	15	3	6	0	0	0	0	0	0	0	0	0	1	1	Unassignable
+1432	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1433	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1434	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1435	0	4	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1436	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1437	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1438	0	2	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1439	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1440	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1441	0	0	0	0	0	0	0	0	4	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Tricholomataceae; t__; g__Panellus; s__Panellus_stipticus
+1442	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1443	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1444	2	0	1	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1445	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1446	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1447	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1448	0	0	0	0	0	0	0	2	0	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__; s__
+1449	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1450	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1451	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1452	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1453	0	0	0	0	0	0	0	1	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__
+1454	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Viridiplantae; p__Streptophyta; c__; sc__rosids; o__Fabales; f__Fabaceae; sf__Papilionoideae; t__Trifolieae; g__Medicago; s__Medicago_crassipes
+1455	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1456	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Saccharomycotina; c__Saccharomycetes; o__Saccharomycetales; f__; t__; g__; s__
+1457	0	1	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+1458	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Albatrellaceae; t__; g__Albatrellus; s__Albatrellus_syringae
+1459	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1460	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1461	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1462	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1463	0	0	0	0	0	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_ectomycorrhizal_fungus
+1464	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1465	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1466	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1467	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1468	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Phanerochaetaceae; t__; g__Ceriporia; s__
+1469	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1470	0	1	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1471	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1472	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1473	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+1474	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1475	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1476	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1477	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1478	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1479	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1480	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Pucciniomycetes; o__Pucciniales; f__Phragmidiaceae; t__; g__Kuehneola; s__Kuehneola_uredinis
+1481	0	0	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+1482	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1483	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1484	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1485	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1486	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1487	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1488	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1489	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1490	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1491	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1492	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1493	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1494	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1495	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1496	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1497	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1498	1	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1499	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1500	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1501	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1502	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1503	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1504	4	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1505	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1506	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1507	0	0	0	0	0	0	0	0	2	0	0	0	0	0	Unassignable
+1508	1	0	0	0	7	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Antrodia; s__
+1509	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1510	0	0	0	0	0	0	0	0	2	0	0	0	0	4	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1511	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1512	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1513	0	2	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1514	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1515	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1516	0	9	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1517	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1518	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1519	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1520	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1521	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1522	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1523	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1524	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1525	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1526	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1527	0	0	0	0	0	0	0	0	0	0	0	0	0	3	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Phallomycetidae; o__Gomphales; f__Gomphaceae; t__; g__Ramaria; s__Ramaria_gracilis
+1528	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1529	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Erysiphales; f__Erysiphaceae; t__; g__Erysiphe; s__
+1530	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1531	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1532	0	0	1	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1533	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1534	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1535	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Peniophorella; s__Peniophorella_praetermissa
+1536	0	1	0	0	0	0	0	0	0	0	3	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Psathyrellaceae; t__; g__Parasola; s__Parasola_leiocephala
+1537	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1538	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1539	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1540	0	0	0	0	0	0	0	12	5	0	6	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__; s__uncultured_Hyphodontia
+1541	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Gloeoporus; s__Gloeoporus_pannocinctus
+1542	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1543	0	0	0	0	1	0	0	32	3	0	0	0	0	0	Unassignable
+1544	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1545	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1546	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1547	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Cerrena; s__Cerrena_unicolor
+1548	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1549	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1550	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1551	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1552	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1553	1	0	2	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; c__; o__; f__; t__; g__; s__
+1554	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1555	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1556	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1557	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1558	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1559	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1560	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1561	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1562	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1563	0	0	0	0	0	0	1	0	0	0	0	0	0	3	Unassignable
+1564	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1565	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1566	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1567	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1568	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1569	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1570	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1571	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__uncultured_Basidiomycota
+1572	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1573	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1574	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1575	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1576	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1577	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1578	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1579	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1580	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1581	0	0	0	0	2	0	0	1	5	0	0	0	0	4	Unassignable
+1582	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1583	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1584	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Bolbitiaceae; t__; g__Bolbitius; s__Bolbitius_vitellinus
+1585	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1586	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1587	0	0	0	0	0	0	0	0	2	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Strophariaceae; t__; g__Pholiota; s__Pholiota_gummosa
+1588	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1589	0	0	0	0	0	0	0	0	7	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+1590	0	4	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1591	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1592	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1593	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1594	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1595	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1596	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1597	0	1	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__
+1598	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Tremellales; f__; t__; g__; s__
+1599	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1600	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1601	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1602	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1603	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1604	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1605	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1606	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1607	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1608	0	1	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1609	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1610	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1611	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1612	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1613	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1614	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1615	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1616	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Psathyrellaceae; t__; g__; s__uncultured_Coprinellus
+1617	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1618	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1619	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1620	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1621	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1622	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1623	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1624	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; sf__Leccinoideae; t__; g__Leccinum; s__
+1625	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1626	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1627	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1628	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1629	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1630	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1631	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1632	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+1633	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1634	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1635	0	0	1	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1636	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1637	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1638	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1639	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1640	0	0	0	0	0	0	0	0	1	0	0	0	0	2	Unassignable
+1641	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1642	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1643	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1644	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1645	0	0	0	0	0	0	0	1	0	0	0	0	0	1	Unassignable
+1646	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1647	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1648	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1649	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1650	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Auriculariales; f__Exidiaceae; t__; g__Exidia; s__Exidia_glandulosa
+1651	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Exobasidiomycetes; o__Microstromatales; f__; t__; g__; s__
+1652	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1653	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1654	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1655	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1656	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1657	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1658	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1659	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1660	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1661	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1662	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1663	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1664	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1665	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1666	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1667	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1668	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1669	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1670	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1671	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1672	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1673	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1674	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1675	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1676	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1677	0	0	0	0	0	0	0	13	5	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1678	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1679	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1680	2	0	2	0	0	0	0	4	54	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1681	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1682	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1683	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1684	0	0	0	0	0	0	0	0	1	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Serpulaceae; t__; g__Serpula; s__
+1685	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1686	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1687	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1688	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1689	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1690	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1691	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1692	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Unassignable
+1693	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1694	0	0	0	0	0	0	0	0	0	0	0	1	0	17	Unassignable
+1695	0	0	0	0	0	0	0	2	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphoderma; s__Hyphoderma_mutatum
+1696	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1697	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1698	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1699	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1700	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1701	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1702	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1703	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1704	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1705	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1706	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1707	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1708	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1709	0	0	0	0	0	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1710	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Tricholomataceae; t__; g__Melanoleuca; s__
+1711	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1712	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1713	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1714	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1715	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1716	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1717	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Tremellomycetes; o__Filobasidiales; f__; t__; g__Cryptococcus; s__Cryptococcus_sp_6-13
+1718	116	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1719	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1720	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1721	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1722	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1723	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1724	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1725	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1726	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1727	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1728	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1729	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1730	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1731	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__; t__; g__Leucogyrophana; s__Leucogyrophana_romellii
+1732	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1733	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1734	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1735	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1736	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Amylocorticiales; f__Amylocorticiaceae; t__; g__Amylocorticium; s__
+1737	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1738	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1739	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1740	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1741	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1742	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1743	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1744	0	0	0	0	0	0	0	0	0	0	0	0	0	2	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1745	0	0	0	0	0	0	0	1	1	0	0	0	0	1	Unassignable
+1746	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1747	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Leotiomycetes; o__Erysiphales; f__Erysiphaceae; t__; g__Golovinomyces; s__Golovinomyces_cichoracearum
+1748	0	0	0	0	14	0	0	8	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Coriolaceae; t__; g__Antrodiella; s__
+1749	0	0	0	0	0	0	0	1	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Inocybaceae; t__; g__Inocybe; s__Inocybe_calamistratoides
+1750	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1751	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1752	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1753	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Polyporaceae; t__; g__Fibroporia; s__
+1754	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1755	0	0	0	0	0	0	0	1	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Russulales; f__Peniophoraceae; t__; g__Peniophora; s__
+1756	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1757	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1758	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1759	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1760	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1761	0	0	0	0	0	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__Meruliaceae; t__; g__Ceraceomyces; s__Ceraceomyces_microsporus
+1762	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1763	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1764	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1765	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1766	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1767	0	0	0	0	1	0	0	8	8	0	11	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Sistotrema; s__
+1768	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1769	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1770	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1771	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1772	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1773	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1774	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1775	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1776	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1777	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1778	0	0	0	0	0	0	0	3	3	0	0	0	0	0	Unassignable
+1779	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1780	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1781	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1782	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1783	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1784	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1785	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1786	0	0	0	0	1	0	0	1	0	0	0	0	0	0	Unassignable
+1787	0	0	0	0	0	0	0	2	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1788	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1789	0	0	0	0	0	0	0	1	1	0	0	0	0	0	Unassignable
+1790	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1791	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1792	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1793	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1794	0	4	0	0	3	0	0	4	7	0	0	0	0	20	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Pluteaceae; t__; g__Pluteus; s__
+1795	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1796	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1797	1	0	0	0	0	0	0	1	5	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+1798	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1799	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1800	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1801	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1802	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1803	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1804	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1805	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1806	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1807	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1808	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1809	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1810	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1811	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__Hebeloma; s__
+1812	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1813	0	0	1	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1814	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1815	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1816	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1817	0	0	0	0	0	0	0	1	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__Hymenochaetaceae; t__; g__; s__
+1818	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1819	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1820	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1821	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1822	0	0	0	0	0	0	1	0	1	0	0	0	0	0	Unassignable
+1823	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1824	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1825	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1826	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1827	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1828	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1829	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1830	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1831	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1832	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1833	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1834	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1835	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1836	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1837	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1838	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1839	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1840	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1841	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1842	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1843	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1844	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1845	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_zygomycete
+1846	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1847	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1848	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1849	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1850	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1851	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1852	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1853	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1854	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1855	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1856	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1857	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Amanitaceae; t__; g__Amanita; s__
+1858	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1859	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1860	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1861	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1862	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1863	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1864	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1865	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1866	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1867	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1868	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1869	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1870	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1871	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1872	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1873	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1874	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Ustilaginomycetes; o__Urocystidales; f__Glomosporiaceae; t__; g__Thecaphora; s__Thecaphora_amaranthi
+1875	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1876	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1877	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1878	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_mycorrhizal_fungus
+1879	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1880	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1881	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1882	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Cortinariaceae; t__; g__; s__uncultured_Inocybe
+1883	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1884	1	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+1885	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1886	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1887	0	0	0	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Amanitaceae; t__; g__Amanita; s__
+1888	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1889	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1890	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1891	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1892	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1893	0	5	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1894	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1895	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1896	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1897	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1898	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__Boletaceae; t__; g__; s__
+1899	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1900	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1901	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1902	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1903	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1904	0	2	0	0	0	0	0	0	1	0	0	0	1	0	Unassignable
+1905	0	1	0	0	0	0	0	0	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+1906	0	0	0	0	0	0	0	10	1	0	0	0	0	0	Unassignable
+1907	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1908	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1909	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1910	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+1911	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1912	0	3	7	0	0	0	0	0	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1913	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1914	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1915	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1916	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1917	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1918	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1919	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1920	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1921	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1922	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1923	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1924	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1925	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1926	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1927	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1928	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1929	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1930	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1931	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1932	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1933	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1934	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1935	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1936	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1937	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1938	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1939	0	0	0	0	0	0	0	0	2	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__; f__; t__; g__; s__
+1940	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1941	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1942	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1943	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1944	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1945	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1946	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1947	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1948	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1949	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1950	0	0	0	0	0	0	3	6	7	0	0	0	0	10	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+1951	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1952	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1953	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Bolbitiaceae; t__; g__Conocybe; s__
+1954	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1955	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1956	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1957	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1958	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1959	0	1	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Agaricaceae; t__; g__Leucoagaricus; s__Leucoagaricus_holosericeus
+1960	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1961	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1962	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1963	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1964	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1965	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1966	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1967	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1968	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1969	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+1970	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1971	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1972	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1973	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1974	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1975	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+1976	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+1977	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1978	2	0	0	0	0	0	0	0	8	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Pucciniomycotina; c__Microbotryomycetes; o__; f__; t__; g__Rhodotorula; s__
+1979	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1980	0	0	0	0	1	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__
+1981	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1982	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1983	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1984	0	0	0	0	0	0	0	0	1	0	1	0	0	2	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Boletales; f__; t__; g__Leucogyrophana; s__Leucogyrophana_olivascens
+1985	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1986	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1987	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1988	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+1989	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1990	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+1991	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+1992	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Phallomycetidae; o__Gomphales; f__Gomphaceae; t__; g__Ramaria; s__Ramaria_sp_16_RG-2012
+1993	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1994	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+1995	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+1996	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+1997	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1998	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+1999	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2000	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2001	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2002	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2003	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2004	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2005	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2006	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2007	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2008	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2009	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2010	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2011	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2012	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2013	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2014	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2015	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2016	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2017	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2018	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2019	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2020	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2021	0	0	0	0	0	0	0	0	2	0	0	0	0	1	Unassignable
+2022	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2023	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2024	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2025	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2026	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2027	0	2	0	0	0	0	0	2	9	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__
+2028	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2029	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2030	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2031	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2032	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2033	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2034	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2035	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2036	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2037	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2038	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2039	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2040	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2041	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2042	0	3	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2043	0	0	0	0	5	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; c__; o__; f__; t__; g__; s__Basidiomycota_sp_7-LS-4-C-44(M)-A
+2044	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2045	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2046	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2047	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2048	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2049	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2050	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2051	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2052	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2053	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2054	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2055	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2056	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2057	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2058	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2059	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2060	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2061	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2062	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2063	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2064	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2065	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2066	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2067	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2068	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2069	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2070	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2071	0	0	0	0	0	0	0	3	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Polyporales; f__; t__; g__Steccherinum; s__Steccherinum_fimbriatum
+2072	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2073	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2074	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2075	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2076	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2077	0	1	0	0	1	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Hymenochaetales; f__; t__; g__Resinicium; s__Resinicium_aff_furfuraceum_UC2023081
+2078	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2079	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2080	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2081	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+2082	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2083	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2084	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2085	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2086	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2087	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2088	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2089	0	0	0	0	0	0	0	0	0	0	1	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Bolbitiaceae; t__; g__Conocybe; s__Conocybe_hausknechtii
+2090	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2091	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2092	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2093	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2094	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2095	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2096	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2097	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2098	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2099	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2100	0	0	0	0	1	0	0	2	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Ustilaginomycotina; c__Exobasidiomycetes; o__Entylomatales; f__Entylomataceae; t__; g__Entyloma; s__
+2101	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2102	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2103	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2104	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2105	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2106	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2107	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2108	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2109	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2110	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2111	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2112	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2113	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2114	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2115	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2116	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2117	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2118	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2119	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2120	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2121	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2122	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2123	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2124	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2125	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2126	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2127	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2128	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2129	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2130	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2131	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2132	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2133	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2134	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2135	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2136	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2137	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2138	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2139	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2140	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2141	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2142	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2143	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2144	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2145	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2146	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2147	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2148	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2149	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2150	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2151	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2152	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2153	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2154	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2155	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2156	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2157	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2158	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2159	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2160	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2161	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2162	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2163	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2164	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2165	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2166	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2167	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2168	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2169	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2170	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2171	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2172	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2173	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2174	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2175	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2176	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2177	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2178	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2179	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2180	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2181	0	0	0	0	0	0	0	1	3	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__
+2182	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2183	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2184	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2185	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2186	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2187	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2188	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2189	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2190	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2191	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2192	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2193	0	0	0	0	0	0	0	1	1	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; o__Corticiales; f__Corticiaceae; t__; g__Hyphodontia; s__
+2194	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2195	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2196	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2197	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2198	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2199	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2200	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2201	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2202	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2203	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2204	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2205	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2206	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2207	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2208	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2209	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2210	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2211	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2212	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2213	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2214	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2215	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2216	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2217	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2218	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2219	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2220	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2221	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2222	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2223	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2224	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2225	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2226	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2227	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2228	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2229	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2230	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2231	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2232	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2233	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2234	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2235	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2236	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2237	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2238	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2239	0	1	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Physalacriaceae; t__; g__Armillaria; s__Armillaria_cf_calvescens_X-59
+2240	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2241	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2242	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2243	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2244	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2245	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2246	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2247	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2248	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2249	0	1	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2250	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2251	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2252	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2253	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2254	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2255	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2256	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2257	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2258	1	0	0	0	0	0	0	0	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__; c__; o__; f__; t__; g__; s__uncultured_fungus
+2259	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2260	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2261	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2262	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2263	0	0	0	0	0	0	0	0	0	0	0	0	0	1	sk__Eukaryota; k__Fungi; p__Basidiomycota; sp__Agaricomycotina; c__Agaricomycetes; sc__Agaricomycetidae; o__Agaricales; f__Lycoperdaceae; t__; g__Lycoperdon; s__Lycoperdon_pyriforme
+2264	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2265	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2266	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2267	1	1	0	0	0	0	0	0	3	0	0	0	0	0	Unassignable
+2268	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2269	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2270	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2271	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2272	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2273	0	0	0	0	0	0	0	1	0	0	0	0	0	0	sk__Eukaryota; k__Fungi; p__Ascomycota; sp__Pezizomycotina; c__Dothideomycetes; sc__Pleosporomycetidae; o__Pleosporales; f__Pleosporaceae; t__; g__; s__uncultured_Pleosporaceae
+2274	0	0	7	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2275	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2276	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2277	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2278	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2279	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2280	1	1	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2281	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2282	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2283	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2284	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2285	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2286	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2287	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2288	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2289	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2290	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2291	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2292	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2293	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2294	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2295	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2296	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2297	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2298	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2299	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2300	0	0	0	1	0	0	0	0	1	0	1	0	0	0	Unassignable
+2301	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2302	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2303	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2304	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2305	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2306	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2307	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2308	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2309	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2310	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2311	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2312	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2313	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2314	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2315	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2316	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2317	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2318	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2319	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2320	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2321	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2322	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2323	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2324	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2325	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2326	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2327	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2328	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2329	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2330	1	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2331	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2332	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2333	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2334	1	0	3	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2335	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2336	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2337	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2338	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2339	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2340	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2341	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2342	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2343	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2344	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2345	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2346	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2347	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2348	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2349	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2350	0	0	0	0	0	0	0	0	0	0	2	0	0	0	Unassignable
+2351	0	2	0	0	0	0	0	0	0	0	3	0	0	0	Unassignable
+2352	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2353	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2354	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2355	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2356	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2357	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2358	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2359	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2360	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2361	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2362	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2363	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2364	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2365	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2366	3	0	2	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2367	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2368	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2369	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2370	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2371	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2372	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2373	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2374	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2375	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2376	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2377	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2378	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2379	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2380	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2381	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2382	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2383	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2384	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2385	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2386	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2387	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2388	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2389	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2390	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2391	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2392	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2393	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2394	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2395	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2396	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2397	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2398	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2399	14	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2400	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2401	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2402	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2403	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2404	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2405	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2406	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2407	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2408	63	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2409	2	0	2	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2410	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2411	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2412	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2413	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2414	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2415	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2416	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2417	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2418	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2419	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2420	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2421	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2422	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2423	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2424	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2425	12	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2426	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2427	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2428	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2429	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2430	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2431	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2432	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2433	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2434	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2435	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2436	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2437	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2438	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2439	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2440	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2441	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2442	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2443	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2444	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2445	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2446	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2447	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2448	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2449	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2450	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2451	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2452	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2453	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2454	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2455	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2456	0	0	8	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2457	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2458	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2459	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2460	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2461	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2462	3	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2463	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2464	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2465	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2466	2	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2467	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2468	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2469	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2470	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2471	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2472	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2473	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2474	0	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2475	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2476	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2477	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2478	0	1	5	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2479	2	0	0	0	0	0	0	0	0	0	1	0	0	0	Unassignable
+2480	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2481	0	0	0	0	0	0	0	0	0	0	1	0	0	1	Unassignable
+2482	2	2	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2483	1	0	0	1	0	0	0	0	0	0	1	0	0	0	Unassignable
+2484	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2485	0	0	0	1	0	0	0	0	0	0	0	0	0	0	Unassignable
+2486	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2487	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2488	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2489	0	0	0	0	0	0	1	0	0	0	0	0	0	0	Unassignable
+2490	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2491	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2492	1	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2493	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2494	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2495	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2496	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2497	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2498	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2499	0	1	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2500	2	0	0	0	0	0	0	0	1	0	1	0	0	0	Unassignable
+2501	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2502	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2503	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2504	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2505	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2506	0	0	0	0	1	0	0	0	0	0	0	0	0	0	Unassignable
+2507	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2508	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2509	0	0	0	0	0	0	0	0	1	0	0	0	0	0	Unassignable
+2510	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2511	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2512	0	0	0	0	0	0	0	0	0	1	0	0	0	0	Unassignable
+2513	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2514	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2515	1	0	0	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2516	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
+2517	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2518	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2519	0	0	0	0	0	0	0	1	0	0	1	0	0	0	Unassignable
+2520	0	0	0	0	0	0	0	0	0	0	0	0	0	1	Unassignable
+2521	0	0	0	0	0	0	0	1	0	0	0	0	0	0	Unassignable
+2522	0	0	1	0	0	0	0	0	0	0	0	0	0	0	Unassignable
+2523	0	0	0	0	0	0	0	0	0	0	0	0	1	0	Unassignable
+2524	0	0	0	0	0	0	0	0	0	0	0	1	0	0	Unassignable
