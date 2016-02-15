@@ -115,10 +115,21 @@
     		</data>
   	</outputs>
 
-
-  
-	<test>
-	</test>
+	<tests>
+		<test>
+			<param name="lca" value="Galazy10-[LCA_Results].tabular"/>
+			<param name="clustermapselect" value="yes"/>
+			<param name="" value=""/>
+			<param name="clustermap" value="Galaxy13-[QIIME_OTU_mapping].tabular"/>
+			<param name="names" value="false"/>
+			<param name="taxamap" value="false"/>
+			<param name="source" value="locfile"/> 
+			<param name="taxonomydisk" value="ncbi Jan 2014"/>
+			<param name="filterflag" value="no"/>
+			<param name="advancedoptions" value="no"/>
+			<output name="output" file="OTU Table"/>
+		</test>
+	</tests>
 
 	<help>
 **Description**
