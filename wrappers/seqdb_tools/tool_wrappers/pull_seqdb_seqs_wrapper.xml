@@ -51,10 +51,10 @@
       <conditional name="pull_type_cond">
           <param name="pull_type" type="select" label="Select which sequences you would like to load *">
               <option value="consensus">Consensus sequences</option>
-              <option value="all">All sequences</option>
+              <option value="raw">Raw sequences</option>
               <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
-          <when value="all">
+          <when value="raw">
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
 	      <param name="sample_name" type="text" label="Filter on Sample Name (keyword)" optional="True" />
@@ -122,7 +122,7 @@ Required fields are marked with a * .
 
 .. class:: warningmark
 
-**Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "All Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
+**Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "Raw Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
 
 --------
 
