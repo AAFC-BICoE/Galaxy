@@ -280,9 +280,9 @@
 	</inputs>
 
         <outputs>
-                <data name="phyml_tree" format="txt" from_work_dir="${filename}_phyml_tree.txt" label="PhyML Tree"/>
+                <data name="phyml_tree" format="nhx" from_work_dir="${filename}_phyml_tree.txt" label="PhyML Tree"/>
                 <data name="phyml_stats" format="txt" from_work_dir="${filename}_phyml_stats.txt" label="PhyML Stats"/>
-		<data name="phyml_boot_trees" format="txt" from_work_dir="${filename}_phyml_boot_trees.txt" label="PhyML Bootstrap Trees">
+		<data name="phyml_boot_trees" format="nhx" from_work_dir="${filename}_phyml_boot_trees.txt" label="PhyML Bootstrap Trees">
     			<filter>(data_sets_selector['data_sets']=="1" and data_sets_selector['bootstrap_selector']['bootstrap']=="1")</filter> 
 		</data>
 		<data name="phyml_boot_stats" format="txt" from_work_dir="${filename}_phyml_boot_stats.txt" label="PhyML Bootstrap Stats">

@@ -1,0 +1,133 @@
+<tool id="extractEvidence" name="Extract LCA Evidence" version="1.0">
+
+	<description>
+  		Takes lca output files and extracts the evidence for identifications.
+  	</description>
+
+	<stdio>
+    		<exit_code range="1:" level="fatal" description="Error"/>
+  	</stdio>
+
+  	<command interpreter="perl">
+  		extractEvidence.pl
+			--input=$inputfile
+  		#if $input1.uselcaout == True:
+			--lcaout=$input1.lcaout
+  		#end if
+  		#if $input2.uselcalog == True:
+			--lcalog=$input2.lcalog
+  		#end if
+  		#if $input3.uselcatab == True:
+			--lcatab=$input3.lcatab
+  		#end if
+  		#if $input4.useblastraw == True:
+			--rawblast=$input4.blastraw
+  		#end if
+  		#if $input5.useblasttab == True:
+			--blastout=$input5.blasttab
+  		#end if
+  	</command>
+
+  	<inputs>
+    		<param name="inputfile" type="data" label="representative sequences"/>
+    		
+		<conditional name="input1">
+    			<param name="uselcaout" type="boolean" checked="false" label="use lca results"/>
+				<when value="true">
+					<param name="lcaout" type="data" label="LCA Results"/>
+				</when>
+   		</conditional>
+
+    		<conditional name="input2">
+    			<param name="uselcalog" type="boolean" checked="false" label="use lca log"/>
+				<when value="true">
+					<param name="lcalog" type="data" label="LCA Log"/>
+				</when>
+    		</conditional>
+
+    		<conditional name="input3">
+    			<param name="uselcatab" type="boolean" checked="false" label="use lca tab log"/>
+				<when value="true">
+					<param name="lcatab" type="data" label="LCA Log Tab"/>
+				</when>
+    		</conditional>
+
+    		<conditional name="input4">
+    			<param name="useblastraw" type="boolean" checked="false" label="use raw blast output"/>
+				<when value="true">
+					<param name="blastraw" type="data" label="Blast Raw"/>
+				</when>
+   		 </conditional>
+
+    		<conditional name="input5">
+    			<param name="useblasttab" type="boolean" checked="false" label="use tabular blast output"/>
+				<when value="true">
+					<param name="blasttab" type="data" label="Blast Tabular"/>
+				</when>
+    		</conditional>
+  	</inputs>
+
+  	<outputs>
+    		<data name="sourceseqs" format="tabular" label="Source Seqids" from_work_dir="source.seqids">
+      			<filter>input1['uselcaout'] is True</filter>
+    		</data>
+    		<data name="lcalogout" format="tabular" label="Subset LCA log" from_work_dir="lca.log">
+      			<filter>input2['uselcalog'] is True</filter>
+    		</data>
+    		<data name="hitstaxa" format="tabular" label="Blast Hit Lineages" from_work_dir="hits.taxa">
+      			<filter>input2['uselcalog'] is True</filter>
+    		</data>
+    		<data name="lcatabout" format="tabular" label="Use/Discard Reasons" from_work_dir="lca.log.tab">
+      			<filter>input3['uselcatab'] is True</filter>
+    		</data>
+    		<data name="parsedBlastTab" format="txt" label="Subset Blast Tabular" from_work_dir="blast.tabular">
+      			<filter>input5['useblasttab'] is True</filter>
+    		</data>
+    		<data name="parsedBlastRaw" format="txt" label="Subset Blast Raw" from_work_dir="blast.raw">
+      			<filter>input4['useblastraw'] is True</filter>
+    		</data>
+  	</outputs>
+
+
+  	<test>
+	</test>
+  	
+	<help>
+**Description**
+
+Takes a list of representative sequence ids and provides evidence for the identifications.
+
+.. class:: infomark
+
+extract_seqs can be run with "only pull repseqs" and "pull seqids" to obtain the desired sequence ids.
+
+-----
+
+**Inputs and Outputs**
+
+This tool provides evidence of identifications depending on input files:
+	+ lcaout	gives list of seqids used as the basis of the LCA identification (Output file name: Source Seqids)
+	+ lcalog	gives full log of lca algorithm as well as taxonomy of all blast matches (Output file name: Subset LCA Log, Blast Hit Lineages)
+	+ lcatab	gives reasons for why certain blast hits were discarded (Output file name: Use/Discard Reasons)
+	+ blasttab	subset of blast report (Output file name: Subset Blast Tabular)
+	+ blastraw	subset of blast report (Output file name: Subset Blast Raw)
+
+-----
+
+**Author**
+
+- Extract LCA Evidence Script and Wrapper:
+	+ Script Name: extractEvidence.pl
+	+ Wrapper Name: extractEvidence.xml
+	+ Nan Zhang
+	+ Agriculture and Agri-food Canada, Ottawa, ON, Canada 
+
+----
+
+**References**
+
+AAFC-AAC Bioinformatics
+  	</help>
+
+</tool>
+

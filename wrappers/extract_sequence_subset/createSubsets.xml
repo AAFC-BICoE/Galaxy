@@ -1,0 +1,120 @@
+<tool id="createSubsets" name="Extract Sequence Subset" version="1.0">
+
+  	<description> 
+  		Extracts sequence based on either taxonomy or OTU numbers from the LCA/QIIME identifications.
+  	</description>
+	
+	<stdio>
+    		<exit_code range="1:" level="fatal" description="Error"/>
+  	</stdio>
+
+  	<command interpreter="perl">
+  		createSubsets.pl
+		#if $input.format.__str__ == "fasta":
+			--fasta=$fasta
+		#elif $input.format.__str__ == "index":
+			--idxfasta=$idxfasta
+		#end if
+		--mapping=$mapping
+		#if $mode.filtermode.__str__ == "tax":
+			--taxonomy=$mode.taxonomy
+			--biomtab=$mode.biomtab
+		#elif $mode.filtermode.__str__ == "otu":	
+			--otunbr=$mode.otulist	
+		#end if	
+		--output=$output
+		$seqidsonly
+		$onlyrepseqs
+		$createindex
+  	</command>
+
+  	<inputs>
+   		<conditional name="input">
+			<param name="format" type="select" label="input format">
+				<option value="fasta">Fasta</option>
+				<option value="index">Index Fasta</option>
+			</param>
+			<when value="fasta">
+				<param name="fasta" type="data" label="Input Fasta"/>
+			</when>
+			<when value="index">
+				<param name="idxfasta" type="data" label="Input Index Fasta"/>
+			</when>	
+   		</conditional>
+   
+		<conditional name="mode">
+			<param name="filtermode" type="select" label="Filter type">
+				<option value="tax">Filter on Taxonomy</option>
+				<option value="otu">Filter on OTUs</option>
+			</param>
+			<when value="tax">
+	    			<param name="taxonomy" type="text" label="Taxonomy (ex: o__order)"/>
+	    			<param name="biomtab" type="data" label="OTU Table"/>
+			</when>
+			<when value="otu">
+	    			<param name="otulist" type="text" label="OTU list (ex: 1,2,3,5,8)"/>
+			</when>
+  		</conditional>
+
+  		<param name="mapping" type="data" label="qiimeotu mapping"/>
+  		
+		<param name="seqidsonly" type="boolean" truevalue="--ids-only" falsevalue="" label="only pull seqids"/>
+
+  		<param name="onlyrepseqs" type="boolean" truevalue="--rep-seqs" falsevalue="" label="only pull repseqs"/>
+
+  		<param name="createindex" type="boolean" truevalue="--create-index" falsevalue="" label="create index fasta"/>
+  	</inputs>
+
+  	<outputs>
+     		<data name="output" format="fasta" label="Extracted Seqs"/>
+     		<data name="indexed" format="binary" label="Index Fasta File" from_work_dir="tempfastafile.idx">
+			<filter>createindex is True</filter>
+     		</data>
+  	</outputs>
+
+  
+  	<test>
+	</test>
+ 	
+	<help>
+**Description**
+
+This tool will filter out sequences based on either OTU numbers or taxonomy 
+and write them to file either just as sequence ids or including the sequence information in a fasta file.
+
+Takes a otu mapping file (qiimeotu) and a fasta file or index fasta file. Depending on the format of
+the file containing the sequences (fasta, index) the script will accordingly extract any sequence matching
+to either the otu number or taxonomy. This script will not create an index automatically unless the index 
+flag is specified.
+
+----
+
+**Inputs and Outputs**
+
+- Inputs:
+	+ Fasta file or Index Fasta file
+	+ OTU Mapping file (quiimeotu)
+
+- Ouput:
+	+ Extracted Seqs
+	+ Index Fasta file
+	
+-----
+
+**Author**
+
+- Extract Sequence Subset Script and Wrapper:
+	+ Script Name: createSubsets.pl
+	+ Wrapper Name: createSubsets.xml
+	+ Nan Zhang
+	+ Agriculture and Agri-food Canada, Ottawa, ON, Canada 
+
+----
+
+**References:**
+
+AAFC-AAC Bioinformatics
+	</help>
+
+</tool>
+
