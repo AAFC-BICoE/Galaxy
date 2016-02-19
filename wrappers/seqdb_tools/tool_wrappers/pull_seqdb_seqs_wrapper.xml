@@ -10,6 +10,12 @@
       
       pull_seqdb_seqs -c $config_file $pull_type_cond.pull_type
         #if $pull_type_cond.pull_type != "its"
+	    #if $pull_type_cond.pull_type == "raw"
+		#if $pull_type_cond.return_type_cond.return_type == "fastq" or $pull_type_cond.return_type_cond.return_type == "fasta"
+			-r $pull_type_cond.return_type_cond.return_type
+		#end if
+            #end if
+
             #if $pull_type_cond.specimen_nums
                 --specNums "$pull_type_cond.specimen_nums"
             #end if
@@ -55,6 +61,12 @@
               <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
           <when value="raw">
+	      <conditional name="return_type_cond">
+		   <param name="return_type" type="select" label="Sequence file output format" display="radio">
+		       <option value="fasta">Fasta</option>
+		       <option value="fastq">Fastq</option>
+		   </param>
+              </conditional> 
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
 	      <param name="sample_name" type="text" label="Filter on Sample Name (keyword)" optional="True" />
@@ -96,15 +108,16 @@
   </inputs>
   
   <outputs>
-    <data name="seqdb_sequences"
-        format="fasta"
-        from_work_dir="seqdb_sequences.fasta"
-        label="Sequences from SeqDB" />
-    <data name="seqdb_taxonomy_file"
-        format="txt"
-        from_work_dir="seqdb_taxonomy_file.txt"
-        label="Taxonomy file for SeqDB sequences">
-
+    <data name="seqdb_sequences" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']!="raw"</filter>
+    </data>
+    <data name="seqdb_sequences_fasta" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fasta"</filter>
+    </data>
+    <data name="seqdb_sequences_fastq" format="fastq" from_work_dir="seqdb_sequences.fastq" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fastq"</filter>
+    </data>
+    <data name="seqdb_taxonomy_file" format="txt" from_work_dir="seqdb_taxonomy_file.txt" label="Taxonomy file for SeqDB sequences">
         <filter>pull_type_cond['output_taxonomy']</filter> 
     </data>
   </outputs>
