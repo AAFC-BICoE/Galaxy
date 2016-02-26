@@ -1,0 +1,45 @@
+<tool id="quast" name="quast" version="1.0.0" >
+	<description>Quast tool. Wrapper was created by Jacob Jablonski</description>
+		
+	<requirements>
+		<requirement type="package" version="2.3">quast</requirement>
+	</requirements>
+
+	<command>		
+		quast.py 
+		 -o outputdir
+		
+		#if $gene_selection == "eukaryote" :
+			--eukaryote
+		#end if
+		
+		#if $gene_selection == "Metagenes" :
+			--meta
+                #end if
+		
+		--min-contig $min_contig
+		
+		
+		#for $i in $files:
+			$i.input
+		#end for
+		;
+		cp outputdir/report.txt $quast_out;
+	</command>
+	
+	<inputs>
+		<repeat name="files" title="Input contig files">	
+			<param type="data" format="fasta" name="input" label="Contigs output file" />	
+		</repeat>
+		<param name="gene_selection" type="select" >
+			<option value="eukaryote">Eukaryote</option>
+			<option value="prokaryotes">Prokaryotes</option>
+			<option value="Metagenes">Metagenomes</option>
+		</param>
+		<param name="min_contig" type="integer" value="500" label="Set the threshold for the contig length (default is 500)"/>
+	</inputs>
+	
+	<outputs>
+		<data format="txt" name="quast_out" label="Quast report.txt" />
+	</outputs>
+</tool>
