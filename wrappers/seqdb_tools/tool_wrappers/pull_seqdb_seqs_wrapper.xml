@@ -7,9 +7,14 @@
   <expand macro="stdio" />
   
   <command>
-      
       pull_seqdb_seqs -c $config_file $pull_type_cond.pull_type
         #if $pull_type_cond.pull_type != "its"
+	    #if $pull_type_cond.pull_type == "raw"
+		#if $pull_type_cond.return_type_cond.return_type == "fastq" or $pull_type_cond.return_type_cond.return_type == "fasta"
+			-r $pull_type_cond.return_type_cond.return_type
+		#end if
+            #end if
+
             #if $pull_type_cond.specimen_nums
                 --specNums "$pull_type_cond.specimen_nums"
             #end if
@@ -17,6 +22,10 @@
             #if $pull_type_cond.sequence_name
                 --seqName  $pull_type_cond.sequence_name
             #end if
+
+	    #if $pull_type_cond.sample_name
+		--sampleName $pull_type_cond.sample_name
+	    #end if
 
             #if $pull_type_cond.region_name
                 --geneRegion  $pull_type_cond.region_name
@@ -37,8 +46,7 @@
             #if $pull_type_cond.output_taxonomy
             	-t 
             #end if
-        #end if
-      
+        #end if 
   </command>
 
   <inputs>
@@ -47,12 +55,20 @@
       <conditional name="pull_type_cond">
           <param name="pull_type" type="select" label="Select which sequences you would like to load *">
               <option value="consensus">Consensus sequences</option>
-              <option value="all">All sequences</option>
+              <option value="raw">Raw sequences</option>
+	      <option value="all">All Sequences</option>	
               <option value="its" help="ITS sequences are defined as sequences linked to a region which has ITS region symbols in its name.">ITS sequences</option>
           </param>
-          <when value="all">
+          <when value="raw">
+	      <conditional name="return_type_cond">
+		   <param name="return_type" type="select" label="Sequence file output format" display="radio">
+		       <option value="fasta">Fasta</option>
+		       <option value="fastq">Fastq</option>
+		   </param>
+              </conditional> 
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
+	      <param name="sample_name" type="text" label="Filter on Sample Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
               <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
@@ -70,6 +86,25 @@
           <when value="consensus">
               <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
               <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
+	      <param name="sample_name" type="text" label="Filter on Sample Name (keyword)" optional="True" />
+              <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
+              <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
+              <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
+              <param name="taxon_rank" type="select" label="Filter on Taxonomic Rank " optional="True" >
+                  <option value="species">Species</option>
+                  <option value="genus">Genus</option>
+                  <option value="family">Family</option>
+                  <option value="order">Order</option>
+                  <option value="class">Class</option>
+                  <option value="phylum">Phylum</option>
+              </param>
+              <param name="taxon_value" type="text" label="Taxonomic Value (for the Taxonomic Rank above)" optional="True" />
+              <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
+          </when>
+          <when value="all">
+              <param name="specimen_nums" type="text" label="Filter on Specimen Identifier(s). Separate multiple by comma." optional="True" />
+              <param name="sequence_name" type="text" label="Filter on Sequence Name (keyword)" optional="True" />
+	      <param name="sample_name" type="text" label="Filter on Sample Name (keyword)" optional="True" />
               <param name="region_name" type="text" label="Filter on Region Name (keyword)" optional="True" />
               <param name="project_name" type="text" label="Filter on Project Name (keyword)" optional="True" />
               <param name="collection_code" type="text" label="Filter on Collection Code" optional="True" />
@@ -85,20 +120,20 @@
               <param name="output_taxonomy" type="boolean" label="Output taxonomy file?" optional="True" checked="False" />
           </when>
           <when value="its" />
-      </conditional>
-      
+      </conditional>  
   </inputs>
   
   <outputs>
-    <data name="seqdb_sequences"
-        format="fasta"
-        from_work_dir="seqdb_sequences.fasta"
-        label="Sequences from SeqDB" />
-    <data name="seqdb_taxonomy_file"
-        format="txt"
-        from_work_dir="seqdb_taxonomy_file.txt"
-        label="Taxonomy file for SeqDB sequences">
-
+    <data name="seqdb_sequences" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']!="raw"</filter>
+    </data>
+    <data name="seqdb_sequences_fasta" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fasta"</filter>
+    </data>
+    <data name="seqdb_sequences_fastq" format="fastq" from_work_dir="seqdb_sequences.fastq" label="Sequences from SeqDB">
+	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fastq"</filter>
+    </data>
+    <data name="seqdb_taxonomy_file" format="txt" from_work_dir="seqdb_taxonomy_file.txt" label="Taxonomy file for SeqDB sequences">
         <filter>pull_type_cond['output_taxonomy']</filter> 
     </data>
   </outputs>
@@ -116,7 +151,7 @@ Required fields are marked with a * .
 
 .. class:: warningmark
 
-**Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "All Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
+**Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "Raw Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
 
 --------
 
@@ -137,9 +172,7 @@ Example::
 
 	27755	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
 	27761	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
-	...
-
-      
+	...     
   </help>
 
 </tool>
