@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="quast" version="2.3">
+		<repository name="package_quast_2_3" owner="cime-ajouz" toolshed="http://onottar669810x.agr.gc.ca:9009"/>
+	</package>
+</tool_dependency>
+
