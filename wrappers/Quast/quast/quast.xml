@@ -40,6 +40,6 @@
 	</inputs>
 	
 	<outputs>
-		<data format="txt" name="quast_out" label="Quast report.txt" />
+		<data format="txt" name="quast_out" label="Quast report.txt" from_work_dir="Quast_report.txt" />
 	</outputs>
 </tool>
