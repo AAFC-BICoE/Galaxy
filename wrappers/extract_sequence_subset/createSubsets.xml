@@ -76,15 +76,15 @@
 	<tests>
 		<test>
 			<param name="format" value="fasta"/>
-			<param name="fasta" value="Galaxy1-[Unique.seqs_on_data_6__fasta].fasta"/>
+			<param name="fasta" value="Usearch_Sort"/>
 			<param name="filtermode" value="tax"/>
-			<param name="taxonomy" value="c__Dothideomycetes"/>
-			<param name="biomtab" value="Galaxy2-[OTU_Table].tabular"/>
-			<param name="mapping" value="Galaxy3-[QIIME_OTU_mapping].tabular"/>
+			<param name="taxonomy" value="k__Fungi"/>
+			<param name="biomtab" value="OTU_Table"/>
+			<param name="mapping" value="QIIME_OTU_mapping"/>
 			<param name="seqidsonly" value="true"/>
 			<param name="onlyrepseqs" value="true"/>
 			<param name="createindex" value="false"/>
-			<output name="output" file="Extracted Seqs"/>
+			<output name="output" file="Extracted_Seqs"/>
 		</test>
 	</tests>
  	
