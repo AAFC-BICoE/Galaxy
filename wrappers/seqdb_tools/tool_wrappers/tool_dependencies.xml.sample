@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="seqdb_py" version="1.3">
-        <repository name="package_seqdb_py" owner={toolshed user name of the user who installs the tool, ex. "korolo"} toolshed={toolshed url, ex. "http://galaxy.biodiversity.agr.gc.ca/galaxy-toolshed/"} /> 
+    <package name="seqdb_py" version="1.4">
+        <repository name="package_seqdb_py_1_4" owner={toolshed user name of the user who installs the tool, ex. "korolo"} toolshed={toolshed url, ex. "http://galaxy.biodiversity.agr.gc.ca/galaxy-toolshed/"} /> 
     </package>
 </tool_dependency>
