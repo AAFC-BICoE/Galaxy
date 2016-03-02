@@ -8,7 +8,7 @@ use Data::Dumper;
 
 =head1 NAME
 
-pullSamples.pl
+pullSeqsbySamples.pl
 
 =head1 SYNOPSIS
 
