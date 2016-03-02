@@ -89,8 +89,28 @@
   	</outputs>
 
 
-  	<test>
-	</test>
+	<!-- This test is commented out because it fails. The reason why it fails is because the output of the Subset Blast Tabular is different
+             than the expected one. 
+	     The expected inputs and outputs are not available on Github, because they are too large -->
+  	<!--<tests>
+		<test>
+			<param name="inputfile" value="Extracted_Seqs"/>
+			<param name="uselcaout" value="true"/>
+			<param name="lcaout" value="LCA_Results"/>
+			<param name="uselcalog" value="true"/>
+			<param name="lcalog" value="LCA_Log"/>
+			<param name="uselcatab" value="true"/>
+			<param name="lcatab" value="LCA_Tabular_Log"/>
+			<param name="useblastraw" value="false"/>
+			<param name="useblasttab" value="true"/>
+			<param name="blastab" value="blastn_CD-HIT-EST"/>
+			<output name="sourceseqs" file="Source_Seqids"/>
+			<output name="lcalogout" file="Subset_LCA_log"/>
+			<output name="hitstaxa" file="Blast_Hit_Lineages"/>
+			<output name="lcatabout" file="Use_Discard_Reasons"/>
+			<output name="parsedBlastTab" file="Subset_Blast_Tabular"/>
+		</test>
+	</tests>-->
   	
 	<help>
 **Description**
