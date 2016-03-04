@@ -64,7 +64,10 @@
   </tests>
 
   <help>
-      
+    
+@HELP__AUTHORS@
+
+--------      
 @HELP__WHAT_IT_DOES@
       
 Writes features, found by ITSx tool, to Sequence DB. The tool goes together with the SeqDB ITS sequence extractor.

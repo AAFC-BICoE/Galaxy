@@ -29,6 +29,10 @@
   </tests>
 
   <help>
+    
+@HELP__AUTHORS@
+
+--------
 @HELP__WHAT_IT_DOES@
 
 The tool creates a Sequence Database API configuration file, which can be used in a number of SeqDB API tools (e.g. tools in ITSx workflow).
