@@ -163,8 +163,28 @@
 		<data name="warnings" format="txt" label="Missing GIs" from_work_dir="missing.txt"/>
 	</outputs>
   
-	<test>
-	</test>
+	<tests>
+		<test>
+			<param name="infile" value="blastn_tabular_output" />
+			<param name="source" value="locfile" />
+			<param name="taxonomydisk" value="ncbi_taxonomy" />
+			<param name="qminmatch" value="0.95" />
+	    		<param name="qminlen" value="0" />
+	    		<param name="sminmatch" value="0" /> 
+	    		<param name="sminlen" value="0" />
+			<param name="requiresupport" value="0" />
+	    		<param name="minmatchid" value="95" />
+			<param name="useminevalue" value=""/>
+			<param name="maxquerycover" value="--use-max-query-coverage" />
+			<param name="usegitotax" value="--use-gi-taxa-lookup" />
+			<param name="extra" value="no" />
+			<output name="lcafile" file="LCA_Results" />
+			<output name="logfile" file="LCA_Log" />
+			<output name="tablogfile" file="LCA_Tabular_Log" />
+			<!-- This output is commented it out because for this specific input (blastn_tabular_output), the Missing GIs appears to be empty -->
+			<!-- <output name="warnings" file="Missing_GIs" /> -->
+		</test>
+	</tests>
   
 	<help>
 **Description**

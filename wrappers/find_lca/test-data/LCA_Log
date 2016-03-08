@@ -1,0 +1,43 @@
+0 (0): Opening NCBI taxonomy DB: /home/AAFC-AAC/ajouzc/Documents/Galaxy_Tools/Find_LCA/ncbi_taxonomy
+0 (0): 0
+0 (0): B: 
+0 (0): A: 
+0 (0): Opening /home/AAFC-AAC/ajouzc/Documents/Galaxy_Tools/Find_LCA/ncbi_taxonomy/gi_taxid_nucl.db database
+0 (0): Starting to process entries
+0 (0): Processing matches for KAS4322
+0 (0): 	KAS4322, gi|571431305|gb|KF800411.1|, 81.76, 318, 46, 8, 185, 495, 399, 711, 1e-73,   288
+0 (0): 		gi: 571431305 -> txid: 175245
+0 (0): 		Skipping match pid too low: 81.76<95
+0 (0): 	KAS4322, gi|209869754|emb|FM246501.1|, 82.20, 309, 44, 7, 185, 491, 104, 403, 1e-73,   288
+0 (0): 		gi: 209869754 -> txid: 983940
+0 (0): 		Skipping match pid too low: 82.20<95
+0 (0): 	KAS4322, gi|597901110|ref|NR_111775.1|, 100.00, 595, 0, 0, 1, 595, 1, 595, 0.0,  1074
+0 (0): 		gi: 597901110 -> txid: 1230402
+0 (0): Looking up node for taxon: 1230402
+3 (3): Found node -> taxid: 1230402 rank: species name: Basidioascus undulatus
+3 (0): 		Setting min_evalue to: 0.0 from Taxon: 597901110
+3 (0): 		Keeping match: 597901110 as best evalue
+3 (0): 		Setting max_bitscore to:  1074 from Taxon: 597901110
+3 (0): 		Keeping match: 597901110 as best cover: 0.998319327731092
+3 (0): 	KAS4322, gi|219813010|gb|FJ553224.1|, 86.41, 434, 50, 5, 116, 546, 469, 896, 3e-138,   502
+3 (0): 		gi: 219813010 -> txid: 253819
+3 (0): 		Skipping match pid too low: 86.41<95
+3 (0): 	Matches
+3 (0): 		1230402
+3 (0): 	Removing matches with query coverage less than maximum observed coverage (0.998319327731092)
+3 (0): 	Test whether txid:1230402 is informative
+4 (1): 	Matched 0 uninformative taxa
+4 (0): 	Find LCA of: KAS4322
+4 (0): 		1230402:Basidioascus undulatus
+4 (0): 	LCA: 1230402	Name:Basidioascus undulatus	Rank: species
+4 (0): 	Matches: 1	Names: 
+4 (0): Basidioascus undulatus:1,
+4 (0): 	Evalue: 
+4 (0): 0.0,
+4 (0): 	Pid: 
+4 (0): 100.00,
+4 (0): 	Qcover: 
+4 (0): 0.998319327731092,
+4 (0): 	SourceGI: 
+4 (0): 597901110,
+4 (0): 
