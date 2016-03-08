@@ -115,8 +115,7 @@
     		</data>
   	</outputs>
 
-	<!-- This test is commented out because it fails. The output of this run does not match the expected ouput OTU_Table. -->
-	<!--<tests>
+	<tests>
 		<test>
 			<param name="lca" value="LCA_Results"/>
 			<param name="clustermapselect" value="yes"/>
@@ -129,7 +128,7 @@
 			<param name="advancedoptions" value="no"/>
 			<output name="output" file="OTU_Table"/>
 		</test>
-	</tests>-->
+	</tests>
 
 	<help>
 **Description**
