@@ -110,7 +110,7 @@
 			<!-- This output is commented out because it is empty -->
 			<!--<output name="nodetect" file="expectedOutput_no_detections.fasta" />-->
           		<output name="positions" file="expectedOutput.positions.txt" />
-			<!-- This output is commented out because it causes the test to fail (due to the difference in time that gets printed out in the expected output and the output of the run) -->
+			<!-- This output is commented out because it causes the test to fail (due to the difference in time that gets printed out in the expected output and the output of the test) -->
           		<!--<output name="summary" file="expectedOutput.summary.txt" />-->
           		<output name="problematic" file="expectedOutput.problematic.txt" />
 			<output name="extractions" file="expectedOutput.extractions.txt" />
@@ -161,7 +161,6 @@ For more information regarding the settings of the tool, please visit the ITSx U
 	+ AAFC-MBB Team
 	+ E-mail: mbb@agr.gc.ca
 	+ Agriculture and Agri-foods Canada, Ottawa, ON, Canada
-
 	</help> 
 
 	<citations>
