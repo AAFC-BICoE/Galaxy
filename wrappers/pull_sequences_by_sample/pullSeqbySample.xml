@@ -5,6 +5,10 @@
 		Also attaches minimal metadata to seqid for OTU table generation.
 	</description>
 
+ 	<stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
+
 	<command interpreter="perl">
 		pullSeqsbySample.pl
 		#if $input.format.__str__ == "fasta":
@@ -122,7 +126,6 @@ If no samples are provided, it will simply add appropriate metadata to all SeqID
 **References**
 
 AAFC-AAC Bioinformatics
-
 	</help>
 
 </tool>
