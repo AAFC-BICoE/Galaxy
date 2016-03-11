@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="quast" version="3.2">
+		<repository name="package_quast_3_2" owner="{Tool Shed user name of the user who will upload the tool to Tool Shed}" toolshed="{Tool Shed URL}"/>
+	</package>
+</tool_dependency>
+
