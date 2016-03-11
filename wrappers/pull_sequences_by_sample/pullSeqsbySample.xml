@@ -5,7 +5,7 @@
 		Also attaches minimal metadata to seqid for OTU table generation.
 	</description>
 
- 	<stdio>
+	<stdio>
 		<exit_code range="1:" level="fatal" description="Error"/>
 	</stdio>
 
@@ -53,12 +53,12 @@
 				<option value="file">File containing samples</option>
 			</param>
 			<when value="list">
-    				<param name="list" type="text" size="40" label="Specify Samples Comma Seperated"/>
+				<param name="list" type="text" size="40" label="Specify Samples Comma Seperated"/>
 			</when>
 			<when value="file">
 				<param name="file" type="data" label="File Containing Samples One Per Line"/>
 			</when>
-   		</conditional>
+		</conditional>
     
 		<conditional name="metadata">
 			<param name="metadata_source" type="select" label="Metadata Source">
@@ -72,14 +72,14 @@
 			<when value="parse">
 				<param name="sheet" type="data" label="Sample Summary Spreadsheet"/>
 			</when>		
-   		 </conditional>
+		</conditional>
 	</inputs>
 
- 	<outputs>
-    		<data name="output" format="fasta" label="Extracted Fasta File"/>
-  	</outputs>
+	<outputs>
+		<data name="output" format="fasta" label="Extracted Fasta File"/>
+	</outputs>
 
-  	<tests>
+	<tests>
 		<test>
 			<param name="format" value="fasta"/>
 			<param name="fasta" value="trim.fasta"/>
@@ -127,5 +127,4 @@ If no samples are provided, it will simply add appropriate metadata to all SeqID
 
 AAFC-AAC Bioinformatics
 	</help>
-
 </tool>
