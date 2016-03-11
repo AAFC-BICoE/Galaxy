@@ -1,22 +1,22 @@
 <tool id="ITSx" name="ITSx Extractor" version="1.0.11">
 
- 	<description> 
-  		ITSx -- Identifies ITS sequences and extracts the ITS region
-  	</description>
+	<description> 
+		ITSx -- Identifies ITS sequences and extracts the ITS region
+	</description>
 
 	<requirements>
-                <requirement type="package" version="3.1b2">hmmer</requirement>
-        </requirements>
+		<requirement type="package" version="3.1b2">hmmer</requirement>
+	</requirements>
 
 	<stdio>
-                <regex match="ITSx" source="both" level="log"/>
-                <regex match="analysis" source="both" level="log"/>
-                <regex match="ERROR" source="both" level="fatal"/>
-                <regex match="error" source="both" level="fatal"/>
-        </stdio>
+		<regex match="ITSx" source="both" level="log"/>
+		<regex match="analysis" source="both" level="log"/>
+		<regex match="ERROR" source="both" level="fatal"/>
+		<regex match="error" source="both" level="fatal"/>
+	</stdio>
 	
-  	<command interpreter="perl">
-      		ITSx -i $input 
+	<command interpreter="perl">
+		ITSx -i $input 
 		--detailed_results T
 		-E $domain_eval 
 		-S $domain_score  
@@ -78,30 +78,30 @@
   	</inputs>
 
 	<outputs>
-    		<data name="ITS1" format="fasta" label="Extracted ITS1 Fasta File" from_work_dir="ITSx_out.ITS1.fasta"/>
-    		<data name="ITS2" format="fasta" label="Extracted ITS2 Fasta File" from_work_dir="ITSx_out.ITS2.fasta"/>
-    		<data name="fullfasta" format="fasta" label="Full Fasta of ITS extracted" from_work_dir="ITSx_out.full.fasta"/>
-   		<data name="graph" format="txt" label="Graph of ITS regions" from_work_dir="ITSx_out.graph"/>
-    		<data name="nodetect" format="fasta" label="No ITS region" from_work_dir="ITSx_out_no_detections.fasta"/>
-    		<data name="positions" format="tabular" label="ITSx feature positions" from_work_dir="ITSx_out.positions.txt"/>
-    		<data name="problematic" format="tabular" label="Problematic sequences" from_work_dir="ITSx_out.problematic.txt"/>
-    		<data name="summary" format="txt" label="ITSx summary" from_work_dir="ITSx_out.summary.txt"/>
-    		<data name="extractions" format="tabular" label="ITSx extraction results" from_work_dir="ITSx_out.extraction.results"/>
-  	</outputs>
+		<data name="ITS1" format="fasta" label="Extracted ITS1 Fasta File" from_work_dir="ITSx_out.ITS1.fasta"/>
+		<data name="ITS2" format="fasta" label="Extracted ITS2 Fasta File" from_work_dir="ITSx_out.ITS2.fasta"/>
+		<data name="fullfasta" format="fasta" label="Full Fasta of ITS extracted" from_work_dir="ITSx_out.full.fasta"/>
+		<data name="graph" format="txt" label="Graph of ITS regions" from_work_dir="ITSx_out.graph"/>
+		<data name="nodetect" format="fasta" label="No ITS region" from_work_dir="ITSx_out_no_detections.fasta"/>
+		<data name="positions" format="tabular" label="ITSx feature positions" from_work_dir="ITSx_out.positions.txt"/>
+		<data name="problematic" format="tabular" label="Problematic sequences" from_work_dir="ITSx_out.problematic.txt"/>
+		<data name="summary" format="txt" label="ITSx summary" from_work_dir="ITSx_out.summary.txt"/>
+		<data name="extractions" format="tabular" label="ITSx extraction results" from_work_dir="ITSx_out.extraction.results"/>
+	</outputs>
 
 	<tests>
-      		<test>
-          		<param name="input" value="testITSsequences.fasta"/>
+		<test>
+			<param name="input" value="testITSsequences.fasta"/>
 			<param name="domain_eval" value="0.00001" />
 			<param name="domain_score" value="0" />
 			<param name="domain_num" value="2" />
 			<param name="search" value="eval" />
 			<param name="eval_cutoff" value="0.01" />
-          		<param name="reset" value="--reset T" />
+			<param name="reset" value="--reset T" />
 			<param name="allow_reorder" value="--allow_reorder F" />
-          		<param name="complement" value="--complement T"/>
+			<param name="complement" value="--complement T"/>
 			<param name="heuristics" value="--heuristics F" />
-          		<param name="preserve" value="--preserve F" />
+			<param name="preserve" value="--preserve F" />
 			<param name="truncate" value="--truncate T" />
 			<output name="ITS1" file="expectedOutput.ITS1.fasta" />
 			<output name="ITS2" file="expectedOutput.ITS2.fasta" />
@@ -109,13 +109,13 @@
 			<output name="graph" file="expectedOutput.graph" />
 			<!-- This output is commented out because it is empty -->
 			<!--<output name="nodetect" file="expectedOutput_no_detections.fasta" />-->
-          		<output name="positions" file="expectedOutput.positions.txt" />
+			<output name="positions" file="expectedOutput.positions.txt" />
 			<!-- This output is commented out because it causes the test to fail (due to the difference in time that gets printed out in the expected output and the output of the test) -->
-          		<!--<output name="summary" file="expectedOutput.summary.txt" />-->
-          		<output name="problematic" file="expectedOutput.problematic.txt" />
+			<!--<output name="summary" file="expectedOutput.summary.txt" />-->
+			<output name="problematic" file="expectedOutput.problematic.txt" />
 			<output name="extractions" file="expectedOutput.extractions.txt" />
-      		</test>
-  	</tests>
+		</test>
+	</tests>
 
 	<help>
 **Description**
@@ -170,5 +170,4 @@ For more information regarding the settings of the tool, please visit the ITSx U
 		year = {2013}
 		}</citation>
 	</citations>  
-
 </tool>

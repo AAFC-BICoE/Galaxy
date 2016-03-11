@@ -1,15 +1,15 @@
 <tool id="findLCA" name="Find LCA" version="1.0">
 
-	  <description> 
-	  	The LCA algorithm to get the lowest common ancestor from a tabular blast output.
-	  </description>
+	<description> 
+		The LCA algorithm to get the lowest common ancestor from a tabular blast output.
+	</description>
 
-	  <stdio>
-	  	<exit_code range="1:" level="fatal" description="Error"/>
-	  </stdio>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
 
-	  <command interpreter="perl">
-	  findLCA.pl 
+	<command interpreter="perl">
+	findLCA.pl 
 		--galaxy 
 		-i $infile 
 		#if $taxasource.source.__str__ == "locfile":
@@ -68,16 +68,16 @@
 		#end if
 	</command>
 
-	  <inputs>
+	<inputs>
 		<param name="infile" type="data" label="blast tabular output file"/>
 	    
-	    	<conditional name="taxasource">
+		<conditional name="taxasource">
 			<param name="source" type="select" label="taxonomy source">
 				<option value="locfile">From Local Database</option>
 				<option value="history">From Galaxy History</option>
 			</param>
 			<when value="locfile">
-	    			<param name="taxonomydisk" type="select" label="taxonomy database">
+				<param name="taxonomydisk" type="select" label="taxonomy database">
 					<options from_file="lca_taxonomydb.loc">
 						<column name="value" index="0"/>
 						<column name="name" index="1"/>
@@ -89,46 +89,46 @@
 				<param name="taxadump" type="data" label="taxonomy dump"/>
 				<param name="taxamapdb" type="data" label="berkley map db"/>
 			</when>
-	   	 </conditional>
+		</conditional>
 	    
-	    	<param name="qminmatch" type="float" value="0.95" label="query min match decimal (set to 0 to ignore)"/>
-	    	<param name="qminlen" type="integer" value="0" label="query min length (set to 0 to ignore)"/>
-	    	<param name="sminmatch" type="float" value="0" label="subject min match decimal (set to 0 to ignore)"/> 
-	    	<param name="sminlen" type="integer" value="0" label="subject min length (set to 0 to ignore)"/>
+		<param name="qminmatch" type="float" value="0.95" label="query min match decimal (set to 0 to ignore)"/>
+		<param name="qminlen" type="integer" value="0" label="query min length (set to 0 to ignore)"/>
+		<param name="sminmatch" type="float" value="0" label="subject min match decimal (set to 0 to ignore)"/> 
+		<param name="sminlen" type="integer" value="0" label="subject min length (set to 0 to ignore)"/>
 	    
-	    	<param name="requiresupport" type="float" value="0" label="require support level decimal (set to 0 to ignore)"/>
-	    	<param name="minmatchid" type="integer" value="95" label="min match identity % (set to 0 to ignore)"/>
-	    	<param name="useminevalue" type="select" label="use-min-evalue (T/F)">
+		<param name="requiresupport" type="float" value="0" label="require support level decimal (set to 0 to ignore)"/>
+		<param name="minmatchid" type="integer" value="95" label="min match identity % (set to 0 to ignore)"/>
+		<param name="useminevalue" type="select" label="use-min-evalue (T/F)">
 			<option value="">no</option>
 			<option value="--use-min-evalue">yes</option>
-	    	</param>
-	   	 <param name="maxquerycover" type="select" label="max-query-coverage (T/F)">
+		</param>
+		<param name="maxquerycover" type="select" label="max-query-coverage (T/F)">
 			<option value="--use-max-query-coverage">yes</option>
 			<option value="">no</option>
-	    	</param>
-	    	<param name="usegitotax" type="select" label="use-gi-to-taxa-lookup (T/F)">
+		</param>
+		<param name="usegitotax" type="select" label="use-gi-to-taxa-lookup (T/F)">
 			<option value="--use-gi-taxa-lookup">yes</option>
 			<option value="">no</option>
-	    	</param>
+		</param>
 	
-	   	<conditional name="extraoptions">
+		<conditional name="extraoptions">
 			<param name="extra" type="select" label="advance options">
 				<option value="no">Do Not Display</option>
 				<option value="yes">Display</option>
 			</param>
 			<when value="yes">
-		    		<conditional name="usereject">
+				<conditional name="usereject">
 					<param name="rejectflag" type="boolean" label="Specify Reject File"/>
 					<when value="true"> 
-	    					<param name="rejectfile" type="data" label="reject file"/>
+						<param name="rejectfile" type="data" label="reject file"/>
 					</when>
-		   		</conditional>
-		    		<conditional name="usesynonym">
+				</conditional>
+				<conditional name="usesynonym">
 					<param name="synonymflag" type="boolean" label="Specify Synonym File"/>
 					<when value="true">
 						<param name="synonymfile" type="data" label="synonym file"/>
 					</when>
-		    		</conditional>
+				</conditional>
 				<param name="reindex" type="select" label="reindex (T/F)">
 					<option value="">no</option>
 					<option value="--reindex">yes</option>
@@ -169,11 +169,11 @@
 			<param name="source" value="locfile" />
 			<param name="taxonomydisk" value="ncbi_taxonomy" />
 			<param name="qminmatch" value="0.95" />
-	    		<param name="qminlen" value="0" />
-	    		<param name="sminmatch" value="0" /> 
-	    		<param name="sminlen" value="0" />
+			<param name="qminlen" value="0" />
+			<param name="sminmatch" value="0" /> 
+			<param name="sminlen" value="0" />
 			<param name="requiresupport" value="0" />
-	    		<param name="minmatchid" value="95" />
+			<param name="minmatchid" value="95" />
 			<param name="useminevalue" value=""/>
 			<param name="maxquerycover" value="--use-max-query-coverage" />
 			<param name="usegitotax" value="--use-gi-taxa-lookup" />
@@ -231,5 +231,4 @@ A custom Taxonomy database can be generated by create_custom_taxa.
 
 AAFC-AAC Bioinformatics
 	</help>
-
 </tool>

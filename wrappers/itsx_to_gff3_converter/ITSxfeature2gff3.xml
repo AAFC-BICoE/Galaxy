@@ -1,15 +1,15 @@
 <tool id="ITSxfeature2gff3" name="ITSx to GFF3 Converter" version="1.0">
 
 	<description> 
-  		Generates a gff3 file of the ITSx extracted features LSU, ITS1, 5.8S, ITS2 and SSU
-  	</description>
+		Generates a gff3 file of the ITSx extracted features LSU, ITS1, 5.8S, ITS2 and SSU
+	</description>
 
 	<stdio>
 		<exit_code range="1:" level="fatal" description="Error"/>
 	</stdio>
 
-  	<command interpreter="perl">
-  		ITSxfeature2gff3.pl
+	<command interpreter="perl">
+		ITSxfeature2gff3.pl
 		--positions=$positions
 		--extractions=$extractions
 		#if $itsxver.__str__ != "":
@@ -17,20 +17,20 @@
 		#end if
 		--output=$outputgff
 		--log=$loggff
-  	</command>
+	</command>
 
-  	<inputs>
+	<inputs>
 		<param name="positions" type="data" label="Input ITSx feature positions"/>
 		<param name="extractions" type="data" label="Input ITSx extractions results"/>
 		<param name="itsxver" type="text" size="10" value="ITSx" label="ITSx version (default: ITSx)"/>
-  	</inputs>
+	</inputs>
 
-  	<outputs>
+	<outputs>
 		<data name="outputgff" format="gff" label="ITSx GFF3 file"/>
 		<data name="loggff" format="gff" label="ITSx Log GFF3"/>
-  	</outputs>
+	</outputs>
 
-  	<tests>
+	<tests>
 		<test>
 			<param name="positions" value="ITSx_feature_positions"/>
 			<param name="extractions" value="ITSx_extraction_results"/>
@@ -62,5 +62,4 @@ generate a gff3 compatible file mapping all the features to locations as well as
 
 AAFC-AAC Bioinformatics
 	</help>
-
 </tool>
