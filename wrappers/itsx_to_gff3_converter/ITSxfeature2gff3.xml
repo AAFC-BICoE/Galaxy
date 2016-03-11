@@ -1,0 +1,65 @@
+<tool id="ITSxfeature2gff3" name="ITSx to GFF3 Converter" version="1.0">
+
+	<description> 
+		Generates a gff3 file of the ITSx extracted features LSU, ITS1, 5.8S, ITS2 and SSU
+	</description>
+
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
+
+	<command interpreter="perl">
+		ITSxfeature2gff3.pl
+		--positions=$positions
+		--extractions=$extractions
+		#if $itsxver.__str__ != "":
+			--itsxver=$itsxver
+		#end if
+		--output=$outputgff
+		--log=$loggff
+	</command>
+
+	<inputs>
+		<param name="positions" type="data" label="Input ITSx feature positions"/>
+		<param name="extractions" type="data" label="Input ITSx extractions results"/>
+		<param name="itsxver" type="text" size="10" value="ITSx" label="ITSx version (default: ITSx)"/>
+	</inputs>
+
+	<outputs>
+		<data name="outputgff" format="gff" label="ITSx GFF3 file"/>
+		<data name="loggff" format="gff" label="ITSx Log GFF3"/>
+	</outputs>
+
+	<tests>
+		<test>
+			<param name="positions" value="ITSx_feature_positions"/>
+			<param name="extractions" value="ITSx_extraction_results"/>
+			<param name="itsxver" value="ITSx"/>
+			<output name="outputgff" file="ITSx_GFF3_file"/>
+			<output name="loggff" file="ITSx_Log_GFF3"/>
+		</test>
+	</tests>
+
+	<help>
+**Description**
+
+Converts the output of ITSx into GFF3 file format. It parses the ITSx output, specifically features.txt and extraction.results to 
+generate a gff3 compatible file mapping all the features to locations as well as identifiying the origin and length of original sequence.
+
+------
+
+**Author**
+
+- ITSx to GFF3 Converter Script and Wrapper:
+	+ Script Name: ITSxfeature2gff3.pl
+	+ Wrapper Name: ITSxfeature2gff3.xml
+	+ Nan Zhang
+	+ Agriculture and Agri-food Canada, Ottawa, ON, Canada
+
+------
+
+**References:**
+
+AAFC-AAC Bioinformatics
+	</help>
+</tool>
