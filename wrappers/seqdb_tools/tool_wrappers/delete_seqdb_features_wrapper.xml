@@ -36,6 +36,10 @@
 
   <help>
       
+@HELP__AUTHORS@
+
+--------
+
 @HELP__WHAT_IT_DOES@
       
 Deletes items from SeqDB.

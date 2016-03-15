@@ -1,64 +1,64 @@
 <tool id="createBiomOrTaxaMap" name="Create OTU Table" version="1.0">
 
 	<description> 
-  		Takes a cluster mapping file and lca file and generates an classic otu table.
-  		Also able to generate a taxa mapping file with only lca file.
-  	</description>
+		Takes a cluster mapping file and lca file and generates an classic otu table.
+		Also able to generate a taxa mapping file with only lca file.
+	</description>
 
-  	<stdio>
-    		<exit_code range="1:" level="fatal" description="Error"/>
-  	</stdio>
+	<stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
 
-  	<command interpreter="perl">
-  	createBiomOrTaxaMap.pl 
+	<command interpreter="perl">
+	createBiomOrTaxaMap.pl 
 		-l $lca
 		$names 
 		$taxamap
-		 #if $taxasource.source.__str__ == "locfile":
-                	--taxa-dir $taxasource.taxonomydisk.fields.path
-        	#elif $taxasource.source.__str__ == "history":
-                	--taxa-dir $taxasource.taxadump
-        	#end if
+		#if $taxasource.source.__str__ == "locfile":
+			--taxa-dir $taxasource.taxonomydisk.fields.path
+		#elif $taxasource.source.__str__ == "history":
+			--taxa-dir $taxasource.taxadump
+		#end if
 		#if $clustermapcond.clustermapselect.__str__ == "yes":
-	  	-m $clustermapcond.clustermap
+		-m $clustermapcond.clustermap
 		#end if
 		#if $filter.filterflag.__str__ == "yes":
-	  		#if float($filter.qcover.__str__) != -1:
-	    			--query-cover=$filter.qcover
-	 		 #end if
- 	  		#if float($filter.pid.__str__) != -1:
-	    			--pid=$filter.pid
-	  		#end if
-	  		#if float($filter.evalue.__str__) != -1:
-	    			--evalue=$filter.evalue
-	  		#end if
+			#if float($filter.qcover.__str__) != -1:
+				--query-cover=$filter.qcover
+			#end if
+			#if float($filter.pid.__str__) != -1:
+				--pid=$filter.pid
+			#end if
+			#if float($filter.evalue.__str__) != -1:
+				--evalue=$filter.evalue
+			#end if
 		#end if
 		#if $advanced.advancedoptions.__str__ == "yes":
-	  		$advanced.fulllineage
-	  		$advanced.nosamplecounts
-	  		$advanced.totalcounts
-	  		$advanced.representative
+			$advanced.fulllineage
+			$advanced.nosamplecounts
+			$advanced.totalcounts
+			$advanced.representative
 		#end if
-  	</command>
+	</command>
 
-  	<inputs>
-    		<param name="lca" type="data" label="lca file"/>
+	<inputs>
+		<param name="lca" type="data" label="lca file"/>
 
-    		<conditional name="clustermapcond">
-        		<param name="clustermapselect" type="select" label="cluster mapping">
-                		<option value="yes">Cluster Mapping File</option>
-                		<option value="no">No Cluster Mapping File</option>
-        		</param>
-       		 	<when value="yes">
-          			<param name="clustermap" type="data" label="cluster mapping file"/>
-        		</when>
-   		 </conditional>
+		<conditional name="clustermapcond">
+			<param name="clustermapselect" type="select" label="cluster mapping">
+				<option value="yes">Cluster Mapping File</option>
+				<option value="no">No Cluster Mapping File</option>
+			</param>
+			<when value="yes">
+				<param name="clustermap" type="data" label="cluster mapping file"/>
+			</when>
+		</conditional>
 
-    		<param name="names" type="boolean" truevalue="--names" falsevalue="" label="use namesotu (default: qiimeotu)"/> 
+		<param name="names" type="boolean" truevalue="--names" falsevalue="" label="use namesotu (default: qiimeotu)"/> 
 
-    		<param name="taxamap" type="boolean" truevalue="--taxa-map" falsevalue="" label="taxa mapping file"/>
+		<param name="taxamap" type="boolean" truevalue="--taxa-map" falsevalue="" label="taxa mapping file"/>
 
-    		<conditional name="taxasource">
+		<conditional name="taxasource">
 			<param name="source" type="select" label="taxonomy source">
 				<option value="locfile">From Local Database</option>
 				<option value="history">From Galaxy History</option>
@@ -75,50 +75,60 @@
 			<when value="history">
 				<param name="taxadump" type="data" label="taxonomy dump"/>
 			</when>
-    		</conditional>
+		</conditional>
 
-    		<conditional name="filter">
+		<conditional name="filter">
 			<param name="filterflag" type="select" label="specify filters">
 				<option value="no">No Filters</option>
 				<option value="yes">Specify Filters</option>
 			</param>
 			<when value="yes">
-     	  			<param name="qcover" type="float" value="-1" label="filter on qcover (set to -1 to ignore)"/> 
-    	  			<param name="pid" type="float" value="-1" label="filter on pid (set to -1 to ignore)"/> 
-    	  			<param name="evalue" type="float" value="-1" label="filter on evalue (set to -1 to ignore)"/> 
+				<param name="qcover" type="float" value="-1" label="filter on qcover (set to -1 to ignore)"/> 
+				<param name="pid" type="float" value="-1" label="filter on pid (set to -1 to ignore)"/> 
+				<param name="evalue" type="float" value="-1" label="filter on evalue (set to -1 to ignore)"/> 
 			</when>
-    		</conditional>
+		</conditional>
 	
-    		<conditional name="advanced">
+		<conditional name="advanced">
 			<param name="advancedoptions" type="select" label="advanced options">
 				<option value="no">Do Not Show Advanced Options</option>
 				<option value="yes">Show Advanced Options</option>
 			</param>
 			<when value="yes">
-     	  			<param name="fulllineage" type="boolean" truevalue="--full-taxa" falsevalue="" label="shows full lineage with ranks"/> 
-    	  			<param name="nosamplecounts" type="boolean" truevalue="--no-sample-counts" falsevalue="" label="no sample counts"/> 
-    	  			<param name="totalcounts" type="boolean" truevalue="--total-counts" falasevalue="" label="only total counts"/> 
-    	  			<param name="representative" type="boolean" truevalue="--representative" falsevalue="" label="show representative"/> 
+				<param name="fulllineage" type="boolean" truevalue="--full-taxa" falsevalue="" label="shows full lineage with ranks"/> 
+				<param name="nosamplecounts" type="boolean" truevalue="--no-sample-counts" falsevalue="" label="no sample counts"/> 
+				<param name="totalcounts" type="boolean" truevalue="--total-counts" falasevalue="" label="only total counts"/> 
+				<param name="representative" type="boolean" truevalue="--representative" falsevalue="" label="show representative"/> 
 			</when>
-    		</conditional>	
+		</conditional>	
 	</inputs>
 
 	<outputs>
-    		<data name="output" format="tabular" label="OTU Table" from_work_dir="otu_table.tab">
+		<data name="output" format="tabular" label="OTU Table" from_work_dir="otu_table.tab">
 			<filter>taxamap is False</filter>
-    		</data>
-    		<data name="outscrap" format="tabular" label="Scrap OTU Table" from_work_dir="otu_table.tab.scrap">
+		</data>
+		<data name="outscrap" format="tabular" label="Scrap OTU Table" from_work_dir="otu_table.tab.scrap">
 			<filter>filter['filterflag'] is True</filter>
-    		</data>
-    		<data name="mapout" format="tabular" label="Taxa Mapping File" from_work_dir="otu_table.map">
+		</data>
+		<data name="mapout" format="tabular" label="Taxa Mapping File" from_work_dir="otu_table.map">
 			<filter>taxamap is True</filter>
-    		</data>
-  	</outputs>
+  		</data>
+	</outputs>
 
-
-  
-	<test>
-	</test>
+	<tests>
+		<test>
+			<param name="lca" value="input_LCA_Results.tabular"/>
+			<param name="clustermapselect" value="yes"/>
+			<param name="clustermap" value="input_QIIME_OTU_mapping.tabular"/>
+			<param name="names" value="false"/>
+			<param name="taxamap" value="false"/>
+			<param name="source" value="locfile"/> 
+			<param name="taxonomydisk" value="ncbi_taxonomy"/>
+			<param name="filterflag" value="no"/>
+			<param name="advancedoptions" value="no"/>
+			<output name="output" file="output_OTU_Table.tabular"/>
+		</test>
+	</tests>
 
 	<help>
 **Description**

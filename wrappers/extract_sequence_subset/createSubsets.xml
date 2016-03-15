@@ -1,15 +1,15 @@
 <tool id="createSubsets" name="Extract Sequence Subset" version="1.0">
 
-  	<description> 
-  		Extracts sequence based on either taxonomy or OTU numbers from the LCA/QIIME identifications.
-  	</description>
+	<description> 
+		Extracts sequence based on either taxonomy or OTU numbers from the LCA/QIIME identifications.
+	</description>
 	
 	<stdio>
-    		<exit_code range="1:" level="fatal" description="Error"/>
-  	</stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
 
-  	<command interpreter="perl">
-  		createSubsets.pl
+	<command interpreter="perl">
+		createSubsets.pl
 		#if $input.format.__str__ == "fasta":
 			--fasta=$fasta
 		#elif $input.format.__str__ == "index":
@@ -26,10 +26,10 @@
 		$seqidsonly
 		$onlyrepseqs
 		$createindex
-  	</command>
+	</command>
 
-  	<inputs>
-   		<conditional name="input">
+	<inputs>
+		<conditional name="input">
 			<param name="format" type="select" label="input format">
 				<option value="fasta">Fasta</option>
 				<option value="index">Index Fasta</option>
@@ -40,7 +40,7 @@
 			<when value="index">
 				<param name="idxfasta" type="data" label="Input Index Fasta"/>
 			</when>	
-   		</conditional>
+		</conditional>
    
 		<conditional name="mode">
 			<param name="filtermode" type="select" label="Filter type">
@@ -48,33 +48,48 @@
 				<option value="otu">Filter on OTUs</option>
 			</param>
 			<when value="tax">
-	    			<param name="taxonomy" type="text" label="Taxonomy (ex: o__order)"/>
-	    			<param name="biomtab" type="data" label="OTU Table"/>
+				<param name="taxonomy" type="text" label="Taxonomy (ex: o__order)"/>
+				<param name="biomtab" type="data" label="OTU Table"/>
 			</when>
 			<when value="otu">
-	    			<param name="otulist" type="text" label="OTU list (ex: 1,2,3,5,8)"/>
+				<param name="otulist" type="text" label="OTU list (ex: 1,2,3,5,8)"/>
 			</when>
-  		</conditional>
+		</conditional>
 
-  		<param name="mapping" type="data" label="qiimeotu mapping"/>
+		<param name="mapping" type="data" label="qiimeotu mapping"/>
   		
 		<param name="seqidsonly" type="boolean" truevalue="--ids-only" falsevalue="" label="only pull seqids"/>
 
-  		<param name="onlyrepseqs" type="boolean" truevalue="--rep-seqs" falsevalue="" label="only pull repseqs"/>
+		<param name="onlyrepseqs" type="boolean" truevalue="--rep-seqs" falsevalue="" label="only pull repseqs"/>
 
-  		<param name="createindex" type="boolean" truevalue="--create-index" falsevalue="" label="create index fasta"/>
-  	</inputs>
+		<param name="createindex" type="boolean" truevalue="--create-index" falsevalue="" label="create index fasta"/>
+	</inputs>
 
-  	<outputs>
-     		<data name="output" format="fasta" label="Extracted Seqs"/>
-     		<data name="indexed" format="binary" label="Index Fasta File" from_work_dir="tempfastafile.idx">
+	<outputs>
+		<data name="output" format="fasta" label="Extracted Seqs"/>
+		<data name="indexed" format="binary" label="Index Fasta File" from_work_dir="tempfastafile.idx">
 			<filter>createindex is True</filter>
-     		</data>
-  	</outputs>
+		</data>
+	</outputs>
 
-  
-  	<test>
-	</test>
+	<!-- This test is commented out because, when I run it using the test framework, it fails. The output of the execution of this run will be 
+	     different than the expected output. These two outputs differ only by the order in which they get printed out and not by their content.
+	     The tool is programmed this way. This means that every time the tool is executed, it will generate the same output, except each time
+             the output would be printed in a different order.-->
+  	<!--<tests>
+		<test>
+			<param name="format" value="fasta"/>
+			<param name="fasta" value="input_Usearch_Sort.fasta"/>
+			<param name="filtermode" value="tax"/>
+			<param name="taxonomy" value="k__Fungi"/>
+			<param name="biomtab" value="input_OTU_Table.csv"/>
+			<param name="mapping" value="input_QIIME_OTU_mapping.tabular"/>
+			<param name="seqidsonly" value="true"/>
+			<param name="onlyrepseqs" value="true"/>
+			<param name="createindex" value="false"/>
+			<output name="output" file="output_Extracted_Seqs.fasta"/>
+		</test>
+	</tests>-->
  	
 	<help>
 **Description**
@@ -115,6 +130,4 @@ flag is specified.
 
 AAFC-AAC Bioinformatics
 	</help>
-
 </tool>
-

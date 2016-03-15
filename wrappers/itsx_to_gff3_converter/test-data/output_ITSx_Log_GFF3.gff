@@ -1,0 +1,10 @@
+HCO2198_HNSNM6T01EX844	ITSx	small_subunit_rRNA	1	48	4e-20	+	.	Name=SSU;origin=Amoebozoa;length=163
+HCO2198_HNSNM6T01EX844	ITSx	internal_transcribed_spacer_region	49	163	4e-20	+	.	Name=ITS1;origin=Amoebozoa;length=163
+HCO2198_HNSNM6T01EX844	ITSx	rRNA_5_8S	.	.	4e-20	+	.	Name=5.8S;origin=Amoebozoa;length=163;Note=Not found
+HCO2198_HNSNM6T01EX844	ITSx	internal_transcribed_spacer_region	.	.	4e-20	+	.	Name=ITS2;origin=Amoebozoa;length=163;Note=Not found
+HCO2198_HNSNM6T01EX844	ITSx	large_subunit_rRNA	.	.	4e-20	+	.	Name=LSU;origin=Amoebozoa;length=163;Note=Not found
+HCO2198_HNSNM6T01CSI3G	ITSx	small_subunit_rRNA	1	49	1.25000000000046e-06	+	.	Name=SSU;origin=Fungi;length=172
+HCO2198_HNSNM6T01CSI3G	ITSx	internal_transcribed_spacer_region	50	148	1.25000000000046e-06	+	.	Name=ITS1;origin=Fungi;length=172
+HCO2198_HNSNM6T01CSI3G	ITSx	rRNA_5_8S	.	.	1.25000000000046e-06	+	.	Name=5.8S;origin=Fungi;length=172;Note=No end
+HCO2198_HNSNM6T01CSI3G	ITSx	internal_transcribed_spacer_region	.	.	1.25000000000046e-06	+	.	Name=ITS2;origin=Fungi;length=172;Note=Not found
+HCO2198_HNSNM6T01CSI3G	ITSx	large_subunit_rRNA	.	.	1.25000000000046e-06	+	.	Name=LSU;origin=Fungi;length=172;Note=Not found

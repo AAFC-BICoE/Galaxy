@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="quast" version="3.2">
+		<install version="1.0">
+			<actions>	
+				<action type="download_by_url">https://downloads.sourceforge.net/project/quast/quast-3.2.tar.gz</action>
+				<action type="shell_command">ls</action>
+				<action type="shell_command">mv * $INSTALL_DIR</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+				</action>
+			</actions>
+		</install>
+		<readme>
+			Software: QUAST
+			Version: 3.2
+			Source: http://bioinf.spbau.ru/quast
+
+			For more info, contact: mbb@agr.gc.ca
+		</readme>
+	</package>
+</tool_dependency>

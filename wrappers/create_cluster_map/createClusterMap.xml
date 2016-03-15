@@ -1,60 +1,71 @@
 <tool id="createClusterMap" name="Create Cluster Map" version="1.0">
 
-  	<description> 
-  		Takes the output of a clutering cdhit or uclust and potential names files from dereplication to produce a cluster mapping file in either mothur or qiime format. 
-  	</description>
+	<description> 
+		Takes the output of a clutering cdhit or uclust and potential names files from dereplication to produce a cluster mapping file in either mothur or qiime format. 
+	</description>
 
-  	<command interpreter="perl">
-  		createClusterMap.pl -i $cluster -format $format $qiimeotu $namesotu $countotu
-  		#if $namesfile.namesflag.__str__ == "yes":
+	<command interpreter="perl">
+		createClusterMap.pl -i $cluster -format $format $qiimeotu $namesotu $countotu
+		#if $namesfile.namesflag.__str__ == "yes":
 			-n $namesfile.names
-  		#end if
- 	</command>
+		#end if
+	</command>
 
 	<stdio>
-    		<exit_code range="1:" level="fatal" description="Error"/>
-  	</stdio>
+		<exit_code range="1:" level="fatal" description="Error"/>
+	</stdio>
 
-  	<inputs>
-    		<param name="cluster" type="data" label="cluster file"/>
+	<inputs>
+		<param name="cluster" type="data" label="cluster file"/>
 
-    		<param name="format" type="select" label="file format">
+		<param name="format" type="select" label="file format">
 			<option value="clstr">cdhit</option>
 			<option value="uc">uclust</option>
-    		</param>
+		</param>
 
-    		<conditional name="namesfile">
-        		<param name="namesflag" type="select" label="names file">
+		<conditional name="namesfile">
+			<param name="namesflag" type="select" label="names file">
 				<option value="yes">Specify Names Files</option>
 				<option value="no">No Names File</option>
 			</param>
-        		<when value="yes">
-	  			<param name="names" type="data" format="names" label="names file"/>
-        		</when>
-    		</conditional>
+			<when value="yes">
+				<param name="names" type="data" format="names" label="names file"/>
+			</when>
+		</conditional>
 
-    		<param name="qiimeotu" type="boolean" checked="true" truevalue="--qiimeotu" falsevalue=""/>
+		<param name="qiimeotu" type="boolean" checked="true" truevalue="--qiimeotu" falsevalue=""/>
 
-    		<param name="namesotu" type="boolean" truevalue="--namesotu" falsevalue=""/>
+		<param name="namesotu" type="boolean" truevalue="--namesotu" falsevalue=""/>
 
-    		<param name="countotu" type="boolean" truevalue="--countotu" falsevalue=""/>
-  	</inputs>
+		<param name="countotu" type="boolean" truevalue="--countotu" falsevalue=""/>
+	</inputs>
 
-  	<outputs>
-    		<data name="outqiimeotu" format="tabular" label="QIIME OTU mapping" from_work_dir="qiimeotu.txt">
-      			<filter>qiimeotu is True</filter>
-    		</data>
-    		<data name="outmothurotu" format="tabular" label="Mothur OTU mapping" from_work_dir="mothurotu.names">
-      			<filter>namesotu is True</filter>
-    		</data>
-    		<data name="outcountotu" format="tabular" label="OTU sequence counts" from_work_dir="countotu.counts">
-      			<filter>countotu is True</filter>
-    		</data>
-  	</outputs>
+	<outputs>
+		<data name="outqiimeotu" format="tabular" label="QIIME OTU mapping" from_work_dir="qiimeotu.txt">
+			<filter>qiimeotu is True</filter>
+		</data>
+		<data name="outmothurotu" format="tabular" label="Mothur OTU mapping" from_work_dir="mothurotu.names">
+			<filter>namesotu is True</filter>
+		</data>
+		<data name="outcountotu" format="tabular" label="OTU sequence counts" from_work_dir="countotu.counts">
+			<filter>countotu is True</filter>
+		</data>
+	</outputs>
   
-
-  	<test>
-	</test>
+	<tests>
+		<test>
+			<param name="cluster" value="input_cluster_file.fasta"/>
+			<param name="format" value="clstr"/>
+			<param name="namesflag" value="yes"/>
+			<param name="names" value="input_names_file.tabular"/>
+			<param name="qiimeotu" value="true"/>
+			<param name="namesotu" value="true"/>
+			<param name="countotu" value="true"/>
+			<output name="outqiimeotu" file="output_QIIME_OTU_mapping.tabular"/>
+			<output name="outmothurotu" file="output_Mothur_OTU_mapping.tabular"/>
+			<output name="outcountotu" file="output_OTU_sequence_counts.tabular"/>
+		</test>
+	</tests>
  
 	<help>
 **Description**

@@ -124,11 +124,8 @@
   </inputs>
   
   <outputs>
-    <data name="seqdb_sequences" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
-	<filter>pull_type_cond['pull_type']!="raw"</filter>
-    </data>
     <data name="seqdb_sequences_fasta" format="fasta" from_work_dir="seqdb_sequences.fasta" label="Sequences from SeqDB">
-	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fasta"</filter>
+	<filter>pull_type_cond['pull_type']!="raw" or (pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fasta")</filter>
     </data>
     <data name="seqdb_sequences_fastq" format="fastq" from_work_dir="seqdb_sequences.fastq" label="Sequences from SeqDB">
 	<filter>pull_type_cond['pull_type']=="raw" and pull_type_cond['return_type_cond']['return_type']=="fastq"</filter>
@@ -149,6 +146,10 @@ Required fields are marked with a * .
 
 --------
 
+@HELP__AUTHORS@
+
+--------
+
 .. class:: warningmark
 
 **Execution time**: Some combination of parameters may result in a long execution time. Depending on the number of sequences that are associated with supplied API key, loading "Raw Sequences" without specifying any of the filters could take a long time. Also, requesting a taxonomy file ("Output taxonomy file") will also impact execution time.
@@ -164,15 +165,7 @@ The tool fetches different types of sequences from Sequence DB and writes them t
 @HELP__TOOL_PARAMS@
 @HELP__CONFIG_FILE_PARAM@
     
-**Output taxonomy file?** when selected, the tool will produce a taxonomy file to complement a fasta sequence file. The taxonomy is extracted from SeqDB and is an accepted taxonomic determination of a specimen, which contains requested sequence. The file is of the following format::
-
-	[SeqDb sequence ID]  [kingdom];[phylum];[class];[order];[family];[genus];[species]
-
-Example::
-
-	27755	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
-	27761	Fungi;Oomycota;Oomycetes;Pythiales;Pythiaceae;Pythium;arrhenomanes;
-	...     
+**Output taxonomy file?** when selected, the tool will produce a taxonomy file to complement a fasta sequence file. The taxonomy is extracted from SeqDB and is an accepted taxonomic determination of a specimen, which contains requested sequence. 
   </help>
 
 </tool>
