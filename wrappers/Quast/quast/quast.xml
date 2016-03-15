@@ -49,10 +49,10 @@
 
 	<tests>
 		<test>
-			<param name="input" value="contigs_1.fasta"/>
+			<param name="input" value="input_contigs_1.fasta"/>
 			<param name="gene_selection" value="eukaryote"/>
 			<param name="min_config" value="500"/>
-			<output name="quast_out" file="Quast_report.txt"/>
+			<output name="quast_out" file="output_Quast_report.txt"/>
 		</test>
 	</tests>
 	

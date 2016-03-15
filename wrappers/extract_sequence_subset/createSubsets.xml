@@ -79,15 +79,15 @@
   	<!--<tests>
 		<test>
 			<param name="format" value="fasta"/>
-			<param name="fasta" value="Usearch_Sort"/>
+			<param name="fasta" value="input_Usearch_Sort"/>
 			<param name="filtermode" value="tax"/>
 			<param name="taxonomy" value="k__Fungi"/>
-			<param name="biomtab" value="OTU_Table"/>
-			<param name="mapping" value="QIIME_OTU_mapping"/>
+			<param name="biomtab" value="input_OTU_Table"/>
+			<param name="mapping" value="input_QIIME_OTU_mapping"/>
 			<param name="seqidsonly" value="true"/>
 			<param name="onlyrepseqs" value="true"/>
 			<param name="createindex" value="false"/>
-			<output name="output" file="Extracted_Seqs"/>
+			<output name="output" file="output_Extracted_Seqs"/>
 		</test>
 	</tests>-->
  	

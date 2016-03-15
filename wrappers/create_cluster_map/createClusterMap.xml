@@ -54,16 +54,16 @@
   
 	<tests>
 		<test>
-			<param name="cluster" value="CD-HIT-EST_clusters"/>
+			<param name="cluster" value="input_CD-HIT-EST_clusters"/>
 			<param name="format" value="clstr"/>
 			<param name="namesflag" value="yes"/>
 			<param name="names" value="Unique.seqs_names"/>
 			<param name="qiimeotu" value="true"/>
 			<param name="namesotu" value="true"/>
 			<param name="countotu" value="true"/>
-			<output name="outqiimeotu" file="QIIME_OTU_mapping"/>
-			<output name="outmothurotu" file="Mothur_OTU_mapping"/>
-			<output name="outcountotu" file="OTU_sequence_counts"/>
+			<output name="outqiimeotu" file="output_QIIME_OTU_mapping"/>
+			<output name="outmothurotu" file="output_Mothur_OTU_mapping"/>
+			<output name="outcountotu" file="output_OTU_sequence_counts"/>
 		</test>
 	</tests>
  
