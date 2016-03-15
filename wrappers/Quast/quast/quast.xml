@@ -1,5 +1,5 @@
 <tool id="quast" name="Quast" version="1.0.0" >
-	<description>QUAST (Quality ASsessment Tool) evaluates genome assemblies by computing various.</description>
+	<description>QUAST (Quality ASsessment Tool) evaluates genome assemblies.</description>
 		
 	<requirements>
 		<requirement type="package" version="3.2">quast</requirement>
