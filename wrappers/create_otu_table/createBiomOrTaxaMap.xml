@@ -117,16 +117,16 @@
 
 	<tests>
 		<test>
-			<param name="lca" value="input_LCA_Results"/>
+			<param name="lca" value="input_LCA_Results.tabular"/>
 			<param name="clustermapselect" value="yes"/>
-			<param name="clustermap" value="input_QIIME_OTU_mapping"/>
+			<param name="clustermap" value="input_QIIME_OTU_mapping.tabular"/>
 			<param name="names" value="false"/>
 			<param name="taxamap" value="false"/>
 			<param name="source" value="locfile"/> 
 			<param name="taxonomydisk" value="ncbi_taxonomy"/>
 			<param name="filterflag" value="no"/>
 			<param name="advancedoptions" value="no"/>
-			<output name="output" file="output_OTU_Table"/>
+			<output name="output" file="output_OTU_Table.tabular"/>
 		</test>
 	</tests>
 

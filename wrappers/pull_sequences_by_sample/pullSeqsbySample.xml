@@ -82,11 +82,11 @@
 	<tests>
 		<test>
 			<param name="format" value="fasta"/>
-			<param name="fasta" value="input_trim.fasta"/>
-			<param name="groups" value="input_trim.groups"/>
+			<param name="fasta" value="input_fasta_file.fasta"/>
+			<param name="groups" value="input_groups_file.tabular"/>
 			<param name="sample_source" value="none"/>
 			<param name="metadata_source" value="groups"/>
-			<output name="output" file="output_Extracted_Fasta_File"/>
+			<output name="output" file="output_Extracted_Fasta_File.fasta"/>
 		</test>
 	</tests>
 	
