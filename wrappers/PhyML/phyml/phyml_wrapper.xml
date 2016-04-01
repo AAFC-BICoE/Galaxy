@@ -292,7 +292,7 @@
 
 	<tests>
 		<test>
-			<param name="seq_file_name" value="dna_aligned"/>
+			<param name="seq_file_name" value="input_dna_aligned"/>
 			<param name="seq_file" value="s"/>
 			<param name="nb_data_sets" value="1"/>
 			<param name="data_type" value="nt"/>
@@ -306,8 +306,8 @@
 			<param name="optimise" value="tlr"/>
 			<param name="move" value="NNI"/>
 			<param name="bootstrap" value="0"/>
-			<output name="phyml_tree" file="dna_aligned_phyml_tree.txt"/>
-			<output name="phyml_stats" file="dna_aligned_phyml_stats.txt"/>
+			<output name="phyml_tree" file="output_dna_aligned_phyml_tree.txt"/>
+			<output name="phyml_stats" file="output_dna_aligned_phyml_stats.txt"/>
 		</test>
 	</tests>
 
@@ -352,18 +352,12 @@ For more information regarding the settings of the tool, please visit the PhyML 
 	+ Cime Ajouz 
 	+ cime.ajouz@agr.gc.ca 
 	+ Agriculture and Agri-foods Canada, Ottawa, ON, Canada
-
------
-					
-**Citation**
-		
-"New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0." Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O. Systematic Biology, 59(3):307-21, 2010.
 	</help> 
 
 	<citations>
 		<citation type="bibtex">@ARTICLE{a1,
 		author = {Guidon S., Dufayard J.F., Lefort V., Anisimova M., Hordijk W., Gascuel O.},
-		title = {New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0.},
+		title = {New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0., Systematic Biology, 59(3):307-21},
 		year = {2010}
 		}</citation>
 	</citations>  
