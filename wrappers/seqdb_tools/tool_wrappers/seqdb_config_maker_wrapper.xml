@@ -21,7 +21,6 @@
         label="Sequence Database Configuration" />
   </outputs>
 
-
   <tests>
     <test>
       <output name="out_file" file="test_file.yaml" />
