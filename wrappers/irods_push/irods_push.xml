@@ -1,0 +1,32 @@
+<tool id="irods_push" name="Irods Push Tool" version="0.1.0">
+	<description>Push file in workflow to irods</description>
+	<requirements>
+		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
+<!--		<requirement type="package" version="0.1.0">password_obfuscation</requirement>-->	
+	</requirements> 
+		
+	<command interpreter="python">irods_push.py $input2 
+	#for $m in $inputs: 
+		${m.in.file_name} '$m.in.name'
+	#end for
+	$input3
+	</command>
+	<inputs>
+		 <param type="select" display="radio" name="input3" label="Do you want to overwrite existing files?">
+			<option value="true">Yes </option>
+			<option value="false">No </option>
+		 </param>
+	         <param format="data" name="input2" type="text" label="Directory name: (should not include leading or trailing '/') Ex: myDir/Files or myDir" />
+		 <repeat name="inputs" title="Files">
+		 	<param format="data" name="in" type="data" label="Push file" />
+		 </repeat>
+	</inputs>
+	
+
+	<outputs>
+		<data format="data" name="output" />
+	</outputs> 
+	<help>
+	This tool will push a given file to the administrators main collection in irods.
+	</help>
+</tool>
