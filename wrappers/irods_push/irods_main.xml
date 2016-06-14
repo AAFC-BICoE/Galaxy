@@ -6,7 +6,7 @@
 	
 	</requirements> 
 		
-	<command interpreter="python">irods_push.py $input2 
+	<command interpreter="python">irods_main.py $input2 
 	#for $m in $inputs: 
 		${m.in.file_name} '$m.in.name'
 	#end for
