@@ -46,9 +46,8 @@ class irodsCredentials:
 		self.outFile = outFile
 	#Established so no user should be able to put something in anything higher than their main root directory. 
 	def basicPath(self):
-		return "/" + self.zone + "/home/" + self.username + "/"
+		return "/" + self.zone + "/home/" + self.username 
 
-	#TODO add a check for the main root directories, making sure an error is thrown if the program is passed any of the following directories: zone, home, or username directory.
 	#check if collection exists, if it does, return True, otherwise False
 	def checkIfCollectionExists(self,dirName):
 		query = self.sess.query(Collection).filter(Collection.name == self.basicPath() + dirName)
@@ -62,17 +61,31 @@ class irodsCredentials:
 		return True
 	#Split up the string of directories delimited by '/' and create collections within collections until there are no more directories.	
 	def addDirectories(self,dirName):
+		dirName = "/" + dirName
+		#answer = self.checkIfCollectionExists(dirName)
+		#print answer
 		if self.checkIfCollectionExists(dirName) == False:
+			
 			strList = dirName.split('/',1)
+			#for i in range(len(strList)):
+			#	print strList[i]		
 			f = open(self.outFile,"a+")
 			currentPath = ""
 			for t in range(len(strList)):
 				#only bother creating a new collection within the collection if it doesn't already exist	
 				if self.checkIfCollectionExists(currentPath + strList[t]) == False:
-					f.write("Created collection: " + self.basicPath() + currentPath + strList[t] + "\n")
-					obj = self.sess.collections.create(self.basicPath() + currentPath + strList[t])
+					if t == 0:	
+						f.write("Create collection: " + self.basicPath() + currentPath + "/" + strList[t] + "\n")
+						obj = self.sess.collections.create(self.basicPath() + currentPath + "/" + strList[t])
+					else:
+						f.write("Created collection: " + self.basicPath() + currentPath + strList[t] + "\n")
+						#print self.basicPath() + currentPath + strList[t]	
+						obj = self.sess.collections.create(self.basicPath() + currentPath + strList[t])
 				#this is to make sure you are not just creating the collections in your root directory.
-				currentPath = currentPath + strList[t] + "/"
+				if t == 0:
+					currentPath = currentPath + "/" + strList[t] + "/"
+				else:
+					currentPath = currentPath + strList[t] + "/"
 
 	#Add files to iRODS. If the file already exists, check if noclobber = true, if it is true then overwrite the existing file in memory. If the 
 	#file does not already exist, go ahead and create it.
@@ -92,39 +105,42 @@ class irodsCredentials:
 				myOutFile.write("File '" + fileNames[x] + "' does not exist. Creating it in irods.\n")
 				#print dirName
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				obj = self.sess.data_objects.create(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.create(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 				with open(filePaths[x]) as fileToPlace:
 					data = fileToPlace.read()
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.get(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 				with obj.open('w+') as f:
 					f.write(data)			
 					f.seek(0,0)
 		
-				obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.get(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 				myOutFile.write("Succesfully wrote: " + fileNames[x] + "\n")
 			#at this point it is assumed the file already exists
 			else: 
 				if noclobber == "true":
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Overwriting now.\n")
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 					data = ""
 					with obj.open('w+') as f:
 						f.write(data)
 			
 					with open(filePaths[x]) as fileToPlace:
 						data = fileToPlace.read()
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 					with obj.open('w+') as f:
 						f.write(data)
 						f.seek(0,0)
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(self.basicPath() + "/" + dirName + "/" + fileNames[x])
 					myOutFile.write("Successfully overwrote: " + fileNames[x] + "\n")
 				else:
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Prevented from overwriting\n")
 				
 
-#newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA")
+newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA","outfile.txt")
+answer = newIrods.checkIfCollectionExists("/katDir")
+#print answer
+#newIrods.addDirectories("/newDir")
 #newIrods.addDirectories("katDir/newDir/files")
 #filePaths = []
 #fileNames = []
