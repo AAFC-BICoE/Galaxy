@@ -3,6 +3,7 @@
 	<requirements>
 		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
 	</requirements> 
+<!--	<code file="get_n_dirs.py" /> -->
 		
 	<command interpreter="python">irods_main.py $input2 
 	<!-- New inserted line -->
@@ -19,7 +20,11 @@
 			<option value="true">Yes </option>
 			<option value="false">No </option>
 		 </param>
-	         <param format="data" name="input2" type="text" label="Directory name: (should not include trailing '/', include the leading '/') Ex: /myDir/Files or /myDir\nThis should be relative to the root directory: /yourZone/home/yourUsername" />
+	         <param format="data" name="input2" type="text" label="Directory name:" help="Should not include trailing '/', include the leading '/' Ex: /myDir/Files or /myDir. This should be relative to the root directory: /yourZone/home/yourUsername" />
+<!--		<param format="text" name="depth" type="text" label="Depth of relative directory path: " />
+		<param name = "dirName" type="select" label="Directory Names: " refresh_on_change="True" dynamic_options="get_n_dirs(depth)" />  -->
+		
+				 
 		<!--
 		 <repeat name="inputs" title="Files">
 		 <param format="data" name="in" type="data" label="Push file" />
