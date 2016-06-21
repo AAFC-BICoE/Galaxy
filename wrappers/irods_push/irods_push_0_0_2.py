@@ -51,39 +51,44 @@ class irodsCredentials:
 	#TODO add a check for the main root directories, making sure an error is thrown if the program is passed any of the following directories: zone, home, or username directory.
 	#check if collection exists, if it does, return True, otherwise False
 	def checkIfCollectionExists(self,dirName):
-		if dirName[0] == '/':
-			dirName = dirName[1:]
-		query = self.sess.query(Collection).filter(Collection.name == self.basicPath() + dirName)
+		#if dirName[0] == '/':
+		#	dirName = dirName[1:]
+		print "dirName in checkColl: " + dirName
+		
+		query = self.sess.query(Collection).filter(Collection.name == dirName)
 		results = query.all()
 		if len(results) <= 0:
 			with open(self.outFile,"a+") as f:
         	                f.write("Collection '" + dirName + "' doesn't exist\n")
 			return False
 		with open(self.outFile,"a+") as f:
-			print dirName
+			#print dirName
                         f.write("Collection '" + dirName + "' exists\n")
 		return True
 	#Split up the string of directories delimited by '/' and create collections within collections until there are no more directories.	
 	def addDirectories(self,dirName):
-		if dirName[0] == '/':
-			dirName = dirName[1:]
+		#if dirName[0] == '/':
+		#	dirName = dirName[1:]
 		if self.checkIfCollectionExists(dirName) == False:
-			strList = dirName.split('/',1)
+			strList = dirName.split('/')
+			print str(strList)
 			f = open(self.outFile,"a+")
-			currentPath = ""
+			currentPath = "/"
 			for t in range(len(strList)):
 				#only bother creating a new collection within the collection if it doesn't already exist	
+				print "Print current path + strList: " + currentPath + strList[t]
+				print "Strlist[t]: " + strList[t]
 				if self.checkIfCollectionExists(currentPath + strList[t]) == False:
-					f.write("Created collection: " + self.basicPath() + currentPath + strList[t] + "\n")
-					obj = self.sess.collections.create(self.basicPath() + currentPath + strList[t])
+					f.write("Created collection: " + currentPath + strList[t] + "\n")
+					obj = self.sess.collections.create(currentPath + strList[t])
 				#this is to make sure you are not just creating the collections in your root directory.
 				currentPath = currentPath + strList[t] + "/"
 
 	#Add files to iRODS. If the file already exists, check if noclobber = true, if it is true then overwrite the existing file in memory. If the 
 	#file does not already exist, go ahead and create it.
 	def addFiles(self,filePaths,fileNames,dirName,noclobber):
-		if dirName[0] == '/':
-			dirName = dirName[1:]
+		#if dirName[0] == '/':
+		#	dirName = dirName[1:]
 		if len(fileNames) != len(set(fileNames)):
                                 raise FileDuplicateError("Error: You are trying to add a file two or more times, try again with two different names")
                 myOutFile = open(self.outFile,"a+")
@@ -91,7 +96,7 @@ class irodsCredentials:
 			if not os.path.exists(filePaths[x]):
 				raise IOError("Error: File path specified does not exist")	
 			#check if file exists before deciding whether or not to just create it or overwrite it.		
-			query = self.sess.query(DataObject).filter(DataObject.name == fileNames[x]).filter(Collection.name == self.basicPath() + dirName)
+			query = self.sess.query(DataObject).filter(DataObject.name == fileNames[x]).filter(Collection.name == dirName)
 			results = query.all()
 			
 			#file doesn't exist so create it, don't need to check for 'no clobber'
@@ -99,47 +104,48 @@ class irodsCredentials:
 				myOutFile.write("File '" + fileNames[x] + "' does not exist. Creating it in irods.\n")
 				#print dirName
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				obj = self.sess.data_objects.create(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
 				with open(filePaths[x]) as fileToPlace:
 					data = fileToPlace.read()
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 				with obj.open('w+') as f:
 					f.write(data)			
 					f.seek(0,0)
 		
-				obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+				obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 				myOutFile.write("Succesfully wrote: " + fileNames[x] + "\n")
 			#at this point it is assumed the file already exists
 			else: 
 				if noclobber == "true":
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Overwriting now.\n")
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 					data = ""
 					with obj.open('w+') as f:
 						f.write(data)
 			
 					with open(filePaths[x]) as fileToPlace:
 						data = fileToPlace.read()
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 					with obj.open('w+') as f:
 						f.write(data)
 						f.seek(0,0)
-					obj = self.sess.data_objects.get(self.basicPath() + dirName + "/" + fileNames[x])
+					obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 					myOutFile.write("Successfully overwrote: " + fileNames[x] + "\n")
 				else:
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Prevented from overwriting\n")
 				
 
-#newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA")
-#newIrods.addDirectories("katDir/newDir/files")
+#newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA","outfile.txt")
+#newIrods.addDirectories("/tempZone/home/rods/katDir/newDir/files")
+
 #filePaths = []
 #fileNames = []
-#filePaths.append("/home/katherine/filler.txt")
-#filePaths.append("/home/katherine/joy.txt")
-#fileNames.append("filler.txt")
-#fileNames.append("joy.txt")
-#newIrods.addFiles(filePaths,fileNames,"katDir/newDir/files","true")
+#filePaths.append("/home/katherine/galaxyTool/randomFiles/file1.txt")
+#filePaths.append("/home/katherine/galaxyTool/randomFiles/file2.txt")
+#fileNames.append("file1.txt")
+#fileNames.append("file2.txt")
+#newIrods.addFiles(filePaths,fileNames,"/tempZone/home/rods/katDir/newDir/files","true")
 
 
 
