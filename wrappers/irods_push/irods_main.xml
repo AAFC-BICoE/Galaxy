@@ -3,11 +3,17 @@
 	<requirements>
 		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
 	</requirements> 
-<!--	<code file="get_n_dirs.py" /> -->
+	<code file="get_n_dirs.py" /> 
 		
-	<command interpreter="python">irods_main.py $input2 
+	<command interpreter="python"> 
+
+	#if $typePath=="abs"
+		irods_main.py $input2 ${in.file_name} '$in.name' $input3 $output
+	#else
+		irods_main.py $dirname ${in.file_name} '$in.name' $input3 $output
+	#end if
 	<!-- New inserted line -->
-	${in.file_name} '$in.name' $input3 $output
+	<!--${in.file_name} '$in.name' $input3 $output -->
 	<!--
 	#for $m in $inputs: 
 		${m.in.file_name} '$m.in.name'
@@ -20,9 +26,13 @@
 			<option value="true">Yes </option>
 			<option value="false">No </option>
 		 </param>
+		 <param type="select" display="radio" name="typePath" label="Check the type of path you will be using">
+			<option value="abs">Absolute Path </option>
+			<option value="rel">Relative Path </option>
+		</param>
 	         <param format="data" name="input2" type="text" label="Directory name:" help="Should not include trailing '/', include the leading '/' Ex: /myDir/Files or /myDir. This should be relative to the root directory: /yourZone/home/yourUsername" />
-<!--		<param format="text" name="depth" type="text" label="Depth of relative directory path: " />
-		<param name = "dirName" type="select" label="Directory Names: " refresh_on_change="True" dynamic_options="get_n_dirs(depth)" />  -->
+		<param format="text" name="depth" type="text" label="Depth of relative directory path: " refresh_on_change="True" />
+		<param name = "dirname" type="select" label="Directory Names: " dynamic_options="get_n_dirs(depth)" optional="True"/>  
 		
 				 
 		<!--
