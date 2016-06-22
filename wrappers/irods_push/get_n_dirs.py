@@ -30,7 +30,7 @@ class irodsGetDirectories:
 		self.host = str(data["irods_host"])
 		self.zone = str(data["irods_zone_name"])
 		self.username = str(data["irods_user_name"])
-		self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)
+#		self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)
 
 	def basicPath(self):
 		return "/" + self.zone + "/home/" + self.username 
@@ -39,7 +39,8 @@ class irodsGetDirectories:
 
 def get_n_dirs(n):
 	newIrods = irodsGetDirectories()
-	sess = newIrods.sess
+#	sess = newIrods.sess
+	sess = iRODSSession(host=newIrods.host,port=newIrods.port,user=newIrods.username,password=newIrods.pw,zone=newIrods.zone)
 	basicPath = newIrods.basicPath()
 	#print newIrods.zone
 	coll = sess.collections.get(basicPath)
@@ -58,14 +59,25 @@ def get_n_dirs(n):
 	for i in range(len(myList)):
 		print type(myList[i])
 		print myList[i]	
+
 #	print myList
+	print sess.pool.idle
+	print sess.pool.active
+	sess.cleanup()
+	print sess.pool.active
 	return myList		
 	
 def get_dirs(coll,n,myColList,basicPath):	
-	
-	n=int(n)	
+	print "Before cast: " + str(type(n))
+	try:
+		n=int(n)
+	except:
+		n = 0
+	print "After cast: " + str(type(n))	
 #	print "N as you enter: " + str(n)	
 #	print "Type of myColList as entering: " + str(type(myColList))
+	if n == 0:
+		return []
 	if n == 1:
 		myColList.append((basicPath,basicPath,0))
 		return myColList
