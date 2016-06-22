@@ -42,7 +42,10 @@ class irodsCredentials:
 		self.host = str(data["irods_host"])
 		self.zone = str(data["irods_zone_name"])
 		self.username = str(data["irods_user_name"])
+		
 		self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
+		print "Just created: " + str(self.sess.pool.active)
+		print "Just created: " + str(self.sess.pool.idle)
 		self.outFile = outFile
 	#Established so no user should be able to put something in anything higher than their main root directory. 
 	def basicPath(self):
@@ -53,8 +56,7 @@ class irodsCredentials:
 	def checkIfCollectionExists(self,dirName):
 		#if dirName[0] == '/':
 		#	dirName = dirName[1:]
-		print "dirName in checkColl: " + dirName
-		
+		print "dirName in checkColl: " + dirName	
 		query = self.sess.query(Collection).filter(Collection.name == dirName)
 		results = query.all()
 		if len(results) <= 0:
@@ -71,6 +73,8 @@ class irodsCredentials:
 		#	dirName = dirName[1:]
 		if self.checkIfCollectionExists(dirName) == False:
 			strList = dirName.split('/')
+			if strList[0] == "":
+				del strList[0]
 			print str(strList)
 			f = open(self.outFile,"a+")
 			currentPath = "/"
@@ -80,6 +84,7 @@ class irodsCredentials:
 				print "Strlist[t]: " + strList[t]
 				if self.checkIfCollectionExists(currentPath + strList[t]) == False:
 					f.write("Created collection: " + currentPath + strList[t] + "\n")
+					
 					obj = self.sess.collections.create(currentPath + strList[t])
 				#this is to make sure you are not just creating the collections in your root directory.
 				currentPath = currentPath + strList[t] + "/"
@@ -134,8 +139,8 @@ class irodsCredentials:
 					myOutFile.write("Successfully overwrote: " + fileNames[x] + "\n")
 				else:
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Prevented from overwriting\n")
-				
-
+		self.sess.cleanup()			
+	
 #newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA","outfile.txt")
 #newIrods.addDirectories("/tempZone/home/rods/katDir/newDir/files")
 
