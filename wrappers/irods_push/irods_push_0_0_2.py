@@ -44,8 +44,8 @@ class irodsCredentials:
 		self.username = str(data["irods_user_name"])
 		
 		self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
-		print "Just created: " + str(self.sess.pool.active)
-		print "Just created: " + str(self.sess.pool.idle)
+		#print "Just created: " + str(self.sess.pool.active)
+		#print "Just created: " + str(self.sess.pool.idle)
 		self.outFile = outFile
 	#Established so no user should be able to put something in anything higher than their main root directory. 
 	def basicPath(self):
@@ -54,9 +54,16 @@ class irodsCredentials:
 	#TODO add a check for the main root directories, making sure an error is thrown if the program is passed any of the following directories: zone, home, or username directory.
 	#check if collection exists, if it does, return True, otherwise False
 	def checkIfCollectionExists(self,dirName):
-		#if dirName[0] == '/':
-		#	dirName = dirName[1:]
-		print "dirName in checkColl: " + dirName	
+		#print "Before I do any stripping of slashes: " + dirName
+		if dirName[0] != '/':
+			dirName = '/' + dirName
+		if dirName[-1] == '/':
+			dirName = dirName[0:len(dirName)-1]
+		print "I am checking that this exists: " + dirName
+#		print "dirName in checkColl: " + dirName	
+		#if the dirname they are checking is /zone, /zone/home, or /zone/home/user, they may not have permission to query these so just skip them
+		if dirName == "/" + self.zone or dirName == "/" + self.zone + "/home" or dirName == "/" +self.zone + "/home/" + self.username:
+			return True
 		query = self.sess.query(Collection).filter(Collection.name == dirName)
 		results = query.all()
 		if len(results) <= 0:
@@ -69,31 +76,38 @@ class irodsCredentials:
 		return True
 	#Split up the string of directories delimited by '/' and create collections within collections until there are no more directories.	
 	def addDirectories(self,dirName):
-		#if dirName[0] == '/':
-		#	dirName = dirName[1:]
+		if dirName[0] != '/':
+                        dirName = '/' + dirName
+                if dirName[-1] == '/':
+                        dirName = dirName[0:len(dirName)-1]
 		if self.checkIfCollectionExists(dirName) == False:
 			strList = dirName.split('/')
 			if strList[0] == "":
 				del strList[0]
-			print str(strList)
+			#print str(strList)
 			f = open(self.outFile,"a+")
 			currentPath = "/"
 			for t in range(len(strList)):
 				#only bother creating a new collection within the collection if it doesn't already exist	
 				print "Print current path + strList: " + currentPath + strList[t]
-				print "Strlist[t]: " + strList[t]
+				#print "Strlist[t]: " + strList[t]
 				if self.checkIfCollectionExists(currentPath + strList[t]) == False:
 					f.write("Created collection: " + currentPath + strList[t] + "\n")
-					
-					obj = self.sess.collections.create(currentPath + strList[t])
+					try:	
+						obj = self.sess.collections.create(currentPath + strList[t])
+					except:
+						sys.exit( "Can't create this directory, it already exists, or you do not have permission to write to the current directory. If using an absolute path, make sure your path looks something like this if you are a user: '/<yourzone>/home/<yourusername>/... ")
+						
 				#this is to make sure you are not just creating the collections in your root directory.
 				currentPath = currentPath + strList[t] + "/"
 
 	#Add files to iRODS. If the file already exists, check if noclobber = true, if it is true then overwrite the existing file in memory. If the 
 	#file does not already exist, go ahead and create it.
 	def addFiles(self,filePaths,fileNames,dirName,noclobber):
-		#if dirName[0] == '/':
-		#	dirName = dirName[1:]
+		if dirName[0] != '/':
+                        dirName = '/' + dirName
+                if dirName[-1] == '/':
+                        dirName = dirName[0:len(dirName)-1]
 		if len(fileNames) != len(set(fileNames)):
                                 raise FileDuplicateError("Error: You are trying to add a file two or more times, try again with two different names")
                 myOutFile = open(self.outFile,"a+")
@@ -109,11 +123,16 @@ class irodsCredentials:
 				myOutFile.write("File '" + fileNames[x] + "' does not exist. Creating it in irods.\n")
 				#print dirName
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
+				try:
+					obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
+				except:
+					sys.exit("You do not have permission to write to this directory path")
+
 				with open(filePaths[x]) as fileToPlace:
 					data = fileToPlace.read()
 				#print self.basicPath() + dirName + "/" + fileNames[x]
 				obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
+				#print "Pathname before error: " + dirName + "/" + fileNames[x]
 				with obj.open('w+') as f:
 					f.write(data)			
 					f.seek(0,0)
@@ -126,6 +145,7 @@ class irodsCredentials:
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Overwriting now.\n")
 					obj = self.sess.data_objects.get(dirName + "/" + fileNames[x])
 					data = ""
+					#print "Pathname before error: " +dirName +"/" + fileNames[x]
 					with obj.open('w+') as f:
 						f.write(data)
 			
