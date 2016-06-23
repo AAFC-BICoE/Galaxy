@@ -7,10 +7,10 @@
 		
 	<command interpreter="python"> 
 
-	#if $typePath=="abs"
-		irods_main.py $input2 ${in.file_name} '$in.name' $input3 $output
+	#if $input_options.typePath=="abs"
+		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output
 	#else
-		irods_main.py $dirname ${in.file_name} '$in.name' $input3 $output
+		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output
 	#end if
 	<!-- New inserted line -->
 	<!--${in.file_name} '$in.name' $input3 $output -->
@@ -26,14 +26,20 @@
 			<option value="true">Yes </option>
 			<option value="false">No </option>
 		 </param>
-		 <param type="select" display="radio" name="typePath" label="Check the type of path you will be using">
-			<option value="abs">Absolute Path </option>
-			<option value="rel">Relative Path </option>
-		</param>
-	         <param format="data" name="input2" type="text" label="Directory name:" help="Should not include trailing '/', include the leading '/' Ex: /myDir/Files or /myDir. This should be relative to the root directory: /yourZone/home/yourUsername" />
-		<param format="text" name="depth" type="text" label="Depth of relative directory path: " refresh_on_change="True" />
-		<param name = "dirname" type="select" label="Directory Names: " dynamic_options="get_n_dirs(depth)" optional="True"/>  
-		
+		 <conditional name="input_options">
+		 	<param type="select" display="radio" name="typePath" label="Check the type of path you will be using">
+				<option value="abs">Absolute Path </option>
+				<option value="rel">Relative Path </option>
+			</param>
+			<when value="abs">
+	        		 <param format="data" name="input2" type="text" label="Absolute Path:" />
+			</when>
+
+			<when value="rel">
+				<param format="text" name="depth" type="text" label="Depth of relative directory path: " refresh_on_change="True" help="This should be relative to your user directory"/>
+				<param name = "dirname" type="select" label="Relative Paths: " dynamic_options="get_n_dirs(depth)" optional="True"/>  
+			</when>
+		</conditional>
 				 
 		<!--
 		 <repeat name="inputs" title="Files">
@@ -45,9 +51,19 @@
 	
 
 	<outputs>
-		<data format="data" name="output" />
+		<data format="text" name="output" />
 	</outputs> 
 	<help>
-	This tool will push a given file to the administrators main collection in irods.
+	This tool will push export any number of files either from your history or a workflow to your irods filesystem. It is assumed that you have logged into your account at least once on your computer and that the files .irodsA and irods_environment.json exist on your computer. Check that these exist by typing: ls -a ~/.irods on the command line. If these do not exist you will need to create them by running iinit, credentials should be supplied by your system administrator.
+	
+	You may may overwrite exisiting files in your filesystem, use at your own risk. If there is a file in the specified path with the same name as a file you are trying to export and you have 'yes' checked in the overwrite parameter, your file contents will be replaced with the most recent contents of the file you are exporting.
+
+	Check what type of path you want to submit to the tool, you can have something specified for both the relative and absolute path parameters but only the one specified by the 'type of path' parameter will be used in the execution of the tool.
+
+	You have the choice of using an absolute path or a relative path. If you choose to use an absolute path, make sure you have write permissions to all the collections you specify and want to create. For example, if you are only a regular rodsuser, you will not have permission to create a collection in /'yourzone'/home/ or place a file there. In this case it may be better to use a relative path, choosing from a list of existing directories.
+
+	To see a list of existing directories in your irods file system, enter the depth of the directories you would like to see in the 'depth of relative directory path' parameter. For example, a depth of 1 will only show your user's home folder, a depth of 2 will show your user's home folder as well as its subdirectories and so on.
+
+	Author: Katherine Beaulieu
 	</help>
 </tool>
