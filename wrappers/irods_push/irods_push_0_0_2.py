@@ -59,7 +59,7 @@ class irodsCredentials:
 			dirName = '/' + dirName
 		if dirName[-1] == '/':
 			dirName = dirName[0:len(dirName)-1]
-		print "I am checking that this exists: " + dirName
+		#print "I am checking that this exists: " + dirName
 #		print "dirName in checkColl: " + dirName	
 		#if the dirname they are checking is /zone, /zone/home, or /zone/home/user, they may not have permission to query these so just skip them
 		if dirName == "/" + self.zone or dirName == "/" + self.zone + "/home" or dirName == "/" +self.zone + "/home/" + self.username:
@@ -89,7 +89,7 @@ class irodsCredentials:
 			currentPath = "/"
 			for t in range(len(strList)):
 				#only bother creating a new collection within the collection if it doesn't already exist	
-				print "Print current path + strList: " + currentPath + strList[t]
+				#print "Print current path + strList: " + currentPath + strList[t]
 				#print "Strlist[t]: " + strList[t]
 				if self.checkIfCollectionExists(currentPath + strList[t]) == False:
 					f.write("Created collection: " + currentPath + strList[t] + "\n")
