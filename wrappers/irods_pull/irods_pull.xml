@@ -3,35 +3,52 @@
 	<requirements>
 		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
 	</requirements>
-	
+	<code file="get_n_files.py" />	
 	<command interpreter="python">
-	irods_pull.py $filePath $output
-	<!--<![CDATA[
-	irods_pull.py $filePath 
-	#set $pathToStrip = $filePath
-	#while '/' in $pathToStrip
+	#import os.path
+	#if $typePath.type_path=="abs"
+		irods_pull.py $typePath.filenamesAbs $output
+		#set outPath=${typePath.filenamesAbs.__str__}
+	#else
+		irods_pull.py $typePath.filenamesExi $output
+		#set outPath=${typePath.filenamesExi.__str__}
+	#end if
+<!--	#set $newName = [$os.path.basename($filePath.__str__)]-->
+<!--	irods_pull.py $filePath $output-->
+<!--	#import os.path-->
+<!--	#set $pathToStrip = $filePath-->
+<!--	#echo $pathToStrip-->
+<!--	#set $newName = [os.path.basename($filePath)]-->
+<!--	#while '/' in $pathToStrip
 		$pathToStrip = $pathToStrip[1:len($pathToStrip)]
 	#end while
-	$newName=$pathToStrip
-	$newName
+	#set $newName=$pathToStrip
 	]]>-->
+<!--	$newName
+
+$pathToStrip = str($pathToStrip)
+	-->
+
 	</command>
 	<inputs>
-		<param type="text" name="filePath" label="Choose file to upload" />
-		<!--<conditional name="rename_condition">
-			<param type="select" display="radio" name="rename" label="Rename?" help="This is the name that will appear in the right panel.">
-				<option value="no">No</option>
-				<option value="yes">Yes</option>
+		<conditional name="typePath">
+			<param type="select" name="type_path" label="Choose how you will pass in your file name:" >
+				<option value="abs">Absolute Path</option>
+				<option value="exi">Existing Path</option>
 			</param>
-			<when value="yes">i-->
-		<param format="data" name="newName" type="text" label="New File Name:" />
-	<!--		</when>
-		</conditional> -->
+			<when value="abs">
+				<param type="text" name="filenamesAbs" label="Choose file to upload" />
+			</when>
+			<when value="exi">
+				<param type="text" name="depth" label="Depth of file:" />
+				<param name = "filenamesExi" type="select" label="Existing files: " dynamic_options="get_n_files(depth)" optional="True" />
+			</when>
+		</conditional>				
 	</inputs>
 	
 	
 	<outputs>
-		<data format="data" name="output" label="$newName" from_work_dir="$newName"/>
+			<data format="txt" name="output" label="$os.path.basename($outPath)" />
 	</outputs>
 	<help>
 	Coming Soon
