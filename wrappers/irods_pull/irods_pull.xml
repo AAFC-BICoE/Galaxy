@@ -1,4 +1,4 @@
-<tool id ="irods_pull_main" name="Import to iRods" version="0.1.0">
+<tool id ="pull_main" name="Import to Galaxy" version="0.1.0">
 	<description>Pull file into galaxy history</description>
 	<requirements>
 		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
@@ -13,21 +13,6 @@
 		irods_pull.py $typePath.filenamesExi $output
 		#set outPath=${typePath.filenamesExi.__str__}
 	#end if
-<!--	#set $newName = [$os.path.basename($filePath.__str__)]-->
-<!--	irods_pull.py $filePath $output-->
-<!--	#import os.path-->
-<!--	#set $pathToStrip = $filePath-->
-<!--	#echo $pathToStrip-->
-<!--	#set $newName = [os.path.basename($filePath)]-->
-<!--	#while '/' in $pathToStrip
-		$pathToStrip = $pathToStrip[1:len($pathToStrip)]
-	#end while
-	#set $newName=$pathToStrip
-	]]>-->
-<!--	$newName
-
-$pathToStrip = str($pathToStrip)
-	-->
 
 	</command>
 	<inputs>
