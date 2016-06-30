@@ -1,0 +1,20 @@
+<tool id="addMultiple" name="Add Multiple Files" version="0.1.0">
+	<description></description>
+	<command interpreter="python">
+		addMultiple.py 
+		#for $i in $inputs
+			${i.input}
+		#end for
+		$output1.id $__new_file_path__
+	</command>
+
+	<inputs>
+	<repeat name="inputs" title="File" >
+		<param name="input" type="text" label="File to add" />
+	</repeat>
+	</inputs>
+		
+	<outputs>
+		<data format="auto" name="output1" label="a Label"/>
+	</outputs>
+</tool>	
