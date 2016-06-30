@@ -1,4 +1,5 @@
-<tool id ="pull_main" name="Import to Galaxy" version="0.1.0">
+<tool id ="irods_pull_main" name="Import to Galaxy" version="0.1.0">
+	#set outPath=''
 	<description>Pull file into galaxy history</description>
 	<requirements>
 		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
@@ -7,13 +8,24 @@
 	<command interpreter="python">
 	#import os.path
 	#if $typePath.type_path=="abs"
-		irods_pull.py $typePath.filenamesAbs $output
-		#set outPath=${typePath.filenamesAbs.__str__}
+		irods_pull.py '$typePath.filenamesAbs' $output1
 	#else
-		irods_pull.py $typePath.filenamesExi $output
-		#set outPath=${typePath.filenamesExi.__str__}
+		
+		irods_pull.py '$typePath.filenamesExi' $output2
 	#end if
-
+	
+	<!--
+	#import os.path
+	
+	#if $typePath.type_path=="abs"
+		irods_pull.py '$typePath.filenamesAbs' $output
+	#else
+		##split comma delimited list here
+		#set myList=$typePath.filenamesExi.split(',')
+		irods_pull.py '$typePath.filenamesExi' $output
+		
+	#end if
+-->
 	</command>
 	<inputs>
 		<conditional name="typePath">
@@ -25,7 +37,7 @@
 				<param type="text" name="filenamesAbs" label="Choose file to upload" />
 			</when>
 			<when value="exi">
-				<param type="text" name="depth" label="Depth of file:" />
+				<param type="text" name="depth" label="Depth of file:" refresh_on_change="True"/>
 				<param name = "filenamesExi" type="select" label="Existing files: " dynamic_options="get_n_files(depth)" optional="True" />
 			</when>
 		</conditional>				
@@ -33,10 +45,22 @@
 	
 	
 	<outputs>
-			<data format="txt" name="output" label="$os.path.basename($outPath)" />
+	<!--	<data name="output" format="auto" />-->
+		<data name="output1" format="auto" label="$os.path.basename($typePath.filenamesAbs.__str__)" >
+			<filter>typePath['type_path'] =="abs"</filter>
+		</data>
+		<data name="output2" format="auto" label="$os.path.basename($typePath.filenamesExi.__str__)">
+			<filter>typePath['type_path'] =="exi"</filter>
+		</data>
 	</outputs>
 	<help>
-	Coming Soon
+	**Purpose**
+
+	The purpose of this tool is to give users the ability to pull files from irods into your galaxy history for the purpose of being used by other tools or in a galaxy workflow. 
+
+	**Parameters**
+
+	There are two manners in which you can choose what file to upload. You can choose to use an absolute path which gives you access to any file which you have write permissions to or an existing file path in your user home directory. Once files have been added history, if being used for further analysis, will need to be converted to their appropriate file format such as .txt, .fasta etc...
 	</help>
 </tool>
 	
