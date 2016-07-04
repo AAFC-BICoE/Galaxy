@@ -13,12 +13,10 @@
 		#for $i in $typePath.abs_dirs
 			'$i.filenamesAbs'
 		#end for
-		$output1.id $__new_file_path__ 
+		$output1.id $__new_file_path__ $typePath.type_path 
 	#else
-		#for $i in $typePath.exi_dirs
-			'$i.filenamesExi'
-		#end for
-		$output2.id $__new_file_path__
+		'$typePath.filenamesExi'
+		$output2.id $__new_file_path__ $typePath.type_path
 	#end if	
 
 
@@ -36,10 +34,10 @@
 				</repeat>
 			</when>
 			<when value="exi">
-				<repeat name="exi_dirs" title="Exisitng file paths:" >
-					<param type="text" name="depth" label="Depth of file in filesystem: " refresh_on_change="True" />
-					<param name="filenamesExi" type="select" label="Existing files:" dynamic_options="get_n_files(depth)" />
-				</repeat>
+	<!--			<repeat name="exi_dirs" title="Exisitng file paths:" > -->
+				<param type="text" name="depth" label="Depth of file in filesystem: " refresh_on_change="True" />
+				<param name="filenamesExi" type="select" label="Existing files:" dynamic_options="get_n_files(depth)" multiple="true" default="1" optional="false"/>
+		<!--		</repeat>-->
 			<!--	<param name="filenamesExi" type="select" label="Exisiting files: " dynamic_options="get_n_files(depth)" /> -->
 			</when>
 		</conditional>
