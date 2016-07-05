@@ -34,18 +34,74 @@ class irodsGetFiles:
 	def basicPath(self):
 		return "/" + self.zone + "/home/" + self.username
 
+def get_n_filenames(directory):
+	#assume that we are starting from the top :/tempZone/home/rods/ and the user is typing directories underneath that.
+	#assume we show all directories from the top down to the directory typed by the user.
+	#should get rid of leading and trailing slashes.
+	newIrods = irodsGetFiles()
+	sess = iRODSSession(host=newIrods.host,port=newIrods.port,user=newIrods.username,password=newIrods.pw,zone=newIrods.zone)
+	basicPath = newIrods.basicPath()
+	coll = sess.collections.get(basicPath)
+	files = []
+	directory = str(directory)
+	for obj in coll.data_objects:
+		files.append((obj.path,obj.path,0))
+	if len(directory) > 1:
+		if directory[0] == '/':
+			directory = directory[1:]
+		if directory[-1] == '/':
+			directory = directory[:-1]
+		#check if it exists
+		if newIrods.zone + "/home/" + newIrods.username in directory:
+			directory = directory.replace(newIrods.zone + "/home/" + newIrods.username,'')
+		if directory[0] == '/':
+			directory = directory[1:]
+		print directory		
+		directoryList = directory.split('/')
+		currentPath = "/"
+		for direc in directoryList:
+			if currentPath == "/":
+				appendedDir = basicPath + "/" + direc
+			else:
+				appendedDir = basicPath + currentPath + "/" + direc
+			query = sess.query(Collection).filter(Collection.name == appendedDir)
+			results = query.all()
+			if len(results) <= 0:
+				return files
+			else:
+				coll = sess.collections.get(appendedDir)
+				for obj in coll.data_objects:
+					files.append((obj.path,obj.path,0))
+				currentPath = currentPath + direc
+	sess.cleanup()
+	return files
+			
+
+
 def get_filenames(directory):
 	newIrods = irodsGetFiles()
 	sess = iRODSSession(host=newIrods.host,port=newIrods.port,user=newIrods.username,password=newIrods.pw,zone=newIrods.zone)
 	basicPath = newIrods.basicPath()
+
 	directory = str(directory)
-	if directory == None:
+	if len(directory) > 1:
+		if directory[-1] == '/':
+			directory = directory[:-1]
+		if directory[0] == '/':
+			directory = directory[1:]
+		if newIrods.zone + "/home/" + newIrods.username in directory:
+			directory = directory.replace(newIrods.zone + "/home/" + newIrods.username,'')
+		if directory[0] == '/':
+			directory = directory[1:]
+	print directory
+	if len(directory) <= 0:
+		print "This is what directory looks like when its blank: " + directory
 		coll = sess.collections.get(basicPath)
 		files = []
 		for obj in coll.data_objects:
 			files.append((obj.path,obj.path,0))
 	else:
-		appendedDir = basicPath + directory
+		appendedDir = basicPath + "/" + directory
 		
 		query = sess.query(Collection).filter(Collection.name == appendedDir)
 		results = query.all()
@@ -59,6 +115,7 @@ def get_filenames(directory):
 			files = []
 			for obj in coll.data_objects:
 				files.append((obj.path,obj.path,0))
+	sess.cleanup()
 	return files	
 
 def get_depth(filePaths):
@@ -354,8 +411,10 @@ def scramble(s, key=default_password_key, scramble_prefix=default_scramble_prefi
 
 
 #get_n_files(2)
-results = get_filenames("/katDir")
-print str(results)
+results = get_filenames("/tempZone/home/rods/newDir/")
+for i in results:
+	print i
+#print str(results)
 
 
 
