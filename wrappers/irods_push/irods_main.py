@@ -9,13 +9,17 @@ envFile = "/home/" + getpass.getuser() + "/.irods/irods_environment.json"
 
 
 newIrodsObject = irods_push_0_0_2.irodsCredentials(envFile,pwFile,sys.argv[-1])
-newIrodsObject.checkIfCollectionExists(sys.argv[1])
-#newIrodsObject.addDirectories(sys.argv[1])
+#newIrodsObject.checkIfCollectionExists(sys.argv[1])
+newIrodsObject.addDirectories(sys.argv[1])
 
-#filePaths = []
-#fileNames = []
-#for x in range(2,len(sys.argv)-3,2):
-#	filePaths.append(sys.argv[x])
-#	fileNames.append(sys.argv[x+1])
-#newIrodsObject.addFiles(filePaths,fileNames,sys.argv[1],sys.argv[-2])
+filePaths = []
+fileNames = []
+for x in range(2,len(sys.argv)-3,2):
+	filePaths.append(sys.argv[x])
+	fileNames.append(sys.argv[x+1])
+newIrodsObject.addFiles(filePaths,fileNames,sys.argv[1],sys.argv[-2])
+print filePaths
+print fileNames
+print sys.argv[1]
+print sys.argv[-2]
 
