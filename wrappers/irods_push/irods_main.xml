@@ -8,9 +8,9 @@
 	<command interpreter="python"> 
 
 	#if $input_options.typePath=="abs"
-		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output
+		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output 
 	#else
-		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output
+		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output 
 	#end if
 	<!-- New inserted line -->
 	<!--${in.file_name} '$in.name' $input3 $output -->
@@ -27,7 +27,7 @@
 			<option value="false">No </option>
 		 </param>
 		 <conditional name="input_options">
-		 	<param type="select" display="radio" name="typePath" label="Check the type of path you will be using">
+		 	<param type="select" display="radio" name="typePath" label="Check the type of path you will be using: ">
 				<option value="abs">Absolute Path </option>
 				<option value="rel">Relative Path </option>
 			</param>
@@ -47,11 +47,13 @@
 		 </repeat>-->
 		<!-- New inserted line -->
 		<param format="data" name="in" type="data" label="File(s) to export:" />
+<!--		<param format="text" name="resource" type="text" label="Resource to store to: " default=" "/>-->
+
 	</inputs>
 	
 
 	<outputs>
-		<data format="text" name="output" />
+		<data format="txt" name="output" />
 	</outputs> 
 	<help>
 	This tool will push export any number of files either from your history or a workflow to your irods filesystem. It is assumed that you have logged into your account at least once on your computer and that the files .irodsA and irods_environment.json exist on your computer. Check that these exist by typing: ls -a ~/.irods on the command line. If these do not exist you will need to create them by running iinit, credentials should be supplied by your system administrator.
