@@ -127,7 +127,18 @@ class irodsCredentials:
 					obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
 				except:
 					sys.exit("You do not have permission to write to this directory path")
-
+								
+				#if resource == " ":
+				#	try:
+				#		obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
+				#	except:
+				#		sys.exit("You do not have permission to write to this directory path")
+				#else:
+				#	try:
+				#		obj = self.sess.data_objects.create(dirName + "/" + fileNames[x], resource=resource)
+				#	except:
+				#		sys.exit("You do not have permission to write to this directory path")
+				
 				with open(filePaths[x]) as fileToPlace:
 					data = fileToPlace.read()
 				#print self.basicPath() + dirName + "/" + fileNames[x]
