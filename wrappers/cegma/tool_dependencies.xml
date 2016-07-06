@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="cegma" version="2.5">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://korflab.ucdavis.edu/datasets/cegma/CEGMA_v2.5.tar.gz</action>
+                <action type="shell_command">make</action>
+                <action type="shell_command">mkdir tmp</action>
+                <!-- <action type="move_file">
+                    <source>../CEGMA_v2.5</source>
+                    <destination>$INSTALL_DIR</destination>
+                </action> -->
+                <action type="shell_command">mv bin data lib GNU-GPL tmp sample $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="CEGMA" action="set_to">$INSTALL_DIR</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="CEGMATMP" action="set_to">$INSTALL_DIR/tmp</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="PERL5LIB" action="prepend_to">$INSTALL_DIR/lib</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+============================
+CEGMA Tool Dependencies File
+============================
+
+This file automatically installs CEGMA and its dependencies.
+
+=======
+Authors
+=======
+
+Original authors for CEGMA:
+Korf Lab - University of California, Davis
+
+Galaxy port authors for CEGMA: 
+AAFC-MBB Group
+
+=============
+Tool Wrappers
+=============
+
+CEGMA:
+
+Annotates core eukaryotic genes.
+Select the protein FASTA file to annotate. check whether or not to use vertebrae optimization and mammal optimization. Enter max intron size. Optionally, select protein file, TBLASTN result, Genewise result, and any additional annotations.
+Outputs a completeness report, KOG ID on proteins found, local gene predictions, complete gene predictions, DNA prediction, and protein predictions.
+
+========
+Citation
+========
+
+The link below can be useful for citations in scientific works:
+
+http://bioinformatics.oxfordjournals.org/content/23/9/1061.full
+
+        </readme>
+    </package>
+
+
+    <package name="geneid" version="1.4.4">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">ftp://genome.crg.es/pub/software/geneid/geneid_v1.4.4.Jan_13_2011.tar.gz</action>
+                <action type="shell_command">make</action>
+                <!-- <action type="move_file">
+                    <source>../geneid</source>
+                    <destination>$INSTALL_DIR</destination> </action>-->
+                <action type="shell_command">mv bin docs GNU_PL include objects param $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+Geneid is a dependency for CEGMA
+        </readme>
+    </package>
+
+
+
+    <package name="hmmer" version="3.1">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://selab.janelia.org/software/hmmer3/3.1b1/hmmer-3.1b1-linux-intel-x86_64.tar.gz</action>
+                <action type="shell_command">./configure</action>
+                <action type="shell_command">make</action>
+                <action type="shell_command">make check</action>
+                <!-- <action type="move_file">
+                    <source>../hmmer-3.1b1-linux-intel-x86_64</source>
+                    <destination>$INSTALL_DIR</destination>
+                </action> -->
+                <action type="shell_command">mv aclocal.m4 config* binaries easel include lib libdivsufsort profmark share $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/binaries</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+hmmer is a dependency for CEGMA
+        </readme>
+    </package>
+
+
+    <package name="genewise" version="2.4.1">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz</action>
+                <action type="shell_command">
+                   for f in `find . -name "makefile"`; do sed -i.bak 's/glib-config --libs/pkg-config --libs glib-2.0/' $f; done</action>
+                <action type="shell_command">
+                   for f in `find . -name "makefile"`; do sed -i.bak 's/glib-config --cflags/pkg-config --cflags glib-2.0/' $f; done </action>
+                <action type="shell_command">cd src/HMMer2;  
+					     sed 's/getline/getline_new/' sqio.c  > a &amp;&amp;  mv a sqio.c;
+					     cd ../..;</action>
+                <action type="shell_command"> sed 's/isnumber/isdigit/' src/models/phasemodel.c > tmptmptmp; mv tmptmptmp src/models/phasemodel.c;</action>
+                <action type="shell_command">cd src; make all; cd ..;</action>
+                <!-- <action type="move_file">
+                    <source>../wise2.4.1</source>
+                    <destination>$INSTALL_DIR</destination>
+                </action> -->
+                <action type="shell_command">mv * $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/src/bin</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="WISECONFIGDIR" action="set_to">$INSTALL_DIR/wisecfg</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+genewise is a dependency for CEGMA
+        </readme>
+    </package>
+
+
+
+    <package name="ncbiblast" version="2.2.29">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
+                <!-- <action type="move_file">
+                    <source>../ncbi-blast-2.2.29+</source>
+                    <destination>$INSTALL_DIR</destination>
+                </action> -->
+                <action type="shell_command">mv * $INSTALL_DIR</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+NCBI blast is a dependency for CEGMA
+        </readme>
+    </package>
+
+</tool_dependency>
+

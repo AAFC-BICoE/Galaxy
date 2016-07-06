@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="exonerate" version="2.2.0">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">https://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0-x86_64.tar.gz</action>
+		<action type="move_directory_files">
+			<source_directory>.</source_directory>
+			<destination_directory>$INSTALL_DIR</destination_directory>
+		</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+================================
+Exonerate Tool Dependencies File
+================================
+
+This file automatically installs Exonerate.
+
+=======
+Authors
+=======
+
+Original author for Exonerate:
+Guy St.C. Slater
+
+Additional contributors:
+Ewan Birney      
+Ian Holmes      
+Steve Searle     
+Tim Cutts        
+Don Gilbert      
+Michael Schuster
+
+Galaxy port authors for Exonerate: 
+AAFC-MBB Group
+
+========
+Citation
+========
+
+The link below can be useful for citations in scientific works:
+
+http://www.biomedcentral.com/1471-2105/6/31
+
+        </readme>
+    </package>
+</tool_dependency>
+

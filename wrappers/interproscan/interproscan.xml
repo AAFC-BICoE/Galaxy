@@ -1,0 +1,106 @@
+<tool id="interproscan" name="Interproscan"  version="1.0">
+    <description>Interproscan functional predictions of ORFs</description>
+    <requirements>
+	<requirement type="package" version="5.8-49.0">interproscan</requirement>
+    </requirements>
+    <command interpreter="bash">
+
+        #import os
+        interproscan.sh
+            --input $infile
+            --seqtype $seqtype
+            -f $oformat
+            --applications $appl
+
+        $pathways
+        $goterms
+        $iprlookup
+
+         #if str($oformat) in ['SVG', 'HTML']:
+            --output-file-base $outfile
+            2>&#38;1;
+            mkdir -p $outfile.files_path;
+            #set temp_archive_file = str($outfile) + '.' + str($oformat).lower() + '.tar.gz'
+            tar -C $outfile.files_path -xvmzf $temp_archive_file;
+            python \$INTERPROSCAN_SCRIPT_PATH/create_index.py $outfile $outfile.files_path;
+            rm $temp_archive_file
+        #else:
+            -o $outfile
+            2>&#38;1
+        #end if
+
+    </command>
+
+        <inputs>
+            <param name="infile" type="data" format="fasta" label="Protein Fasta File"/>
+
+            <param name="seqtype" type="select" label="Type of the input sequences" help="">
+                <option value="p" selected="true">Protein</option>
+                <option value="n">DNA / RNA</option>
+            </param>
+
+            <param name="appl" type="select" multiple="True" display="checkboxes" label="Applications to run" help="Select your programm.">
+                <option value="TIGRFAM" selected="true">TIGRFAM: protein families based on Hidden Markov Models or HMMs</option>
+                <option value="PIRSF" selected="true">PIRSF: non-overlapping clustering of UniProtKB sequences into a hierarchical order (evolutionary relationships)</option>
+                <option value="ProDom" selected="true">ProDom: set of protein domain families generated from the UniProtKB</option>
+                <option value="Panther" selected="true">Panther: Protein ANalysis THrough Evolutionary Relationships</option>
+                <option value="SMART" selected="true">SMART: identification and analysis of domain architectures based on Hidden Markov Models or HMMs</option>
+                <option value="PrositeProfiles" selected="true">PROSITE Profiles: protein domains, families and functional sites as well as associated profiles to identify them</option>
+                <option value="PrositePatterns" selected="true">PROSITE Pattern: protein domains, families and functional sites as well as associated patterns to identify them</option>
+                <option value="HAMAP" selected="true">HAMAP: High-quality Automated Annotation of Microbial Proteomes</option>
+                <option value="PfamA" selected="true">PfamA: protein families, each represented by multiple sequence alignments and hidden Markov models</option>
+                <option value="PRINTS" selected="true">PRINTS: group of conserved motifs (fingerprints) used to characterise a protein family</option>
+                <option value="SuperFamily" selected="true">SUPERFAMILY: database of structural and functional annotation</option>
+                <option value="Coils" selected="true">Coils: Prediction of Coiled Coil Regions in Proteins</option>
+                <option value="Gene3d" selected="true">Gene3d: Structural assignment for whole genes and genomes using the CATH domain structure database</option>
+                <option value="SignalP-GRAM_POSITIVE" selected="false">SignalP Gram Positive Bacteria</option>
+                <option value="SignalP-GRAM_NEGATIVE" selected="false">SignalP Gram Negative Bacteria</option>
+                <option value="SignalP-EUK" selected="false">SignalP Eukaryotic Bacteria</option>
+                <option value="Phobius" selected="false">Phobius: combined transmembrane topology and signal peptide predictor</option>
+                <option value="TMHMM" selected="false">TMHMM: Prediction of transmembrane helices in proteins</option>
+            </param>
+
+            <param name="pathways" truevalue="--pathways" falsevalue="" checked="True" type="boolean" label="Include pathway information" 
+                help="Option that provides mappings from matches to pathway information, which is based on the matched manually curated InterPro entries. (--pathways)"/>
+            <param name="goterms" truevalue="--goterms" falsevalue="" checked="True" type="boolean" label="Include Gene Ontology (GO) mappings" 
+                help="Look up of corresponding Gene Ontology annotation. Implies -iprlookup option. (--goterms)"/>
+            <param name="iprlookup" truevalue="--iprlookup" falsevalue="" checked="False" type="boolean" 
+                label="Provide additional mappings" help="Provide mappings from matched member database signatures to the InterPro entries that they are integrated into (--iprlookup)"/>
+
+            <param name="oformat" type="select" label="Output format" help="Please select a output format.">
+                <option value="TSV" selected="true">Tab-separated values format (TSV)</option>
+                <option value="GFF3">GFF3</option>
+                <option value="SVG">SVG</option>
+                <option value="HTML">HTML</option>
+                <option value="XML">XML</option>
+            </param>
+
+        </inputs>
+    <outputs>
+
+        <data format="tabular" name="outfile" label="Interproscan calculation on ${on_string}">
+            <change_format>
+                <when input="oformat" value="HTML" format="html"/>
+                <when input="oformat" value="XML" format="xml"/>
+                <when input="oformat" value="SVG" format="html"/>
+                <when input="oformat" value="GFF3" format="gff"/>
+            </change_format>
+        </data>
+
+    </outputs>
+    <requirements>
+    </requirements>
+    <help>
+
+
+Interproscan is a batch tool to query the Interpro database. It provides annotations based on multiple searches of profile and other functional databases. 
+
+**Original Galaxy Wrapper Author**::
+
+    *  Bjoern Gruening, University of Freiburg
+    *  Konrad Paszkiewicz, University of Exeter
+
+Modified by: Sam Li
+
+    </help>
+</tool>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="rmblast" version="2.2.28">
+        <repository name="package_rmblast_2_2_28" owner="galaxyuser" prior_installation_required="True" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
+    </package>
+    <package name="perl" version="5.18.1">
+        <repository name="package_perl_5_18" owner="galaxyuser" prior_installation_required="True" changeset_revision="4667c250ffda" toolshed="http://onottar678135m.agr.gc.ca:9009"/>
+    </package>
+    <package name="repeatmasker" version="4.0.3">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url" >http://tandem.bu.edu/trf/downloads/trf404.linux64</action>
+                <!--<action type="chmod">
+                    <file mode="755">trf404.linux64</file>
+                </action> --> <!--this doesn't work, cause crash-->
+                <action type="shell_command">chmod a+x trf404.linux64</action> 
+                <action type="set_environment_for_install">
+                    <repository name="package_rmblast_2_2_28" owner="galaxyuser" changeset_revision="4cf7b37eea6d" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                        <package name="rmblast" version="2.2.28" />
+                    </repository>
+                </action>
+                <action type="set_environment_for_install">
+                    <repository name="package_perl_5_18" owner="galaxyuser" changeset_revision="4667c250ffda" toolshed="http://onottar678135m.agr.gc.ca:9009">
+                        <package name="perl" version="5.18.1" />
+                    </repository>
+                </action>
+                <action type="move_file">
+                    <source>./trf404.linux64</source>
+                    <destination>$INSTALL_DIR</destination>
+                </action>
+                        <action type="set_environment">
+                            <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                        </action>
+                <!--http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz newer version-->
+                <!--<action type="download_by_url">http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action> will not auto cd into it, behavior change with Galaxy version-->
+                <action type="shell_command">wget http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz</action>
+                <action type="shell_command">tar -xvzf RepeatMasker-open-4-0-3.tar.gz</action>
+                <!--the configure script is interactive. The questions asked are:
+                    location of perl
+                    install dir
+                    trf location
+                    select search program - rmblast
+                    location of rmblast
+                    set to be default search engine
+                    done -->
+                <action type="change_directory">RepeatMasker</action>
+                <action type="move_directory_files">
+                    <source_directory>.</source_directory>
+                    <destination_directory>$INSTALL_DIR</destination_directory>
+                </action>
+                <!-- <action type="change_directory">$INSTALL_DIR</action> this tag do not recognize $INSTALL_DIR-->
+                <action type="shell_command">echo "starting to config"</action> 
+                <!--apparently echo -e don't work, also the command must all be on same line-->
+                        <action type="shell_command">cd $INSTALL_DIR;tmp=`which blastn`;tmp=${tmp%/*};echo "" > configfeed.txt;echo "`which perl`" >> configfeed.txt;echo $INSTALL_DIR >> configfeed.txt;echo "$INSTALL_DIR/trf404.linux64" >> configfeed.txt;echo "2" >> configfeed.txt;echo "${tmp}" >> configfeed.txt;echo "y" >> configfeed.txt;echo "5" >> configfeed.txt;$INSTALL_DIR/configure &lt; configfeed.txt</action>
+            </actions>
+        </install>
+        <readme>
+===================================
+RepeatMasker Tool Dependencies File
+===================================
+
+This file automatically installs RepeatMasker.
+RepeatMasker masks simple repeats and low complexity DNA sequences.
+
+=======
+Authors
+=======
+
+Original author for RepeatMasker:
+Arian Smit - Institute for Systems Biology
+Robert Hubley - Institute for Systems Biology
+
+Galaxy port authors for RepeatMasker: 
+AAFC-MBB Group
+
+        </readme>
+    </package>
+</tool_dependency>
+

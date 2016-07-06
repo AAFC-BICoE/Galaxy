@@ -1,0 +1,29 @@
+<tool id="gff3_merge" name="Merge GFF3 Files" version="0.0.1">
+	<description>Merges given GFF3 files into one.</description>
+	<requirements>
+                <requirement type="package" version="2.31.6">maker</requirement>
+		<requirement type="package" version="3.0.2">augustus</requirement>
+		<requirement type="package" version="2013-11-29">snap</requirement>
+		<requirement type="package" version="2.2.28">rmblast</requirement>
+		<requirement type="package" version="4.0.3">repeatmasker</requirement>
+		<requirement type="package" version="2.2.0">exonerate</requirement>
+		<requirement type="package" version="5.18.1.1">perl</requirement> 
+       </requirements>
+	<command>
+		gff3_merge $omit_evidence $omit_fasta $legacy -o $out
+			#for $i, $obj in enumerate( $gffs )
+				$obj.gff
+			#end for</command>
+	<inputs>
+		<repeat name="gffs" title="GFF3 Files" min="1">
+                	<param name="gff" label="Add gff" type="data" format="gff"/>
+                </repeat>
+		<param name="omit_evidence" label="Only write MAKER gene models" type="boolean" truevalue="-g" falsevalue="" />
+		<param name="omit_fasta" label="Do not print fasta sequence in footer" type="boolean" truevalue="-n" falsevalue=""/>
+		<param name="legacy" label="Merge legacy annotation sets (ignores already having seen features more than once for the same contig)" type="boolean" truevalue="-l" falsevalue="" />
+	</inputs>
+	<outputs>
+		<data name="out" label="Merged GFF3 File" format="gff"/>
+	</outputs>
+	<help>This tool merges GFF3 files together. By default, the FASTA will be included at the end of the file and evidence from MAKER will be included if found.</help>
+</tool>

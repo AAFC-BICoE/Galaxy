@@ -1,0 +1,1155 @@
+##gff-version 3
+pug3_contig_601	.	contig	1	17802	.	.	.	ID=pug3_contig_601;Name=pug3_contig_601;
+pug3_contig_601	repeatmasker	match	14748	14779	14	+	.	ID=pug3_contig_601:hit:0;Name=species:%28ACACGC%29n%20genus:Simple_repeat;Target=species:%28ACACGC%29n%20genus:Simple_repeat 1 32 +;
+pug3_contig_601	repeatmasker	match_part	14748	14779	14	+	.	ID=pug3_contig_601:hsp:0;Parent=pug3_contig_601:hit:0;Name=species:%2528ACACGC%2529n%2520genus:Simple_repeat;Target=species:%2528ACACGC%2529n%2520genus:Simple_repeat 1 32 +;
+pug3_contig_601	repeatmasker	match	6763	6785	16	+	.	ID=pug3_contig_601:hit:1;Name=species:%28CT%29n%20genus:Simple_repeat;Target=species:%28CT%29n%20genus:Simple_repeat 1 23 +;
+pug3_contig_601	repeatmasker	match_part	6763	6785	16	+	.	ID=pug3_contig_601:hsp:1;Parent=pug3_contig_601:hit:1;Name=species:%2528CT%2529n%2520genus:Simple_repeat;Target=species:%2528CT%2529n%2520genus:Simple_repeat 1 23 +;
+pug3_contig_601	maker	gene	15010	17062	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.24;Name=maker-pug3_contig_601-snap-gene-0.24;
+pug3_contig_601	maker	mRNA	15010	17062	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.24;Name=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;_AED=0.17;_eAED=0.18;_QI=0|0.85|0.75|1|0.71|0.87|8|0|506;
+pug3_contig_601	maker	exon	15010	15237	78.430	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:0;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	15329	15463	45.695	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:1;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	15546	15599	15.835	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:2;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	15681	15944	91.315	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:3;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	16024	16209	38.492	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:4;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	16280	16585	80.267	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:5;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	16644	16852	51.410	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:6;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	exon	16924	17062	34.937	+	.	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:exon:7;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	15010	15237	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:0;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	15329	15463	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:1;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	15546	15599	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:2;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	15681	15944	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:3;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	16024	16209	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:4;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	16280	16585	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:5;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	16644	16852	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:6;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	CDS	16924	17062	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.24-mRNA-1:cds:7;Parent=maker-pug3_contig_601-snap-gene-0.24-mRNA-1;
+pug3_contig_601	maker	gene	6887	11162	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.23;Name=maker-pug3_contig_601-snap-gene-0.23;
+pug3_contig_601	maker	mRNA	6887	11162	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.23;Name=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;_AED=0.12;_eAED=0.21;_QI=0|0.62|0.44|1|0.75|0.55|9|0|584;
+pug3_contig_601	maker	exon	6887	7123	92.584	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:8;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	7229	7390	44.623	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:9;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	7474	7661	86.881	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:10;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	7747	8016	109.024	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:11;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	9955	10116	64.923	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:12;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	10175	10317	40.096	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:13;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	10401	10531	49.589	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:14;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	10623	10810	63.436	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:15;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	exon	10889	11162	93.335	+	.	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:exon:16;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	6887	7123	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:8;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	7229	7390	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:9;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	7474	7661	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:10;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	7747	8016	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:11;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	9955	10116	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:12;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	10175	10317	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:13;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	10401	10531	.	+	2	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:14;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	10623	10810	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:15;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	CDS	10889	11162	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.23-mRNA-1:cds:16;Parent=maker-pug3_contig_601-snap-gene-0.23-mRNA-1;
+pug3_contig_601	maker	gene	17143	17589	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.25;Name=maker-pug3_contig_601-snap-gene-0.25;
+pug3_contig_601	maker	mRNA	17143	17589	.	+	.	ID=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.25;Name=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;_AED=0.45;_eAED=0.59;_QI=0|1|0|1|1|0.5|2|0|120;
+pug3_contig_601	maker	exon	17143	17267	39.565	+	.	ID=maker-pug3_contig_601-snap-gene-0.25-mRNA-1:exon:17;Parent=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;
+pug3_contig_601	maker	exon	17352	17589	53.175	+	.	ID=maker-pug3_contig_601-snap-gene-0.25-mRNA-1:exon:18;Parent=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;
+pug3_contig_601	maker	CDS	17143	17267	.	+	0	ID=maker-pug3_contig_601-snap-gene-0.25-mRNA-1:cds:17;Parent=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;
+pug3_contig_601	maker	CDS	17352	17589	.	+	1	ID=maker-pug3_contig_601-snap-gene-0.25-mRNA-1:cds:18;Parent=maker-pug3_contig_601-snap-gene-0.25-mRNA-1;
+pug3_contig_601	maker	gene	11250	14803	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.29;Name=maker-pug3_contig_601-snap-gene-0.29;
+pug3_contig_601	maker	mRNA	11250	14803	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.29;Name=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;_AED=0.12;_eAED=0.12;_QI=0|0.86|0.81|1|0.53|0.68|16|0|803;
+pug3_contig_601	maker	exon	11250	11531	70.134	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:19;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	11623	11709	23.503	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:20;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	11777	11872	15.292	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:21;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	11940	12290	72.403	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:22;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	12364	12479	35.774	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:23;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	12552	12816	57.686	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:24;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	12886	13068	38.591	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:25;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	13149	13320	44.437	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:26;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	13391	13521	32.029	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:27;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	13594	13671	12.975	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:28;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	13749	13892	42.159	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:29;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	13963	14073	18.186	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:30;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	14116	14223	27.796	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:31;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	14333	14492	37.149	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:32;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	14553	14656	41.616	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:33;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	exon	14780	14803	15.469	-	.	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:exon:34;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	11250	11531	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:34;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	11623	11709	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:33;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	11777	11872	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:32;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	11940	12290	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:31;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	12364	12479	.	-	2	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:30;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	12552	12816	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:29;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	12886	13068	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:28;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	13149	13320	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:27;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	13391	13521	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:26;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	13594	13671	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:25;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	13749	13892	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:24;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	13963	14073	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:23;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	14116	14223	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:22;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	14333	14492	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:21;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	14553	14656	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:20;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	CDS	14780	14803	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.29-mRNA-1:cds:19;Parent=maker-pug3_contig_601-snap-gene-0.29-mRNA-1;
+pug3_contig_601	maker	gene	38	3347	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.26;Name=maker-pug3_contig_601-snap-gene-0.26;
+pug3_contig_601	maker	mRNA	38	3347	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.26;Name=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;_AED=0.24;_eAED=0.25;_QI=0|0.87|0.66|1|0.75|0.66|9|0|849;
+pug3_contig_601	maker	exon	38	74	6.999	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:35;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	288	355	25.951	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:36;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	435	654	69.931	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:37;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	744	919	42.211	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:38;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	999	1181	56.330	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:39;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	1275	1543	95.567	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:40;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	1619	1902	61.910	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:41;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	1967	3132	292.941	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:42;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	exon	3204	3347	39.705	-	.	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:exon:43;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	38	74	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:43;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	288	355	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:42;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	435	654	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:41;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	744	919	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:40;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	999	1181	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:39;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	1275	1543	.	-	2	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:38;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	1619	1902	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:37;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	1967	3132	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:36;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	CDS	3204	3347	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.26-mRNA-1:cds:35;Parent=maker-pug3_contig_601-snap-gene-0.26-mRNA-1;
+pug3_contig_601	maker	gene	4919	6175	.	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12;Name=snap_masked-pug3_contig_601-abinit-gene-0.12;
+pug3_contig_601	maker	mRNA	4919	6175	.	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;_AED=0.44;_eAED=0.51;_QI=0|0.8|0.66|1|1|1|6|0|199;
+pug3_contig_601	maker	exon	4919	5060	22.222	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:44;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	exon	5146	5307	22.409	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:45;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	exon	5387	5460	22.482	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:46;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	exon	5665	5712	11.798	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:47;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	exon	5814	5898	10.045	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:48;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	exon	6087	6175	23.777	-	.	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:exon:49;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	4919	5060	.	-	1	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:49;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	5146	5307	.	-	1	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:48;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	5387	5460	.	-	0	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:47;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	5665	5712	.	-	0	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:46;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	5814	5898	.	-	1	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:45;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	CDS	6087	6175	.	-	0	ID=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1:cds:44;Parent=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;
+pug3_contig_601	maker	gene	3397	4548	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.27;Name=maker-pug3_contig_601-snap-gene-0.27;
+pug3_contig_601	maker	mRNA	3397	4548	.	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;Parent=maker-pug3_contig_601-snap-gene-0.27;Name=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;_AED=0.43;_eAED=0.60;_QI=0|0.33|0.14|1|0.66|0.71|7|0|219;
+pug3_contig_601	maker	exon	3397	3506	32.547	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:50;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	3589	3676	32.202	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:51;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	3757	3880	42.065	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:52;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	3909	4045	34.589	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:53;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	4153	4212	16.197	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:54;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	4308	4355	21.269	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:55;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	exon	4456	4548	39.213	-	.	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:exon:56;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	3397	3506	.	-	2	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:56;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	3589	3676	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:55;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	3757	3880	.	-	1	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:54;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	3909	4045	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:53;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	4153	4212	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:52;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	4308	4355	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:51;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	maker	CDS	4456	4548	.	-	0	ID=maker-pug3_contig_601-snap-gene-0.27-mRNA-1:cds:50;Parent=maker-pug3_contig_601-snap-gene-0.27-mRNA-1;
+pug3_contig_601	blastn	expressed_sequence_match	5422	6297	205	-	.	ID=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;
+pug3_contig_601	blastn	match_part	6033	6297	205	-	.	ID=pug3_contig_601:hsp:2;Parent=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 1 265 +;Gap=M265;
+pug3_contig_601	blastn	match_part	5812	5866	47	-	.	ID=pug3_contig_601:hsp:3;Parent=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 316 370 +;Gap=M55;
+pug3_contig_601	blastn	match_part	5664	5713	46	-	.	ID=pug3_contig_601:hsp:4;Parent=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 368 417 +;Gap=M50;
+pug3_contig_601	blastn	match_part	5537	5583	43	-	.	ID=pug3_contig_601:hsp:5;Parent=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 416 462 +;Gap=M47;
+pug3_contig_601	blastn	match_part	5422	5462	41	-	.	ID=pug3_contig_601:hsp:6;Parent=pug3_contig_601:hit:2;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 460 500 +;Gap=M41;
+pug3_contig_601	blastn	expressed_sequence_match	13111	13317	183	-	.	ID=pug3_contig_601:hit:3;Name=Pythium_ultimum:FF022614;
+pug3_contig_601	blastn	match_part	13111	13317	183	-	.	ID=pug3_contig_601:hsp:7;Parent=pug3_contig_601:hit:3;Name=Pythium_ultimum:FF022614;Target=Pythium_ultimum:FF022614 2 208 +;Gap=M207;
+pug3_contig_601	blastn	expressed_sequence_match	482	788	33	-	.	ID=pug3_contig_601:hit:4;Name=Pythium_ultimum:FF054580;
+pug3_contig_601	blastn	match_part	744	788	33	-	.	ID=pug3_contig_601:hsp:8;Parent=pug3_contig_601:hit:4;Name=Pythium_ultimum:FF054580;Target=Pythium_ultimum:FF054580 5 51 +;Gap=M9 I1 M4 I1 M32;
+pug3_contig_601	blastn	match_part	482	654	169	-	.	ID=pug3_contig_601:hsp:9;Parent=pug3_contig_601:hit:4;Name=Pythium_ultimum:FF054580;Target=Pythium_ultimum:FF054580 52 224 +;Gap=M173;
+pug3_contig_601	blastn	expressed_sequence_match	17178	17485	72	+	.	ID=pug3_contig_601:hit:5;Name=Pythium_ultimum:FF006247;
+pug3_contig_601	blastn	match_part	17178	17267	72	+	.	ID=pug3_contig_601:hsp:10;Parent=pug3_contig_601:hit:5;Name=Pythium_ultimum:FF006247;Target=Pythium_ultimum:FF006247 1 91 +;Gap=M38 I1 M52;
+pug3_contig_601	blastn	match_part	17352	17485	114	+	.	ID=pug3_contig_601:hsp:11;Parent=pug3_contig_601:hit:5;Name=Pythium_ultimum:FF006247;Target=Pythium_ultimum:FF006247 92 225 +;Gap=M134;
+pug3_contig_601	blastn	expressed_sequence_match	17156	17470	86	+	.	ID=pug3_contig_601:hit:6;Name=Pythium_ultimum:FF018220;
+pug3_contig_601	blastn	match_part	17156	17267	86	+	.	ID=pug3_contig_601:hsp:12;Parent=pug3_contig_601:hit:6;Name=Pythium_ultimum:FF018220;Target=Pythium_ultimum:FF018220 1 115 +;Gap=M15 I1 M25 I1 M5 I1 M67;
+pug3_contig_601	blastn	match_part	17352	17470	100	+	.	ID=pug3_contig_601:hsp:13;Parent=pug3_contig_601:hit:6;Name=Pythium_ultimum:FF018220;Target=Pythium_ultimum:FF018220 116 234 +;Gap=M119;
+pug3_contig_601	blastn	expressed_sequence_match	6797	10136	40	+	.	ID=pug3_contig_601:hit:7;Name=Pythium_ultimum:FE975511;
+pug3_contig_601	blastn	match_part	6797	6848	40	+	.	ID=pug3_contig_601:hsp:14;Parent=pug3_contig_601:hit:7;Name=Pythium_ultimum:FE975511;Target=Pythium_ultimum:FE975511 10 61 +;Gap=M52;
+pug3_contig_601	blastn	match_part	6865	7001	113	+	.	ID=pug3_contig_601:hsp:15;Parent=pug3_contig_601:hit:7;Name=Pythium_ultimum:FE975511;Target=Pythium_ultimum:FE975511 63 199 +;Gap=M137;
+pug3_contig_601	blastn	match_part	9981	10136	64	+	.	ID=pug3_contig_601:hsp:16;Parent=pug3_contig_601:hit:7;Name=Pythium_ultimum:FE975511;Target=Pythium_ultimum:FE975511 32 187 +;Gap=M156;
+pug3_contig_601	blastn	expressed_sequence_match	11652	11874	95	-	.	ID=pug3_contig_601:hit:8;Name=Pythium_ultimum:FF031419;
+pug3_contig_601	blastn	match_part	11776	11874	95	-	.	ID=pug3_contig_601:hsp:17;Parent=pug3_contig_601:hit:8;Name=Pythium_ultimum:FF031419;Target=Pythium_ultimum:FF031419 56 154 +;Gap=M99;
+pug3_contig_601	blastn	match_part	11652	11711	56	-	.	ID=pug3_contig_601:hsp:18;Parent=pug3_contig_601:hit:8;Name=Pythium_ultimum:FF031419;Target=Pythium_ultimum:FF031419 152 211 +;Gap=M60;
+pug3_contig_601	blastn	expressed_sequence_match	11066	11381	294	-	.	ID=pug3_contig_601:hit:9;Name=Pythium_ultimum:TA19142_65071;
+pug3_contig_601	blastn	match_part	11066	11381	294	-	.	ID=pug3_contig_601:hsp:19;Parent=pug3_contig_601:hit:9;Name=Pythium_ultimum:TA19142_65071;Target=Pythium_ultimum:TA19142_65071 1 317 +;Gap=M228 I1 M88;
+pug3_contig_601	blastn	expressed_sequence_match	16321	16768	237	+	.	ID=pug3_contig_601:hit:10;Name=Pythium_ultimum:EL780095;
+pug3_contig_601	blastn	match_part	16321	16585	237	+	.	ID=pug3_contig_601:hsp:20;Parent=pug3_contig_601:hit:10;Name=Pythium_ultimum:EL780095;Target=Pythium_ultimum:EL780095 1 265 +;Gap=M265;
+pug3_contig_601	blastn	match_part	16642	16768	123	+	.	ID=pug3_contig_601:hsp:21;Parent=pug3_contig_601:hit:10;Name=Pythium_ultimum:EL780095;Target=Pythium_ultimum:EL780095 264 390 +;Gap=M127;
+pug3_contig_601	blastn	expressed_sequence_match	17314	17506	151	+	.	ID=pug3_contig_601:hit:11;Name=Pythium_ultimum:FF020211;
+pug3_contig_601	blastn	match_part	17314	17506	151	+	.	ID=pug3_contig_601:hsp:22;Parent=pug3_contig_601:hit:11;Name=Pythium_ultimum:FF020211;Target=Pythium_ultimum:FF020211 3 196 +;Gap=M79 I1 M114;
+pug3_contig_601	blastn	expressed_sequence_match	7535	10762	113	+	.	ID=pug3_contig_601:hit:12;Name=Pythium_ultimum:FF022420;
+pug3_contig_601	blastn	match_part	7535	7663	113	+	.	ID=pug3_contig_601:hsp:23;Parent=pug3_contig_601:hit:12;Name=Pythium_ultimum:FF022420;Target=Pythium_ultimum:FF022420 1 129 +;Gap=M129;
+pug3_contig_601	blastn	match_part	7747	7872	102	+	.	ID=pug3_contig_601:hsp:24;Parent=pug3_contig_601:hit:12;Name=Pythium_ultimum:FF022420;Target=Pythium_ultimum:FF022420 128 253 +;Gap=M126;
+pug3_contig_601	blastn	match_part	10696	10762	35	+	.	ID=pug3_contig_601:hsp:25;Parent=pug3_contig_601:hit:12;Name=Pythium_ultimum:FF022420;Target=Pythium_ultimum:FF022420 13 79 +;Gap=M67;
+pug3_contig_601	blastn	expressed_sequence_match	12365	12652	95	-	.	ID=pug3_contig_601:hit:13;Name=Pythium_ultimum:FF047162;
+pug3_contig_601	blastn	match_part	12548	12652	95	-	.	ID=pug3_contig_601:hsp:26;Parent=pug3_contig_601:hit:13;Name=Pythium_ultimum:FF047162;Target=Pythium_ultimum:FF047162 2 107 +;Gap=M10 I1 M95;
+pug3_contig_601	blastn	match_part	12365	12481	97	-	.	ID=pug3_contig_601:hsp:27;Parent=pug3_contig_601:hit:13;Name=Pythium_ultimum:FF047162;Target=Pythium_ultimum:FF047162 102 218 +;Gap=M117;
+pug3_contig_601	blastn	expressed_sequence_match	4796	4967	156	-	.	ID=pug3_contig_601:hit:14;Name=Pythium_ultimum:FF019768;
+pug3_contig_601	blastn	match_part	4796	4967	156	-	.	ID=pug3_contig_601:hsp:28;Parent=pug3_contig_601:hit:14;Name=Pythium_ultimum:FF019768;Target=Pythium_ultimum:FF019768 6 177 +;Gap=M172;
+pug3_contig_601	blastn	expressed_sequence_match	11158	11308	139	-	.	ID=pug3_contig_601:hit:15;Name=Pythium_ultimum:FF018288;
+pug3_contig_601	blastn	match_part	11158	11308	139	-	.	ID=pug3_contig_601:hsp:29;Parent=pug3_contig_601:hit:15;Name=Pythium_ultimum:FF018288;Target=Pythium_ultimum:FF018288 21 171 +;Gap=M151;
+pug3_contig_601	blastn	expressed_sequence_match	7855	11145	220	+	.	ID=pug3_contig_601:hit:16;Name=Pythium_ultimum:TA20945_65071;
+pug3_contig_601	blastn	match_part	7855	8106	220	+	.	ID=pug3_contig_601:hsp:30;Parent=pug3_contig_601:hit:16;Name=Pythium_ultimum:TA20945_65071;Target=Pythium_ultimum:TA20945_65071 11 262 +;Gap=M252;
+pug3_contig_601	blastn	match_part	11001	11145	40	+	.	ID=pug3_contig_601:hsp:31;Parent=pug3_contig_601:hit:16;Name=Pythium_ultimum:TA20945_65071;Target=Pythium_ultimum:TA20945_65071 15 159 +;Gap=M119 D1 M3 I1 M22;
+pug3_contig_601	blastn	expressed_sequence_match	6901	10245	64	+	.	ID=pug3_contig_601:hit:17;Name=Pythium_ultimum:FF030523;
+pug3_contig_601	blastn	match_part	6901	7068	64	+	.	ID=pug3_contig_601:hsp:32;Parent=pug3_contig_601:hit:17;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 21 188 +;Gap=M168;
+pug3_contig_601	blastn	match_part	10032	10136	89	+	.	ID=pug3_contig_601:hsp:33;Parent=pug3_contig_601:hit:17;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 5 109 +;Gap=M105;
+pug3_contig_601	blastn	match_part	10156	10245	82	+	.	ID=pug3_contig_601:hsp:34;Parent=pug3_contig_601:hit:17;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 113 202 +;Gap=M90;
+pug3_contig_601	blastn	expressed_sequence_match	17200	17455	58	+	.	ID=pug3_contig_601:hit:18;Name=Pythium_ultimum:FF059599;
+pug3_contig_601	blastn	match_part	17200	17267	58	+	.	ID=pug3_contig_601:hsp:35;Parent=pug3_contig_601:hit:18;Name=Pythium_ultimum:FF059599;Target=Pythium_ultimum:FF059599 3 71 +;Gap=M56 I1 M12;
+pug3_contig_601	blastn	match_part	17352	17455	70	+	.	ID=pug3_contig_601:hsp:36;Parent=pug3_contig_601:hit:18;Name=Pythium_ultimum:FF059599;Target=Pythium_ultimum:FF059599 72 178 +;Gap=M15 I1 M49 I1 M10 I1 M30;
+pug3_contig_601	blastn	expressed_sequence_match	15172	15372	48	-	.	ID=pug3_contig_601:hit:19;Name=Pythium_ultimum:FE981593;
+pug3_contig_601	blastn	match_part	15325	15372	48	-	.	ID=pug3_contig_601:hsp:37;Parent=pug3_contig_601:hit:19;Name=Pythium_ultimum:FE981593;Target=Pythium_ultimum:FE981593 50 97 +;Gap=M48;
+pug3_contig_601	blastn	match_part	15172	15233	54	-	.	ID=pug3_contig_601:hsp:38;Parent=pug3_contig_601:hit:19;Name=Pythium_ultimum:FE981593;Target=Pythium_ultimum:FE981593 98 159 +;Gap=M62;
+pug3_contig_601	blastx	protein_match	15341	16850	123	+	.	ID=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;
+pug3_contig_601	blastx	match_part	15341	15454	123	+	.	ID=pug3_contig_601:hsp:39;Parent=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 117 154;Gap=M38;
+pug3_contig_601	blastx	match_part	15522	15941	202	+	.	ID=pug3_contig_601:hsp:40;Parent=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 148 261;Gap=M33 D27 M19 I1 M61;
+pug3_contig_601	blastx	match_part	16024	16194	140	+	.	ID=pug3_contig_601:hsp:41;Parent=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 263 319;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	197	+	.	ID=pug3_contig_601:hsp:42;Parent=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 318 424;Gap=M6 I1 M22 I1 M33 I2 M42;
+pug3_contig_601	blastx	match_part	16644	16850	166	+	.	ID=pug3_contig_601:hsp:43;Parent=pug3_contig_601:hit:20;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 425 502;Gap=M37 I9 M32;
+pug3_contig_601	blastx	protein_match	15392	16850	89	+	.	ID=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;
+pug3_contig_601	blastx	match_part	15392	15454	89	+	.	ID=pug3_contig_601:hsp:44;Parent=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 5 25;Gap=M21;
+pug3_contig_601	blastx	match_part	15522	15941	193	+	.	ID=pug3_contig_601:hsp:45;Parent=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 19 132;Gap=M34 D9 M8 D17 M72;
+pug3_contig_601	blastx	match_part	16024	16194	141	+	.	ID=pug3_contig_601:hsp:46;Parent=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 134 190;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	222	+	.	ID=pug3_contig_601:hsp:47;Parent=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 189 295;Gap=M6 I1 M14 I1 M41 I2 M42;
+pug3_contig_601	blastx	match_part	16644	16850	173	+	.	ID=pug3_contig_601:hsp:48;Parent=pug3_contig_601:hit:21;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 296 373;Gap=M44 I9 M25;
+pug3_contig_601	blastx	protein_match	4928	6142	194	-	.	ID=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;
+pug3_contig_601	blastx	match_part	6032	6142	165	-	.	ID=pug3_contig_601:hsp:49;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 2 38;Gap=M37;
+pug3_contig_601	blastx	match_part	5802	5999	81	-	.	ID=pug3_contig_601:hsp:50;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 44 76;Gap=M13 D33 M20;
+pug3_contig_601	blastx	match_part	5656	5712	78	-	.	ID=pug3_contig_601:hsp:51;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 73 91;Gap=M19;
+pug3_contig_601	blastx	match_part	5386	5472	117	-	.	ID=pug3_contig_601:hsp:52;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 100 128;Gap=M29;
+pug3_contig_601	blastx	match_part	5145	5306	220	-	.	ID=pug3_contig_601:hsp:53;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 129 182;Gap=M54;
+pug3_contig_601	blastx	match_part	4928	5062	194	-	.	ID=pug3_contig_601:hsp:54;Parent=pug3_contig_601:hit:22;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 182 226;Gap=M45;
+pug3_contig_601	blastx	protein_match	15383	16850	100	+	.	ID=pug3_contig_601:hit:23;Name=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001;
+pug3_contig_601	blastx	match_part	15383	15451	100	+	.	ID=pug3_contig_601:hsp:55;Parent=pug3_contig_601:hit:23;Name=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001;Target=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001 5 27;Gap=M23;
+pug3_contig_601	blastx	match_part	15522	15941	199	+	.	ID=pug3_contig_601:hsp:56;Parent=pug3_contig_601:hit:23;Name=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001;Target=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001 22 133;Gap=M31 D29 M20 I1 M60;
+pug3_contig_601	blastx	match_part	16355	16579	186	+	.	ID=pug3_contig_601:hsp:57;Parent=pug3_contig_601:hit:23;Name=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001;Target=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001 212 296;Gap=M22 I5 M6 I3 M7 I2 M40;
+pug3_contig_601	blastx	match_part	16644	16850	146	+	.	ID=pug3_contig_601:hsp:58;Parent=pug3_contig_601:hit:23;Name=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001;Target=Phytophthora_sojae:jgi|Physo1_1|119497|estExt_Genewise1.C_640001 299 374;Gap=M44 I7 M25;
+pug3_contig_601	blastx	protein_match	7778	11147	168	+	.	ID=pug3_contig_601:hit:24;Name=Phytophthora_ramorum:jgi|Phyra1_1|73340|fgenesh1_pg.C_scaffold_3000097;
+pug3_contig_601	blastx	match_part	7778	7999	168	+	.	ID=pug3_contig_601:hsp:59;Parent=pug3_contig_601:hit:24;Name=Phytophthora_ramorum:jgi|Phyra1_1|73340|fgenesh1_pg.C_scaffold_3000097;Target=Phytophthora_ramorum:jgi|Phyra1_1|73340|fgenesh1_pg.C_scaffold_3000097 259 332;Gap=M74;
+pug3_contig_601	blastx	match_part	10623	11147	195	+	.	ID=pug3_contig_601:hsp:60;Parent=pug3_contig_601:hit:24;Name=Phytophthora_ramorum:jgi|Phyra1_1|73340|fgenesh1_pg.C_scaffold_3000097;Target=Phytophthora_ramorum:jgi|Phyra1_1|73340|fgenesh1_pg.C_scaffold_3000097 184 334;Gap=M27 I2 M32 D14 M3 D3 M7 D9 M80;
+pug3_contig_601	blastx	protein_match	7489	11129	137	+	.	ID=pug3_contig_601:hit:25;Name=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044;
+pug3_contig_601	blastx	match_part	7489	7668	137	+	.	ID=pug3_contig_601:hsp:61;Parent=pug3_contig_601:hit:25;Name=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044;Target=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044 259 318;Gap=M60;
+pug3_contig_601	blastx	match_part	7754	7987	100	+	.	ID=pug3_contig_601:hsp:62;Parent=pug3_contig_601:hit:25;Name=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044;Target=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044 318 394;Gap=M25 D1 M52;
+pug3_contig_601	blastx	match_part	10611	11129	182	+	.	ID=pug3_contig_601:hsp:63;Parent=pug3_contig_601:hit:25;Name=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044;Target=Phytophthora_sojae:jgi|Physo1_1|139547|estExt_fgenesh1_pg.C_750044 250 394;Gap=M63 D19 M30 D9 M52;
+pug3_contig_601	blastx	protein_match	15323	15941	109	+	.	ID=pug3_contig_601:hit:26;Name=Phytophthora_infestans:PITG_14828T0;
+pug3_contig_601	blastx	match_part	15323	15457	109	+	.	ID=pug3_contig_601:hsp:64;Parent=pug3_contig_601:hit:26;Name=Phytophthora_infestans:PITG_14828T0;Target=Phytophthora_infestans:PITG_14828T0 314 358;Gap=M45;
+pug3_contig_601	blastx	match_part	15552	15941	121	+	.	ID=pug3_contig_601:hsp:65;Parent=pug3_contig_601:hit:26;Name=Phytophthora_infestans:PITG_14828T0;Target=Phytophthora_infestans:PITG_14828T0 361 462;Gap=M24 I5 M24 D32 M17 D1 M32;
+pug3_contig_601	blastx	protein_match	16364	16754	126	+	.	ID=pug3_contig_601:hit:27;Name=Phytophthora_sojae:jgi|Physo1_1|130798|estExt_fgenesh1_pg.C_120230;
+pug3_contig_601	blastx	match_part	16364	16573	126	+	.	ID=pug3_contig_601:hsp:66;Parent=pug3_contig_601:hit:27;Name=Phytophthora_sojae:jgi|Physo1_1|130798|estExt_fgenesh1_pg.C_120230;Target=Phytophthora_sojae:jgi|Physo1_1|130798|estExt_fgenesh1_pg.C_120230 174 252;Gap=M24 I7 M7 I2 M39;
+pug3_contig_601	blastx	match_part	16644	16754	84	+	.	ID=pug3_contig_601:hsp:67;Parent=pug3_contig_601:hit:27;Name=Phytophthora_sojae:jgi|Physo1_1|130798|estExt_fgenesh1_pg.C_120230;Target=Phytophthora_sojae:jgi|Physo1_1|130798|estExt_fgenesh1_pg.C_120230 257 293;Gap=M37;
+pug3_contig_601	blastx	protein_match	15317	15938	111	+	.	ID=pug3_contig_601:hit:28;Name=Pythium_ultimum:PYU1_T007731;
+pug3_contig_601	blastx	match_part	15317	15454	111	+	.	ID=pug3_contig_601:hsp:68;Parent=pug3_contig_601:hit:28;Name=Pythium_ultimum:PYU1_T007731;Target=Pythium_ultimum:PYU1_T007731 30 75;Gap=M46;
+pug3_contig_601	blastx	match_part	15552	15938	74	+	.	ID=pug3_contig_601:hsp:69;Parent=pug3_contig_601:hit:28;Name=Pythium_ultimum:PYU1_T007731;Target=Pythium_ultimum:PYU1_T007731 74 184;Gap=M20 I1 M26 D11 M16 D7 M11 D2 M15 I1 M21;
+pug3_contig_601	blastx	protein_match	6806	11156	732	+	.	ID=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;
+pug3_contig_601	blastx	match_part	6806	7417	732	+	.	ID=pug3_contig_601:hsp:70;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 1 164;Gap=M15 D5 M91 D27 M3 D8 M55;
+pug3_contig_601	blastx	match_part	7474	7668	325	+	.	ID=pug3_contig_601:hsp:71;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 156 220;Gap=M65;
+pug3_contig_601	blastx	match_part	7745	8017	463	+	.	ID=pug3_contig_601:hsp:72;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 218 308;Gap=M91;
+pug3_contig_601	blastx	match_part	9980	10135	217	+	.	ID=pug3_contig_601:hsp:73;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 5 56;Gap=M52;
+pug3_contig_601	blastx	match_part	10158	10316	209	+	.	ID=pug3_contig_601:hsp:74;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 59 111;Gap=M53;
+pug3_contig_601	blastx	match_part	10400	10528	199	+	.	ID=pug3_contig_601:hsp:75;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 112 154;Gap=M43;
+pug3_contig_601	blastx	match_part	10623	11156	607	+	.	ID=pug3_contig_601:hsp:76;Parent=pug3_contig_601:hit:29;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 156 307;Gap=M63 D26 M89;
+pug3_contig_601	blastx	protein_match	4922	6295	224	-	.	ID=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;
+pug3_contig_601	blastx	match_part	6032	6295	393	-	.	ID=pug3_contig_601:hsp:77;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 1 88;Gap=M88;
+pug3_contig_601	blastx	match_part	5802	5999	201	-	.	ID=pug3_contig_601:hsp:78;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 94 145;Gap=M20 D14 M32;
+pug3_contig_601	blastx	match_part	5662	5712	82	-	.	ID=pug3_contig_601:hsp:79;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 142 158;Gap=M17;
+pug3_contig_601	blastx	match_part	5386	5469	130	-	.	ID=pug3_contig_601:hsp:80;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 155 182;Gap=M28;
+pug3_contig_601	blastx	match_part	5145	5306	302	-	.	ID=pug3_contig_601:hsp:81;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 183 236;Gap=M54;
+pug3_contig_601	blastx	match_part	4922	5062	224	-	.	ID=pug3_contig_601:hsp:82;Parent=pug3_contig_601:hit:30;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 236 282;Gap=M47;
+pug3_contig_601	blastx	protein_match	15019	16396	140	+	.	ID=pug3_contig_601:hit:31;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;
+pug3_contig_601	blastx	match_part	15019	15234	140	+	.	ID=pug3_contig_601:hsp:83;Parent=pug3_contig_601:hit:31;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 2 80;Gap=M49 I7 M23;
+pug3_contig_601	blastx	match_part	15305	15457	155	+	.	ID=pug3_contig_601:hsp:84;Parent=pug3_contig_601:hit:31;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 74 124;Gap=M51;
+pug3_contig_601	blastx	match_part	15546	15908	294	+	.	ID=pug3_contig_601:hsp:85;Parent=pug3_contig_601:hit:31;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 129 222;Gap=M19 D27 M75;
+pug3_contig_601	blastx	match_part	16079	16396	159	+	.	ID=pug3_contig_601:hsp:86;Parent=pug3_contig_601:hit:31;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 188 279;Gap=M7 D2 M45 D12 M40;
+pug3_contig_601	blastx	protein_match	15341	16850	111	+	.	ID=pug3_contig_601:hit:32;Name=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1;
+pug3_contig_601	blastx	match_part	15341	15451	111	+	.	ID=pug3_contig_601:hsp:87;Parent=pug3_contig_601:hit:32;Name=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1 14 50;Gap=M37;
+pug3_contig_601	blastx	match_part	15522	15941	199	+	.	ID=pug3_contig_601:hsp:88;Parent=pug3_contig_601:hit:32;Name=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1 45 156;Gap=M31 D29 M20 I1 M60;
+pug3_contig_601	blastx	match_part	16355	16579	143	+	.	ID=pug3_contig_601:hsp:89;Parent=pug3_contig_601:hit:32;Name=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1 235 321;Gap=M13 I2 M9 I4 M7 I4 M6 I2 M40;
+pug3_contig_601	blastx	match_part	16644	16850	146	+	.	ID=pug3_contig_601:hsp:90;Parent=pug3_contig_601:hit:32;Name=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|39985|gwEuk.112.8.1 324 399;Gap=M44 I7 M25;
+pug3_contig_601	blastx	protein_match	7474	11129	135	+	.	ID=pug3_contig_601:hit:33;Name=Pythium_ultimum:PYU1_T005967;
+pug3_contig_601	blastx	match_part	7474	7650	135	+	.	ID=pug3_contig_601:hsp:91;Parent=pug3_contig_601:hit:33;Name=Pythium_ultimum:PYU1_T005967;Target=Pythium_ultimum:PYU1_T005967 154 212;Gap=M59;
+pug3_contig_601	blastx	match_part	10611	11129	178	+	.	ID=pug3_contig_601:hsp:92;Parent=pug3_contig_601:hit:33;Name=Pythium_ultimum:PYU1_T005967;Target=Pythium_ultimum:PYU1_T005967 150 303;Gap=M63 D19 M4 I4 M6 I2 M6 D6 M69;
+pug3_contig_601	blastx	protein_match	6806	11156	419	+	.	ID=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;
+pug3_contig_601	blastx	match_part	6806	7393	419	+	.	ID=pug3_contig_601:hsp:93;Parent=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 1 156;Gap=M15 D5 M96 D35 M45;
+pug3_contig_601	blastx	match_part	7474	7659	270	+	.	ID=pug3_contig_601:hsp:94;Parent=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 156 217;Gap=M62;
+pug3_contig_601	blastx	match_part	7751	8014	317	+	.	ID=pug3_contig_601:hsp:95;Parent=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 220 307;Gap=M88;
+pug3_contig_601	blastx	match_part	9977	10528	272	+	.	ID=pug3_contig_601:hsp:96;Parent=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 4 154;Gap=M53 I3 M23 I1 M7 I4 M16 D41 M44;
+pug3_contig_601	blastx	match_part	10623	11156	546	+	.	ID=pug3_contig_601:hsp:97;Parent=pug3_contig_601:hit:34;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 156 307;Gap=M62 D26 M90;
+pug3_contig_601	blastx	protein_match	15522	16850	211	+	.	ID=pug3_contig_601:hit:35;Name=Phytophthora_infestans:PITG_10518T0;
+pug3_contig_601	blastx	match_part	15522	15941	211	+	.	ID=pug3_contig_601:hsp:98;Parent=pug3_contig_601:hit:35;Name=Phytophthora_infestans:PITG_10518T0;Target=Phytophthora_infestans:PITG_10518T0 251 362;Gap=M31 D29 M16 I1 M64;
+pug3_contig_601	blastx	match_part	16355	16579	187	+	.	ID=pug3_contig_601:hsp:99;Parent=pug3_contig_601:hit:35;Name=Phytophthora_infestans:PITG_10518T0;Target=Phytophthora_infestans:PITG_10518T0 441 525;Gap=M22 I5 M6 I3 M7 I2 M40;
+pug3_contig_601	blastx	match_part	16644	16850	146	+	.	ID=pug3_contig_601:hsp:100;Parent=pug3_contig_601:hit:35;Name=Phytophthora_infestans:PITG_10518T0;Target=Phytophthora_infestans:PITG_10518T0 528 603;Gap=M44 I7 M25;
+pug3_contig_601	blastx	protein_match	15326	16730	115	+	.	ID=pug3_contig_601:hit:36;Name=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133;
+pug3_contig_601	blastx	match_part	15326	15454	115	+	.	ID=pug3_contig_601:hsp:101;Parent=pug3_contig_601:hit:36;Name=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133;Target=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133 21 63;Gap=M43;
+pug3_contig_601	blastx	match_part	15522	15980	141	+	.	ID=pug3_contig_601:hsp:102;Parent=pug3_contig_601:hit:36;Name=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133;Target=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133 57 186;Gap=M30 D17 M17 D7 M12 I1 M19 D1 M37 I1 M13;
+pug3_contig_601	blastx	match_part	16322	16585	157	+	.	ID=pug3_contig_601:hsp:103;Parent=pug3_contig_601:hit:36;Name=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133;Target=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133 245 336;Gap=M35 I2 M10 I2 M43;
+pug3_contig_601	blastx	match_part	16644	16730	99	+	.	ID=pug3_contig_601:hsp:104;Parent=pug3_contig_601:hit:36;Name=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133;Target=Phytophthora_sojae:jgi|Physo1_1|136854|estExt_fgenesh1_pg.C_480133 337 365;Gap=M29;
+pug3_contig_601	blastx	protein_match	435	4021	322	-	.	ID=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;
+pug3_contig_601	blastx	match_part	3977	4021	74	-	.	ID=pug3_contig_601:hsp:105;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 1 15;Gap=M15;
+pug3_contig_601	blastx	match_part	3754	3879	191	-	.	ID=pug3_contig_601:hsp:106;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 16 57;Gap=M42;
+pug3_contig_601	blastx	match_part	3587	3679	135	-	.	ID=pug3_contig_601:hsp:107;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 52 82;Gap=M31;
+pug3_contig_601	blastx	match_part	1969	3531	1430	-	.	ID=pug3_contig_601:hsp:108;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 75 559;Gap=M30 D38 M111 I2 M94 D1 M196 I1 M51;
+pug3_contig_601	blastx	match_part	2146	3117	171	-	.	ID=pug3_contig_601:hsp:109;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 536 846;Gap=M12 I1 M21 I1 M9 D9 M6 I7 M14 D4 M21 I2 M7 D2 M4 D9 M9 I6 M5 D1 M26 I3 M25 I1 M43 D1 M64 D2 M8 D6 M16;
+pug3_contig_601	blastx	match_part	2149	2595	167	-	.	ID=pug3_contig_601:hsp:110;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 1 148;Gap=M58 D1 M24 I1 M54 D1 M11;
+pug3_contig_601	blastx	match_part	999	1901	948	-	.	ID=pug3_contig_601:hsp:111;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 561 810;Gap=M96 D7 M4 D13 M89 D31 M61;
+pug3_contig_601	blastx	match_part	737	919	285	-	.	ID=pug3_contig_601:hsp:112;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 811 871;Gap=M61;
+pug3_contig_601	blastx	match_part	435	653	322	-	.	ID=pug3_contig_601:hsp:113;Parent=pug3_contig_601:hit:37;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 870 942;Gap=M73;
+pug3_contig_601	blastx	protein_match	15684	17059	447	+	.	ID=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;
+pug3_contig_601	blastx	match_part	15684	15944	447	+	.	ID=pug3_contig_601:hsp:114;Parent=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 1 87;Gap=M87;
+pug3_contig_601	blastx	match_part	16024	16194	290	+	.	ID=pug3_contig_601:hsp:115;Parent=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 88 144;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16591	529	+	.	ID=pug3_contig_601:hsp:116;Parent=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 143 247;Gap=M105;
+pug3_contig_601	blastx	match_part	16644	16853	351	+	.	ID=pug3_contig_601:hsp:117;Parent=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 244 313;Gap=M70;
+pug3_contig_601	blastx	match_part	16925	17059	232	+	.	ID=pug3_contig_601:hsp:118;Parent=pug3_contig_601:hit:38;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 314 358;Gap=M45;
+pug3_contig_601	blastx	protein_match	6806	11156	412	+	.	ID=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;
+pug3_contig_601	blastx	match_part	6806	7393	412	+	.	ID=pug3_contig_601:hsp:119;Parent=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 1 156;Gap=M15 D5 M96 D35 M45;
+pug3_contig_601	blastx	match_part	7474	7659	257	+	.	ID=pug3_contig_601:hsp:120;Parent=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 156 217;Gap=M62;
+pug3_contig_601	blastx	match_part	7751	8014	306	+	.	ID=pug3_contig_601:hsp:121;Parent=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 220 307;Gap=M88;
+pug3_contig_601	blastx	match_part	9977	10528	259	+	.	ID=pug3_contig_601:hsp:122;Parent=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 4 154;Gap=M60 I3 M16 I1 M13 I4 M10 D41 M44;
+pug3_contig_601	blastx	match_part	10623	11156	520	+	.	ID=pug3_contig_601:hsp:123;Parent=pug3_contig_601:hit:39;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 156 307;Gap=M62 D26 M90;
+pug3_contig_601	blastx	protein_match	6806	11156	410	+	.	ID=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;
+pug3_contig_601	blastx	match_part	6806	7393	410	+	.	ID=pug3_contig_601:hsp:124;Parent=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 1 156;Gap=M15 D5 M96 D35 M45;
+pug3_contig_601	blastx	match_part	7474	7659	270	+	.	ID=pug3_contig_601:hsp:125;Parent=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 156 217;Gap=M62;
+pug3_contig_601	blastx	match_part	7751	8014	293	+	.	ID=pug3_contig_601:hsp:126;Parent=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 220 307;Gap=M88;
+pug3_contig_601	blastx	match_part	9977	10528	264	+	.	ID=pug3_contig_601:hsp:127;Parent=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 4 154;Gap=M53 I3 M23 D17 M9 D2 M6 I2 M3 D6 M4 D7 M4 D6 M44;
+pug3_contig_601	blastx	match_part	10623	11156	529	+	.	ID=pug3_contig_601:hsp:128;Parent=pug3_contig_601:hit:40;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 156 307;Gap=M62 D26 M90;
+pug3_contig_601	blastx	protein_match	4922	6142	198	-	.	ID=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;
+pug3_contig_601	blastx	match_part	6032	6142	168	-	.	ID=pug3_contig_601:hsp:129;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 2 38;Gap=M37;
+pug3_contig_601	blastx	match_part	5802	5870	83	-	.	ID=pug3_contig_601:hsp:130;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 54 76;Gap=M23;
+pug3_contig_601	blastx	match_part	5656	5712	72	-	.	ID=pug3_contig_601:hsp:131;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 73 91;Gap=M19;
+pug3_contig_601	blastx	match_part	5386	5472	116	-	.	ID=pug3_contig_601:hsp:132;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 100 128;Gap=M29;
+pug3_contig_601	blastx	match_part	5145	5306	218	-	.	ID=pug3_contig_601:hsp:133;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 129 182;Gap=M54;
+pug3_contig_601	blastx	match_part	4922	5062	198	-	.	ID=pug3_contig_601:hsp:134;Parent=pug3_contig_601:hit:41;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 182 228;Gap=M47;
+pug3_contig_601	blastx	protein_match	15326	16730	114	+	.	ID=pug3_contig_601:hit:42;Name=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001;
+pug3_contig_601	blastx	match_part	15326	15454	114	+	.	ID=pug3_contig_601:hsp:135;Parent=pug3_contig_601:hit:42;Name=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001;Target=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001 18 60;Gap=M43;
+pug3_contig_601	blastx	match_part	15522	15980	156	+	.	ID=pug3_contig_601:hsp:136;Parent=pug3_contig_601:hit:42;Name=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001;Target=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001 54 182;Gap=M30 D17 M33 D7 M15 D1 M37 I1 M13;
+pug3_contig_601	blastx	match_part	16322	16585	148	+	.	ID=pug3_contig_601:hsp:137;Parent=pug3_contig_601:hit:42;Name=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001;Target=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001 241 332;Gap=M35 I2 M10 I2 M43;
+pug3_contig_601	blastx	match_part	16644	16730	98	+	.	ID=pug3_contig_601:hsp:138;Parent=pug3_contig_601:hit:42;Name=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001;Target=Phytophthora_ramorum:jgi|Phyra1_1|85825|fgenesh1_pg.C_scaffold_325000001 333 361;Gap=M29;
+pug3_contig_601	blastx	protein_match	7489	11156	124	+	.	ID=pug3_contig_601:hit:43;Name=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026;
+pug3_contig_601	blastx	match_part	7489	7650	124	+	.	ID=pug3_contig_601:hsp:139;Parent=pug3_contig_601:hit:43;Name=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026;Target=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026 85 138;Gap=M54;
+pug3_contig_601	blastx	match_part	7748	7987	129	+	.	ID=pug3_contig_601:hsp:140;Parent=pug3_contig_601:hit:43;Name=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026;Target=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026 143 220;Gap=M9 D1 M17 D1 M52;
+pug3_contig_601	blastx	match_part	10641	11156	187	+	.	ID=pug3_contig_601:hsp:141;Parent=pug3_contig_601:hit:43;Name=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026;Target=Phytophthora_sojae:jgi|Physo1_1|139529|estExt_fgenesh1_pg.C_750026 86 230;Gap=M53 D6 M4 D20 M9 D1 M17 D1 M54 I1 M7;
+pug3_contig_601	blastx	protein_match	16352	16730	164	+	.	ID=pug3_contig_601:hit:44;Name=Phytophthora_infestans:PITG_01201T0;
+pug3_contig_601	blastx	match_part	16352	16579	164	+	.	ID=pug3_contig_601:hsp:142;Parent=pug3_contig_601:hit:44;Name=Phytophthora_infestans:PITG_01201T0;Target=Phytophthora_infestans:PITG_01201T0 276 353;Gap=M38 I2 M38;
+pug3_contig_601	blastx	match_part	16644	16730	87	+	.	ID=pug3_contig_601:hsp:143;Parent=pug3_contig_601:hit:44;Name=Phytophthora_infestans:PITG_01201T0;Target=Phytophthora_infestans:PITG_01201T0 356 384;Gap=M29;
+pug3_contig_601	blastx	protein_match	15326	16730	117	+	.	ID=pug3_contig_601:hit:45;Name=Pythium_ultimum:PYU1_T007730;
+pug3_contig_601	blastx	match_part	15326	15454	117	+	.	ID=pug3_contig_601:hsp:144;Parent=pug3_contig_601:hit:45;Name=Pythium_ultimum:PYU1_T007730;Target=Pythium_ultimum:PYU1_T007730 31 73;Gap=M43;
+pug3_contig_601	blastx	match_part	15522	15941	127	+	.	ID=pug3_contig_601:hsp:145;Parent=pug3_contig_601:hit:45;Name=Pythium_ultimum:PYU1_T007730;Target=Pythium_ultimum:PYU1_T007730 67 188;Gap=M30 D17 M16 D1 M27 I1 M10 D1 M38;
+pug3_contig_601	blastx	match_part	16280	16573	146	+	.	ID=pug3_contig_601:hsp:146;Parent=pug3_contig_601:hit:45;Name=Pythium_ultimum:PYU1_T007730;Target=Pythium_ultimum:PYU1_T007730 248 349;Gap=M10 D1 M38 I3 M10 I2 M39;
+pug3_contig_601	blastx	match_part	16644	16730	99	+	.	ID=pug3_contig_601:hsp:147;Parent=pug3_contig_601:hit:45;Name=Pythium_ultimum:PYU1_T007730;Target=Pythium_ultimum:PYU1_T007730 354 382;Gap=M29;
+pug3_contig_601	blastx	protein_match	7489	11156	137	+	.	ID=pug3_contig_601:hit:46;Name=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006;
+pug3_contig_601	blastx	match_part	7489	7668	137	+	.	ID=pug3_contig_601:hsp:148;Parent=pug3_contig_601:hit:46;Name=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006;Target=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006 194 253;Gap=M60;
+pug3_contig_601	blastx	match_part	7754	7987	104	+	.	ID=pug3_contig_601:hsp:149;Parent=pug3_contig_601:hit:46;Name=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006;Target=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006 253 329;Gap=M25 D1 M52;
+pug3_contig_601	blastx	match_part	10611	11156	184	+	.	ID=pug3_contig_601:hsp:150;Parent=pug3_contig_601:hit:46;Name=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006;Target=Phytophthora_ramorum:jgi|Phyra1_1|74023|fgenesh1_pg.C_scaffold_6000006 185 339;Gap=M63 D19 M30 D9 M54 I1 M7;
+pug3_contig_601	blastx	protein_match	7489	7650	126	+	.	ID=pug3_contig_601:hit:47;Name=Phytophthora_infestans:PITG_08464T0;
+pug3_contig_601	blastx	match_part	7489	7650	126	+	.	ID=pug3_contig_601:hsp:151;Parent=pug3_contig_601:hit:47;Name=Phytophthora_infestans:PITG_08464T0;Target=Phytophthora_infestans:PITG_08464T0 148 201;Gap=M54;
+pug3_contig_601	blastx	protein_match	11253	14656	441	-	.	ID=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;
+pug3_contig_601	blastx	match_part	14249	14656	317	-	.	ID=pug3_contig_601:hsp:152;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 9 103;Gap=M35 D39 M34 D2 M26;
+pug3_contig_601	blastx	match_part	13987	14223	251	-	.	ID=pug3_contig_601:hsp:153;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 78 130;Gap=M36 D26 M17;
+pug3_contig_601	blastx	match_part	13749	13892	237	-	.	ID=pug3_contig_601:hsp:154;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 130 177;Gap=M48;
+pug3_contig_601	blastx	match_part	12364	13671	1169	-	.	ID=pug3_contig_601:hsp:155;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 178 492;Gap=M26 D24 M47 D16 M7 D23 M23 D11 M85 D23 M88 D24 M39;
+pug3_contig_601	blastx	match_part	11940	12293	616	-	.	ID=pug3_contig_601:hsp:156;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 492 609;Gap=M118;
+pug3_contig_601	blastx	match_part	11777	11872	158	-	.	ID=pug3_contig_601:hsp:157;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 610 641;Gap=M32;
+pug3_contig_601	blastx	match_part	11608	11709	144	-	.	ID=pug3_contig_601:hsp:158;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 642 675;Gap=M34;
+pug3_contig_601	blastx	match_part	11253	11531	441	-	.	ID=pug3_contig_601:hsp:159;Parent=pug3_contig_601:hit:48;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 671 763;Gap=M93;
+pug3_contig_601	blastx	protein_match	11253	14656	317	-	.	ID=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;
+pug3_contig_601	blastx	match_part	14240	14656	252	-	.	ID=pug3_contig_601:hsp:160;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 9 106;Gap=M35 D39 M48 D2 M15;
+pug3_contig_601	blastx	match_part	12364	14223	925	-	.	ID=pug3_contig_601:hsp:161;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 78 501;Gap=M36 D26 M30 I2 M16 D6 M2 D21 M10 D5 M5 D2 M8 D17 M26 D24 M46 I6 M11 D2 M11 D12 M20 D42 M68 D23 M88 D24 M39;
+pug3_contig_601	blastx	match_part	11940	12293	442	-	.	ID=pug3_contig_601:hsp:162;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 501 618;Gap=M118;
+pug3_contig_601	blastx	match_part	11777	11872	92	-	.	ID=pug3_contig_601:hsp:163;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 619 650;Gap=M32;
+pug3_contig_601	blastx	match_part	11623	11709	89	-	.	ID=pug3_contig_601:hsp:164;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 651 679;Gap=M29;
+pug3_contig_601	blastx	match_part	11253	11531	317	-	.	ID=pug3_contig_601:hsp:165;Parent=pug3_contig_601:hit:49;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 680 772;Gap=M93;
+pug3_contig_601	blastx	protein_match	6818	11159	561	+	.	ID=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;
+pug3_contig_601	blastx	match_part	6818	7417	561	+	.	ID=pug3_contig_601:hsp:166;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 8 167;Gap=M11 D5 M90 D24 M2 D5 M2 D6 M55;
+pug3_contig_601	blastx	match_part	7474	7764	255	+	.	ID=pug3_contig_601:hsp:167;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 159 249;Gap=M79 D6 M12;
+pug3_contig_601	blastx	match_part	7748	8014	391	+	.	ID=pug3_contig_601:hsp:168;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 222 310;Gap=M89;
+pug3_contig_601	blastx	match_part	9959	10135	299	+	.	ID=pug3_contig_601:hsp:169;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 1 59;Gap=M59;
+pug3_contig_601	blastx	match_part	10158	10316	293	+	.	ID=pug3_contig_601:hsp:170;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 62 114;Gap=M53;
+pug3_contig_601	blastx	match_part	10400	10534	225	+	.	ID=pug3_contig_601:hsp:171;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 115 159;Gap=M45;
+pug3_contig_601	blastx	match_part	10623	11159	747	+	.	ID=pug3_contig_601:hsp:172;Parent=pug3_contig_601:hit:50;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 159 311;Gap=M62 D26 M91;
+pug3_contig_601	blastx	protein_match	7510	7987	125	+	.	ID=pug3_contig_601:hit:51;Name=Pythium_ultimum:PYU1_T002483;
+pug3_contig_601	blastx	match_part	7510	7653	125	+	.	ID=pug3_contig_601:hsp:173;Parent=pug3_contig_601:hit:51;Name=Pythium_ultimum:PYU1_T002483;Target=Pythium_ultimum:PYU1_T002483 238 285;Gap=M48;
+pug3_contig_601	blastx	match_part	7748	7987	122	+	.	ID=pug3_contig_601:hsp:174;Parent=pug3_contig_601:hit:51;Name=Pythium_ultimum:PYU1_T002483;Target=Pythium_ultimum:PYU1_T002483 289 366;Gap=M9 D1 M17 D1 M52;
+pug3_contig_601	blastx	protein_match	7489	11156	141	+	.	ID=pug3_contig_601:hit:52;Name=Phytophthora_infestans:PITG_08432T0;
+pug3_contig_601	blastx	match_part	7489	7668	141	+	.	ID=pug3_contig_601:hsp:175;Parent=pug3_contig_601:hit:52;Name=Phytophthora_infestans:PITG_08432T0;Target=Phytophthora_infestans:PITG_08432T0 196 255;Gap=M60;
+pug3_contig_601	blastx	match_part	7754	7987	105	+	.	ID=pug3_contig_601:hsp:176;Parent=pug3_contig_601:hit:52;Name=Phytophthora_infestans:PITG_08432T0;Target=Phytophthora_infestans:PITG_08432T0 255 331;Gap=M25 D1 M52;
+pug3_contig_601	blastx	match_part	10641	11156	189	+	.	ID=pug3_contig_601:hsp:177;Parent=pug3_contig_601:hit:52;Name=Phytophthora_infestans:PITG_08432T0;Target=Phytophthora_infestans:PITG_08432T0 197 341;Gap=M50 D2 M10 I1 M13 D20 M9 D7 M54 I1 M7;
+pug3_contig_601	blastx	protein_match	2	4548	123	-	.	ID=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;
+pug3_contig_601	blastx	match_part	4198	4548	155	-	.	ID=pug3_contig_601:hsp:178;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 1 107;Gap=M31 D13 M24 I3 M49;
+pug3_contig_601	blastx	match_part	4153	4242	115	-	.	ID=pug3_contig_601:hsp:179;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 38 67;Gap=M30;
+pug3_contig_601	blastx	match_part	3587	4045	197	-	.	ID=pug3_contig_601:hsp:180;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 68 161;Gap=M20 D9 M16 D51 M27 I1 M30;
+pug3_contig_601	blastx	match_part	3757	3879	203	-	.	ID=pug3_contig_601:hsp:181;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 91 131;Gap=M41;
+pug3_contig_601	blastx	match_part	3448	3507	100	-	.	ID=pug3_contig_601:hsp:182;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 161 180;Gap=M20;
+pug3_contig_601	blastx	match_part	3198	3350	258	-	.	ID=pug3_contig_601:hsp:183;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 181 231;Gap=M51;
+pug3_contig_601	blastx	match_part	1966	3171	1966	-	.	ID=pug3_contig_601:hsp:184;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 235 636;Gap=M402;
+pug3_contig_601	blastx	match_part	2149	2649	162	-	.	ID=pug3_contig_601:hsp:185;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 55 226;Gap=M18 I3 M50 I3 M72 D1 M26;
+pug3_contig_601	blastx	match_part	2146	2616	169	-	.	ID=pug3_contig_601:hsp:186;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 769 917;Gap=M17 I1 M40 I1 M7 D2 M59 D2 M8 D6 M16;
+pug3_contig_601	blastx	match_part	999	1916	1167	-	.	ID=pug3_contig_601:hsp:187;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 632 881;Gap=M99 D25 M90 D31 M61;
+pug3_contig_601	blastx	match_part	737	919	321	-	.	ID=pug3_contig_601:hsp:188;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 882 942;Gap=M61;
+pug3_contig_601	blastx	match_part	435	653	363	-	.	ID=pug3_contig_601:hsp:189;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 941 1013;Gap=M73;
+pug3_contig_601	blastx	match_part	2	76	123	-	.	ID=pug3_contig_601:hsp:190;Parent=pug3_contig_601:hit:53;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 1036 1060;Gap=M25;
+pug3_contig_601	blastx	protein_match	15407	17574	85	+	.	ID=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;
+pug3_contig_601	blastx	match_part	15407	15454	85	+	.	ID=pug3_contig_601:hsp:191;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 1 16;Gap=M16;
+pug3_contig_601	blastx	match_part	15546	15944	391	+	.	ID=pug3_contig_601:hsp:192;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 20 125;Gap=M19 D27 M87;
+pug3_contig_601	blastx	match_part	16024	16194	215	+	.	ID=pug3_contig_601:hsp:193;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 126 182;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	402	+	.	ID=pug3_contig_601:hsp:194;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 181 283;Gap=M103;
+pug3_contig_601	blastx	match_part	16644	16850	235	+	.	ID=pug3_contig_601:hsp:195;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 284 352;Gap=M69;
+pug3_contig_601	blastx	match_part	16925	17059	96	+	.	ID=pug3_contig_601:hsp:196;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 354 398;Gap=M18 D1 M6 I1 M20;
+pug3_contig_601	blastx	match_part	17017	17574	241	+	.	ID=pug3_contig_601:hsp:197;Parent=pug3_contig_601:hit:54;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 356 512;Gap=M7 I3 M10 D1 M19 I4 M47 D28 M45 D4 M15 D3 M7;
+pug3_contig_601	blastx	protein_match	15344	16850	116	+	.	ID=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;
+pug3_contig_601	blastx	match_part	15344	15454	116	+	.	ID=pug3_contig_601:hsp:198;Parent=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 165 201;Gap=M37;
+pug3_contig_601	blastx	match_part	15522	15941	198	+	.	ID=pug3_contig_601:hsp:199;Parent=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 195 308;Gap=M34 D9 M8 D17 M72;
+pug3_contig_601	blastx	match_part	16024	16194	136	+	.	ID=pug3_contig_601:hsp:200;Parent=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 310 366;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	214	+	.	ID=pug3_contig_601:hsp:201;Parent=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 365 471;Gap=M6 I1 M22 I1 M33 I2 M42;
+pug3_contig_601	blastx	match_part	16644	16850	166	+	.	ID=pug3_contig_601:hsp:202;Parent=pug3_contig_601:hit:55;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 472 549;Gap=M43 I9 M26;
+pug3_contig_601	blastx	protein_match	15010	15418	361	+	.	ID=pug3_contig_601:hit:56;Name=Pythium_ultimum:PYU1_T000917;
+pug3_contig_601	blastx	match_part	15010	15237	361	+	.	ID=pug3_contig_601:hsp:203;Parent=pug3_contig_601:hit:56;Name=Pythium_ultimum:PYU1_T000917;Target=Pythium_ultimum:PYU1_T000917 1 76;Gap=M76;
+pug3_contig_601	blastx	match_part	15326	15418	152	+	.	ID=pug3_contig_601:hsp:204;Parent=pug3_contig_601:hit:56;Name=Pythium_ultimum:PYU1_T000917;Target=Pythium_ultimum:PYU1_T000917 76 106;Gap=M31;
+pug3_contig_601	blastx	protein_match	15326	16730	120	+	.	ID=pug3_contig_601:hit:57;Name=Phytophthora_infestans:PITG_03995T0;
+pug3_contig_601	blastx	match_part	15326	15454	120	+	.	ID=pug3_contig_601:hsp:205;Parent=pug3_contig_601:hit:57;Name=Phytophthora_infestans:PITG_03995T0;Target=Phytophthora_infestans:PITG_03995T0 18 60;Gap=M43;
+pug3_contig_601	blastx	match_part	15522	15983	127	+	.	ID=pug3_contig_601:hsp:206;Parent=pug3_contig_601:hit:57;Name=Phytophthora_infestans:PITG_03995T0;Target=Phytophthora_infestans:PITG_03995T0 54 187;Gap=M30 D17 M23 D3 M29 I2 M12 D3 M23 I1 M14;
+pug3_contig_601	blastx	match_part	16322	16585	159	+	.	ID=pug3_contig_601:hsp:207;Parent=pug3_contig_601:hit:57;Name=Phytophthora_infestans:PITG_03995T0;Target=Phytophthora_infestans:PITG_03995T0 245 336;Gap=M34 I2 M11 I2 M43;
+pug3_contig_601	blastx	match_part	16644	16730	100	+	.	ID=pug3_contig_601:hsp:208;Parent=pug3_contig_601:hit:57;Name=Phytophthora_infestans:PITG_03995T0;Target=Phytophthora_infestans:PITG_03995T0 337 365;Gap=M29;
+pug3_contig_601	blastx	protein_match	7474	11129	128	+	.	ID=pug3_contig_601:hit:58;Name=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031;
+pug3_contig_601	blastx	match_part	7474	7650	128	+	.	ID=pug3_contig_601:hsp:209;Parent=pug3_contig_601:hit:58;Name=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031;Target=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031 199 257;Gap=M59;
+pug3_contig_601	blastx	match_part	7748	7987	120	+	.	ID=pug3_contig_601:hsp:210;Parent=pug3_contig_601:hit:58;Name=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031;Target=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031 262 339;Gap=M9 D1 M17 D1 M52;
+pug3_contig_601	blastx	match_part	10623	11129	185	+	.	ID=pug3_contig_601:hsp:211;Parent=pug3_contig_601:hit:58;Name=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031;Target=Phytophthora_ramorum:jgi|Phyra1_1|83259|fgenesh1_pg.C_scaffold_85000031 199 339;Gap=M59 D19 M4 D7 M11 I1 M14 D3 M52;
+pug3_contig_601	blastx	protein_match	435	4045	322	-	.	ID=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;
+pug3_contig_601	blastx	match_part	3977	4045	113	-	.	ID=pug3_contig_601:hsp:212;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 56 78;Gap=M23;
+pug3_contig_601	blastx	match_part	3754	3879	190	-	.	ID=pug3_contig_601:hsp:213;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 79 120;Gap=M42;
+pug3_contig_601	blastx	match_part	3587	3679	135	-	.	ID=pug3_contig_601:hsp:214;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 115 145;Gap=M31;
+pug3_contig_601	blastx	match_part	1969	3507	1440	-	.	ID=pug3_contig_601:hsp:215;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 145 619;Gap=M22 D38 M111 I2 M96 D3 M197 I1 M46;
+pug3_contig_601	blastx	match_part	2146	2664	168	-	.	ID=pug3_contig_601:hsp:216;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 737 901;Gap=M33 I1 M43 D1 M64 D2 M8 D6 M16;
+pug3_contig_601	blastx	match_part	2149	2595	178	-	.	ID=pug3_contig_601:hsp:217;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 64 210;Gap=M58 D1 M78 D1 M11;
+pug3_contig_601	blastx	match_part	999	1901	910	-	.	ID=pug3_contig_601:hsp:218;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 621 865;Gap=M97 D25 M87 D31 M61;
+pug3_contig_601	blastx	match_part	999	1511	158	-	.	ID=pug3_contig_601:hsp:219;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 23 168;Gap=M37 I8 M3 D2 M37 D31 M61;
+pug3_contig_601	blastx	match_part	737	919	290	-	.	ID=pug3_contig_601:hsp:220;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 866 926;Gap=M61;
+pug3_contig_601	blastx	match_part	435	653	322	-	.	ID=pug3_contig_601:hsp:221;Parent=pug3_contig_601:hit:59;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 925 997;Gap=M73;
+pug3_contig_601	blastx	protein_match	15341	16850	132	+	.	ID=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;
+pug3_contig_601	blastx	match_part	15341	15454	132	+	.	ID=pug3_contig_601:hsp:222;Parent=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 229 266;Gap=M38;
+pug3_contig_601	blastx	match_part	15522	15941	188	+	.	ID=pug3_contig_601:hsp:223;Parent=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 260 373;Gap=M30 D26 M84;
+pug3_contig_601	blastx	match_part	16024	16194	137	+	.	ID=pug3_contig_601:hsp:224;Parent=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 375 431;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	227	+	.	ID=pug3_contig_601:hsp:225;Parent=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 430 535;Gap=M20 I1 M41 I2 M42;
+pug3_contig_601	blastx	match_part	16644	16850	169	+	.	ID=pug3_contig_601:hsp:226;Parent=pug3_contig_601:hit:60;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 536 613;Gap=M43 I9 M26;
+pug3_contig_601	blastx	protein_match	4940	6121	179	-	.	ID=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;
+pug3_contig_601	blastx	match_part	6032	6121	149	-	.	ID=pug3_contig_601:hsp:227;Parent=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 1 30;Gap=M30;
+pug3_contig_601	blastx	match_part	5802	5999	81	-	.	ID=pug3_contig_601:hsp:228;Parent=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 36 68;Gap=M13 D33 M20;
+pug3_contig_601	blastx	match_part	5386	5472	121	-	.	ID=pug3_contig_601:hsp:229;Parent=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 92 120;Gap=M29;
+pug3_contig_601	blastx	match_part	5145	5306	223	-	.	ID=pug3_contig_601:hsp:230;Parent=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 121 174;Gap=M54;
+pug3_contig_601	blastx	match_part	4940	5062	179	-	.	ID=pug3_contig_601:hsp:231;Parent=pug3_contig_601:hit:61;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 174 214;Gap=M41;
+pug3_contig_601	blastx	protein_match	17182	17469	295	+	.	ID=pug3_contig_601:hit:62;Name=Pythium_ultimum:PYU1_T000915;
+pug3_contig_601	blastx	match_part	17182	17469	295	+	.	ID=pug3_contig_601:hsp:232;Parent=pug3_contig_601:hit:62;Name=Pythium_ultimum:PYU1_T000915;Target=Pythium_ultimum:PYU1_T000915 1 68;Gap=M29 D28 M39;
+pug3_contig_601	blastx	protein_match	7835	11150	122	+	.	ID=pug3_contig_601:hit:63;Name=Phytophthora_sojae:jgi|Physo1_1|136565|estExt_fgenesh1_pg.C_460111;
+pug3_contig_601	blastx	match_part	7835	8017	122	+	.	ID=pug3_contig_601:hsp:233;Parent=pug3_contig_601:hit:63;Name=Phytophthora_sojae:jgi|Physo1_1|136565|estExt_fgenesh1_pg.C_460111;Target=Phytophthora_sojae:jgi|Physo1_1|136565|estExt_fgenesh1_pg.C_460111 750 809;Gap=M4 D1 M56;
+pug3_contig_601	blastx	match_part	10626	11150	188	+	.	ID=pug3_contig_601:hsp:234;Parent=pug3_contig_601:hit:63;Name=Phytophthora_sojae:jgi|Physo1_1|136565|estExt_fgenesh1_pg.C_460111;Target=Phytophthora_sojae:jgi|Physo1_1|136565|estExt_fgenesh1_pg.C_460111 660 806;Gap=M32 I1 M34 D27 M12 I1 M5 D2 M9 D1 M53;
+pug3_contig_601	blastx	protein_match	15028	17460	157	+	.	ID=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;
+pug3_contig_601	blastx	match_part	15028	15243	157	+	.	ID=pug3_contig_601:hsp:235;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 2 77;Gap=M51 I4 M21;
+pug3_contig_601	blastx	match_part	15305	15463	189	+	.	ID=pug3_contig_601:hsp:236;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 68 120;Gap=M53;
+pug3_contig_601	blastx	match_part	15546	15944	389	+	.	ID=pug3_contig_601:hsp:237;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 121 226;Gap=M19 D27 M87;
+pug3_contig_601	blastx	match_part	16024	16194	231	+	.	ID=pug3_contig_601:hsp:238;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 227 283;Gap=M57;
+pug3_contig_601	blastx	match_part	16277	16585	410	+	.	ID=pug3_contig_601:hsp:239;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 282 384;Gap=M103;
+pug3_contig_601	blastx	match_part	16644	16850	263	+	.	ID=pug3_contig_601:hsp:240;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 385 453;Gap=M69;
+pug3_contig_601	blastx	match_part	16946	17059	109	+	.	ID=pug3_contig_601:hsp:241;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 459 496;Gap=M38;
+pug3_contig_601	blastx	match_part	17128	17460	212	+	.	ID=pug3_contig_601:hsp:242;Parent=pug3_contig_601:hit:64;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 497 579;Gap=M47 D28 M36;
+pug3_contig_601	blastx	protein_match	4922	6142	192	-	.	ID=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;
+pug3_contig_601	blastx	match_part	6032	6142	168	-	.	ID=pug3_contig_601:hsp:243;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 2 38;Gap=M37;
+pug3_contig_601	blastx	match_part	5802	5870	83	-	.	ID=pug3_contig_601:hsp:244;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 54 76;Gap=M23;
+pug3_contig_601	blastx	match_part	5656	5712	72	-	.	ID=pug3_contig_601:hsp:245;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 73 91;Gap=M19;
+pug3_contig_601	blastx	match_part	5386	5472	116	-	.	ID=pug3_contig_601:hsp:246;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 100 128;Gap=M29;
+pug3_contig_601	blastx	match_part	5145	5306	217	-	.	ID=pug3_contig_601:hsp:247;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 129 182;Gap=M54;
+pug3_contig_601	blastx	match_part	4922	5062	192	-	.	ID=pug3_contig_601:hsp:248;Parent=pug3_contig_601:hit:65;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 182 228;Gap=M47;
+pug3_contig_601	blastx	protein_match	7778	11147	166	+	.	ID=pug3_contig_601:hit:66;Name=Phytophthora_infestans:PITG_11677T0;
+pug3_contig_601	blastx	match_part	7778	8017	166	+	.	ID=pug3_contig_601:hsp:249;Parent=pug3_contig_601:hit:66;Name=Phytophthora_infestans:PITG_11677T0;Target=Phytophthora_infestans:PITG_11677T0 89 169;Gap=M72 I1 M8;
+pug3_contig_601	blastx	match_part	10623	11147	210	+	.	ID=pug3_contig_601:hsp:250;Parent=pug3_contig_601:hit:66;Name=Phytophthora_infestans:PITG_11677T0;Target=Phytophthora_infestans:PITG_11677T0 14 164;Gap=M24 I2 M36 D26 M89;
+pug3_contig_601	blastx	protein_match	7835	11150	122	+	.	ID=pug3_contig_601:hit:67;Name=Phytophthora_ramorum:jgi|Phyra1_1|75354|fgenesh1_pg.C_scaffold_12000101;
+pug3_contig_601	blastx	match_part	7835	7999	122	+	.	ID=pug3_contig_601:hsp:251;Parent=pug3_contig_601:hit:67;Name=Phytophthora_ramorum:jgi|Phyra1_1|75354|fgenesh1_pg.C_scaffold_12000101;Target=Phytophthora_ramorum:jgi|Phyra1_1|75354|fgenesh1_pg.C_scaffold_12000101 761 814;Gap=M4 D1 M50;
+pug3_contig_601	blastx	match_part	10626	11150	190	+	.	ID=pug3_contig_601:hsp:252;Parent=pug3_contig_601:hit:67;Name=Phytophthora_ramorum:jgi|Phyra1_1|75354|fgenesh1_pg.C_scaffold_12000101;Target=Phytophthora_ramorum:jgi|Phyra1_1|75354|fgenesh1_pg.C_scaffold_12000101 671 817;Gap=M32 I1 M30 D27 M16 I1 M5 D2 M9 D1 M53;
+pug3_contig_601	blastx	protein_match	15323	16754	104	+	.	ID=pug3_contig_601:hit:68;Name=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191;
+pug3_contig_601	blastx	match_part	15323	15457	104	+	.	ID=pug3_contig_601:hsp:253;Parent=pug3_contig_601:hit:68;Name=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191;Target=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191 367 411;Gap=M45;
+pug3_contig_601	blastx	match_part	15552	15704	68	+	.	ID=pug3_contig_601:hsp:254;Parent=pug3_contig_601:hit:68;Name=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191;Target=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191 414 471;Gap=M22 I5 M4 I2 M25;
+pug3_contig_601	blastx	match_part	16364	16573	126	+	.	ID=pug3_contig_601:hsp:255;Parent=pug3_contig_601:hit:68;Name=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191;Target=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191 556 634;Gap=M24 I7 M7 I2 M39;
+pug3_contig_601	blastx	match_part	16644	16754	84	+	.	ID=pug3_contig_601:hsp:256;Parent=pug3_contig_601:hit:68;Name=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191;Target=Phytophthora_sojae:jgi|Physo1_1|128347|estExt_fgenesh1_pg.C_40191 639 675;Gap=M37;
+pug3_contig_601	blastx	protein_match	435	3519	317	-	.	ID=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;
+pug3_contig_601	blastx	match_part	1969	3519	1368	-	.	ID=pug3_contig_601:hsp:257;Parent=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 87 565;Gap=M26 D38 M111 I2 M96 D3 M192 I1 M51;
+pug3_contig_601	blastx	match_part	2146	2616	173	-	.	ID=pug3_contig_601:hsp:258;Parent=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 696 844;Gap=M17 I1 M43 D1 M64 D2 M8 D6 M16;
+pug3_contig_601	blastx	match_part	999	1898	907	-	.	ID=pug3_contig_601:hsp:259;Parent=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 568 808;Gap=M17 D2 M60 D1 M13 D25 M90 D31 M61;
+pug3_contig_601	blastx	match_part	737	919	298	-	.	ID=pug3_contig_601:hsp:260;Parent=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 809 869;Gap=M61;
+pug3_contig_601	blastx	match_part	435	653	317	-	.	ID=pug3_contig_601:hsp:261;Parent=pug3_contig_601:hit:69;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 868 940;Gap=M73;
+pug3_contig_601	blastx	protein_match	15323	16796	104	+	.	ID=pug3_contig_601:hit:70;Name=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015;
+pug3_contig_601	blastx	match_part	15323	15457	104	+	.	ID=pug3_contig_601:hsp:262;Parent=pug3_contig_601:hit:70;Name=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015;Target=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015 401 445;Gap=M45;
+pug3_contig_601	blastx	match_part	15552	15941	121	+	.	ID=pug3_contig_601:hsp:263;Parent=pug3_contig_601:hit:70;Name=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015;Target=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015 448 552;Gap=M28 D15 M13 D7 M13 D2 M19 D1 M32;
+pug3_contig_601	blastx	match_part	16337	16573	127	+	.	ID=pug3_contig_601:hsp:264;Parent=pug3_contig_601:hit:70;Name=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015;Target=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015 645 733;Gap=M9 I1 M17 I7 M14 I2 M39;
+pug3_contig_601	blastx	match_part	16644	16796	85	+	.	ID=pug3_contig_601:hsp:265;Parent=pug3_contig_601:hit:70;Name=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015;Target=Phytophthora_ramorum:jgi|Phyra1_1|81163|fgenesh1_pg.C_scaffold_57000015 738 788;Gap=M51;
+pug3_contig_601	blastx	protein_match	15323	16754	104	+	.	ID=pug3_contig_601:hit:71;Name=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025;
+pug3_contig_601	blastx	match_part	15323	15457	104	+	.	ID=pug3_contig_601:hsp:266;Parent=pug3_contig_601:hit:71;Name=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025;Target=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025 492 536;Gap=M45;
+pug3_contig_601	blastx	match_part	15552	15941	117	+	.	ID=pug3_contig_601:hsp:267;Parent=pug3_contig_601:hit:71;Name=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025;Target=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025 539 642;Gap=M24 D6 M6 D13 M7 D4 M16 D2 M19 D1 M32;
+pug3_contig_601	blastx	match_part	16364	16573	126	+	.	ID=pug3_contig_601:hsp:268;Parent=pug3_contig_601:hit:71;Name=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025;Target=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025 744 822;Gap=M24 I7 M7 I2 M39;
+pug3_contig_601	blastx	match_part	16644	16754	84	+	.	ID=pug3_contig_601:hsp:269;Parent=pug3_contig_601:hit:71;Name=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025;Target=Phytophthora_sojae:jgi|Physo1_1|143534|estExt_fgenesh1_pg.C_1420025 827 863;Gap=M37;
+pug3_contig_601	blastx	protein_match	15377	16579	92	+	.	ID=pug3_contig_601:hit:72;Name=Pythium_ultimum:PYU1_T006728;
+pug3_contig_601	blastx	match_part	15377	15451	92	+	.	ID=pug3_contig_601:hsp:270;Parent=pug3_contig_601:hit:72;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 3 27;Gap=M25;
+pug3_contig_601	blastx	match_part	15522	15941	209	+	.	ID=pug3_contig_601:hsp:271;Parent=pug3_contig_601:hit:72;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 22 133;Gap=M31 D29 M15 I1 M65;
+pug3_contig_601	blastx	match_part	16355	16579	186	+	.	ID=pug3_contig_601:hsp:272;Parent=pug3_contig_601:hit:72;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 212 296;Gap=M22 I4 M6 I4 M12 I2 M35;
+pug3_contig_601	blastx	protein_match	7778	11135	161	+	.	ID=pug3_contig_601:hit:73;Name=Phytophthora_infestans:PITG_11679T0;
+pug3_contig_601	blastx	match_part	7778	7993	161	+	.	ID=pug3_contig_601:hsp:273;Parent=pug3_contig_601:hit:73;Name=Phytophthora_infestans:PITG_11679T0;Target=Phytophthora_infestans:PITG_11679T0 102 173;Gap=M72;
+pug3_contig_601	blastx	match_part	10454	10534	67	+	.	ID=pug3_contig_601:hsp:274;Parent=pug3_contig_601:hit:73;Name=Phytophthora_infestans:PITG_11679T0;Target=Phytophthora_infestans:PITG_11679T0 1 27;Gap=M27;
+pug3_contig_601	blastx	match_part	10623	11135	184	+	.	ID=pug3_contig_601:hsp:275;Parent=pug3_contig_601:hit:73;Name=Phytophthora_infestans:PITG_11679T0;Target=Phytophthora_infestans:PITG_11679T0 27 173;Gap=M27 I2 M33 D17 M8 D6 M3 D3 M74;
+pug3_contig_601	blastx	protein_match	7489	11156	121	+	.	ID=pug3_contig_601:hit:74;Name=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024;
+pug3_contig_601	blastx	match_part	7489	7650	121	+	.	ID=pug3_contig_601:hsp:276;Parent=pug3_contig_601:hit:74;Name=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024;Target=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024 249 302;Gap=M54;
+pug3_contig_601	blastx	match_part	7835	7987	129	+	.	ID=pug3_contig_601:hsp:277;Parent=pug3_contig_601:hit:74;Name=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024;Target=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024 334 384;Gap=M51;
+pug3_contig_601	blastx	match_part	10623	11156	190	+	.	ID=pug3_contig_601:hsp:278;Parent=pug3_contig_601:hit:74;Name=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024;Target=Phytophthora_ramorum:jgi|Phyra1_1|83252|fgenesh1_pg.C_scaffold_85000024 244 394;Gap=M59 D19 M16 D6 M14 D3 M54 I1 M7;
+pug3_contig_601	est2genome	expressed_sequence_match	5422	6297	1947	-	.	ID=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;
+pug3_contig_601	est2genome	match_part	6037	6297	1947	-	.	ID=pug3_contig_601:hsp:279;Parent=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 1 261 +;Gap=M261;
+pug3_contig_601	est2genome	match_part	5814	5921	1947	-	.	ID=pug3_contig_601:hsp:280;Parent=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 262 368 +;Gap=M12 I3 M13 D1 M1 D2 M13 D1 M65;
+pug3_contig_601	est2genome	match_part	5665	5712	1947	-	.	ID=pug3_contig_601:hsp:281;Parent=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 369 416 +;Gap=M48;
+pug3_contig_601	est2genome	match_part	5538	5582	1947	-	.	ID=pug3_contig_601:hsp:282;Parent=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 417 461 +;Gap=M45;
+pug3_contig_601	est2genome	match_part	5422	5460	1947	-	.	ID=pug3_contig_601:hsp:283;Parent=pug3_contig_601:hit:75;Name=Pythium_ultimum:TA18269_65071;Target=Pythium_ultimum:TA18269_65071 462 500 +;Gap=M39;
+pug3_contig_601	est2genome	expressed_sequence_match	13109	13317	982	-	.	ID=pug3_contig_601:hit:76;Name=Pythium_ultimum:FF022614;
+pug3_contig_601	est2genome	match_part	13109	13317	982	-	.	ID=pug3_contig_601:hsp:284;Parent=pug3_contig_601:hit:76;Name=Pythium_ultimum:FF022614;Target=Pythium_ultimum:FF022614 2 210 +;Gap=M209;
+pug3_contig_601	est2genome	expressed_sequence_match	482	788	1037	-	.	ID=pug3_contig_601:hit:77;Name=Pythium_ultimum:FF054580;
+pug3_contig_601	est2genome	match_part	744	788	1037	-	.	ID=pug3_contig_601:hsp:285;Parent=pug3_contig_601:hit:77;Name=Pythium_ultimum:FF054580;Target=Pythium_ultimum:FF054580 5 51 +;Gap=M9 I1 M4 I1 M32;
+pug3_contig_601	est2genome	match_part	482	654	1037	-	.	ID=pug3_contig_601:hsp:286;Parent=pug3_contig_601:hit:77;Name=Pythium_ultimum:FF054580;Target=Pythium_ultimum:FF054580 52 224 +;Gap=M173;
+pug3_contig_601	est2genome	expressed_sequence_match	17178	17485	1018	+	.	ID=pug3_contig_601:hit:78;Name=Pythium_ultimum:FF006247;
+pug3_contig_601	est2genome	match_part	17178	17267	1018	+	.	ID=pug3_contig_601:hsp:287;Parent=pug3_contig_601:hit:78;Name=Pythium_ultimum:FF006247;Target=Pythium_ultimum:FF006247 1 91 +;Gap=M38 I1 M52;
+pug3_contig_601	est2genome	match_part	17352	17485	1018	+	.	ID=pug3_contig_601:hsp:288;Parent=pug3_contig_601:hit:78;Name=Pythium_ultimum:FF006247;Target=Pythium_ultimum:FF006247 92 225 +;Gap=M134;
+pug3_contig_601	est2genome	expressed_sequence_match	17156	17470	1040	+	.	ID=pug3_contig_601:hit:79;Name=Pythium_ultimum:FF018220;
+pug3_contig_601	est2genome	match_part	17156	17267	1040	+	.	ID=pug3_contig_601:hsp:289;Parent=pug3_contig_601:hit:79;Name=Pythium_ultimum:FF018220;Target=Pythium_ultimum:FF018220 1 115 +;Gap=M15 I1 M25 I1 M5 I1 M67;
+pug3_contig_601	est2genome	match_part	17352	17470	1040	+	.	ID=pug3_contig_601:hsp:290;Parent=pug3_contig_601:hit:79;Name=Pythium_ultimum:FF018220;Target=Pythium_ultimum:FF018220 116 234 +;Gap=M119;
+pug3_contig_601	est2genome	expressed_sequence_match	6794	7001	777	+	.	ID=pug3_contig_601:hit:80;Name=Pythium_ultimum:FE975511;
+pug3_contig_601	est2genome	match_part	6794	6843	777	+	.	ID=pug3_contig_601:hsp:291;Parent=pug3_contig_601:hit:80;Name=Pythium_ultimum:FE975511;Target=Pythium_ultimum:FE975511 7 56 +;Gap=M50;
+pug3_contig_601	est2genome	match_part	6866	7001	777	+	.	ID=pug3_contig_601:hsp:292;Parent=pug3_contig_601:hit:80;Name=Pythium_ultimum:FE975511;Target=Pythium_ultimum:FE975511 57 199 +;Gap=M2 I1 M3 I6 M131;
+pug3_contig_601	est2genome	expressed_sequence_match	11652	11980	889	-	.	ID=pug3_contig_601:hit:81;Name=Pythium_ultimum:FF031419;
+pug3_contig_601	est2genome	match_part	11940	11980	889	-	.	ID=pug3_contig_601:hsp:293;Parent=pug3_contig_601:hit:81;Name=Pythium_ultimum:FF031419;Target=Pythium_ultimum:FF031419 14 57 +;Gap=M4 I2 M2 I1 M35;
+pug3_contig_601	est2genome	match_part	11777	11872	889	-	.	ID=pug3_contig_601:hsp:294;Parent=pug3_contig_601:hit:81;Name=Pythium_ultimum:FF031419;Target=Pythium_ultimum:FF031419 58 153 +;Gap=M96;
+pug3_contig_601	est2genome	match_part	11652	11709	889	-	.	ID=pug3_contig_601:hsp:295;Parent=pug3_contig_601:hit:81;Name=Pythium_ultimum:FF031419;Target=Pythium_ultimum:FF031419 154 211 +;Gap=M58;
+pug3_contig_601	est2genome	expressed_sequence_match	11066	11381	1532	-	.	ID=pug3_contig_601:hit:82;Name=Pythium_ultimum:TA19142_65071;
+pug3_contig_601	est2genome	match_part	11066	11381	1532	-	.	ID=pug3_contig_601:hsp:296;Parent=pug3_contig_601:hit:82;Name=Pythium_ultimum:TA19142_65071;Target=Pythium_ultimum:TA19142_65071 1 317 +;Gap=M228 I1 M88;
+pug3_contig_601	est2genome	expressed_sequence_match	16321	16768	1866	+	.	ID=pug3_contig_601:hit:83;Name=Pythium_ultimum:EL780095;
+pug3_contig_601	est2genome	match_part	16321	16585	1866	+	.	ID=pug3_contig_601:hsp:297;Parent=pug3_contig_601:hit:83;Name=Pythium_ultimum:EL780095;Target=Pythium_ultimum:EL780095 1 265 +;Gap=M265;
+pug3_contig_601	est2genome	match_part	16644	16768	1866	+	.	ID=pug3_contig_601:hsp:298;Parent=pug3_contig_601:hit:83;Name=Pythium_ultimum:EL780095;Target=Pythium_ultimum:EL780095 266 390 +;Gap=M125;
+pug3_contig_601	est2genome	expressed_sequence_match	17312	17506	873	+	.	ID=pug3_contig_601:hit:84;Name=Pythium_ultimum:FF020211;
+pug3_contig_601	est2genome	match_part	17312	17506	873	+	.	ID=pug3_contig_601:hsp:299;Parent=pug3_contig_601:hit:84;Name=Pythium_ultimum:FF020211;Target=Pythium_ultimum:FF020211 1 196 +;Gap=M80 I1 M115;
+pug3_contig_601	est2genome	expressed_sequence_match	7535	7872	1159	+	.	ID=pug3_contig_601:hit:85;Name=Pythium_ultimum:FF022420;
+pug3_contig_601	est2genome	match_part	7535	7661	1159	+	.	ID=pug3_contig_601:hsp:300;Parent=pug3_contig_601:hit:85;Name=Pythium_ultimum:FF022420;Target=Pythium_ultimum:FF022420 1 127 +;Gap=M127;
+pug3_contig_601	est2genome	match_part	7747	7872	1159	+	.	ID=pug3_contig_601:hsp:301;Parent=pug3_contig_601:hit:85;Name=Pythium_ultimum:FF022420;Target=Pythium_ultimum:FF022420 128 253 +;Gap=M126;
+pug3_contig_601	est2genome	expressed_sequence_match	12271	12652	1072	-	.	ID=pug3_contig_601:hit:86;Name=Pythium_ultimum:FF047162;
+pug3_contig_601	est2genome	match_part	12552	12652	1072	-	.	ID=pug3_contig_601:hsp:302;Parent=pug3_contig_601:hit:86;Name=Pythium_ultimum:FF047162;Target=Pythium_ultimum:FF047162 2 103 +;Gap=M10 I1 M91;
+pug3_contig_601	est2genome	match_part	12364	12479	1072	-	.	ID=pug3_contig_601:hsp:303;Parent=pug3_contig_601:hit:86;Name=Pythium_ultimum:FF047162;Target=Pythium_ultimum:FF047162 104 220 +;Gap=M113 I1 M3;
+pug3_contig_601	est2genome	match_part	12271	12290	1072	-	.	ID=pug3_contig_601:hsp:304;Parent=pug3_contig_601:hit:86;Name=Pythium_ultimum:FF047162;Target=Pythium_ultimum:FF047162 221 240 +;Gap=M20;
+pug3_contig_601	est2genome	expressed_sequence_match	4796	4969	825	-	.	ID=pug3_contig_601:hit:87;Name=Pythium_ultimum:FF019768;
+pug3_contig_601	est2genome	match_part	4796	4969	825	-	.	ID=pug3_contig_601:hsp:305;Parent=pug3_contig_601:hit:87;Name=Pythium_ultimum:FF019768;Target=Pythium_ultimum:FF019768 4 177 +;Gap=M174;
+pug3_contig_601	est2genome	expressed_sequence_match	11158	11323	743	+	.	ID=pug3_contig_601:hit:88;Name=Pythium_ultimum:FF018288;
+pug3_contig_601	est2genome	match_part	11158	11323	743	+	.	ID=pug3_contig_601:hsp:306;Parent=pug3_contig_601:hit:88;Name=Pythium_ultimum:FF018288;Target=Pythium_ultimum:FF018288 1 171 -;Gap=M6 I1 M3 I1 M2 I1 M1 I1 M3 I1 M151;
+pug3_contig_601	est2genome	expressed_sequence_match	7845	8106	1211	-	.	ID=pug3_contig_601:hit:89;Name=Pythium_ultimum:TA20945_65071;
+pug3_contig_601	est2genome	match_part	7845	8106	1211	-	.	ID=pug3_contig_601:hsp:307;Parent=pug3_contig_601:hit:89;Name=Pythium_ultimum:TA20945_65071;Target=Pythium_ultimum:TA20945_65071 1 262 -;Gap=M262;
+pug3_contig_601	est2genome	expressed_sequence_match	10032	10245	860	+	.	ID=pug3_contig_601:hit:90;Name=Pythium_ultimum:FF030523;
+pug3_contig_601	est2genome	match_part	10032	10136	860	+	.	ID=pug3_contig_601:hsp:308;Parent=pug3_contig_601:hit:90;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 5 109 +;Gap=M105;
+pug3_contig_601	est2genome	match_part	10157	10245	860	+	.	ID=pug3_contig_601:hsp:309;Parent=pug3_contig_601:hit:90;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 110 202 +;Gap=M2 I4 M87;
+pug3_contig_601	est2genome	expressed_sequence_match	6885	7081	634	-	.	ID=pug3_contig_601:hit:91;Name=Pythium_ultimum:FF030523;
+pug3_contig_601	est2genome	match_part	6885	7081	634	-	.	ID=pug3_contig_601:hsp:310;Parent=pug3_contig_601:hit:91;Name=Pythium_ultimum:FF030523;Target=Pythium_ultimum:FF030523 5 201 -;Gap=M197;
+pug3_contig_601	est2genome	expressed_sequence_match	17198	17477	795	+	.	ID=pug3_contig_601:hit:92;Name=Pythium_ultimum:FF059599;
+pug3_contig_601	est2genome	match_part	17198	17267	795	+	.	ID=pug3_contig_601:hsp:311;Parent=pug3_contig_601:hit:92;Name=Pythium_ultimum:FF059599;Target=Pythium_ultimum:FF059599 1 71 +;Gap=M56 I1 M14;
+pug3_contig_601	est2genome	match_part	17352	17477	795	+	.	ID=pug3_contig_601:hsp:312;Parent=pug3_contig_601:hit:92;Name=Pythium_ultimum:FF059599;Target=Pythium_ultimum:FF059599 72 202 +;Gap=M15 I1 M48 I1 M10 I1 M35 I1 M1 I1 M17;
+pug3_contig_601	est2genome	expressed_sequence_match	15172	15410	601	+	.	ID=pug3_contig_601:hit:93;Name=Pythium_ultimum:FE981593;
+pug3_contig_601	est2genome	match_part	15172	15237	601	+	.	ID=pug3_contig_601:hsp:313;Parent=pug3_contig_601:hit:93;Name=Pythium_ultimum:FE981593;Target=Pythium_ultimum:FE981593 94 159 -;Gap=M66;
+pug3_contig_601	est2genome	match_part	15329	15410	601	+	.	ID=pug3_contig_601:hsp:314;Parent=pug3_contig_601:hit:93;Name=Pythium_ultimum:FE981593;Target=Pythium_ultimum:FE981593 1 93 -;Gap=M33 I2 M3 I4 M1 I3 M2 I2 M43;
+pug3_contig_601	protein2genome	protein_match	15329	16775	690	+	.	ID=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;
+pug3_contig_601	protein2genome	match_part	15329	15463	690	+	.	ID=pug3_contig_601:hsp:315;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 113 157;Gap=M45;
+pug3_contig_601	protein2genome	match_part	15552	15599	690	+	.	ID=pug3_contig_601:hsp:316;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 158 173;Gap=D2 M16;
+pug3_contig_601	protein2genome	match_part	15681	15944	690	+	.	ID=pug3_contig_601:hsp:317;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 174 262;Gap=M26 I1 M62;
+pug3_contig_601	protein2genome	match_part	16024	16191	690	+	.	ID=pug3_contig_601:hsp:318;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 263 318;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	690	+	.	ID=pug3_contig_601:hsp:319;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 319 424;Gap=M5 I1 M21 I1 M34 I2 M42;
+pug3_contig_601	protein2genome	match_part	16644	16775	690	+	.	ID=pug3_contig_601:hsp:320;Parent=pug3_contig_601:hit:94;Name=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099;Target=Phytophthora_ramorum:jgi|Phyra1_1|79056|fgenesh1_pg.C_scaffold_36000099 425 468;Gap=M44;
+pug3_contig_601	protein2genome	protein_match	15389	16775	676	+	.	ID=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;
+pug3_contig_601	protein2genome	match_part	15389	15463	676	+	.	ID=pug3_contig_601:hsp:321;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 4 28;Gap=M25;
+pug3_contig_601	protein2genome	match_part	15552	15599	676	+	.	ID=pug3_contig_601:hsp:322;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 29 44;Gap=D2 M16;
+pug3_contig_601	protein2genome	match_part	15681	15944	676	+	.	ID=pug3_contig_601:hsp:323;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 45 133;Gap=M11 I1 M77;
+pug3_contig_601	protein2genome	match_part	16024	16191	676	+	.	ID=pug3_contig_601:hsp:324;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 134 189;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	676	+	.	ID=pug3_contig_601:hsp:325;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 190 295;Gap=M5 I1 M14 I1 M41 I2 M42;
+pug3_contig_601	protein2genome	match_part	16644	16775	676	+	.	ID=pug3_contig_601:hsp:326;Parent=pug3_contig_601:hit:95;Name=Phytophthora_infestans:PITG_16527T0;Target=Phytophthora_infestans:PITG_16527T0 296 339;Gap=M44;
+pug3_contig_601	protein2genome	protein_match	4928	6142	757	-	.	ID=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;
+pug3_contig_601	protein2genome	match_part	6015	6142	757	-	.	ID=pug3_contig_601:hsp:327;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 2 43;Gap=M42 F2;
+pug3_contig_601	protein2genome	match_part	5814	5898	757	-	.	ID=pug3_contig_601:hsp:328;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 44 72;Gap=R2 M29;
+pug3_contig_601	protein2genome	match_part	5665	5712	757	-	.	ID=pug3_contig_601:hsp:329;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 73 88;Gap=M16;
+pug3_contig_601	protein2genome	match_part	5538	5582	757	-	.	ID=pug3_contig_601:hsp:330;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 89 103;Gap=M15;
+pug3_contig_601	protein2genome	match_part	5387	5460	757	-	.	ID=pug3_contig_601:hsp:331;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 104 127;Gap=M24 F2;
+pug3_contig_601	protein2genome	match_part	5146	5307	757	-	.	ID=pug3_contig_601:hsp:332;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 128 181;Gap=R2 M54 F2;
+pug3_contig_601	protein2genome	match_part	4928	5060	757	-	.	ID=pug3_contig_601:hsp:333;Parent=pug3_contig_601:hit:96;Name=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057;Target=Phytophthora_sojae:jgi|Physo1_1|139388|estExt_fgenesh1_pg.C_730057 182 226;Gap=R2 M45;
+pug3_contig_601	protein2genome	protein_match	6806	8017	1462	+	.	ID=pug3_contig_601:hit:97;Name=Pythium_ultimum:PYU1_T000920;
+pug3_contig_601	protein2genome	match_part	6806	7147	1462	+	.	ID=pug3_contig_601:hsp:334;Parent=pug3_contig_601:hit:97;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 1 109;Gap=M14 D5 M95;
+pug3_contig_601	protein2genome	match_part	7253	7390	1462	+	.	ID=pug3_contig_601:hsp:335;Parent=pug3_contig_601:hit:97;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 110 155;Gap=M46;
+pug3_contig_601	protein2genome	match_part	7474	7661	1462	+	.	ID=pug3_contig_601:hsp:336;Parent=pug3_contig_601:hit:97;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 156 217;Gap=M62 F2;
+pug3_contig_601	protein2genome	match_part	7747	8017	1462	+	.	ID=pug3_contig_601:hsp:337;Parent=pug3_contig_601:hit:97;Name=Pythium_ultimum:PYU1_T000920;Target=Pythium_ultimum:PYU1_T000920 218 308;Gap=R2 M91;
+pug3_contig_601	protein2genome	protein_match	4922	6295	1138	-	.	ID=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;
+pug3_contig_601	protein2genome	match_part	6029	6295	1138	-	.	ID=pug3_contig_601:hsp:338;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 1 89;Gap=M89;
+pug3_contig_601	protein2genome	match_part	5814	5969	1138	-	.	ID=pug3_contig_601:hsp:339;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 90 141;Gap=M52;
+pug3_contig_601	protein2genome	match_part	5665	5712	1138	-	.	ID=pug3_contig_601:hsp:340;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 142 157;Gap=M16;
+pug3_contig_601	protein2genome	match_part	5387	5460	1138	-	.	ID=pug3_contig_601:hsp:341;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 158 181;Gap=M24 F2;
+pug3_contig_601	protein2genome	match_part	5146	5307	1138	-	.	ID=pug3_contig_601:hsp:342;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 182 235;Gap=R2 M54 F2;
+pug3_contig_601	protein2genome	match_part	4922	5060	1138	-	.	ID=pug3_contig_601:hsp:343;Parent=pug3_contig_601:hit:98;Name=Pythium_ultimum:PYU1_T000921;Target=Pythium_ultimum:PYU1_T000921 236 282;Gap=R2 M47;
+pug3_contig_601	protein2genome	protein_match	15284	16396	562	+	.	ID=pug3_contig_601:hit:99;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;
+pug3_contig_601	protein2genome	match_part	15284	15469	562	+	.	ID=pug3_contig_601:hsp:344;Parent=pug3_contig_601:hit:99;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 67 128;Gap=M62;
+pug3_contig_601	protein2genome	match_part	15546	15599	562	+	.	ID=pug3_contig_601:hsp:345;Parent=pug3_contig_601:hit:99;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 129 146;Gap=M18;
+pug3_contig_601	protein2genome	match_part	15681	15944	562	+	.	ID=pug3_contig_601:hsp:346;Parent=pug3_contig_601:hit:99;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 147 233;Gap=M76 F1 M10 F2;
+pug3_contig_601	protein2genome	match_part	16261	16396	562	+	.	ID=pug3_contig_601:hsp:347;Parent=pug3_contig_601:hit:99;Name=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048;Target=Phytophthora_sojae:jgi|Physo1_1|139379|estExt_fgenesh1_pg.C_730048 234 279;Gap=R2 M46;
+pug3_contig_601	protein2genome	protein_match	6866	8014	976	+	.	ID=pug3_contig_601:hit:100;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;
+pug3_contig_601	protein2genome	match_part	6866	7154	976	+	.	ID=pug3_contig_601:hsp:348;Parent=pug3_contig_601:hit:100;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 16 111;Gap=M96 F1;
+pug3_contig_601	protein2genome	match_part	7260	7390	976	+	.	ID=pug3_contig_601:hsp:349;Parent=pug3_contig_601:hit:100;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 112 155;Gap=R1 M44;
+pug3_contig_601	protein2genome	match_part	7474	7661	976	+	.	ID=pug3_contig_601:hsp:350;Parent=pug3_contig_601:hit:100;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 156 217;Gap=M62 F2;
+pug3_contig_601	protein2genome	match_part	7747	8014	976	+	.	ID=pug3_contig_601:hsp:351;Parent=pug3_contig_601:hit:100;Name=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113;Target=Phytophthora_ramorum:jgi|Phyra1_1|77934|fgenesh1_pg.C_scaffold_27000113 218 307;Gap=R2 M90;
+pug3_contig_601	protein2genome	protein_match	281	4021	3319	-	.	ID=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;
+pug3_contig_601	protein2genome	match_part	3978	4021	3319	-	.	ID=pug3_contig_601:hsp:352;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 1 14;Gap=M14 F2;
+pug3_contig_601	protein2genome	match_part	3769	3880	3319	-	.	ID=pug3_contig_601:hsp:353;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 15 52;Gap=R2 M38;
+pug3_contig_601	protein2genome	match_part	3586	3676	3319	-	.	ID=pug3_contig_601:hsp:354;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 53 82;Gap=M30 F1;
+pug3_contig_601	protein2genome	match_part	3449	3506	3319	-	.	ID=pug3_contig_601:hsp:355;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 83 101;Gap=R1 M19 F2;
+pug3_contig_601	protein2genome	match_part	1967	3334	3319	-	.	ID=pug3_contig_601:hsp:356;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 102 559;Gap=R2 M114 I2 M94 D1 M196 I1 M51 F2;
+pug3_contig_601	protein2genome	match_part	1606	1902	3319	-	.	ID=pug3_contig_601:hsp:357;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 560 658;Gap=R2 M99 F2;
+pug3_contig_601	protein2genome	match_part	1275	1545	3319	-	.	ID=pug3_contig_601:hsp:358;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 659 749;Gap=R2 M91;
+pug3_contig_601	protein2genome	match_part	999	1181	3319	-	.	ID=pug3_contig_601:hsp:359;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 750 810;Gap=M61;
+pug3_contig_601	protein2genome	match_part	744	919	3319	-	.	ID=pug3_contig_601:hsp:360;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 811 868;Gap=M58 F2;
+pug3_contig_601	protein2genome	match_part	435	654	3319	-	.	ID=pug3_contig_601:hsp:361;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 869 942;Gap=R2 M74;
+pug3_contig_601	protein2genome	match_part	281	355	3319	-	.	ID=pug3_contig_601:hsp:362;Parent=pug3_contig_601:hit:101;Name=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029;Target=Phytophthora_sojae:jgi|Physo1_1|115586|estExt_Genewise1.C_270029 943 967;Gap=M25;
+pug3_contig_601	protein2genome	protein_match	15684	17059	1756	+	.	ID=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;
+pug3_contig_601	protein2genome	match_part	15684	15944	1756	+	.	ID=pug3_contig_601:hsp:363;Parent=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 1 87;Gap=M87;
+pug3_contig_601	protein2genome	match_part	16024	16191	1756	+	.	ID=pug3_contig_601:hsp:364;Parent=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 88 143;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	1756	+	.	ID=pug3_contig_601:hsp:365;Parent=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 144 245;Gap=M102;
+pug3_contig_601	protein2genome	match_part	16650	16852	1756	+	.	ID=pug3_contig_601:hsp:366;Parent=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 246 312;Gap=M67 F2;
+pug3_contig_601	protein2genome	match_part	16924	17059	1756	+	.	ID=pug3_contig_601:hsp:367;Parent=pug3_contig_601:hit:102;Name=Pythium_ultimum:PYU1_T000916;Target=Pythium_ultimum:PYU1_T000916 313 358;Gap=R2 M46;
+pug3_contig_601	protein2genome	protein_match	6863	8014	953	+	.	ID=pug3_contig_601:hit:103;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;
+pug3_contig_601	protein2genome	match_part	6863	7154	953	+	.	ID=pug3_contig_601:hsp:368;Parent=pug3_contig_601:hit:103;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 15 111;Gap=M97 F1;
+pug3_contig_601	protein2genome	match_part	7260	7390	953	+	.	ID=pug3_contig_601:hsp:369;Parent=pug3_contig_601:hit:103;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 112 155;Gap=R1 M44;
+pug3_contig_601	protein2genome	match_part	7474	7661	953	+	.	ID=pug3_contig_601:hsp:370;Parent=pug3_contig_601:hit:103;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 156 217;Gap=M62 F2;
+pug3_contig_601	protein2genome	match_part	7747	8014	953	+	.	ID=pug3_contig_601:hsp:371;Parent=pug3_contig_601:hit:103;Name=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050;Target=Phytophthora_sojae:jgi|Physo1_1|139381|estExt_fgenesh1_pg.C_730050 218 307;Gap=R2 M90;
+pug3_contig_601	protein2genome	protein_match	6863	11156	957	+	.	ID=pug3_contig_601:hit:104;Name=Phytophthora_infestans:PITG_03074T0;
+pug3_contig_601	protein2genome	match_part	6863	7154	957	+	.	ID=pug3_contig_601:hsp:372;Parent=pug3_contig_601:hit:104;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 15 111;Gap=M97 F1;
+pug3_contig_601	protein2genome	match_part	7260	7390	957	+	.	ID=pug3_contig_601:hsp:373;Parent=pug3_contig_601:hit:104;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 112 155;Gap=R1 M44;
+pug3_contig_601	protein2genome	match_part	7474	7661	957	+	.	ID=pug3_contig_601:hsp:374;Parent=pug3_contig_601:hit:104;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 156 217;Gap=M62 F2;
+pug3_contig_601	protein2genome	match_part	10889	11156	957	+	.	ID=pug3_contig_601:hsp:375;Parent=pug3_contig_601:hit:104;Name=Phytophthora_infestans:PITG_03074T0;Target=Phytophthora_infestans:PITG_03074T0 218 307;Gap=R2 M90;
+pug3_contig_601	protein2genome	protein_match	4922	6142	729	-	.	ID=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;
+pug3_contig_601	protein2genome	match_part	5964	6142	729	-	.	ID=pug3_contig_601:hsp:376;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 2 60;Gap=M59 F2;
+pug3_contig_601	protein2genome	match_part	5814	5847	729	-	.	ID=pug3_contig_601:hsp:377;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 61 72;Gap=R2 M12;
+pug3_contig_601	protein2genome	match_part	5665	5712	729	-	.	ID=pug3_contig_601:hsp:378;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 73 88;Gap=M16;
+pug3_contig_601	protein2genome	match_part	5538	5582	729	-	.	ID=pug3_contig_601:hsp:379;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 89 103;Gap=M15;
+pug3_contig_601	protein2genome	match_part	5387	5460	729	-	.	ID=pug3_contig_601:hsp:380;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 104 127;Gap=M24 F2;
+pug3_contig_601	protein2genome	match_part	5146	5307	729	-	.	ID=pug3_contig_601:hsp:381;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 128 181;Gap=R2 M54 F2;
+pug3_contig_601	protein2genome	match_part	4922	5060	729	-	.	ID=pug3_contig_601:hsp:382;Parent=pug3_contig_601:hit:105;Name=Phytophthora_infestans:PITG_21579T0;Target=Phytophthora_infestans:PITG_21579T0 182 228;Gap=R2 M47;
+pug3_contig_601	protein2genome	protein_match	11253	14803	3671	-	.	ID=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;
+pug3_contig_601	protein2genome	match_part	14780	14803	3671	-	.	ID=pug3_contig_601:hsp:383;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 1 8;Gap=M8;
+pug3_contig_601	protein2genome	match_part	14553	14656	3671	-	.	ID=pug3_contig_601:hsp:384;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 9 42;Gap=M34 F2;
+pug3_contig_601	protein2genome	match_part	14333	14435	3671	-	.	ID=pug3_contig_601:hsp:385;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 43 77;Gap=R2 M35;
+pug3_contig_601	protein2genome	match_part	14116	14223	3671	-	.	ID=pug3_contig_601:hsp:386;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 78 113;Gap=M36;
+pug3_contig_601	protein2genome	match_part	13990	14037	3671	-	.	ID=pug3_contig_601:hsp:387;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 114 129;Gap=M16;
+pug3_contig_601	protein2genome	match_part	13749	13892	3671	-	.	ID=pug3_contig_601:hsp:388;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 130 177;Gap=M48;
+pug3_contig_601	protein2genome	match_part	13594	13671	3671	-	.	ID=pug3_contig_601:hsp:389;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 178 203;Gap=M26;
+pug3_contig_601	protein2genome	match_part	13391	13521	3671	-	.	ID=pug3_contig_601:hsp:390;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 204 246;Gap=M43 F2;
+pug3_contig_601	protein2genome	match_part	13149	13320	3671	-	.	ID=pug3_contig_601:hsp:391;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 247 304;Gap=R2 M58;
+pug3_contig_601	protein2genome	match_part	12886	13068	3671	-	.	ID=pug3_contig_601:hsp:392;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 305 365;Gap=M61;
+pug3_contig_601	protein2genome	match_part	12552	12816	3671	-	.	ID=pug3_contig_601:hsp:393;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 366 453;Gap=M88 F1;
+pug3_contig_601	protein2genome	match_part	12364	12479	3671	-	.	ID=pug3_contig_601:hsp:394;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 454 492;Gap=R1 M39;
+pug3_contig_601	protein2genome	match_part	11940	12290	3671	-	.	ID=pug3_contig_601:hsp:395;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 493 609;Gap=M117;
+pug3_contig_601	protein2genome	match_part	11777	11872	3671	-	.	ID=pug3_contig_601:hsp:396;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 610 641;Gap=M32;
+pug3_contig_601	protein2genome	match_part	11623	11709	3671	-	.	ID=pug3_contig_601:hsp:397;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 642 670;Gap=M29;
+pug3_contig_601	protein2genome	match_part	11253	11531	3671	-	.	ID=pug3_contig_601:hsp:398;Parent=pug3_contig_601:hit:106;Name=Pythium_ultimum:PYU1_T000918;Target=Pythium_ultimum:PYU1_T000918 671 763;Gap=M93;
+pug3_contig_601	protein2genome	protein_match	11253	14803	2570	-	.	ID=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;
+pug3_contig_601	protein2genome	match_part	14780	14803	2570	-	.	ID=pug3_contig_601:hsp:399;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 1 8;Gap=M8;
+pug3_contig_601	protein2genome	match_part	14553	14656	2570	-	.	ID=pug3_contig_601:hsp:400;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 9 42;Gap=M34 F2;
+pug3_contig_601	protein2genome	match_part	14333	14435	2570	-	.	ID=pug3_contig_601:hsp:401;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 43 77;Gap=R2 M35;
+pug3_contig_601	protein2genome	match_part	14116	14223	2570	-	.	ID=pug3_contig_601:hsp:402;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 78 113;Gap=M36;
+pug3_contig_601	protein2genome	match_part	13963	14037	2570	-	.	ID=pug3_contig_601:hsp:403;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 114 138;Gap=M25;
+pug3_contig_601	protein2genome	match_part	13749	13892	2570	-	.	ID=pug3_contig_601:hsp:404;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 139 186;Gap=M48;
+pug3_contig_601	protein2genome	match_part	13594	13671	2570	-	.	ID=pug3_contig_601:hsp:405;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 187 212;Gap=M26;
+pug3_contig_601	protein2genome	match_part	13391	13521	2570	-	.	ID=pug3_contig_601:hsp:406;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 213 255;Gap=M43 F2;
+pug3_contig_601	protein2genome	match_part	13149	13320	2570	-	.	ID=pug3_contig_601:hsp:407;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 256 313;Gap=R2 M58;
+pug3_contig_601	protein2genome	match_part	12886	13068	2570	-	.	ID=pug3_contig_601:hsp:408;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 314 374;Gap=M61;
+pug3_contig_601	protein2genome	match_part	12552	12816	2570	-	.	ID=pug3_contig_601:hsp:409;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 375 462;Gap=M88 F1;
+pug3_contig_601	protein2genome	match_part	12364	12479	2570	-	.	ID=pug3_contig_601:hsp:410;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 463 501;Gap=R1 M39;
+pug3_contig_601	protein2genome	match_part	11940	12290	2570	-	.	ID=pug3_contig_601:hsp:411;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 502 618;Gap=M117;
+pug3_contig_601	protein2genome	match_part	11777	11872	2570	-	.	ID=pug3_contig_601:hsp:412;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 619 650;Gap=M32;
+pug3_contig_601	protein2genome	match_part	11623	11709	2570	-	.	ID=pug3_contig_601:hsp:413;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 651 679;Gap=M29;
+pug3_contig_601	protein2genome	match_part	11253	11531	2570	-	.	ID=pug3_contig_601:hsp:414;Parent=pug3_contig_601:hit:107;Name=Phytophthora_infestans:PITG_03075T0;Target=Phytophthora_infestans:PITG_03075T0 680 772;Gap=M93;
+pug3_contig_601	protein2genome	protein_match	6863	11159	1387	+	.	ID=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;
+pug3_contig_601	protein2genome	match_part	6863	7011	1387	+	.	ID=pug3_contig_601:hsp:415;Parent=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 18 66;Gap=M49 F2;
+pug3_contig_601	protein2genome	match_part	10175	10317	1387	+	.	ID=pug3_contig_601:hsp:416;Parent=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 67 114;Gap=R2 M48 F1;
+pug3_contig_601	protein2genome	match_part	10401	10531	1387	+	.	ID=pug3_contig_601:hsp:417;Parent=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 115 158;Gap=R1 M44;
+pug3_contig_601	protein2genome	match_part	10623	10810	1387	+	.	ID=pug3_contig_601:hsp:418;Parent=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 159 220;Gap=M62 F2;
+pug3_contig_601	protein2genome	match_part	10889	11159	1387	+	.	ID=pug3_contig_601:hsp:419;Parent=pug3_contig_601:hit:108;Name=Pythium_ultimum:PYU1_T000919;Target=Pythium_ultimum:PYU1_T000919 221 311;Gap=R2 M91;
+pug3_contig_601	protein2genome	protein_match	2	3171	4023	-	.	ID=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;
+pug3_contig_601	protein2genome	match_part	1967	3171	4023	-	.	ID=pug3_contig_601:hsp:420;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 235 635;Gap=M401 F2;
+pug3_contig_601	protein2genome	match_part	1619	1902	4023	-	.	ID=pug3_contig_601:hsp:421;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 636 730;Gap=R2 M95 F1;
+pug3_contig_601	protein2genome	match_part	1275	1543	4023	-	.	ID=pug3_contig_601:hsp:422;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 731 820;Gap=R1 M90;
+pug3_contig_601	protein2genome	match_part	999	1181	4023	-	.	ID=pug3_contig_601:hsp:423;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 821 881;Gap=M61;
+pug3_contig_601	protein2genome	match_part	744	919	4023	-	.	ID=pug3_contig_601:hsp:424;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 882 939;Gap=M58 F2;
+pug3_contig_601	protein2genome	match_part	435	654	4023	-	.	ID=pug3_contig_601:hsp:425;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 940 1013;Gap=R2 M74;
+pug3_contig_601	protein2genome	match_part	288	355	4023	-	.	ID=pug3_contig_601:hsp:426;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 1014 1035;Gap=M22 F2;
+pug3_contig_601	protein2genome	match_part	2	74	4023	-	.	ID=pug3_contig_601:hsp:427;Parent=pug3_contig_601:hit:109;Name=Pythium_ultimum:PYU1_T000922;Target=Pythium_ultimum:PYU1_T000922 1036 1060;Gap=R2 M25;
+pug3_contig_601	protein2genome	protein_match	15407	17460	1591	+	.	ID=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;
+pug3_contig_601	protein2genome	match_part	15407	15463	1591	+	.	ID=pug3_contig_601:hsp:428;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 1 19;Gap=M19;
+pug3_contig_601	protein2genome	match_part	15546	15599	1591	+	.	ID=pug3_contig_601:hsp:429;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 20 37;Gap=M18;
+pug3_contig_601	protein2genome	match_part	15681	15944	1591	+	.	ID=pug3_contig_601:hsp:430;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 38 125;Gap=M88;
+pug3_contig_601	protein2genome	match_part	16024	16191	1591	+	.	ID=pug3_contig_601:hsp:431;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 126 181;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	1591	+	.	ID=pug3_contig_601:hsp:432;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 182 283;Gap=M102;
+pug3_contig_601	protein2genome	match_part	16644	16852	1591	+	.	ID=pug3_contig_601:hsp:433;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 284 352;Gap=M69 F2;
+pug3_contig_601	protein2genome	match_part	16924	17058	1591	+	.	ID=pug3_contig_601:hsp:434;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 353 397;Gap=R2 M45 F2;
+pug3_contig_601	protein2genome	match_part	17127	17267	1591	+	.	ID=pug3_contig_601:hsp:435;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 398 444;Gap=R2 M47 F2;
+pug3_contig_601	protein2genome	match_part	17352	17460	1591	+	.	ID=pug3_contig_601:hsp:436;Parent=pug3_contig_601:hit:110;Name=Phytophthora_infestans:PITG_03076T0;Target=Phytophthora_infestans:PITG_03076T0 445 481;Gap=R2 M37;
+pug3_contig_601	protein2genome	protein_match	15329	16775	690	+	.	ID=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;
+pug3_contig_601	protein2genome	match_part	15329	15463	690	+	.	ID=pug3_contig_601:hsp:437;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 160 204;Gap=M45;
+pug3_contig_601	protein2genome	match_part	15552	15599	690	+	.	ID=pug3_contig_601:hsp:438;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 205 220;Gap=D2 M16;
+pug3_contig_601	protein2genome	match_part	15681	15944	690	+	.	ID=pug3_contig_601:hsp:439;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 221 309;Gap=M11 I1 M77;
+pug3_contig_601	protein2genome	match_part	16024	16191	690	+	.	ID=pug3_contig_601:hsp:440;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 310 365;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	690	+	.	ID=pug3_contig_601:hsp:441;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 366 471;Gap=M5 I1 M21 I1 M34 I2 M42;
+pug3_contig_601	protein2genome	match_part	16644	16775	690	+	.	ID=pug3_contig_601:hsp:442;Parent=pug3_contig_601:hit:111;Name=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030;Target=Phytophthora_sojae:jgi|Physo1_1|142527|estExt_fgenesh1_pg.C_1160030 472 515;Gap=M44;
+pug3_contig_601	protein2genome	protein_match	15010	15418	490	+	.	ID=pug3_contig_601:hit:112;Name=Pythium_ultimum:PYU1_T000917;
+pug3_contig_601	protein2genome	match_part	15010	15237	490	+	.	ID=pug3_contig_601:hsp:443;Parent=pug3_contig_601:hit:112;Name=Pythium_ultimum:PYU1_T000917;Target=Pythium_ultimum:PYU1_T000917 1 76;Gap=M76;
+pug3_contig_601	protein2genome	match_part	15329	15418	490	+	.	ID=pug3_contig_601:hsp:444;Parent=pug3_contig_601:hit:112;Name=Pythium_ultimum:PYU1_T000917;Target=Pythium_ultimum:PYU1_T000917 77 106;Gap=M30;
+pug3_contig_601	protein2genome	protein_match	287	4215	3384	-	.	ID=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;
+pug3_contig_601	protein2genome	match_part	4153	4215	3384	-	.	ID=pug3_contig_601:hsp:445;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 34 55;Gap=M14 I1 M7;
+pug3_contig_601	protein2genome	match_part	3978	4045	3384	-	.	ID=pug3_contig_601:hsp:446;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 56 77;Gap=M22 F2;
+pug3_contig_601	protein2genome	match_part	3769	3880	3384	-	.	ID=pug3_contig_601:hsp:447;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 78 115;Gap=R2 M38;
+pug3_contig_601	protein2genome	match_part	3589	3676	3384	-	.	ID=pug3_contig_601:hsp:448;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 116 144;Gap=M29 F1;
+pug3_contig_601	protein2genome	match_part	3449	3506	3384	-	.	ID=pug3_contig_601:hsp:449;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 145 163;Gap=R1 M19 F2;
+pug3_contig_601	protein2genome	match_part	1967	3334	3384	-	.	ID=pug3_contig_601:hsp:450;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 164 619;Gap=R2 M114 I2 M94 D3 M199 I1 M46 F2;
+pug3_contig_601	protein2genome	match_part	1619	1902	3384	-	.	ID=pug3_contig_601:hsp:451;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 620 714;Gap=R2 M95 F1;
+pug3_contig_601	protein2genome	match_part	1275	1543	3384	-	.	ID=pug3_contig_601:hsp:452;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 715 804;Gap=R1 M90;
+pug3_contig_601	protein2genome	match_part	999	1181	3384	-	.	ID=pug3_contig_601:hsp:453;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 805 865;Gap=M61;
+pug3_contig_601	protein2genome	match_part	744	919	3384	-	.	ID=pug3_contig_601:hsp:454;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 866 923;Gap=M58 F2;
+pug3_contig_601	protein2genome	match_part	435	654	3384	-	.	ID=pug3_contig_601:hsp:455;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 924 997;Gap=R2 M74;
+pug3_contig_601	protein2genome	match_part	287	355	3384	-	.	ID=pug3_contig_601:hsp:456;Parent=pug3_contig_601:hit:113;Name=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46952|gwEuk.30.4.1 998 1020;Gap=M23;
+pug3_contig_601	protein2genome	protein_match	15329	16775	715	+	.	ID=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;
+pug3_contig_601	protein2genome	match_part	15329	15463	715	+	.	ID=pug3_contig_601:hsp:457;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 225 269;Gap=M45;
+pug3_contig_601	protein2genome	match_part	15552	15599	715	+	.	ID=pug3_contig_601:hsp:458;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 270 285;Gap=D2 M16;
+pug3_contig_601	protein2genome	match_part	15681	15944	715	+	.	ID=pug3_contig_601:hsp:459;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 286 374;Gap=M1 I1 M87;
+pug3_contig_601	protein2genome	match_part	16024	16191	715	+	.	ID=pug3_contig_601:hsp:460;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 375 430;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	715	+	.	ID=pug3_contig_601:hsp:461;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 431 535;Gap=M19 I1 M41 I2 M42;
+pug3_contig_601	protein2genome	match_part	16644	16775	715	+	.	ID=pug3_contig_601:hsp:462;Parent=pug3_contig_601:hit:114;Name=Pythium_ultimum:PYU1_T002896;Target=Pythium_ultimum:PYU1_T002896 536 579;Gap=M44;
+pug3_contig_601	protein2genome	protein_match	4940	6121	725	-	.	ID=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;
+pug3_contig_601	protein2genome	match_part	6015	6121	725	-	.	ID=pug3_contig_601:hsp:463;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 1 35;Gap=M35 F2;
+pug3_contig_601	protein2genome	match_part	5814	5898	725	-	.	ID=pug3_contig_601:hsp:464;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 36 64;Gap=R2 M29;
+pug3_contig_601	protein2genome	match_part	5665	5712	725	-	.	ID=pug3_contig_601:hsp:465;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 65 80;Gap=M16;
+pug3_contig_601	protein2genome	match_part	5538	5582	725	-	.	ID=pug3_contig_601:hsp:466;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 81 95;Gap=M15;
+pug3_contig_601	protein2genome	match_part	5387	5460	725	-	.	ID=pug3_contig_601:hsp:467;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 96 119;Gap=M24 F2;
+pug3_contig_601	protein2genome	match_part	5146	5307	725	-	.	ID=pug3_contig_601:hsp:468;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 120 173;Gap=R2 M54 F2;
+pug3_contig_601	protein2genome	match_part	4940	5060	725	-	.	ID=pug3_contig_601:hsp:469;Parent=pug3_contig_601:hit:115;Name=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46133|gwEuk.27.76.1 174 214;Gap=R2 M41;
+pug3_contig_601	protein2genome	protein_match	17182	17469	316	+	.	ID=pug3_contig_601:hit:116;Name=Pythium_ultimum:PYU1_T000915;
+pug3_contig_601	protein2genome	match_part	17182	17267	316	+	.	ID=pug3_contig_601:hsp:470;Parent=pug3_contig_601:hit:116;Name=Pythium_ultimum:PYU1_T000915;Target=Pythium_ultimum:PYU1_T000915 1 28;Gap=M28 F2;
+pug3_contig_601	protein2genome	match_part	17352	17469	316	+	.	ID=pug3_contig_601:hsp:471;Parent=pug3_contig_601:hit:116;Name=Pythium_ultimum:PYU1_T000915;Target=Pythium_ultimum:PYU1_T000915 29 68;Gap=R2 M40;
+pug3_contig_601	protein2genome	protein_match	15028	17460	1840	+	.	ID=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;
+pug3_contig_601	protein2genome	match_part	15028	15237	1840	+	.	ID=pug3_contig_601:hsp:472;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 2 75;Gap=M51 I4 M19;
+pug3_contig_601	protein2genome	match_part	15329	15463	1840	+	.	ID=pug3_contig_601:hsp:473;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 76 120;Gap=M45;
+pug3_contig_601	protein2genome	match_part	15546	15599	1840	+	.	ID=pug3_contig_601:hsp:474;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 121 138;Gap=M18;
+pug3_contig_601	protein2genome	match_part	15681	15944	1840	+	.	ID=pug3_contig_601:hsp:475;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 139 226;Gap=M88;
+pug3_contig_601	protein2genome	match_part	16024	16191	1840	+	.	ID=pug3_contig_601:hsp:476;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 227 282;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16280	16585	1840	+	.	ID=pug3_contig_601:hsp:477;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 283 384;Gap=M102;
+pug3_contig_601	protein2genome	match_part	16644	16859	1840	+	.	ID=pug3_contig_601:hsp:478;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 385 456;Gap=M72;
+pug3_contig_601	protein2genome	match_part	16940	17058	1840	+	.	ID=pug3_contig_601:hsp:479;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 457 495;Gap=M39 F2;
+pug3_contig_601	protein2genome	match_part	17127	17267	1840	+	.	ID=pug3_contig_601:hsp:480;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 496 542;Gap=R2 M47 F2;
+pug3_contig_601	protein2genome	match_part	17352	17460	1840	+	.	ID=pug3_contig_601:hsp:481;Parent=pug3_contig_601:hit:117;Name=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1;Target=Phytophthora_ramorum:jgi|Phyra1_1|46139|gwEuk.27.82.1 543 579;Gap=R2 M37;
+pug3_contig_601	protein2genome	protein_match	4922	6142	722	-	.	ID=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;
+pug3_contig_601	protein2genome	match_part	5964	6142	722	-	.	ID=pug3_contig_601:hsp:482;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 2 60;Gap=M59 F2;
+pug3_contig_601	protein2genome	match_part	5814	5847	722	-	.	ID=pug3_contig_601:hsp:483;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 61 72;Gap=R2 M12;
+pug3_contig_601	protein2genome	match_part	5665	5712	722	-	.	ID=pug3_contig_601:hsp:484;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 73 88;Gap=M16;
+pug3_contig_601	protein2genome	match_part	5538	5582	722	-	.	ID=pug3_contig_601:hsp:485;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 89 103;Gap=M15;
+pug3_contig_601	protein2genome	match_part	5387	5460	722	-	.	ID=pug3_contig_601:hsp:486;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 104 127;Gap=M24 F2;
+pug3_contig_601	protein2genome	match_part	5146	5307	722	-	.	ID=pug3_contig_601:hsp:487;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 128 181;Gap=R2 M54 F2;
+pug3_contig_601	protein2genome	match_part	4922	5060	722	-	.	ID=pug3_contig_601:hsp:488;Parent=pug3_contig_601:hit:118;Name=Phytophthora_infestans:PITG_03067T0;Target=Phytophthora_infestans:PITG_03067T0 182 228;Gap=R2 M47;
+pug3_contig_601	protein2genome	protein_match	281	3519	2923	-	.	ID=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;
+pug3_contig_601	protein2genome	match_part	3449	3519	2923	-	.	ID=pug3_contig_601:hsp:489;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 87 109;Gap=M23 F2;
+pug3_contig_601	protein2genome	match_part	1967	3334	2923	-	.	ID=pug3_contig_601:hsp:490;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 110 565;Gap=R2 M114 I2 M94 D3 M194 I1 M51 F2;
+pug3_contig_601	protein2genome	match_part	1619	1902	2923	-	.	ID=pug3_contig_601:hsp:491;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 566 657;Gap=R2 M18 D2 M61 D1 M13 F1;
+pug3_contig_601	protein2genome	match_part	1275	1543	2923	-	.	ID=pug3_contig_601:hsp:492;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 658 747;Gap=R1 M90;
+pug3_contig_601	protein2genome	match_part	999	1181	2923	-	.	ID=pug3_contig_601:hsp:493;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 748 808;Gap=M61;
+pug3_contig_601	protein2genome	match_part	744	919	2923	-	.	ID=pug3_contig_601:hsp:494;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 809 866;Gap=M58 F2;
+pug3_contig_601	protein2genome	match_part	435	654	2923	-	.	ID=pug3_contig_601:hsp:495;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 867 940;Gap=R2 M74;
+pug3_contig_601	protein2genome	match_part	281	355	2923	-	.	ID=pug3_contig_601:hsp:496;Parent=pug3_contig_601:hit:119;Name=Phytophthora_infestans:PITG_03152T0;Target=Phytophthora_infestans:PITG_03152T0 941 965;Gap=M25;
+pug3_contig_601	protein2genome	protein_match	15377	16420	392	+	.	ID=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;
+pug3_contig_601	protein2genome	match_part	15377	15463	392	+	.	ID=pug3_contig_601:hsp:497;Parent=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 3 31;Gap=M29;
+pug3_contig_601	protein2genome	match_part	15552	15599	392	+	.	ID=pug3_contig_601:hsp:498;Parent=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 32 47;Gap=D2 M16;
+pug3_contig_601	protein2genome	match_part	15681	15944	392	+	.	ID=pug3_contig_601:hsp:499;Parent=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 48 134;Gap=M7 D1 M80;
+pug3_contig_601	protein2genome	match_part	16024	16191	392	+	.	ID=pug3_contig_601:hsp:500;Parent=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 135 190;Gap=M56;
+pug3_contig_601	protein2genome	match_part	16289	16420	392	+	.	ID=pug3_contig_601:hsp:501;Parent=pug3_contig_601:hit:120;Name=Pythium_ultimum:PYU1_T006728;Target=Pythium_ultimum:PYU1_T006728 191 233;Gap=M20 D1 M23;
+pug3_contig_601	augustus_masked	match	290	2976	1	-	.	ID=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;_AED=0.27;_eAED=0.61;
+pug3_contig_601	augustus_masked	match_part	1967	2976	1	-	.	ID=pug3_contig_601:hsp:502;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 1199 2208 +;Gap=M1010;
+pug3_contig_601	augustus_masked	match_part	1619	1902	1	-	.	ID=pug3_contig_601:hsp:503;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 915 1198 +;Gap=M284;
+pug3_contig_601	augustus_masked	match_part	1275	1543	1	-	.	ID=pug3_contig_601:hsp:504;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 646 914 +;Gap=M269;
+pug3_contig_601	augustus_masked	match_part	999	1181	1	-	.	ID=pug3_contig_601:hsp:505;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 463 645 +;Gap=M183;
+pug3_contig_601	augustus_masked	match_part	744	919	1	-	.	ID=pug3_contig_601:hsp:506;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 287 462 +;Gap=M176;
+pug3_contig_601	augustus_masked	match_part	435	654	1	-	.	ID=pug3_contig_601:hsp:507;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 67 286 +;Gap=M220;
+pug3_contig_601	augustus_masked	match_part	290	355	1	-	.	ID=pug3_contig_601:hsp:508;Parent=pug3_contig_601:hit:121;Name=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.0-mRNA-1 1 66 +;Gap=M66;
+pug3_contig_601	augustus_masked	match	3397	4509	1	-	.	ID=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;_AED=0.46;_eAED=0.69;
+pug3_contig_601	augustus_masked	match_part	4456	4509	1	-	.	ID=pug3_contig_601:hsp:509;Parent=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1 307 360 +;Gap=M54;
+pug3_contig_601	augustus_masked	match_part	4308	4355	1	-	.	ID=pug3_contig_601:hsp:510;Parent=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1 259 306 +;Gap=M48;
+pug3_contig_601	augustus_masked	match_part	4153	4212	1	-	.	ID=pug3_contig_601:hsp:511;Parent=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1 199 258 +;Gap=M60;
+pug3_contig_601	augustus_masked	match_part	3589	3676	1	-	.	ID=pug3_contig_601:hsp:512;Parent=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1 111 198 +;Gap=M88;
+pug3_contig_601	augustus_masked	match_part	3397	3506	1	-	.	ID=pug3_contig_601:hsp:513;Parent=pug3_contig_601:hit:122;Name=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.1-mRNA-1 1 110 +;Gap=M110;
+pug3_contig_601	augustus_masked	match	4919	5724	1	-	.	ID=pug3_contig_601:hit:123;Name=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1;_AED=0.47;_eAED=0.57;
+pug3_contig_601	augustus_masked	match_part	5665	5724	1	-	.	ID=pug3_contig_601:hsp:514;Parent=pug3_contig_601:hit:123;Name=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1 379 438 +;Gap=M60;
+pug3_contig_601	augustus_masked	match_part	5387	5460	1	-	.	ID=pug3_contig_601:hsp:515;Parent=pug3_contig_601:hit:123;Name=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1 305 378 +;Gap=M74;
+pug3_contig_601	augustus_masked	match_part	5146	5307	1	-	.	ID=pug3_contig_601:hsp:516;Parent=pug3_contig_601:hit:123;Name=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1 143 304 +;Gap=M162;
+pug3_contig_601	augustus_masked	match_part	4919	5060	1	-	.	ID=pug3_contig_601:hsp:517;Parent=pug3_contig_601:hit:123;Name=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.2-mRNA-1 1 142 +;Gap=M142;
+pug3_contig_601	augustus_masked	match	6887	7189	1	+	.	ID=pug3_contig_601:hit:124;Name=augustus_masked-pug3_contig_601-abinit-gene-0.3-mRNA-1;_AED=0.43;_eAED=0.50;
+pug3_contig_601	augustus_masked	match_part	6887	7189	1	+	.	ID=pug3_contig_601:hsp:518;Parent=pug3_contig_601:hit:124;Name=augustus_masked-pug3_contig_601-abinit-gene-0.3-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.3-mRNA-1 1 303 +;Gap=M303;
+pug3_contig_601	augustus_masked	match	7280	8020	1	+	.	ID=pug3_contig_601:hit:125;Name=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1;_AED=0.38;_eAED=0.38;
+pug3_contig_601	augustus_masked	match_part	7280	7390	1	+	.	ID=pug3_contig_601:hsp:519;Parent=pug3_contig_601:hit:125;Name=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1 1 111 +;Gap=M111;
+pug3_contig_601	augustus_masked	match_part	7474	7661	1	+	.	ID=pug3_contig_601:hsp:520;Parent=pug3_contig_601:hit:125;Name=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1 112 299 +;Gap=M188;
+pug3_contig_601	augustus_masked	match_part	7747	8020	1	+	.	ID=pug3_contig_601:hsp:521;Parent=pug3_contig_601:hit:125;Name=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.4-mRNA-1 300 573 +;Gap=M274;
+pug3_contig_601	augustus_masked	match	10107	11162	1	+	.	ID=pug3_contig_601:hit:126;Name=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1;_AED=0.33;_eAED=0.38;
+pug3_contig_601	augustus_masked	match_part	10107	10317	1	+	.	ID=pug3_contig_601:hsp:522;Parent=pug3_contig_601:hit:126;Name=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1 1 211 +;Gap=M211;
+pug3_contig_601	augustus_masked	match_part	10401	10531	1	+	.	ID=pug3_contig_601:hsp:523;Parent=pug3_contig_601:hit:126;Name=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1 212 342 +;Gap=M131;
+pug3_contig_601	augustus_masked	match_part	10623	10810	1	+	.	ID=pug3_contig_601:hsp:524;Parent=pug3_contig_601:hit:126;Name=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1 343 530 +;Gap=M188;
+pug3_contig_601	augustus_masked	match_part	10889	11162	1	+	.	ID=pug3_contig_601:hsp:525;Parent=pug3_contig_601:hit:126;Name=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.5-mRNA-1 531 804 +;Gap=M274;
+pug3_contig_601	augustus_masked	match	11250	14803	1	-	.	ID=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;_AED=0.24;_eAED=0.24;
+pug3_contig_601	augustus_masked	match_part	14780	14803	1	-	.	ID=pug3_contig_601:hsp:526;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1606 1629 +;Gap=M24;
+pug3_contig_601	augustus_masked	match_part	14553	14656	1	-	.	ID=pug3_contig_601:hsp:527;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1502 1605 +;Gap=M104;
+pug3_contig_601	augustus_masked	match_part	13963	14083	1	-	.	ID=pug3_contig_601:hsp:528;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1381 1501 +;Gap=M121;
+pug3_contig_601	augustus_masked	match_part	13749	13892	1	-	.	ID=pug3_contig_601:hsp:529;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1237 1380 +;Gap=M144;
+pug3_contig_601	augustus_masked	match_part	13391	13521	1	-	.	ID=pug3_contig_601:hsp:530;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1106 1236 +;Gap=M131;
+pug3_contig_601	augustus_masked	match_part	13149	13320	1	-	.	ID=pug3_contig_601:hsp:531;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 934 1105 +;Gap=M172;
+pug3_contig_601	augustus_masked	match_part	12886	13068	1	-	.	ID=pug3_contig_601:hsp:532;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 751 933 +;Gap=M183;
+pug3_contig_601	augustus_masked	match_part	12552	12816	1	-	.	ID=pug3_contig_601:hsp:533;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 486 750 +;Gap=M265;
+pug3_contig_601	augustus_masked	match_part	12364	12479	1	-	.	ID=pug3_contig_601:hsp:534;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 370 485 +;Gap=M116;
+pug3_contig_601	augustus_masked	match_part	11623	11709	1	-	.	ID=pug3_contig_601:hsp:535;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 283 369 +;Gap=M87;
+pug3_contig_601	augustus_masked	match_part	11250	11531	1	-	.	ID=pug3_contig_601:hsp:536;Parent=pug3_contig_601:hit:127;Name=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.6-mRNA-1 1 282 +;Gap=M282;
+pug3_contig_601	augustus_masked	match	15010	16597	1	+	.	ID=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;_AED=0.28;_eAED=0.28;
+pug3_contig_601	augustus_masked	match_part	15010	15237	1	+	.	ID=pug3_contig_601:hsp:537;Parent=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1 1 228 +;Gap=M228;
+pug3_contig_601	augustus_masked	match_part	15546	15599	1	+	.	ID=pug3_contig_601:hsp:538;Parent=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1 229 282 +;Gap=M54;
+pug3_contig_601	augustus_masked	match_part	15681	15944	1	+	.	ID=pug3_contig_601:hsp:539;Parent=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1 283 546 +;Gap=M264;
+pug3_contig_601	augustus_masked	match_part	16024	16191	1	+	.	ID=pug3_contig_601:hsp:540;Parent=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1 547 714 +;Gap=M168;
+pug3_contig_601	augustus_masked	match_part	16280	16597	1	+	.	ID=pug3_contig_601:hsp:541;Parent=pug3_contig_601:hit:128;Name=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.7-mRNA-1 715 1032 +;Gap=M318;
+pug3_contig_601	augustus_masked	match	16773	17589	1	+	.	ID=pug3_contig_601:hit:129;Name=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1;_AED=0.39;_eAED=0.48;
+pug3_contig_601	augustus_masked	match_part	16773	16852	1	+	.	ID=pug3_contig_601:hsp:542;Parent=pug3_contig_601:hit:129;Name=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1 1 80 +;Gap=M80;
+pug3_contig_601	augustus_masked	match_part	16924	17058	1	+	.	ID=pug3_contig_601:hsp:543;Parent=pug3_contig_601:hit:129;Name=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1 81 215 +;Gap=M135;
+pug3_contig_601	augustus_masked	match_part	17127	17267	1	+	.	ID=pug3_contig_601:hsp:544;Parent=pug3_contig_601:hit:129;Name=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1 216 356 +;Gap=M141;
+pug3_contig_601	augustus_masked	match_part	17352	17589	1	+	.	ID=pug3_contig_601:hsp:545;Parent=pug3_contig_601:hit:129;Name=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1;Target=augustus_masked-pug3_contig_601-abinit-gene-0.8-mRNA-1 357 594 +;Gap=M238;
+pug3_contig_601	snap_masked	match	6887	8020	176.111	+	.	ID=pug3_contig_601:hit:130;Name=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1;_AED=0.32;_eAED=0.32;
+pug3_contig_601	snap_masked	match_part	6887	7114	46.152	+	.	ID=pug3_contig_601:hsp:546;Parent=pug3_contig_601:hit:130;Name=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1 1 228 +;Gap=M228;
+pug3_contig_601	snap_masked	match_part	7271	7390	18.649	+	.	ID=pug3_contig_601:hsp:547;Parent=pug3_contig_601:hit:130;Name=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1 229 348 +;Gap=M120;
+pug3_contig_601	snap_masked	match_part	7474	7661	51.326	+	.	ID=pug3_contig_601:hsp:548;Parent=pug3_contig_601:hit:130;Name=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1 349 536 +;Gap=M188;
+pug3_contig_601	snap_masked	match_part	7747	8020	59.984	+	.	ID=pug3_contig_601:hsp:549;Parent=pug3_contig_601:hit:130;Name=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.9-mRNA-1 537 810 +;Gap=M274;
+pug3_contig_601	snap_masked	match	15010	17062	141.811	+	.	ID=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;_AED=0.19;_eAED=0.19;
+pug3_contig_601	snap_masked	match_part	15010	15237	34.974	+	.	ID=pug3_contig_601:hsp:550;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 1 228 +;Gap=M228;
+pug3_contig_601	snap_masked	match_part	15329	15463	20.099	+	.	ID=pug3_contig_601:hsp:551;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 229 363 +;Gap=M135;
+pug3_contig_601	snap_masked	match_part	15681	15944	40.114	+	.	ID=pug3_contig_601:hsp:552;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 364 627 +;Gap=M264;
+pug3_contig_601	snap_masked	match_part	16024	16191	5.022	+	.	ID=pug3_contig_601:hsp:553;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 628 795 +;Gap=M168;
+pug3_contig_601	snap_masked	match_part	16280	16585	21.329	+	.	ID=pug3_contig_601:hsp:554;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 796 1101 +;Gap=M306;
+pug3_contig_601	snap_masked	match_part	16644	16852	11.126	+	.	ID=pug3_contig_601:hsp:555;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 1102 1310 +;Gap=M209;
+pug3_contig_601	snap_masked	match_part	16924	17062	9.147	+	.	ID=pug3_contig_601:hsp:556;Parent=pug3_contig_601:hit:131;Name=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.10-mRNA-1 1311 1449 +;Gap=M139;
+pug3_contig_601	snap_masked	match	9959	11162	142.541	+	.	ID=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;_AED=0.31;_eAED=0.43;
+pug3_contig_601	snap_masked	match_part	9959	10116	36.323	+	.	ID=pug3_contig_601:hsp:557;Parent=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1 1 158 +;Gap=M158;
+pug3_contig_601	snap_masked	match_part	10175	10317	12.883	+	.	ID=pug3_contig_601:hsp:558;Parent=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1 159 301 +;Gap=M143;
+pug3_contig_601	snap_masked	match_part	10401	10531	24.760	+	.	ID=pug3_contig_601:hsp:559;Parent=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1 302 432 +;Gap=M131;
+pug3_contig_601	snap_masked	match_part	10623	10810	27.282	+	.	ID=pug3_contig_601:hsp:560;Parent=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1 433 620 +;Gap=M188;
+pug3_contig_601	snap_masked	match_part	10889	11162	41.293	+	.	ID=pug3_contig_601:hsp:561;Parent=pug3_contig_601:hit:132;Name=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.11-mRNA-1 621 894 +;Gap=M274;
+pug3_contig_601	snap_masked	match	4919	6175	112.733	-	.	ID=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;_AED=0.44;_eAED=0.51;
+pug3_contig_601	snap_masked	match_part	6087	6175	23.777	-	.	ID=pug3_contig_601:hsp:562;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 512 600 +;Gap=M89;
+pug3_contig_601	snap_masked	match_part	5814	5898	10.045	-	.	ID=pug3_contig_601:hsp:563;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 427 511 +;Gap=M85;
+pug3_contig_601	snap_masked	match_part	5665	5712	11.798	-	.	ID=pug3_contig_601:hsp:564;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 379 426 +;Gap=M48;
+pug3_contig_601	snap_masked	match_part	5387	5460	22.482	-	.	ID=pug3_contig_601:hsp:565;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 305 378 +;Gap=M74;
+pug3_contig_601	snap_masked	match_part	5146	5307	22.409	-	.	ID=pug3_contig_601:hsp:566;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 143 304 +;Gap=M162;
+pug3_contig_601	snap_masked	match_part	4919	5060	22.222	-	.	ID=pug3_contig_601:hsp:567;Parent=pug3_contig_601:hit:133;Name=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.12-mRNA-1 1 142 +;Gap=M142;
+pug3_contig_601	snap_masked	match	45	4548	297.672	-	.	ID=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;_AED=0.19;_eAED=0.23;
+pug3_contig_601	snap_masked	match_part	4456	4548	21.965	-	.	ID=pug3_contig_601:hsp:568;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2896 2988 +;Gap=M93;
+pug3_contig_601	snap_masked	match_part	4308	4355	12.948	-	.	ID=pug3_contig_601:hsp:569;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2848 2895 +;Gap=M48;
+pug3_contig_601	snap_masked	match_part	4153	4212	6.095	-	.	ID=pug3_contig_601:hsp:570;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2788 2847 +;Gap=M60;
+pug3_contig_601	snap_masked	match_part	3978	4045	17.519	-	.	ID=pug3_contig_601:hsp:571;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2720 2787 +;Gap=M68;
+pug3_contig_601	snap_masked	match_part	3769	3880	22.590	-	.	ID=pug3_contig_601:hsp:572;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2608 2719 +;Gap=M112;
+pug3_contig_601	snap_masked	match_part	3589	3676	15.946	-	.	ID=pug3_contig_601:hsp:573;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2520 2607 +;Gap=M88;
+pug3_contig_601	snap_masked	match_part	3449	3506	12.728	-	.	ID=pug3_contig_601:hsp:574;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2462 2519 +;Gap=M58;
+pug3_contig_601	snap_masked	match_part	3204	3351	10.926	-	.	ID=pug3_contig_601:hsp:575;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 2314 2461 +;Gap=M148;
+pug3_contig_601	snap_masked	match_part	1967	3117	64.908	-	.	ID=pug3_contig_601:hsp:576;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 1163 2313 +;Gap=M1151;
+pug3_contig_601	snap_masked	match_part	1619	1902	6.775	-	.	ID=pug3_contig_601:hsp:577;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 879 1162 +;Gap=M284;
+pug3_contig_601	snap_masked	match_part	1275	1543	43.407	-	.	ID=pug3_contig_601:hsp:578;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 610 878 +;Gap=M269;
+pug3_contig_601	snap_masked	match_part	999	1181	21.829	-	.	ID=pug3_contig_601:hsp:579;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 427 609 +;Gap=M183;
+pug3_contig_601	snap_masked	match_part	744	919	9.099	-	.	ID=pug3_contig_601:hsp:580;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 251 426 +;Gap=M176;
+pug3_contig_601	snap_masked	match_part	435	654	28.090	-	.	ID=pug3_contig_601:hsp:581;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 31 250 +;Gap=M220;
+pug3_contig_601	snap_masked	match_part	45	74	2.847	-	.	ID=pug3_contig_601:hsp:582;Parent=pug3_contig_601:hit:134;Name=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.13-mRNA-1 1 30 +;Gap=M30;
+pug3_contig_601	snap_masked	match	13387	14803	87.445	-	.	ID=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;_AED=0.39;_eAED=0.39;
+pug3_contig_601	snap_masked	match_part	14780	14803	12.656	-	.	ID=pug3_contig_601:hsp:583;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 643 666 +;Gap=M24;
+pug3_contig_601	snap_masked	match_part	14553	14656	22.824	-	.	ID=pug3_contig_601:hsp:584;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 539 642 +;Gap=M104;
+pug3_contig_601	snap_masked	match_part	14333	14435	15.257	-	.	ID=pug3_contig_601:hsp:585;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 436 538 +;Gap=M103;
+pug3_contig_601	snap_masked	match_part	14116	14223	8.235	-	.	ID=pug3_contig_601:hsp:586;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 328 435 +;Gap=M108;
+pug3_contig_601	snap_masked	match_part	13990	14037	6.663	-	.	ID=pug3_contig_601:hsp:587;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 280 327 +;Gap=M48;
+pug3_contig_601	snap_masked	match_part	13749	13892	15.678	-	.	ID=pug3_contig_601:hsp:588;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 136 279 +;Gap=M144;
+pug3_contig_601	snap_masked	match_part	13387	13521	6.132	-	.	ID=pug3_contig_601:hsp:589;Parent=pug3_contig_601:hit:135;Name=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1;Target=snap_masked-pug3_contig_601-abinit-gene-0.14-mRNA-1 1 135 +;Gap=M135;
+##FASTA
+>pug3_contig_601
+GTAGCTGTATTGGCTCCGCCAGTTTGATCGCCAACTCTAAGCCTTCACCGTTTAGCGAAA
+GTGGGATCCCATGGCTACAAGCAGACAAACAAATCGCATGCAAACGAACGCAGCAAGAGA
+ATTAATCACCATGTTCATATAGAGAGCTTTCGCATAACACGCCAATCTCAGTGCATTCAC
+TTTTTCTATGCAACTAAAGCTGGTGTCTGTAAACATGCAGCAATTCACACCAGTATTACC
+AGACGATGCATTGCGCACACAGATAACCACATACAGTATCGCCTTACCTGAGAAACACTT
+CGGAGAGCTGCTTGCGCAAGTTAGTGTCGTAGGCATCAAATGCGAGCACATTTTCCTAAA
+GGTTGAGTTGAGTATCACGTCAGAATAAAAGAATCATCGTGGCGAAGCCAAAATACATGA
+TGGCAGCTACTCACAAGAACCGACGTGACTCCGTCATTCGGGAATTGCTCCAGGTGCTTT
+GCCACCGCCACAGCTTCTCTAGTTGAGTATGGGTACGTGATGACGCCTTTGTCGACCAAT
+TCGCGCAGCTCTGCGAACGCTTTGCACAAACGTCGAAGAATGTCAACGGGAACGTTCGGC
+GCATACGCTTTCAGAAGTGCAAGTTCGGATTCTTCATCCGGGTTCTCGATCGCACTACAC
+ACAGGAGCATCATACGAACACATTATAAACCTTCGGAAACCTAGAAGAACGAAGATGCAA
+AACGTGGTGGTCAGAGTACGTACTGGCTCGCAAAGACGTCTCCAATTTCTCGAAAGAAAT
+TGTTTCCCAAAAAGGGGAAGCCGGGCCGATTCGCGAGGACCCACATTCTGAATTCTGGAT
+GAAGGCGAATGATCTGATCTTCATCGTGCCACTCTTCGACGGCGACTTTGTTGGGATCAA
+TCAGTCGTTTGCCATTTCCCTGTACATGGATTCATTCCGAGTCTTTCAATGAGACAACAA
+TTAGGGCAATCCACAAATAACAAAGAACTTTAGCTTACAAGTAGCATCTCGCCGTCTTCA
+ATGAGCCCTTTCAACACGCAAACCACCTCAAGAGGCGCTTTGTCAGCTTCGTCGACCAGC
+AAGGTTCGTCCAGTTTTCGCCGCGCGAACGAGCGGTGAGTCCTCCCACACAATTTTACCA
+TCAACAAGAGATGGCACCAGCGTCAACGTTTGCACCGTTGTCTATTCAGACACACAGCAC
+ATCCATTTCATAGTGTCATAGTGTTAGTGATCACATAACACATTTTGCACTTAGAAAGTA
+GCACTATGACTTACATCGCGATGAAGCTGAATGTACTCTCGTTCCTGCTGAAGCAGCTGC
+AGCAGCCGATCCGCCAGCTTGTTTTTCCCCACACCTTGGTTGCCGATCAGCAGCATATGC
+TTTTGGCCAGCCACTACATCCTGCAGCATCTCTTTCATCGTTTTCGTGTGCTTGGGGATA
+TCAAAGTAGTGCGGTTGTGGAACCAACTCGGGGTTCGCAGGGGTTTGGATCGGGTGACAG
+ACATCACCAATGCATAGCTTGCCATGTTCTTCTCGAATCGTGTCTGGAAACAAGTACAAG
+CACCAAAGCAAGTTAGCAACGAAAGTAGCGGCAAATTTGAATCACCAGCCGGGCGTACCG
+GTTGGTCGTGACTTATTCGACGTCGCCGTGCAAGCAATGGCTGGGGCTCCGCAATCATCC
+AAGATTGTATCCACCAGACGGGCACAGGATGACGGTAGGAATTGTGTCAGCAAGGTATCA
+TGCAACAGCGGACGCAGATCTTGCAAGGATTGTTCAGGGAACGCGTTCAGTCGACGGCAT
+GCTCTCAGTAACTGGCGTGACGACAGGTTGAGGGAAAGATAGTCGTTATCCGCACTGGTA
+TCTTTGACTTTCCGAAGTTGCTCCGAAAACGAGAGCAAGATCCTACATATCAAATTGTAA
+CATTAGTTCAAGTGCGTCATGTCGAACTAAAGATCAACCAACTTACCGAGTCGTTTCGTC
+CGGAAGCTTTGGGTAAAGGCTTCGAACGACTTGCTCACTTTGACTCTTGGACAAGCTCGG
+CAAGTAGTGAAAGGTAAACATGGCAATACTGTCTGAGTTAAGCCACACTGCCGACGATTC
+TCGTCCTAGTACCGGTGCAGACTTCAGCGTAGACGGATCCGACTCAGCGATTGCGATAAT
+CCGGAATGAAGGGTGAATCGGAAACACGCGGTCAAGAGATGGCTTTGCGCCATTTTCTTT
+AGCTTCTTCAAGAATCTCATCATACTTCGATTGCGCCAACAACTTGGTCCCGTCCGCCAA
+GTCAATTTCTCGATCCTGCACCAAACGCTGTAACACACCAAGACTGTCGCTCCCGAGTCG
+ATGCACTCCATCCAAGACTGCGATATGACCATTACGAGCCGCATGGATCAACGGACTATC
+CTCCCAACGCGTGTTGCCATGCGAGTCCGTGGCTCGACGCTGGAGGAGGTCACGAGCAGT
+CATATCCTTGAACAGGCTGAACAATTCGGTCGCGTATCCCAGTCGGTGGGCAAAAAGTCT
+TGCCAAATCGGACTTCCCACTTCCTTTCTCTCCAAGAATGCACAAATCCGACCCTGCAGC
+GTGGTCCTGGATCATTTCACCGAGAATGGCCGAATGCAAATCGGTCTCGACGAATCCCTT
+CATGGCGCCGGTATGCGGGGTCGTGGTACCACACGGGACATCGAGCACCGTTTTCTCCGA
+TTTCCCTGATATTGACGATTCAAACGTCACCGTCGCAATCAAATCCGAAGGCGAGTGCTT
+CGCTACATTCTGGACAATGTACTTGGACTCTGGCAGATTTGCACCAAATTTCTTCAGGAT
+TCGATTGAGGGTATCACTGTTCGACGTGGCTTTAGCGCCCAAGATATCCTTTCGAACAGG
+AAACACGCGCTTGACTGTGCTCGGCAAGCTCACATTCGGGAAACTCTCAATGACCTTGGC
+ACAATGCGACAACGAAAGGTAGTCGAAATGCGGCATTCGCTGCCCGGTGATGCCATCGTG
+CATAGCTTCAATGGCATTCACTGCCTCACGAACGCCAACGAGGCGCTCCAGTGTACTAAT
+TGGAACGTTTGGCGCAATCGAGACGAGTGCTTCGAGTTGGGTGCCTGGAGAAGATGGCTG
+AACATTACGCGCCTGGAATCGAGATCGAAGAGGCGGGTCCAGCGTACGACCCNNNNNNNN
+NNNNNNNNNNNNNNNNGCGGCACAGGCAGCCCCAGTGCGATAACACGGAAATCCGGGTGC
+ACGCGGACAAGGTTCTGCGCATCGAGATCTTTCGAAGAGTATCCAGCGGCTAGGAGCGCA
+TCATAGCTTTCTGCTTTCATCAGAAAGCGTCCATCATCGAGCGTCATTTCGCTAGTCGTT
+TGTTAAAACAATACATACAGTATAAAATAAAGTCAGTCAGATGTGTGGAGACGACGTCTC
+GACCATATGAGAGTAACTAGCAGCATACCGATTTTCAAGCAAATTGTTCAGGGTTGGCAG
+CACATTGCGCTCAGCCTTCTCCAAACCTGTCGCACAAGTCAAGACAAGTCCCATACATGT
+TAGATCAAAGATGATGCCAACAAGAAGCAATTCACAGACACGCATTACCGTCGATGACTA
+AGACGCGGCCGTGGATCGCTGCGCGAACGGGAGCTTGATCGGTGAAGATCGCGGCACCGC
+CCGTGATTTCTCGTCTCTGAATCACAGTAACAAGGCATGCAATCCAAGTCGTGTGAATGA
+TGTCAGCATAACCAGCAACATTTTGACACAGCAAACAATCTCAAGGACCTGCTTCAAGTC
+GGACTCCGTCGTGTCTTGCGAAATCGCAATGTACTCGACTTCCTTGTTGAGCAGTTCGCA
+AAAGCGCATGCTGAGCAATCGGCGTGACGCTCCCGGTGGACTGCCATTTAGTTACAACAT
+AAAAGAACGTCCAGCACAGAGTTACAACGTTGCGTTCGCCTTGTGGCCGGCCATGGAGCA
+AAATAATTGCGACGTACCCAATGAGAAACATATCTTGCTTTAGCAGATCCTTCTGCAGCA
+TCCAGCGCAGATGGCCAAGCAATTCCTACAGTATCATCCCAACGCGTCCAATTGTAATAG
+AGAGAACAGCCCAACCAGCAGTGCTAATAGCAATATAAACAAACAATCTCTCCAACTTGA
+CATGCGGCTTACCTGTGACATCTCTCGACTATGAAACTTAGGCAAGTATCCTCTCGGCAC
+TAATTCAATCGACTGCATATCCAAACACCACACAACAACACCATCCGCATTTTCAATTAT
+ATACCCATCAGTACACACAGACGCATTGTATACCAACGTAAGCGTACCTTTGCATCCTTC
+ACTGGCCCGACGACTCCACCAATCTCCACCGTCGACTAACATCACAGAGACAGTAGATCC
+ATAGTGACATAACATGTTTCCCGAATCCAATGATGCATACGTATCTTCACGCCAAATTCA
+GAGCCAGGCTCGTACCTGCTCGCCGCGCTTGTGGATCGAGGCGCTCAGCCAGCGTGTGGA
+TGTGCGCATTGCGCGCAGCTGGCGCTGCCGTCCGAAGCTACGCAGCATGCTCTTCTTCCG
+TTATTAGCCACCGCTTCTGGTTTGAATTCCGCACGCACACTCAGCCTCACGATGCTGACG
+TTTGGTGCAAGATGCGCTTCGGCAGGGAAACCTGCGATAGCGCATAATGGTTACACGTAC
+GAACTTTACGCGCGGTTGAAGCTCGGTTAAGTTCGCGCACCACATGACGCACACACACTG
+GTGATACGCAATACGGCTATGCTTGAAGAAGGAATCCGGATGGCAAGAACAACATGGCGA
+AGAGCTTTTATTGATTACACAAAAATGGAGGCGGCATGCATGGTCACCTTGCGAGAAGAT
+GCAAAAACGCGTTTGTACGATGGGCTTCCTATAAGCATCTGCGCCTGCTTCCTTTCGCTT
+AGGCGGCCAGCTCGGTTTCAATGAGCTCGACGAGCTTGTCTAAATCTGCGAGGCCCTTCT
+TGACTTCAAACGTTCGGAGGGAGCCCACCGCTGTGTAAAAATCTATCAAAGGCGCGGTCT
+CATCGTTGTAGACTTCCAACCTACAAGCGTCCACACAACTCACAAATGTAAGGACGCATA
+TGCTCCGACTCAACAACGCAGAGCTTAGCCGTTGTGATGAGTTACCGTTGACGAACGACG
+TCGGCGTTGTCATCTGGGCGCTGGACGAGCGTCGGGGTGCCGCACGAGTCGCAAACGCCC
+TCCACCTTTGGAAGGAGTGGAGGCATGTTGTACTCACCGTGGTCGATGTGGGCCACGTTG
+AATCCCGAGCCGCAGCTCGTGCACACACTTCACACGGAAGATAACAAGGCGATAATTAGA
+ATTGATCACACATAAAAAAAGGGAACACACTGTGAACAAAACTCACCGGCGTCCACTGAT
+CTTTTCGGTCAGAATCCATTGCGGCAAGTCGATGTTCACGACAAGGTCCAGCGTAGTCAC
+CTACAGAAAAGCAAAGTCAAATTGAGCATTTTATACTGCAGCCTGACGTAATGTGGACAA
+AATAAGTAAAATTGTGCCTTCTGGAAGGCTTCAGCTTGCGGGACGTTTCGAGGAAAGCCA
+TCCTAGTGTTCATCAAATTGAGTTCATAGTAAGCATCGATTTTCACCCATTGAATACCTT
+TCACACTGCTACTTCAAAACCAACCAGGATGAATCCGCGCTTGGCGTCGTCGAGTGCCAA
+TCGATTTTCAACCTGCGCAACCATTTCATATCAACGTGAGCTCGCCCAAAACGCCACATA
+CACAATCGCGATCCTTATAGATAATCACAGTTGCTTTTCTTTCGTTTGTGTACCATGTCC
+AGGATAATTTGATCAGGCACCAATGCGCCGCGGTCGTTGTACGCCTGCATATAGACACGC
+AAAATGCCATCCATCAGTCTCCATCACGTGCAAAAACTCCCCCAACCGCCACAGCCATAT
+GCAAAAGAGCTCATCGAACTCGCCTTGATCTTCTCGCCGAGGCGCGTGCCCGTCTTGATC
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNGATCGCCCGTGGAGATCGTGGGGATGTTGA
+GCATCGGCGCGATGCGGGACGCATACGTGCCCTTGCCGGCGCCCGGCGCACCGAGAAACA
+TGATCTTGAGCGATCCCTTGGCCGCGGCCTTCGTGGACGTGCTGAAAAGGCGCATGCTTG
+CTTGCGTGTCCGGACGGGTGCTGTGCGCTTCTGCTGCTGCTCTGTCGGAGGGACGTCTAC
+GTGCCGAAGGGCGAATGTCGATCTGCGTTCGTTCTCCGATTGTTGCACTGTGACGCAGGT
+CGACGGTATGGCAGCCGTTGACGATGCTTATCACAGGAAAACAAGGGGCTGGTGAAAGAA
+GCAGCAAAGGGGTGTTTAAAACAGTTAGTGGGGTCTGAGTCCGGGATGGTCTCAGATTAA
+TTTAAAGATATAATTTCGGGATCAGACCCAAATCTACAGACTCAGAATATTCGATGAGGT
+GCAGTGTACCACTGTACGAACGCAACTGGTCAAATCCATAAAGGGTTCCCTTTTGTTTAT
+GGCATCTTGTAATAGTTTATTATTCTAGTATTACTGTAATGTTAGAGTTGATTGATACCC
+AAAGGATATTTTGTTTCATATTTTTATTCCCTGATAGGAAATATAACAAAGGATGGAAAT
+GAGGGGTATTTGGCTTGAAGGGGCTTCAAGCGGCCATTACACATGGTCCTCCATGTCTTT
+GACGTCACCATGGCACTCATTCCCGTGGCCTTCATTCGCGTACTCTCTCTCTCTCTCTCG
+TTCTCGCCATTAAATTAGCAGCAGCATGAGTGGAACGAAGCAGGTGTGGCGCACGAGCGT
+GGCATGCGNNNNNNNNNNNNNNNNCGTCGCGGCGTACGCGATCTGCATGGGGCTCGGTGT
+GAGCGCCAAGCTCACGCTCACAGCAGTGCTTGTGGCGCTCTACCTGCCGTCGTACCTCGA
+CGGTTCCGAGTACACGGGCGAGCGCTATTGGCCGGCGTTCGCGCGGTTCAACCAGAAGTA
+CCTCTCGAGCATCCCCGCGACGATCGAGTACGAAGAGCCCGTGGATCCCAACAGACAGTA
+CTTGTACTGCTCGCACCCGCACGGACTCGTCTCCGTGCACCACGTCAACATGATGACNNN
+NNNNNNNNNNNNNNNNNCGCGTCGACGCCGTGTAAGTTGCGAGCTCTAACCCTCTCCTGT
+ATTTGCGCAAGGGCGATGCGGCGCAGAGTGCACTAAAATTGAGTATATGCATACAATAGC
+ATTCCATGAGCTGTCGCCGATGCCGACTCGCCGCCATCTCGCTGCGTCCGTGGTCTTCCG
+CGTACCGATCTACCGCGAGTACCTCATCTGGCTCGGATGCGTCGATGCCACGCGCAAGAT
+CGCGGAAAAGGTGCATTCTACACGCGTTGCCGTCATTGCGCGCTAAGCTGTGATATTGTG
+ACTCTAATTGGCGCATTTATTTTTTATCTGTAGATGCTCGCGAACCAAAAGAGCCTCGTG
+ATCTTGGTCGGAGGCATCGCCGAGCAGATGCTGTCCCAGCAGGGTGACCACACGATCTAC
+GTGCAGAAGCGCAAGGGCCACATCCGCTTGGCGCTCAAGTACGGCACGTCCATTGTACCG
+AGTTACACATTTGGGGAGACCGACATGTACACCCACTCCAAGTACGTTGGTTTGCTTCCT
+TGCTGTTGCTGTGGGCCGTTCTGCTTTGCTGATGGTTTGTACTATGTCTTATTGTATGGT
+GTGCAGGTTCCTGCTGGCGTTCCGCCAGATGATCGCAAAGAAGTTTGCCGTCGCACTTCT
+CGTAGGCTACGGGTCGCCGCGCTGGTTTCCTGTGCTGCCGCACAAGGGCGTGGTCATCAA
+CCAGGTATTCGGCAAACCCATTCACGTTGAGAAGAACGAGAACCCGAGCGCCGAAGACAT
+TGACAAACTGCACGCGCAGTACGTCGCGGAACTAGTTCGCATCTTTGACAAGTACAAGAG
+CAAGTACGGGTACAAGGACTCCATACTGCGAGTGCTGTAAGATCTGAACGGTGTGCAACT
+ATCCACAATTCAGGAAATTGTCTCATAGAGAATTGTCGTCAATGCAATTGCATGAGGTGA
+TTGTTGAAATAATATTTTACGAAAATGGCTGCTGTGAAACAGAATCCAAAAGCTGACAAC
+CGGGCTTGCTCTCTTCAACTAGTCCTCATCAACTAGTATGGAGTAAACTCGCCCAGCGAT
+CCCTGCCATGCCCGTCCTTATGCGCGTAGTGACACCGGTATCAACGCATATACGTGATGT
+AGTATCTCTCAATGCCAACTTTGTCGTCCGATTGATTTAGGAACATCCACTCCATGGAGT
+TCGTCGCGATGCCATAGACGGTCTCAACGTCTTTGGCATCGGTGGTCACTTCCATGGCGA
+GCAAAGCGTTTGCAAGCGCTGTGTCCATGCTATGCATCGATACACAGACATACACGCGCT
+CGCTGCCGCGTGCGTCTGAGTTCAAAATCGACGTTTAGCTCAGCGTGGATGTAGTTTCCA
+CACAAGAATGTATTCGCGCCAGTGGGGTTTTTTGCTCTTCTGCGCCAAACAAGTTGACCA
+CGTGCAGAAACACGGGCTCCACTAGGTAAAGACGTCCATTGCCATATATCATCGTCGTAG
+CTTCGCACCTTGAGCTGCAACGTGTTGACGATCTCATTGAGTGTGTCTTCGGGTATGGCT
+TTCACTGGCTGCTTGTAGTCTCTGTCCGTGACATCGATGTGCTAAAAGCTGTAAATGTCC
+TCTCAATCGAGAGACGGCTGGTCCATCGATGCTTTCAGCCGCTTAATGTCGCTCTCGGCC
+GTCAGCTCCGCGATCTTGTGATTCAGGTCGGGCCAGCGTTCTTTCCGCTTTTGAGGAAGC
+ACCCGCTATGGACGCGGCAGAAGCGCTGCCGACGCTGGTGCTCTAATTCGTGGAGAAACT
+TCCATCAAGACATGGATGTGAGTTCTCGATGGGTCTGACAAACCCGCTTCTGAAATGGCG
+TCCTTGACAGTGCCAGACATGCATAACTATCGCATCGTCATCACGACTTCCGAGCCACGA
+GCCGTTTTCATGGCGAAGTAGAGCTTCAAATCACTCTCACACACCTCCTCCAGAGAGCTT
+AAATCCTCGCTCCAAATCGTCTTTTTCAGGTTTTCAACAGTGTCGGCCGCGTCGACTTCC
+ACAGAGAATGCACATTCGCCTGCTCCTACAATCACGCAGCCAGCTTCATTATTCTAGTCT
+GCCTTTCTCTTCTTTTGTCAGAATGACGGAATTCACAAAACAGTAAGTTGCCGCCACACG
+AGCCTGCATTTGACCTTATAGAGCAAACTTCCATGACGTTGTCCCCCACCGATTGGCCTT
+GATAGAGTCAGAGAGAGTAAGAAACGCCACTATTTGAACATCGTGAAGTTGATTGCCTAA
+AGTATCCGAACGCCACTTGCGCTTCTCAGCATTTTCTATTGAGTTCGGGGTCAAACAGCA
+AGTTACACCTAGGAATCGTGGAAGCAAGGCCTCACACCTTTCGTCATTCCTTCAGTTTTT
+CATAAATCGAAATTTTCTCTGGATTATGGGGATCTTGTCTCGACACCTTAGCCCATTTCA
+CCCTAGCATTCGGGTACGTTCTCTGTTGGCAGCACCAGTTTCTGTCAAACATACATGCCT
+GACTACGTCGCATGGTCCACGATGTAGAACGCAGCAAGCGAGAGTTTACTACTCGACTCT
+TTGCTCGAGCTGCATGGTAAATGAGCGTCTTCATAATGTACCTGTTGAAGTCAGATGGAG
+TCAGAAACCATCACTCCGACGTCAGTTACTCGCGTTTGATTGGCTGGACATGCATGGTCT
+TAGATCCAAAATGGCAACGCCATTCTTTTGAACGTGAAAGGTCCAAACGGACGGGAGGAC
+CAACGGAAGGGAGAGGTCCAAACGAGAAGCGATCACTTGAGGTGCATTCGACAGACACAT
+GGGCGATAAGCAGAAGCAGCAGCAGGTGTGGCCGGCGAGCGTGACGTGCGCCGTCGCGGC
+GTATGCGATCTGCGTGGCGTTAGATGCGAGCGCTAAGCTCACGTTCACGGCGGTGCTGCT
+GGCGCTCTACTTGCCGTCGTACCTCGATGGCTCTGAGTACACGGGCGAGCGCTACTNNNN
+NNNNNNNNNNNNNNNCGGCGTTTGCCACGTTCAGCCAGAAGTACATGGCAGGCATCCCCA
+TGACACTCGAGTACGAAGAACCTGTGGATCCAGCCAAGCAGTACATGTTCTGCTCGCATC
+CGCACGGACTGCTCTCTGCGCATCATGGGATCCTCATGCAAGGATGTTCCACGCCATGTA
+AGCAGGCATAAAGCTGCTGTTCTCTTTGTGAGAGGACGACTGCTGTGGACTAGCTATTGA
+CACTCTTGTGTGATGTTCAGCCTTTCACAACCTGTCTCCAATGGTCACTCGCCGCCATCT
+CGCTGCGTCGGTCGTGTTCCGCATCCCCATCTATCGAGAGTACGCGCTGTGGCTCGGATG
+CGTCGACGCCACGCGTCGTATTGCTGAAATGGTATGATGACGGCCCTCACCATGGACGGA
+ATGGAATCCCACATCTGTGAGATTGACTAATTCGTAATCCGTTTCGGTGATCTCTCATGT
+AGGTTCTTGAGAACAAACACAGCCTTGTCATCATGGTGGGAGGCATTGCCGAGCAAATGA
+TCTCGCAGCGAGGCAACCAAACGATCTACGTGCAGAAGCGCAAGGGTCACATTCGCTTGG
+CGCTAAAGCATGGCACGCCCATCGTTCCTGGCTACAACTTTGGCGAAACAGACTTGTACA
+CCCATTCAAGGTATTAGCATCTTTCTTTGCGTATGTAAGCTTCAATTTGGTAGATTCATG
+GGGTTCCTTCGTGTGTGAGAATGTGCAGCTTTCTCCTGTCGTTCCGCCAAATGATCGCGA
+AGAAGTTTGCTTTCGCGCTTCTTTTCGGCTACGGATCATCTCGGTGGGTGCCGTTCCTCC
+CACACAAAGGAGTGGTCTTGAACCAGGTGTTCGGCAAACCCATTCCCGTCGAAAAAAATG
+AAAACCCGAGCGCTGAGGACATCGACAAGCTTCATGCGCAATACGTGAGTGAACTTGTTC
+GCGTGTTTAACAAGTACAAAGAGAAGTACGGATACAAGGATTCCAAGCTCCAAGTGTGCT
+AGTTCGACTTACCGAAGAATAGATTGAATGCATATTAAACGTATGTGAACCTTTCTCAGA
+TGATCAGGCCACATGCATCGAACATAGTCTTAAGCAACATAAAGTAGTCGATGCTCGTTG
+CTCTCATGGCGTCGCAAGTACTCCTTTTCGATGAGTATGGCTACATTCTGCTTGATCGCC
+GCGGACGATGGAGCAAACTGGTTTCGTAGCATGTCAATGACATCGACTTCCAGCTGAGAT
+TGCAGAATGTCTCGGCGAGTCTTCAACACACGAACAATCGATGCTTGGAGTGCCATTTTC
+CGGTCTTCTTCAACTTCGCGGTTGGTTGCTCTCACCACCTTTGGAGATTCCACAGGACTG
+CTGGGCACAGCCTATTTCGATGAAGTTTGTAGCGAACGACAGCATGAGTACCCGGAAAAG
+ACAATCCTAAATCAGCATCGAATCAAGAGACGAGAGGCTTACCGAAACCCGAATCTTGCG
+ACTAGAAAAGTCGAAGTTCAGCGAGTAAGTTGGATTCTCTTCATCATCTGCTGACAGAAG
+CAGTTTTGCCTAGTGCAGCCAGCAACCATGTCAGGAGACAGTCCTAATAAATAAGCGTTT
+AATAATCATCAGTCACCTTAATAAGACTGGCAACATGATGAGCAAGGTCTTGTGCTGGGA
+TATTTGTCAGCTGACGAAGGGTTGCCTGGCTCAGCTGATTCGACTTGTTGAACTACATTG
+TTAAAGTTCGCTAGTTAGCACGGACATCCAGGCATGACCGATTTTCACATCCACCTTACC
+TGAAGAAGTATCATCATTTGATAGAAGCTCAGTGCGAATTCATATCGTTTGTCAAAACAA
+TTGGCTTGAAGAGTTCCAAACGATAAATGGTGAGTCCATAGAAGCTTTCTCCCGCTGCTT
+CTGGCCGTGTAAAACTTCGTAAACAGGGCAATATGGGCTTCAACCTCTGGAGGTAACAAC
+AGGTTCGACTCCGCTGATGTGCTAGAGATCGGCCATGCACCAGCAGTAAGGATATCACAG
+TGATACGACATCGAGAGATGAAAGCCGATTGCCAAAGCGTGCTTTTCGTCCTCTTGTCGC
+AGCTCAATATCTTTCTCCTCCATCCACGCACTGAAAGAATCAAGTAGCTCCTGTCGATGA
+TAATCATAGTAAGCATACACACACATGCACATACCGAGAAAAGTGGCAACAGAGAGTACT
+AACCTTGCTGAGCATTTTATCTTTCAGCATTTTCTGAAGTTTGGAAACAAAATCGTGGCC
+GCAAATATCACGCAGCTTTTGGATAAGGAGGATTTCCAAATCGCTGGCAATCGAAGTACC
+TAGCCGATATCATTAAAATAAGAGCAAAGCTTAGCAAACAAATTAACTCCTGTAATAAGT
+AAACCGCGTACCTTTGATCAGTCGCTTCGCCAGGAATTTAGCATAGTACTTCTTGAAAAC
+ATCTTTGTCATCGATCAGGCAGAAAACGACACCAACGTTCTCAATTTTCTTTTCCAAAGT
+TTCTTCTGAAAGGAGCGATGTACTCGGTATTCCTGACGCTGATGGATGGAGTTGATGATG
+CGCACCGGATTTCTTGTCATGAGACATCAGGCAATGTGTATATTTTGCCAGCAGCTCGGG
+TAGTTTAGGATGAGAGTTTGCAAACGCGCGACAAGCCTAACAAACACAGAGATGGTGGTG
+AGCGCATTCATATACTGCCAGATACCACTAATCAAATATTTTTACCTGGTCGAGAGCTCT
+TCTCATTAGGGCGTTAAAGCCAAACGTTTCTTTGATCAGGTCAAAATATTTGTTTCGAAC
+TTGAACGAGTGCTTCGATATAGCTCTCAGGGTTTTTCGACGCATCGTCGTGCCCAAACTT
+CCGAACTACATCGAGCCCCCTTTGCTCAATGTACTTTTGAAGGATATTCTAGAATGGTAC
+AAAGCGATTGCTAGTTTCAACGCGAGAGACTACGATGAAACAAGCTCCAATTGGCTTCGT
+TTACTTACCTTGAAGGATATAAGCGCCTGCTCTTTTGGAAGCTCCGAGAAAAGCATGAAT
+AGGCGATGAAGATCATTGGTTTGATTGTTGACTAGAAATGTCTCTGCGTCGCTGCAAATT
+CGCTCGGTGTGGGTTTCTACGAGGACTTCACAGCATTTCTGTCGGATATCAGCAACAGTA
+CTACGATATAGGAAAACACAGGTTCAGTTAGTTACTGTATGGCTCGAGTAATGTATAGCA
+GCAAACTTACATCCGGTGCATGCGGCCTTCACACCGTCTTTGCTCTTGATTGCAAAGAAG
+TTCGATTTCTCTTAAATACTCCGCGACACTCAACTTCGTGATAAGCTCCTTGCCAAGCGC
+GCCATAGTATCTCAACGTATGCTGCGAAAGAATAGGCATATGAAAGTTACATAATTAGTA
+GAACATTGTTAAGCAGTAAGTTGTCACAATTACCTGGACAAAAGGGCTTTCCAGCTCACT
+TCGATACAGGCTCATCGGATCATGCTTGCATAATCCCAGCGAATAGTAAGTCTAAGTTGC
+ATGCAGCACGATCAGTTAGCGTTAGATTCGTCGCATTTTCTTTCTCACACTCTTGCACAG
+GAGCTCACCTCAACCGTTTTTGCAACATATTCTCCGTTGTCAAAGACTTCGGTTCTTTCG
+CGCCGAGCGGCTTCATAAATCTCAACGATCGAGTTGACAATACGCTTTTTCAACTTGGCG
+AAGGCAATATCGTCCCAAATGTGGAGTGCAAGCTGATATCAATACGAAAGCAACCAATCA
+GTGTAATACAAACGTATAAGCTAGTTCCAGATATGCGTCTACCTCTGTAACTGGGAAAAC
+TCCAGGCACCGGTGCCTCTCCAGTCTGGCAATGCGAGTATCTGATCCAGTATCGGTTCTG
+TAAGCGCAAGGTAACAAAATAATGGCTGTGAGTCTGCAGAAAACTAAAGGGAAAAATGCA
+TAAAGCAAAGCCAACCAGATAGCGGAACAGTTCCGAAATGTAGCCTGTTCCAGTCGTGTA
+CGATTCAAAAGAGGTGCAATATTCCTTTAGAAACTCGACTTCACCTTCCGTGCGTTGCAA
+TTTCTACGAGTGAAACACACACAATCATCGACCCATTAAGCAAAGTTTGAAAAGGGCCAC
+AGAATAACAAGAATACTAATACAGCGCTTTCGCTGACAATGAGGTTTCATACCTCCAAGA
+CCTTCTCCACATTAGCAACAAGAAGTCCCTTCAATCGGAAAAACAGCATCTCTGCTTGCG
+GAGCCCCCGGGTTCGTGCAAATTTTATAGATACTCCTACTCAACCGAAGAAAACGAATCA
+GTGATCCATCTTTGCAATCTTGCGAACCGATCCTAATAACTAGGAGCCAAACAAAACAAC
+CACACATAGATAGAGGCTCTGTAGCCACTTACGAGTACATCTCGAGCCATTTTTCGTTGG
+TCAGCGTCTGCGGCAGCCCGGACACCAGCGACACCAAGGGTGGCTGCATGTCCTCCCACA
+CCTTCTCGAAGTTGACCTTCAACACCAAAGCACCGGTTCAACGTCAGCAACAGGCAGGAT
+GCGAAACACGTAGCTGTCCCTTCGTGTCTCTCTCGCTCTCATAAAAGACACACGCGCGTA
+TACGCACACGCACACGCACCGTGGAGCTTTTGAGCAGCGACATCTCTCGTTTCCCTTGCG
+CCGAGCGGTCGCTCCGTCTTGATCTCGAGCGTGCGGAATCGAGAGTAGCGCCGTTTTGAG
+CTGTAGTTTCTCTTCAACTGCTACTTTTTCATTCGCAGCCACAAACTCCCACTATATTAC
+AATTCTATGATGCAGAATGATTGTTTCGTTGTTGGGAGCAAAAATGACGACAACAGTATC
+ACAGAGCTGATGAGCAACGACGATGCGGCCGAGCTCGCGCACGTGGAGCAGGAGCTGCAA
+AGCATAGAGCAGGAGATCGCGTCGTTGCTGCGACGGCAGCGCTACCTCATCGAGAGGAAG
+CAGGAGCTGCAGGAGAGCCTGTCACTGGTGGAAGCAGCCGGAGAGAGAGCAGCCGAACAG
+GGCTGGAAGATAGAGTTTCCCTGGTCAGATCGTGTTCGAACGCTGTTGAAGGAACAGGTG
+CAAACATGTTGAGGTTGCTTTAAGGAGTTTATGCCGTTGTCTTACCTTGAACATGGCCAT
+GTGCGTTCATCTATGTGTGTCATTGCAGTTCCACCTGAAATCATTTCGGTCGGTGCAAGA
+AGAAGTGATCAATGCGACGCTCTCCAAGCGCGACACTTTCGTGATCATGCGATCCGGCGG
+TGGAAAAAGCCTTTGCTACCAGCTACCAGCGCTATACCATGAAGTATGGGAGTATTTGCT
+TTTGCAATGCAAGGCTTGCCAAACGGGAAGCATCATATGAGTGCTCACGTGTTGCTGATC
+TTTAGAATACTGGATATACAGTGGTCATTTCGCCACTGATTTCACTCATTCAAGATCAGG
+TAAGAAGTCTGTACAGCAGTTTGTGCATTTTAGTAAGTGATGATGCTTACAGCTGTCTAT
+TTCGTGTTTTGTTCGTGCAGGTTATGCTGTTCAACAATATCGCTGGCGATGGAGCAGCGC
+GTGAGCTTTGCGGAGACCAATCGCGTGCGGAAGCATCTGCAATCCACAAGGAGCTCGTCG
+ATCCACAGAGCAAGTTGAAGATTCTACTGGTGACGCCAGAAAAGATCATCAAAAGCAAGT
+TACTGATGTCACGCCTGGAAAAGACGTATCAAGCGGGACGGCTTCTTCGATTCGTGATTG
+ATGAGGCGCACTGCTGCAGCCAGTGGGGGCATGATTTCCGAAGTGTACGTTGACTAGCGC
+GACTTTCACCCGTTCTTCCCTCGTCTCAAGAGAATAATTGCCATAGCTGCTGCCCACTTG
+TAGGACTACTCCAAGCTTGGCATCCTGAAAAGACAGTTTCCGACGGTGCCGGTTTTGGCT
+CTTACTGCGACCGCGACGCCGCACCTTGTATCCGAAGTCAAGTCTATTCTAGAAATACCA
+AAGTGCGTATTCTTCCGCACGTCTTTCTTCAGGAAGAATCTGTTCTATGAGGTGTGGGCT
+ATATCTATCGTACGTGGGTGATGATCAGCGGCTGACTGTGCTAACATTGTGTTTGCTCCT
+TTATTGTACCGATTGCCAGGTTCTTGAGAAACCCGCAAAGGACGAAACAGCGATGAGTAT
+CTTAGTTACACTAGTCAAGTCGTTCTCACCTACCGACACCGGAATCGTGTACTGCCTCAC
+AAGAAAAGAAACGGAGCAAGTGGCTGCAGAACTTTGCAAGCACAACATCCGCGCCGCGTG
+CTATCACGCATATATGGAAGACAAAGAGCAGACTCACCAGTCCTGGGTTCACGATCGGCT
+CCAAGTTGTAGTTGCGACGATTGCCTTTGGGCTTGGAATTAACAAGCCTGATGTGCGCTT
+TGTTATTCACTTCACGCTGTCAAAGGTAAGTGCTTAGATACGTTTCGAAATGCGGTTGCT
+TTATCGTCTAATGCTTTTGATAGTCTATGGAAGGTTATTACCAAGAATCTGGCCGAGCTG
+GTCGCGACGGCAACCCTGCTCGATGCATCTTGATGTACAGAGCTTCAGATGTTATTCGAG
+TCAGCAATATTGTGCACGCTGAAACGGGAGGGATGCGAAATCTGAGGCTCATGATCGAGT
+ACGGCGAGGATCAAGTGCAGTGCAGACATGGTATCATGGCGAAATATTTCGAGTAAGTGG
+TCATTTCATATTGCATGCTTCACGTTATTAATGTCACTAATGCGTTAGTGTGAATGTGTG
+AAGAGAGGACTTTGATCATACCACGATGTGTGAGGAAACTTGCGACAATTGCAAGCAAGG
+TGAGGCTGATGTCGTCGATATTGACTACACTGAACATTCCAAGGCGATTGTTAGTGTTGT
+GACTGAAGCAAAGCGCCTGTAAGTACCACCCAAACCCGACTTGTTGTCCAGAGCGAGACT
+GTAATACTTCTGCTGTTGATTTGAAGGGAGAGGCGCTTGACGATGAAGCAGTTGGTTGAC
+GAGCTCAAATCGAAAAAAGTCATGCAGGAATGGACGTATCTGGAGCCTTCATTGGCGACA
+ATCACTCGAGACCAGTGCGATCGTCTGATAATCAATCTGCTCATCAAGTGAGTTCTCTTC
+ACAATGTTGCGAAAGTTGAGATTGGCCTTGCCAAATGACTTATTATCTGTTTGTTGCTTT
+GGATGCCAAAGAAACGTACTACAGCCAGAGATCAGCTACACCGCGTATAACACAATCTGC
+TACCTTGTCGCAGGTCCTTCTCATCGCCGACTGGCTTCCAATCAGCTCCTGATTGTGCTC
+AAACAGTCGGCATCTTTTACTGCAGCACCATCAGTACAGCGTGAATCCTCACGGCCTCGC
+AACCCCGCAAAGCAAAAGAAGCGGAAGCTCGCCGAGCCTCAGATCATAGACATCAGCGAC
+AGCGACTAAAAATTGTCAATAATTGTTGGAATGCCAGGGAAATTAATTTGAATTGTACAC
+CCCATCGAACTCCCACCTGTATTTTGTGGGTAATTGGGTGATCGGGTGTTTAACAGTCCA
+TATGTGACGCCATGGCATCACCATGGGTACCTTGAGGACGGGTCGGGTGGGTCTGATTTC
+CTAAAGACGTAAACAAACCCGCGAGCCGCTCAGGTTGAACCT

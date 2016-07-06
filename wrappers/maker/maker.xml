@@ -1,0 +1,194 @@
+<tool id="maker_wrap" name="MAKER" version="1.1">
+<!-- By Michael Li Feb 2014 -->
+	<description> Run MAKER annotation pipeline</description>
+	
+	<requirements>
+		<!--<requirement type="set_environment">PATH</requirement>-->
+        <requirement type="package" version="2.31.6">maker</requirement>
+        <requirement type="package" version="2.5">cegma</requirement>
+		<requirement type="package" version="3.0.2">augustus</requirement>
+		<requirement type="package" version="2013-11-29">snap</requirement>
+		<requirement type="package" version="2.2.28">rmblast</requirement>
+		<requirement type="package" version="4.0.3">repeatmasker</requirement>
+		<requirement type="package" version="2.2.0">exonerate</requirement>
+		<requirement type="package" version="5.18.1.1">perl</requirement>
+	</requirements>
+
+	<parallelism method="multi" split_inputs="genome" split_mode="to_size" split_size="1" merge_outputs="output_datastore,output_gff3,output_trans,output_protein,other_trans,other_protein"></parallelism>
+
+	<command interpreter="bash">
+		maker_wrap.sh $genome $maker_exe $maker_opts $maker_bopts $output_datastore $output_gff3 $output_trans $output_protein 
+		$other_trans $other_protein 
+		#if $genome_gff 
+		$genome_gff 
+		#else
+		"empty" 
+		#end if
+		#if $est
+		$est 
+		#else
+		"empty" 
+		#end if
+		#if $est_gff
+		$est_gff 
+		#else
+		"empty" 
+		#end if
+		#if $altest
+		$altest 
+		#else
+		"empty" 
+		#end if
+		#if $altest_gff
+		$altest_gff 
+		#else
+		"empty" 
+		#end if
+		#if $protein
+		$protein 
+		#else
+		"empty" 
+		#end if
+		#if $protein_gff
+		$protein_gff 
+		#else
+		"empty" 
+		#end if
+		#if $snaphmm
+		$snaphmm 
+		#else
+		"empty" 
+		#end if
+		#if $gmhmm
+		$gmhmm 
+		#else
+		"empty" 
+		#end if
+		#if $augustus_species
+		$augustus_species 
+		#else
+		"empty" 
+		#end if
+		#if $fgenesh_par_file
+		$fgenesh_par_file 
+		#else
+		"empty" 
+		#end if
+		#if $pred_gff
+		$pred_gff 
+		#else
+		"empty" 
+		#end if
+		#if $model_gff
+		$model_gff 
+		#else
+		"empty" 
+		#end if
+		#if $other_gff
+		$other_gff 
+		#else
+		"empty" 
+		#end if
+		#if $rmlib
+		$rmlib 
+		#else
+		"empty" 
+		#end if
+		#if $repeat_protein
+		$repeat_protein 
+		#else
+		"empty" 
+		#end if
+		#if $rm_gff
+		$rm_gff 
+		#else
+		"empty" 
+		#end if
+		$logfile
+	</command>
+
+	<inputs>
+		<!-- Genome to analyse -->
+		<param label="Genome File" name="genome" type="data" format="fasta" help="Specify the genome file you want to annotate. Galaxy will split this file to speed up the annotation process."/>
+
+		<!-- Maker control files -->
+		<param label="Provide maker_opts.ctl" name="maker_opts" type="data" format="txt" />
+		<param label="Provide maker_exe.ctl" name="maker_exe" type="data" format="txt" />
+		<param label="Provide maker_bopts.ctl" name="maker_bopts" type="data" format="txt" />
+
+		<!-- Start of optional evidence files -->
+		<!-- Reannotation -->
+		<param label="Annotation File from MAKER" name="genome_gff" type="data" format="gff3" optional="True"/>
+
+		<!-- EST evidence files -->
+		<param label="EST FASTA file" name="est" type="data" format="fasta" optional="True"/>
+		<param label="EST GFF3 file" name="est_gff" type="data" format="gff3" optional="True"/>
+		<param label="Alternate EST FASTA file" name="altest" type="data" format="fasta" optional="True"/>
+		<param label="Alternate EST GFF3 file" name="altest_gff" type="data" format="gff3" optional="True"/>
+		
+		<!-- Protein Homology evidence -->
+		<param label="Protein FASTA file" name="protein" type="data" format="fasta" optional="True"/>
+		<param label="Protein GFF file" name="protein_gff" type="data" format="gff3" optional="True"/>
+
+		<!-- Repeat Masking Evidence -->
+		<param label="Organism Specific Repeat Library in fasta format (RepeatMasker)" name="rmlib" type="data" format="fasta" optional="True" />
+		<param label="Provide a fasta file of transposable element proteins for RepeatRunner" name="repeat_protein" type="data" format="fasta" optional="True" />
+		<param label="Repeat elements in a GFF3 file" name="rm_gff" type="data" format="gff3" optional="True"/>
+	
+		<!-- Gene Prediction -->
+		<param label="SNAP HMM file" name="snaphmm" type="data" format="txt" optional="True"/>
+		<param label="GeneMark es.mod file" name="gmhmm" type="data" format="txt" optional="True"/>
+		<param label="Specify which Augustus Species Model to use" name="augustus_species" type="data" format="txt" help="Select file with name of folder."  optional="True" value=""/>
+		<param label="Fenesh parameter file" name="fgenesh_par_file" type="data" format="mod" optional="True"/>
+		<param label="Provide any additional predictions in a GFF3 file" name="pred_gff" type="data" format="gff" optional="True"/>
+		<param label="Provide any additional gene annotations in a GFF3 file" name="model_gff" type="data" format="gff" optional="True"/>
+
+		<param label="Provide any unsupported features to pass through in a GFF3 file" name="other_gff" type="data" format="gff" optional="True"/>
+		<!-- <param label="Do you want to save the unused predictions?" name="keep_all" type="select" display="radio" multiple="false" >
+			<option value="True">Yes</option>
+			<option value="False">No</option>
+		</param> -->
+	</inputs>
+
+	<outputs>
+		<data name="output_datastore" format="tabular" label="Individual contig results on ${on_string}" />
+                <data name="output_gff3" format="gff" label="Final annotation result on ${on_string}" />
+                <data name="output_trans" format="fasta" label="Final predicted transcripts set on ${on_string}" />
+                <data name="output_protein" format="fasta" label="Final predicted protein set on ${on_string}" />
+		<!--the filter feature do not currently work in galaxy-->
+		<data name="other_trans" format="fasta" label="Unused predicted transcripts on ${on_string}" >
+			<!--<filter>keep_all is True</filter>-->
+		</data>
+		<data name="other_protein" format="fasta" label="Unused predicted proteins on ${on_string}" >
+			<!--<filter>keep_all is True</filter> -->
+		</data>
+                <data name="logfile" format="txt" label="Maker log on ${on_string}" />
+	</outputs>
+
+	<stdio>
+		<regex match="No such file"
+		       source="both"
+                       level="warning" />
+		<regex match="ERROR"
+		       source="both"
+		       level="warning" /> <!-- some errors are actually warnings-->
+	</stdio>
+
+	<tests>
+	<test>
+		<param name="genome" value="genome.fasta"/>
+		<param name="maker_opts" value="maker_opts.ctl"/>
+		<param name="maker_exe" value="maker_exe.ctl"/>
+		<param name="maker_bopts" value="maker_bopts.ctl"/>
+		<param name="est" value="est.fasta"/>
+		<param name="protein" value="protein.fasta"/>
+		<param name="snaphmm" value="snap.hmm"/>
+		<output name="output_datastore" file="indiv_contig_results.txt"/>
+		<output name="output_gff3" file="annotation_result.gff"/>
+		<output name="output_trans" file="transcripts_result.fasta"/>
+		<output name="output_protein" file="proteins_result.fasta"/>
+	</test>
+	</tests>
+
+	<readme>This is the wrapper tool for MAKER v2.10.</readme>
+</tool>

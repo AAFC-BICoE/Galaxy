@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<tool_dependency>
+	<package name="cutadapt" version="1.8.1">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url">http://pypi.python.org/packages/source/c/cutadapt/cutadapt-1.8.1.tar.gz#md5=bcc9cc9d5ac5c8fc5bf91aad42fa7f82</action>
+				<action type="shell_command">python2.7 setup.py install --user</action>
+				<action type="shell_command">ls</action>
+				<action type="shell_command">mv * $INSTALL_DIR</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+				</action>
+			</actions>
+		</install>
+	</package>
+</tool_dependency>

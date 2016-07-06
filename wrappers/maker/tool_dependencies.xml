@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="perl" version="5.18.1.1">
+        <repository name="package_perl_5_18" owner="jacob" prior_installation_required="True" changeset_revision="5254bb93f37f" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="cegma" version="2.5">
+        <repository name="cegma" owner="jacob" prior_installation_required="True" changeset_revision="698be20367e7" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="augustus" version="3.0.2">
+        <repository name="augustus" owner="jacob" prior_installation_required="True" changeset_revision="1cf5b03e3bd7" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="snap" version="2013-11-29">
+        <repository name="snap" owner="jacob" prior_installation_required="True" changeset_revision="abc329cc28a2" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="rmblast" version="2.2.28">
+        <repository name="package_rmblast_2_2_28" owner="jacob" prior_installation_required="True" changeset_revision="4a84431dd756" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="repeatmasker" version="4.0.3">
+        <repository name="package_repeatmasker_4_0_3" owner="jacob" prior_installation_required="True" changeset_revision="637e9b2d811c" toolshed="http://onottar674154x:9009"/>
+    </package>
+
+    <package name="exonerate" version="2.2.0">
+        <repository name="exonerate" owner="jacob" prior_installation_required="True" changeset_revision="421d57930c59" toolshed="http://onottar674154x:9009"/>
+    </package>
+    
+    <package name="boost" version="1.55.0">
+        <repository changeset_revision="4f3d3418c861" name="package_boost_1_55_0" owner="jacob" prior_installation_required="True" toolshed="http://onottar674154x:9009" />
+    </package>
+
+    <package name="maker" version="2.31.6">
+        <install version="1.0">
+            <actions>
+                <!-- download must be the first action, otherwise the file disappears after downloading OR it downloads and decompress but don't cd into it-->
+               <action type="download_by_url">http://yandell.topaz.genetics.utah.edu/maker_downloads/F7BF/36D9/5A75/F93993D356C3396F722AD07D8B52/maker-2.31.6.tgz</action>
+               <action type="set_environment_for_install">
+                    <repository name="snap" owner="jacob" changeset_revision="abc329cc28a2" toolshed="http://onottar674154x:9009">
+                        <package name="snap" version="2013-11-29" />
+                    </repository>
+                </action>
+                <action type="set_environment_for_install">
+                    <repository name="augustus" owner="jacob" changeset_revision="1cf5b03e3bd7" toolshed="http://onottar674154x:9009">
+                        <package name="augustus" version="3.0.2" />
+                    </repository>
+                </action> 
+                <action type="set_environment_for_install">
+                    <repository name="package_repeatmasker_4_0_3" owner="jacob" changeset_revision="637e9b2d811c" toolshed="http://onottar674154x:9009">
+                        <package name="repeatmasker" version="4.0.3" />
+                    </repository>
+                </action>
+                <action type="set_environment_for_install">
+                   <repository name="package_perl_5_18" owner="jacob" changeset_revision="5254bb93f37f" toolshed="http://onottar674154x:9009">
+                    <package name="perl" version="5.18.1.1" />
+                   </repository>
+                </action>
+
+ <action type="set_environment_for_install">
+                   <repository name="package_rmblast_2_2_28" owner="jacob" changeset_revision="4a84431dd756" toolshed="http://onottar674154x:9009">
+                    <package name="rmblast" version="2.2.28" />
+                   </repository>
+                </action>
+
+               <action type="set_environment_for_install">
+                   <repository name="exonerate" owner="jacob" changeset_revision="421d57930c59" toolshed="http://onottar674154x:9009">
+                    <package name="exonerate" version="2.2.0" />
+                   </repository>
+                </action>
+
+
+              <!-- In case Maker's own set-up does not automatically install Perl modules from CPAN properly on your environment, uncomment and modify the tag below to accommodate its installations, then comment out the tag above. --> 
+      <!--          <action type="setup_perl_environment">
+                        <repository changeset_revision="968d458ebe40"  name="package_perl_5_18" owner="jacob" toolshed="http://onottar669810x:9090">
+                            <package name="perl" version="5.18.1" />
+                        </repository> -->
+<!-- <package>Module::Build</package>
+</action> -->
+
+<action type="shell_command">
+                    eval $(perl -I$PERL_ROOT_DIR/lib/perl5 -Mlocal::lib=$PERL_ROOT_DIR);
+                    HOME=$PERL_ROOT_DIR cpanm --self-contained --notest ExtUtils::MakeMaker
+                    HOME=$PERL_ROOT_DIR cpanm --self-contained Text::Soundex Bit::Vector IO::All Perl::Unsafe::Signals Want forks forks::shared File::Which DBI DBD::SQLite Carp LWP::Simple Test::Most URI::Escape YAML Scalar::Util URI::Escape;
+                    HOME=$PERL_ROOT_DIR cpanm --self-contained --notest Bio::Root::Version IO::Prompt Inline::C;
+                </action>
+                
+
+
+
+<!-- <action type="shell_command">sed "1s/.*/#!$PERL_LOCATION_PLACE/" ./src/Build.PL </action>
+-->
+<!-- <action type="shell_command">cat ./src/Build.PL</action>
+                <action type="shell_command">echo "n"  | perl ./src/Build.PL</action>  
+                <action type="shell_command">echo $'y\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\n' | ./src/Build installdeps</action> 
+         -->
+
+<action type="shell_command">echo "n" | perl ./src/Build.PL</action> 
+
+       <action type="shell_command">./src/Build install</action>
+                <action type="move_directory_files">
+                    <source_directory>.</source_directory>
+                    <destination_directory>$INSTALL_DIR</destination_directory>
+                </action> 
+<!-- <action type="shell_command">echo "n" </action>
+    -->            <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>           
+                <action type="set_environment">
+                    <environment_variable name="MAKERPATH" action="set_to">$INSTALL_DIR</environment_variable>
+                </action> 
+             </actions>
+        </install>
+        <readme>
+
+============================
+Maker Tool Dependencies File
+============================
+
+This file automatically installs Maker.
+
+Maker depends on other program, they are installed in separate packages
+They are: SNAP, Augustus, NCBI Blast+ with RM blast, Exonerate, Repeatmasker (with TRF and RM blast)
+Maker will also install some Perl packages with cpan. 
+This means it needs to be able to write to the .cpan directory in the hosting user's home directory.
+
+Currently, a few of these tools (Blast, TRF, Exonerate) are configured only for linux-64 systems.
+Other systems might be supported in the future.
+
+=======
+Authors
+=======
+
+Original authors for Maker: Yandell Lab
+Department of Human Genetics - University of Utah
+
+Galaxy port authors for Maker: 
+AAFC-MBB Group
+
+=============
+Tool Wrappers
+=============
+
+Maker:
+
+Runs Maker Annotation.
+Select maker_opts.tcl, maker_exe.ctl, and maker_bopts.ctl which were generated from the Configure Maker tool.
+Optional: Select EST and protein file, training files for augustus, SNAP, or Genemark, and any additional GFF predictions or annotations.
+Outputs 7 files including the GFF annotations, proteins FASTA, and transcripts FASTA.
+
+Configure Maker:
+
+Configures the .ctl files for running Maker.
+Select all of the options for configuring maker_opts.ctl.
+Outputs maker_opts.ctl, maker_bopts.ctl, and maker_exe.ctl.
+
+Train Augustus:
+
+Trains a species with Augustus.
+Select a source for the file to be trained. Available options are Maker or CEGMA.
+Select the gff file for the training, enter the name of the species to be trained, then select the genome FASTA file for the species.
+Output on Galaxy only indicates whether or not the training succeeded and the exit code. Actual output is in
+{Galaxy Tool Dependency}/augustus/3.0.2/jacob/augustus/{hash}/config/species/{Species Name}/
+
+MAKER to SNAP ZFF:
+
+Converts Maker output to ZFF files
+Select whether Maker files used will be from an index datastore file or from a GFF, then Select the datastore or GFF accordingly. Select whether all genes are accepted, and if not, enter the parameters for selectively accepting genes.
+Generates a .dna and .ann file for training SNAP.
+
+CEGMA to ZFF:
+
+Converts CEGMA output to ZFF files
+Select CEGMA annotation and genome.
+Generates a .dna and .ann file for training.
+
+Merge GFF3 Files:
+
+Merges multiple GFF files together.
+Select GFF files to merge, add more selections if necessary. Check whether or not to only write Maker genes, leaving out the FASTA footers, and ignoring features seen more than once for a contig.
+
+========
+Citation
+========
+
+The links below can be useful for citations in scientific works:
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2134774/
+http://www.biomedcentral.com/1471-2105/12/491
+
+        </readme>
+    </package>
+</tool_dependency>

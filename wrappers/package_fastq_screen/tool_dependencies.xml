@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<tool_dependency>
+
+	<package name="perl" version="5.18.1.1">
+		<repository name="package_perl_5_18" owner="jacob" prior_installation_required="True" changeset_revision="a000869a4424" toolshed="http://onottar674154x:9009"/>
+	</package>
+	
+	<package name="bowtie2" version="2.2.5">
+		<repository name="package_bowtie" owner="jacob" prior_installation_required="True" changeset_revision="bba932500081" toolshed="http://onottar674154x:9009"/>
+	</package>
+		
+	<package name="fq_screen" version="0.4.4.1">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url">http://www.bioinformatics.babraham.ac.uk/projects/fastq_screen/fastq_screen_v0.4.4.tar.gz</action>
+				<action type="set_environment_for_install">
+					<repository name="package_perl_5_18" owner="jacob" changeset_revision="a000869a4424" toolshed="http://onottar674154x:9009">
+						<package name="perl" version="5.18.1.1" />
+					</repository>
+				</action>
+				<action type="shell_command">sed "1s/.*/\#\!\/usr\/bin\/env perl/" fastq_screen > a.pl  </action>
+				<action type="shell_command">rm fastq_screen</action>
+				<action type="shell_command">mv a.pl fastq_screen</action>
+				<action type="shell_command"> chmod a+x fastq_screen</action>
+				<action type="shell_command">mv * $INSTALL_DIR</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+				</action>
+			</actions>
+		</install>
+	</package>
+</tool_dependency>

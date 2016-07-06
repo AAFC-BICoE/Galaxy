@@ -1,0 +1,232 @@
+<tool id="augustus" name="Augustus" version="1.0.0">
+  <description>Gene prediction tool for eukaryotes</description>
+ <requirements>
+    <requirement type="package" version="1.0.6">bzlib</requirement>
+    <requirement type="package" version="1.55.0">boost</requirement>
+    <requirement type="package" version="3.0.2">augustus</requirement>
+ </requirements>
+  <command> augustus --species=$species
+	--strand=$strand
+	--genemodel=$genemodel
+	$singlestrand
+	#if $hints.hintsboolean == 1 <!-- NOTE HOW THIS WORKS!!! -->
+		--hintsfile=$hintsfile
+	#end if
+	
+	#if $excfg.excfgboolean == 1
+		--extrinsicCfgFile=$cfgfilename
+	#end if
+	--protein=$protein
+	--introns=$introns
+	--start=$start
+	--stop=$stop
+	--cds=$cds
+	--alternatives-from-evidence=$altevi
+	
+	#if $altsap.altsapboolean == 1
+	--alternatives-from-sampling=true
+	--sample=$altsap.sample
+	--minexonintronprob=$altsap.minexonintronprob
+	--minmeanexonintronprob=$altsap.minmeanexonintronprob
+	--maxtracks=$altsap.maxtracks
+	#end if
+	
+	--noInFrameStop=$noifs
+	--noprediction=$np
+	--contentmodels=$cm
+	
+	--outfile=$out
+	$in 
+        </command>
+	<inputs>
+		<!-- Flags still need to support: proteinprofile, predictionstart/end -->
+		<param name="species" type="text" label="Species" value="human"
+  		help="Specify species for training. You MUST specify a valid species from the list below, using indentifier"/>
+		<param name="in" type="data" format="fasta" label="Genome in FASTA format"/>
+		<param name="strand" type="select" label="Strand" 
+			help="Report predicted genes on both strands, just the forward or just the backward strand." >
+		<option value="both" selected="true">Both</option>
+		<option value="forward">Forward</option>
+		<option value="backward">Backward</option>
+		</param>
+
+		<param name="genemodel" type="select" label="Gene Model" 
+			help="See below for explaination">
+		<option value="partial" selected="true">Partial</option>
+		<option value="intronless">Intronless</option>
+		<option value="complete">Complete</option>
+		<option value="atleastone">At least one</option>
+		<option value="exactlyone">Exactly one</option>
+		</param>
+
+		<param name="singlestrand" type="boolean" label="Single strand" truevalue="--singlestrand=true" falsevalue="" checked="false" 
+			help="Predict genes independently on each strand, allow overlapping genes on opposite strands."/>
+
+		<conditional name="hints">
+		<param name="hintsboolean" type="boolean" label="Use hints file?" truevalue="true" falsevalue="false" checked="false">
+		</param>
+
+		<when value="true">
+			<param name="hintsfile" type="data" format="gff" label="Hints file"
+			help="File containing extrinsic information in gff format (optional)"/>
+
+		</when>
+		</conditional>
+
+		<conditional name="excfg">
+		<param name="excfgboolean" type="boolean" label="Use extrinsic CFG file?" truevalue="true" falsevalue="false" checked="false" help="If none provided, Augustus will use its default file">
+		</param>
+
+		<when value="true">
+			<param name="cfgfilename" type="data" format="cfg" label="Extrinsic CFG file"
+			help="File contains the list of used sources for the hints and their boni and mali (optional)"/>
+
+		</when>
+		</conditional>
+		<param name="protein" type="boolean" label="Protein" truevalue="on" falsevalue="off" checked="true" 
+			help="Output predicted protein sequence"/>
+		<param name="introns" type="boolean" label="Introns" truevalue="on" falsevalue="off" checked="true" 
+			help="Output predicted introns"/>
+		<param name="start" type="boolean" label="Start codons" truevalue="on" falsevalue="off" checked="true" 
+			help="Output predicted start codons"/>
+		<param name="stop" type="boolean" label="Stop codons" truevalue="on" falsevalue="off" checked="true" 
+			help="Output predicted stop codons"/>
+		<param name="cds" type="boolean" label="CDS" truevalue="on" falsevalue="off" checked="true" 
+			help="Output predicted coding sequence, does not include stop codon. (NOT SURE WHAT THIS DOES RIGHT NOW)"/>
+		<param name="altevi" type="boolean" label="Alternate from evidence" truevalue="true" falsevalue="false" checked="true" 
+			help="Report alternative transcripts when they are suggested by hints"/>
+
+		<conditional name="altsap">
+		<param name="altsapboolean" type="boolean" label="Alternate from sampling" truevalue="true" falsevalue="false" checked="false" 
+			help="Report alternative transcripts generated through probabilistic sampling">
+		</param>
+
+		<when value="true">
+			<param name="sample" type="integer" label="Number of sampling iterations" value="100" min="0"
+			help="See help section Sampling: Alternative transcripts and posterior probabilities"/>
+
+			<param name="minexonintronprob" type="float" label="Minimum exon/intron posterior probability" value="0.1" min="0" max="1"
+			help="See help section Sampling: Alternative transcripts and posterior probabilities"/>
+
+			<param name="minmeanexonintronprob" type="float" label="Minimum geometric mean exon/intron posterior probability" value="0.4" min="0" max="1"
+			help="See help section Sampling: Alternative transcripts and posterior probabilities"/>
+
+			<param name="maxtracks" type="integer" label="Max tracks" value="-1"
+			help="Maximum number of tracks when displayed in a genome browser, use -1 for no limit"/>
+
+		</when>
+		</conditional>
+
+		<param name="noifs" type="boolean" label="No in frame stop" truevalue="true" falsevalue="false" checked="false" 
+			help="If selected, don't report transcripts with in-frame stop codons. Otherwise, intron-spanning stop codons could occur."/>
+		<param name="np" type="boolean" label="No prediction" truevalue="true" falsevalue="false" checked="false" 
+			help="If selected and input is in genbank format, no prediction is made. Useful for getting the annotated protein sequences."/>
+		<param name="cm" type="boolean" label="Content models" truevalue="on" falsevalue="off" checked="true" 
+			help="If not selected, the content models are disabled (all emissions uniformly 1/4). The content models are; coding region Markov chain
+  (emiprobs), initial k-mers in coding region (Pls), intron and intergenic regin Markov chain. This option is intended for
+  special applications that require judging gene structures from the signal models only, e.g. for predicting the effect of
+  SNPs or mutations on splicing. For all typical gene predictions, this should be true."/>
+		
+		
+	</inputs>
+
+	<outputs>
+     	   <data format="txt" name="out" label="augustus gene prediction on ${on_string}">
+     	   </data>
+	</outputs>
+
+
+
+	<help>
+
+<!-- Might need to add help text regarding posterior probability and sampling-->
+
+AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences.
+
+Available species::
+
+  identifier                               | species
+  -----------------------------------------|----------------------
+  human                                    | Homo sapiens
+  fly                                      | Drosophila melanogaster
+  arabidopsis                              | Arabidopsis thaliana
+  brugia                                   | Brugia malayi
+  aedes                                    | Aedes aegypti
+  tribolium                                | Tribolium castaneum
+  schistosoma                              | Schistosoma mansoni
+  tetrahymena                              | Tetrahymena thermophila
+  galdieria                                | Galdieria sulphuraria
+  maize                                    | Zea mays
+  toxoplasma                               | Toxoplasma gondii
+  caenorhabditis                           | Caenorhabditis elegans
+  (elegans)                                | Caenorhabditis elegans 
+  aspergillus_fumigatus                    | Aspergillus fumigatus
+  aspergillus_nidulans                     | Aspergillus nidulans
+  (anidulans)                              | Aspergillus nidulans
+  aspergillus_oryzae                       | Aspergillus oryzae
+  aspergillus_terreus                      | Aspergillus terreus
+  botrytis_cinerea                         | Botrytis cinerea
+  candida_albicans                         | Candida albicans
+  candida_guilliermondii                   | Candida guilliermondii
+  candida_tropicalis                       | Candida tropicalis
+  chaetomium_globosum                      | Chaetomium globosum
+  coccidioides_immitis                     | Coccidioides immitis
+  coprinus                                 | Coprinus cinereus
+  coprinus_cinereus                        | Coprinus cinereus
+  coyote_tobacco                           | Nicotiana attenuata
+  cryptococcus_neoformans_gattii           | Cryptococcus neoformans gattii
+  cryptococcus_neoformans_neoformans_B     | Cryptococcus neoformans neoformans
+  cryptococcus_neoformans_neoformans_JEC21 | Cryptococcus neoformans neoformans
+  (cryptococcus)                           | Cryptococcus neoformans
+  debaryomyces_hansenii                    | Debaryomyces hansenii
+  encephalitozoon_cuniculi_GB              | Encephalitozoon cuniculi
+  eremothecium_gossypii                    | Eremothecium gossypii
+  fusarium_graminearum                     | Fusarium graminearum
+  (fusarium)                               | Fusarium graminearium
+  histoplasma_capsulatum                   | Histoplasma capsulatum
+  (histoplasma)                            | Histoplasma capsulatum
+  kluyveromyces_lactis                     | Kluyveromyces lactis
+  laccaria_bicolor                         | Laccaria bicolor
+  lamprey                                  | Petromyzon marinus
+  leishmania_tarentolae                    | Leishmania tarentolae
+  lodderomyces_elongisporus                | Lodderomyces elongisporus
+  magnaporthe_grisea                       | Magnaporthe grisea
+  neurospora_crassa                        | Neurospora crassa
+  (neurospora)                             | Neurospora crassa
+  phanerochaete_chrysosporium              | Phanerochaete chrysosporium
+  (pchrysosporium)                         | Phanerochaete chrysosporium
+  pichia_stipitis                          | Pichia stipitis
+  rhizopus_oryzae                          | Rhizopus oryzae
+  saccharomyces_cerevisiae_S288C           | Saccharomyces cerevisiae
+  saccharomyces_cerevisiae_rm11-1a_1       | Saccharomyces cerevisiae
+  (saccharomyces)                          | Saccharomyces cerevisiae
+  schizosaccharomyces_pombe                | Schizosaccharomyces pombe
+  thermoanaerobacter_tengcongensis         | Thermoanaerobacter tengcongensis
+  trichinella                              | Trichinella spiralis
+  ustilago_maydis                          | Ustilago maydis
+  (ustilago)                               | Ustilago maydis
+  yarrowia_lipolytica                      | Yarrowia lipolytica
+  nasonia                                  | Nasonia vitripennis
+  tomato                                   | Solanum lycopersicum
+  chlamydomonas                            | Chlamydomonas reinhardtii
+  amphimedon                               | Amphimedon queenslandica
+  pneumocystis                             | Pneumocystis jirovecii
+  wheat                                    | Triticum aestivum
+  chicken                                  | Gallus gallus
+
+The identifiers in parentheses denote older versions for that species.
+
+Gene models::
+
+  partial      : allow prediction of incomplete genes at the sequence boundaries (default)
+  intronless   : only predict single-exon genes like in prokaryotes and some eukaryotes
+  complete     : only predict complete genes
+  atleastone   : predict at least one complete gene
+  exactlyone   : predict exactly one complete gene
+
+Note: some combinations of the choices are not valid and will result in error.
+
+	</help>
+
+
+</tool>

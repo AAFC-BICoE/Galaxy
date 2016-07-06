@@ -1,0 +1,30 @@
+<tool id="cegma2zff" name="CEGMA to ZFF" version="1.0">
+	<description>Convert CEGMA output to ZFF format</description>
+
+	<requirements>
+                <requirement type="package" version="2.31.6">maker</requirement>
+ 		<requirement type="package" version="5.18.1.1">perl</requirement>
+        </requirements>
+
+	<command>
+		cegma2zff $cegmagff $genome;
+		mv genome.ann $ann;
+		mv genome.dna $dna;
+	</command>
+	<inputs>
+		<param name="cegmagff" label="GFF output from CEGMA" type="data" format="gff" />
+		<param name="genome" label="Genome" type="data" format="fasta" />
+	</inputs>
+
+	<outputs>
+		<data name="ann" label=".ann file on ${on_string}" format="txt" />
+		<data name="dna" label=".dna file on ${on_string}" format="fasta" />
+	</outputs>
+	<stdio>
+		<regex match="Use of uninitialized value" source="stderr" level="warning" 
+		       description="Use of uninitialized division, should still work."/>
+		<regex match="ERROR" source="stderr" level="fatal" />
+	</stdio>
+	<help>This tool will help convert CEGMA's annotation result into ZFF format for training SNAP. Use this only for CEGMA output. Consider using maker2zff for others.</help>
+</tool>
+		

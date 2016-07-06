@@ -1,0 +1,71 @@
+<tool id="maker2zff" name="MAKER to SNAP ZFF" version="0.0.1">
+	<description>Convert files to SNAP's ZFF format</description>
+
+	<requirements>
+                <requirement type="package" version="2.31.6">maker</requirement>
+		<requirement type="package" version="3.0.2">augustus</requirement>
+		<requirement type="package" version="2013-11-29">snap</requirement>
+		<requirement type="package" version="2.2.28">rmblast</requirement>
+		<requirement type="package" version="4.0.3">repeatmasker</requirement>
+		<requirement type="package" version="2.2.0">exonerate</requirement>
+ 		<requirement type="package" version="5.18.1.1">perl</requirement>
+        </requirements>
+
+	<command interpreter="bash">
+		maker2zff_wrap.sh $ann $dna
+		#if $filter.accept_all == "1"
+			-n
+		#else
+			-c $filter.c -e $filter.e -o $filter.o -a $filter.a -t $filter.t -l $filter.l -x $filter.x
+		#end if
+		#if $check.mode == "0"
+			#for $i, $obj in enumerate( $gffs )
+				$obj.gff
+			#end for
+		#else
+			$index
+		#end if
+	</command>
+	<inputs>
+		<conditional name="check">
+			<param name="mode" label="Will you be providing a MAKER index datastore file?" type="select" multiple="false">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</param>
+
+			<when value="1">
+				<param name="index" label="Provide Datastore Index:" type="data" format="tabular" />
+			</when>
+			
+			<when value="0">
+				<repeat name="gffs" title="GFF3 Files" min="1">
+					<param name="gff" label="Add gff" type="data" format="gff"/>
+				</repeat>
+			</when>
+		</conditional>
+
+		<conditional name="filter">
+			<param name="accept_all" label="Do you want to accept all genes?" type="select" multiple="false">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</param>
+
+			<when value="0">
+				<param name="c" label="Fraction of splice sites confirmed by EST alignment" type="float" value="0.5" min="0" max="1.0" help="A value between 0 and 1. Default is 0.5" />
+				<param name="e" label="Fraction of exons that overlap an EST alignment" type="float" value="0.5" min="0" max="1.0" help="A value between 0 and 1. Default is 0.5" />
+				<param name="o" label="Fraction of exons that overlap any evidence (EST or Protein)" type="float" value="0.5" min="0" max="1.0" help="A value between 0 and 1. Default is 0.5" />
+				<param name="a" label="Fraction of splice sites confirmed by ab-initio prediction" type="float" value="0" min="0" max="1.0" help="A value between 0 and 1. Default is 0" />
+				<param name="t" label="Fraction of exons that overlap an ab-initio prediction" type="float" value="0" min="0" max="1.0" help="A value between 0 and 1. Default is 0" />
+				<param name="l" label="Min length of the protein sequence produced by the mRNA" type="integer" value="75" min="0" max="9000000" help="Any positive integer. Default is 75." />
+				<param name="x" label="Max AED to allow" type="float" value="0.5" min="0" max="1.0" help="A value between 0 and 1. A lower value indicates a higher confidence. Default is 0.5" />
+			</when>
+		</conditional>
+	</inputs>
+
+	<outputs>
+		<data name="ann" label=".ann file" format="txt" />
+		<data name="dna" label=".dna file" format="fasta" />
+	</outputs>
+	<help>This tool will help convert MAKER's annotation result into SNAP's ZFF format for training SNAP. You can choose to provide the datastore index (also known as the Individual Contig Results file) or provide GFF3 files. You can also set the threshold to ensure that only high confidence annotations are passed to the training set.</help>
+</tool>
+		

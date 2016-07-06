@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="rmblast" version="2.2.28">
+        <install version="1.0">
+            <actions>
+		<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-x64-linux.tar.gz</action>
+		<action type="shell_command">echo "blast";ls</action>
+                <action type="change_directory">..</action>
+		<!--<action type="download_by_url">ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-2.2.28-x64-linux.tar.gz</action> apparently this time it will not auto cd in ?-->
+		<action type="shell_command">wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-2.2.28-x64-linux.tar.gz</action>
+		<action type="shell_command">tar -xvzf ncbi-rmblastn-2.2.28-x64-linux.tar.gz</action>
+		<action type="shell_command">echo "rmblast";ls</action>
+                <!-- <action type="change_directory">..</action> -->
+                <action type="shell_command">cp -R ncbi-rmblastn-2.2.28/* ncbi-blast-2.2.29+/</action>
+		<action type="move_directory_files">
+			<source_directory>ncbi-blast-2.2.29+/bin</source_directory>
+			<destination_directory>$INSTALL_DIR/bin</destination_directory>
+		</action>
+		<action type="move_file">
+			<source>ncbi-blast-2.2.29+/ncbi_package_info</source>
+			<destination>$INSTALL_DIR</destination>
+		</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+==============================
+RMBlast Tool Dependencies File
+==============================
+
+This file automatically installs RMBlast.
+RMBlast is a version of NCBI BLAST that is made to be compatible with RepeatMasker.
+
+=======
+Authors
+=======
+
+Original author for RMBlast:
+Arian Smit - Institute for Systems Biology
+Robert Hubley - Institute for Systems Biology
+
+Galaxy port authors for RMBlast: 
+AAFC-MBB Group
+
+        </readme>
+    </package>
+</tool_dependency>
+

@@ -1,0 +1,75 @@
+<tool_dependency>
+    <package name="perl" version="5.18.1">
+        <install version="1.0">
+            <actions>
+
+                <!-- install perl -->
+                <action type="download_by_url">http://www.cpan.org/src/5.0/perl-5.18.1.tar.gz</action>
+                <action type="shell_command">./Configure -Dusethreads -des -Dprefix=$INSTALL_DIR</action>
+                <action type="shell_command">make || true</action>
+                <action type="shell_command">make clean</action>
+                <action type="shell_command">make</action>
+                <!-- <action type="shell_command">make test</action> -->
+                <action type="shell_command">make install</action>
+                <!-- <action type="make_install" /> -->
+                <action type="change_directory">..</action>
+                <action type="download_file">http://www.cpan.org/authors/id/A/AP/APEIRON/local-lib-1.008009.tar.gz</action>
+                <action type="shell_command">tar xfvz local-lib-1.008009.tar.gz</action>
+                <action type="change_directory">local-lib-1.008009</action>
+                <!-- Here we need to use the new installed perl binary -->
+                <action type="shell_command">$INSTALL_DIR/bin/perl Makefile.PL --bootstrap=$INSTALL_DIR --no-manpages</action>
+                <action type="shell_command">make install</action>
+                
+                <!-- <action type="shell_command">eval $(perl -I$INSTALL_DIR/lib/perl5 -Mlocal::lib=$INSTALL_DIR)</action> -->
+                <!-- note the eval line above needs to be included *with* (not separate from) any 'cpanm' install commands or else
+                        it will attempt to install in e.g. /opt/perl instead of within the galaxy/tool-dep/.../perl/... folders. -->
+                <!-- official local::lib docs (http://search.cpan.org/~haarg/local-lib-2.000015/lib/local/lib.pm) say:
+                     echo '[ $SHLVL -eq 1 ] && eval "$(perl -I$HOME/foo/lib/perl5 -Mlocal::lib=$HOME/foo)"' >>~/.bashrc
+                     -->
+
+                <!-- install cpanminus into our new perl environment -->
+                <action type="change_directory">..</action>
+                <action type="download_file">https://raw.github.com/miyagawa/cpanminus/c0c88f71118ecec334d62ba280e883933e7a6d39/cpanm</action>
+                <!-- prepanding means that the new install perl binary will be used after the pipe -->
+                <action type="shell_command">
+                    export PERL5LIB=$INSTALL_DIR/lib/perl5:$INSTALL_DIR/lib/perl5/x86_64-linux:$PERL5LIB; 
+                    export PATH=$INSTALL_DIR/bin/:$PATH;
+                    eval $(perl -I$INSTALL_DIR/lib/perl5 -Mlocal::lib=$INSTALL_DIR)
+                    export HOME=$INSTALL_DIR;
+                    cat cpanm | perl - App::cpanminus; 
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                    <environment_variable name="PERL5LIB" action="prepend_to">$INSTALL_DIR/lib/perl5:$INSTALL_DIR/lib/perl5/x86_64-linux</environment_variable>
+                    <environment_variable name="PERL_ROOT_DIR" action="set_to">$INSTALL_DIR</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>
+===========================
+Perl Tool Dependencies File
+===========================
+
+This file automatically installs Perl.
+
+            Perl 5 is a highly capable, feature-rich programming language with over 25 years of development.
+            http://www.perl.org/
+            
+            This repository contains local-lib and cpanm in addition.
+            It is recommended to use something like "cpanm --local-lib=$PERL_ROOT_DIR XML::Parser" to install additional perl modules.
+
+=======
+Authors
+=======
+
+Original author for Perl: Larry Wall
+
+Galaxy port authors for Perl: 
+AAFC-MBB Group
+Modified from original by: Bjorn Gruening
+
+
+
+        </readme>
+    </package>
+</tool_dependency>

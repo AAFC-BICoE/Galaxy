@@ -1,0 +1,68 @@
+<tool_dependency>
+	<package name="perl" version="5.18.1.1">
+			<repository name="package_perl_5_18" changeset_revision="ed6c0c3a8efb" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
+	</package>
+	<package name="zlib" version="1.2.8" >
+		 <repository name="package_zlib_1_2_8" changeset_revision="d912838cfc84" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
+	</package>
+	<package name="quast" version="2.3">
+		<repository name="package_quast" changeset_revision="7b073d8afb0b" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
+	</package>
+	<package name="velvetk" version="1.0">
+		<repository name="package_velvetk" changeset_revision="01186f5e9633" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
+	</package>
+	<package name="velvet" version="1.2.10.1">
+		<install version="1.0">
+			<actions>
+				<action type="download_by_url">https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz</action>
+				 <action type="set_environment_for_install">
+                    			<repository name="package_zlib_1_2_8" owner="jacob" changeset_revision="d912838cfc84" toolshed="http://onottar674154x:9009">
+                        		<package name="zlib" version="1.2.8" />
+                    			</repository>
+                		</action>
+				<action type="set_environment_for_install">
+					<repository name="package_perl_5_18" owner="jacob" changeset_revision="ed6c0c3a8efb" toolshed="http://onottar674154x:9009">
+                    				<package name="perl" version="5.18.1.1" />
+                   			</repository>
+				</action>
+				<action type="shell_command">which python</action>
+				<action type="shell_command">which perl</action>
+				<action type="shell_command">
+                    			eval $(perl -I$PERL_ROOT_DIR/lib/perl5 -Mlocal::lib=$PERL_ROOT_DIR);
+                    			HOME=$PERL_ROOT_DIR cpanm --self-contained Test::Most URI::Escape YAML Scalar::Util List::Util Test::Fatal Fatal;
+                		</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=31' 'CATEGORIES=5' </action>
+				<action type="shell_command">ls</action>
+				<action type="shell_command">mv velvetg velvetg31</action>
+				<action type="shell_command">mv velveth velveth31</action>
+				<action type="shell_command">mv velvetg31 velveth31 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=63' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg63</action>
+				<action type="shell_command">mv velveth velveth63</action>
+				<action type="shell_command">mv velvetg63 velveth63 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=127' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg127</action>
+				<action type="shell_command">mv velveth velveth127</action>
+				<action type="shell_command">mv velvetg127 velveth127 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=145' 'CATEGORIES=5' </action>				
+				<action type="shell_command">mv velvetg velvetg145</action>
+				<action type="shell_command">mv velveth velveth145</action>
+				<action type="shell_command">mv velvetg145 velveth145 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=195' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg195</action>
+				<action type="shell_command">mv velveth velveth195</action>
+				<action type="shell_command">mv velvetg195 velveth195 $INSTALL_DIR</action>
+				<action type="shell_command">make 'MAXKMERLENGTH=245' 'CATEGORIES=5' </action>
+				<action type="shell_command">mv velvetg velvetg245</action>
+				<action type="shell_command">mv velveth velveth245</action>
+				<action type="shell_command">mv velvetg245 velveth245 $INSTALL_DIR</action>
+				<action type="set_environment">
+					<environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+				</action>
+			</actions>
+		</install>
+	<readme>
+		this is installer for velvet
+	</readme>
+	</package>
+</tool_dependency>

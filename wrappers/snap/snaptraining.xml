@@ -1,0 +1,38 @@
+<tool id="snaptrain" name="SNAP Training" version="1.0">
+  <description>Training program for SNAP</description>
+  <requirements>
+    <requirement type="package" version="2013-11-29">snap</requirement>
+  </requirements>
+  <command>    
+
+	fathom $ann $dna -gene-stats > $stats 2>&amp;1;
+	fathom $ann $dna -validate >> $stats 2>&amp;1;
+	fathom $ann $dna -categorize 1000;
+	fathom uni.ann uni.dna -export 1000 -plus;
+	mkdir params;
+	cd params;
+	forge ../export.ann ../export.dna;
+	cd ..;
+	hmm-assembler.pl mygenome params > $hmmout;
+
+        </command>
+	<inputs>
+		<param name="dna" type="data" format="fasta" label="ZFF dna file" />
+		<param name="ann" type="data" format="txt" label="ZFF ann file" />
+	</inputs>
+
+	<outputs>
+     	   <data format="txt" name="stats" label="ZFF validation for SNAP training on ${on_string}"/> 
+     	   <data format="txt" name="hmmout" label="SNAP training hmm output on ${on_string}"/> 
+	</outputs>
+
+<!--  need tests  -->
+
+	<help>
+
+This is a training program for SNAP. Require ZFF input (ex. genome.dna and genome.ann), which can be produced by maker's maker2zff or cegma2zff tool.
+
+	</help>
+
+
+</tool>

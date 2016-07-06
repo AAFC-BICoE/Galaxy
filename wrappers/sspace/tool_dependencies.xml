@@ -1,0 +1,25 @@
+<tool_dependency>
+	<package name="perl" version="5.18.1.1">
+		<!-- Perl must have multiple threads -->
+		<repository name="package_perl_5_18" changeset_revision="623739d90d67" prior_installation_required="True" owner="jacob" toolshed="http://onottar674154x:9009"/>
+	</package>
+	<package name="extra_perl" version="1.0">
+		<install>
+			<actions>
+				<action type="set_environment_for_install">
+				<repository name="package_perl_5_18" owner="jacob" changeset_revision="623739d90d67" toolshed="http://onottar674154x:9009">
+					<package name="perl" version="5.18.1.1" />
+				</repository>
+               			</action>
+				<action type="shell_command">
+                		    	eval $(perl -I$PERL_ROOT_DIR/lib/perl5 -Mlocal::lib=$PERL_ROOT_DIR);
+                		    	
+              				HOME=$PERL_ROOT_DIR cpanm --self-contained --notest Perl4::CoreLibs;
+				</action>
+				<action type="set_environment">
+                		    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                		</action>
+			</actions>
+		</install>	
+	</package>
+</tool_dependency>
