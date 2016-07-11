@@ -34,6 +34,56 @@ class irodsGetFiles:
 	def basicPath(self):
 		return "/" + self.zone + "/home/" + self.username
 
+
+def checkIfCollectionExists(dirName):
+	newIrods = irodsGetFiles()
+	sess = iRODSSession(host=newIrods.host,port=newIrods.port,user=newIrods.username,password=newIrods.pw,zone=newIrods.zone)
+	
+	if dirName[0] != '/':
+		dirName = '/' + dirName
+	if dirName[-1] == '/':
+		dirName = dirName[0:len(dirName)-1]
+	print "dirname when checking if collection exists: " + dirName
+	if dirName == '/' + newIrods.zone or dirName == '/' + newIrods.zone + "/home" or dirName == '/' + newIrods.zone + "/home/" + newIrods.username:
+		return True
+	query = sess.query(Collection).filter(Collection.name == dirName)
+	results = query.all()
+	if len(results) <= 0:
+		return False
+	return True
+
+
+def give_path_get_files(directory):
+	directory = str(directory)
+	newIrods = irodsGetFiles()
+	sess = iRODSSession(host=newIrods.host,port=newIrods.port,user=newIrods.username,password=newIrods.pw,zone=newIrods.zone)
+
+	result = checkIfCollectionExists(directory)
+	print result
+	#collection exists
+	
+	files = []
+	if result:
+		if directory[0] != '/':
+			directory = '/' + directory
+		if directory[-1] == '/':
+			directory = directory[0:len(directory)-1]
+		print "Before getting it as coll: " + directory
+		try:
+			coll = sess.collections.get(directory)
+		#print str(coll)
+		except:
+			coll = None
+		if coll != None:
+			for obj in coll.data_objects:
+				print obj.path
+				files.append((obj.path,obj.path,0))
+
+		
+	sess.cleanup()
+	return files
+				
+#all files in all directories in directory path.
 def get_n_filenames(directory):
 	#assume that we are starting from the top :/tempZone/home/rods/ and the user is typing directories underneath that.
 	#assume we show all directories from the top down to the directory typed by the user.
@@ -52,10 +102,12 @@ def get_n_filenames(directory):
 		if directory[-1] == '/':
 			directory = directory[:-1]
 		#check if it exists
+		if basicPath +'/' == directory:
+			directory = ''
 		if newIrods.zone + "/home/" + newIrods.username in directory:
 			directory = directory.replace(newIrods.zone + "/home/" + newIrods.username,'')
-		if directory[0] == '/':
-			directory = directory[1:]
+			if len(directory) > 0 and directory[0] == '/':
+				directory = directory[1:]
 		print directory		
 		directoryList = directory.split('/')
 		currentPath = "/"
@@ -91,8 +143,9 @@ def get_filenames(directory):
 			directory = directory[1:]
 		if newIrods.zone + "/home/" + newIrods.username in directory:
 			directory = directory.replace(newIrods.zone + "/home/" + newIrods.username,'')
-		if directory[0] == '/':
-			directory = directory[1:]
+			
+			if len(directory) > 0 and directory[0] == '/':
+				directory = directory[1:]
 	print directory
 	if len(directory) <= 0:
 		print "This is what directory looks like when its blank: " + directory
@@ -411,7 +464,7 @@ def scramble(s, key=default_password_key, scramble_prefix=default_scramble_prefi
 
 
 #get_n_files(2)
-results = get_filenames("/tempZone/home/rods/newDir/")
+results = give_path_get_files("/tempZone/home/alice")
 for i in results:
 	print i
 #print str(results)
