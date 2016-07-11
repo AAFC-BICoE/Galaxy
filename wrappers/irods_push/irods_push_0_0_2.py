@@ -170,9 +170,44 @@ class irodsCredentials:
 					myOutFile.write("Successfully overwrote: " + fileNames[x] + "\n")
 				else:
 					myOutFile.write("File '" + fileNames[x] + "' already exists. Prevented from overwriting\n")
-		self.sess.cleanup()			
-	
+	#	self.sess.cleanup()			
+
+	def addMetadata(self,fileName,dirName,metadata):
+#		print fileName[0]
+		obj = self.sess.data_objects.get(dirName + "/" + fileName[0])	
+		listOfMeta = obj.metadata.get_all('tool_id') 
+		if listOfMeta > 0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('tool_id',metadata[0])
+		listOfMeta = obj.metadata.get_all('history_content_id')
+		if listOfMeta > 0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('history_content_id',metadata[1])	
+		listOfMeta = obj.metadata.get_all('history_id')
+		if listOfMeta > 0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('history_id',metadata[2])
+		listOfMeta = obj.metadata.get_all('format')
+		if listOfMeta >0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('format',metadata[3])
+		listOfMeta = obj.metadata.get_all('creation_time')
+		if listOfMeta > 0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('creation_time',metadata[4])
+		listOfMeta = obj.metadata.get_all('size')
+		if listOfMeta > 0:
+			for i in listOfMeta:
+				obj.metadata.remove(i)
+		obj.metadata.add('size',metadata[5])	
+		self.sess.cleanup()
 #newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA","outfile.txt")
+#:q
 #newIrods.addDirectories("/tempZone/home/rods/katDir/newDir/files")
 
 #filePaths = []
