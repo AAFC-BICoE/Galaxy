@@ -42,7 +42,7 @@ class irodsPull:
 			sys.exit("One of the files you selected either does not exist or you do not have read access.")
 			
 	def pull_and_push(self,filePaths):
-
+	
 		for filePath in filePaths:	
 			if filePath[0] != '/':
 				filePath = '/' + filePath
@@ -55,7 +55,12 @@ class irodsPull:
 			#may need to insert escape characters for spaces.
 			#exists = self.checkIfFileExists(filePath)
 			#print exists
-			answer = self.sess.data_objects.get(filePath)
+			print "This is what I am looking for: " + filePath
+			try:
+				answer = self.sess.data_objects.get(filePath)
+			except:
+				print "The file you are trying to open does not exist or you do not have permission to open it."
+				sys.exit(" ")
 			#print str(answer)
 			#print filePath
 			#print str(answer)
