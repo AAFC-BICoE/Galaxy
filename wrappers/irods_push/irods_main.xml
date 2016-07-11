@@ -6,11 +6,25 @@
 	<code file="get_n_dirs.py" /> 
 		
 	<command interpreter="python"> 
-
+	<!--#set $history_id=$__app__.security.encode_id($__job_id__)-->
+<!--	#set $job_id=$__app__.security.encode_id($output.creating_job.job_command_line)-->
+	#set job=$in.creating_job
+	#set tool_id = $job.tool_id
+	#set history_content_id = $__app__.security.encode_id($output.id)
+	#set history_id = $__app__.security.encode_id($output.history.id)
+	#set file_format = $output.ext.__str__
+	#set myList = []
+	$myList.append($history_content_id)	
+	$myList.append($history_id)
+	$myList.append($file_format)
+	#set uuid = ${output.metadata.uuid}
+	<!--#set uuid = $in.uuid-->
+<!--	
+#set $job_id=$job_command_line-->
 	#if $input_options.typePath=="abs"
-		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output 
+		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
 	#else
-		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output 
+		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
 	#end if
 	<!-- New inserted line -->
 	<!--${in.file_name} '$in.name' $input3 $output -->
@@ -53,7 +67,7 @@
 	
 
 	<outputs>
-		<data format="txt" name="output" />
+		<data format="txt" name="output" metadata_source="in"/>
 	</outputs> 
 	<help>
 	This tool will push export any number of files either from your history or a workflow to your irods filesystem. It is assumed that you have logged into your account at least once on your computer and that the files .irodsA and irods_environment.json exist on your computer. Check that these exist by typing: ls -a ~/.irods on the command line. If these do not exist you will need to create them by running iinit, credentials should be supplied by your system administrator.
