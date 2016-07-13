@@ -14,4 +14,7 @@ There are two options for importing files:
 I type in the directory location, I will get all the files in this directory. You can only list files in directories you
 have read permissions.
 
+Coming next: Better authentication method
+
 Author: Katherine Beaulieu
+
