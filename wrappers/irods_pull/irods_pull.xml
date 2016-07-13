@@ -1,8 +1,8 @@
-<tool id="irods_pull_main" name="Import to Galaxy from irods" version="0.1.0">
+<tool id="irods_pull_main" name="Import to Galaxy from irods" version="1.0_wrap1">
 
 	<description>Pull file into galaxy history from your irods filesystem.</description>
 	<requirements>
-		<requirement type="package" version="0.4.0">
+		<requirement type="package" version="0.5.0">
 		pythonirodsclient
 		</requirement>
 	</requirements>
