@@ -33,14 +33,16 @@ class irodsPull:
 		#this is just the filename
 		self.outfileid = str(outfileid)
 		self.newFilePath = str(newFilePath)
-		
+	#check if the file exists or not in irods. If it doesn't exist or you don't have read permissions, throw
+	#an error	
 	def checkIfFileExists(self,filePath):
 		try:
 			obj=self.sess.data_objects.get(filePath)
 			return True
 		except:
 			sys.exit("One of the files you selected either does not exist or you do not have read access.")
-			
+	#Given a list of filepaths, make sure their file paths are kosher with the irods api 'get' call, give it the
+	#appropriate output file path so that galaxy will recognize multiple output files are being created. 		
 	def pull_and_push(self,filePaths):
 	
 		for filePath in filePaths:	
@@ -53,17 +55,11 @@ class irodsPull:
 			filePathForGalaxy = string.replace(pathList[-1],"_","-")			
 			filename = "primary_" + self.outfileid +"_" + filePathForGalaxy + "_visible_" + str(file_ext[1:])
 			#may need to insert escape characters for spaces.
-			#exists = self.checkIfFileExists(filePath)
-			#print exists
-			print "This is what I am looking for: " + filePath
 			try:
 				answer = self.sess.data_objects.get(filePath)
 			except:
 				print "The file you are trying to open does not exist or you do not have permission to open it."
 				sys.exit(" ")
-			#print str(answer)
-			#print filePath
-			#print str(answer)
 			try:
 				with answer.open('r') as f:
 					data = f.read()
@@ -73,8 +69,6 @@ class irodsPull:
 
 			with open(filename,"a+") as fout:
 				fout.write(data)
-				#f.seek(0,0)
 		self.sess.cleanup()
-#		return self.outFile
 
 
