@@ -35,12 +35,8 @@
 				</repeat>
 			</when>
 			<when value="exi">
-	<!--			<repeat name="exi_dirs" title="Exisitng file paths:" > -->
-<!--				<param type="text" name="depth" label="Depth of file in filesystem: " refresh_on_change="True" />-->
 				<param type="text" name="directory" label="Directory location (/'yourzone'/home/'yourusername'):" refresh_on_change="True" />	
 				<param name="filenamesExi" type="select" label="Existing files:" dynamic_options="give_path_get_files(directory)" multiple="true" optional="true" help="Click on the blank space in the box to get a list of available files."/>
-		<!--		</repeat>-->
-			<!--	<param name="filenamesExi" type="select" label="Exisiting files: " dynamic_options="get_n_files(depth)" /> -->
 			</when>
 		</conditional>
 	</inputs>
