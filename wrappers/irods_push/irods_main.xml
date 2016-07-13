@@ -1,7 +1,7 @@
-<tool id="irods_push_main" name="Export to iRods" version="0.1.0">
+<tool id="irods_push_main" name="Export to iRods" version="1.0_wrap1">
 	<description>Push file in workflow to irods</description>
 	<requirements>
-		<requirement type="package" version="0.4.0">pythonirodsclient</requirement>
+		<requirement type="package" version="0.5.0">pythonirodsclient</requirement>
 	</requirements> 
 	<code file="get_n_dirs.py" /> 
 		
