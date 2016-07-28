@@ -12,9 +12,9 @@
 	#set history_id = $__app__.security.encode_id($output.history.id)
 
 	#if $input_options.typePath=="abs"
-		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $pw 
 	#else
-		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $pw
 	#end if
 	
 	</command>
@@ -39,7 +39,7 @@
 		</conditional>
 				 
 		<param format="data" name="in" type="data" label="File(s) to export:" />
-
+		<param type="password" name="pw" label="Password:" value=""/>
 	</inputs>
 	
 
