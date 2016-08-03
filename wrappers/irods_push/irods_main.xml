@@ -10,11 +10,19 @@
 	#set tool_id = $job.tool_id
 	#set history_content_id = $__app__.security.encode_id($output.id)
 	#set history_id = $__app__.security.encode_id($output.history.id)
-
-	#if $input_options.typePath=="abs"
-		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $pw 
+	
+	#if $resource_option.yesOrNo=="yes"
+		#if $input_options.typePath=="abs"
+			irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $resource_option.resourceName
+		#else
+			irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $resource_option.resourceName
+		#end if
 	#else
-		irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $pw
+		#if $input_options.typePath=="abs"
+                        irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+                #else
+                        irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+                #end if
 	#end if
 	
 	</command>
@@ -39,7 +47,16 @@
 		</conditional>
 				 
 		<param format="data" name="in" type="data" label="File(s) to export:" />
-		<param type="password" name="pw" label="Password:" value=""/>
+		<conditional name="resource_option">
+			<param type="select" display="radio" name="yesOrNo" label="Would you like to specify a resource?" >
+				<option value="no">No </option>
+				<option value="yes">Yes </option>
+			</param>
+			<when value="yes">
+				<param type="text" name="resourceName" label="Resource Name: " />
+			</when>
+		</conditional>
+<!--		<param type="password" name="pw" label="Password:" value=""/>-->
 	</inputs>
 	
 
