@@ -103,7 +103,7 @@ class irodsCredentials:
 
 	#Add files to iRODS. If the file already exists, check if noclobber = true, if it is true then overwrite the existing file in memory. If the 
 	#file does not already exist, go ahead and create it.
-	def addFiles(self,filePaths,fileNames,dirName,noclobber):
+	def addFiles(self,filePaths,fileNames,dirName,noclobber,resourceName):
 		if dirName[0] != '/':
                         dirName = '/' + dirName
                 if dirName[-1] == '/':
@@ -123,11 +123,17 @@ class irodsCredentials:
 				myOutFile.write("File '" + fileNames[x] + "' does not exist. Creating it in irods.\n")
 				#print dirName
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				try:
-					obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
-				except:
-					sys.exit("You do not have permission to write to this directory path")
-								
+				if resourceName is not "blank":
+					try:
+						obj = self.sess.data_objects.create(dirName + "/" + fileNames[x], resourceName)
+					except:
+						sys.exit("You do not have permission to write to this directory path")
+				else:
+					try:
+						obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
+					except: 		
+						sys.exit("You do not have permission to write to this directory path")
+		
 				#if resource == " ":
 				#	try:
 				#		obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
