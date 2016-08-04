@@ -13,6 +13,6 @@ directory generally looks like this: <yourzone>/home/<yourusername>. If I were t
 just the user home directory, depth of 2 is all the directories within the user home directory and the user home directory and it
 goes on like that.
 
-Coming next: Better authentication method, replacement of deprecated <code file> tag
+Coming next: Better authentication method, replacement of deprecated code file tag
 
 Author: Katherine Beaulieu
