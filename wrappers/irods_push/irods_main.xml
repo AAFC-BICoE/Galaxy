@@ -4,30 +4,41 @@
 		<requirement type="package" version="0.5.0">pythonirodsclient</requirement>
 	</requirements> 
 	<code file="get_n_dirs.py" /> 
-		
 	<command interpreter="python"> 
+	#import os
 	#set job=$in.creating_job
 	#set tool_id = $job.tool_id
 	#set history_content_id = $__app__.security.encode_id($output.id)
 	#set history_id = $__app__.security.encode_id($output.history.id)
-	
 	#if $resource_option.yesOrNo=="yes"
 		#if $input_options.typePath=="abs"
-			irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $resource_option.resourceName
+			irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password $resource_option.resourceName  
 		#else
-			irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $resource_option.resourceName
+			irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $tool_id $pw $resource_option.resourceName $hostname $port $zone $username $password
 		#end if
 	#else
 		#if $input_options.typePath=="abs"
-                        irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+                        irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password
                 #else
-                        irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' 
+                        irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$tool_id' '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password
                 #end if
-	#end if
-	
+	#end if	
 	</command>
 	<inputs>
-		 <param type="select" display="radio" name="input3" label="Do you want to overwrite existing files?">
+		<display>go to ZebrafishMine server $GALAXY_URL</display> 
+		<param type="text" name="hostname" label="Hostname: " help="If you do not know the hostname, contact your system administrator"/>
+		<param type="text" name="port" label="Port: " help="If you do not know the port number, contact your system administrator" />
+		<param type="text" name="zone" label="Zone name: " help="If you do not know the zone name, contact your system administrator" />
+		<param type="text" name="username" label="User name: " />
+		<param type="password" name="password" label="Password: " >
+			<sanitizer>
+				<valid>
+					<add value="$" />
+				</valid>
+			</sanitizer>
+		</param>
+
+		<param type="select" display="radio" name="input3" label="Do you want to overwrite existing files?">
 			<option value="true">Yes </option>
 			<option value="false">No </option>
 		 </param>
@@ -56,7 +67,13 @@
 				<param type="text" name="resourceName" label="Resource Name: " />
 			</when>
 		</conditional>
-<!--		<param type="password" name="pw" label="Password:" value=""/>-->
+		<param type="hidden" name="envvar" value="$TALE" >
+			<sanitizer>
+				<valid>
+					<add value="$"/>
+				</valid>
+			</sanitizer>
+		</param>
 	</inputs>
 	
 

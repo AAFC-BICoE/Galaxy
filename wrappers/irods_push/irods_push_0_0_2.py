@@ -31,19 +31,26 @@ class irodsCredentials:
 	sess = None
 	outFile = None	
 	#initialize your irods session by reading off irods credentials from .irodsA file and from irods_environment.json file
-	def __init__(self,envFilePath,pwFilePath,outFile):
-		with open(pwFilePath) as f:
-			first_line = f.readline().strip()
+	def __init__(self,hostname,port,zone,username,password,outFile):
+#		with open(pwFilePath) as f:
+#			first_line = f.readline().strip()
 		#decode scrambled password from .irodsA file using decode function
-		self.pw = password_obfuscation.decode(first_line)
-		with open(envFilePath) as f:
-			data = json.load(f)
-		self.port = str(data["irods_port"])
-		self.host = str(data["irods_host"])
-		self.zone = str(data["irods_zone_name"])
-		self.username = str(data["irods_user_name"])
-		
-		self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
+#		self.pw = password_obfuscation.decode(first_line)
+#		with open(envFilePath) as f:
+#			data = json.load(f)
+#		self.port = str(data["irods_port"])
+#		self.host = str(data["irods_host"])
+#		self.zone = str(data["irods_zone_name"])
+#		self.username = str(data["irods_user_name"])
+		self.host = str(hostname)
+		self.port = str(port)
+		self.zone = str(zone)
+		self.username = str(username)
+		self.pw = str(password)		
+		try:
+			self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
+		except:
+			sys.exit("Invalid user credentials")
 		#print "Just created: " + str(self.sess.pool.active)
 		#print "Just created: " + str(self.sess.pool.idle)
 		self.outFile = outFile
@@ -112,6 +119,7 @@ class irodsCredentials:
                                 raise FileDuplicateError("Error: You are trying to add a file two or more times, try again with two different names")
                 myOutFile = open(self.outFile,"a+")
 		for x in range(len(filePaths)):
+			fileNames[x] = fileNames[x].replace('/',' ')
 			if not os.path.exists(filePaths[x]):
 				raise IOError("Error: File path specified does not exist")	
 			#check if file exists before deciding whether or not to just create it or overwrite it.		
@@ -123,7 +131,7 @@ class irodsCredentials:
 				myOutFile.write("File '" + fileNames[x] + "' does not exist. Creating it in irods.\n")
 				#print dirName
 				#print self.basicPath() + dirName + "/" + fileNames[x]
-				if resourceName is not "blank":
+				if resourceName != "blank":
 					try:
 						obj = self.sess.data_objects.create(dirName + "/" + fileNames[x], resourceName)
 					except:
@@ -132,6 +140,8 @@ class irodsCredentials:
 					try:
 						obj = self.sess.data_objects.create(dirName + "/" + fileNames[x])
 					except: 		
+						print "file path: " + dirName + "/" + fileNames[x]
+						print "Resource name: " + resourceName
 						sys.exit("You do not have permission to write to this directory path")
 		
 				#if resource == " ":
