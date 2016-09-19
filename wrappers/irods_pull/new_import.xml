@@ -16,7 +16,7 @@
 			#end for
 		#else
 			#for $pathsList in $typeSelected.filesDifCriteria
-				$pathsList.listOfFiles	
+				'$pathsList.listOfFiles'
 			#end for
 		#end if
 	</command>

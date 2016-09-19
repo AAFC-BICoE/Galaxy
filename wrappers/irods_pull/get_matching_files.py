@@ -21,35 +21,76 @@ def get_matching_files(hostname,port,zone,username,password,substring,keyvalsLis
 
 	matchingFiles = []
 #	print "substring: " + substring
-	print "sub len: " + str(len(substring))
+	#print "sub len: " + str(len(substring))
 	if len(substring) >= 1:
 		for item in accessible_files:
 			if item.find(str(substring)) != (-1):
-				matchingFiles.append(item)
-				matchFiles.append((item,item,0))
-		print "in substring check: " + str(matchFiles)	
+				matchFiles.append(item)
+#				matchingFiles.append((item,item,0))
+	#	print "in substring check: " + str(matchFiles)	
 	#keyvalsList is a list of dictionaries, with indices 'key' and 'value'
 	if len(keyvalsList) >= 1:
 #		print keyvalsList
 		if str(keyvalsList[0]["key"]) == '' and str(keyvalsList[0]["value"]) == '':
 			keyvalsList = []
-	print "keyval list now: " + str(keyvalsList)
-	print "len key: " + str(len(keyvalsList))
-	print "len match: " + str(len(matchFiles))
+	#print "keyval list now: " + str(keyvalsList)
+	#print "len key: " + str(len(keyvalsList))
+	#print "len match: " + str(len(matchFiles))
 	if len(matchFiles) < 1 and len(keyvalsList) < 1:
-		print "both empty"
+	#	print "both empty"
 		sess.cleanup()
 		return []
 	elif len(keyvalsList) < 1 and len(matchFiles) >= 1:
-		print "match filled, key empty"
+	#	print "match filled, key empty"
 		sess.cleanup()
-		return matchFiles
+		filesToMatch = []
+		for item in matchFiles:
+			filesToMatch.append((item,item,0))
+		return filesToMatch
 	elif len(keyvalsList) >= 1 and len(matchFiles) < 1:
 		matchFiles = accessible_files
-	
-	
+	endFiles = []
+	if len(keyvalsList) >= 1:
+		print "matchfiles: " + str(matchFiles)
+		for filename in matchFiles:
+			
+			print str(filename) + ":"
+			obj = sess.data_objects.get(filename)	
+			flag = True
+			for item in keyvalsList:
+#				print str(item) + ":"
+				#print obj.metadata.get_all(str(item["key"]))
+				listOfMatching = obj.metadata.get_all(str(item["key"]))
+#				print str(listOfMatching)
+#				print "type: " + str(type(listOfMatching[0]))
+				if len(listOfMatching) < 1:
+					flag = False
+#					print str(flag)	
+				else:
+					for matchingMeta in listOfMatching:
+						
+						value = matchingMeta.value
+						
+						print "value: " + str(value)	
+						print "item['value']: " + str(item["value"])
+						if len(str(item["value"])) < 1:
+							flag = True
+						elif str(value) == str(item["value"]):
+							flag = True
+#							print str(flag)
+						else:
+							flag = False
+			if flag == True:
+				endFiles.append(filename)
+	matchingFiles = []
+	for item in endFiles:
+		matchingFiles.append((item,item,0))
+
+	#filesToReturn = []
+	#for item in accessible_files:
+	#	filesToReturn.append((item,item,0))
 	sess.cleanup()
-	return matchFiles
+	return matchingFiles
 	'''
 	flag = True
 	finalMatching = []
