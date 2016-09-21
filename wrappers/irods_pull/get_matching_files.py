@@ -6,11 +6,11 @@ from irods.session import iRODSSession
 
 def get_matching_files(hostname,port,zone,username,password,substring,keyvalsList):
 	matchFiles = []
-	hostname = "katherine-VirtualBox"
-	port="1247"
-	zone="tempZone"
-	username="rods"
-	password="testpassword"
+#	hostname = "katherine-VirtualBox"
+#	port="1247"
+#	zone="tempZone"
+#	username="rods"
+#	password="testpassword"
 	sess = iRODSSession(host=str(hostname),port=str(port),user=str(username),password=str(password),zone=str(zone))
 	accessible_files = []
 	query = sess.query(Collection.name, DataObject.name).filter(DataAccess.type >= '1050').all()
@@ -57,6 +57,7 @@ def get_matching_files(hostname,port,zone,username,password,substring,keyvalsLis
 			print str(filename) + ":"
 			obj = sess.data_objects.get(filename)	
 			flag = True
+			foundAFalse = False
 			for item in keyvalsList:
 #				print str(item) + ":"
 				#print obj.metadata.get_all(str(item["key"]))
@@ -80,7 +81,9 @@ def get_matching_files(hostname,port,zone,username,password,substring,keyvalsLis
 #							print str(flag)
 						else:
 							flag = False
-			if flag == True:
+							foundAFalse = True
+				
+			if foundAFalse == False:
 				endFiles.append(filename)
 	matchingFiles = []
 	for item in endFiles:

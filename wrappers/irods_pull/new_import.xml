@@ -14,11 +14,13 @@
 			#for $i in $typeSelected.pathNames
 				'$i.aPathName'
 			#end for
+			
 		#else
 			#for $pathsList in $typeSelected.filesDifCriteria
 				'$pathsList.listOfFiles'
 			#end for
 		#end if
+		'$job_name'
 	</command>
 
 	<inputs>
@@ -55,12 +57,12 @@
 	                </repeat>
 	        </when>
 		</conditional>
+		<param name="job_name" type="text" label="Output name" value="MyFiles"/>
 	</inputs>
 	<outputs>
-		<data name="output" />
-		<!--<collection type="list" label="MyFiles" name="output1">
+		<collection type="list" label="$job_name" name="output1">
 			<discover_datasets pattern="(?P&lt;name&gt;.*)" directory="MyFiles" />
-		</collection>-->
+		</collection>
 	</outputs>
 </tool>	
 
