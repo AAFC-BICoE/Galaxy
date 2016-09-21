@@ -4,6 +4,8 @@ import irods_pull_0_0_1
 if not os.path.exists(sys.argv[-1]):
 	os.makedirs(sys.argv[-1])
 
+if sys.argv[6] == 'None':
+	sys.exit("Please specify file(s) to import")
 totalList = []
 x = 6
 while x < len(sys.argv)-1:
