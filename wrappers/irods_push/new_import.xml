@@ -1,0 +1,71 @@
+<tool id="new_irods_pull_main" name="New Import to Galaxy from irods" version="2.0_wrap1" >
+
+	<description>Pull file into galaxy hustory from your irods filesystem. </description>
+	
+<!--	<requirements>
+		<requirement type="package" version="0.5.0" >
+		pythonirodsclient
+		</requirement>
+	</requirements>-->
+	<code file="get_matching_files.py" />
+	<command interpreter="python">
+		new_import.py $hostname $port $zone $username $password
+		#if $typeSelected.typeSearch=="single"
+			#for $i in $typeSelected.pathNames
+				'$i.aPathName'
+			#end for
+			
+		#else
+			#for $pathsList in $typeSelected.filesDifCriteria
+				'$pathsList.listOfFiles'
+			#end for
+		#end if
+		'$job_name'
+	</command>
+
+	<inputs>
+		<param type="text" name="hostname" label="Hostname: " help="If you do not know the hostname, contact your system administrator" />
+		<param type="text" name="port" label="Port: " help="If you do not know the port number, contact your system administrator" />
+		<param type="text" name="zone" label="Zone name: " help="If you do not know the zone name, contact your system administrator" />
+        	<param type="text" name="username" label="User name: " />
+	        <param type="password" name="password" label="Password: " >
+			<sanitizer>
+				<valid>
+					<add value="$" />
+				</valid>
+			</sanitizer>
+		</param>
+		<conditional name="typeSelected">
+			<param type="select" display="radio" name="typeSearch" label="How would you like to choose your files?" >
+				<option value="multiple">Search</option>
+				<option value="single">Absolute Path</option>
+			</param>
+		<when value="multiple">
+			<repeat name="filesDifCriteria" default="1" title="Files " >
+				<param type="text" name="filename" label="Match: " refresh_on_change="True"/>
+				<repeat name="metadata" title="Metadata" default="1" refresh_on_change="True">
+					<param name="key" type="text" label="Key" refresh_on_change="True"/>
+					<param name="value" type="text" label="Value" refresh_on_change="True"/>
+				</repeat>
+				<param type="select" name="listOfFiles" label="Matching files: " dynamic_options="get_matching_files(hostname,port,zone,username,password,filename,metadata)" multiple="True"/>
+
+			</repeat>
+		</when>
+		<when value="single">
+                	<repeat name="pathNames" title="Path names: " default="1">
+        			<param name="aPathName" type="text" label="Absolute Path: " />
+	                </repeat>
+	        </when>
+		</conditional>
+		<param name="job_name" type="text" label="Output name" value="MyFiles"/>
+	</inputs>
+	<outputs>
+		<collection type="list" label="$job_name" name="output1">
+			<discover_datasets pattern="(?P&lt;name&gt;.*)" directory="MyFiles" />
+		</collection>
+	</outputs>
+</tool>	
+
+
+
+
