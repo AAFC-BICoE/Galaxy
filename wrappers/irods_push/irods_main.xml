@@ -142,7 +142,7 @@
 		</test>
 	</tests>
 	<help>
-	This tool will push export any number of files either from your history or a workflow to your irods filesystem. It is assumed that you have logged into your account at least once on your computer and that the files .irodsA and irods_environment.json exist on your computer. Check that these exist by typing: ls -a ~/.irods on the command line. If these do not exist you will need to create them by running iinit, credentials should be supplied by your system administrator.
+	This tool will push export any number of files either from your history or a workflow to your irods filesystem. 
 	
 	You may may overwrite exisiting files in your filesystem, use at your own risk. If there is a file in the specified path with the same name as a file you are trying to export and you have 'yes' checked in the overwrite parameter, your file contents will be replaced with the most recent contents of the file you are exporting.
 
@@ -152,6 +152,7 @@
 
 	To see a list of existing directories in your irods file system, enter the depth of the directories you would like to see in the 'depth of relative directory path' parameter. For example, a depth of 1 will only show your user's home folder, a depth of 2 will show your user's home folder as well as its subdirectories and so on.
 
+	You have the option of specifying user defined metadata and a resource to save to.
 	Author: Katherine Beaulieu
 	</help>
 </tool>
