@@ -9,7 +9,7 @@ import exceptions
 from irods.exception import get_exception_by_code, NetworkException
 from irods.models import Collection,User,DataObject
 from irods.session import iRODSSession
-import password_obfuscation 
+#import password_obfuscation 
 #import getpass
 import json
 
@@ -43,13 +43,19 @@ class irodsCredentials:
 #		self.zone = str(data["irods_zone_name"])
 #		self.username = str(data["irods_user_name"])
 		self.host = str(hostname)
+		try:
+			float(port)
+		except ValueError:
+			sys.exit("Make sure the port is a number")
 		self.port = str(port)
 		self.zone = str(zone)
 		self.username = str(username)
 		self.pw = str(password)		
 		try:
+			
 			self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
-		except:
+			col = self.sess.collections.get("/" + self.zone + "/home/" + self.username)
+		except NetworkException:
 			sys.exit("Invalid user credentials")
 		#print "Just created: " + str(self.sess.pool.active)
 		#print "Just created: " + str(self.sess.pool.idle)
@@ -221,7 +227,22 @@ class irodsCredentials:
 			for i in listOfMeta:
 				obj.metadata.remove(i)
 		obj.metadata.add('size',metadata[5])	
+
+	def addMetadataFromList(self,fileName,dirName,keys,values):
+		if len(keys) < 0 and len(values) < 0:
+			self.sess.cleanup()
+			return
+		obj = self.sess.data_objects.get(dirName + "/" + fileName[0])
+		lenOfMeta = len(keys)
+		for x in range(lenOfMeta):
+			listOfMeta = obj.metadata.get_all(keys[x])
+			if listOfMeta > 0:
+				for i in listOfMeta:
+					obj.metadata.remove(i)
+			obj.metadata.add(keys[x],values[x])
 		self.sess.cleanup()
+	
+
 #newIrods = irodsCredentials("/home/katherine/.irods/irods_environment.json", "/home/katherine/.irods/.irodsA","outfile.txt")
 #:q
 #newIrods.addDirectories("/tempZone/home/rods/katDir/newDir/files")
