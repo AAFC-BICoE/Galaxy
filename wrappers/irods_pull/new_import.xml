@@ -2,11 +2,6 @@
 
 	<description>Pull file into galaxy hustory from your irods filesystem. </description>
 	
-<!--	<requirements>
-		<requirement type="package" version="0.5.0" >
-		pythonirodsclient
-		</requirement>
-	</requirements>-->
 	<code file="get_matching_files.py" />
 	<command interpreter="python">
 		new_import.py $hostname $port $zone $username $password
@@ -14,7 +9,6 @@
 			#for $i in $typeSelected.pathNames
 				'$i.aPathName'
 			#end for
-			
 		#else
 			#for $pathsList in $typeSelected.filesDifCriteria
 				'$pathsList.listOfFiles'
@@ -57,13 +51,20 @@
 	                </repeat>
 	        </when>
 		</conditional>
-		<param name="job_name" type="text" label="Output name" value="MyFiles"/>
+		<param name="job_name" type="text" label="Output name" value="MyFiles" help="Name of directory in galaxy history"/>
 	</inputs>
 	<outputs>
 		<collection type="list" label="$job_name" name="output1">
 			<discover_datasets pattern="(?P&lt;name&gt;.*)" directory="MyFiles" />
 		</collection>
 	</outputs>
+	<help>
+	Make sure you have the python irodsclient api installed in your virtual environment 
+	before using this tool.
+
+	If your credentials are wrong, no files will be loaded in the select list.
+	</help>	
+	
 </tool>	
 
 
