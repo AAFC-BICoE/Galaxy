@@ -21,10 +21,9 @@ class irodsPull:
 	def __init__(self,hostname,port,zone,username,password):
 		self.host = hostname
 		try:
-			float(port)
+			self.port = port
 		except ValueError:
 			sys.exit("Make sure the port is a number")
-		self.port= port
 		self.zone = zone
 		self.username = username
 		self.pw = password
