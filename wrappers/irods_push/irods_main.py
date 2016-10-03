@@ -59,4 +59,5 @@ listOfMeta.append(str(os.path.getsize(filePath[0])))
 #add automatic defined metadata
 newIrodsObject.addMetadata(fileName,directoryPath,listOfMeta)
 #add user defined metadata
-newIrodsObject.addMetadataFromList(fileName,directoryPath,keys,values)
+if 'keys' in locals():
+	newIrodsObject.addMetadataFromList(fileName,directoryPath,keys,values)
