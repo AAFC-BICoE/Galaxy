@@ -1,70 +1,45 @@
+<?xml version="1.0"?>
 <tool id="irods_push_main" name="Export to iRods" version="1.0_wrap1">
-	<description>Push file in workflow to irods</description>
 	<requirements>
-		<requirement type="package" version="0.5.0">pythonirodsclient</requirement>
-	</requirements> 
+		<requirement type="package" version="0.5.0rc1">python-irodsclient</requirement>
+	</requirements>
+	<description>Export file in workflow or Galaxy history to irods. Make sure you have the package python-irodsclient installed in your virtual environment before installing this tool. You can run this command: pip install python-irodsclient within your virtualenv.</description>
 	<code file="get_n_dirs.py" /> 
 	<command interpreter="python"> 
-	#import os
 	#set noMeta="blank"
-	#set job=$in.creating_job
+	#set job=$inputFileName.creating_job
 	#set tool_id = $job.tool_id
 	#set history_content_id = $__app__.security.encode_id($output.id)
 	#set history_id = $__app__.security.encode_id($output.history.id)
 	#set noResource = "blank"
-	
-	#if $resource_option.yesOrNo=="yes"
-		#if $metadata.metadataAdd=="yes"
-			#if $input_options.typePath=="abs"
-				irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password 
-				#for $keyValPair in $metadata.metadataList
-					 '${keyValPair.key}'
-					 '${keyValPair.value}'
-				#end for
-				$resource_option.resourceName 
-			#else
-				irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password 
-				#for $keyValPair in $metadata.metadataList
-					'${keyValPair.key}'
-					'${keyValPair.value}'
-				#end for
-				$resource_option.resourceName
-			#end if
-		#else 
-			#if $input_options.typePath=="abs"
-                       		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password $noMeta $resource_option.resourceName
-                	#else
-                        	irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output $history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password $noMeta $resource_option.resourceName
-                	#end if
-		#end if
-
+	irods_main.py 
+	#if $directory_path_options.typePath == "abs"
+		--dirPath $directory_path_options.absPath
 	#else 
-		#if $metadata.metadataAdd=="yes"
-			#if $input_options.typePath=="abs"
-                       		irods_main.py $input_options.input2 ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password 
-				#for $keyValPair in $metadata.metadataList
-					'${keyValPair.key}'
-					'${keyValPair.value}'
-				#end for
-				$noResource
-	                #else
-        	                irods_main.py $input_options.dirname ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password 
-				#for $keyValPair in $metadata.metadataList
-					'${keyValPair.key}'
-					'${keyValPair.value}'
-				#end for
-				$noResource
-                	#end if
-		#else
-			#if $input_options.typePath=="abs"
-                       		irods_main.py $input_option.input2 ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password $noMeta $noResource
-	                #else
-        	                irods_main.py $input_option.dirname ${in.file_name} '$in.name' $input3 $output '$history_content_id' '$history_id' '$output.ext' $tool_id $hostname $port $zone $username $password $noMeta $noResource
-                	#end if
-		#end if
+		--dirPath $directory_path_options.dirname
 	#end if
-	
-		
+	--filePath ${inputFileName.file_name}
+	--fileName '$inputFileName.name'
+	--noclobber $noclobber
+	--output $output
+	--contentId $history_content_id
+	--historyId '$history_id'
+	--outputExt '$output.ext'
+	--toolId $tool_id
+	--hostname $hostname 
+	--port $port
+	--zone $zone
+	--username $username
+	#if $metadata.metadataAdd=="yes"
+		--metadata
+		#for $keyValPair in $metadata.metadataList
+			'${keyValPair.key}'
+			'${keyValPair.value}'
+		#end for
+	#end if	
+	#if $resource_option.resourceSelection=="yes"
+		--resource $resource_option.resourceName
+	#end if
 	</command>
 	<inputs>
 		<param type="text" name="hostname" label="Hostname: " help="If you do not know the hostname, contact your system administrator"/>
@@ -79,39 +54,39 @@
 			</sanitizer>
 		</param>
 
-		<param type="select" display="radio" name="input3" label="Do you want to overwrite existing files?">
+		<param type="select" display="radio" name="noclobber" label="Do you want to overwrite existing files?">
 			<option value="true">Yes </option>
 			<option value="false">No </option>
 		 </param>
-		 <conditional name="input_options">
+		 <conditional name="directory_path_options">
 		 	<param type="select" display="radio" name="typePath" label="Check the type of path you will be using: ">
 				<option value="abs">Absolute Path </option>
 				<option value="rel">Relative Path </option>
 			</param>
 			<when value="abs">
-	        		 <param format="data" name="input2" type="text" label="Absolute Path:" />
+	        		 <param format="data" name="absPath" type="text" label="Absolute Path:" />
 			</when>
 
 			<when value="rel">
 				<param format="text" name="depth" type="text" label="Depth of relative directory path: " refresh_on_change="True" help="This should be relative to your user directory"/>
-				<param name = "dirname" type="select" label="Relative Paths: " dynamic_options="get_n_dirs(depth)" optional="True"/>  
+				<param name = "dirname" type="select" label="Relative Paths: " dynamic_options="get_n_dirs(hostname,port,zone,username,password,depth)" optional="True"/>  
 			</when>
 		</conditional>
 				 
-		<param format="data" name="in" type="data" label="File(s) to export:" />
+		<param format="data" name="inputFileName" type="data" label="File(s) to export:" />
 		<conditional name="resource_option">
-			<param type="select" display="radio" name="yesOrNo" label="Would you like to specify a resource?" >
+			<param type="select" display="radio" name="resourceSelection" label="Would you like to save to a resource?" >
 				<option value="no">No </option>
 				<option value="yes">Yes </option>
 			</param>
 			<when value="yes">
-				<param type="text" name="resourceName" label="Resource Name: " />
+			<param type="text" name="resourceName" label="Resource Name: " />
 			</when>
 		</conditional>
 		<conditional name="metadata" >
 			<param type="select" display="radio" name="metadataAdd" label="Would you like to add your own metadata?" >
-				<option value="yes">Yes</option>
 				<option value="no">No</option>
+				<option value="yes">Yes</option>
 			</param>
 		<when value="yes">
 			<repeat name="metadataList" title="Metadata List" >
@@ -124,27 +99,22 @@
 	
 
 	<outputs>
-		<data format="txt" name="output" metadata_source="in"/>
+		<data format="txt" name="output" metadata_source="inputFileName"/>
 	</outputs>
-	<tests>
-		<test>
-			<param name="input3" value="true" />
-			<param name="input_options.input2" value = "/tempZone/home/rods/" />  
-			<param name="in" file="filler.txt" />
-			<output name="output" file="out_file1.txt" />
-		</test>
-		<test>
-			<param name="input3" value="true" />
-			<param name="input_options.depth" value="2" />
-			<param name="input_options.dirname" value="/tempZone/home/rods/" />
-			<param name="in" file="filler.txt" />
-			<output name="output" file="out_file1.txt" />
-		</test>
-	</tests>
 	<help>
-	This tool will push export any number of files either from your history or a workflow to your irods filesystem. 
-	
-	You may may overwrite exisiting files in your filesystem, use at your own risk. If there is a file in the specified path with the same name as a file you are trying to export and you have 'yes' checked in the overwrite parameter, your file contents will be replaced with the most recent contents of the file you are exporting.
+	**Author:** Katherine Beaulieu
+
+	**Institution:** AAFC-AAC Bioninformatics
+	--------
+
+	**What it does**
+
+	This tool will export any number of files either from your history or a workflow to your irods. 
+	--------
+
+	**Tool Parameters**
+		
+	You may overwrite exisiting files in your filesystem, use at your own risk. If there is a file in the specified path with the same name as a file you are trying to export and you have 'yes' checked in the overwrite parameter, your file contents will be replaced with the most recent contents of the file you are exporting.
 
 	Check what type of path you want to submit to the tool, you can have something specified for both the relative and absolute path parameters but only the one specified by the 'type of path' parameter will be used in the execution of the tool.
 
@@ -153,6 +123,5 @@
 	To see a list of existing directories in your irods file system, enter the depth of the directories you would like to see in the 'depth of relative directory path' parameter. For example, a depth of 1 will only show your user's home folder, a depth of 2 will show your user's home folder as well as its subdirectories and so on.
 
 	You have the option of specifying user defined metadata and a resource to save to.
-	Author: Katherine Beaulieu
 	</help>
 </tool>

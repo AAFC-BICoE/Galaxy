@@ -17,7 +17,7 @@ class HierarchyError(Exception):
 '''
 Class to hold irods credentials and create irods session.
 '''
-class irodsCredentials:
+class IrodsCredentials:
 	port = 0
 	host = ""
 	username = ""
@@ -39,6 +39,7 @@ class irodsCredentials:
 		try:
 			
 			self.sess = iRODSSession(host=self.host, port=self.port, user=self.username, password=self.pw, zone=self.zone)	
+			#this is just to assure valid credentials were passed.
 			col = self.sess.collections.get("/" + self.zone + "/home/" + self.username)
 		except NetworkException:
 			sys.exit("Invalid user credentials")
@@ -61,6 +62,7 @@ class irodsCredentials:
 		with open(self.outFile,"a+") as f:
                         f.write("Collection '" + dirName + "' exists\n")
 		return True
+
 	#Split up the string of directories delimited by '/' and create collections within collections until there are no more directories.	
 	def addDirectories(self,dirName):
 		if dirName[0] != '/':
@@ -87,6 +89,7 @@ class irodsCredentials:
 	#Add files to iRODS. If the file already exists, check if noclobber = true, if it is true then overwrite the existing file in memory. If the 
 	#file does not already exist, go ahead and create it.
 	def addFiles(self,filePaths,fileNames,dirName,noclobber,resourceName):
+		#make path kosher with what irods wants.
 		if dirName[0] != '/':
                         dirName = '/' + dirName
                 if dirName[-1] == '/':
@@ -177,6 +180,7 @@ class irodsCredentials:
 			for i in listOfMeta:
 				obj.metadata.remove(i)
 		obj.metadata.add('size',metadata[5])	
+
 	#add metadata to file from lists of user generated metadata.
 	def addMetadataFromList(self,fileName,dirName,keys,values):
 		if len(keys) < 0 and len(values) < 0:
