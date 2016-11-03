@@ -14,6 +14,11 @@ class irodsPull:
 	sess = None
 
 	def __init__(self,hostname,port,zone,username,password):
+		print "hostname: " + hostname
+		print "port: " + port
+		print "zone: " + zone
+		print "username: " + username
+		print "password: " + password
 		self.host = hostname
 		try:
 			float(port)
@@ -39,7 +44,7 @@ class irodsPull:
 	#appropriate output file path so that galaxy will recognize multiple output files are being created. 		
 	def pull_and_push(self,filePaths,collectionName):
 		for filePath in filePaths:
-			print filePath
+		#	print filePath
 			try:
 				answer = self.sess.data_objects.get(filePath)
 			except:
@@ -54,6 +59,8 @@ class irodsPull:
         		filePath = filePath.rsplit('/',1)[-1]
 			with open(os.path.join(collectionName,filePath),"a+") as fout:
 				fout.write(data)
+		#	with open(os.path.join(collectionName,filePath),"r") as fread:
+		#		print fread.read()
 		self.sess.cleanup()
 
 

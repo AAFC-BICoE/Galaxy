@@ -4,7 +4,12 @@
 	
 	<code file="get_matching_files.py" />
 	<command interpreter="python">
-		new_import.py $hostname $port $zone $username $password
+		new_import.py 
+		--hostname $hostname 
+		--port $port 
+		--zone $zone 
+		--username $username
+		--pathName
 		#if $typeSelected.typeSearch=="single"
 			#for $i in $typeSelected.pathNames
 				'$i.aPathName'
@@ -14,7 +19,7 @@
 				'$pathsList.listOfFiles'
 			#end for
 		#end if
-		'$job_name'
+		--collectionName '$job_name'
 	</command>
 
 	<inputs>
