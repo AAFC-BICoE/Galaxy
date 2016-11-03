@@ -1,0 +1,19 @@
+<tool id="apptest" name="App Test" version="1.0" >
+        <description>App Test</description>
+        <command interpreter="python">
+<!--	        #set job=$file.dataset.creating_job.metrics-->
+		#set $job = $__app__.security.encode_id($output1.creating_job.workflow_invocation_step.workflow_invocation.workflow.stored_workflow.id) 
+		apptestWorkflow.py $urlLocalhost $apiKey $job $output1 $output2
+        </command>
+        <inputs>
+                <param type="text" name="urlLocalhost" label="Galaxy Url:" />
+                <param type="text" name="apiKey" label="Api Key: " />
+		<param type="data" name="file" label="Manipulation File: " />
+<!--		<param type="text" name="collectionName" label="Collection Name: " />-->
+	</inputs>
+        <outputs>
+		<data format="txt" name="output1" label="Workflow File"/>
+		<data format="txt" name="output2" label="Inputs"/>
+        </outputs>
+</tool>
+
