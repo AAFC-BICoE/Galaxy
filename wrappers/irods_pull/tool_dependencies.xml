@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
-	<package name="pythonirodsclient" version="0.5.0">
+	<package name="pythonirodsclient" version="0.5.0rc1">
 		<install version="1.0">
 			<actions>
 				<action type="setup_virtualenv" python="python2.7">

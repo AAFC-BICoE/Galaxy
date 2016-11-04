@@ -1,7 +1,9 @@
 <tool id="new_irods_pull_main" name="New Import to Galaxy from irods" version="2.0_wrap1" >
 
-	<description>Pull file into galaxy hustory from your irods filesystem. </description>
-	
+	<description>Pull file into galaxy hustory from your irods filesystem. Install python-irodsclient in your virtualenv before installation.</description>
+	<requirements>
+		<requirement type="package" version="0.5.0rc1">pythonirodsclient</requirement>
+	</requirements>	
 	<code file="get_matching_files.py" />
 	<command interpreter="python">
 		new_import.py 
